@@ -1,0 +1,1230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LOR Foundation &amp; Gallup — Year 2 Research Proposal</title>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --lor-green: #5a8a3c;
+    --lor-olive: #7a8c44;
+    --lor-sage: #a4b87a;
+    --lor-dark: #2c3e2d;
+    --lor-charcoal: #3a3a3a;
+    --lor-warm-gray: #6b6b6b;
+    --lor-light: #f7f6f2;
+    --lor-cream: #faf9f5;
+    --lor-border: #e2e0d8;
+    --lor-accent: #c8a45c;
+    --gallup-teal: #00857c;
+    --font-display: 'Instrument Serif', Georgia, serif;
+    --font-body: 'DM Sans', -apple-system, sans-serif;
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
+    --shadow-md: 0 4px 16px rgba(0,0,0,0.08);
+    --shadow-lg: 0 8px 32px rgba(0,0,0,0.12);
+    --radius: 10px;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--font-body);
+    color: var(--lor-charcoal);
+    background: var(--lor-cream);
+    line-height: 1.65;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* HEADER */
+  .site-header {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--lor-border);
+    padding: 0 2rem;
+  }
+  .header-inner {
+    max-width: 1200px; margin: 0 auto;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 64px;
+  }
+  .logo-group { display: flex; align-items: center; gap: 0.75rem; }
+  .logo-lor {
+    font-family: var(--font-body); font-weight: 700;
+    font-size: 1rem; color: var(--lor-dark); letter-spacing: 0.02em;
+  }
+  .logo-divider { width: 1px; height: 20px; background: var(--lor-border); }
+  .logo-gallup {
+    font-family: var(--font-body); font-weight: 700;
+    font-size: 1rem; color: var(--lor-dark); letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .header-actions { display: flex; align-items: center; gap: 1rem; }
+  .header-tag { font-size: 0.78rem; color: var(--lor-warm-gray); letter-spacing: 0.03em; }
+  .btn-investment {
+    display: inline-flex; align-items: center;
+    padding: 0.6rem 1.35rem; border-radius: 100px;
+    background: var(--lor-dark); color: #fff;
+    font-family: var(--font-body); font-size: 0.88rem; font-weight: 600;
+    border: none; cursor: pointer; letter-spacing: 0.02em;
+    transition: background 0.2s ease;
+  }
+  .btn-investment:hover { background: #3d5a3e; }
+
+  /* HERO */
+  .hero {
+    position: relative; overflow: hidden;
+    background: linear-gradient(165deg, var(--lor-dark) 0%, #3d5a3e 40%, var(--lor-green) 100%);
+    color: #fff; padding: 5.5rem 2rem 4.5rem;
+  }
+  .hero::before {
+    content: ''; position: absolute; inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    opacity: 0.5;
+  }
+  .hero-inner { max-width: 880px; margin: 0 auto; position: relative; z-index: 1; }
+  .hero-label {
+    display: inline-block;
+    background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 100px; padding: 0.35rem 1rem;
+    font-size: 0.75rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase;
+    margin-bottom: 1.5rem; animation: fadeUp 0.6s ease both;
+  }
+  .hero h1 {
+    font-family: var(--font-display); font-size: clamp(2.2rem, 5vw, 3.4rem);
+    font-weight: 400; line-height: 1.15; margin-bottom: 1.25rem;
+    animation: fadeUp 0.6s 0.1s ease both;
+  }
+  .hero h1 em { font-style: italic; color: var(--lor-sage); }
+  .hero-sub {
+    font-size: 1.08rem; line-height: 1.72; color: rgba(255,255,255,0.82);
+    max-width: 680px; animation: fadeUp 0.6s 0.2s ease both;
+  }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* SECTIONS */
+  .section { max-width: 1100px; margin: 0 auto; padding: 4rem 2rem; }
+  .section-sm { max-width: 820px; }
+  .section-label {
+    font-size: 0.72rem; font-weight: 600; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--lor-green); margin-bottom: 0.6rem;
+  }
+  .section-title {
+    font-family: var(--font-display); font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+    font-weight: 400; line-height: 1.2; color: var(--lor-dark); margin-bottom: 0.75rem;
+  }
+  .section-subtitle {
+    font-size: 1.02rem; color: var(--lor-warm-gray); line-height: 1.7; max-width: 680px;
+  }
+
+  /* NARRATIVE */
+  .narrative p {
+    font-size: 1.05rem; line-height: 1.78; color: var(--lor-charcoal); margin-bottom: 1.25rem;
+  }
+  .narrative p:first-of-type::first-letter {
+    font-family: var(--font-display); font-size: 3.2rem;
+    float: left; line-height: 0.85; margin: 0.05em 0.12em 0 0; color: var(--lor-green);
+  }
+
+  /* THEMES */
+  .themes-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem; margin-top: 2.5rem;
+  }
+  .theme-card {
+    background: #fff; border-radius: var(--radius); padding: 2rem 1.75rem;
+    border: 1px solid var(--lor-border);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  .theme-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+  .theme-number {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 34px; height: 34px; border-radius: 50%;
+    background: var(--lor-green); color: #fff;
+    font-size: 0.82rem; font-weight: 600; margin-bottom: 1rem;
+  }
+  .theme-card h3 {
+    font-family: var(--font-display); font-size: 1.25rem;
+    font-weight: 400; color: var(--lor-dark); margin-bottom: 0.6rem;
+  }
+  .theme-card > p { font-size: 0.9rem; color: var(--lor-warm-gray); line-height: 1.6; }
+  .theme-questions {
+    margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--lor-border);
+  }
+  .theme-questions li {
+    font-size: 0.84rem; color: var(--lor-charcoal); line-height: 1.55;
+    margin-bottom: 0.5rem; padding-left: 1rem; position: relative; list-style: none;
+  }
+  .theme-questions li::before {
+    content: ''; position: absolute; left: 0; top: 0.55em;
+    width: 5px; height: 5px; border-radius: 50%; background: var(--lor-sage);
+  }
+
+  /* APPROACH */
+  .approach-section {
+    background: var(--lor-light);
+    border-top: 1px solid var(--lor-border);
+    border-bottom: 1px solid var(--lor-border);
+  }
+  .approach-phases {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 0; margin-top: 2.5rem;
+    border: 1px solid var(--lor-border); border-radius: var(--radius); overflow: hidden;
+  }
+  .approach-phase {
+    padding: 1.75rem 1.5rem; background: #fff;
+    border-right: 1px solid var(--lor-border);
+  }
+  .approach-phase:last-child { border-right: none; }
+  .approach-phase-num {
+    font-size: 0.68rem; font-weight: 600; letter-spacing: 0.1em;
+    text-transform: uppercase; margin-bottom: 0.6rem;
+  }
+  .c-core { color: var(--lor-dark); }
+  .c-qual { color: var(--gallup-teal); }
+  .c-comms { color: var(--lor-accent); }
+  .approach-phase h3 {
+    font-family: var(--font-display); font-size: 1.1rem;
+    color: var(--lor-dark); margin-bottom: 0.45rem;
+  }
+  .approach-phase p { font-size: 0.84rem; color: var(--lor-warm-gray); line-height: 1.55; }
+
+  /* SCOPE BUILDER */
+  .scope-section {
+    background: #fff;
+    border-top: 1px solid var(--lor-border);
+    border-bottom: 1px solid var(--lor-border);
+  }
+  .timeline-bar {
+    background: var(--lor-light); border: 1px solid var(--lor-border);
+    border-radius: var(--radius); padding: 1.25rem 1.75rem;
+    margin-bottom: 2.5rem;
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 1.5rem; flex-wrap: wrap;
+  }
+  .timeline-left { display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap; }
+  .timeline-item { text-align: center; }
+  .timeline-item-label {
+    font-size: 0.62rem; text-transform: uppercase; letter-spacing: 0.1em;
+    color: var(--lor-warm-gray); margin-bottom: 0.1rem;
+  }
+  .timeline-item-value {
+    font-family: var(--font-display); font-size: 1.15rem; color: var(--lor-dark);
+  }
+  .timeline-sep { color: var(--lor-border); font-size: 1.2rem; font-weight: 300; }
+  .timeline-total { text-align: right; }
+  .timeline-total-label {
+    font-size: 0.62rem; text-transform: uppercase; letter-spacing: 0.1em;
+    color: var(--lor-warm-gray); margin-bottom: 0.1rem;
+  }
+  .timeline-total-value {
+    font-family: var(--font-display); font-size: 1.6rem; color: var(--lor-dark);
+    transition: all 0.3s ease;
+  }
+  .phase-block { margin-bottom: 2.5rem; }
+  .phase-header { display: flex; align-items: center; gap: 0.85rem; margin-bottom: 0.6rem; }
+  .phase-badge {
+    flex-shrink: 0; display: inline-flex; align-items: center;
+    padding: 0.28rem 0.8rem; border-radius: 100px;
+    font-size: 0.68rem; font-weight: 600; letter-spacing: 0.08em;
+    text-transform: uppercase; white-space: nowrap;
+  }
+  .phase-badge.core { background: var(--lor-dark); color: #fff; }
+  .phase-badge.qual { background: var(--gallup-teal); color: #fff; }
+  .phase-badge.comms { background: var(--lor-accent); color: #fff; }
+  .phase-title {
+    font-family: var(--font-display); font-size: 1.35rem;
+    font-weight: 400; color: var(--lor-dark);
+  }
+  .phase-desc {
+    font-size: 0.94rem; color: var(--lor-warm-gray); line-height: 1.65;
+    margin-bottom: 1.25rem; max-width: 700px;
+  }
+  .fixed-item {
+    background: var(--lor-light); border: 1px solid var(--lor-border);
+    border-radius: var(--radius); padding: 1.15rem 1.4rem;
+    margin-bottom: 0.65rem;
+  }
+  .fixed-item .item-info h4 { font-size: 0.92rem; font-weight: 600; color: var(--lor-dark); margin-bottom: 0.15rem; }
+  .fixed-item .item-info p { font-size: 0.82rem; color: var(--lor-warm-gray); line-height: 1.5; }
+  .included-badge {
+    font-size: 0.66rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase;
+    color: var(--lor-green); background: rgba(90,138,60,0.08);
+    padding: 0.18rem 0.55rem; border-radius: 4px; margin-left: 0.6rem;
+  }
+  .option-group { display: flex; flex-direction: column; gap: 0.6rem; }
+  .option-card {
+    border: 2px solid var(--lor-border); border-radius: var(--radius);
+    padding: 1.15rem 1.4rem; cursor: pointer; transition: all 0.2s ease;
+    display: flex; align-items: flex-start; gap: 0.85rem; position: relative;
+  }
+  .option-card:hover { border-color: var(--lor-sage); background: rgba(164,184,122,0.03); }
+  .option-card.selected {
+    border-color: var(--lor-green); background: rgba(90,138,60,0.03);
+    box-shadow: 0 0 0 1px var(--lor-green);
+  }
+  .option-card input[type="radio"] { position: absolute; opacity: 0; pointer-events: none; }
+  .option-radio {
+    flex-shrink: 0; width: 20px; height: 20px; border-radius: 50%;
+    border: 2px solid var(--lor-border);
+    display: flex; align-items: center; justify-content: center;
+    margin-top: 2px; transition: border-color 0.2s ease;
+  }
+  .option-card.selected .option-radio { border-color: var(--lor-green); }
+  .option-radio-inner {
+    width: 10px; height: 10px; border-radius: 50%;
+    background: var(--lor-green); transform: scale(0); transition: transform 0.2s ease;
+  }
+  .option-card.selected .option-radio-inner { transform: scale(1); }
+  .option-content { flex: 1; }
+  .option-content h4 { font-size: 0.92rem; font-weight: 600; color: var(--lor-dark); margin-bottom: 0.15rem; }
+  .option-content p { font-size: 0.82rem; color: var(--lor-warm-gray); line-height: 1.5; }
+  .toggle-grid { display: flex; flex-direction: column; gap: 0.6rem; }
+  .toggle-card {
+    border: 2px solid var(--lor-border); border-radius: var(--radius);
+    padding: 1.1rem 1.4rem; cursor: pointer; transition: all 0.2s ease;
+    display: flex; align-items: flex-start; gap: 0.85rem;
+  }
+  .toggle-card:hover { border-color: var(--lor-sage); }
+  .toggle-card.active {
+    border-color: var(--lor-green); background: rgba(90,138,60,0.03);
+    box-shadow: 0 0 0 1px var(--lor-green);
+  }
+  .toggle-check {
+    flex-shrink: 0; width: 22px; height: 22px; border-radius: 5px;
+    border: 2px solid var(--lor-border);
+    display: flex; align-items: center; justify-content: center;
+    transition: all 0.2s ease; margin-top: 1px;
+  }
+  .toggle-card.active .toggle-check { background: var(--lor-green); border-color: var(--lor-green); }
+  .toggle-check svg {
+    width: 13px; height: 13px; stroke: #fff; stroke-width: 2.5;
+    fill: none; opacity: 0; transition: opacity 0.2s ease;
+  }
+  .toggle-card.active .toggle-check svg { opacity: 1; }
+  .toggle-info { flex: 1; }
+  .toggle-info h4 { font-size: 0.92rem; font-weight: 600; color: var(--lor-dark); margin-bottom: 0.1rem; }
+  .toggle-info p { font-size: 0.82rem; color: var(--lor-warm-gray); line-height: 1.5; }
+  .recommendation {
+    background: rgba(90,138,60,0.05); border: 1px solid rgba(90,138,60,0.12);
+    border-radius: var(--radius); padding: 1.25rem 1.5rem;
+    margin-top: 1.15rem; display: flex; gap: 0.8rem; align-items: flex-start;
+  }
+  .recommendation svg { flex-shrink: 0; width: 18px; height: 18px; color: var(--lor-green); margin-top: 2px; }
+  .recommendation p { font-size: 0.86rem; color: var(--lor-dark); line-height: 1.6; }
+  .recommendation strong { font-weight: 600; }
+
+  /* DRAWER */
+  .drawer-overlay {
+    position: fixed; inset: 0; background: rgba(0,0,0,0.35);
+    z-index: 200; opacity: 0; pointer-events: none; transition: opacity 0.3s ease;
+  }
+  .drawer-overlay.open { opacity: 1; pointer-events: auto; }
+  .drawer {
+    position: fixed; top: 0; right: 0; bottom: 0;
+    width: 420px; max-width: 90vw;
+    background: #fff; z-index: 201;
+    box-shadow: -8px 0 40px rgba(0,0,0,0.12);
+    transform: translateX(100%);
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex; flex-direction: column;
+  }
+  .drawer.open { transform: translateX(0); }
+  .drawer-header {
+    padding: 1.5rem 1.75rem 1.25rem;
+    border-bottom: 1px solid var(--lor-border);
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .drawer-header h2 {
+    font-family: var(--font-display); font-size: 1.35rem;
+    font-weight: 400; color: var(--lor-dark);
+  }
+  .drawer-close {
+    width: 32px; height: 32px; border-radius: 50%;
+    border: 1px solid var(--lor-border); background: #fff;
+    cursor: pointer; display: flex; align-items: center; justify-content: center;
+    transition: background 0.2s ease;
+  }
+  .drawer-close:hover { background: var(--lor-light); }
+  .drawer-close svg { width: 16px; height: 16px; color: var(--lor-charcoal); }
+  .drawer-body { flex: 1; overflow-y: auto; padding: 1.5rem 1.75rem; }
+  .drawer-group { margin-bottom: 1.75rem; }
+  .drawer-group-label {
+    font-size: 0.68rem; font-weight: 600; letter-spacing: 0.1em;
+    text-transform: uppercase; margin-bottom: 0.75rem;
+  }
+  .c-core-l { color: var(--lor-dark); }
+  .c-qual-l { color: var(--gallup-teal); }
+  .c-comms-l { color: var(--lor-accent); }
+  .drawer-line {
+    display: flex; justify-content: space-between; align-items: baseline;
+    padding: 0.5rem 0; border-bottom: 1px solid var(--lor-border); font-size: 0.88rem;
+  }
+  .drawer-line:last-child { border-bottom: none; }
+  .drawer-line-name { color: var(--lor-charcoal); flex: 1; padding-right: 1rem; }
+  .drawer-line-price {
+    font-family: var(--font-display); font-size: 1rem;
+    color: var(--lor-dark); white-space: nowrap;
+  }
+  .drawer-line.inactive .drawer-line-name { color: #ccc; text-decoration: line-through; }
+  .drawer-line.inactive .drawer-line-price { color: #ccc; }
+  .drawer-subtotal {
+    display: flex; justify-content: space-between; align-items: baseline;
+    padding: 0.65rem 0 0; margin-top: 0.25rem; border-top: 2px solid var(--lor-border);
+  }
+  .drawer-subtotal-label { font-size: 0.82rem; font-weight: 600; color: var(--lor-charcoal); }
+  .drawer-subtotal-value {
+    font-family: var(--font-display); font-size: 1.1rem; color: var(--lor-dark);
+  }
+  .drawer-footer {
+    padding: 1.25rem 1.75rem;
+    border-top: 2px solid var(--lor-dark); background: var(--lor-light);
+  }
+  .drawer-total { display: flex; justify-content: space-between; align-items: baseline; }
+  .drawer-total-label {
+    font-size: 0.78rem; font-weight: 600; letter-spacing: 0.06em;
+    text-transform: uppercase; color: var(--lor-charcoal);
+  }
+  .drawer-total-value { font-family: var(--font-display); font-size: 1.75rem; color: var(--lor-dark); }
+  .drawer-timeline { display: flex; justify-content: space-between; align-items: baseline; margin-top: 0.5rem; }
+  .drawer-timeline-label { font-size: 0.72rem; color: var(--lor-warm-gray); }
+  .drawer-timeline-value { font-family: var(--font-display); font-size: 1.1rem; color: var(--lor-warm-gray); }
+  .drawer-submit {
+    padding: 1rem 1.75rem 1.25rem;
+    border-top: 1px solid var(--lor-border);
+    background: #fff;
+  }
+  .drawer-submit-label {
+    font-size: 0.82rem; color: var(--lor-warm-gray); line-height: 1.5;
+    margin-bottom: 0.85rem;
+  }
+  .drawer-submit-actions {
+    display: flex; gap: 0.6rem;
+  }
+  .btn-submit {
+    flex: 1; display: inline-flex; align-items: center; justify-content: center;
+    gap: 0.4rem; padding: 0.65rem 1rem; border-radius: 8px;
+    font-family: var(--font-body); font-size: 0.82rem; font-weight: 600;
+    cursor: pointer; transition: all 0.2s ease; border: none;
+    letter-spacing: 0.01em;
+  }
+  .btn-submit-pdf {
+    background: var(--lor-dark); color: #fff;
+  }
+  .btn-submit-pdf:hover { background: #3d5a3e; }
+  .btn-submit-email {
+    background: #fff; color: var(--lor-dark);
+    border: 2px solid var(--lor-dark);
+  }
+  .btn-submit-email:hover { background: var(--lor-light); }
+  .btn-submit svg { width: 16px; height: 16px; flex-shrink: 0; }
+
+  /* FOOTER */
+  .scope-bottom-cta {
+    text-align: center; margin-top: 2.5rem; padding-top: 2rem;
+    border-top: 1px solid var(--lor-border);
+  }
+  .btn-investment-lg {
+    padding: 0.75rem 2rem; font-size: 0.95rem;
+  }
+  .sticky-timeline-bar {
+    position: fixed; bottom: 0; left: 0; right: 0; z-index: 90;
+    background: var(--lor-dark); color: #fff;
+    border-top: 2px solid var(--lor-green);
+    box-shadow: 0 -4px 24px rgba(0,0,0,0.15);
+  }
+  .sticky-timeline-inner {
+    max-width: 1200px; margin: 0 auto;
+    padding: 0.75rem 2rem;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .sticky-tl-total {
+    display: flex; align-items: baseline; gap: 0.6rem;
+  }
+  .sticky-tl-total-label {
+    font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em;
+    color: rgba(255,255,255,0.5);
+  }
+  .sticky-tl-total-value {
+    font-family: var(--font-display); font-size: 1.35rem; color: #fff;
+  }
+  .site-footer { padding-bottom: 5rem; }
+  .site-footer {
+    background: var(--lor-dark); color: rgba(255,255,255,0.55);
+    padding: 3rem 2rem; text-align: center;
+  }
+  .footer-inner { max-width: 600px; margin: 0 auto; }
+  .footer-inner p { font-size: 0.82rem; line-height: 1.7; margin-bottom: 0.5rem; }
+  .footer-inner .copy { font-size: 0.72rem; margin-top: 1.5rem; color: rgba(255,255,255,0.35); }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    .themes-grid { grid-template-columns: 1fr; }
+    .approach-phases { grid-template-columns: 1fr; }
+    .approach-phase { border-right: none; border-bottom: 1px solid var(--lor-border); }
+    .approach-phase:last-child { border-bottom: none; }
+    .header-tag { display: none; }
+    .timeline-bar { flex-direction: column; align-items: flex-start; }
+    .timeline-total { text-align: left; }
+  }
+</style>
+</head>
+<body>
+
+<!-- PASSWORD GATE -->
+<div class="pw-gate" id="pwGate">
+  <div class="pw-box">
+    <div class="pw-logo">LOR Foundation <span class="pw-divider">&middot;</span> Gallup</div>
+    <h2 class="pw-title">Year 2 Research Proposal</h2>
+    <p class="pw-sub">This document is confidential. Please enter the password to continue.</p>
+    <div class="pw-input-row">
+      <input type="password" class="pw-input" id="pwInput" placeholder="Enter password" onkeydown="if(event.key==='Enter')checkPassword()">
+      <button class="pw-btn" onclick="checkPassword()">Enter</button>
+    </div>
+    <p class="pw-error" id="pwError">Incorrect password. Please try again.</p>
+  </div>
+</div>
+
+<style>
+  .pw-gate {
+    position: fixed; inset: 0; z-index: 9999;
+    background: var(--lor-dark);
+    display: flex; align-items: center; justify-content: center;
+    transition: opacity 0.4s ease;
+  }
+  .pw-gate.hidden {
+    opacity: 0; pointer-events: none;
+  }
+  .pw-box {
+    background: #fff; border-radius: 12px;
+    padding: 2.5rem 2.5rem 2rem; max-width: 400px; width: 90%;
+    text-align: center; box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+  }
+  .pw-logo {
+    font-family: var(--font-body); font-weight: 700;
+    font-size: 0.9rem; color: var(--lor-dark); letter-spacing: 0.02em;
+    margin-bottom: 1.25rem;
+  }
+  .pw-divider { color: var(--lor-border); margin: 0 0.3rem; }
+  .pw-title {
+    font-family: var(--font-display); font-size: 1.5rem;
+    font-weight: 400; color: var(--lor-dark); margin-bottom: 0.5rem;
+  }
+  .pw-sub {
+    font-size: 0.88rem; color: var(--lor-warm-gray);
+    line-height: 1.55; margin-bottom: 1.5rem;
+  }
+  .pw-input-row {
+    display: flex; gap: 0.5rem; margin-bottom: 0.75rem;
+  }
+  .pw-input {
+    flex: 1; padding: 0.65rem 1rem; border-radius: 8px;
+    border: 2px solid var(--lor-border); font-family: var(--font-body);
+    font-size: 0.92rem; outline: none;
+    transition: border-color 0.2s ease;
+  }
+  .pw-input:focus { border-color: var(--lor-green); }
+  .pw-btn {
+    padding: 0.65rem 1.5rem; border-radius: 8px;
+    background: var(--lor-dark); color: #fff;
+    font-family: var(--font-body); font-size: 0.92rem; font-weight: 600;
+    border: none; cursor: pointer;
+    transition: background 0.2s ease;
+  }
+  .pw-btn:hover { background: #3d5a3e; }
+  .pw-error {
+    font-size: 0.8rem; color: #c0392b;
+    display: none; margin-top: 0.25rem;
+  }
+  .pw-error.show { display: block; }
+  .site-content { display: none; }
+  .site-content.unlocked { display: block; }
+  .pw-hidden { display: none; }
+  .pw-hidden.unlocked { display: block; }
+</style>
+
+<div class="site-content" id="siteContent">
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="header-inner">
+    <div class="logo-group">
+      <div class="logo-lor">LOR Foundation</div>
+      <div class="logo-divider"></div>
+      <div class="logo-gallup">Gallup</div>
+    </div>
+    <div class="header-actions">
+      <span class="header-tag">Year 2 Research Proposal</span>
+      <button class="btn-investment" onclick="openDrawer()">
+        View Timeline &amp; Investment
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-label">Year 2 Research Continuation</div>
+    <h1>Expanding the <em>LOR&ndash;Gallup Partnership</em></h1>
+    <p class="hero-sub">Gallup is eager to continue and deepen our partnership with the LOR Foundation, building on Year 1&rsquo;s research on rural community leadership to explore the conditions and experiences that make rural communities places where people see a meaningful future for themselves and their families.</p>
+  </div>
+</section>
+
+<!-- NARRATIVE -->
+<section class="section section-sm">
+  <div class="narrative">
+    <p>In the LOR&ndash;Gallup Year 1 research, we focused on people and champions, exploring their motivations and barriers to action. For Year 2, Gallup proposes (1) repeating quality of life perception polling for its value as trending data, and (2) going deeper into rural livability. We seek to understand the conditions and experiences that make rural communities places where people see a meaningful future for themselves and their families. Practically, our goal is to uncover specific insights about the factors that rural Americans value and what is needed to deliver a thriving future for rural America &mdash; providing a clear roadmap for where and what funders can fund in rural places, and how policymakers can make funding more accessible to rural people.</p>
+    <p>Extending one of the research themes from Year 1 &mdash; perception of quality of life &mdash; rather than choosing an entirely new topic, helps build credibility with LOR&rsquo;s audiences. And asking some of the same questions gives us trend data that will help attract media attention. This topic can produce tangible and unique insights for research, policy, philanthropic, and media audiences. By measuring perceptions (what people experience), aspirations (what people want), and behaviors (what people do), the research can point funders and policymakers to specific actions they can take to improve livability.</p>
+  </div>
+</section>
+
+<!-- RESEARCH THEMES -->
+<section class="section">
+  <div class="section-label">Research Framework</div>
+  <div class="section-title">Three Themes of Rural Livability</div>
+  <div class="section-subtitle">Together these themes capture current conditions, future aspirations, and the pathways between them &mdash; positioning the research to identify both the drivers of current rural livability and the levers that could move rural communities from &ldquo;getting by&rdquo; to &ldquo;thriving.&rdquo;</div>
+
+  <div class="themes-grid">
+    <div class="theme-card">
+      <div class="theme-number">1</div>
+      <h3>Current Conditions</h3>
+      <p>The <em>current</em> material assets, services, and social conditions of a community that explain why rural residents value their local communities.</p>
+      <ul class="theme-questions">
+        <li>Which material assets, services, and social conditions influence rural Americans&rsquo; willingness to engage, invest in, and live or remain in their local communities?</li>
+        <li>How are the conditions of a community that is &ldquo;getting by&rdquo; different from the conditions of a &ldquo;thriving&rdquo; community? (And how are those different from a &ldquo;struggling&rdquo; community?)</li>
+      </ul>
+    </div>
+    <div class="theme-card">
+      <div class="theme-number">2</div>
+      <h3>Future Aspirations</h3>
+      <p>What rural Americans want their communities to look and feel like in the <em>future</em>, so we can specifically identify what they aspire their community to be.</p>
+      <ul class="theme-questions">
+        <li>When rural Americans talk about the future of their communities, what are their aspirations and what are their concerns?</li>
+      </ul>
+    </div>
+    <div class="theme-card">
+      <div class="theme-number">3</div>
+      <h3>Pathways to Thriving</h3>
+      <p>Bridges the difference by identifying the ideas they have to make their community a &ldquo;thriving&rdquo; place along with the actions that would help achieve that vision.</p>
+      <ul class="theme-questions">
+        <li>When rural Americans talk about what it would take for their community to be &ldquo;thriving,&rdquo; what are their ideas to make that happen?</li>
+        <li>What actions are they willing to take to see those ideas come to life? And, what actions do they want others to take (e.g., neighbors, nonprofits, local government)?</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- APPROACH -->
+<section class="approach-section">
+  <div class="section">
+    <div class="section-label">Project Approach</div>
+    <div class="section-title">A Phased, Flexible Engagement</div>
+    <div class="section-subtitle">The research is structured in three phases. Core research activities form the foundation, with qualitative and communications activities tailored to LOR&rsquo;s priorities.</div>
+
+    <div class="approach-phases">
+      <div class="approach-phase">
+        <div class="approach-phase-num c-core">Phase 1 &amp; 2 &mdash; Core Research</div>
+        <h3>Survey Design, Data Collection, Analysis &amp; Reporting</h3>
+        <p>Survey instrument refresh retaining core items from the Year 1 study for trend integrity, with new items developed for Year 2 livability themes. Includes cognitive testing, data collection, weighting, analysis, a 15-page flagship report, and a Gallup.com article.</p>
+      </div>
+      <div class="approach-phase">
+        <div class="approach-phase-num c-qual">Phase 2b &mdash; Qualitative</div>
+        <h3>Key Informant &amp; Community Interviews</h3>
+        <p>Key informant interviews with philanthropy, policy, and media leaders to inform survey design. In-depth community interviews conducted post-survey to bring the data to life with stories and lived experience.</p>
+      </div>
+      <div class="approach-phase">
+        <div class="approach-phase-num c-comms">Phase 3 &mdash; Communications</div>
+        <h3>Amplification &amp; Launch Strategy</h3>
+        <p>Optional communications activities designed to ensure findings are seen, shared, and acted upon &mdash; from launch events and media tours to an interactive dashboard and social content production.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SCOPE BUILDER -->
+<section class="scope-section" id="scope">
+  <div class="section">
+    <div class="section-label">Scope Configuration</div>
+    <div class="section-title">Design Your Research Program</div>
+    <div class="section-subtitle">Select a data collection approach and add optional qualitative and communications activities. The estimated timeline updates as you configure. When you&rsquo;re ready, click <strong>View Timeline &amp; Investment</strong> in the top right to see a full summary of your selections with itemized pricing.</div>
+
+    <!-- TIMELINE BAR -->
+    <div class="timeline-bar" style="margin-top: 2rem;">
+      <div class="timeline-left">
+        <div class="timeline-item">
+          <div class="timeline-item-label">Core Research</div>
+          <div class="timeline-item-value" id="tlCore">18 wks</div>
+        </div>
+        <span class="timeline-sep">+</span>
+        <div class="timeline-item">
+          <div class="timeline-item-label">Qualitative</div>
+          <div class="timeline-item-value" id="tlQual">0 wks</div>
+        </div>
+        <span class="timeline-sep">+</span>
+        <div class="timeline-item">
+          <div class="timeline-item-label">Post-Research</div>
+          <div class="timeline-item-value" id="tlPost">0 wks</div>
+        </div>
+      </div>
+      <div class="timeline-total">
+        <div class="timeline-total-label">Estimated Timeline</div>
+        <div class="timeline-total-value" id="tlTotal">18 weeks</div>
+      </div>
+    </div>
+
+    <!-- PHASE 1: Fixed -->
+    <div class="phase-block">
+      <div class="phase-header">
+        <span class="phase-badge core">Phase 1</span>
+        <span class="phase-title">Survey Instrument Development</span>
+      </div>
+      <div class="fixed-item">
+        <div class="item-info">
+          <h4>Survey Instrument Refresh <span class="included-badge">Always Included</span></h4>
+          <p>Core items from the Year 1 study retained for trend integrity. New items developed for Year 2 livability themes. Includes up to 10 cognitive interviews to test the instrument and full survey programming.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- PHASE 2: Data Collection -->
+    <div class="phase-block">
+      <div class="phase-header">
+        <span class="phase-badge core">Phase 2</span>
+        <span class="phase-title">Data Collection, Analysis &amp; Reporting</span>
+      </div>
+      <div class="phase-desc">Select one data collection approach. All options include data weighting, analysis, a 15-page flagship report, and a Gallup.com article. Unlike the first survey, all options survey only rural residents. The research will be nationally representative for rural America, with options for state-specific data for LOR states.</div>
+
+      <div class="option-group" id="dataOptions">
+        <label class="option-card selected" data-value="255700" data-weeks="18" onclick="selectOption(this)">
+          <input type="radio" name="datacollection" checked>
+          <div class="option-radio"><div class="option-radio-inner"></div></div>
+          <div class="option-content">
+            <h4>Option 1: Rural Panel &mdash; Mountain West Regional Reportability</h4>
+            <p>Gallup Panel survey of rural Americans only. Nationally representative for rural America with reportability at the Mountain West regional level. No state-level breakdowns.</p>
+          </div>
+        </label>
+        <label class="option-card" data-value="341700" data-weeks="24" onclick="selectOption(this)">
+          <input type="radio" name="datacollection">
+          <div class="option-radio"><div class="option-radio-inner"></div></div>
+          <div class="option-content">
+            <h4>Option 2: Panel + ABS Supplement &mdash; Minimum State-Level Reportability</h4>
+            <p>Combines Gallup Panel with an address-based sampling supplement to achieve minimum state-level reportability (n=300 per state) across LOR&rsquo;s five Mountain West states (CO, ID, MT, NM, WY).</p>
+          </div>
+        </label>
+        <label class="option-card" data-value="479650" data-weeks="24" onclick="selectOption(this)">
+          <input type="radio" name="datacollection">
+          <div class="option-radio"><div class="option-radio-inner"></div></div>
+          <div class="option-content">
+            <h4>Option 3: Panel + ABS Supplement &mdash; Advanced State-Level Reportability</h4>
+            <p>Maximum geographic depth. Combines Gallup Panel with robust ABS supplement for advanced state-level analysis (n=1,000 per state), enabling detailed subgroup reporting within each LOR state.</p>
+          </div>
+        </label>
+      </div>
+    </div>
+
+    <!-- PHASE 2b: Qualitative -->
+    <div class="phase-block">
+      <div class="phase-header">
+        <span class="phase-badge qual">Phase 2b</span>
+        <span class="phase-title">Qualitative Research</span>
+      </div>
+      <div class="phase-desc">Optional qualitative activities that deepen the quantitative research. Given the long development window, there is an early opportunity to engage key informants from the philanthropy, policy, and media realms to identify what they consider to be drivers of rural thriving and ensure that the tool will be actionable.</div>
+
+      <div class="toggle-grid" id="qualToggles">
+        <div class="toggle-card" data-price="46500" data-id="ki" onclick="toggleCard(this)">
+          <div class="toggle-check">
+            <svg viewBox="0 0 16 16"><polyline points="3.5 8.5 6.5 11.5 12.5 5.5"/></svg>
+          </div>
+          <div class="toggle-info">
+            <h4>Key Informant Interviews &mdash; 20 Experts</h4>
+            <p>Structured interviews with leaders in philanthropy, policy, and media conducted <em>before</em> survey fielding. Identifies what they consider to be drivers of rural thriving, ensures the instrument will be actionable, and begins answering Theme 3 research questions.</p>
+          </div>
+        </div>
+        <div class="toggle-card" data-price="58600" data-id="idi" onclick="toggleCard(this)">
+          <div class="toggle-check">
+            <svg viewBox="0 0 16 16"><polyline points="3.5 8.5 6.5 11.5 12.5 5.5"/></svg>
+          </div>
+          <div class="toggle-info">
+            <h4>In-Depth Community Interviews &mdash; 30 Rural Americans</h4>
+            <p>Conducted <em>after</em> quantitative data collection. Surfaces lived experience, local nuance, and quotable stories that bring the data to life for reports, media, and presentations. Participants can be re-contacted for media interviews with consent.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="recommendation">
+        <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/></svg>
+        <p><strong>Gallup Recommends:</strong> Given the long development window before survey fielding, key informant interviews are a high-value early investment. They produce a more robust survey instrument and begin answering Theme 3 research questions. In-depth community interviews conducted post-survey add the stories and voices that drive media coverage and stakeholder engagement.</p>
+      </div>
+    </div>
+
+    <!-- PHASE 3: Communications -->
+    <div class="phase-block">
+      <div class="phase-header">
+        <span class="phase-badge comms">Phase 3</span>
+        <span class="phase-title">Communications &amp; Amplification</span>
+      </div>
+      <div class="phase-desc">All communications activities are optional. Consider approaches for creating venues and materials such as audience-specific webinars, state-based release events, or &ldquo;sneak peek&rdquo; social media posts about specific findings.</div>
+
+      <div class="toggle-grid" id="commsToggles">
+        <div class="toggle-card" data-price="58500" data-id="launch" data-type="comms" onclick="toggleCard(this)">
+          <div class="toggle-check"><svg viewBox="0 0 16 16"><polyline points="3.5 8.5 6.5 11.5 12.5 5.5"/></svg></div>
+          <div class="toggle-info">
+            <h4>Gallup-Hosted Launch Event</h4>
+            <p>High-visibility event at Gallup&rsquo;s Washington, D.C. headquarters featuring LOR leadership, researchers, and key stakeholders. Includes keynote, data unveiling, and breakout sessions with press and funders.</p>
+          </div>
+        </div>
+        <div class="toggle-card" data-price="40200" data-id="articles" data-type="comms" onclick="toggleCard(this)">
+          <div class="toggle-check"><svg viewBox="0 0 16 16"><polyline points="3.5 8.5 6.5 11.5 12.5 5.5"/></svg></div>
+          <div class="toggle-info">
+            <h4>Additional Gallup.com Articles &amp; Media Pitching</h4>
+            <p>Three additional Gallup.com articles highlighting specific findings, plus targeted media outreach to national and regional outlets covering rural policy, philanthropy, and community development.</p>
+          </div>
+        </div>
+        <div class="toggle-card" data-price="32400" data-id="convening" data-type="comms" onclick="toggleCard(this)">
+          <div class="toggle-check"><svg viewBox="0 0 16 16"><polyline points="3.5 8.5 6.5 11.5 12.5 5.5"/></svg></div>
+          <div class="toggle-info">
+            <h4>Convening Support &amp; Conference Pitching</h4>
+            <p>Identification and pitching for high-impact national and regional convenings &mdash; philanthropy summits, policy forums, and rural development conferences &mdash; with speaker preparation to place LOR findings on stage.</p>
+          </div>
+        </div>
+        <div class="toggle-card" data-price="25500" data-id="social" data-type="comms" onclick="toggleCard(this)">
+          <div class="toggle-check"><svg viewBox="0 0 16 16"><polyline points="3.5 8.5 6.5 11.5 12.5 5.5"/></svg></div>
+          <div class="toggle-info">
+            <h4>Social Media Content Production</h4>
+            <p>Professionally produced video interview with Gallup and LOR spokespeople, a Gallup podcast feature, and a suite of static and animated social media graphics for distribution across Gallup and LOR channels.</p>
+          </div>
+        </div>
+        <div class="toggle-card" data-price="43500" data-id="smt" data-type="comms" onclick="toggleCard(this)">
+          <div class="toggle-check"><svg viewBox="0 0 16 16"><polyline points="3.5 8.5 6.5 11.5 12.5 5.5"/></svg></div>
+          <div class="toggle-info">
+            <h4>Satellite Media Tour</h4>
+            <p>Coordinated satellite media tour placing Gallup and LOR spokespeople on local and regional television and radio across Mountain West markets and national outlets to expand geographic reach.</p>
+          </div>
+        </div>
+        <div class="toggle-card" data-price="174500" data-id="dashboard" data-type="dashboard" onclick="toggleCard(this)">
+          <div class="toggle-check"><svg viewBox="0 0 16 16"><polyline points="3.5 8.5 6.5 11.5 12.5 5.5"/></svg></div>
+          <div class="toggle-info">
+            <h4>Interactive Dashboard &amp; Mapping Tool</h4>
+            <p>A fully interactive, LOR-branded online data platform featuring state-level dashboards, interactive mapping, downloadable data, and accessible research summaries &mdash; a public-facing digital home for the research.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom CTA -->
+    <div class="scope-bottom-cta">
+      <button class="btn-investment btn-investment-lg" onclick="openDrawer()">View Timeline &amp; Investment</button>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <p>This proposal was prepared by Gallup for the LOR Foundation. All scope and investment details are subject to final scoping discussions. Gallup is eager to continue and deepen this partnership to build on the strong momentum and impact generated in the Year 1 research.</p>
+    <p class="copy">Copyright &copy; 2026 Gallup, Inc. All rights reserved.<br>Confidential and proprietary. Not for distribution.</p>
+  </div>
+</footer>
+
+</div><!-- end site-content -->
+
+<!-- INVESTMENT DRAWER -->
+<div class="drawer-overlay" id="drawerOverlay" onclick="closeDrawer()"></div>
+<div class="drawer" id="drawer">
+  <div class="drawer-header">
+    <h2>Timeline &amp; Investment Summary</h2>
+    <button class="drawer-close" onclick="closeDrawer()">
+      <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="5" x2="15" y2="15"/><line x1="15" y1="5" x2="5" y2="15"/></svg>
+    </button>
+  </div>
+  <div class="drawer-body">
+    <div class="drawer-group">
+      <div class="drawer-group-label c-core-l">Phase 1 &amp; 2 &mdash; Core Research</div>
+      <div class="drawer-line">
+        <span class="drawer-line-name">Survey Instrument Development</span>
+        <span class="drawer-line-price">$36,500</span>
+      </div>
+      <div class="drawer-line" id="drawerDataLine">
+        <span class="drawer-line-name">Data Collection, Analysis &amp; Reporting</span>
+        <span class="drawer-line-price" id="drawerDataPrice">$255,700</span>
+      </div>
+      <div class="drawer-subtotal">
+        <span class="drawer-subtotal-label">Core Subtotal</span>
+        <span class="drawer-subtotal-value" id="drawerCoreSubtotal">$292,200</span>
+      </div>
+    </div>
+    <div class="drawer-group">
+      <div class="drawer-group-label c-qual-l">Phase 2b &mdash; Qualitative</div>
+      <div class="drawer-line" id="drawerKi">
+        <span class="drawer-line-name">Key Informant Interviews (20)</span>
+        <span class="drawer-line-price">$46,500</span>
+      </div>
+      <div class="drawer-line" id="drawerIdi">
+        <span class="drawer-line-name">In-Depth Community Interviews (30)</span>
+        <span class="drawer-line-price">$58,600</span>
+      </div>
+      <div class="drawer-subtotal">
+        <span class="drawer-subtotal-label">Qualitative Subtotal</span>
+        <span class="drawer-subtotal-value" id="drawerQualSubtotal">$0</span>
+      </div>
+    </div>
+    <div class="drawer-group">
+      <div class="drawer-group-label c-comms-l">Phase 3 &mdash; Communications</div>
+      <div class="drawer-line inactive" id="drawerLaunch">
+        <span class="drawer-line-name">Gallup-Hosted Launch Event</span>
+        <span class="drawer-line-price">$58,500</span>
+      </div>
+      <div class="drawer-line inactive" id="drawerArticles">
+        <span class="drawer-line-name">Additional Articles &amp; Media Pitching</span>
+        <span class="drawer-line-price">$40,200</span>
+      </div>
+      <div class="drawer-line inactive" id="drawerConvening">
+        <span class="drawer-line-name">Convening Support &amp; Conference Pitching</span>
+        <span class="drawer-line-price">$32,400</span>
+      </div>
+      <div class="drawer-line inactive" id="drawerSocial">
+        <span class="drawer-line-name">Social Media Content Production</span>
+        <span class="drawer-line-price">$25,500</span>
+      </div>
+      <div class="drawer-line inactive" id="drawerSmt">
+        <span class="drawer-line-name">Satellite Media Tour</span>
+        <span class="drawer-line-price">$43,500</span>
+      </div>
+      <div class="drawer-line inactive" id="drawerDashboard">
+        <span class="drawer-line-name">Interactive Dashboard &amp; Mapping Tool</span>
+        <span class="drawer-line-price">$174,500</span>
+      </div>
+      <div class="drawer-subtotal">
+        <span class="drawer-subtotal-label">Communications Subtotal</span>
+        <span class="drawer-subtotal-value" id="drawerCommsSubtotal">$0</span>
+      </div>
+    </div>
+  </div>
+  <div class="drawer-footer">
+    <div class="drawer-total">
+      <span class="drawer-total-label">Total Investment</span>
+      <span class="drawer-total-value" id="drawerTotal">$292,200</span>
+    </div>
+    <div class="drawer-timeline">
+      <span class="drawer-timeline-label">Estimated Timeline</span>
+      <span class="drawer-timeline-value" id="drawerTimeline">~18 weeks</span>
+    </div>
+  </div>
+  <div class="drawer-submit">
+    <div class="drawer-submit-label">Ready to share your selections? Download a summary or send directly to Gallup.</div>
+    <div class="drawer-submit-actions">
+      <button class="btn-submit btn-submit-pdf" onclick="downloadPDF()">
+        <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+        Download PDF
+      </button>
+      <button class="btn-submit btn-submit-email" onclick="emailSelections()">
+        <svg viewBox="0 0 20 20" fill="currentColor"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/></svg>
+        Email to Gallup
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- STICKY TIMELINE BAR -->
+<div class="sticky-timeline-bar pw-hidden" id="stickyBar">
+  <div class="sticky-timeline-inner">
+    <div class="sticky-tl-total">
+      <span class="sticky-tl-total-label">Estimated Timeline</span>
+      <span class="sticky-tl-total-value" id="stickyTotal">18 weeks</span>
+    </div>
+  </div>
+</div>
+
+<script>
+  const FIXED_COST = 36500;
+  const fmt = (n) => '$' + n.toLocaleString('en-US');
+
+  const drawerMap = {
+    ki: 'drawerKi', idi: 'drawerIdi',
+    launch: 'drawerLaunch', articles: 'drawerArticles',
+    convening: 'drawerConvening', social: 'drawerSocial',
+    smt: 'drawerSmt', dashboard: 'drawerDashboard'
+  };
+
+  function openDrawer() {
+    document.getElementById('drawerOverlay').classList.add('open');
+    document.getElementById('drawer').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeDrawer() {
+    document.getElementById('drawerOverlay').classList.remove('open');
+    document.getElementById('drawer').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  function selectOption(card) {
+    document.querySelectorAll('#dataOptions .option-card').forEach(c => c.classList.remove('selected'));
+    card.classList.add('selected');
+    card.querySelector('input[type="radio"]').checked = true;
+    updateAll();
+  }
+
+  function toggleCard(card) {
+    card.classList.toggle('active');
+    updateAll();
+  }
+
+  function getSelectedData() {
+    const sel = document.querySelector('#dataOptions .option-card.selected');
+    return { price: sel ? parseInt(sel.dataset.value) : 0, weeks: sel ? parseInt(sel.dataset.weeks) : 18 };
+  }
+
+  function getToggles(containerId) {
+    let price = 0;
+    const items = [];
+    document.querySelectorAll('#' + containerId + ' .toggle-card').forEach(card => {
+      const active = card.classList.contains('active');
+      items.push({ id: card.dataset.id, price: parseInt(card.dataset.price), type: card.dataset.type || '', active });
+      if (active) price += parseInt(card.dataset.price);
+    });
+    return { price, items };
+  }
+
+  function updateAll() {
+    const data = getSelectedData();
+    const qual = getToggles('qualToggles');
+    const comms = getToggles('commsToggles');
+
+    const coreTotal = FIXED_COST + data.price;
+    const grandTotal = coreTotal + qual.price + comms.price;
+
+    // Timeline
+    const baseWeeks = data.weeks;
+    const kiActive = qual.items.find(i => i.id === 'ki')?.active;
+    const idiActive = qual.items.find(i => i.id === 'idi')?.active;
+    const qualWeeks = (kiActive ? 3 : 0) + (idiActive ? 3 : 0);
+
+    const dashActive = comms.items.find(i => i.id === 'dashboard')?.active;
+    const anyComms = comms.items.some(i => i.id !== 'dashboard' && i.active);
+    let postWeeks = 0;
+    if (dashActive) postWeeks = 12;
+    else if (anyComms) postWeeks = 4;
+
+    const totalWeeks = baseWeeks + qualWeeks + postWeeks;
+
+    document.getElementById('tlCore').textContent = baseWeeks + ' wks';
+    document.getElementById('tlQual').textContent = qualWeeks + ' wks';
+    document.getElementById('tlPost').textContent = postWeeks + ' wks';
+    document.getElementById('tlTotal').textContent = totalWeeks + ' weeks';
+
+    // Drawer
+    document.getElementById('drawerDataPrice').textContent = fmt(data.price);
+    document.getElementById('drawerCoreSubtotal').textContent = fmt(coreTotal);
+    document.getElementById('drawerQualSubtotal').textContent = fmt(qual.price);
+    document.getElementById('drawerCommsSubtotal').textContent = fmt(comms.price);
+    document.getElementById('drawerTotal').textContent = fmt(grandTotal);
+    document.getElementById('drawerTimeline').textContent = '~' + totalWeeks + ' weeks';
+
+    const selCard = document.querySelector('#dataOptions .option-card.selected');
+    if (selCard) {
+      document.querySelector('#drawerDataLine .drawer-line-name').textContent = selCard.querySelector('h4').textContent;
+    }
+
+    [...qual.items, ...comms.items].forEach(item => {
+      const el = document.getElementById(drawerMap[item.id]);
+      if (el) { item.active ? el.classList.remove('inactive') : el.classList.add('inactive'); }
+    });
+
+    // Sticky timeline bar
+    document.getElementById('stickyTotal').textContent = totalWeeks + ' weeks';
+  }
+
+  function buildSummary() {
+    const data = getSelectedData();
+    const qual = getToggles('qualToggles');
+    const comms = getToggles('commsToggles');
+    const coreTotal = FIXED_COST + data.price;
+    const grandTotal = coreTotal + qual.price + comms.price;
+
+    const baseWeeks = data.weeks;
+    const kiActive = qual.items.find(i => i.id === 'ki')?.active;
+    const idiActive = qual.items.find(i => i.id === 'idi')?.active;
+    const qualWeeks = (kiActive ? 3 : 0) + (idiActive ? 3 : 0);
+    const dashActive = comms.items.find(i => i.id === 'dashboard')?.active;
+    const anyComms = comms.items.some(i => i.id !== 'dashboard' && i.active);
+    let postWeeks = 0;
+    if (dashActive) postWeeks = 12;
+    else if (anyComms) postWeeks = 4;
+    const totalWeeks = baseWeeks + qualWeeks + postWeeks;
+
+    const selCard = document.querySelector('#dataOptions .option-card.selected');
+    const dataName = selCard ? selCard.querySelector('h4').textContent : '';
+
+    const labelMap = {
+      ki: 'Key Informant Interviews (20)',
+      idi: 'In-Depth Community Interviews (30)',
+      launch: 'Gallup-Hosted Launch Event',
+      articles: 'Additional Gallup.com Articles & Media Pitching',
+      convening: 'Convening Support & Conference Pitching',
+      social: 'Social Media Content Production',
+      smt: 'Satellite Media Tour',
+      dashboard: 'Interactive Dashboard & Mapping Tool'
+    };
+
+    const activeQual = qual.items.filter(i => i.active);
+    const activeComms = comms.items.filter(i => i.active);
+
+    return { data, qual, comms, coreTotal, grandTotal, totalWeeks, dataName, labelMap, activeQual, activeComms };
+  }
+
+  function downloadPDF() {
+    const s = buildSummary();
+
+    function lineItem(name, price, inactive) {
+      const style = inactive ? 'color:#ccc;' : '';
+      return '<tr style="' + style + '"><td style="padding:6px 0;border-bottom:1px solid #eee;">' + name + '</td><td style="padding:6px 0;border-bottom:1px solid #eee;text-align:right;white-space:nowrap;">' + (inactive ? '' : fmt(price)) + '</td></tr>';
+    }
+
+    function subtotalRow(label, value) {
+      return '<tr><td style="padding:8px 0 4px;font-weight:700;">' + label + '</td><td style="padding:8px 0 4px;font-weight:700;text-align:right;">' + fmt(value) + '</td></tr>';
+    }
+
+    let qualRows = '';
+    if (s.activeQual.length === 0) {
+      qualRows = '<tr><td style="padding:6px 0;color:#bbb;border-bottom:1px solid #eee;">No qualitative activities selected</td><td style="padding:6px 0;text-align:right;color:#bbb;border-bottom:1px solid #eee;">$0</td></tr>';
+    } else {
+      s.activeQual.forEach(item => { qualRows += lineItem(s.labelMap[item.id], item.price, false); });
+    }
+
+    let commsRows = '';
+    if (s.activeComms.length === 0) {
+      commsRows = '<tr><td style="padding:6px 0;color:#bbb;border-bottom:1px solid #eee;">No communications activities selected</td><td style="padding:6px 0;text-align:right;color:#bbb;border-bottom:1px solid #eee;">$0</td></tr>';
+    } else {
+      s.activeComms.forEach(item => { commsRows += lineItem(s.labelMap[item.id], item.price, false); });
+    }
+
+    const html = '<!DOCTYPE html><html><head><title>LOR-Gallup Year 2 Scope Summary</title><style>' +
+      'body{font-family:Helvetica,Arial,sans-serif;color:#3a3a3a;max-width:680px;margin:40px auto;padding:0 30px;font-size:14px;line-height:1.6;}' +
+      'h1{font-size:22px;color:#2c3e2d;font-weight:700;margin:0 0 4px;}' +
+      '.sub{font-size:13px;color:#6b6b6b;margin-bottom:24px;}' +
+      '.divider{border:none;border-top:2px solid #2c3e2d;margin:24px 0;}' +
+      '.section-head{font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#2c3e2d;padding:16px 0 8px;}' +
+      'table{width:100%;border-collapse:collapse;}' +
+      '.total-row td{font-size:18px;font-weight:700;color:#2c3e2d;padding:12px 0;}' +
+      '.timeline-row td{font-size:14px;color:#6b6b6b;padding:4px 0;}' +
+      '.footer{margin-top:40px;font-size:11px;color:#aaa;line-height:1.5;}' +
+      '@media print{body{margin:0;padding:20px 30px;}}' +
+      '</style></head><body>' +
+      '<h1>LOR Foundation \u2014 Gallup</h1>' +
+      '<div class="sub">Year 2 Research Proposal \u2014 Scope &amp; Investment Summary</div>' +
+      '<hr class="divider">' +
+
+      '<div class="section-head">Phase 1 &amp; 2 \u2014 Core Research</div>' +
+      '<table>' +
+      lineItem('Survey Instrument Development', 36500, false) +
+      lineItem(s.dataName, s.data.price, false) +
+      subtotalRow('Core Subtotal', s.coreTotal) +
+      '</table>' +
+
+      '<div class="section-head">Phase 2b \u2014 Qualitative</div>' +
+      '<table>' + qualRows + subtotalRow('Qualitative Subtotal', s.qual.price) + '</table>' +
+
+      '<div class="section-head">Phase 3 \u2014 Communications</div>' +
+      '<table>' + commsRows + subtotalRow('Communications Subtotal', s.comms.price) + '</table>' +
+
+      '<hr class="divider">' +
+      '<table>' +
+      '<tr class="total-row"><td>Total Investment</td><td style="text-align:right;">' + fmt(s.grandTotal) + '</td></tr>' +
+      '<tr class="timeline-row"><td>Estimated Timeline</td><td style="text-align:right;">~' + s.totalWeeks + ' weeks</td></tr>' +
+      '</table>' +
+
+      '<div class="footer">' +
+      'This summary was generated from the Gallup &amp; LOR Foundation Year 2 Research Proposal.<br>' +
+      'All scope and investment details are subject to final scoping discussions.<br>' +
+      'Copyright \u00A9 2026 Gallup, Inc. All rights reserved. Confidential and proprietary.' +
+      '</div>' +
+
+      '<script>window.onload=function(){window.print();}<\/script>' +
+      '</body></html>';
+
+    const w = window.open('', '_blank');
+    w.document.write(html);
+    w.document.close();
+  }
+
+  function emailSelections() {
+    const s = buildSummary();
+    let body = 'LOR Foundation \u2014 Gallup Year 2 Research Proposal\n';
+    body += 'Scope & Investment Summary\n';
+    body += '========================================\n\n';
+
+    body += 'PHASE 1 & 2 \u2014 CORE RESEARCH\n';
+    body += '  Survey Instrument Development: ' + fmt(36500) + '\n';
+    body += '  ' + s.dataName + ': ' + fmt(s.data.price) + '\n';
+    body += '  Core Subtotal: ' + fmt(s.coreTotal) + '\n\n';
+
+    body += 'PHASE 2B \u2014 QUALITATIVE\n';
+    if (s.activeQual.length === 0) {
+      body += '  No qualitative activities selected\n';
+    } else {
+      s.activeQual.forEach(item => {
+        body += '  ' + s.labelMap[item.id] + ': ' + fmt(item.price) + '\n';
+      });
+    }
+    body += '  Qualitative Subtotal: ' + fmt(s.qual.price) + '\n\n';
+
+    body += 'PHASE 3 \u2014 COMMUNICATIONS\n';
+    if (s.activeComms.length === 0) {
+      body += '  No communications activities selected\n';
+    } else {
+      s.activeComms.forEach(item => {
+        body += '  ' + s.labelMap[item.id] + ': ' + fmt(item.price) + '\n';
+      });
+    }
+    body += '  Communications Subtotal: ' + fmt(s.comms.price) + '\n\n';
+
+    body += '========================================\n';
+    body += 'TOTAL INVESTMENT: ' + fmt(s.grandTotal) + '\n';
+    body += 'ESTIMATED TIMELINE: ~' + s.totalWeeks + ' weeks\n';
+
+    const subject = encodeURIComponent('LOR Foundation \u2014 Year 2 Scope Selections');
+    const encodedBody = encodeURIComponent(body);
+    window.location.href = 'mailto:justin_lall@gallup.com?subject=' + subject + '&body=' + encodedBody;
+  }
+
+  // Init
+  updateAll();
+  document.getElementById('drawerKi').classList.add('inactive');
+  document.getElementById('drawerIdi').classList.add('inactive');
+
+  // Password protection
+  function checkPassword() {
+    const input = document.getElementById('pwInput').value;
+    if (input === 'RuralThriving!') {
+      document.getElementById('pwGate').classList.add('hidden');
+      document.getElementById('siteContent').classList.add('unlocked');
+      document.getElementById('stickyBar').classList.add('unlocked');
+      document.getElementById('pwError').classList.remove('show');
+      sessionStorage.setItem('pw_ok', '1');
+      setTimeout(() => { document.getElementById('pwGate').style.display = 'none'; }, 400);
+    } else {
+      document.getElementById('pwError').classList.add('show');
+      document.getElementById('pwInput').value = '';
+      document.getElementById('pwInput').focus();
+    }
+  }
+
+  // Check if already authenticated this session
+  if (sessionStorage.getItem('pw_ok') === '1') {
+    document.getElementById('pwGate').style.display = 'none';
+    document.getElementById('siteContent').classList.add('unlocked');
+    document.getElementById('stickyBar').classList.add('unlocked');
+  } else {
+    document.getElementById('pwInput').focus();
+  }
+</script>
+
+</body>
+</html>
