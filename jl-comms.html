@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gallup Portfolio Activity Calendar</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'DM Sans',system-ui,-apple-system,sans-serif;background:#fff;color:#1a1a1a;padding:2rem;max-width:1100px;margin:0 auto}
+@media(prefers-color-scheme:dark){body{background:#1a1a1a;color:#e8e8e8}}
+.top{display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-bottom:1.5rem}
+.top h1{font-size:22px;font-weight:500}
+.top .sub{font-size:13px;color:#888}
+.controls{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:1rem}
+.controls label{font-size:12px;color:#888;display:flex;align-items:center;gap:6px}
+.controls select{font-family:'DM Sans',sans-serif;font-size:13px;padding:6px 10px;border:1px solid #ddd;border-radius:8px;background:#fff;color:#1a1a1a;cursor:pointer}
+@media(prefers-color-scheme:dark){.controls select{background:#2a2a2a;color:#e8e8e8;border-color:#444}}
+.type-filters{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:1.25rem}
+.tf{font-family:'DM Sans',sans-serif;font-size:11px;padding:5px 12px;border-radius:20px;border:1px solid #ddd;background:transparent;color:#888;cursor:pointer;transition:all 0.15s;display:flex;align-items:center;gap:5px}
+.tf:hover{border-color:#aaa}
+.tf.on{border-color:transparent}
+.tf .dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.tf.on.t-art{background:#E6F1FB;color:#0C447C}
+.tf.on.t-rep{background:#EEEDFE;color:#3C3489}
+.tf.on.t-lau{background:#E1F5EE;color:#085041}
+.tf.on.t-ext{background:#FAEEDA;color:#633806}
+@media(prefers-color-scheme:dark){
+.tf.on.t-art{background:#042C53;color:#B5D4F4}
+.tf.on.t-rep{background:#26215C;color:#CECBF6}
+.tf.on.t-lau{background:#04342C;color:#9FE1CB}
+.tf.on.t-ext{background:#412402;color:#FAC775}
+.tf{border-color:#444;color:#999}
+}
+.legends{display:flex;gap:20px;margin-bottom:1.25rem;flex-wrap:wrap}
+.leg-item{display:flex;align-items:center;gap:5px;font-size:12px;color:#888}
+.leg-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.tbl{border:1px solid #e0e0e0;border-radius:12px;overflow:hidden}
+@media(prefers-color-scheme:dark){.tbl{border-color:#333}}
+table{width:100%;border-collapse:collapse}
+th{font-size:11px;font-weight:500;color:#888;text-transform:uppercase;letter-spacing:0.5px;text-align:left;padding:10px 14px;background:#f8f8f6;border-bottom:1px solid #e0e0e0}
+@media(prefers-color-scheme:dark){th{background:#222;border-color:#333}}
+td{padding:10px 14px;border-bottom:1px solid #eee;font-size:13px;vertical-align:top}
+@media(prefers-color-scheme:dark){td{border-color:#2a2a2a}}
+tr:last-child td{border-bottom:none}
+tr.row:hover td{background:#fafaf8}
+@media(prefers-color-scheme:dark){tr.row:hover td{background:#252525}}
+.tag{display:inline-block;font-size:11px;padding:2px 8px;border-radius:20px;white-space:nowrap}
+.tag-art{background:#E6F1FB;color:#0C447C}
+.tag-rep{background:#EEEDFE;color:#3C3489}
+.tag-lau{background:#E1F5EE;color:#085041}
+.tag-ext{background:#FAEEDA;color:#633806}
+@media(prefers-color-scheme:dark){
+.tag-art{background:#042C53;color:#B5D4F4}
+.tag-rep{background:#26215C;color:#CECBF6}
+.tag-lau{background:#04342C;color:#9FE1CB}
+.tag-ext{background:#412402;color:#FAC775}
+}
+.proj{font-weight:500}
+.loc{color:#888;font-size:12px;margin-top:1px}
+.date{white-space:nowrap;font-size:13px}
+.date-tbd{color:#aaa;font-style:italic}
+.count{font-size:13px;color:#888;margin-bottom:1rem}
+.mo-hdr td{padding:7px 14px;font-size:11px;font-weight:500;color:#888;background:#f2f2f0;letter-spacing:0.3px;border-bottom:1px solid #e0e0e0}
+@media(prefers-color-scheme:dark){.mo-hdr td{background:#1e1e1e;border-color:#333}}
+.cs{display:inline-flex;align-items:center;gap:5px;font-size:12px;white-space:nowrap}
+.cs-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.cs-1 .cs-dot{background:#5DCAA5}
+.cs-1{color:#085041}
+.cs-2 .cs-dot{background:#EF9F27}
+.cs-2{color:#633806}
+.cs-3 .cs-dot{background:#E24B4A}
+.cs-3{color:#791F1F}
+@media(prefers-color-scheme:dark){
+.cs-1{color:#9FE1CB}
+.cs-2{color:#FAC775}
+.cs-3{color:#F09595}
+}
+.empty-state{padding:3rem 1rem;text-align:center;color:#888;font-size:14px}
+@media print{
+body{padding:1rem}
+.controls,.type-filters{display:none!important}
+.tbl{border:1px solid #ccc}
+th{background:#f0f0f0!important}
+tr.row:hover td{background:transparent!important}
+}
+</style>
+</head>
+<body>
+
+<div class="top">
+<div>
+<h1>Portfolio activity calendar</h1>
+<div class="sub">Public-facing activities across 17 projects &middot; Last updated April 2026</div>
+</div>
+</div>
+
+<div class="controls">
+<label>Project <select id="pf"><option value="all">All projects</option></select></label>
+<label>Sort <select id="sf"><option value="date">By date</option><option value="project">By project</option><option value="type">By activity type</option></select></label>
+<label>Comms <select id="cf"><option value="all">All</option><option value="1">Fully covered</option><option value="2">Additional support</option><option value="3">Significant support</option></select></label>
+</div>
+
+<div class="type-filters" id="tfilters">
+<button class="tf on t-art" data-t="article"><span class="dot" style="background:#85B7EB"></span>Articles</button>
+<button class="tf on t-rep" data-t="report"><span class="dot" style="background:#AFA9EC"></span>Reports</button>
+<button class="tf on t-lau" data-t="launch"><span class="dot" style="background:#5DCAA5"></span>Launch events</button>
+<button class="tf on t-ext" data-t="external"><span class="dot" style="background:#EF9F27"></span>External events</button>
+</div>
+
+<div class="legends">
+<div class="leg-item"><div class="leg-dot" style="background:#5DCAA5"></div>Fully covered</div>
+<div class="leg-item"><div class="leg-dot" style="background:#EF9F27"></div>Additional support needed</div>
+<div class="leg-item"><div class="leg-dot" style="background:#E24B4A"></div>Significant support needed</div>
+</div>
+
+<div class="count" id="count"></div>
+
+<div class="tbl">
+<table>
+<thead><tr><th style="width:110px">Date</th><th style="width:100px">Type</th><th style="width:160px">Project</th><th>Description</th><th style="width:140px">Comms needs</th></tr></thead>
+<tbody id="tb"></tbody>
+</table>
+</div>
+
+<script>
+const projects=["Stand Together (Purpose)","Be The People","PetSmart","Pathways to Wealth (JPMC)","Pathways to Wealth (Kauffman)","LOR Foundation","SCSP","Detroit","Greater Washington Community Foundation","Kettering Foundation","Stop Scams Alliance","Values in Action","USC / TIME","Walton Opportunity","Art of Living","With Honor \u2013 Courage / Standalone","With Honor \u2013 Veterans"];
+
+const events=[
+{date:"Apr 24, 2026",sortDate:"2026-04-24",type:"launch",project:"Values in Action",description:"Webinar launch",location:"Virtual",comms:1},
+{date:"Apr 24, 2026",sortDate:"2026-04-24",type:"article",project:"Values in Action",description:"News article release on Gallup.com",comms:1},
+{date:"Apr 27, 2026",sortDate:"2026-04-27",type:"article",project:"Kettering Foundation",description:"Gallup.com article (1st)",comms:2},
+{date:"May 4, 2026",sortDate:"2026-05-04",type:"external",project:"Stand Together (Purpose)",description:"Win/Win Summit \u2014 Spark Talk and Fireside Chat",location:"Chicago",comms:2},
+{date:"May 8, 2026",sortDate:"2026-05-08",type:"external",project:"SCSP",description:"AI+ Expo Panel Discussion",location:"Washington, DC",comms:1},
+{date:"May 11, 2026",sortDate:"2026-05-11",type:"report",project:"Pathways to Wealth (JPMC)",description:"Report final for pitching",comms:1},
+{date:"May 11, 2026",sortDate:"2026-05-11",type:"report",project:"Pathways to Wealth (Kauffman)",description:"Report final for pitching",comms:1},
+{date:"May 12, 2026",sortDate:"2026-05-12",type:"article",project:"Kettering Foundation",description:"Gallup.com article (2nd)",comms:2},
+{date:"May 14, 2026",sortDate:"2026-05-14",type:"report",project:"Walton Opportunity",description:"Launch report release",comms:1},
+{date:"May 19, 2026",sortDate:"2026-05-19",type:"external",project:"Stand Together (Purpose)",description:"Colorado Business Round Table Keynote",location:"Denver",comms:2},
+{date:"May 27, 2026",sortDate:"2026-05-27",type:"launch",project:"Detroit",description:"Release and launch event at Mackinac Conference",location:"Mackinac Island, MI",comms:1},
+{date:"May 28, 2026",sortDate:"2026-05-28",type:"launch",project:"Pathways to Wealth (JPMC)",description:"Launch event",location:"San Francisco",comms:1},
+{date:"May 28, 2026",sortDate:"2026-05-28",type:"report",project:"Pathways to Wealth (JPMC)",description:"Report release (1st)",comms:1},
+{date:"May 28, 2026",sortDate:"2026-05-28",type:"article",project:"Pathways to Wealth (JPMC)",description:"1st Gallup.com article release",comms:1},
+{date:"Jun 25, 2026",sortDate:"2026-06-25",type:"launch",project:"USC / TIME",description:"Project Launch Event",location:"Cannes, France",comms:2},
+{date:"Jun 29, 2026",sortDate:"2026-06-29",type:"article",project:"With Honor \u2013 Courage / Standalone",description:"Gallup.com article",comms:3},
+{date:"Jun 30, 2026",sortDate:"2026-06-30",type:"launch",project:"Stop Scams Alliance",description:"Launch Event",location:"Washington, DC",comms:2},
+{date:"Jul 2026",sortDate:"2026-07-01",type:"article",project:"Be The People",description:"Pre-launch article on Gallup.com",comms:1},
+{date:"Early Jul 2026",sortDate:"2026-07-01",type:"article",project:"With Honor \u2013 Veterans",description:"Gallup.com article",comms:3},
+{date:"TBD Jul 2026",sortDate:"2026-07-02",type:"external",project:"Be The People",description:"Event support",comms:1},
+{date:"TBD Jul 2026",sortDate:"2026-07-05",type:"article",project:"Pathways to Wealth (Kauffman)",description:"2nd Gallup.com article release",comms:1},
+{date:"TBD Jul 2026",sortDate:"2026-07-05",type:"launch",project:"Pathways to Wealth (Kauffman)",description:"Release event",comms:1},
+{date:"Jul 2026",sortDate:"2026-07-15",type:"report",project:"Greater Washington Community Foundation",description:"VoicesDMV final report delivery",comms:2},
+{date:"Aug 2026",sortDate:"2026-08-15",type:"article",project:"Greater Washington Community Foundation",description:"VoicesDMV teaser article on Gallup.com",comms:2},
+{date:"Aug 19, 2026",sortDate:"2026-08-19",type:"report",project:"Walton Opportunity",description:"Thematic report 1 release",comms:1},
+{date:"~Aug 26, 2026",sortDate:"2026-08-26",type:"report",project:"Be The People",description:"5-page report release",comms:1},
+{date:"~Aug 26, 2026",sortDate:"2026-08-26",type:"article",project:"Be The People",description:"1\u20132 articles with report release",comms:1},
+{date:"Late Aug 2026",sortDate:"2026-08-27",type:"report",project:"With Honor \u2013 Courage / Standalone",description:"Report release",comms:3},
+{date:"TBC late Aug 2026",sortDate:"2026-08-28",type:"report",project:"SCSP",description:"Report release",comms:3},
+{date:"TBC late Aug 2026",sortDate:"2026-08-28",type:"article",project:"SCSP",description:"Gallup.com article",comms:3},
+{date:"Sep 2026",sortDate:"2026-09-01",type:"report",project:"Greater Washington Community Foundation",description:"Full VoicesDMV report goes live on Gallup platform",comms:2},
+{date:"Early Sep 2026",sortDate:"2026-09-03",type:"report",project:"USC / TIME",description:"Report 1 release",comms:2},
+{date:"Early Sep 2026",sortDate:"2026-09-03",type:"article",project:"USC / TIME",description:"Article 1 on Gallup.com",comms:2},
+{date:"Sep 2026",sortDate:"2026-09-05",type:"launch",project:"Greater Washington Community Foundation",description:"VoicesDMV media briefing / breakfast",location:"Washington, DC",comms:2},
+{date:"Sep 2026",sortDate:"2026-09-10",type:"launch",project:"Greater Washington Community Foundation",description:"VoicesDMV general interest webinar",location:"Virtual",comms:2},
+{date:"Late Sep 2026",sortDate:"2026-09-22",type:"report",project:"Kettering Foundation",description:"Report launch",comms:2},
+{date:"Late Sep 2026",sortDate:"2026-09-22",type:"article",project:"Kettering Foundation",description:"Gallup.com article (3rd \u2014 with report)",comms:2},
+{date:"Late Sep 2026",sortDate:"2026-09-22",type:"external",project:"Kettering Foundation",description:"External event",comms:1},
+{date:"Oct 2026",sortDate:"2026-10-01",type:"launch",project:"Greater Washington Community Foundation",description:"GWCF Annual Meeting \u2014 keynote presentation of findings",location:"Gallup HQ, Washington, DC",comms:2},
+{date:"~Oct 12, 2026",sortDate:"2026-10-12",type:"report",project:"Be The People",description:"20-page report release",comms:1},
+{date:"Oct 14, 2026",sortDate:"2026-10-14",type:"report",project:"Walton Opportunity",description:"Thematic report 2 release",comms:1},
+{date:"Oct\u2013Dec 2026",sortDate:"2026-10-15",type:"external",project:"Greater Washington Community Foundation",description:"Select speaking engagements with GWCF",comms:2},
+{date:"Early Dec 2026",sortDate:"2026-12-01",type:"report",project:"Art of Living",description:"Report launch",comms:1},
+{date:"Early Dec 2026",sortDate:"2026-12-01",type:"article",project:"Art of Living",description:"Gallup.com article launch",comms:1},
+{date:"Dec 2026",sortDate:"2026-12-05",type:"article",project:"With Honor \u2013 Veterans",description:"Gallup.com article",comms:3},
+{date:"Dec 16, 2026",sortDate:"2026-12-16",type:"report",project:"Walton Opportunity",description:"Thematic report 3 release",comms:1},
+{date:"TBC",sortDate:"2026-12-30",type:"launch",project:"Detroit",description:"Community webinar (post-release)",comms:1},
+{date:"Jun 15, 2027",sortDate:"2027-06-15",type:"report",project:"LOR Foundation",description:"Report final for pitching",comms:2},
+{date:"Jun 24, 2027",sortDate:"2027-06-24",type:"report",project:"LOR Foundation",description:"Report release",comms:2},
+{date:"TBD ~Jun 24, 2027",sortDate:"2027-06-24",type:"launch",project:"LOR Foundation",description:"Launch event",comms:2},
+{date:"TBD \u2014 2027",sortDate:"2027-07-01",type:"report",project:"Walton Opportunity",description:"Summative report release",comms:1},
+];
+
+const typeMap={article:{label:"Article",cls:"tag-art"},report:{label:"Report",cls:"tag-rep"},launch:{label:"Launch event",cls:"tag-lau"},external:{label:"External event",cls:"tag-ext"}};
+let activeTypes=new Set(["article","report","launch","external"]);
+let projFilter="all";
+let sortBy="date";
+let commsFilter="all";
+
+const pf=document.getElementById("pf");
+projects.forEach(p=>{const o=document.createElement("option");o.value=p;o.textContent=p;pf.appendChild(o)});
+pf.onchange=()=>{projFilter=pf.value;render()};
+document.getElementById("sf").onchange=e=>{sortBy=e.target.value;render()};
+document.getElementById("cf").onchange=e=>{commsFilter=e.target.value;render()};
+
+document.querySelectorAll(".tf").forEach(b=>{
+b.onclick=()=>{
+const t=b.dataset.t;
+if(activeTypes.has(t)){if(activeTypes.size>1)activeTypes.delete(t)}else activeTypes.add(t);
+document.querySelectorAll(".tf").forEach(x=>x.classList.toggle("on",activeTypes.has(x.dataset.t)));
+render();
+};
+});
+
+function render(){
+const tb=document.getElementById("tb");
+let filtered=events.filter(e=>{
+if(!activeTypes.has(e.type))return false;
+if(projFilter!=="all"&&e.project!==projFilter)return false;
+if(commsFilter!=="all"&&String(e.comms)!==commsFilter)return false;
+return true;
+});
+if(sortBy==="date")filtered.sort((a,b)=>(a.sortDate||"9999").localeCompare(b.sortDate||"9999"));
+else if(sortBy==="project")filtered.sort((a,b)=>a.project.localeCompare(b.project)||(a.sortDate||"9999").localeCompare(b.sortDate||"9999"));
+else filtered.sort((a,b)=>a.type.localeCompare(b.type)||(a.sortDate||"9999").localeCompare(b.sortDate||"9999"));
+
+document.getElementById("count").textContent=filtered.length+" activit"+(filtered.length===1?"y":"ies")+" shown";
+
+if(filtered.length===0){
+tb.innerHTML='<tr><td colspan="5" class="empty-state">No matching activities found.</td></tr>';
+return;
+}
+let html="";let lastMo="";
+filtered.forEach(e=>{
+if(sortBy==="date"&&e.sortDate){
+const mo=e.sortDate.slice(0,7);
+if(mo!==lastMo){const d=new Date(e.sortDate+"T00:00:00");const label=d.toLocaleString("en-US",{month:"long",year:"numeric"});html+='<tr class="mo-hdr"><td colspan="5">'+label+'</td></tr>';lastMo=mo;}
+}
+const tm=typeMap[e.type];
+const locHtml=e.location?'<div class="loc">'+e.location+'</div>':"";
+const isTbd=!e.date||e.date.startsWith("TBD")||e.date.startsWith("TBC");
+let ch='<span class="cs cs-1"><span class="cs-dot"></span>Fully covered</span>';
+if(e.comms===2)ch='<span class="cs cs-2"><span class="cs-dot"></span>Additional support</span>';
+else if(e.comms===3)ch='<span class="cs cs-3"><span class="cs-dot"></span>Significant support</span>';
+html+='<tr class="row"><td class="date'+(isTbd?' date-tbd':'')+'">'+(e.date||"TBD")+'</td><td><span class="tag '+tm.cls+'">'+tm.label+'</span></td><td class="proj">'+e.project+'</td><td>'+e.description+locHtml+'</td><td>'+ch+'</td></tr>';
+});
+tb.innerHTML=html;
+}
+render();
+</script>
+
+</body>
+</html>
