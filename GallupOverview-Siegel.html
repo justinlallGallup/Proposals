@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gallup — Centering Worker Voice Through Research</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#FFFFFF;--bg-mid:#F7F6F3;--bg-alt:#EFF0EB;--bg-card:#F7F6F3;
+  --green:#0B5E4F;--green-light:#1A7A68;--green-dim:rgba(11,94,79,.08);--green-accent:#E87D4A;
+  --white:#FFFFFF;--gray-100:#E8E5DF;--gray-300:#A8A49C;--gray-500:#6B6860;
+  --text:#1A1A1A;--text-dim:#5C5A55;--heading:#0B2B24;
+}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:'Space Grotesk',sans-serif;color:var(--text);background:var(--bg);line-height:1.7;overflow-x:hidden}
+h1,h2,h3{font-family:'Newsreader',serif;font-weight:500;line-height:1.3;color:var(--heading)}
+h4{font-family:'Space Grotesk',sans-serif;font-weight:600}
+a{color:var(--green);text-decoration:none;border-bottom:1px solid rgba(11,94,79,.25);transition:all .2s}
+a:hover{color:var(--green-light);border-bottom-color:var(--green-light)}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:linear-gradient(90deg,var(--green),var(--green-accent));z-index:200;width:0;transition:width .1s}
+
+/* Hero */
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:80px 8vw;position:relative;overflow:hidden;background:var(--green)}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 75% 35%,rgba(255,255,255,.06),transparent),radial-gradient(ellipse 40% 40% at 15% 70%,rgba(232,125,74,.08),transparent);pointer-events:none}
+.hero-badge{font-size:.65rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.6);font-weight:600;margin-bottom:28px;position:relative}
+.hero h1{font-size:clamp(2.2rem,4.5vw,3.8rem);max-width:780px;margin-bottom:24px;position:relative;color:#fff}
+.hero h1 em{font-style:italic;color:var(--green-accent)}
+.hero p{font-size:1.05rem;max-width:600px;color:rgba(255,255,255,.7);line-height:1.8;position:relative}
+.scroll-cue{position:absolute;bottom:36px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:6px;color:rgba(255,255,255,.4);font-size:.6rem;letter-spacing:.2em;text-transform:uppercase}
+.scroll-cue span{width:1px;height:24px;background:rgba(255,255,255,.25);display:block;animation:pulse 2s ease infinite}
+@keyframes pulse{0%,100%{opacity:.2;transform:scaleY(1)}50%{opacity:.6;transform:scaleY(1.3)}}
+
+/* Sections */
+.section{padding:100px 8vw}
+.s-label{font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--green);font-weight:600;margin-bottom:14px;display:block}
+.section h2{font-size:clamp(1.7rem,3.2vw,2.6rem);max-width:720px;margin-bottom:22px;color:var(--heading)}
+.section p{max-width:660px;margin-bottom:18px;color:var(--text-dim)}
+
+/* About cards */
+.about-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:32px;margin-top:44px}
+.about-card{border-top:2px solid var(--green);padding-top:18px}
+.about-card h4{font-size:1rem;margin-bottom:6px;color:var(--green)}
+.about-card p{font-size:.88rem;color:var(--text-dim);max-width:100%;margin-bottom:0}
+.sdg-strip{margin-top:44px;padding:22px 24px;background:var(--green-dim);border-radius:8px;border:1px solid rgba(11,94,79,.1)}
+.sdg-strip p{font-size:.88rem;color:var(--text-dim);max-width:100%;margin-bottom:0}
+.sdg-strip strong{color:var(--green)}
+
+/* Case studies */
+.case-header{display:flex;align-items:flex-start;gap:18px;margin-bottom:36px}
+.case-num{font-family:'Newsreader',serif;font-size:3rem;line-height:1;color:var(--green);opacity:.3;flex-shrink:0;margin-top:-2px}
+.case-sub{font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--green);font-weight:500;display:block;margin-bottom:6px}
+.case-flow{display:grid;gap:44px;margin-top:32px}
+.flow-block{padding-left:22px;border-left:2px solid rgba(11,94,79,.15);transition:border-color .3s}
+.flow-block:hover{border-left-color:var(--green)}
+.flow-tag{font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:var(--green);font-weight:700;margin-bottom:8px;display:block}
+.flow-block h3{color:var(--heading);margin-bottom:8px;font-size:1.2rem}
+.flow-block p{font-size:.92rem;max-width:100%}
+.stat-row{display:flex;flex-wrap:wrap;gap:32px;margin:28px 0}
+.stat-num{font-family:'Newsreader',serif;font-size:2.4rem;line-height:1.1;color:var(--green)}
+.stat-label{font-size:.75rem;color:var(--text-dim);max-width:170px;line-height:1.4;margin-top:3px}
+.quote{margin:32px 0;padding:20px 0 20px 22px;border-left:2px solid var(--green);font-family:'Newsreader',serif;font-size:1.05rem;font-style:italic;color:var(--heading);max-width:620px;line-height:1.6}
+.quote-attr{font-family:'Space Grotesk',sans-serif;font-size:.72rem;font-style:normal;color:var(--gray-300);margin-top:8px;display:block}
+.expand-toggle{display:inline-flex;align-items:center;gap:5px;font-size:.78rem;font-weight:500;color:var(--green);cursor:pointer;margin-top:10px;border:none;background:none;padding:3px 0;border-bottom:1px dashed rgba(11,94,79,.3);transition:all .2s;font-family:'Space Grotesk',sans-serif}
+.expand-toggle:hover{color:var(--green-light);border-bottom-color:var(--green-light)}
+.expand-toggle svg{width:13px;height:13px;transition:transform .3s}
+.expand-toggle.open svg{transform:rotate(180deg)}
+.expand-content{max-height:0;overflow:hidden;transition:max-height .5s ease,opacity .4s;opacity:0}
+.expand-content.open{opacity:1}
+.expand-inner{padding-top:14px}
+.sources{margin-top:24px;padding-top:14px;border-top:1px solid var(--gray-100)}
+.sources p{font-size:.72rem;color:var(--gray-300);margin-bottom:5px;max-width:100%}
+.sources a{font-size:.72rem;color:var(--gray-300);border-bottom-color:transparent}
+.sources a:hover{color:var(--green)}
+
+/* CTA */
+.cta-section{padding:120px 8vw;background:var(--green);color:#fff;position:relative}
+.cta-section::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.2),transparent)}
+.cta-section h2{color:#fff}
+.cta-section p{color:rgba(255,255,255,.75);max-width:660px}
+.cta-section .s-label{color:var(--green-accent)}
+.cta-section a{color:rgba(255,255,255,.8);border-bottom-color:rgba(255,255,255,.3)}
+.cta-section a:hover{color:#fff}
+
+/* Divider */
+.div-line{height:1px;background:linear-gradient(90deg,transparent,var(--gray-100),transparent);margin:0 8vw}
+
+/* Nav */
+.nav-dots{position:fixed;right:22px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:10px;z-index:100}
+.nav-dot{width:7px;height:7px;border-radius:50%;background:rgba(11,94,79,.15);border:none;cursor:pointer;transition:all .3s;padding:0;position:relative}
+.nav-dot.active{background:var(--green);transform:scale(1.4)}
+.nav-dot:hover{background:rgba(11,94,79,.4)}
+.nav-dot .nav-tip{position:absolute;right:16px;top:50%;transform:translateY(-50%);white-space:nowrap;font-size:.6rem;color:var(--text-dim);opacity:0;transition:opacity .2s;pointer-events:none;font-family:'Space Grotesk',sans-serif}
+.nav-dot:hover .nav-tip{opacity:1}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-d1{transition-delay:.1s}.reveal-d2{transition-delay:.2s}
+@media(max-width:800px){.about-grid{grid-template-columns:1fr}.hero,.section,.cta-section{padding-left:6vw;padding-right:6vw}.nav-dots{display:none}}
+</style>
+</head>
+<body>
+<div class="progress-bar" id="progressBar"></div>
+<nav class="nav-dots" id="navDots"></nav>
+
+<!-- ═══ HERO ═══ -->
+<section class="hero" data-nav="Introduction">
+  <div class="hero-badge">Prepared for Siegel Family Endowment</div>
+  <h1>Centering <em>Worker Voice</em> Through Research That Drives Outcomes</h1>
+  <p>How Gallup's nationally representative surveys fill critical data gaps — amplifying worker experiences to inform legislation, reshape employer practice, and guide strategic investment in the AI era.</p>
+  <div class="scroll-cue"><span></span>Scroll</div>
+</section>
+
+<!-- ═══ ABOUT ═══ -->
+<section class="section" data-nav="About Gallup" style="background:var(--bg-mid)">
+  <span class="s-label">About Gallup</span>
+  <h2 class="reveal">Traditional Labor Data Measures Jobs. We Measure How Workers Experience Them.</h2>
+  <p class="reveal">The unemployment rate, nonfarm payroll, and household income haven't changed as metrics in 75 years. They tell you whether someone has a job — not whether that job provides fair pay, predictable schedules, growth opportunities, or a voice in how AI is deployed in their workplace. Gallup fills that gap. We use address-based sampling and probability-based methods to reach populations traditional research misses — including gig workers, independent contractors, and those in informal, cash-based jobs — the voices most likely to reveal where the greatest risks and opportunities lie.</p>
+  <div class="about-grid">
+    <div class="about-card reveal">
+      <h4>Fill Data Gaps</h4>
+      <p>Inclusive methods that represent all workers — especially non-traditional and hard-to-reach populations excluded from standard labor surveys.</p>
+    </div>
+    <div class="about-card reveal reveal-d1">
+      <h4>Establish Thought Leadership</h4>
+      <p>Gallup partnerships put the funding partner's brand at the center of the findings — through co-branded reports, Gallup.com articles, media coverage, and policy briefings that position the partner as the authoritative voice on the issue.</p>
+    </div>
+    <div class="about-card reveal reveal-d2">
+      <h4>Drive Measurable Outcomes</h4>
+      <p>Our partnerships don't end at publication. They produce data cited in legislation, adopted by state governments, and used by institutions to redesign how they operate.</p>
+    </div>
+  </div>
+  <div class="sdg-strip reveal">
+    <p>Gallup data officially track <strong>three U.N. Sustainable Development Goal indicators</strong> — food insecurity (SDG 2), financial inclusion (SDG 8.10.2), and modern slavery (SDG 8.7). Our World Poll covers 140+ countries; our U.S. Panel includes 100,000+ randomly selected adults.</p>
+  </div>
+</section>
+
+<!-- ═══ CASE 1: JFF ═══ -->
+<section class="section" data-nav="Job Quality" style="background:var(--bg)">
+  <div class="case-header reveal">
+    <div class="case-num">01</div>
+    <div>
+      <span class="case-sub">Jobs for the Future — American Job Quality Study</span>
+      <h2>The First National Benchmark Proving 60% of U.S. Workers Lack a Quality Job</h2>
+    </div>
+  </div>
+  <div class="case-flow">
+    <div class="flow-block reveal">
+      <span class="flow-tag">The Landscape</span>
+      <p>Unemployment was near historic lows — yet millions of workers faced stagnant wages, unpredictable schedules, and no pathway to advancement. No nationally representative survey existed to measure what workers actually experienced on the job. Policymakers optimized for job quantity. The quality of those jobs was invisible.</p>
+    </div>
+    <div class="flow-block reveal">
+      <span class="flow-tag">Gallup's Approach</span>
+      <p>Gallup conducted the <a href="https://www.gallup.com/analytics/691241/american-job-quality-study.aspx" target="_blank">American Job Quality Study</a> for <a href="https://www.jff.org/quality-jobs/" target="_blank">Jobs for the Future</a>, the Families &amp; Workers Fund, and the W.E. Upjohn Institute — surveying 18,000+ workers across industries, geographies, and job types including W-2, gig, and informal workers. The study measured five dimensions of job quality: financial well-being, workplace culture and safety, growth and development, agency and voice, and work structure and autonomy.</p>
+    </div>
+    <div class="flow-block reveal">
+      <span class="flow-tag">Tangible Outcomes</span>
+      <div class="stat-row">
+        <div class="stat"><div class="stat-num">60%</div><div class="stat-label">of U.S. workers lack a quality job — the first national benchmark ever established</div></div>
+        <div class="stat"><div class="stat-num">55%</div><div class="stat-label">of workers have limited input on decisions that affect them</div></div>
+        <div class="stat"><div class="stat-num">10M+</div><div class="stat-label">more workers in quality jobs since the 2019 baseline — tracked by the survey</div></div>
+      </div>
+      <p>The data gave JFF the evidence to set a North Star goal: 75 million Americans in quality jobs by 2033. Workers in quality jobs reported 2.5x higher satisfaction, better health, and greater life satisfaction — factors linked in prior research to lower turnover and higher productivity. JFF launched a Frontline Manager Forum on Worker Voice in 2025 directly informed by the finding that over half of workers lack input on workplace decisions. The study's five-dimension framework is now being adopted by workforce funders and employers as the standard for measuring job quality.</p>
+      <div class="quote">"Counting jobs is no longer enough. This study shows what truly defines a good job and why job quality, not just job quantity, is essential to a thriving workforce."<span class="quote-attr">— Stephanie Marken, Senior Partner, Gallup</span></div>
+      <div class="sources">
+        <p>Sources:</p>
+        <a href="https://www.jff.org/quality-jobs/" target="_blank">JFF — Quality Jobs</a><br>
+        <a href="https://www.jff.org/landmark-gallup-study-shows-less-than-half-of-u-s-workers-have-a-quality-job/" target="_blank">JFF — Landmark Gallup Study press release</a><br>
+        <a href="https://www.gallup.com/analytics/691241/american-job-quality-study.aspx" target="_blank">Gallup — American Job Quality Study</a><br>
+        <a href="https://www.jff.org/calculating-progress-toward-our-north-star-goal/" target="_blank">JFF — Calculating Progress Toward the North Star Goal</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CASE 2: SCSP ═══ -->
+<section class="section" data-nav="AI & Workers" style="background:var(--bg-mid)">
+  <div class="case-header reveal">
+    <div class="case-num">02</div>
+    <div>
+      <span class="case-sub">Special Competitive Studies Project — AI Attitudes</span>
+      <h2>The Data That Showed 80% of Americans Want AI Safety Rules — Even If It Slows Development</h2>
+    </div>
+  </div>
+  <div class="case-flow">
+    <div class="flow-block reveal">
+      <span class="flow-tag">The Landscape</span>
+      <p>AI was being deployed across workplaces and public systems faster than policy or public understanding could keep up. The debate was dominated by industry claims and media narratives — not representative data on what workers and citizens actually trusted, feared, and needed. No baseline existed for how Americans experienced AI across economic, security, and governance dimensions.</p>
+    </div>
+    <div class="flow-block reveal">
+      <span class="flow-tag">Gallup's Approach</span>
+      <p>Gallup surveyed <a href="https://news.gallup.com/poll/694685/americans-prioritize-safety-data-security.aspx" target="_blank">3,128 U.S. adults</a> for SCSP to produce "Reward, Risk, and Regulation: American Attitudes Toward Artificial Intelligence" — a first-of-its-kind nationally representative survey covering AI trust, adoption, regulation preferences, and attitudes toward AI's economic and national security implications.</p>
+    </div>
+    <div class="flow-block reveal">
+      <span class="flow-tag">Tangible Outcomes</span>
+      <div class="stat-row">
+        <div class="stat"><div class="stat-num">80%</div><div class="stat-label">say government should maintain AI safety rules — even if it slows development</div></div>
+        <div class="stat"><div class="stat-num">2x</div><div class="stat-label">AI users are twice as likely to trust AI as non-users — exposure builds confidence</div></div>
+        <div class="stat"><div class="stat-num">2%</div><div class="stat-label">fully trust AI to make fair, unbiased decisions — revealing a massive trust gap</div></div>
+      </div>
+      <p>SCSP used the findings to argue that policymakers must invest in AI literacy and managed deployment to build public confidence — the data made it clear that accelerating AI without addressing the trust gap would stall adoption regardless of technical capability. The findings were covered across policy and technology media and gave SCSP the credible evidence base to advocate for responsible AI governance with Congressional and executive branch audiences.</p>
+      <div class="sources">
+        <p>Sources:</p>
+        <a href="https://news.gallup.com/poll/694685/americans-prioritize-safety-data-security.aspx" target="_blank">Gallup — Americans Prioritize AI Safety and Data Security</a><br>
+        <a href="https://scsp222.substack.com/p/we-commissioned-a-poll-with-gallup" target="_blank">SCSP — "We commissioned a poll with Gallup"</a><br>
+        <a href="https://news.gallup.com/poll/695297/american-views-national-security-charts.aspx" target="_blank">Gallup — American Views on AI &amp; National Security</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CASE 3: MODERN SLAVERY ═══ -->
+<section class="section" data-nav="Legislation" style="background:var(--bg-alt)">
+  <div class="case-header reveal">
+    <div class="case-num">03</div>
+    <div>
+      <span class="case-sub">Walk Free Foundation &amp; ILO — Global Estimates of Modern Slavery</span>
+      <h2>Survey Data Cited in Parliament and Written Into Law</h2>
+    </div>
+  </div>
+  <div class="case-flow">
+    <div class="flow-block reveal">
+      <span class="flow-tag">The Landscape</span>
+      <p>50 million people were estimated to be living in modern slavery — forced labor, forced marriage, human trafficking. But no nationally representative data existed to quantify the problem, hold governments accountable, or drive legislative action. The victims were, by definition, a hidden population.</p>
+    </div>
+    <div class="flow-block reveal">
+      <span class="flow-tag">Gallup's Approach</span>
+      <p>Gallup devised an innovative methodology through the <a href="https://www.gallup.com/analytics/239159/responsibility-end-modern-slavery.aspx" target="_blank">Gallup World Poll</a> to reach this hidden population — surveying 77,000+ respondents across 72 countries. The resulting <a href="https://www.walkfree.org/projects/global-estimates-of-modern-slavery/" target="_blank">Global Estimates of Modern Slavery</a> became the official U.N. SDG Target 8.7 baseline.</p>
+    </div>
+    <div class="flow-block reveal">
+      <span class="flow-tag">Tangible Outcomes</span>
+      <p>In Australia, the data was directly cited during parliamentary debate and helped build the case for the <strong style="color:var(--green)">Modern Slavery Act (2018)</strong>. In New Zealand, the estimates supported proposed modern slavery legislation. Companies and investors now incorporate the findings into human rights due diligence strategies, and corporate sustainability reports cite the figures for compliance under UK and Australian law. The ILO has since supported forced labor surveys in 17 countries using the methodology.</p>
+      <div class="stat-row">
+        <div class="stat"><div class="stat-num">100+</div><div class="stat-label">peer-reviewed publications citing the research</div></div>
+        <div class="stat"><div class="stat-num">5B</div><div class="stat-label">people reached through global media at the 2018 launch</div></div>
+      </div>
+      <p>The methodology was recognized with an <a href="https://www.walkfree.org/news/2025/global-research-recognised-for-advancing-the-fight-to-address-modern-slavery/" target="_blank">MRS International Research Award in 2025</a> and fed back into updated international measurement standards — meaning the survey didn't just produce findings, it redefined how exploitation is measured globally.</p>
+      <div class="sources">
+        <p>Sources:</p>
+        <a href="https://www.gallup.com/analytics/239159/responsibility-end-modern-slavery.aspx" target="_blank">Gallup — Responsibility to End Modern Slavery</a><br>
+        <a href="https://www.walkfree.org/global-slavery-index/" target="_blank">Walk Free — Global Slavery Index</a><br>
+        <a href="https://www.walkfree.org/news/2025/global-research-recognised-for-advancing-the-fight-to-address-modern-slavery/" target="_blank">Walk Free — MRS Award recognition</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CASE 4: GALLUP-PURDUE ═══ -->
+<section class="section" data-nav="Institutional Change" style="background:var(--bg-mid)">
+  <div class="case-header reveal">
+    <div class="case-num">04</div>
+    <div>
+      <span class="case-sub">Gallup-Purdue Index (now Gallup Alumni Survey)</span>
+      <h2>The Data That Changed What Universities Optimize For</h2>
+    </div>
+  </div>
+  <div class="case-flow">
+    <div class="flow-block reveal">
+      <span class="flow-tag">The Landscape</span>
+      <p>Higher education measured success through rankings and starting salaries — metrics that told you where graduates ended up, but nothing about whether the college experience prepared them for fulfilling work and life. No national framework connected what happens <em>during</em> education to long-term wellbeing and career engagement.</p>
+    </div>
+    <div class="flow-block reveal">
+      <span class="flow-tag">Gallup's Approach</span>
+      <p>In partnership with <a href="https://www.purdue.edu/newsroom/archive/releases/2013/Q4/gallup-and-purdue-university-partner-to-measure-college-outcomes-with-landmark-study.html" target="_blank">Purdue University</a> and Lumina Foundation, Gallup built the largest representative study of college graduates in U.S. history — surveying 75,000+ alumni to identify six experiences that doubled graduates' odds of being engaged at work and thriving in wellbeing.</p>
+    </div>
+    <div class="flow-block reveal">
+      <span class="flow-tag">Tangible Outcomes</span>
+      <p>The <a href="https://www.in.gov/che/gallup-indiana-survey/" target="_blank">Indiana Commission for Higher Education</a> adopted the framework statewide, using it as a core component of its first-in-the-nation College Value Index. Indiana's College Scholar Success Program added new requirements — mentorship and experiential learning — for scholarship recipients, mapped directly to the findings. The entire <a href="https://www.northcarolina.edu/news/gallup-releases-alumni-survey-highlighting-the-value-of-a-unc-system-education/" target="_blank">UNC System</a> (16 universities) surveyed 77,695 alumni and presented results to its Board of Governors. <a href="https://www.gallup.com/education/246980/measuring-right-things-students.aspx" target="_blank">Robert Morris University</a> wrote the findings into its institutional strategic plan.</p>
+      <div class="stat-row">
+        <div class="stat"><div class="stat-num">3%</div><div class="stat-label">of graduates had all six key experiences — exposing a massive national gap</div></div>
+        <div class="stat"><div class="stat-num">75K+</div><div class="stat-label">alumni in the national benchmarking database</div></div>
+      </div>
+      <div class="sources">
+        <p>Sources:</p>
+        <a href="https://www.gallup.com/education/194264/gallup-alumni-survey.aspx" target="_blank">Gallup Alumni Survey</a><br>
+        <a href="https://www.in.gov/che/gallup-indiana-survey/" target="_blank">Indiana Commission for Higher Education — Gallup-Indiana Survey</a><br>
+        <a href="https://news.gallup.com/poll/168848/life-college-matters-life-college.aspx" target="_blank">Gallup — Life in College Matters for Life After College</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CASE 5: LUMINA / GREAT JOBS ═══ -->
+<section class="section" data-nav="Job Quality Origins" style="background:var(--bg)">
+  <div class="case-header reveal">
+    <div class="case-num">05</div>
+    <div>
+      <span class="case-sub">Lumina Foundation, Gates Foundation, Omidyar Network</span>
+      <h2>The Survey That Proved Job Quality Predicts Quality of Life Better Than Income</h2>
+    </div>
+  </div>
+  <div class="case-flow">
+    <div class="flow-block reveal">
+      <span class="flow-tag">The Landscape</span>
+      <p>Despite dramatic changes to the workforce, the metrics hadn't evolved. As Omidyar Network wrote: "We need to move away from overly simplistic measures such as whether someone has a full-time or part-time job, how much they make, or what sector they work in."</p>
+    </div>
+    <div class="flow-block reveal">
+      <span class="flow-tag">Gallup's Approach</span>
+      <p>Gallup surveyed 6,600+ workers for <a href="https://www.gallup.com/education/267590/great-jobs-lumina-gates-omidyar-gallup-report-2019.aspx" target="_blank">"Not Just a Job"</a> — the first comprehensive job quality survey that let workers themselves define what mattered, then measured how their actual jobs compared. The study created a job quality index and a follow-up COVID-era survey that tracked how the pandemic disproportionately worsened quality for low-income workers.</p>
+    </div>
+    <div class="flow-block reveal">
+      <span class="flow-tag">Tangible Outcomes</span>
+      <p>The study discovered that job quality is as predictive of overall quality of life as self-reported health status — and more predictive than income alone. This reframed the entire policy conversation: job quality wasn't just a labor issue but a public health issue. The full dataset was made publicly available and served as the direct foundation for JFF's American Job Quality Study and its 75-million-worker North Star goal. The data is now used by workforce funders nationally to set strategy.</p>
+      <div class="sources">
+        <p>Sources:</p>
+        <a href="https://www.gallup.com/education/267590/great-jobs-lumina-gates-omidyar-gallup-report-2019.aspx" target="_blank">Gallup — Not Just a Job report</a><br>
+        <a href="https://medium.com/positive-returns/why-we-invested-gallups-job-quality-survey-40588785b4a3" target="_blank">Omidyar Network — "Why We Invested"</a><br>
+        <a href="https://www.luminafoundation.org/wp-content/uploads/2019/11/not-just-a-job-new-evidence-on-the-quality-of-work-in-the-united-states.pdf" target="_blank">Lumina Foundation — Full report (PDF)</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CTA ═══ -->
+<section class="cta-section" data-nav="The Opportunity">
+  <span class="s-label reveal">The Opportunity</span>
+  <h2 class="reveal">The Missing Evidence Base for Worker Voice in the AI Era</h2>
+  <p class="reveal" style="margin-bottom:22px">AI and emerging technologies are reshaping work faster than our data can track. We know AI adoption is accelerating — but we don't know, at a nationally representative scale, whether workers are gaining or losing agency as these tools enter their workplaces. We don't know which industries are deploying AI in ways that improve job quality versus erode it. And we don't have the ongoing evidence base to hold employers and policymakers accountable to the workers most affected.</p>
+  <p class="reveal" style="margin-bottom:22px">Siegel Family Endowment has articulated the hypothesis: AI can reduce harms and strengthen job quality when investments center worker voice in design and deployment. What's missing is the continuous, nationally representative data to test that hypothesis — to track what's working, where the risks are concentrating, and which interventions are producing measurable change. An ongoing worker voice tracker — fielded monthly or quarterly through the Gallup Panel — would produce the first real-time evidence base on how AI is transforming job quality across the American workforce.</p>
+  <p class="reveal" style="margin-bottom:22px">The outcome isn't more research. It's the credible evidence that can inform federal and state workforce policy, reshape employer AI deployment practices, and position Siegel Family Endowment as the definitive source on worker voice in the AI era — the same way JFF became the authority on job quality, SCSP became the authority on AI public attitudes, and Walk Free became the authority on modern slavery. Each started by funding Gallup to fill a data gap that no one else had filled.</p>
+  <p class="reveal" style="color:rgba(255,255,255,.5);font-size:.86rem;margin-top:44px">The workers most affected by AI are the least likely to be heard in current data. Reaching them isn't just good research — it's the prerequisite for responsible deployment at scale.</p>
+</section>
+
+<footer style="background:var(--green);padding:36px 8vw;border-top:1px solid rgba(255,255,255,.08)">
+  <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px">
+    <div style="color:rgba(255,255,255,.4);font-size:.7rem">Prepared by Gallup &nbsp;·&nbsp; Confidential</div>
+    <div style="color:rgba(255,255,255,.4);font-size:.7rem">April 2026</div>
+  </div>
+</footer>
+
+<script>
+window.addEventListener('scroll',()=>{const h=document.documentElement;document.getElementById('progressBar').style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight)*100)+'%'});
+const reveals=document.querySelectorAll('.reveal');
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}})},{threshold:.12});
+reveals.forEach(r=>obs.observe(r));
+const sections=document.querySelectorAll('[data-nav]');
+const dc=document.getElementById('navDots');
+sections.forEach(s=>{const d=document.createElement('button');d.className='nav-dot';const t=document.createElement('span');t.className='nav-tip';t.textContent=s.dataset.nav;d.appendChild(t);d.addEventListener('click',()=>s.scrollIntoView({behavior:'smooth'}));dc.appendChild(d)});
+const dots=document.querySelectorAll('.nav-dot');
+const on=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){const i=[...sections].indexOf(e.target);dots.forEach((d,j)=>d.classList.toggle('active',j===i))}})},{threshold:.3});
+sections.forEach(s=>on.observe(s));
+function toggleExpand(btn){btn.classList.toggle('open');const c=btn.nextElementSibling;if(c.classList.contains('open')){c.style.maxHeight='0';c.classList.remove('open')}else{c.style.maxHeight=c.scrollHeight+40+'px';c.classList.add('open')}}
+</script>
+</body>
+</html>
