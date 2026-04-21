@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gallup — Research That Reshapes Communities</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#0B1A2E;--navy-mid:#122240;--navy-light:#1A2D4A;--navy-deep:#070F1C;
+  --coral:#E8734A;--coral-light:#F09070;--coral-dim:rgba(232,115,74,.15);
+  --gold:#D4A853;--cream:#F4F0EA;--white:#FFFFFF;
+  --gray-100:#E8E4DE;--gray-300:#B0A99E;--gray-500:#7A7468;--text-body:#3A3530;
+}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:'DM Sans',sans-serif;color:var(--text-body);background:var(--cream);line-height:1.7;overflow-x:hidden}
+h1,h2,h3,h4{font-family:'DM Serif Display',serif;font-weight:400;line-height:1.25}
+a{color:var(--coral);text-decoration:none;border-bottom:1px solid rgba(232,115,74,.3);transition:all .2s}
+a:hover{color:var(--coral-light);border-bottom-color:var(--coral-light)}
+.section-dark a,.section-mid a,.section-accent a{color:var(--coral-light);border-bottom-color:rgba(240,144,112,.3)}
+.section-dark a:hover,.section-mid a:hover,.section-accent a:hover{color:#fff;border-bottom-color:#fff}
+
+/* ─── HERO ─── */
+.hero{background:var(--navy);color:var(--white);min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:80px 8vw;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 80% 30%,rgba(232,115,74,.1),transparent),radial-gradient(ellipse 50% 50% at 20% 80%,rgba(212,168,83,.06),transparent);pointer-events:none}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;color:var(--coral-light);margin-bottom:32px;position:relative;font-weight:600}
+.hero-badge::after{content:'';display:inline-block;width:40px;height:1px;background:var(--coral);opacity:.5}
+.hero h1{font-size:clamp(2.4rem,5vw,4.2rem);max-width:820px;margin-bottom:28px;position:relative}
+.hero h1 em{font-style:italic;color:var(--coral-light)}
+.hero p{font-size:1.1rem;max-width:620px;color:rgba(255,255,255,.7);line-height:1.8;position:relative}
+.scroll-cue{position:absolute;bottom:40px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:6px;color:rgba(255,255,255,.35);font-size:.65rem;letter-spacing:.2em;text-transform:uppercase}
+.scroll-cue span{width:1px;height:28px;background:rgba(255,255,255,.2);display:block;animation:pulse 2s ease infinite}
+@keyframes pulse{0%,100%{opacity:.2;transform:scaleY(1)}50%{opacity:.6;transform:scaleY(1.3)}}
+
+/* ─── SECTIONS ─── */
+.section{padding:100px 8vw}
+.section-dark{background:var(--navy);color:var(--white)}
+.section-dark p,.section-dark li{color:rgba(255,255,255,.75)}
+.section-mid{background:var(--navy-mid);color:var(--white)}
+.section-mid p,.section-mid li{color:rgba(255,255,255,.75)}
+.section-accent{background:var(--navy-light);color:var(--white)}
+.section-accent p,.section-accent li{color:rgba(255,255,255,.75)}
+.section-label{font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--coral);font-weight:600;margin-bottom:16px;display:block}
+.section-dark .section-label,.section-mid .section-label,.section-accent .section-label{color:var(--coral-light)}
+.section h2{font-size:clamp(1.8rem,3.5vw,2.8rem);max-width:740px;margin-bottom:24px}
+.section h3{font-size:1.4rem;margin-bottom:12px}
+.section p{max-width:680px;margin-bottom:20px}
+
+/* ─── ABOUT GRID ─── */
+.about-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:40px;margin-top:48px}
+.about-card{border-top:2px solid var(--coral);padding-top:20px}
+.about-card h4{font-size:1.15rem;margin-bottom:8px;color:var(--white)}
+.about-card p{font-size:.92rem;color:rgba(255,255,255,.65);max-width:100%}
+.sdg-strip{margin-top:48px;padding:24px 28px;background:rgba(255,255,255,.04);border-radius:8px;border:1px solid rgba(255,255,255,.06)}
+.sdg-strip p{font-size:.9rem;color:rgba(255,255,255,.6);max-width:100%}
+.sdg-strip strong{color:var(--coral-light)}
+
+/* ─── CASE STUDIES ─── */
+.case-header{display:flex;align-items:flex-start;gap:20px;margin-bottom:40px}
+.case-number{font-family:'DM Serif Display',serif;font-size:3.5rem;line-height:1;color:var(--coral);opacity:.4;flex-shrink:0;margin-top:-4px}
+.case-header h2{margin-bottom:4px}
+.case-sub{font-size:.85rem;letter-spacing:.08em;text-transform:uppercase;color:var(--coral-light);font-weight:500;display:block;margin-bottom:8px}
+.case-flow{display:grid;grid-template-columns:1fr;gap:48px;margin-top:36px}
+
+/* Expandable blocks */
+.flow-block{padding-left:24px;border-left:2px solid rgba(232,115,74,.25);transition:border-color .3s}
+.flow-block:hover{border-left-color:var(--coral)}
+.flow-tag{font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--coral-light);font-weight:700;margin-bottom:10px;display:block}
+.flow-block h3{color:var(--white);margin-bottom:10px}
+.flow-block p{font-size:.95rem;max-width:100%}
+
+/* Expandable detail */
+.expand-toggle{display:inline-flex;align-items:center;gap:6px;font-size:.8rem;font-weight:600;color:var(--coral-light);cursor:pointer;margin-top:12px;border:none;background:none;padding:4px 0;border-bottom:1px dashed rgba(240,144,112,.4);transition:all .2s;font-family:'DM Sans',sans-serif}
+.expand-toggle:hover{color:#fff;border-bottom-color:#fff}
+.expand-toggle svg{width:14px;height:14px;transition:transform .3s}
+.expand-toggle.open svg{transform:rotate(180deg)}
+.expand-content{max-height:0;overflow:hidden;transition:max-height .5s ease,opacity .4s;opacity:0}
+.expand-content.open{opacity:1}
+.expand-inner{padding-top:16px}
+
+/* Stats */
+.stat-row{display:flex;flex-wrap:wrap;gap:36px;margin:32px 0}
+.stat{text-align:left}
+.stat-num{font-family:'DM Serif Display',serif;font-size:2.6rem;line-height:1.1;color:var(--coral-light)}
+.stat-num.count{transition:all .6s}
+.stat-label{font-size:.78rem;color:rgba(255,255,255,.55);max-width:180px;line-height:1.4;margin-top:4px}
+
+/* Quote */
+.quote{margin:36px 0;padding:24px 0 24px 24px;border-left:3px solid var(--coral);font-family:'DM Serif Display',serif;font-size:1.1rem;font-style:italic;color:rgba(255,255,255,.85);max-width:640px;line-height:1.6}
+.quote-attr{font-family:'DM Sans',sans-serif;font-size:.78rem;font-style:normal;color:rgba(255,255,255,.45);margin-top:10px;display:block}
+
+/* Source links */
+.sources{margin-top:28px;padding-top:16px;border-top:1px solid rgba(255,255,255,.08)}
+.sources p{font-size:.78rem;color:rgba(255,255,255,.35);margin-bottom:6px;max-width:100%}
+.sources a{font-size:.78rem;color:rgba(240,144,112,.5);border-bottom-color:transparent}
+.sources a:hover{color:var(--coral-light);border-bottom-color:var(--coral-light)}
+
+/* CTA */
+.cta-section{background:var(--navy-deep);color:var(--white);padding:120px 8vw;position:relative;overflow:hidden}
+.cta-section::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--coral),transparent)}
+.cta-section h2{font-size:clamp(1.8rem,3.5vw,2.6rem);max-width:720px;margin-bottom:24px}
+.cta-section p{color:rgba(255,255,255,.65);max-width:620px}
+
+/* Nav dots */
+.nav-dots{position:fixed;right:24px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:10px;z-index:100}
+.nav-dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.15);border:none;cursor:pointer;transition:all .3s;padding:0;position:relative}
+.nav-dot.active{background:var(--coral);transform:scale(1.4)}
+.nav-dot:hover{background:rgba(255,255,255,.4)}
+.nav-dot .nav-tip{position:absolute;right:18px;top:50%;transform:translateY(-50%);white-space:nowrap;font-size:.65rem;color:rgba(255,255,255,.6);letter-spacing:.05em;opacity:0;transition:opacity .2s;pointer-events:none;font-family:'DM Sans',sans-serif}
+.nav-dot:hover .nav-tip{opacity:1}
+
+/* Progress bar */
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--coral);z-index:200;width:0;transition:width .1s}
+
+/* Responsive */
+@media(max-width:800px){
+  .about-grid{grid-template-columns:1fr}
+  .stat-row{gap:24px}
+  .stat-num{font-size:2rem}
+  .hero,.section,.cta-section{padding-left:6vw;padding-right:6vw}
+  .nav-dots{display:none}
+}
+
+/* Animations */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-d1{transition-delay:.1s}.reveal-d2{transition-delay:.2s}.reveal-d3{transition-delay:.3s}
+</style>
+</head>
+<body>
+
+<div class="progress-bar" id="progressBar"></div>
+<nav class="nav-dots" id="navDots"></nav>
+
+<!-- ════════ HERO ════════ -->
+<section class="hero" data-nav="Introduction">
+  <div class="hero-badge">Prepared for Ballmer Group</div>
+  <h1>Research That <em>Reshapes</em> Communities</h1>
+  <p>How Gallup's survey research fills critical data gaps, amplifies unheard voices, and produces measurable outcomes — changing policy, redirecting investment, and improving lives.</p>
+  <div class="scroll-cue"><span></span>Scroll</div>
+</section>
+
+<!-- ════════ ABOUT GALLUP ════════ -->
+<section class="section section-dark" data-nav="About Gallup">
+  <span class="section-label">About Gallup</span>
+  <h2 class="reveal">Measuring What Matters — So Leaders Can Act on What's Real</h2>
+  <p class="reveal">Since 1935, Gallup has built the world's most trusted platform for understanding how people experience their lives. Today, we conduct research in over 140 countries and maintain a U.S. panel of 100,000+ randomly selected adults — producing the data that governments, foundations, and multilateral institutions rely on to set strategy and allocate resources.</p>
+  <p class="reveal">We use address-based sampling to reach communities that are traditionally underrepresented in research — the voices most likely to reveal where blind spots exist and where the greatest opportunity for impact lies. When those voices are absent from data, leaders invest in the wrong places, at the wrong scale, on the wrong problems.</p>
+
+  <div class="about-grid">
+    <div class="about-card reveal">
+      <h4>Fill Data Gaps</h4>
+      <p>Inclusive methods ensure all voices are represented — especially hard-to-reach populations that traditional research misses, perpetuating disparities in representation and outcomes.</p>
+    </div>
+    <div class="about-card reveal reveal-d1">
+      <h4>Inform Public Discourse</h4>
+      <p>Gallup's credibility shifts national conversations, informs policy, and earns top-tier media coverage. Our in-house strategic communications teams help partners earn coverage and inform policy that leads to real societal change.</p>
+    </div>
+    <div class="about-card reveal reveal-d2">
+      <h4>Drive Outcomes</h4>
+      <p>Partnerships are designed for action — strategic consultants develop analysis plans that put actionable insights at the center, so leaders can make decisions informed by the voices of their constituents.</p>
+    </div>
+  </div>
+
+  <div class="sdg-strip reveal">
+    <p>Gallup data officially track <strong>three United Nations Sustainable Development Goal indicators</strong>: food insecurity (SDG 2), financial inclusion (SDG 8.10.2), and modern slavery (SDG 8.7). Our World Poll reaches 140+ countries annually — representing 98% of the world's adult population.</p>
+  </div>
+</section>
+
+<!-- ════════ CASE 1: DETROIT ════════ -->
+<section class="section section-mid" data-nav="Detroit">
+  <div class="case-header reveal">
+    <div class="case-number">01</div>
+    <div>
+      <span class="case-sub">Detroit Resident Voices Survey</span>
+      <h2>Uncovering What's Working — in a Landscape Where No One Could See It</h2>
+    </div>
+  </div>
+  <div class="case-flow">
+    <div class="flow-block reveal">
+      <span class="flow-tag">The Landscape</span>
+      <p>Detroit's Black residents experience some of the deepest racial equity gaps in the country — in education, employment, safety, and housing. But until this survey, no hyperlocal, city-specific data existed to tell leaders exactly where disparities were worst, what residents actually needed, or which neighborhood investments were producing results. Without representative, consistent data across a large swath of neighborhoods and the region overall, philanthropy and government were effectively investing without a map.</p>
+    </div>
+    <div class="flow-block reveal">
+      <span class="flow-tag">Gallup's Approach</span>
+      <p>Gallup's Center on Black Voices partnered with the <a href="https://www.detroitchamber.com/drvs23/" target="_blank">Detroit Regional Chamber</a> to design and field the first hyperlocal, city-specific survey of its kind. Over 150,000 households were contacted by mail with the option to respond online. The effort was built collaboratively with more than 50 grassroots organizations and equity partners including The Skillman Foundation, Data Driven Detroit, Detroit Future City, the Damon Keith Center at Wayne State University, United Way, and New Detroit.</p>
+      <div class="stat-row">
+        <div class="stat"><div class="stat-num">11,470+</div><div class="stat-label">responses from Black Detroiters (city and tri-counties)</div></div>
+        <div class="stat"><div class="stat-num">150K+</div><div class="stat-label">households contacted via mail survey</div></div>
+        <div class="stat"><div class="stat-num">50+</div><div class="stat-label">grassroots organizations shaped the community input model guiding the survey</div></div>
+      </div>
+      <p>As Marnita S. Harris, VP of Racial Justice and Economic Equity for the Detroit Regional Chamber, <a href="https://www.detroitchamber.com/is-the-black-experience-in-detroit-getting-better-or-worse/" target="_blank">wrote</a>: this is part of Gallup's 100-year commitment to tracking six areas where disparities have most negatively impacted life outcomes — justice, health and well-being, economic opportunity, education, jobs and work, and community and environment. Detroit became the first city in the country able to answer questions about the Black experience with verified, locally generated data broken down to the individual neighborhood.</p>
+    </div>
+    <div class="flow-block reveal">
+      <span class="flow-tag">What the Data Uncovered</span>
+      <p>The survey produced a finding that no existing data set could have surfaced: the Durfee area — a neighborhood with significant challenges that would not be expected to rate high in "thriving" — was rated as the second-highest thriving area in the city of Detroit. Harris noted that a likely rationale was the presence of <a href="https://liferemodeled.org/history/" target="_blank">Life Remodeled's Durfee Innovation Society</a> — not only were resources readily available for residents, but the substantial investment made residents feel seen and heard.</p>
+      <p>This matters because it put parameters around what works. In Harris's words, "findings like this can help shape community investments from philanthropy, business, and government moving forward." Without representative and consistent data across Detroit's neighborhoods, there was no way to identify which investments were actually moving the needle — and which weren't.</p>
+
+      <button class="expand-toggle" onclick="toggleExpand(this)">What else did the survey reveal? <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
+      <div class="expand-content">
+        <div class="expand-inner">
+          <p>The survey showed only 40% of Detroit city residents rated themselves as "thriving," compared to 52% in the suburbs and 51% nationally. Among working Detroiters, 51% cited access to a car as the top employment barrier, while only 39% were satisfied with the availability of good jobs (vs. 72% in the suburbs). Just 30% of city residents were satisfied with their local schools. And 62% of residents considering leaving the city cited physical safety as the primary reason.</p>
+          <p>Harris wrote that the Chamber is now raising support to conduct a second annual survey and will "convene a collective action roundtable charged with charting the year-over-year progress of the collective action initiatives that result." The survey's insights are being used by public, private, and philanthropic organizations across Detroit to better identify and close equity gaps.</p>
+        </div>
+      </div>
+
+      <div class="sources">
+        <p>Sources &amp; further reading:</p>
+        <a href="https://www.detroitchamber.com/is-the-black-experience-in-detroit-getting-better-or-worse/" target="_blank">Marnita S. Harris, "Is the Black Experience in Detroit Getting Better or Worse?" — Detroit Regional Chamber</a><br>
+        <a href="https://www.detroitchamber.com/drvs23/" target="_blank">Detroit Resident Voices Survey Report — Detroit Regional Chamber &amp; Gallup Center on Black Voices</a><br>
+        <a href="https://www.crainsdetroit.com/mackinac-policy-conference/detroiters-cite-access-car-obstacle-working-poll" target="_blank">Crain's Detroit Business — "Detroiters cite access to a car as obstacle to working"</a><br>
+        <a href="https://wdet.org/2023/06/02/study-finds-over-half-of-detroiters-would-leave-the-city/" target="_blank">WDET — "Study finds over half of Detroiters would leave the city"</a><br>
+        <a href="https://news.gallup.com/315575/measuring-black-voices.aspx" target="_blank">Gallup Center on Black Voices</a><br>
+        <a href="https://www.crainsdetroit.com/nonprofits-philanthropy/life-remodeled-readies-new-community-hub-model-draws-global-eyes" target="_blank">Crain's Detroit — Life Remodeled readies new community hub</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ CASE 2: GWCF ════════ -->
+<section class="section section-dark" data-nav="DC / Homelessness">
+  <div class="case-header reveal">
+    <div class="case-number">02</div>
+    <div>
+      <span class="case-sub">VoicesDMV — Greater Washington Community Foundation</span>
+      <h2>Survey Data That Gave a Foundation the Evidence to Build a First-of-Its-Kind Coalition</h2>
+    </div>
+  </div>
+  <div class="case-flow">
+    <div class="flow-block reveal">
+      <span class="flow-tag">The Landscape</span>
+      <p>In one of America's wealthiest metros, homelessness remained persistent. DC has one of the highest rates of homelessness in the country — 65.8 per 10,000 residents — and 83% of individuals experiencing homelessness are Black. Housing affordability was deteriorating, and racial disparities in economic security ran deep. Philanthropy, government, and nonprofits needed a shared, trusted evidence base to align around common priorities and galvanize public support for action.</p>
+    </div>
+    <div class="flow-block reveal">
+      <span class="flow-tag">Gallup's Approach</span>
+      <p>Since 2017, Gallup has partnered with the <a href="https://www.thecommunityfoundation.org/voicesdmv" target="_blank">Greater Washington Community Foundation</a> to conduct VoicesDMV — a community-wide, probability-based mail survey fielded every three years across DC, Montgomery County, Prince George's County, and Northern Virginia. Now in its third iteration (2017, 2020, 2024), VoicesDMV is one of the only large-scale community listening tools in the region, designed to surface how residents experience quality of life across economic opportunity, wellbeing, safety, and democratic influence.</p>
+      <p>The survey reached 27,000 households in its most recent wave, with 2,832 completed responses. It is produced as a public good — released openly to inform community investments by the Foundation, policymakers, and local leaders.</p>
+    </div>
+    <div class="flow-block reveal">
+      <span class="flow-tag">Tangible Outcomes</span>
+      <p>The VoicesDMV findings directly shaped the Greater Washington Community Foundation's investment priorities and catalyzed the <a href="https://www.thecommunityfoundation.org/partnership-to-end-homelessness" target="_blank">Partnership to End Homelessness</a> — a first-of-its-kind public-private initiative launched in 2019 with the DC Interagency Council on Homelessness.</p>
+      <div class="stat-row">
+        <div class="stat"><div class="stat-num">4,000+</div><div class="stat-label">new Permanent Supportive Housing vouchers secured through advocacy</div></div>
+        <div class="stat"><div class="stat-num">$20M+</div><div class="stat-label">in private funding leveraged and aligned for affordable housing and nonprofit grants</div></div>
+        <div class="stat"><div class="stat-num">12%</div><div class="stat-label">decrease in DC homelessness since 2020, in part driven by these investments</div></div>
+      </div>
+      <p>The survey revealed that three-quarters of residents agreed ending homelessness was a priority, nearly 1 in 3 DC residents personally knew someone experiencing homelessness, and almost two-thirds were willing to pay more taxes for affordable housing. That data gave the Foundation the evidence base to build a coalition of private-sector leaders, advocate for over 4,000 new Permanent Supportive Housing vouchers, and fund a <a href="https://dcfpi.org/all/bringing-it-all-home-how-dc-can-become-the-first-major-city-to-end-chronic-homelessness-and-provide-higher-quality-services-2/" target="_blank">landmark DCFPI report</a> on how DC could become the first major city to end chronic homelessness.</p>
+
+      <button class="expand-toggle" onclick="toggleExpand(this)">How did the data flow into policy? <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
+      <div class="expand-content">
+        <div class="expand-inner">
+          <p>In 2025, GWCF President Tonia Wellons advocated directly for specific DC budget items informed by VoicesDMV data — including 1,260 new PSH vouchers, $6.5M for the Coordinated Street Outreach Network, $17.3M for the Local Rent Supplement Program, and $100M for the Housing Production Trust Fund. The <a href="https://www.thecommunityfoundation.org/community-action-awards" target="_blank">VoicesDMV Community Action Awards</a> also provide microgrants to nonprofits working on issues surfaced in the survey, and the VoicesDMV Fellowship supports individuals deeply rooted in priority communities. The most recent survey found that 85% of residents believe they have little to no influence on local government decision-making — underscoring why elevating resident voices is essential for democratic accountability.</p>
+        </div>
+      </div>
+
+      <div class="sources">
+        <p>Sources &amp; further reading:</p>
+        <a href="https://www.thecommunityfoundation.org/voicesdmv" target="_blank">VoicesDMV Hub — Greater Washington Community Foundation</a><br>
+        <a href="https://www.thecommunityfoundation.org/partnership-to-end-homelessness" target="_blank">Partnership to End Homelessness — GWCF</a><br>
+        <a href="https://www.thecommunityfoundation.org/news/permanent-supportive-housing-a-smart-investment-towards-ending-homelessness-in-dc" target="_blank">PSH: A Smart Investment Towards Ending Homelessness in DC — GWCF</a><br>
+        <a href="https://news.gallup.com/opinion/gallup/315830/listening-community-greater-washington-region.aspx" target="_blank">Gallup — Listening to the Community in the Greater Washington Region</a><br>
+        <a href="https://www.thecommunityfoundation.org/news/voicesdmv-survey-release" target="_blank">2020 VoicesDMV Survey Release — GWCF</a><br>
+        <a href="https://dcfpi.org/all/bringing-it-all-home-how-dc-can-become-the-first-major-city-to-end-chronic-homelessness-and-provide-higher-quality-services-2/" target="_blank">DC Fiscal Policy Institute — Bringing It All Home report</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ CASE 3: FINDEX ════════ -->
+<section class="section section-accent" data-nav="Financial Inclusion">
+  <div class="case-header reveal">
+    <div class="case-number">03</div>
+    <div>
+      <span class="case-sub">World Bank Global Findex Database</span>
+      <h2>From Invisible to Accountable — Tracking Financial Inclusion for 3.8 Billion People</h2>
+    </div>
+  </div>
+  <div class="case-flow">
+    <div class="flow-block reveal">
+      <span class="flow-tag">The Landscape</span>
+      <p>Until 2011, the world had no systematic way to track who had bank accounts or how billions of people saved, borrowed, and managed financial risk. Policymakers relied on incomplete supply-side data from central banks. The scale of financial exclusion — and the opportunity it represented — was invisible.</p>
+    </div>
+    <div class="flow-block reveal">
+      <span class="flow-tag">Gallup's Approach</span>
+      <p>With funding from the Bill &amp; Melinda Gates Foundation, the <a href="https://www.worldbank.org/en/publication/globalfindex" target="_blank">World Bank partnered with Gallup</a> to build the Global Findex — the world's only demand-side survey of financial inclusion. Fielded through Gallup's World Poll in 140+ economies every three years since 2011, the 2025 edition surveyed approximately 148,000 adults in 141 economies. The Findex has been <a href="https://www.gallup.com/analytics/258293/world-bank-global-findex.aspx" target="_blank">downloaded over 100,000 times</a> and is the most-downloaded microdata set on the World Bank data platform.</p>
+    </div>
+    <div class="flow-block reveal">
+      <span class="flow-tag">Tangible Outcomes</span>
+      <div class="stat-row">
+        <div class="stat"><div class="stat-num">100K+</div><div class="stat-label">downloads — the most-accessed microdata set on the World Bank platform</div></div>
+        <div class="stat"><div class="stat-num">110+</div><div class="stat-label">countries using Findex to inform financial inclusion strategies</div></div>
+      </div>
+      <p>Findex became the official U.N. SDG indicator (8.10.2), tracks the World Bank's Universal Financial Access goal, and is the definitive source informing national and international financial inclusion strategies. Its disaggregated data exposed the persistent gender gap in account ownership, catalyzing targeted investment — particularly in mobile banking across Sub-Saharan Africa, where the data quantified the massive opportunity for private-sector innovation.</p>
+      <div class="quote">
+        "Global surveys should have been instituted many years ago by the World Bank or the United Nations, but it took a private sector organization to succeed where the international organizations had failed so badly."
+        <span class="quote-attr">— Sir Angus Deaton, Nobel Laureate in Economics</span>
+      </div>
+      <div class="sources">
+        <p>Sources &amp; further reading:</p>
+        <a href="https://www.worldbank.org/en/publication/globalfindex" target="_blank">Global Findex Database 2025 — World Bank</a><br>
+        <a href="https://www.gallup.com/analytics/258293/world-bank-global-findex.aspx" target="_blank">Gallup — World Bank Monitors Progress on Financial Inclusion</a><br>
+        <a href="https://news.gallup.com/opinion/gallup/232481/global-findex-technology-bridge-financial-inclusion-gap.aspx" target="_blank">Gallup — Global Findex: Technology Can Bridge the Financial Inclusion Gap</a><br>
+        <a href="https://www.worldbank.org/en/news/feature/2023/02/02/latest-global-findex-data-chart-10-years-of-progress-in-financial-inclusion" target="_blank">World Bank — Latest Global Findex Data Chart 10 Years of Progress</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ CASE 4: MODERN SLAVERY ════════ -->
+<section class="section section-mid" data-nav="Modern Slavery">
+  <div class="case-header reveal">
+    <div class="case-number">04</div>
+    <div>
+      <span class="case-sub">Walk Free Foundation &amp; ILO — Global Estimates of Modern Slavery</span>
+      <h2>Survey Data Cited on the Floor of Parliament — and Written Into Law</h2>
+    </div>
+  </div>
+  <div class="case-flow">
+    <div class="flow-block reveal">
+      <span class="flow-tag">The Landscape</span>
+      <p>Modern slavery — forced labor, forced marriage, human trafficking — affects an estimated 50 million people on any given day. But until this collaboration, no reliable, nationally representative data existed to quantify the problem at a global scale, hold governments accountable, or mobilize legislative action. The victims of modern slavery are, by definition, a hidden population.</p>
+    </div>
+    <div class="flow-block reveal">
+      <span class="flow-tag">Gallup's Approach</span>
+      <p>Gallup devised an innovative methodology to reach this hidden population through the <a href="https://www.gallup.com/analytics/239159/responsibility-end-modern-slavery.aspx" target="_blank">Gallup World Poll</a>, conducting nationally representative surveys across 72 countries — more than 77,000 respondents on forced labor and 109,000 on forced marriage. The resulting <a href="https://www.walkfree.org/projects/global-estimates-of-modern-slavery/" target="_blank">Global Estimates of Modern Slavery</a>, produced with the ILO and Walk Free, became the official baseline for U.N. SDG Target 8.7. The 2021 estimates were launched at the United Nations General Assembly.</p>
+    </div>
+    <div class="flow-block reveal">
+      <span class="flow-tag">Tangible Outcomes</span>
+      <p>The research produced concrete legislative change. In Australia, the estimates were directly cited during parliamentary debate and helped build the case for the <strong style="color:var(--coral-light)">Modern Slavery Act (2018)</strong>. In New Zealand, the data supported proposed modern slavery legislation. The ILO has since supported national forced labor surveys in 17 countries using the methodology.</p>
+      <p>At the corporate level, companies and investors incorporated the estimates into human rights due diligence strategies. Corporate sustainability reports now routinely cite the figures for compliance under modern slavery legislation in the UK and Australia. The research has been cited in over 100 peer-reviewed publications and its methodology fed back into updated international measurement standards (ICLS guidelines).</p>
+      <div class="stat-row">
+        <div class="stat"><div class="stat-num">5B</div><div class="stat-label">people reached through global media at the 2018 launch</div></div>
+        <div class="stat"><div class="stat-num">100+</div><div class="stat-label">peer-reviewed academic publications citing the research</div></div>
+      </div>
+
+      <button class="expand-toggle" onclick="toggleExpand(this)">What recognition has the methodology received? <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
+      <div class="expand-content">
+        <div class="expand-inner">
+          <p>In 2025, the Walk Free, Gallup, and ILO collaboration <a href="https://www.walkfree.org/news/2025/global-research-recognised-for-advancing-the-fight-to-address-modern-slavery/" target="_blank">won a prestigious MRS International Research Award</a>. Judges commended the project for its scale, complexity, and impact. Walk Free Founding Director Grace Forrest noted: "This award reflects our joint commitment to producing rigorous research that deepens understanding of global human rights." The methodology has also catalyzed debate on ethical measurement practices and positioned GEMS as a benchmark for future research on other hidden populations.</p>
+        </div>
+      </div>
+
+      <div class="sources">
+        <p>Sources &amp; further reading:</p>
+        <a href="https://www.gallup.com/analytics/239159/responsibility-end-modern-slavery.aspx" target="_blank">Gallup — Responsibility to End Modern Slavery</a><br>
+        <a href="https://www.walkfree.org/global-slavery-index/" target="_blank">Walk Free — Global Slavery Index 2023</a><br>
+        <a href="https://www.walkfree.org/news/2025/global-research-recognised-for-advancing-the-fight-to-address-modern-slavery/" target="_blank">Walk Free — Research Recognised for Advancing the Fight</a><br>
+        <a href="https://www.walkfree.org/projects/global-estimates-of-modern-slavery/" target="_blank">Walk Free — Global Estimates of Modern Slavery</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ CASE 5: GALLUP-PURDUE ════════ -->
+<section class="section section-dark" data-nav="Higher Education">
+  <div class="case-header reveal">
+    <div class="case-number">05</div>
+    <div>
+      <span class="case-sub">Gallup-Purdue Index (now Gallup Alumni Survey)</span>
+      <h2>The Data That Changed What Universities Optimize For</h2>
+    </div>
+  </div>
+  <div class="case-flow">
+    <div class="flow-block reveal">
+      <span class="flow-tag">The Landscape</span>
+      <p>American higher education measured success through rankings, graduation rates, and starting salaries — metrics that told you where graduates ended up, but nothing about whether the college experience prepared them for fulfilling lives. No national framework existed to connect what happens <em>during</em> college to long-term wellbeing and career engagement. Universities were making strategic decisions without a map of what actually mattered.</p>
+    </div>
+    <div class="flow-block reveal">
+      <span class="flow-tag">Gallup's Approach</span>
+      <p>In partnership with <a href="https://www.purdue.edu/newsroom/archive/releases/2013/Q4/gallup-and-purdue-university-partner-to-measure-college-outcomes-with-landmark-study.html" target="_blank">Purdue University</a> and Lumina Foundation, Gallup built the largest representative study of college graduates in U.S. history — with a national benchmarking database that now includes more than 75,000 alumni. The research identified six specific college experiences (the "Big Six"): graduates who had supportive relationships with professors and mentors saw their odds of being engaged at work and thriving in wellbeing more than double; those who had experiential learning opportunities saw their engagement odds double as well. The finding that shattered conventional wisdom: where you go to college matters far less than how you experience it. Only 3% of graduates had all six experiences — exposing a massive, actionable gap.</p>
+    </div>
+    <div class="flow-block reveal">
+      <span class="flow-tag">Tangible Outcomes</span>
+      <p><strong style="color:var(--coral-light)">State-level policy change:</strong> The <a href="https://www.in.gov/che/gallup-indiana-survey/" target="_blank">Indiana Commission for Higher Education</a> adopted the framework statewide, using it as a core component of its first-in-the-nation College Value Index. Indiana's new College Scholar Success Program then added requirements for 21st Century Scholars to identify a mentor and complete career engagement and experiential learning activities each year to maintain their scholarships — requirements mapped directly to the Big Six.</p>
+      <p><strong style="color:var(--coral-light)">System-wide institutional adoption:</strong> The entire <a href="https://www.northcarolina.edu/news/gallup-releases-alumni-survey-highlighting-the-value-of-a-unc-system-education/" target="_blank">UNC System</a> (16 universities, 240,000+ students) surveyed 77,695 alumni and presented results to its Board of Governors. <a href="https://ira.virginia.edu/data-analytics/survey-data/gallup" target="_blank">The University of Virginia</a>, <a href="https://reports.utexas.edu/gallup-survey" target="_blank">UT Austin</a>, <a href="https://www.wgu.edu/blog/gallup-2023-alumni-report2404.html" target="_blank">Western Governors University</a>, Butler, and others hired Gallup to benchmark their graduates against national data.</p>
+      <p><strong style="color:var(--coral-light)">Strategic plan integration:</strong> <a href="https://www.gallup.com/education/246980/measuring-right-things-students.aspx" target="_blank">Robert Morris University</a> wrote the Big Six into its institutional strategic plan, requiring every academic school to incorporate them. Purdue's own president directed the provost to lead an improvement initiative after the data revealed Purdue graduates trailed the national average on whether professors cared about them as a person (17% vs. 21% nationally).</p>
+
+      <button class="expand-toggle" onclick="toggleExpand(this)">Which institutions participated? <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
+      <div class="expand-content">
+        <div class="expand-inner">
+          <p>Indiana alone ran a statewide survey across Ball State, Butler, Ivy Tech, Marian University, Vincennes University, WGU Indiana, and others — producing individual college scorecards for each. Gallup has described the Alumni Survey as comparable to a third-party financial audit for universities — its national benchmarking database of 75,000+ alumni enables any institution to compare itself against peer cohorts by Carnegie Classification, athletic division, or state.</p>
+        </div>
+      </div>
+
+      <div class="sources">
+        <p>Sources &amp; further reading:</p>
+        <a href="https://www.gallup.com/education/194264/gallup-alumni-survey.aspx" target="_blank">Gallup Alumni Survey — Measuring College &amp; University Outcomes</a><br>
+        <a href="https://www.in.gov/che/gallup-indiana-survey/" target="_blank">Indiana Commission for Higher Education — Gallup-Indiana Survey</a><br>
+        <a href="https://www.northcarolina.edu/news/gallup-releases-alumni-survey-highlighting-the-value-of-a-unc-system-education/" target="_blank">UNC System — Gallup Alumni Survey Results</a><br>
+        <a href="https://www.gallup.com/education/246980/measuring-right-things-students.aspx" target="_blank">Gallup — Robert Morris University: Measuring the Right Things</a><br>
+        <a href="https://news.gallup.com/poll/168848/life-college-matters-life-college.aspx" target="_blank">Gallup — Life in College Matters for Life After College</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ CTA / CLOSE ════════ -->
+<section class="cta-section" data-nav="Looking Ahead">
+  <span class="section-label reveal">Looking Ahead</span>
+  <h2 class="reveal">America's Missing Data Problem</h2>
+  <p class="reveal" style="margin-bottom:24px">Each of these examples began the same way: leaders discovered that the data they had — census figures, administrative records, economic indicators — couldn't tell them where their dollars would produce the most impact. Census data tells you who lives where. It doesn't tell you where residents trust institutions enough for programs to work, where a single investment in transportation access could unlock employment for thousands, or where community infrastructure is already generating returns that deserve to be scaled.</p>
+  <p class="reveal" style="margin-bottom:24px">That gap persists nationwide. Today, philanthropy and government deploy billions annually into communities based on demographic proxies and program-level evaluations — but without a consistent, representative baseline of how residents across the country actually experience economic mobility, safety, education, health, and opportunity. In Detroit, it took a survey to discover that a neighborhood no one expected to be thriving was outperforming wealthier areas — because a specific investment model was working. In DC, it took a survey to quantify that two-thirds of residents would support tax increases for affordable housing — giving a foundation the evidence to mobilize $20 million in aligned funding. Those insights were invisible in existing data, and they fundamentally changed where and how leaders invested.</p>
+  <p class="reveal" style="margin-bottom:24px">A nationwide community study — designed with the same rigor as Findex, the same hyperlocal precision as Detroit, and the same commitment to reaching underrepresented voices — would give funders, policymakers, and civic leaders the shared evidence base they need to maximize the return on every dollar deployed. It would identify which community investments are producing outsized results, where the greatest unmet needs are concentrated, and which policy strategies have the broadest public support to galvanize government co-investment. The goal isn't more data — it's fewer wasted dollars and more multiplier effects from the capital already being deployed.</p>
+  <p class="reveal" style="color:rgba(255,255,255,.45);font-size:.88rem;margin-top:48px">The communities with the greatest potential for impact are the ones least visible in existing data.<br>Reaching them isn't just good research — it's the difference between efficient investment and guesswork.</p>
+</section>
+
+<!-- ════════ FOOTER ════════ -->
+<footer style="background:var(--navy-deep);padding:40px 8vw;border-top:1px solid rgba(255,255,255,.04)">
+  <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px">
+    <div style="color:rgba(255,255,255,.25);font-size:.75rem">Prepared by Gallup &nbsp;·&nbsp; Confidential</div>
+    <div style="color:rgba(255,255,255,.25);font-size:.75rem">April 2026</div>
+  </div>
+</footer>
+
+<script>
+// ─── Progress bar ───
+window.addEventListener('scroll',()=>{
+  const h=document.documentElement;
+  const pct=(h.scrollTop)/(h.scrollHeight-h.clientHeight)*100;
+  document.getElementById('progressBar').style.width=pct+'%';
+});
+
+// ─── Scroll reveal ───
+const reveals=document.querySelectorAll('.reveal');
+const obs=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}})
+},{threshold:.12});
+reveals.forEach(r=>obs.observe(r));
+
+// ─── Nav dots with tooltips ───
+const sections=document.querySelectorAll('[data-nav]');
+const dotsContainer=document.getElementById('navDots');
+sections.forEach((s)=>{
+  const dot=document.createElement('button');
+  dot.className='nav-dot';
+  const tip=document.createElement('span');
+  tip.className='nav-tip';tip.textContent=s.dataset.nav;
+  dot.appendChild(tip);
+  dot.addEventListener('click',()=>s.scrollIntoView({behavior:'smooth'}));
+  dotsContainer.appendChild(dot);
+});
+const dots=document.querySelectorAll('.nav-dot');
+const obsNav=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      const i=[...sections].indexOf(e.target);
+      dots.forEach((d,j)=>d.classList.toggle('active',j===i));
+    }
+  })
+},{threshold:.3});
+sections.forEach(s=>obsNav.observe(s));
+
+// ─── Expandable sections ───
+function toggleExpand(btn){
+  btn.classList.toggle('open');
+  const content=btn.nextElementSibling;
+  if(content.classList.contains('open')){
+    content.style.maxHeight='0';content.classList.remove('open');
+  } else {
+    content.style.maxHeight=content.scrollHeight+40+'px';
+    content.classList.add('open');
+  }
+}
+</script>
+</body>
+</html>
