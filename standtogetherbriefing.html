@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stand Together Retreat — Briefing Document</title>
+<style>
+:root{--g:#00835a;--gd:#004d35;--gl:#e6f5ef;--ink:#1a1a1a;--i80:#3d3d3d;--i60:#666;--i40:#999;--i20:#ccc;--i10:#e5e5e5;--i05:#f2f2f2;--w:#fff;--am:#d4840a;--amb:#fef6e8;--rd:#c0392b;--bl:#2471a3;--pu:#7d3c98;--r:8px;--sh:0 2px 12px rgba(0,0,0,.08);--fd:'Playfair Display',Georgia,serif;--fb:'Source Sans 3','Segoe UI',system-ui,sans-serif}
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700;800&family=Source+Sans+3:wght@300;400;500;600;700&display=swap');
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:15px}body{font-family:var(--fb);color:var(--ink);background:#f7f8f9;line-height:1.6}
+.hero{background:linear-gradient(135deg,var(--gd) 0%,var(--g) 50%,#33a67d 100%);color:var(--w);padding:48px 28px 40px;position:relative;overflow:hidden}
+.hero::after{content:'';position:absolute;top:-40%;right:-10%;width:500px;height:500px;background:radial-gradient(circle,rgba(255,255,255,.06) 0%,transparent 70%);border-radius:50%}
+.hero-label{font-size:11px;letter-spacing:2.5px;text-transform:uppercase;opacity:.7;margin-bottom:6px;font-weight:600}
+.hero h1{font-family:var(--fd);font-size:clamp(26px,5vw,36px);font-weight:700;line-height:1.2;margin-bottom:6px}
+.hero h2{font-size:16px;font-weight:300;opacity:.85;margin-bottom:20px}
+.hero-meta{display:flex;gap:20px;flex-wrap:wrap;font-size:13px;opacity:.8}
+.hero-meta span{display:flex;align-items:center;gap:5px}
+.nav-bar{position:sticky;top:0;z-index:100;background:var(--w);border-bottom:1px solid var(--i10);padding:0 16px;display:flex;overflow-x:auto;gap:0;-webkit-overflow-scrolling:touch}
+.nav-bar::-webkit-scrollbar{display:none}
+.nav-tab{padding:13px 16px;font-size:12.5px;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:var(--i60);border:none;background:none;cursor:pointer;white-space:nowrap;border-bottom:2.5px solid transparent;transition:all .2s}
+.nav-tab:hover{color:var(--ink)}.nav-tab.active{color:var(--g);border-bottom-color:var(--g)}
+.content{max-width:800px;margin:0 auto;padding:20px 16px 80px}
+.section{display:none;animation:fadeUp .35s ease}.section.active{display:block}
+@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.card{background:var(--w);border-radius:var(--r);box-shadow:var(--sh);margin-bottom:16px;overflow:hidden}
+.card-head{padding:16px 18px;display:flex;align-items:center;gap:10px;cursor:pointer;user-select:none;border-bottom:1px solid var(--i05)}
+.card-head h3{font-family:var(--fd);font-size:17px;font-weight:700;flex:1}
+.card-head .chv{width:18px;height:18px;transition:transform .25s;color:var(--i40)}
+.card-head .chv.open{transform:rotate(180deg)}
+.card-body{padding:18px;font-size:14px;color:var(--i80);line-height:1.7}
+.card-body.collapsed{display:none}
+.tag{display:inline-block;padding:3px 10px;border-radius:20px;font-size:11px;font-weight:600;letter-spacing:.5px;text-transform:uppercase}
+.tag-green{background:var(--gl);color:var(--gd)}.tag-amber{background:var(--amb);color:var(--am)}.tag-blue{background:#eaf2f8;color:var(--bl)}.tag-purple{background:#f4ecf7;color:var(--pu)}.tag-red{background:#fbe9e7;color:var(--rd)}
+.pbox{background:linear-gradient(135deg,#fef9e7,#fef6e8);border-left:4px solid var(--am);border-radius:var(--r);padding:16px 18px;margin-bottom:16px}
+.pbox h4{font-family:var(--fd);font-size:15px;font-weight:700;margin-bottom:8px;color:var(--am)}
+.pbox p,.pbox li{font-size:13.5px;color:var(--i80);line-height:1.65}
+.abox{background:linear-gradient(135deg,var(--gl),#d5f0e4);border-left:4px solid var(--g);border-radius:var(--r);padding:16px 18px;margin-bottom:16px}
+.abox h4{font-family:var(--fd);font-size:15px;font-weight:700;margin-bottom:8px;color:var(--gd)}
+.abox p,.abox li{font-size:13.5px;color:var(--i80);line-height:1.65}
+.people-grid{display:grid;grid-template-columns:1fr;gap:12px}
+.person{display:flex;gap:14px;align-items:flex-start;padding:14px;background:var(--i05);border-radius:var(--r)}
+.pav{width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:15px;color:var(--w);flex-shrink:0;overflow:hidden;background:var(--i40)}
+.pav img{width:100%;height:100%;object-fit:cover}
+.person-info h4{font-size:14px;font-weight:700;margin-bottom:2px}
+.person-info p{font-size:12.5px;color:var(--i60);line-height:1.5}
+.person-info .ptag{margin-top:4px}
+.timeline{position:relative;padding-left:20px}
+.timeline::before{content:'';position:absolute;left:5px;top:4px;bottom:4px;width:2px;background:var(--i10)}
+.tl-item{position:relative;padding:0 0 18px 16px}
+.tl-item::before{content:'';position:absolute;left:-19px;top:5px;width:10px;height:10px;border-radius:50%;border:2px solid var(--g);background:var(--w)}
+.tl-item.done::before{background:var(--g)}.tl-item.active::before{background:var(--am);border-color:var(--am);box-shadow:0 0 0 3px rgba(212,132,10,.2)}
+.tl-date{font-size:11px;font-weight:700;color:var(--i40);text-transform:uppercase;letter-spacing:.5px}
+.tl-title{font-size:13.5px;font-weight:600;color:var(--ink);margin-top:2px}
+.tl-desc{font-size:12.5px;color:var(--i60);margin-top:2px}
+.tp{padding:14px 16px;border-radius:var(--r);background:var(--w);border:1px solid var(--i10);margin-bottom:10px}
+.tp-label{font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--g);margin-bottom:6px}
+.tp-text{font-size:14px;color:var(--ink);line-height:1.6;font-weight:500}
+.tp-context{font-size:12.5px;color:var(--i60);margin-top:6px;line-height:1.55;font-style:italic}
+.notes-area{margin-top:16px}.notes-area textarea{width:100%;min-height:100px;padding:14px;border:1px solid var(--i20);border-radius:var(--r);font-family:var(--fb);font-size:14px;resize:vertical;line-height:1.6;color:var(--ink)}
+.notes-area textarea:focus{outline:none;border-color:var(--g);box-shadow:0 0 0 3px rgba(0,131,90,.12)}
+.notes-label{font-size:12px;font-weight:600;color:var(--i60);margin-bottom:6px;display:flex;align-items:center;gap:6px}
+.sep{height:1px;background:var(--i10);margin:20px 0}
+.mb-12{margin-bottom:12px}.mb-16{margin-bottom:16px}.mb-20{margin-bottom:20px}
+.text-sm{font-size:13px}.text-xs{font-size:12px;color:var(--i60)}
+.section-title{font-family:var(--fd);font-size:22px;font-weight:700;margin-bottom:16px;color:var(--ink)}
+.sub-title{font-size:13px;font-weight:600;color:var(--i60);text-transform:uppercase;letter-spacing:1px;margin-bottom:10px}
+.footer{text-align:center;padding:24px 16px;font-size:11px;color:var(--i40);line-height:1.6}
+.landmine{background:#fff5f5;border-left:4px solid var(--rd);border-radius:var(--r);padding:14px 16px;margin-bottom:16px}
+.landmine h4{font-size:14px;font-weight:700;color:var(--rd);margin-bottom:6px}
+.landmine p{font-size:13px;color:var(--i80);line-height:1.6}
+.gpss-box{background:var(--w);border:1px solid var(--i10);border-radius:var(--r);padding:16px 18px;margin-bottom:12px}
+.gpss-q{font-style:italic;font-size:14px;color:var(--ink);line-height:1.6;margin-bottom:10px;padding:10px 14px;background:var(--i05);border-radius:6px;border-left:3px solid var(--g)}
+.gpss-trend{font-size:12.5px;color:var(--i60);line-height:1.7}
+.gpss-trend strong{color:var(--ink)}
+.pill-bar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+.pill{padding:6px 14px;border-radius:20px;font-size:12px;font-weight:600;background:var(--w);border:1px solid var(--i20);color:var(--i60);cursor:default}
+@media(min-width:600px){.people-grid{grid-template-columns:1fr 1fr}.hero{padding:56px 40px 48px}.content{padding:28px 24px 80px}}
+</style>
+</head>
+<body>
+<div class="hero">
+  <div class="hero-label">Confidential · Internal Briefing Document</div>
+  <h1>Stand Together Retreat</h1>
+  <h2>Project Overview — Be The People & Power of Purpose</h2>
+  <div class="hero-meta">
+    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg> Prepared April 26, 2026</span>
+    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> Two Stand Together Projects</span>
+  </div>
+</div>
+
+<div class="nav-bar" id="navBar">
+  <button class="nav-tab active" data-tab="overview">Overview</button>
+  <button class="nav-tab" data-tab="btp">Be The People</button>
+  <button class="nav-tab" data-tab="pop">Power of Purpose</button>
+  <button class="nav-tab" data-tab="people">Key People</button>
+  <button class="nav-tab" data-tab="talking">Talking Points</button>
+  <button class="nav-tab" data-tab="notes">Notes</button>
+</div>
+
+<div class="content">
+
+<!-- ===== OVERVIEW ===== -->
+<div class="section active" id="overview">
+  <h2 class="section-title">At a Glance</h2>
+  <p class="text-sm mb-20" style="color:var(--i60)">Gallup runs two major projects under the Stand Together umbrella. This briefing covers both in preparation for the retreat, where Stand Together executives and leadership will be present.</p>
+
+  <div class="pbox">
+    <h4>Strategic Opportunities at This Retreat</h4>
+    <p style="margin-bottom:8px"><strong>1. Be The People (flagship):</strong> There is an opportunity to discuss expanding Gallup's role from research partner to full activation partner. Gallup has comms, media, and events capabilities that could significantly amplify this project. The question to explore with Stand Together leadership: what would it look like to design something ambitious together?</p>
+    <p><strong>2. Power of Purpose / HPN:</strong> There is strong appetite — demonstrated in a recent conversation in San Diego with Ryan Stowers and Andy Tonsing — for a major AI-and-workers program within the Human Potential Network. This would be a natural extension of the purpose work, and Gallup is uniquely positioned to measure AI's impact on purpose.</p>
+  </div>
+
+  <div class="card">
+    <div class="card-head" onclick="toggle(this)">
+      <span class="tag tag-green">Flagship</span>
+      <h3>Be The People</h3>
+      <svg class="chv" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+    </div>
+    <div class="card-body">
+      <p><strong>What it is:</strong> A groundbreaking national survey measuring the "American spirit" — contribution mindset, agency, belonging, and shared beliefs rooted in the Declaration of Independence. Survey of 8,000 U.S. adults via Gallup Panel (web + mail). Year 1 of a potential 5-year engagement.</p>
+      <p style="margin-top:10px"><strong>Why it matters:</strong> This is the higher-visibility, more strategic of the two projects. Brian Hooks is directly involved and helped set the philosophical framework. Gallup helped seed the vision from the outset.</p>
+      <p style="margin-top:10px"><strong>Status now:</strong> Web survey live since April 20. Mail survey fielding May 1 – June 26. GPSS vault questions fielding in May. First data available mid-July. Pre-Labor Day releases planned (5-page report + articles), with 20-page flagship report in October.</p>
+      <p style="margin-top:10px"><strong>Client entity:</strong> BPFP, Inc. (Be the People for the People)</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-head" onclick="toggle(this)">
+      <span class="tag tag-blue">Growing</span>
+      <h3>Power of Purpose</h3>
+      <svg class="chv" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+    </div>
+    <div class="card-body">
+      <p><strong>What it is:</strong> Research initiative measuring how purpose drives employee engagement, retention, and performance. Created two new indices: Life Purpose Index and Work Purpose Index. Co-branded report launched at the 2025 Human Potential Summit.</p>
+      <p style="margin-top:10px"><strong>Headline findings:</strong> Only 17% of employed Americans report a strong sense of life purpose. Those who do are 3.8x more likely to be engaged at work. Purpose-driven employees are less likely to job hunt, burn out, or feel stressed.</p>
+      <p style="margin-top:10px"><strong>Status now:</strong> Year 1 complete and well-received. Year 2 expansion proposed — includes employer sprint cohort, executive roundtable at Gallup DC HQ, research refresh, and Forbes media partnership. Beacon Fund grant application submitted through Stand Together Trust; decision imminent.</p>
+      <p style="margin-top:10px"><strong>Strategic context:</strong> This sits within Stand Together's Human Potential Network (HPN) — a premier employer community reimagining hiring and upskilling. Gallup is the research and activation backbone of HPN's Purpose Pillar.</p>
+    </div>
+  </div>
+
+  <div class="abox">
+    <h4>How the Two Projects Connect</h4>
+    <p>Be The People is civic-facing (measuring the American spirit, agency, contribution mindset). Power of Purpose is workplace-facing (purpose as a driver of engagement and business outcomes). Both share the Stand Together umbrella and the themes of human flourishing, agency, and contribution. Together they demonstrate Gallup's breadth as a partner across Stand Together's mission.</p>
+  </div>
+</div>
+
+<!-- ===== BE THE PEOPLE ===== -->
+<div class="section" id="btp">
+  <h2 class="section-title">Be The People</h2>
+  <div class="pill-bar">
+    <span class="pill" style="background:var(--gl);border-color:var(--g);color:var(--gd)">Year 1 of 5</span>
+    <span class="pill" style="background:#fef6e8;border-color:var(--am);color:var(--am)">Survey In Field</span>
+  </div>
+
+  <div class="card">
+    <div class="card-head" onclick="toggle(this)">
+      <h3>Core Concept & Philosophy</h3>
+      <svg class="chv" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+    </div>
+    <div class="card-body">
+      <p><strong>The big idea:</strong> Develop a way to understand and track the "American spirit" — built around three principles from the Declaration of Independence:</p>
+      <p style="margin:10px 0"><strong>Life → Dignity</strong> of every person<br><strong>Liberty → Freedom</strong> to experiment, succeed, and fail<br><strong>Pursuit of Happiness → Positive-sum view</strong> of life; success through helping others succeed</p>
+      <p><strong>Central construct: Contribution Mindset</strong> — approaching problems with agency ("I can be part of the solution"), rejecting blame and zero-sum thinking, believing progress comes from helping others succeed. Brian Hooks stressed that contribution mindset depends on belief in dignity, liberty, and shared success.</p>
+      <p style="margin-top:10px"><strong>Two critical sub-constructs:</strong></p>
+      <p><strong>Agency:</strong> Belief that one's actions matter and problems can be solved.<br><strong>Belonging:</strong> Feeling part of something larger than oneself.</p>
+      <p style="margin-top:10px"><strong>Theory of change:</strong> Accurate measurement → corrected perceptions → permission to act → gradual cultural shift. The strategy relies on social proof — showing people that others like them already believe and act on these principles. This is not a persuasion campaign.</p>
+      <p style="margin-top:10px"><strong>Anchor signal:</strong> Brian identified a Pew finding as the most useful current indicator — only 47% of Americans believe Americans can solve their own problems.</p>
+    </div>
+  </div>
+
+  <div class="landmine">
+    <h4>Guardrails & Sensitivities</h4>
+    <p><strong>Non-political effort.</strong> Party ID analysis will be conducted, but publishing requires additional discussion. The story should not be built around partisan divides. The focus is on cross-community insights and shared values — "from-to" mindset rather than within-group comparisons.</p>
+    <p style="margin-top:6px"><strong>Income is a means, not the end.</strong> Economic mobility alone is an insufficient measure of the American Dream. Meaning and purpose exist even under hardship (Brian referenced Viktor Frankl).</p>
+    <p style="margin-top:6px"><strong>Voting is a poor proxy.</strong> Better behavioral signals include PTA involvement, neighborhood activities, helping neighbors — the "do one small thing" framing.</p>
+  </div>
+
+  <!-- GPSS -->
+  <div class="card">
+    <div class="card-head" onclick="toggle(this)">
+      <h3>GPSS Vault Questions — America 250 Angle</h3>
+      <svg class="chv" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+    </div>
+    <div class="card-body">
+      <p class="mb-12">Two historical Gallup items will be fielded on the May GPSS survey (~1,000 U.S. adults, phone). These create an early data release timed to July 4th and America's 250th birthday. Strong media hook.</p>
+
+      <div class="gpss-box">
+        <div class="gpss-q">"Overall, do you think the signers of the Declaration of Independence would be pleased or disappointed by the way the United States has turned out?"</div>
+        <div class="gpss-trend">
+          <strong>Historical trend (% pleased / % disappointed):</strong><br>
+          1999: 44% pleased / 55% disappointed<br>
+          2001: <strong>54% pleased</strong> / 42% disappointed (high-water mark)<br>
+          2003: 50% / 48%<br>
+          2013: <strong>27% pleased / 71% disappointed</strong> (most recent)<br><br>
+          <em>First asked 2013 in this form. Consistent downward trend in "pleased" since 2001.</em>
+        </div>
+      </div>
+
+      <div class="gpss-box">
+        <div class="gpss-q">"Looking at America in our bicentennial year, how much do you think we have succeeded over these 200 years in achieving the ideals for which this country was founded, as you understand them?"</div>
+        <div class="gpss-trend">
+          <strong>Origin:</strong> Gallup, 1976 (bicentennial). Will be updated for 250 years.<br>
+          <em>Historical data from 1976 not publicly available in Gallup's online archive. The revival of this item after 50 years is itself a powerful narrative.</em>
+        </div>
+      </div>
+
+      <div class="landmine" style="margin-bottom:0">
+        <h4>Caution</h4>
+        <p>Results may be largely negative or highly partisan. The team has flagged this internally. Both items carry media value regardless of direction — if there's appetite for regulation, it's a story about how far trust in ideals has fallen; if not, it tells a different but equally compelling story.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- TIMELINE -->
+  <div class="card">
+    <div class="card-head" onclick="toggle(this)">
+      <h3>Key Milestones</h3>
+      <svg class="chv" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+    </div>
+    <div class="card-body">
+      <div class="timeline">
+        <div class="tl-item done"><div class="tl-date">Jan – Feb 2026</div><div class="tl-title">Stakeholder Interviews</div><div class="tl-desc">30 minutes each with Brian Hooks, Sarah Cross, and Todd Rose</div></div>
+        <div class="tl-item done"><div class="tl-date">Feb – Mar</div><div class="tl-title">Survey Development & Refinement</div><div class="tl-desc">Iterative design with client across 4 review cycles. Peer review and cognitive interviews completed.</div></div>
+        <div class="tl-item done"><div class="tl-date">Mar 23</div><div class="tl-title">Final Survey Approved</div><div class="tl-desc">Mail and web survey layout and programming began</div></div>
+        <div class="tl-item done"><div class="tl-date">Apr 20</div><div class="tl-title">Web Survey Live</div><div class="tl-desc">Fielding April 20 – May 1</div></div>
+        <div class="tl-item active"><div class="tl-date">May 1 – Jun 26</div><div class="tl-title">Mail Survey Fielding</div><div class="tl-desc">~10% of responses via mail. Most completed in first 4–6 weeks.</div></div>
+        <div class="tl-item"><div class="tl-date">May</div><div class="tl-title">GPSS Survey (vault questions)</div><div class="tl-desc">Two historical items fielded via phone. ~1,000 U.S. adults.</div></div>
+        <div class="tl-item"><div class="tl-date">Week of Jun 29</div><div class="tl-title">GPSS Article Release</div><div class="tl-desc">Gallup.com article timed to July 4th / America 250</div></div>
+        <div class="tl-item"><div class="tl-date">Week of Jul 13</div><div class="tl-title">Topline Data Available</div><div class="tl-desc">Proposed 90-minute working session Jul 16 or 17 to review data</div></div>
+        <div class="tl-item"><div class="tl-date">Week of Aug 3</div><div class="tl-title">Article 1 Release</div><div class="tl-desc">One of the bigger findings</div></div>
+        <div class="tl-item"><div class="tl-date">Week of Aug 24</div><div class="tl-title">5-Page Report + Article 2</div><div class="tl-desc">Pre-Labor Day release target</div></div>
+        <div class="tl-item"><div class="tl-date">Week of Sep 14</div><div class="tl-title">Article 3</div><div class="tl-desc">Third release moment based on data</div></div>
+        <div class="tl-item"><div class="tl-date">Week of Oct 14</div><div class="tl-title">20-Page Flagship Report + Article 4</div><div class="tl-desc">Summative report. Timing may flex around election/media cycle.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-head" onclick="toggle(this)">
+      <h3>Deliverables (In Scope)</h3>
+      <svg class="chv" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+    </div>
+    <div class="card-body collapsed">
+      <p>1 × GPSS article (Gallup.com, timed to America 250)<br>
+      3 × articles for Gallup.com (+ 1–2 additional approved by Justin)<br>
+      1 × summary report (5 pages)<br>
+      1 × annual report (20 pages)<br>
+      Co-branded research hub on Gallup.com<br>
+      Targeted media outreach + Gallup social amplification</p>
+      <p style="margin-top:10px"><em><strong>Not currently in scope (opportunity area):</strong> Support for planned activations, consultative recommendations for additional activations, campaign design. The team has flagged listening for opportunities to expand here.</em></p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-head" onclick="toggle(this)">
+      <h3>Team Note: Transition</h3>
+      <svg class="chv" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+    </div>
+    <div class="card-body collapsed">
+      <p><strong>Taylor Kerr</strong> (lead consultant) is going on maternity leave. <strong>Mary Kathryn Aviles</strong> is stepping in as point of contact. The client has been introduced. The Gallup team also includes Andy Kemp (analysis/reporting), Ellyn Maese (analysis), Stephen Raynes (survey programming), Jenny Marlar (survey research/Gallup Panel), Lydia Saad (U.S. social research), and Kristjan Archer (communications strategy).</p>
+    </div>
+  </div>
+</div>
+
+<!-- ===== POWER OF PURPOSE ===== -->
+<div class="section" id="pop">
+  <h2 class="section-title">Power of Purpose</h2>
+  <div class="pill-bar">
+    <span class="pill" style="background:#eaf2f8;border-color:var(--bl);color:var(--bl)">Year 1 Complete</span>
+    <span class="pill" style="background:var(--gl);border-color:var(--g);color:var(--gd)">Year 2 Proposed</span>
+  </div>
+
+  <div class="card">
+    <div class="card-head" onclick="toggle(this)">
+      <h3>Headline Findings to Know</h3>
+      <svg class="chv" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+    </div>
+    <div class="card-body">
+      <p><strong>Only 17%</strong> of employed Americans strongly agree they have a strong sense of life purpose.</p>
+      <p style="margin-top:8px">Those with strong life purpose are <strong>3.8x more likely to be engaged</strong> at work vs. those with low purpose.</p>
+      <p style="margin-top:8px"><strong>3.2x more likely to be thriving</strong> in life overall.</p>
+      <p style="margin-top:8px"><strong>67%</strong> of low-purpose employees are job hunting vs. <strong>43%</strong> of high-purpose — a 24-point gap.</p>
+      <p style="margin-top:8px">Just <strong>22%</strong> of employees say work and personal purpose are fully aligned.</p>
+      <p style="margin-top:8px"><strong>Only 30%</strong> of hiring managers say personal purpose is very important when evaluating new hires — despite its proven impact.</p>
+      <p style="margin-top:10px"><strong>Three strategies from the report:</strong> Make work purposeful. Connect work to employees' life purpose. Support all paths to purpose.</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-head" onclick="toggle(this)">
+      <h3>Gallup's Activation Role — Events & Dates</h3>
+      <svg class="chv" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+    </div>
+    <div class="card-body">
+      <p class="mb-12">Gallup is embedded as the research and activation backbone across every major touchpoint in the HPN ecosystem. Here is the 2026 activation schedule:</p>
+      <div class="timeline">
+        <div class="tl-item done"><div class="tl-date">Oct 2025</div><div class="tl-title">Human Potential Summit — Year 1 Launch</div><div class="tl-desc">Power of Purpose report presented at summit. Purpose sessions were among the most attended.</div></div>
+        <div class="tl-item done"><div class="tl-date">Dec 2025</div><div class="tl-title">Debrief Calls with Beacon Fund & Stand Together</div><div class="tl-desc">Both partners expressed strong appreciation. Identified Gen Z, employer tools, and AI as future priorities.</div></div>
+        <div class="tl-item done"><div class="tl-date">Jan 2026</div><div class="tl-title">HPN Roadmap Developed</div><div class="tl-desc">$535K core plan + $275K optional research extension. Five phases through HPS 2026.</div></div>
+        <div class="tl-item done"><div class="tl-date">Apr 14–16</div><div class="tl-title">ASU GSV Summit (San Diego)</div><div class="tl-desc">Gallup findings presented. Justin met with Andy Tonsing. HPN reception at WGU space.</div></div>
+        <div class="tl-item active"><div class="tl-date">May 4</div><div class="tl-title">Win Win Summit — HPN Breakfast (Chicago)</div><div class="tl-desc">Exclusive invite-only breakfast for ~30 HPN members at Venue Six10. Justin presenting Gallup findings at 7:35am. Companies include Google, Microsoft, McDonald's, KPMG, SHRM, United Airlines, Koch Inc., Ford Foundation, Sanofi, WGU. Also speaking at opening session.</div></div>
+        <div class="tl-item"><div class="tl-date">Spring 2026</div><div class="tl-title">Business Roundtable (Colorado)</div><div class="tl-desc">Invited to speak via Beacon Fund partner. Gallup presenting purpose research.</div></div>
+        <div class="tl-item"><div class="tl-date">Q2–Q3</div><div class="tl-title">Employer Purpose Sprint Kicks Off</div><div class="tl-desc">Cohort of 6–12 senior people leaders. 4 virtual working sessions. Builds a 10-page implementation playbook.</div></div>
+        <div class="tl-item"><div class="tl-date">Q3–Q4</div><div class="tl-title">Gallup-Hosted Activations</div><div class="tl-desc">Executive roundtable at Gallup DC HQ ($41.5K). Possible Stanford Learning Forum activation ($30K). Public event + webinar.</div></div>
+        <div class="tl-item"><div class="tl-date">Oct/Nov 2026</div><div class="tl-title">Human Potential Summit 2026</div><div class="tl-desc">Dedicated purpose track. Sprint cohort presentations. Mainstage speakers and case studies. Gallup speaking again.</div></div>
+        <div class="tl-item"><div class="tl-date">Ongoing</div><div class="tl-title">Forbes Partnership & Media</div><div class="tl-desc">Forbes storytelling ($150K in HPN roadmap). Gallup-hosted webinar. Op-eds and earned media.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-head" onclick="toggle(this)">
+      <h3>Human Potential Network (HPN) Context</h3>
+      <svg class="chv" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+    </div>
+    <div class="card-body collapsed">
+      <p>HPN is Stand Together's premier employer community reimagining hiring and upskilling at scale. The 2026 Purpose-Driven Workplace Pillar will move from insight to demonstrated action.</p>
+      <p style="margin-top:8px"><strong>2026 roadmap (5 phases):</strong></p>
+      <p>Phase 1: Define employer problem — discovery sessions ($25K)<br>
+      Phase 2: Employer Purpose Sprint — pilot new practices ($100K)<br>
+      Phase 3: Activations — Gallup HQ + Stanford ($80K)<br>
+      Phase 4: Human Potential Summit integration — dedicated purpose track ($150K)<br>
+      Phase 5: Media & amplification — Forbes + webinar ($180K)</p>
+      <p style="margin-top:10px"><strong>Companies in the HPN orbit:</strong> Google, Microsoft, McDonald's, United Airlines, KPMG, Sanofi, BMO Harris Bank, Koch Inc., Ford Foundation, SHRM, WGU, Advocate Health, TEKsystems, OneTen, Just Capital, and others.</p>
+      <p style="margin-top:10px"><strong>Thought partners:</strong> Michael Horn (facilitator), Tracy Brower and Gena Pirtle (subject-matter experts), Angela Jackson (Win Win Summit).</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-head" onclick="toggle(this)">
+      <h3>Year 2 Funding Status</h3>
+      <svg class="chv" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+    </div>
+    <div class="card-body collapsed">
+      <p><strong>Funding path:</strong> The Beacon Fund is submitting a formal grant application through Stand Together Trust. Decision was close as of late April — may be finalized by the time of the retreat.</p>
+      <p style="margin-top:8px"><strong>Three workstreams in Gallup's proposal:</strong></p>
+      <p>Amplification — articles, webinar, DC events, external presentations<br>
+      Project-Based Sprint — 4-session employer cohort, implementation playbook, HPS presentation<br>
+      Research Extension — Year 2 survey (n=4,000), employer-focused items, 15-page report with trend data</p>
+      <p style="margin-top:8px"><strong>Beacon Fund</strong> = "silent funder." Unlikely at the retreat. They support Stand Together's work as joint partners. Key contacts: Jill Iman and Jill Barkin.</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-head" onclick="toggle(this)">
+      <h3>Year 1 Report Summary</h3>
+      <svg class="chv" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+    </div>
+    <div class="card-body collapsed">
+      <p><strong>"The Power of Purpose: Why Purpose Matters for Employees and Workplaces"</strong> — co-branded Gallup × Stand Together report. Ryan Stowers (SVP) wrote the foreword.</p>
+      <p style="margin-top:8px">Survey conducted Aug 18–25, 2025, with 4,475 Gallup Panel members. Created the Life Purpose Index (10 items) and Work Purpose Index (3 items).</p>
+      <p style="margin-top:8px">Top sources of purpose: family (74%), job/work (35%), friends (34%), hobbies/passions (33%), faith/spirituality (32%).</p>
+      <p style="margin-top:8px">Key insight: purpose is accessible across all credential and career paths. Non-degree holders who are financially stable report life purpose at rates equal to college graduates.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ===== KEY PEOPLE ===== -->
+<div class="section" id="people">
+  <h2 class="section-title">Key People</h2>
+
+  <div class="sub-title">Stand Together — Leadership</div>
+  <div class="people-grid mb-20">
+    <div class="person">
+      <div class="pav" style="background:var(--gd)"><img src="https://standtogether.org/images/people/brian-hooks.jpg" onerror="this.style.display='none';this.parentElement.innerHTML='BH'"></div>
+      <div class="person-info">
+        <h4>Brian Hooks</h4>
+        <p>Chairman & CEO, Stand Together. Co-author of <em>Believe in People</em> with Charles Koch. TIME 100 Next honoree. Directly involved in Be The People — set the philosophical framework. Previously ran the Mercatus Center at George Mason. Warm relationship established.</p>
+        <div class="ptag"><span class="tag tag-green">BTP — Key</span> <span class="tag tag-purple">Most likely at retreat</span></div>
+      </div>
+    </div>
+    <div class="person">
+      <div class="pav" style="background:var(--bl)"><img src="data:image/jpeg;base64,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" onerror="this.parentElement.innerHTML='RS'"></div>
+      <div class="person-info">
+        <h4>Ryan Stowers</h4>
+        <p>SVP, Stand Together & ED, Charles Koch Foundation. Wrote the Power of Purpose foreword. Publicly championing findings (Salt Lake Tribune op-ed, podcasts). Sees purpose as a talent strategy and AI-era imperative. Was enthusiastic about AI-and-workers idea in San Diego conversation. Has not met Joe Daly previously.</p>
+        <div class="ptag"><span class="tag tag-blue">PoP — Key</span> <span class="tag tag-purple">Likely at retreat</span></div>
+      </div>
+    </div>
+    <div class="person">
+      <div class="pav" style="background:#1a5276"><img src="https://images.squarespace-cdn.com/content/v1/5f77ada87e59ef2a4e44a1d7/0f361bda-c7e0-4e0f-a4bc-e6a4e5bef8ac/todd+rose+headshot.jpg" onerror="this.style.display='none';this.parentElement.innerHTML='TR'"></div>
+      <div class="person-info">
+        <h4>Todd Rose</h4>
+        <p>Author, former Harvard professor. Stakeholder interviewee for BTP alongside Brian Hooks. Previous Gallup client contact — known to Joe Daly. Intellectual contributor to the project framework.</p>
+        <div class="ptag"><span class="tag tag-green">BTP — Influencer</span> <span class="tag tag-purple">Possible at retreat</span></div>
+      </div>
+    </div>
+    <div class="person">
+      <div class="pav" style="background:#5b2c6f"><img src="https://media.licdn.com/dms/image/v2/C4E03AQEXqOsBMtVoZQ/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1589293825588?e=2147483647&v=beta&t=andy-tonsing" onerror="this.style.display='none';this.parentElement.innerHTML='AT'"></div>
+      <div class="person-info">
+        <h4>Andy Tonsing</h4>
+        <p>VP Future of Work, Stand Together. Key operational partner on Power of Purpose Year 2 and HPN. Works directly with Justin Lall. Was enthusiastic about AI-and-workers idea in San Diego.</p>
+        <div class="ptag"><span class="tag tag-blue">PoP — Key</span></div>
+      </div>
+    </div>
+    <div class="person">
+      <div class="pav" style="background:#2c3e50">SM</div>
+      <div class="person-info">
+        <h4>Susan Motiff</h4>
+        <p>Primary day-to-day contact at Stand Together for Be The People. On all client calls and comms. Gatekeeper for TLG coordination.</p>
+        <div class="ptag"><span class="tag tag-green">BTP — Primary Contact</span></div>
+      </div>
+    </div>
+    <div class="person">
+      <div class="pav" style="background:#7d6608">MF</div>
+      <div class="person-info">
+        <h4>Mariah Farran</h4>
+        <p>Stand Together. Works with Susan on BTP. Coordinates with TLG on comms.</p>
+        <div class="ptag"><span class="tag tag-green">BTP</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sub-title">External Partners</div>
+  <div class="people-grid mb-20">
+    <div class="person">
+      <div class="pav" style="background:#1e8449">PR</div>
+      <div class="person-info">
+        <h4>Philip Rackin</h4>
+        <p>Co-founder & CSO of Proto (acquired by Stand Together). Strategy and transformation background (R/GA, Goldman Sachs, Google). On BTP comms calls. philip@wearepro.to</p>
+        <div class="ptag"><span class="tag tag-green">BTP — Strategy</span></div>
+      </div>
+    </div>
+    <div class="person">
+      <div class="pav" style="background:#2e86c1">SG</div>
+      <div class="person-info">
+        <h4>Steve Grant</h4>
+        <p>Bigger Picture / Stand Together network. Provides strategic guidance on BTP. sgrant@biggerpicture.us</p>
+        <div class="ptag"><span class="tag tag-green">BTP — Guidance</span></div>
+      </div>
+    </div>
+    <div class="person">
+      <div class="pav" style="background:#6c3483">HW</div>
+      <div class="person-info">
+        <h4>Harrison Wollman</h4>
+        <p>Senior Director, The Levinson Group (TLG). Third-party PR firm hired by Stand Together for BTP comms. hwollman@tlgcommunications.com / (310) 968-4946</p>
+        <div class="ptag"><span class="tag tag-amber">TLG — PR Partner</span></div>
+      </div>
+    </div>
+    <div class="person">
+      <div class="pav" style="background:#839192">JI</div>
+      <div class="person-info">
+        <h4>Jill Iman & Jill Barkin</h4>
+        <p>The Beacon Fund. Silent funding partner for Power of Purpose. Unlikely at the retreat. Submitting grant application for Year 2 through Stand Together Trust.</p>
+        <div class="ptag"><span class="tag tag-blue">PoP — Funder</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sub-title">Gallup Team</div>
+  <div class="people-grid mb-16">
+    <div class="person">
+      <div class="pav" style="background:var(--g)">JL</div>
+      <div class="person-info">
+        <h4>Justin Lall</h4>
+        <p>Principal. Senior relationship owner for both projects. Signed the BTP engagement letter. Leads PoP expansion with Andy Tonsing. Speaking at Win Win Summit May 4.</p>
+      </div>
+    </div>
+    <div class="person">
+      <div class="pav" style="background:var(--g)">TK</div>
+      <div class="person-info">
+        <h4>Taylor Kerr</h4>
+        <p>Consultant. Day-to-day BTP lead. Going on maternity leave — Mary Kathryn Aviles stepping in.</p>
+      </div>
+    </div>
+    <div class="person">
+      <div class="pav" style="background:var(--g)">MKA</div>
+      <div class="person-info">
+        <h4>Mary Kathryn Aviles</h4>
+        <p>Stepping in for Taylor Kerr on BTP account leadership during maternity leave.</p>
+      </div>
+    </div>
+    <div class="person">
+      <div class="pav" style="background:var(--g)">KA</div>
+      <div class="person-info">
+        <h4>Kristjan Archer</h4>
+        <p>Communications strategy. Manages release calendar, media outreach, and activation timing for BTP.</p>
+      </div>
+    </div>
+    <div class="person">
+      <div class="pav" style="background:var(--g)">AK</div>
+      <div class="person-info">
+        <h4>Andy Kemp</h4>
+        <p>Analysis and reporting lead for BTP. Also supports PoP research.</p>
+      </div>
+    </div>
+    <div class="person">
+      <div class="pav" style="background:var(--g)">EM</div>
+      <div class="person-info">
+        <h4>Ellyn Maese</h4>
+        <p>Collaborates closely with Andy Kemp on BTP analysis and reporting.</p>
+      </div>
+    </div>
+    <div class="person">
+      <div class="pav" style="background:var(--g)">JM</div>
+      <div class="person-info">
+        <h4>Jenny Marlar, Ph.D.</h4>
+        <p>Director of U.S. Survey Research. Manages the Gallup Panel. Specialist in web, mail, and phone methodologies. Oversees data quality and panel operations for BTP survey.</p>
+      </div>
+    </div>
+    <div class="person">
+      <div class="pav" style="background:var(--g)">LS</div>
+      <div class="person-info">
+        <h4>Lydia Saad</h4>
+        <p>Director of U.S. Social Research. Senior editor overseeing U.S. polling and research. Leads the GPSS content and analysis.</p>
+      </div>
+    </div>
+    <div class="person">
+      <div class="pav" style="background:var(--g)">EO</div>
+      <div class="person-info">
+        <h4>Ed O'Boyle</h4>
+        <p>Presented Power of Purpose findings at the 2025 Human Potential Summit.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== TALKING POINTS ===== -->
+<div class="section" id="talking">
+  <h2 class="section-title">Talking Points & Conversation Starters</h2>
+
+  <div class="sub-title mb-12">Be The People — For Brian Hooks & ST Leadership</div>
+
+  <div class="pbox" style="margin-bottom:16px">
+    <h4>Strategic Opportunity: Expand from Research to Activation</h4>
+    <p>Gallup is currently positioned as a research partner on Be The People. There is a significant opportunity to lead more on comms and activations — designing campaigns, hosting events, leveraging media capabilities. The retreat is a chance to signal this interest at a leadership level.</p>
+  </div>
+
+  <div class="tp">
+    <div class="tp-label">Conversation Starter — Brian Hooks</div>
+    <div class="tp-text">"The framework from the kickoff — contribution mindset, agency, belonging — that's going to resonate powerfully when the data starts coming back. I've been thinking about how we can really maximize the activation around those findings."</div>
+    <div class="tp-context">Signals awareness of the philosophical foundation and forward-looking thinking about impact, not just research delivery.</div>
+  </div>
+
+  <div class="tp">
+    <div class="tp-label">Key Narrative — What Makes BTP Special</div>
+    <div class="tp-text">"We're resurfacing Gallup questions first asked in 1976 for the bicentennial — now updated for the 250th. There's going to be real media interest. And the broader survey gives us a first-of-its-kind look at whether Americans believe they can still solve their own problems."</div>
+    <div class="tp-context">The Pew finding that only 47% believe this was the signal Brian identified as the most useful current indicator. Tying back to it shows deep alignment.</div>
+  </div>
+
+  <div class="tp">
+    <div class="tp-label">The Activation Discussion</div>
+    <div class="tp-text">"Right now Gallup is mainly a research partner on Be The People. But there's a full suite of comms, events, and media activation capabilities available. There's an opportunity to lead more — help design the activation campaign, not just supply the data."</div>
+    <div class="tp-context">Activation support is currently out of scope. The internal team has flagged listening for expansion opportunities. Raising this at the leadership level creates top-down pull.</div>
+  </div>
+
+  <div class="tp">
+    <div class="tp-label">Social Proof Language</div>
+    <div class="tp-text">"What's powerful about this project is the social proof thesis — it's not trying to persuade anyone. It's showing Americans that their neighbors already share these values. Gallup's credibility makes that proof real."</div>
+    <div class="tp-context">Directly mirrors Brian's language from the kickoff. The strategy relies on showing people that others like them already believe and act on these principles.</div>
+  </div>
+
+  <div class="sep"></div>
+
+  <div class="sub-title mb-12">Power of Purpose — For Ryan Stowers & Andy Tonsing</div>
+
+  <div class="pbox" style="margin-bottom:16px">
+    <h4>Strategic Opportunity: AI + Workers as an HPN Pillar</h4>
+    <p>AI is fundamentally reshaping what purpose means at work and what managers need to do. This is a natural extension of everything HPN is building. In a recent San Diego conversation, Ryan and Andy expressed strong enthusiasm for this direction. Gallup can measure it.</p>
+  </div>
+
+  <div class="tp">
+    <div class="tp-label">Conversation Starter — Ryan Stowers</div>
+    <div class="tp-text">"The conversation in San Diego about AI and workers keeps coming up. The purpose data gives us the perfect foundation — if only 17% of people feel strong purpose now, imagine what happens as AI reshapes roles. There's an opportunity to get ahead of this."</div>
+    <div class="tp-context">Ryan has publicly argued that the bigger risk isn't AI harm — it's that fear of AI causes over-restriction, preventing discovery of better forms of work. He sees AI as deepening purpose if done right.</div>
+  </div>
+
+  <div class="tp">
+    <div class="tp-label">Gallup's Centrality — Proof Points</div>
+    <div class="tp-text">"Gallup is embedded across the activation strategy now — ASU GSV, the Win Win Summit breakfast next week, the Business Roundtable in Colorado, and back at the Human Potential Summit in the fall. The employer sprint is generating real organic interest. This is the research backbone of the whole program."</div>
+    <div class="tp-context">Establishes Gallup as an integrated partner, not a vendor, across every major HPN touchpoint.</div>
+  </div>
+
+  <div class="tp">
+    <div class="tp-label">The AI Pitch</div>
+    <div class="tp-text">"What about a major program within HPN measuring AI's impact on workers' sense of purpose and the shifting needs of managers? The indices exist, the employer cohort model is proven, and the companies in the room — Google, Microsoft, McDonald's, United — are all grappling with this right now."</div>
+    <div class="tp-context">Framing it within the existing HPN structure makes it a natural next step, not a new ask.</div>
+  </div>
+
+  <div class="sep"></div>
+
+  <div class="sub-title mb-12">Quick Reference Stats</div>
+  <div class="card" style="margin-bottom:0">
+    <div class="card-body" style="font-size:13px;line-height:1.8">
+      <strong>Be The People:</strong> 8,000-person nationally representative survey. Web + mail. English + Spanish. Gallup Panel. Three constructs: contribution mindset, agency, belonging. First data mid-July. Pre-Labor Day releases. America 250 GPSS hook. Non-political framing. Social proof strategy.<br><br>
+      <strong>Power of Purpose:</strong> 4,475 respondents (Aug 2025). Life Purpose Index (10 items) + Work Purpose Index (3 items). 17% strong purpose. 3.8x engagement multiplier. Family is #1 source of purpose (74%). Only 22% feel full work-life purpose alignment. Three strategies: make work purposeful, connect to life purpose, support all paths.
+    </div>
+  </div>
+</div>
+
+<!-- ===== NOTES ===== -->
+<div class="section" id="notes">
+  <h2 class="section-title">Notes</h2>
+  <p class="text-sm mb-16" style="color:var(--i60)">Notes persist as long as this page remains open in the browser.</p>
+  <div class="notes-area mb-16">
+    <div class="notes-label"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg> Pre-Retreat</div>
+    <textarea placeholder="Goals, questions, people to find..."></textarea>
+  </div>
+  <div class="notes-area mb-16">
+    <div class="notes-label"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg> Conversations & Follow-Ups</div>
+    <textarea placeholder="Who was spoken to? What was discussed? Commitments made?"></textarea>
+  </div>
+  <div class="notes-area">
+    <div class="notes-label"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg> Action Items</div>
+    <textarea placeholder="Post-retreat follow-ups..."></textarea>
+  </div>
+</div>
+
+</div>
+
+<div class="footer">Confidential · Gallup Internal Use Only · Stand Together Retreat Briefing · April 2026<br>Open in Chrome or Safari for best experience.</div>
+
+<script>
+document.querySelectorAll('.nav-tab').forEach(tab=>{tab.addEventListener('click',()=>{document.querySelectorAll('.nav-tab').forEach(t=>t.classList.remove('active'));document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));tab.classList.add('active');document.getElementById(tab.dataset.tab).classList.add('active');window.scrollTo({top:document.querySelector('.nav-bar').offsetTop,behavior:'smooth'})})});
+function toggle(h){const b=h.nextElementSibling;const c=h.querySelector('.chv');b.classList.toggle('collapsed');c.classList.toggle('open')}
+</script>
+</body>
+</html>
