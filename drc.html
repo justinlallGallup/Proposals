@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gallup × Detroit Regional Chamber — Executive Coaching Proposal</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;500;600;700;900&family=Playfair+Display:ital,wght@0,700;0,800;0,900;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --green: #00B140;
+  --green-dark: #009432;
+  --navy: #0A1E3D;
+  --navy-light: #132D54;
+  --navy-mid: #1A3A6A;
+  --white: #FFFFFF;
+  --g50: #F8FAFC;
+  --g100: #F1F5F9;
+  --g200: #E2E8F0;
+  --g300: #CBD5E1;
+  --g400: #94A3B8;
+  --g500: #64748B;
+  --g600: #475569;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Source Sans 3', 'Source Sans Pro', 'Segoe UI', system-ui, sans-serif; background: var(--g50); color: var(--g600); line-height: 1.6; }
+.serif { font-family: 'Playfair Display', Georgia, serif; }
+
+/* Hero */
+.hero { background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 50%, var(--navy-mid) 100%); color: var(--white); padding: 52px 40px 48px; position: relative; overflow: hidden; }
+.hero::before { content: ''; position: absolute; top: -100px; right: -100px; width: 500px; height: 500px; background: radial-gradient(circle, rgba(0,177,64,0.06) 0%, transparent 70%); pointer-events: none; }
+.hero-inner { max-width: 900px; margin: 0 auto; position: relative; z-index: 1; }
+.hero-brands { display: flex; align-items: center; gap: 12px; margin-bottom: 32px; font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
+.hero-brands .gallup { color: var(--green); }
+.hero-brands .sep { color: rgba(255,255,255,0.2); font-size: 20px; }
+.hero-brands .chamber { color: rgba(255,255,255,0.6); }
+.hero h1 { font-size: 42px; font-weight: 800; line-height: 1.12; margin-bottom: 18px; }
+.hero h1 span { color: var(--green); }
+.hero p { font-size: 17px; line-height: 1.7; color: rgba(255,255,255,0.65); max-width: 620px; font-weight: 300; }
+.hero-meta { margin-top: 32px; display: flex; flex-wrap: wrap; gap: 24px; font-size: 13px; color: rgba(255,255,255,0.4); }
+.hero-meta strong { color: rgba(255,255,255,0.85); }
+
+/* Tabs */
+.tab-bar { background: var(--white); border-bottom: 1px solid var(--g200); position: sticky; top: 0; z-index: 10; }
+.tab-inner { max-width: 900px; margin: 0 auto; display: flex; padding: 0 40px; flex-wrap: wrap; align-items: stretch; }
+.tab-btn { padding: 16px 24px; font-size: 14px; font-weight: 500; color: var(--g500); background: none; border: none; border-bottom: 2px solid transparent; cursor: pointer; font-family: inherit; transition: all 0.2s; }
+.tab-btn.active { font-weight: 700; color: var(--navy); border-bottom-color: var(--navy); }
+.tab-total { margin-left: auto; display: flex; align-items: center; }
+.tab-total-pill { background: var(--navy); color: var(--white); border-radius: 8px; padding: 8px 20px; font-size: 15px; font-weight: 700; }
+
+/* Content */
+.content { max-width: 900px; margin: 0 auto; padding: 32px 40px 80px; }
+.tab-content { display: none; }
+.tab-content.active { display: block; }
+
+/* Cards */
+.card { background: var(--white); border-radius: 14px; border: 1px solid var(--g200); padding: 28px 32px; transition: all 0.2s; }
+
+/* Badges */
+.badge { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; border-radius: 6px; padding: 4px 10px; background: var(--g100); color: var(--navy); }
+.badge-green { background: rgba(0,177,64,0.08); color: var(--green); }
+.badge-amber { background: #FEF3C7; color: #92400E; }
+
+/* Section Divider */
+.divider { display: flex; align-items: center; gap: 16px; margin: 48px 0 32px; }
+.divider-line { height: 1px; flex: 1; background: var(--g200); }
+.divider-label { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--g400); }
+
+/* Outcomes */
+.outcome-card { cursor: pointer; }
+.outcome-card.expanded { border-color: var(--navy); border-width: 2px; padding: 23px 27px; }
+.outcome-header { display: flex; justify-content: space-between; align-items: center; }
+.outcome-left { display: flex; align-items: center; gap: 14px; }
+.outcome-icon { font-size: 28px; }
+.outcome-title { font-size: 17px; font-weight: 700; color: var(--navy); margin: 0; }
+.outcome-summary { font-size: 13px; color: var(--g500); margin: 3px 0 0; }
+.outcome-detail { margin-top: 18px; padding-top: 18px; border-top: 1px solid var(--g100); font-size: 14px; color: var(--g600); line-height: 1.7; display: none; }
+.outcome-card.expanded .outcome-detail { display: block; }
+.arrow-icon { transition: transform 0.25s ease; }
+.outcome-card.expanded .arrow-icon { transform: rotate(180deg); }
+
+/* Domains */
+.domains-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.domain-card { padding: 24px 26px; }
+.domain-card h4 { font-size: 16px; font-weight: 700; color: var(--navy); margin: 0 0 4px; }
+.domain-desc { font-size: 13px; color: var(--g500); line-height: 1.55; margin: 0 0 10px; }
+.domain-themes { font-size: 12px; color: var(--g400); line-height: 1.4; font-style: italic; margin: 0 0 12px; }
+.domain-fit { background: rgba(0,177,64,0.04); border-radius: 8px; padding: 10px 14px; border-left: 3px solid var(--green); }
+.domain-fit-label { font-size: 10px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--green); margin-bottom: 3px; }
+.domain-fit p { margin: 0; font-size: 12px; color: var(--g600); line-height: 1.5; }
+
+/* Phases */
+.phase-card { display: flex; gap: 24px; align-items: flex-start; }
+.phase-num { width: 60px; height: 60px; border-radius: 14px; background: linear-gradient(135deg, var(--navy), var(--navy-mid)); color: var(--white); display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 19px; flex-shrink: 0; }
+.phase-detail { display: flex; gap: 10px; align-items: flex-start; margin-bottom: 8px; }
+.phase-dot { width: 6px; height: 6px; border-radius: 3px; background: var(--green); margin-top: 7px; flex-shrink: 0; }
+.phase-detail p { margin: 0; font-size: 14px; color: var(--g600); line-height: 1.6; }
+
+/* Stats */
+.stats-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin-bottom: 20px; }
+.stat-card { text-align: center; padding: 28px 20px; }
+.stat-num { font-size: 36px; font-weight: 900; color: var(--green); margin-bottom: 8px; }
+.stat-label { font-size: 13px; color: var(--g500); line-height: 1.5; }
+
+/* Engagement Items */
+.eng-card { cursor: pointer; opacity: 0.6; }
+.eng-card.selected { border-color: var(--navy); border-width: 2px; padding: 27px 31px; opacity: 1; }
+.eng-card.required { cursor: default; }
+.eng-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 20px; }
+.eng-badges { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; flex-wrap: wrap; }
+.eng-title { font-size: 18px; font-weight: 700; color: var(--navy); margin: 0; }
+.eng-subtitle { font-size: 13px; font-weight: 600; color: var(--green); margin: 4px 0 0; }
+.eng-desc { font-size: 14px; color: var(--g500); line-height: 1.55; margin: 8px 0 0; }
+.eng-cost { text-align: right; flex-shrink: 0; min-width: 120px; }
+.eng-cost-amount { font-size: 24px; font-weight: 800; color: var(--g400); }
+.eng-card.selected .eng-cost-amount { color: var(--navy); }
+.eng-cost-unit { font-size: 12px; color: var(--g400); margin-top: 2px; }
+.eng-details { margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--g100); display: none; }
+.eng-card.selected .eng-details { display: block; }
+.eng-meta { display: flex; flex-wrap: wrap; gap: 24px; align-items: flex-end; }
+.eng-meta-info { display: flex; gap: 20px; flex-wrap: wrap; font-size: 12px; color: var(--g400); }
+.eng-meta-info span { font-weight: 600; }
+.eng-controls { margin-left: auto; display: flex; gap: 20px; align-items: flex-end; }
+.ctrl-label { display: block; font-size: 11px; font-weight: 700; color: var(--g500); margin-bottom: 6px; letter-spacing: 0.05em; text-transform: uppercase; }
+.ctrl-group { display: flex; align-items: center; border: 1px solid var(--g200); border-radius: 8px; overflow: hidden; }
+.ctrl-btn { width: 34px; height: 38px; border: none; background: var(--g50); cursor: pointer; font-size: 16px; color: var(--g500); font-family: inherit; }
+.ctrl-btn:hover { background: var(--g200); }
+.ctrl-val { width: 42px; text-align: center; font-size: 15px; font-weight: 700; color: var(--navy); }
+
+/* Summary */
+.summary-header { display: grid; grid-template-columns: 1fr 110px 100px 120px; gap: 12px; padding: 12px 20px; font-size: 11px; font-weight: 700; color: var(--g400); letter-spacing: 0.06em; text-transform: uppercase; }
+.summary-row { display: grid; grid-template-columns: 1fr 110px 100px 120px; gap: 12px; padding: 16px 20px; border-radius: 8px; align-items: center; }
+.summary-row:nth-child(odd) { background: var(--white); }
+.summary-row:nth-child(even) { background: var(--g50); }
+.summary-total { background: linear-gradient(135deg, var(--navy), var(--navy-mid)); border-radius: 14px; padding: 28px 32px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; margin-top: 24px; }
+.timeline-line { position: absolute; left: 7px; top: 8px; bottom: 8px; width: 2px; background: var(--g200); }
+.timeline-dot { position: absolute; left: -20px; top: 6px; width: 14px; height: 14px; border-radius: 50%; background: var(--white); border: 2px solid var(--g300); }
+.timeline-dot.first { background: var(--green); border-color: var(--green); }
+
+/* CTA */
+.cta-btn { background: var(--green); color: var(--white); border: none; border-radius: 10px; padding: 16px 40px; font-size: 16px; font-weight: 700; cursor: pointer; font-family: inherit; transition: background 0.2s; }
+.cta-btn:hover { background: var(--green-dark); }
+
+/* Responsive */
+@media (max-width: 700px) {
+  .hero { padding: 36px 20px 32px; }
+  .hero h1 { font-size: 30px; }
+  .tab-inner, .content { padding-left: 20px; padding-right: 20px; }
+  .domains-grid, .stats-grid { grid-template-columns: 1fr; }
+  .summary-header, .summary-row { grid-template-columns: 1fr 80px 80px 100px; font-size: 12px; }
+  .eng-header { flex-direction: column; }
+  .eng-cost { text-align: left; }
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-brands">
+      <span class="gallup">Gallup</span>
+      <span class="sep">|</span>
+      <span class="chamber">Detroit Regional Chamber</span>
+    </div>
+    <h1 class="serif">Executive Coaching<br><span>Engagement Proposal</span></h1>
+    <p>A CliftonStrengths®-based coaching partnership designed to unlock the full potential of your leadership team — building ownership, strategic thinking, and a high-performance culture across the Detroit Regional Chamber.</p>
+    <div class="hero-meta">
+      <span>Prepared for the <strong>Detroit Regional Chamber</strong></span>
+      <span>•</span><span>April 2026</span><span>•</span><span>Confidential</span>
+    </div>
+  </div>
+</div>
+
+<!-- TABS -->
+<div class="tab-bar">
+  <div class="tab-inner">
+    <button class="tab-btn active" data-tab="approach">Our Approach</button>
+    <button class="tab-btn" data-tab="builder">Engagement Builder</button>
+    <button class="tab-btn" data-tab="summary" id="summaryTabBtn">Summary (1)</button>
+    <div class="tab-total"><div class="tab-total-pill" id="totalPill">$5,000</div></div>
+  </div>
+</div>
+
+<!-- CONTENT -->
+<div class="content">
+
+<!-- ═══════ OUR APPROACH ═══════ -->
+<div class="tab-content active" id="tab-approach">
+
+  <div style="margin-bottom:12px"><span class="badge badge-green">The Opportunity</span></div>
+  <h2 class="serif" style="font-size:30px;color:var(--navy);margin:12px 0 10px;font-weight:800">Elevating Leadership at the Chamber</h2>
+  <p style="color:var(--g600);font-size:15px;line-height:1.75;max-width:700px;margin-bottom:36px">The Detroit Regional Chamber is ready for its next chapter of leadership growth. CliftonStrengths-based coaching gives your team a proven framework to lead with greater clarity, confidence, and cohesion — turning individual talent into collective impact.</p>
+
+  <div style="margin-bottom:12px"><span class="badge">What CliftonStrengths Coaching Unlocks</span></div>
+  <p style="color:var(--g500);font-size:14px;line-height:1.6;max-width:640px;margin-bottom:20px">Gallup's coaching methodology is designed to produce real, measurable shifts in how leaders show up every day. Here's what that looks like in practice.</p>
+
+  <div id="outcomesContainer" style="display:flex;flex-direction:column;gap:12px"></div>
+
+  <!-- WHY CLIFTONSTRENGTHS -->
+  <div class="divider"><div class="divider-line"></div><span class="divider-label">The Assessment</span><div class="divider-line"></div></div>
+  <div style="margin-bottom:12px"><span class="badge">The CliftonStrengths Difference</span></div>
+  <h2 class="serif" style="font-size:30px;color:var(--navy);margin:12px 0 10px;font-weight:800">A Deeper Framework for Lasting Change</h2>
+  <p style="color:var(--g600);font-size:15px;line-height:1.75;max-width:700px;margin-bottom:16px">Many organizations rely on behavioral assessments that categorize people into broad types. CliftonStrengths goes far deeper — it identifies 34 distinct talent themes across four leadership domains, producing over 33 million possible combinations of a person's top five themes alone. Every leader gets a profile that is truly unique, not a four-letter category.</p>
+  <p style="color:var(--g600);font-size:15px;line-height:1.75;max-width:700px;margin-bottom:16px">More importantly, CliftonStrengths doesn't just describe personality — it measures how people think, feel, and behave in ways that can be productively applied. It's a development tool, not just a typing tool. The research backs this up: Gallup's data shows that individuals coached on their strengths are six times more likely to be engaged in their work and three times more likely to report an excellent quality of life.</p>
+  <p style="color:var(--g600);font-size:15px;line-height:1.75;max-width:700px;margin-bottom:32px">In practice, this means moving from "I'm a certain type" to "Here's exactly how my Strategic, Responsibility, and Activator themes can help me take ownership of this initiative and drive it forward." That level of specificity is what makes the difference between an assessment that sits in a drawer and one that changes how people lead.</p>
+
+  <div id="domainsGrid" class="domains-grid"></div>
+
+  <div class="card" style="margin-top:16px;background:var(--g50)">
+    <p style="margin:0;font-size:14px;color:var(--g600);line-height:1.65"><strong style="color:var(--navy)">Team Grid Mapping:</strong> Beyond individual profiles, Gallup's Team Grid visualizes how the team's collective strengths distribute across all four domains — revealing where the team is naturally strong, where gaps exist, and how to pair complementary talents for maximum impact.</p>
+  </div>
+
+  <!-- THREE PHASES -->
+  <div class="divider"><div class="divider-line"></div><span class="divider-label">The Journey</span><div class="divider-line"></div></div>
+  <div style="margin-bottom:12px"><span class="badge badge-green">Coaching Methodology</span></div>
+  <h2 class="serif" style="font-size:30px;color:var(--navy);margin:12px 0 10px;font-weight:800">Three Phases of Leadership Growth</h2>
+  <p style="color:var(--g600);font-size:15px;line-height:1.75;max-width:700px;margin-bottom:32px">Gallup's executive coaching follows a research-backed three-phase model. Each phase builds on the last — moving from self-awareness to behavioral change to sustained, embedded leadership growth. This isn't a one-and-done workshop. It's a structured journey designed to create lasting transformation.</p>
+
+  <div id="phasesContainer" style="display:flex;flex-direction:column;gap:20px"></div>
+
+  <!-- WHY GALLUP -->
+  <div class="divider"><div class="divider-line"></div><span class="divider-label">The Partnership</span><div class="divider-line"></div></div>
+  <div style="margin-bottom:12px"><span class="badge">Why Gallup</span></div>
+  <h2 class="serif" style="font-size:30px;color:var(--navy);margin:12px 0 10px;font-weight:800">More Than a Coach — A Research-Backed Partner</h2>
+  <p style="color:var(--g600);font-size:15px;line-height:1.75;max-width:700px;margin-bottom:32px">Gallup isn't a coaching firm that happens to have an assessment. The CliftonStrengths framework is built on decades of research led by Don Clifton — studying the talents of the world's most successful people to identify what's right with them, not what's wrong. That philosophical difference matters: rather than diagnosing deficiencies, Gallup coaching builds on what already works.</p>
+
+  <div class="stats-grid">
+    <div class="card stat-card"><div class="stat-num serif">6×</div><p class="stat-label">more likely to be engaged at work when coached on strengths</p></div>
+    <div class="card stat-card"><div class="stat-num serif">3×</div><p class="stat-label">more likely to report an excellent quality of life</p></div>
+    <div class="card stat-card"><div class="stat-num serif">33M+</div><p class="stat-label">unique combinations of top-5 themes — every profile is distinct</p></div>
+  </div>
+
+  <div style="text-align:center;margin-top:48px">
+    <button class="cta-btn" onclick="switchTab('builder')">Build Your Engagement Package →</button>
+    <p style="color:var(--g400);font-size:13px;margin-top:12px">Customize the coaching components that fit your team's needs and budget</p>
+  </div>
+</div>
+
+<!-- ═══════ ENGAGEMENT BUILDER ═══════ -->
+<div class="tab-content" id="tab-builder">
+  <div style="margin-bottom:32px">
+    <span class="badge badge-green">Customize Your Engagement</span>
+    <h2 class="serif" style="font-size:28px;color:var(--navy);margin:12px 0 8px;font-weight:800">Build Your Coaching Package</h2>
+    <p style="color:var(--g500);font-size:15px;line-height:1.6;max-width:640px">Select the components that fit your team's needs. The kickoff session is included as the foundation — add individual coaching, group sessions, and the capstone retreat to create a comprehensive leadership development engagement.</p>
+  </div>
+  <div id="builderContainer" style="display:flex;flex-direction:column;gap:16px"></div>
+  <div class="card" style="margin-top:20px;background:rgba(0,177,64,0.04);border-color:rgba(0,177,64,0.15)">
+    <div style="display:flex;gap:12px;align-items:flex-start">
+      <span style="font-size:20px">✈️</span>
+      <div>
+        <h4 style="margin:0;font-size:14px;font-weight:700;color:var(--navy)">In-Person Upgrade Available</h4>
+        <p style="margin:4px 0 0;font-size:13px;color:var(--g500);line-height:1.5">Any virtual session — individual or group — can be conducted in person. The Detroit Regional Chamber covers travel and expenses for in-person upgrades.</p>
+      </div>
+    </div>
+  </div>
+  <div style="text-align:center;margin-top:40px">
+    <button class="cta-btn" onclick="switchTab('summary')" style="background:var(--navy)" onmouseenter="this.style.background='var(--navy-mid)'" onmouseleave="this.style.background='var(--navy)'">Review Your Summary →</button>
+    <p style="color:var(--g400);font-size:13px;margin-top:12px">See a complete breakdown of your selections, export to PDF, or email them to Gallup</p>
+  </div>
+</div>
+
+<!-- ═══════ SUMMARY ═══════ -->
+<div class="tab-content" id="tab-summary">
+  <div style="margin-bottom:32px">
+    <span class="badge">Investment Summary</span>
+    <h2 class="serif" style="font-size:28px;color:var(--navy);margin:12px 0 8px;font-weight:800">Your Custom Engagement</h2>
+    <p style="color:var(--g500);font-size:15px;line-height:1.6">A breakdown of the coaching components selected for the Detroit Regional Chamber.</p>
+  </div>
+  <div id="summaryContent"></div>
+</div>
+
+</div>
+
+<script>
+// ════════ DATA ════════
+const outcomes = [
+  { icon:"🎯", title:"Deeper Ownership & Accountability", summary:"CliftonStrengths gives every leader a personal connection to the mission.", detail:"When leaders understand how their unique talents contribute to organizational outcomes, they move from executing tasks to owning results. Strengths-based coaching makes the mission personal — turning abstract goals into something each leader can see themselves in and drive forward." },
+  { icon:"🔄", title:"A Culture That Embraces Change", summary:"Strengths-based teams adapt faster and innovate more naturally.", detail:"Gallup's approach reframes change from a threat to an opportunity. By surfacing and developing talents like Futuristic, Ideation, and Activator across the team, coaching creates a built-in capacity for innovation — leaders who can articulate why change matters and rally others around it." },
+  { icon:"🧭", title:"Stronger Strategic Thinking", summary:"Leaders who connect the dots between daily work and long-term vision.", detail:"The CliftonStrengths framework explicitly measures and develops Strategic Thinking talent. Through coaching, leaders learn to apply themes like Strategic, Analytical, and Context to evaluate decisions — not just execute them. This builds the independent judgment that elevates leadership at every level." },
+  { icon:"⚡", title:"Proactive, Self-Directed Leadership", summary:"Teams that anticipate needs and lead without being asked.", detail:"Gallup research shows that people coached on their strengths are significantly more engaged and proactive. By helping leaders see themselves as owners of their domain, coaching unlocks the intrinsic motivation that drives initiative — leaders who identify opportunities and act on them." },
+];
+
+const domains = [
+  { name:"Executing", color:"#7C3AED", themes:"Achiever, Arranger, Belief, Consistency, Deliberative, Discipline, Focus, Responsibility, Restorative", desc:"Turning ideas into action. Leaders strong here make things happen — they bring reliability, follow-through, and operational rigor.", fit:"Helps leaders move beyond task completion to mission-driven execution — taking ownership of outcomes, not just assignments." },
+  { name:"Influencing", color:"#F59E0B", themes:"Activator, Command, Communication, Competition, Maximizer, Self-Assurance, Significance, Woo", desc:"Taking charge and driving change. These leaders persuade, champion ideas, and ensure the team's voice is heard — internally and externally.", fit:"Essential for an organization built on advocacy and thought leadership — equipping leaders to engage stakeholders with confidence and conviction." },
+  { name:"Relationship Building", color:"#3B82F6", themes:"Adaptability, Connectedness, Developer, Empathy, Harmony, Includer, Individualization, Positivity, Relator", desc:"Creating the human glue that holds teams together. These leaders build trust, develop people, and strengthen the collaboration that high-performing teams require.", fit:"Strengthens the connective tissue of your leadership team — helping leaders operate as a cohesive unit rather than a collection of individuals." },
+  { name:"Strategic Thinking", color:"#10B981", themes:"Analytical, Context, Futuristic, Ideation, Input, Intellection, Learner, Strategic", desc:"Absorbing information, analyzing situations, and helping the team make better decisions. These leaders connect the dots between today's work and tomorrow's outcomes.", fit:"Builds the capacity for leaders to see the bigger picture — connecting daily decisions to the Chamber's long-term strategic direction." },
+];
+
+const phases = [
+  { num:"01", title:"Trust & Vision", details:["Establish a confidential, high-trust coaching relationship grounded in your CliftonStrengths profile","Leverage 360° feedback and strengths data to surface leadership blind spots and untapped potential","Co-create a leadership strategy rooted in what each leader naturally does best","Build a comprehensive, individualized coaching development plan tied to the Chamber's strategic priorities"] },
+  { num:"02", title:"New Mindsets & Actions", details:["Translate strengths insights into concrete behavioral shifts that elevate team performance","Apply coaching goals to live leadership challenges and real organizational decisions","Use a personal leadership map to connect daily work to the Chamber's broader mission and vision","Practice strategic thinking frameworks that build independent judgment and initiative"] },
+  { num:"03", title:"Sustain the Change", details:["Embed new leadership behaviors into day-to-day routines so they become second nature","Continue accountability through ongoing coaching check-ins and development plan reviews","Revisit career goals and recalibrate the leadership journey as the organization evolves","Measure growth against the baseline established in Phase 1"] },
+];
+
+const items = [
+  { id:"kickoff", category:"Foundation", title:"Full-Day In-Person Kickoff Session", subtitle:"CliftonStrengths Team Discovery & Alignment", description:"A facilitated full-day session for the entire leadership team. Gallup provides CliftonStrengths access codes in advance so all participants arrive with their profiles complete. This session establishes the strengths-based language, maps the team's collective talent profile, and creates the shared foundation for everything that follows.", unitCost:5000, isPerPerson:false, isRequired:true, timing:"Engagement Start", format:"In-Person", duration:"Full Day", note:"Includes CliftonStrengths codes for all participants" },
+  { id:"exec_first", category:"Individual Coaching", title:"Initial 1:1 Executive Coaching Session", subtitle:"Strengths-Based Leadership Deep Dive", description:"First individual coaching session for each leader — a 60-minute strengths-based deep dive that translates team-level insights into a personal development plan. Each leader explores how their unique talent profile connects to their role, their team, and the Chamber's mission.", unitCost:600, isPerPerson:true, isRequired:false, timing:"30 Days After Kickoff", format:"Virtual", duration:"60 Minutes", note:"Includes individual CliftonStrengths code", minP:1, maxP:20, defP:6 },
+  { id:"exec_followup", category:"Individual Coaching", title:"Follow-Up 1:1 Coaching Sessions", subtitle:"Continued Development & Accountability", description:"Subsequent coaching sessions focused on applying strengths to real challenges, tracking progress against development goals, and maintaining accountability. These sessions are where behavioral change takes root — translating insight into action.", unitCost:500, isPerPerson:true, isRequired:false, timing:"90 Days After Kickoff (Quarterly)", format:"Virtual", duration:"60 Minutes", note:"$500 per session, per person", minP:1, maxP:20, defP:6, hasSess:true, minS:1, maxS:8, defS:2 },
+  { id:"quarterly_group", category:"Team Development", title:"Quarterly Virtual Half-Day Group Sessions", subtitle:"Team Performance & Strategic Alignment", description:"Facilitated half-day sessions for the leadership team focused on shared performance goals, team dynamics, and strategic alignment. Each session builds on the previous one, creating momentum and reinforcing the strengths-based culture across the organization.", unitCost:2500, isPerPerson:false, isRequired:false, timing:"Quarter Following Kickoff", format:"Virtual", duration:"Half Day", note:"Flat rate per session", hasSess:true, minS:1, maxS:4, defS:4 },
+  { id:"sandy_exec", category:"CEO Coaching", title:"CEO Executive Coaching", subtitle:"Personal Leadership & Accountability", description:"Dedicated 1:1 coaching sessions focused on personal leadership growth, strategic vision, and accountability. A confidential partnership designed to complement the team engagement with a dedicated space for the CEO's own development priorities.", unitCost:500, isPerPerson:false, isRequired:false, timing:"Ongoing (Quarterly)", format:"Virtual", duration:"60 Minutes", note:"Up to 10 sessions recommended", hasSess:true, minS:1, maxS:10, defS:10 },
+  { id:"capstone", category:"Capstone", title:"Capstone In-Person Facilitated Retreat", subtitle:"Integration, Reflection & Forward Planning", description:"A full-day in-person retreat to synthesize the year's coaching work, celebrate growth, and align on the next chapter of leadership development. This is where the team looks back at where they started and plans where they're going.", unitCost:5000, isPerPerson:false, isRequired:false, timing:"End of Engagement Year", format:"In-Person", duration:"Full Day", note:"" },
+];
+
+// ════════ STATE ════════
+const state = { selected: { kickoff: true }, people: {}, sessions: {}, expandedOutcome: null };
+items.forEach(i => { if (i.isPerPerson) state.people[i.id] = i.defP; if (i.hasSess) state.sessions[i.id] = i.defS; });
+
+function fmt(n) { return '$' + n.toLocaleString('en-US'); }
+function getItemCost(item) {
+  if (!state.selected[item.id]) return 0;
+  let c = item.unitCost;
+  if (item.isPerPerson && item.hasSess) return c * (state.people[item.id]||item.defP) * (state.sessions[item.id]||item.defS);
+  if (item.isPerPerson) c *= (state.people[item.id]||item.defP);
+  if (item.hasSess) c *= (state.sessions[item.id]||item.defS);
+  return c;
+}
+function getTotal() { return items.reduce((s,i) => s + getItemCost(i), 0); }
+function getSelected() { return items.filter(i => state.selected[i.id]); }
+
+const checkSvg = `<svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="9" fill="#00B140"/><path d="M5 9.5L7.5 12L13 6.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+const plusSvg = `<svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="9" fill="#E2E8F0"/><path d="M9 5V13M5 9H13" stroke="#64748B" stroke-width="2" stroke-linecap="round"/></svg>`;
+const arrowSvg = `<svg class="arrow-icon" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M6 8L10 12L14 8" stroke="#94A3B8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+
+// ════════ TABS ════════
+function switchTab(name) {
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.toggle('active', b.dataset.tab === name));
+  document.querySelectorAll('.tab-content').forEach(c => c.classList.toggle('active', c.id === 'tab-' + name));
+  if (name === 'summary') renderSummary();
+  if (name === 'builder') renderBuilder();
+}
+document.querySelectorAll('.tab-btn').forEach(b => b.addEventListener('click', () => switchTab(b.dataset.tab)));
+
+function updateGlobals() {
+  const sel = getSelected();
+  document.getElementById('totalPill').textContent = fmt(getTotal());
+  document.getElementById('summaryTabBtn').textContent = `Summary (${sel.length})`;
+}
+
+// ════════ APPROACH TAB ════════
+function renderOutcomes() {
+  const c = document.getElementById('outcomesContainer');
+  c.innerHTML = outcomes.map((o,i) => `
+    <div class="card outcome-card ${state.expandedOutcome===i?'expanded':''}" data-idx="${i}">
+      <div class="outcome-header">
+        <div class="outcome-left">
+          <span class="outcome-icon">${o.icon}</span>
+          <div>
+            <h3 class="outcome-title">${o.title}</h3>
+            <p class="outcome-summary">${o.summary}</p>
+          </div>
+        </div>
+        ${arrowSvg}
+      </div>
+      <div class="outcome-detail"><p>${o.detail}</p></div>
+    </div>
+  `).join('');
+  c.querySelectorAll('.outcome-card').forEach(card => {
+    card.addEventListener('click', () => {
+      const idx = parseInt(card.dataset.idx);
+      state.expandedOutcome = state.expandedOutcome === idx ? null : idx;
+      renderOutcomes();
+    });
+  });
+}
+
+function renderDomains() {
+  document.getElementById('domainsGrid').innerHTML = domains.map(d => `
+    <div class="card domain-card" style="border-top:4px solid ${d.color}">
+      <h4>${d.name}</h4>
+      <p class="domain-desc">${d.desc}</p>
+      <p class="domain-themes">${d.themes}</p>
+      <div class="domain-fit">
+        <div class="domain-fit-label">For Your Team</div>
+        <p>${d.fit}</p>
+      </div>
+    </div>
+  `).join('');
+}
+
+function renderPhases() {
+  document.getElementById('phasesContainer').innerHTML = phases.map(p => `
+    <div class="card phase-card">
+      <div class="phase-num serif">${p.num}</div>
+      <div style="flex:1">
+        <h3 style="margin:0 0 12px;font-size:19px;font-weight:700;color:var(--navy)">${p.title}</h3>
+        ${p.details.map(d => `<div class="phase-detail"><div class="phase-dot"></div><p>${d}</p></div>`).join('')}
+      </div>
+    </div>
+  `).join('');
+}
+
+// ════════ BUILDER TAB ════════
+function renderBuilder() {
+  const c = document.getElementById('builderContainer');
+  c.innerHTML = items.map(item => {
+    const isOn = !!state.selected[item.id];
+    const cost = getItemCost(item);
+    const unitLabel = item.isPerPerson && item.hasSess ? `${fmt(item.unitCost)} / person / session` : item.isPerPerson ? `${fmt(item.unitCost)} / person` : item.hasSess ? `${fmt(item.unitCost)} / session` : 'flat rate';
+    return `
+    <div class="card eng-card ${isOn?'selected':''} ${item.isRequired?'required':''}" data-id="${item.id}">
+      <div class="eng-header">
+        <div style="flex:1" class="eng-toggle-area">
+          <div class="eng-badges">
+            ${isOn ? checkSvg : plusSvg}
+            <span class="badge">${item.category}</span>
+            <span class="badge badge-green">${item.format}</span>
+            ${item.isRequired ? '<span class="badge badge-amber">Required</span>' : ''}
+          </div>
+          <h3 class="eng-title">${item.title}</h3>
+          <p class="eng-subtitle">${item.subtitle}</p>
+          <p class="eng-desc">${item.description}</p>
+        </div>
+        <div class="eng-cost">
+          <div class="eng-cost-amount serif">${isOn ? fmt(cost) : fmt(item.unitCost)}</div>
+          <div class="eng-cost-unit">${unitLabel}</div>
+        </div>
+      </div>
+      <div class="eng-details">
+        <div class="eng-meta">
+          <div class="eng-meta-info">
+            <div><span>Timing:</span> ${item.timing}</div>
+            <div><span>Duration:</span> ${item.duration}</div>
+            ${item.note ? `<div>ℹ️ ${item.note}</div>` : ''}
+          </div>
+          <div class="eng-controls">
+            ${item.isPerPerson ? `
+              <div>
+                <span class="ctrl-label">Participants</span>
+                <div class="ctrl-group">
+                  <button class="ctrl-btn" data-action="people-down" data-id="${item.id}">−</button>
+                  <span class="ctrl-val">${state.people[item.id]||item.defP}</span>
+                  <button class="ctrl-btn" data-action="people-up" data-id="${item.id}">+</button>
+                </div>
+              </div>` : ''}
+            ${item.hasSess ? `
+              <div>
+                <span class="ctrl-label">Sessions</span>
+                <div class="ctrl-group">
+                  <button class="ctrl-btn" data-action="sess-down" data-id="${item.id}">−</button>
+                  <span class="ctrl-val">${state.sessions[item.id]||item.defS}</span>
+                  <button class="ctrl-btn" data-action="sess-up" data-id="${item.id}">+</button>
+                </div>
+              </div>` : ''}
+          </div>
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+
+  // Toggle
+  c.querySelectorAll('.eng-toggle-area').forEach(area => {
+    area.addEventListener('click', () => {
+      const id = area.closest('.eng-card').dataset.id;
+      const item = items.find(i => i.id === id);
+      if (item.isRequired) return;
+      state.selected[id] = !state.selected[id];
+      renderBuilder(); updateGlobals();
+    });
+  });
+
+  // Controls
+  c.querySelectorAll('.ctrl-btn').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const id = btn.dataset.id;
+      const action = btn.dataset.action;
+      const item = items.find(i => i.id === id);
+      if (action === 'people-up') state.people[id] = Math.min(item.maxP, (state.people[id]||item.defP) + 1);
+      if (action === 'people-down') state.people[id] = Math.max(item.minP, (state.people[id]||item.defP) - 1);
+      if (action === 'sess-up') state.sessions[id] = Math.min(item.maxS, (state.sessions[id]||item.defS) + 1);
+      if (action === 'sess-down') state.sessions[id] = Math.max(item.minS, (state.sessions[id]||item.defS) - 1);
+      renderBuilder(); updateGlobals();
+    });
+  });
+}
+
+// ════════ SUMMARY TAB ════════
+function renderSummary() {
+  const sel = getSelected();
+  const el = document.getElementById('summaryContent');
+  if (sel.length === 0) {
+    el.innerHTML = '<div class="card" style="text-align:center;padding:48px 32px"><p style="color:var(--g400);font-size:16px">No items selected. Go to the Engagement Builder to build your package.</p></div>';
+    return;
+  }
+
+  let rows = sel.map((item, i) => {
+    const cost = getItemCost(item);
+    const ppl = state.people[item.id]||item.defP;
+    const sess = state.sessions[item.id]||item.defS;
+    let qty = '—';
+    if (item.isPerPerson && item.hasSess) qty = `${ppl} × ${sess} sess.`;
+    else if (item.isPerPerson) qty = `${ppl} people`;
+    else if (item.hasSess) qty = `${sess} sessions`;
+    return `<div class="summary-row">
+      <div><div style="font-size:14px;font-weight:600;color:var(--navy)">${item.title}</div><div style="font-size:12px;color:var(--g400);margin-top:2px">${item.timing} · ${item.format}</div></div>
+      <div style="text-align:center;font-size:14px;color:var(--g600)">${qty}</div>
+      <div style="text-align:center;font-size:14px;color:var(--g600)">${fmt(item.unitCost)}</div>
+      <div style="text-align:right;font-size:16px;font-weight:700;color:var(--navy)">${fmt(cost)}</div>
+    </div>`;
+  }).join('');
+
+  let timeline = sel.map((item, i) => `
+    <div style="position:relative;padding-bottom:${i<sel.length-1?20:0}px;padding-left:20px">
+      <div class="timeline-dot ${i===0?'first':''}"></div>
+      <div style="font-size:14px;font-weight:600;color:var(--navy)">${item.title}</div>
+      <div style="font-size:12px;color:var(--g400);margin-top:2px">${item.timing} · ${item.format} · ${item.duration}</div>
+    </div>
+  `).join('');
+
+  el.innerHTML = `
+    <div style="display:flex;flex-direction:column;gap:2px;margin-bottom:24px">
+      <div class="summary-header"><span>Component</span><span style="text-align:center">Quantity</span><span style="text-align:center">Rate</span><span style="text-align:right">Subtotal</span></div>
+      ${rows}
+    </div>
+    <div class="summary-total">
+      <div>
+        <div style="font-size:13px;color:rgba(255,255,255,0.5);font-weight:600;letter-spacing:0.06em;text-transform:uppercase">Total Engagement Investment</div>
+        <div style="font-size:12px;color:rgba(255,255,255,0.35);margin-top:4px">${sel.length} component${sel.length!==1?'s':''} · Excludes travel expenses for in-person upgrades</div>
+      </div>
+      <div class="serif" style="font-size:36px;font-weight:900;color:var(--white)">${fmt(getTotal())}</div>
+    </div>
+    <div style="margin-top:36px">
+      <h3 style="font-size:16px;font-weight:700;color:var(--navy);margin-bottom:16px">Engagement Timeline</h3>
+      <div style="position:relative;padding-left:24px">
+        <div class="timeline-line"></div>
+        ${timeline}
+      </div>
+    </div>
+    <div class="card" style="margin-top:28px;background:var(--g50);border-color:var(--g100)">
+      <h4 style="margin:0 0 8px;font-size:14px;font-weight:700;color:var(--navy)">Terms & Notes</h4>
+      <div style="font-size:13px;color:var(--g500);line-height:1.7">All virtual sessions can be upgraded to in-person — travel and expenses are billed separately to the Detroit Regional Chamber. CliftonStrengths access codes are included with the kickoff session and initial 1:1 coaching sessions. Pricing is valid for 60 days from proposal date.</div>
+    </div>
+    <div style="display:flex;gap:16px;margin-top:36px;justify-content:center;flex-wrap:wrap">
+      <button onclick="exportPDF()" style="display:flex;align-items:center;gap:10px;background:var(--navy);color:var(--white);border:none;border-radius:10px;padding:14px 28px;font-size:15px;font-weight:700;cursor:pointer;font-family:inherit;transition:opacity 0.2s" onmouseenter="this.style.opacity='0.85'" onmouseleave="this.style.opacity='1'">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M9 2v8m0 0l-3-3m3 3l3-3M3 13v1a1 1 0 001 1h10a1 1 0 001-1v-1" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Export to PDF
+      </button>
+      <button onclick="emailToGallup()" style="display:flex;align-items:center;gap:10px;background:var(--green);color:var(--white);border:none;border-radius:10px;padding:14px 28px;font-size:15px;font-weight:700;cursor:pointer;font-family:inherit;transition:opacity 0.2s" onmouseenter="this.style.opacity='0.85'" onmouseleave="this.style.opacity='1'">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M2 4l7 5 7-5M2 4h14v10H2V4z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Email Selections to Gallup
+      </button>
+    </div>
+    <p style="text-align:center;font-size:12px;color:var(--g400);margin-top:12px">Export a snapshot of your selections or send them directly to your Gallup team</p>
+  `;
+}
+
+// ════════ EXPORT & EMAIL ════════
+function buildSelectionText() {
+  const sel = getSelected();
+  let lines = ['Detroit Regional Chamber — Executive Coaching Engagement\n'];
+  lines.push('Selected Components:\n');
+  sel.forEach(item => {
+    const cost = getItemCost(item);
+    const ppl = state.people[item.id]||item.defP;
+    const sess = state.sessions[item.id]||item.defS;
+    let qty = '';
+    if (item.isPerPerson && item.hasSess) qty = ` (${ppl} participants × ${sess} sessions)`;
+    else if (item.isPerPerson) qty = ` (${ppl} participants)`;
+    else if (item.hasSess) qty = ` (${sess} sessions)`;
+    lines.push(`• ${item.title}${qty} — ${fmt(cost)}`);
+    lines.push(`  ${item.timing} · ${item.format} · ${item.duration}`);
+  });
+  lines.push(`\nTotal Investment: ${fmt(getTotal())}`);
+  lines.push('\nNotes: All virtual sessions can be upgraded to in-person — travel and expenses billed separately. CliftonStrengths access codes included with kickoff and initial 1:1 sessions. Pricing valid for 60 days.');
+  return lines.join('\n');
+}
+
+function exportPDF() {
+  const sel = getSelected();
+  if (sel.length === 0) { alert('No components selected yet.'); return; }
+
+  const printWin = window.open('', '_blank');
+  let rows = sel.map(item => {
+    const cost = getItemCost(item);
+    const ppl = state.people[item.id]||item.defP;
+    const sess = state.sessions[item.id]||item.defS;
+    let qty = '—';
+    if (item.isPerPerson && item.hasSess) qty = `${ppl} × ${sess} sessions`;
+    else if (item.isPerPerson) qty = `${ppl} participants`;
+    else if (item.hasSess) qty = `${sess} sessions`;
+    return `<tr>
+      <td style="padding:12px 16px;border-bottom:1px solid #E2E8F0"><strong>${item.title}</strong><br><span style="color:#94A3B8;font-size:12px">${item.timing} · ${item.format} · ${item.duration}</span></td>
+      <td style="padding:12px 16px;border-bottom:1px solid #E2E8F0;text-align:center">${qty}</td>
+      <td style="padding:12px 16px;border-bottom:1px solid #E2E8F0;text-align:center">${fmt(item.unitCost)}</td>
+      <td style="padding:12px 16px;border-bottom:1px solid #E2E8F0;text-align:right;font-weight:700">${fmt(cost)}</td>
+    </tr>`;
+  }).join('');
+
+  let timeline = sel.map((item, i) => `
+    <div style="display:flex;gap:12px;align-items:flex-start;margin-bottom:${i<sel.length-1?'14':'0'}px">
+      <div style="width:10px;height:10px;border-radius:50%;background:${i===0?'#00B140':'#CBD5E1'};margin-top:4px;flex-shrink:0"></div>
+      <div><strong>${item.title}</strong><br><span style="color:#94A3B8;font-size:12px">${item.timing} · ${item.format} · ${item.duration}</span></div>
+    </div>
+  `).join('');
+
+  printWin.document.write(`<!DOCTYPE html><html><head>
+    <title>Detroit Regional Chamber — Executive Coaching Proposal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700;900&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet">
+    <style>
+      body { font-family: 'Source Sans 3', sans-serif; color: #475569; margin: 0; padding: 0; }
+      @media print { body { -webkit-print-color-adjust: exact; print-color-adjust: exact; } }
+    </style>
+  </head><body>
+    <div style="background:linear-gradient(135deg,#0A1E3D,#1A3A6A);color:white;padding:40px 48px">
+      <div style="font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#00B140;margin-bottom:24px">GALLUP <span style="color:rgba(255,255,255,0.3);margin:0 8px">|</span> <span style="color:rgba(255,255,255,0.6)">DETROIT REGIONAL CHAMBER</span></div>
+      <h1 style="font-family:'Playfair Display',Georgia,serif;font-size:34px;font-weight:800;margin:0 0 12px">Executive Coaching<br><span style="color:#00B140">Engagement Summary</span></h1>
+      <p style="color:rgba(255,255,255,0.5);font-size:13px;margin:0">April 2026 · Confidential</p>
+    </div>
+    <div style="padding:36px 48px">
+      <table style="width:100%;border-collapse:collapse;font-size:14px;margin-bottom:28px">
+        <thead><tr style="font-size:11px;font-weight:700;color:#94A3B8;letter-spacing:0.06em;text-transform:uppercase">
+          <th style="padding:10px 16px;text-align:left;border-bottom:2px solid #E2E8F0">Component</th>
+          <th style="padding:10px 16px;text-align:center;border-bottom:2px solid #E2E8F0">Quantity</th>
+          <th style="padding:10px 16px;text-align:center;border-bottom:2px solid #E2E8F0">Rate</th>
+          <th style="padding:10px 16px;text-align:right;border-bottom:2px solid #E2E8F0">Subtotal</th>
+        </tr></thead>
+        <tbody>${rows}</tbody>
+        <tfoot><tr style="background:#0A1E3D;color:white">
+          <td colspan="3" style="padding:16px;font-weight:700;border-radius:8px 0 0 8px">Total Engagement Investment</td>
+          <td style="padding:16px;text-align:right;font-family:'Playfair Display',serif;font-size:24px;font-weight:900;border-radius:0 8px 8px 0">${fmt(getTotal())}</td>
+        </tr></tfoot>
+      </table>
+      <h3 style="font-size:16px;font-weight:700;color:#0A1E3D;margin:32px 0 16px">Engagement Timeline</h3>
+      ${timeline}
+      <div style="margin-top:32px;padding:20px 24px;background:#F8FAFC;border-radius:10px;border:1px solid #E2E8F0">
+        <h4 style="margin:0 0 6px;font-size:13px;font-weight:700;color:#0A1E3D">Terms & Notes</h4>
+        <p style="margin:0;font-size:12px;color:#64748B;line-height:1.6">All virtual sessions can be upgraded to in-person — travel and expenses billed separately to the Detroit Regional Chamber. CliftonStrengths access codes included with kickoff and initial 1:1 sessions. Pricing valid for 60 days from proposal date.</p>
+      </div>
+    </div>
+  </body></html>`);
+  printWin.document.close();
+  setTimeout(() => { printWin.print(); }, 500);
+}
+
+function emailToGallup() {
+  const sel = getSelected();
+  if (sel.length === 0) { alert('No components selected yet.'); return; }
+  const body = buildSelectionText();
+  const subject = encodeURIComponent('Detroit Regional Chamber — Executive Coaching Selections');
+  const mailBody = encodeURIComponent(body);
+  window.location.href = `mailto:justin_lall@gallup.com?subject=${subject}&body=${mailBody}`;
+}
+
+// ════════ INIT ════════
+renderOutcomes();
+renderDomains();
+renderPhases();
+renderBuilder();
+updateGlobals();
+</script>
+</body>
+</html>
