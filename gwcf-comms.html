@@ -1,0 +1,1462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VoicesDMV — Strategic Communications Support</title>
+<link href="https://fonts.googleapis.com/css2?family=Georgia&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --gwcf-navy: #1B2A4A;
+  --gwcf-navy-deep: #0F1B33;
+  --gwcf-teal: #2A9D8F;
+  --gwcf-teal-light: #40B4A6;
+  --gwcf-teal-pale: #E8F6F4;
+  --gwcf-blue: #3D7AB5;
+  --gwcf-blue-light: #5A9BD5;
+  --gwcf-green: #4CAF50;
+  --gwcf-green-dark: #2E7D32;
+  --gwcf-gold: #D4A843;
+  --gwcf-gold-light: #F0DBA8;
+  --gwcf-coral: #E07A5F;
+  --gwcf-warm: #F8F4EE;
+  --gwcf-warm-dark: #EDE5D8;
+  --gallup-green: #009F8C;
+  --text-primary: #1B2A4A;
+  --text-secondary: #4A5568;
+  --text-muted: #8896AA;
+  --bg-white: #FFFFFF;
+  --bg-light: #F7F9FC;
+  --bg-card: #FFFFFF;
+  --border-light: #E2E8F0;
+  --border-medium: #CBD5E0;
+  --shadow-sm: 0 1px 3px rgba(27,42,74,0.08);
+  --shadow-md: 0 4px 12px rgba(27,42,74,0.1);
+  --shadow-lg: 0 8px 30px rgba(27,42,74,0.12);
+  --shadow-xl: 0 20px 60px rgba(27,42,74,0.15);
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'DM Sans', -apple-system, sans-serif;
+  color: var(--text-primary);
+  background: var(--bg-light);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ═══════ HEADER ═══════ */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--gwcf-navy-deep);
+  border-bottom: 3px solid var(--gwcf-teal);
+  padding: 0 40px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.header-gallup {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 18px;
+  letter-spacing: 4px;
+  color: white;
+  font-weight: 700;
+}
+.header-divider {
+  width: 1px;
+  height: 24px;
+  background: rgba(255,255,255,0.25);
+}
+.header-gwcf {
+  font-size: 13px;
+  color: rgba(255,255,255,0.7);
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.investment-total {
+  font-family: Georgia, serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--gwcf-gold);
+  letter-spacing: -0.5px;
+}
+.investment-label {
+  font-size: 11px;
+  color: rgba(255,255,255,0.5);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+.btn-investment {
+  background: var(--gwcf-teal);
+  color: white;
+  border: none;
+  padding: 10px 22px;
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  letter-spacing: 0.3px;
+  transition: all 0.2s;
+}
+.btn-investment:hover {
+  background: var(--gwcf-teal-light);
+  transform: translateY(-1px);
+}
+
+/* ═══════ NAVIGATION TABS ═══════ */
+.nav-tabs {
+  background: white;
+  border-bottom: 1px solid var(--border-light);
+  padding: 0 40px;
+  display: flex;
+  gap: 0;
+}
+.nav-tab {
+  padding: 16px 28px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-muted);
+  cursor: pointer;
+  border-bottom: 3px solid transparent;
+  transition: all 0.2s;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+}
+.nav-tab:hover { color: var(--text-primary); }
+.nav-tab.active {
+  color: var(--gwcf-navy);
+  border-bottom-color: var(--gwcf-teal);
+}
+
+/* ═══════ HERO ═══════ */
+.hero {
+  background: linear-gradient(135deg, var(--gwcf-navy-deep) 0%, var(--gwcf-navy) 40%, #1E3A5F 100%);
+  padding: 80px 60px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -20%;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(42,157,143,0.15) 0%, transparent 70%);
+  pointer-events: none;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: -30%;
+  left: -10%;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(61,122,181,0.1) 0%, transparent 70%);
+  pointer-events: none;
+}
+.hero-eyebrow {
+  font-size: 12px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gwcf-teal-light);
+  font-weight: 600;
+  margin-bottom: 16px;
+  position: relative;
+}
+.hero-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 48px;
+  font-weight: 700;
+  color: white;
+  line-height: 1.15;
+  max-width: 700px;
+  margin-bottom: 20px;
+  position: relative;
+}
+.hero-subtitle {
+  font-size: 18px;
+  color: rgba(255,255,255,0.7);
+  max-width: 600px;
+  line-height: 1.7;
+  position: relative;
+}
+.hero-meta {
+  margin-top: 36px;
+  display: flex;
+  gap: 40px;
+  position: relative;
+}
+.hero-meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.hero-meta-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: rgba(255,255,255,0.4);
+}
+.hero-meta-value {
+  font-family: Georgia, serif;
+  font-size: 15px;
+  color: var(--gwcf-gold);
+  font-weight: 600;
+}
+
+/* ═══════ CONTENT ═══════ */
+.content-area {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 48px 40px;
+}
+
+.tab-content { display: none; }
+.tab-content.active { display: block; }
+
+/* ═══════ APPROACH SECTION ═══════ */
+.approach-intro {
+  max-width: 780px;
+  margin-bottom: 48px;
+}
+.approach-intro h2 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--gwcf-navy);
+  margin-bottom: 16px;
+}
+.approach-intro p {
+  font-size: 16px;
+  color: var(--text-secondary);
+  line-height: 1.8;
+  margin-bottom: 12px;
+}
+.context-callout {
+  background: linear-gradient(135deg, var(--gwcf-navy) 0%, #1E3A5F 100%);
+  border-radius: var(--radius-lg);
+  padding: 36px 40px;
+  margin: 40px 0;
+  position: relative;
+  overflow: hidden;
+}
+.context-callout::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: var(--gwcf-teal);
+}
+.context-callout h3 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 20px;
+  color: white;
+  margin-bottom: 12px;
+}
+.context-callout p {
+  font-size: 15px;
+  color: rgba(255,255,255,0.75);
+  line-height: 1.8;
+}
+
+.already-in-scope {
+  background: var(--gwcf-teal-pale);
+  border: 1px solid rgba(42,157,143,0.2);
+  border-radius: var(--radius-lg);
+  padding: 32px 36px;
+  margin: 40px 0;
+}
+.already-in-scope h3 {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--gwcf-navy);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.already-in-scope h3::before {
+  content: '✓';
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--gwcf-teal);
+  color: white;
+  font-size: 12px;
+  font-weight: 700;
+}
+.scope-items {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px 24px;
+}
+.scope-item {
+  font-size: 14px;
+  color: var(--text-secondary);
+  padding: 6px 0;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+.scope-item::before {
+  content: '—';
+  color: var(--gwcf-teal);
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+/* ═══════ SCOPE BUILDER ═══════ */
+.scope-section {
+  margin-bottom: 48px;
+}
+.scope-section-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 24px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--border-light);
+}
+.scope-section-num {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--gwcf-navy);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Georgia, serif;
+  font-size: 16px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+.scope-section-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--gwcf-navy);
+}
+.scope-section-subtitle {
+  font-size: 14px;
+  color: var(--text-muted);
+  margin-left: auto;
+  font-style: italic;
+}
+
+.scope-card {
+  background: var(--bg-card);
+  border: 2px solid var(--border-light);
+  border-radius: var(--radius-md);
+  padding: 28px 32px;
+  margin-bottom: 14px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  position: relative;
+  display: flex;
+  gap: 20px;
+}
+.scope-card:hover {
+  border-color: var(--gwcf-teal);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-1px);
+}
+.scope-card.selected {
+  border-color: var(--gwcf-teal);
+  background: linear-gradient(135deg, var(--gwcf-teal-pale) 0%, rgba(232,246,244,0.3) 100%);
+  box-shadow: 0 0 0 1px var(--gwcf-teal), var(--shadow-md);
+}
+
+.scope-card-toggle {
+  width: 28px;
+  height: 28px;
+  border-radius: var(--radius-sm);
+  border: 2px solid var(--border-medium);
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  margin-top: 2px;
+}
+.scope-card.selected .scope-card-toggle {
+  background: var(--gwcf-teal);
+  border-color: var(--gwcf-teal);
+}
+.scope-card.selected .scope-card-toggle::after {
+  content: '✓';
+  color: white;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.scope-card-body { flex: 1; }
+.scope-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 8px;
+}
+.scope-card-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--gwcf-navy);
+}
+.scope-card-price {
+  font-family: Georgia, serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--gwcf-navy);
+  white-space: nowrap;
+}
+.scope-card.selected .scope-card-price {
+  color: var(--gwcf-teal);
+}
+.scope-card-desc {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 12px;
+}
+.scope-card-includes {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+.scope-card-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 3px 10px;
+  border-radius: 20px;
+  margin-top: 10px;
+}
+.tag-recommended {
+  background: rgba(42,157,143,0.12);
+  color: var(--gwcf-teal);
+}
+.tag-high-impact {
+  background: rgba(212,168,67,0.15);
+  color: #B8922E;
+}
+.tag-new {
+  background: rgba(61,122,181,0.12);
+  color: var(--gwcf-blue);
+}
+
+/* ═══════ SUMMARY PANEL / DRAWER ═══════ */
+.drawer-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(15,27,51,0.5);
+  z-index: 200;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s;
+}
+.drawer-overlay.open { opacity: 1; visibility: visible; }
+
+.drawer-panel {
+  position: fixed;
+  top: 0;
+  right: -520px;
+  width: 500px;
+  height: 100%;
+  background: white;
+  z-index: 201;
+  transition: right 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: var(--shadow-xl);
+  display: flex;
+  flex-direction: column;
+}
+.drawer-panel.open { right: 0; }
+
+.drawer-header {
+  padding: 24px 28px;
+  background: var(--gwcf-navy-deep);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.drawer-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 20px;
+  color: white;
+  font-weight: 700;
+}
+.drawer-close {
+  background: none;
+  border: none;
+  color: rgba(255,255,255,0.6);
+  font-size: 24px;
+  cursor: pointer;
+  padding: 4px;
+  transition: color 0.2s;
+}
+.drawer-close:hover { color: white; }
+
+.drawer-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 28px;
+}
+.drawer-section-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--text-muted);
+  margin-bottom: 14px;
+  font-weight: 600;
+}
+.drawer-line-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border-light);
+  font-size: 14px;
+}
+.drawer-line-item.unselected {
+  opacity: 0.35;
+  text-decoration: line-through;
+}
+.drawer-line-item .item-name {
+  color: var(--text-primary);
+  font-weight: 500;
+  flex: 1;
+  padding-right: 12px;
+}
+.drawer-line-item .item-price {
+  font-family: Georgia, serif;
+  font-weight: 700;
+  color: var(--gwcf-navy);
+  white-space: nowrap;
+}
+.drawer-line-item.unselected .item-price {
+  color: var(--text-muted);
+}
+.drawer-subtotal {
+  display: flex;
+  justify-content: space-between;
+  padding: 14px 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--gwcf-navy);
+  border-bottom: 2px solid var(--border-light);
+  margin-bottom: 24px;
+}
+.drawer-subtotal .sub-price {
+  font-family: Georgia, serif;
+  font-size: 16px;
+}
+
+.drawer-footer {
+  padding: 20px 28px;
+  background: var(--bg-light);
+  border-top: 1px solid var(--border-light);
+}
+.drawer-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 16px;
+}
+.drawer-total-label {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--gwcf-navy);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.drawer-total-price {
+  font-family: Georgia, serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--gwcf-teal);
+}
+.drawer-actions {
+  display: flex;
+  gap: 10px;
+}
+.btn-drawer {
+  flex: 1;
+  padding: 12px 16px;
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-align: center;
+  border: none;
+}
+.btn-pdf {
+  background: var(--gwcf-navy);
+  color: white;
+}
+.btn-pdf:hover { background: var(--gwcf-navy-deep); }
+.btn-email {
+  background: var(--gwcf-teal);
+  color: white;
+}
+.btn-email:hover { background: var(--gwcf-teal-light); }
+
+/* ═══════ SUMMARY TAB ═══════ */
+.summary-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 32px;
+}
+.summary-stat {
+  background: white;
+  border-radius: var(--radius-md);
+  padding: 28px;
+  border: 1px solid var(--border-light);
+  text-align: center;
+}
+.summary-stat-value {
+  font-family: Georgia, serif;
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--gwcf-teal);
+}
+.summary-stat-label {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-top: 4px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.summary-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 32px;
+}
+.summary-table th {
+  text-align: left;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--text-muted);
+  padding: 12px 16px;
+  border-bottom: 2px solid var(--border-light);
+  font-weight: 600;
+}
+.summary-table th:last-child { text-align: right; }
+.summary-table td {
+  padding: 16px;
+  border-bottom: 1px solid var(--border-light);
+  font-size: 14px;
+}
+.summary-table td:last-child {
+  text-align: right;
+  font-family: Georgia, serif;
+  font-weight: 700;
+}
+.summary-table tr.unselected td {
+  opacity: 0.3;
+  text-decoration: line-through;
+}
+.summary-table tr.section-row td {
+  font-weight: 700;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--gwcf-navy);
+  background: var(--bg-light);
+  border-bottom: none;
+}
+.summary-table tr.subtotal-row td {
+  font-weight: 700;
+  border-bottom: 2px solid var(--border-light);
+  color: var(--gwcf-navy);
+}
+.summary-table tr.total-row td {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--gwcf-teal);
+  border-bottom: none;
+  padding-top: 20px;
+}
+
+/* ═══════ CTA BAR ═══════ */
+.cta-bar {
+  margin-top: 48px;
+  background: linear-gradient(135deg, var(--gwcf-navy) 0%, #1E3A5F 100%);
+  border-radius: var(--radius-lg);
+  padding: 36px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.cta-text h3 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 22px;
+  color: white;
+  margin-bottom: 6px;
+}
+.cta-text p {
+  font-size: 14px;
+  color: rgba(255,255,255,0.6);
+}
+.btn-cta {
+  background: var(--gwcf-teal);
+  color: white;
+  border: none;
+  padding: 14px 32px;
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+.btn-cta:hover { background: var(--gwcf-teal-light); transform: translateY(-1px); }
+
+/* ═══════ TERMS ═══════ */
+.terms-block {
+  margin-top: 40px;
+  background: var(--bg-light);
+  border-radius: var(--radius-md);
+  padding: 28px 32px;
+  border: 1px solid var(--border-light);
+}
+.terms-block h4 {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--gwcf-navy);
+  margin-bottom: 10px;
+}
+.terms-block p {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.8;
+}
+
+/* ═══════ TIMELINE ═══════ */
+.timeline-visual {
+  margin-top: 40px;
+}
+.timeline-visual h3 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 22px;
+  color: var(--gwcf-navy);
+  margin-bottom: 24px;
+}
+.timeline-bar-container {
+  position: relative;
+  padding-left: 140px;
+  margin-bottom: 12px;
+}
+.timeline-bar-label {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  width: 130px;
+  text-align: right;
+  padding-right: 16px;
+}
+.timeline-bar {
+  height: 32px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  padding: 0 12px;
+  font-size: 11px;
+  color: white;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  min-width: 80px;
+}
+.timeline-months {
+  display: flex;
+  padding-left: 140px;
+  margin-top: 8px;
+  border-top: 1px solid var(--border-light);
+  padding-top: 8px;
+}
+.timeline-month {
+  flex: 1;
+  text-align: center;
+  font-size: 11px;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+/* ═══════ RESPONSIVE ═══════ */
+@media (max-width: 768px) {
+  .site-header { padding: 0 20px; }
+  .hero { padding: 48px 24px; }
+  .hero-title { font-size: 32px; }
+  .content-area { padding: 32px 20px; }
+  .scope-card { padding: 20px; flex-direction: column; gap: 12px; }
+  .scope-card-top { flex-direction: column; gap: 4px; }
+  .nav-tabs { padding: 0 16px; overflow-x: auto; }
+  .nav-tab { padding: 14px 16px; font-size: 11px; white-space: nowrap; }
+  .drawer-panel { width: 100%; right: -100%; }
+  .hero-meta { flex-direction: column; gap: 16px; }
+  .scope-items { grid-template-columns: 1fr; }
+  .summary-grid { grid-template-columns: 1fr; }
+  .cta-bar { flex-direction: column; gap: 20px; text-align: center; }
+  .timeline-bar-container { padding-left: 0; }
+  .timeline-bar-label { position: static; text-align: left; width: auto; padding: 0 0 4px 0; transform: none; }
+  .timeline-bar-container { display: flex; flex-direction: column; }
+  .timeline-months { padding-left: 0; }
+}
+
+/* ═══════ ANIMATIONS ═══════ */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.scope-card { animation: fadeInUp 0.4s ease both; }
+.scope-card:nth-child(1) { animation-delay: 0.05s; }
+.scope-card:nth-child(2) { animation-delay: 0.1s; }
+.scope-card:nth-child(3) { animation-delay: 0.15s; }
+.scope-card:nth-child(4) { animation-delay: 0.2s; }
+.scope-card:nth-child(5) { animation-delay: 0.25s; }
+</style>
+</head>
+<body>
+
+<!-- ═══════ HEADER ═══════ -->
+<header class="site-header">
+  <div class="header-left">
+    <div class="header-gallup">GALLUP</div>
+    <div class="header-divider"></div>
+    <div class="header-gwcf">Greater Washington Community Foundation</div>
+  </div>
+  <div class="header-right">
+    <div style="text-align:right;">
+      <div class="investment-label">Selected Investment</div>
+      <div class="investment-total" id="headerTotal">$0</div>
+    </div>
+    <button class="btn-investment" onclick="toggleDrawer()">View Timeline &amp; Investment</button>
+  </div>
+</header>
+
+<!-- ═══════ NAV TABS ═══════ -->
+<nav class="nav-tabs">
+  <div class="nav-tab active" data-tab="approach" onclick="switchTab('approach')">Our Approach</div>
+  <div class="nav-tab" data-tab="builder" onclick="switchTab('builder')">Engagement Builder</div>
+  <div class="nav-tab" data-tab="summary" onclick="switchTab('summary')">Summary</div>
+</nav>
+
+<!-- ═══════ HERO ═══════ -->
+<section class="hero">
+  <div class="hero-eyebrow">VoicesDMV — Strategic Communications</div>
+  <h1 class="hero-title">Maximizing the Impact of Community-Driven Data</h1>
+  <p class="hero-subtitle">A modular communications engagement to amplify the VoicesDMV Community Insights Report—driving awareness, engagement, and action across the Greater Washington region.</p>
+  <div class="hero-meta">
+    <div class="hero-meta-item">
+      <span class="hero-meta-label">Prepared For</span>
+      <span class="hero-meta-value">Danielle Yates, GWCF</span>
+    </div>
+    <div class="hero-meta-item">
+      <span class="hero-meta-label">Prepared By</span>
+      <span class="hero-meta-value">Gallup</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ MAIN CONTENT ═══════ -->
+<main class="content-area">
+
+  <!-- TAB: OUR APPROACH -->
+  <div class="tab-content active" id="tab-approach">
+    <div class="approach-intro">
+      <h2>Amplifying Community Voice Through Strategic Communications</h2>
+      <p>Since 2017, Gallup and the Greater Washington Community Foundation have partnered to understand how residents of the DC, Maryland, and Virginia region experience their communities — their challenges, their hopes, and their priorities for the future. The VoicesDMV Community Insights Report has become a vital resource for philanthropy, policymakers, and community leaders working toward a more equitable and thriving region.</p>
+      <p>This communications proposal builds on that foundation. The goal is to ensure the next wave of VoicesDMV findings doesn't just sit on a shelf — it drives conversation, informs strategy, and sparks action. Gallup's Strategic Communications team will work alongside GWCF to craft the narrative, build the tools, and execute the activations that maximize the return on your data investment.</p>
+    </div>
+
+    <div class="context-callout">
+      <h3>The Opportunity</h3>
+      <p>GWCF has made a significant investment in rigorous, community-centered research. The communications strategy outlined here is designed to ensure that investment pays dividends — through media coverage, stakeholder engagement, community ownership of the findings, and lasting digital resources that extend the life and reach of the data well beyond the launch event.</p>
+    </div>
+
+    <div class="already-in-scope">
+      <h3>Project Overview — 2026 VoicesDMV</h3>
+      <p style="font-size:14px;color:var(--text-secondary);line-height:1.8;">Gallup is partnering with the Greater Washington Community Foundation to design and execute the 2026 VoicesDMV Community Insights initiative — a scientifically rigorous, address-based survey of residents across the DC, Maryland, and Virginia region. The project includes survey development, data collection, advanced analytics, community engagement through an advisory group and in-depth interviews, and a suite of dissemination activities to ensure the findings drive action. The communications services outlined in this proposal are designed to complement and amplify that work.</p>
+    </div>
+
+    <div class="approach-intro" style="margin-top:40px;">
+      <h2>What This Proposal Adds</h2>
+      <p>The services below represent the communications and activation layer that wraps around the research and community engagement already underway. Each component is independently selectable — build the scope that fits your budget and priorities. Gallup recommends starting with the narrative foundation and event support, then layering on media, digital, and content elements to extend reach.</p>
+      <p>Use the <strong>Engagement Builder</strong> tab to explore each option in detail and build your custom scope. The <strong>Summary</strong> tab provides a complete line-item breakdown of your selections along with an estimated timeline.</p>
+    </div>
+
+    <div class="cta-bar">
+      <div class="cta-text">
+        <h3>Ready to Build Your Scope?</h3>
+        <p>Select the communications components that fit your goals and budget.</p>
+      </div>
+      <button class="btn-cta" onclick="switchTab('builder')">Go to Engagement Builder →</button>
+    </div>
+  </div>
+
+  <!-- TAB: ENGAGEMENT BUILDER -->
+  <div class="tab-content" id="tab-builder">
+
+    <!-- SECTION 1: FOUNDATIONAL -->
+    <div class="scope-section">
+      <div class="scope-section-header">
+        <div class="scope-section-num">1</div>
+        <div class="scope-section-title">Narrative &amp; Strategy</div>
+        <div class="scope-section-subtitle">Build the foundation</div>
+      </div>
+
+      <div class="scope-card" data-id="narrative" data-price="15500" data-category="foundation" onclick="toggleCard(this)">
+        <div class="scope-card-toggle"></div>
+        <div class="scope-card-body">
+          <div class="scope-card-top">
+            <div class="scope-card-title">Narrative Workshopping &amp; Communications Campaign Plan</div>
+            <div class="scope-card-price">$15,500</div>
+          </div>
+          <div class="scope-card-desc">Gallup facilitates a collaborative narrative session with GWCF leadership to align the VoicesDMV findings with GWCF's mission, the Together We Prosper campaign, and the broader story of community voice in the DMV region. From that session, Gallup develops a full strategic communications plan that maps the rollout from pre-launch through event and beyond — including audience segmentation, channel strategy, content calendar, messaging framework, and audience-specific talking points for media, funders, policymakers, and community partners.</div>
+          <div class="scope-card-includes">Includes: facilitated narrative workshop · messaging framework · audience-tailored talking points · press-ready language · strategic comms plan · content calendar · audience map · bi-weekly strategy check-ins through launch</div>
+          <span class="scope-card-tag tag-recommended">Recommended First Step</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION 2: MEDIA & PRESS -->
+    <div class="scope-section">
+      <div class="scope-section-header">
+        <div class="scope-section-num">2</div>
+        <div class="scope-section-title">Media &amp; Press</div>
+        <div class="scope-section-subtitle">Drive the conversation</div>
+      </div>
+
+      <div class="scope-card" data-id="media-pitching" data-price="20000" data-category="media" onclick="toggleCard(this)">
+        <div class="scope-card-toggle"></div>
+        <div class="scope-card-body">
+          <div class="scope-card-top">
+            <div class="scope-card-title">Media Pitching &amp; Spokesperson Support</div>
+            <div class="scope-card-price">$20,000</div>
+          </div>
+          <div class="scope-card-desc">Gallup's communications team develops and executes a targeted media strategy for the VoicesDMV launch — pitching to DMV regional outlets, national outlets covering equity and urban policy, and trade press covering philanthropy. Includes spokesperson preparation for GWCF grantees and leadership, and media training.</div>
+          <div class="scope-card-includes">Includes: media list development · pitch drafting and outreach · spokesperson prep for up to 4 spokespeople · media training session · press release</div>
+          <span class="scope-card-tag tag-recommended">Recommended</span>
+        </div>
+      </div>
+
+<div class="scope-card" data-id="additional-articles" data-price="21000" data-category="media" onclick="toggleCard(this)">
+        <div class="scope-card-toggle"></div>
+        <div class="scope-card-body">
+          <div class="scope-card-top">
+            <div class="scope-card-title">Gallup.com Article Series (3 Articles)</div>
+            <div class="scope-card-price">$21,000</div>
+          </div>
+          <div class="scope-card-desc">Three Gallup.com articles released on a staggered schedule — each unpacking a specific theme from the report (e.g., housing &amp; displacement, community safety, economic mobility). Gallup.com reaches 1–2 million unique visitors monthly, including policymakers, philanthropists, and researchers. Extends the media lifecycle and creates fresh news hooks for sustained coverage.</div>
+          <div class="scope-card-includes">Includes: 3 articles (500–750 words each) · data visualizations &amp; charts · staggered release schedule · social sharing assets · Gallup editorial review &amp; publication</div>
+          <span class="scope-card-tag tag-high-impact">High Impact</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- SECTION 3: STAKEHOLDER ENGAGEMENT -->
+    <div class="scope-section">
+      <div class="scope-section-header">
+        <div class="scope-section-num">3</div>
+        <div class="scope-section-title">Stakeholder Engagement</div>
+        <div class="scope-section-subtitle">Activate decision-makers</div>
+      </div>
+
+      <div class="scope-card" data-id="stakeholder-deck" data-price="12000" data-category="stakeholder" onclick="toggleCard(this)">
+        <div class="scope-card-toggle"></div>
+        <div class="scope-card-body">
+          <div class="scope-card-top">
+            <div class="scope-card-title">Policy &amp; Stakeholder Deck Creation + Presentation Support</div>
+            <div class="scope-card-price">$12,000</div>
+          </div>
+          <div class="scope-card-desc">Gallup designs a polished, data-rich presentation deck tailored for stakeholder and funder audiences — including policymakers, corporate partners, and philanthropic peers. Includes speaker coaching and support for up to 2 presentation events (the VIP session and one additional briefing).</div>
+          <div class="scope-card-includes">Includes: custom slide deck (30–40 slides) · speaker notes · data visualizations · presentation coaching (2 sessions) · live presentation support</div>
+          <span class="scope-card-tag tag-recommended">Recommended</span>
+        </div>
+      </div>
+
+      <div class="scope-card" data-id="funder-briefs" data-price="9000" data-category="stakeholder" onclick="toggleCard(this)">
+        <div class="scope-card-toggle"></div>
+        <div class="scope-card-body">
+          <div class="scope-card-top">
+            <div class="scope-card-title">Custom Funder &amp; Partner Briefing Packets</div>
+            <div class="scope-card-price">$9,000</div>
+          </div>
+          <div class="scope-card-desc">Tailored 4–6 page briefing documents for key funder and partner audiences, pulling findings relevant to their priority areas (e.g., housing, education, public safety, racial equity). Designed as leave-behind materials for VIP meetings and as standalone engagement tools.</div>
+          <div class="scope-card-includes">Includes: up to 4 audience-specific briefing packets · custom data pulls · print-ready design</div>
+        </div>
+      </div>
+
+      <div class="scope-card" data-id="community-toolkit" data-price="7000" data-category="stakeholder" onclick="toggleCard(this)">
+        <div class="scope-card-toggle"></div>
+        <div class="scope-card-body">
+          <div class="scope-card-top">
+            <div class="scope-card-title">Community Conversation Facilitation Kits</div>
+            <div class="scope-card-price">$7,000</div>
+          </div>
+          <div class="scope-card-desc">Packaged facilitation guides that enable GWCF grantees and community partners to host their own VoicesDMV discussions. Each kit includes a discussion guide, data handouts for the relevant geography, and facilitator tips — making the data accessible and actionable at the grassroots level.</div>
+          <div class="scope-card-includes">Includes: facilitation guide · jurisdiction-specific data handouts (DC, MD, VA) · host tips · feedback survey template</div>
+          <span class="scope-card-tag tag-new">Extends Community Impact</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION 4: DIGITAL & CONTENT -->
+    <div class="scope-section">
+      <div class="scope-section-header">
+        <div class="scope-section-num">4</div>
+        <div class="scope-section-title">Digital &amp; Content</div>
+        <div class="scope-section-subtitle">Extend the reach</div>
+      </div>
+
+      <div class="scope-card" data-id="social-media" data-price="15000" data-category="digital" onclick="toggleCard(this)">
+        <div class="scope-card-toggle"></div>
+        <div class="scope-card-body">
+          <div class="scope-card-top">
+            <div class="scope-card-title">Social Media Content Creation &amp; Distribution</div>
+            <div class="scope-card-price">$15,000</div>
+          </div>
+          <div class="scope-card-desc">Gallup creates static social media content to support the VoicesDMV launch — four posts highlighting key findings, designed for use across Gallup and GWCF channels. Gallup will share assets with the GWCF team for co-posting and will publish content on Gallup's social media channels (LinkedIn, X) on a coordinated calendar.</div>
+          <div class="scope-card-includes">Includes: 4 static social posts · branded design assets · content shared with GWCF team · posting on Gallup social channels · coordinated calendar</div>
+        </div>
+      </div>
+
+      <div class="scope-card" data-id="video-production" data-price="26000" data-category="digital" onclick="toggleCard(this)">
+        <div class="scope-card-toggle"></div>
+        <div class="scope-card-body">
+          <div class="scope-card-top">
+            <div class="scope-card-title">Gallup-Branded Video Content Production</div>
+            <div class="scope-card-price">$26,000</div>
+          </div>
+          <div class="scope-card-desc">Professional Gallup-branded video content produced at Gallup's Washington, D.C. studio — including a 2–3 minute flagship sizzle video for the launch event, plus 4–5 short-form interview clips filmed in the Gallup podcast studio with GWCF leadership, Gallup researchers, CAG members, and VoicesDMV Fellows. These clips are designed for social distribution, event use, and embedding in Gallup.com articles.</div>
+          <div class="scope-card-includes">Includes: 1 flagship video (2–3 min) · 4–5 podcast-studio interview clips (60–90 sec each) · Gallup studio production · branded lower thirds &amp; graphics · post-production · captioning · social-optimized exports</div>
+          <span class="scope-card-tag tag-high-impact">High Impact</span>
+        </div>
+      </div>
+
+
+    </div>
+
+    <!-- SECTION 5: EVENT -->
+    <div class="scope-section">
+      <div class="scope-section-header">
+        <div class="scope-section-num">5</div>
+        <div class="scope-section-title">Event &amp; Launch</div>
+        <div class="scope-section-subtitle">Bring it together</div>
+      </div>
+
+      <div class="scope-card" data-id="event-support" data-price="15000" data-category="event" onclick="toggleCard(this)">
+        <div class="scope-card-toggle"></div>
+        <div class="scope-card-body">
+          <div class="scope-card-top">
+            <div class="scope-card-title">Event Strategy &amp; Logistics Support</div>
+            <div class="scope-card-price">$15,000</div>
+          </div>
+          <div class="scope-card-desc">Full logistical and strategic support for the October report launch event at the Gallup building in Washington, DC. Includes event design for a 2–3 hour program with a report presentation, press-forward chapter announcement, and VIP stakeholder/funder session. Covers run-of-show, speaker coordination, AV and room setup, printed materials, and day-of management.</div>
+          <div class="scope-card-includes">Includes: event design &amp; run-of-show · Gallup venue coordination · speaker prep · printed materials · AV support · day-of event management</div>
+          <span class="scope-card-tag tag-recommended">Recommended</span>
+        </div>
+      </div>
+
+      <div class="scope-card" data-id="vip-session" data-price="8500" data-category="event" onclick="toggleCard(this)">
+        <div class="scope-card-toggle"></div>
+        <div class="scope-card-body">
+          <div class="scope-card-top">
+            <div class="scope-card-title">VIP Stakeholder &amp; Funder Session — Hosting &amp; Custom Collateral</div>
+            <div class="scope-card-price">$8,500</div>
+          </div>
+          <div class="scope-card-desc">Gallup hosts and produces the VIP portion of the launch event at Gallup World Headquarters — an intimate, high-touch experience designed for GWCF's top funders, board members, and strategic partners. Gallup develops a custom agenda, curated data presentation with exclusive findings, and a suite of premium printed collateral including a branded data book, personalized jurisdiction-level summaries, and a custom-designed leave-behind package that reinforces the partnership and the investment thesis for continued VoicesDMV support.</div>
+          <div class="scope-card-includes">Includes: Gallup HQ venue &amp; hosting · custom VIP agenda · exclusive data presentation · facilitated roundtable · branded data book · jurisdiction-level summary cards · premium leave-behind package · catering coordination</div>
+        </div>
+      </div>
+
+      <div class="scope-card" data-id="post-event" data-price="2600" data-category="event" onclick="toggleCard(this)">
+        <div class="scope-card-toggle"></div>
+        <div class="scope-card-body">
+          <div class="scope-card-top">
+            <div class="scope-card-title">Post-Event Recap Package</div>
+            <div class="scope-card-price">$2,600</div>
+          </div>
+          <div class="scope-card-desc">Post-event communications package including a visual event recap document, photo curation, and attendee follow-up communications for VIP guests and partners.</div>
+          <div class="scope-card-includes">Includes: event recap document · photo curation · attendee follow-up emails</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA at bottom of builder -->
+    <div class="cta-bar">
+      <div class="cta-text">
+        <h3>Review Your Selections</h3>
+        <p>See the full line-item breakdown, timeline, and total investment.</p>
+      </div>
+      <button class="btn-cta" onclick="switchTab('summary')">View Summary →</button>
+    </div>
+  </div>
+
+  <!-- TAB: SUMMARY -->
+  <div class="tab-content" id="tab-summary">
+    <div class="approach-intro">
+      <h2>Investment Summary</h2>
+      <p>Below is the complete breakdown of selected and available communications services. Toggle items on or off using the Engagement Builder to update this view in real time.</p>
+    </div>
+
+    <div class="summary-grid" id="summaryStats">
+      <div class="summary-stat">
+        <div class="summary-stat-value" id="statTotal">$0</div>
+        <div class="summary-stat-label">Total Investment</div>
+      </div>
+      <div class="summary-stat">
+        <div class="summary-stat-value" id="statCount">0</div>
+        <div class="summary-stat-label">Components Selected</div>
+      </div>
+    </div>
+
+    <table class="summary-table" id="summaryTable">
+      <thead>
+        <tr><th>Component</th><th>Investment</th></tr>
+      </thead>
+      <tbody id="summaryBody"></tbody>
+    </table>
+
+    <!-- Timeline -->
+    <div class="timeline-visual" id="timelineSection">
+      <h3>Estimated Timeline</h3>
+      <div id="timelineBars"></div>
+    </div>
+
+    <!-- Terms -->
+    <div class="terms-block">
+      <h4>Terms &amp; Notes</h4>
+      <p>All pricing is estimated and subject to final scoping based on GWCF's specific needs and timelines. Gallup venue use for the October event is included at no additional charge for event support selections. Travel and incidental expenses for on-site production (video, satellite media tour) are billed separately. Interactive dashboard hosting is included for 12 months from launch; renewal pricing available upon request. All deliverables are co-branded Gallup &amp; GWCF unless otherwise specified. Pricing is valid for 60 days from proposal date.</p>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta-bar" style="margin-top:32px;">
+      <div class="cta-text">
+        <h3>Ready to Move Forward?</h3>
+        <p>Export your selections or send them directly to Gallup.</p>
+      </div>
+      <div style="display:flex;gap:12px;">
+        <button class="btn-cta" style="background:var(--gwcf-navy);" onclick="exportPDF()">Export to PDF</button>
+        <button class="btn-cta" onclick="emailSelections()">Email Selections to Gallup</button>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<!-- ═══════ DRAWER ═══════ -->
+<div class="drawer-overlay" id="drawerOverlay" onclick="toggleDrawer()"></div>
+<div class="drawer-panel" id="drawerPanel">
+  <div class="drawer-header">
+    <div class="drawer-title">Timeline &amp; Investment</div>
+    <button class="drawer-close" onclick="toggleDrawer()">✕</button>
+  </div>
+  <div class="drawer-body" id="drawerBody"></div>
+  <div class="drawer-footer">
+    <div class="drawer-total">
+      <span class="drawer-total-label">Total Investment</span>
+      <span class="drawer-total-price" id="drawerTotal">$0</span>
+    </div>
+    <div class="drawer-actions">
+      <button class="btn-drawer btn-pdf" onclick="exportPDF()">Export to PDF</button>
+      <button class="btn-drawer btn-email" onclick="emailSelections()">Email to Gallup</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// ═══════ DATA MODEL ═══════
+const categories = {
+  foundation: { label: 'Narrative & Strategy', order: 1 },
+  media: { label: 'Media & Press', order: 2 },
+  stakeholder: { label: 'Stakeholder Engagement', order: 3 },
+  digital: { label: 'Digital & Content', order: 4 },
+  event: { label: 'Event & Launch', order: 5 }
+};
+
+const timelineMap = {
+  'narrative': { label: 'Narrative & Comms Plan', start: 0, weeks: 5, color: '#2A9D8F' },
+  'media-pitching': { label: 'Media Pitching', start: 12, weeks: 8, color: '#3D7AB5' },
+  'additional-articles': { label: 'Gallup.com Articles', start: 18, weeks: 10, color: '#3D7AB5' },
+  'stakeholder-deck': { label: 'Stakeholder Deck', start: 10, weeks: 6, color: '#D4A843' },
+  'funder-briefs': { label: 'Funder Briefs', start: 12, weeks: 4, color: '#D4A843' },
+  'community-toolkit': { label: 'Facilitation Kits', start: 14, weeks: 4, color: '#D4A843' },
+  'social-media': { label: 'Social Content', start: 14, weeks: 4, color: '#E07A5F' },
+  'video-production': { label: 'Gallup Video Production', start: 10, weeks: 8, color: '#E07A5F' },
+  'event-support': { label: 'Event Support', start: 8, weeks: 12, color: '#4CAF50' },
+  'vip-session': { label: 'VIP Session & Collateral', start: 10, weeks: 8, color: '#4CAF50' },
+  'post-event': { label: 'Post-Event Recap', start: 20, weeks: 2, color: '#4CAF50' }
+};
+
+// ═══════ STATE ═══════
+const selected = new Set();
+
+function toggleCard(el) {
+  const id = el.dataset.id;
+  if (selected.has(id)) {
+    selected.delete(id);
+    el.classList.remove('selected');
+  } else {
+    selected.add(id);
+    el.classList.add('selected');
+  }
+  updateAll();
+}
+
+function getTotal() {
+  let total = 0;
+  document.querySelectorAll('.scope-card').forEach(card => {
+    if (selected.has(card.dataset.id)) {
+      total += parseInt(card.dataset.price);
+    }
+  });
+  return total;
+}
+
+function fmt(n) {
+  return '$' + n.toLocaleString('en-US');
+}
+
+function updateAll() {
+  const total = getTotal();
+  document.getElementById('headerTotal').textContent = fmt(total);
+  document.getElementById('drawerTotal').textContent = fmt(total);
+  document.getElementById('statTotal').textContent = fmt(total);
+  document.getElementById('statCount').textContent = selected.size;
+  updateDrawer();
+  updateSummaryTable();
+  updateTimeline();
+}
+
+// ═══════ TABS ═══════
+function switchTab(tabName) {
+  document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+  document.querySelector(`.nav-tab[data-tab="${tabName}"]`).classList.add('active');
+  document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+  document.getElementById('tab-' + tabName).classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  if (tabName === 'summary') { updateSummaryTable(); updateTimeline(); }
+}
+
+// ═══════ DRAWER ═══════
+function toggleDrawer() {
+  document.getElementById('drawerOverlay').classList.toggle('open');
+  document.getElementById('drawerPanel').classList.toggle('open');
+  updateDrawer();
+}
+
+function updateDrawer() {
+  const body = document.getElementById('drawerBody');
+  let html = '';
+  const cards = document.querySelectorAll('.scope-card');
+  const catGroups = {};
+
+  cards.forEach(card => {
+    const cat = card.dataset.category;
+    if (!catGroups[cat]) catGroups[cat] = [];
+    catGroups[cat].push({
+      id: card.dataset.id,
+      title: card.querySelector('.scope-card-title').textContent,
+      price: parseInt(card.dataset.price),
+      selected: selected.has(card.dataset.id)
+    });
+  });
+
+  const sortedCats = Object.keys(catGroups).sort((a, b) => categories[a].order - categories[b].order);
+
+  sortedCats.forEach(cat => {
+    html += `<div class="drawer-section-label">${categories[cat].label}</div>`;
+    let subtotal = 0;
+    catGroups[cat].forEach(item => {
+      const cls = item.selected ? '' : ' unselected';
+      html += `<div class="drawer-line-item${cls}"><span class="item-name">${item.title}</span><span class="item-price">${fmt(item.price)}</span></div>`;
+      if (item.selected) subtotal += item.price;
+    });
+    html += `<div class="drawer-subtotal"><span>Subtotal</span><span class="sub-price">${fmt(subtotal)}</span></div>`;
+  });
+
+  body.innerHTML = html;
+}
+
+// ═══════ SUMMARY TABLE ═══════
+function updateSummaryTable() {
+  const tbody = document.getElementById('summaryBody');
+  let html = '';
+  const cards = document.querySelectorAll('.scope-card');
+  const catGroups = {};
+
+  cards.forEach(card => {
+    const cat = card.dataset.category;
+    if (!catGroups[cat]) catGroups[cat] = [];
+    catGroups[cat].push({
+      id: card.dataset.id,
+      title: card.querySelector('.scope-card-title').textContent,
+      price: parseInt(card.dataset.price),
+      selected: selected.has(card.dataset.id)
+    });
+  });
+
+  const sortedCats = Object.keys(catGroups).sort((a, b) => categories[a].order - categories[b].order);
+  let grandTotal = 0;
+
+  sortedCats.forEach(cat => {
+    html += `<tr class="section-row"><td>${categories[cat].label}</td><td></td></tr>`;
+    let subtotal = 0;
+    catGroups[cat].forEach(item => {
+      const cls = item.selected ? '' : ' class="unselected"';
+      html += `<tr${cls}><td style="padding-left:24px;">${item.title}</td><td>${fmt(item.price)}</td></tr>`;
+      if (item.selected) subtotal += item.price;
+    });
+    html += `<tr class="subtotal-row"><td style="padding-left:24px;">Subtotal</td><td>${fmt(subtotal)}</td></tr>`;
+    grandTotal += subtotal;
+  });
+
+  html += `<tr class="total-row"><td>Total Investment</td><td>${fmt(grandTotal)}</td></tr>`;
+  tbody.innerHTML = html;
+}
+
+// ═══════ TIMELINE ═══════
+function updateTimeline() {
+  const container = document.getElementById('timelineBars');
+  const selectedItems = [...selected].filter(id => timelineMap[id]);
+
+  if (selectedItems.length === 0) {
+    container.innerHTML = '<p style="color:var(--text-muted);font-size:14px;font-style:italic;">Select components to see the timeline.</p>';
+    return;
+  }
+
+  const maxWeek = Math.max(...selectedItems.map(id => timelineMap[id].start + timelineMap[id].weeks));
+  const totalWeeks = Math.max(maxWeek, 24);
+
+  let html = '';
+  const sorted = selectedItems.sort((a, b) => timelineMap[a].start - timelineMap[b].start);
+
+  sorted.forEach(id => {
+    const t = timelineMap[id];
+    const leftPct = (t.start / totalWeeks * 100).toFixed(1);
+    const widthPct = (t.weeks / totalWeeks * 100).toFixed(1);
+    html += `<div class="timeline-bar-container">
+      <div class="timeline-bar-label">${t.label}</div>
+      <div style="position:relative;height:32px;">
+        <div class="timeline-bar" style="position:absolute;left:${leftPct}%;width:${widthPct}%;background:${t.color};">Wk ${t.start + 1}–${t.start + t.weeks}</div>
+      </div>
+    </div>`;
+  });
+
+  // Month labels
+  const months = ['Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  html += '<div class="timeline-months">';
+  const monthCount = Math.ceil(totalWeeks / 4);
+  for (let i = 0; i < monthCount && i < months.length; i++) {
+    html += `<div class="timeline-month">${months[i]}</div>`;
+  }
+  html += '</div>';
+
+  container.innerHTML = html;
+}
+
+// ═══════ EXPORT ═══════
+function exportPDF() {
+  const selectedItems = [];
+  document.querySelectorAll('.scope-card').forEach(card => {
+    if (selected.has(card.dataset.id)) {
+      selectedItems.push({
+        title: card.querySelector('.scope-card-title').textContent,
+        price: fmt(parseInt(card.dataset.price)),
+        category: categories[card.dataset.category].label
+      });
+    }
+  });
+
+  const printWin = window.open('', '_blank');
+  let rows = '';
+  let currentCat = '';
+  selectedItems.forEach(item => {
+    if (item.category !== currentCat) {
+      currentCat = item.category;
+      rows += `<tr><td colspan="2" style="font-weight:700;padding:14px 8px 6px;font-size:13px;text-transform:uppercase;letter-spacing:1px;color:#1B2A4A;background:#F7F9FC;">${currentCat}</td></tr>`;
+    }
+    rows += `<tr><td style="padding:10px 8px 10px 24px;border-bottom:1px solid #E2E8F0;">${item.title}</td><td style="text-align:right;padding:10px 8px;border-bottom:1px solid #E2E8F0;font-family:Georgia,serif;font-weight:700;">${item.price}</td></tr>`;
+  });
+
+  printWin.document.write(`<!DOCTYPE html><html><head><title>VoicesDMV Communications — Selected Scope</title>
+  <style>body{font-family:'DM Sans',sans-serif;color:#1B2A4A;padding:48px;max-width:800px;margin:0 auto;}
+  h1{font-family:Georgia,serif;font-size:28px;margin-bottom:4px;} h2{font-size:14px;color:#8896AA;font-weight:400;margin-bottom:32px;}
+  table{width:100%;border-collapse:collapse;} .total{font-size:20px;font-family:Georgia,serif;font-weight:700;color:#2A9D8F;text-align:right;padding-top:16px;}
+  .gallup{font-family:Georgia,serif;letter-spacing:4px;font-size:14px;color:#8896AA;margin-bottom:24px;}</style></head><body>
+  <div class="gallup">GALLUP</div>
+  <h1>VoicesDMV — Strategic Communications</h1>
+  <h2>Selected Scope for Greater Washington Community Foundation</h2>
+  <table>${rows}
+  <tr><td style="padding-top:20px;font-weight:700;font-size:16px;">Total Investment</td><td class="total">${fmt(getTotal())}</td></tr>
+  </table>
+  <p style="margin-top:40px;font-size:12px;color:#8896AA;line-height:1.7;">Pricing is valid for 60 days. All estimates subject to final scoping. Gallup venue included at no charge for event selections. Travel billed separately.</p>
+  </body></html>`);
+  printWin.document.close();
+  setTimeout(() => { printWin.print(); }, 500);
+}
+
+function emailSelections() {
+  const items = [];
+  let total = 0;
+  document.querySelectorAll('.scope-card').forEach(card => {
+    if (selected.has(card.dataset.id)) {
+      const title = card.querySelector('.scope-card-title').textContent;
+      const price = parseInt(card.dataset.price);
+      items.push(`• ${title} — ${fmt(price)}`);
+      total += price;
+    }
+  });
+
+  if (items.length === 0) { alert('No components selected yet.'); return; }
+
+  const body = encodeURIComponent(`Hi Kristjan,\n\nThank you for the VoicesDMV communications proposal. Here are the components we'd like to move forward with:\n\n${items.join('\n')}\n\nTotal Investment: ${fmt(total)}\n\nLooking forward to discussing next steps.\n\nBest,\n[Name]`);
+  const subject = encodeURIComponent('VoicesDMV — Communications Scope Selections');
+  window.location.href = `mailto:Kristjan_Archer@gallup.com?cc=justin_lall@gallup.com&subject=${subject}&body=${body}`;
+}
+
+// ═══════ INIT ═══════
+updateAll();
+</script>
+
+</body>
+</html>
