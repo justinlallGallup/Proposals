@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Concept Note — The Future of the Manager in an AI-Driven Workplace</title>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0f1928;--ink:#2d3748;--text:#475569;--muted:#7c8898;--border:#dde3ec;--border-l:#edf1f7;
+  --bg:#fafbfd;--white:#fff;--gold:#b8872f;--gold-l:#daa84e;--teal:#1a7a6d;--teal-l:#24a08e;
+  --fd:'Instrument Serif',Georgia,serif;--fb:'DM Sans',-apple-system,sans-serif;--r:12px;--mw:820px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--fb);font-size:16px;color:var(--text);background:var(--bg);line-height:1.65;-webkit-font-smoothing:antialiased}
+.hdr{position:sticky;top:0;z-index:100;background:rgba(250,251,253,0.9);backdrop-filter:blur(16px);border-bottom:1px solid var(--border-l)}
+.hdr-in{max-width:960px;margin:0 auto;padding:0.8rem 2rem;display:flex;align-items:center;gap:0.75rem}
+.hdr-ffi{font-family:var(--fd);font-size:0.95rem;color:var(--navy)}
+.hdr-x{font-size:0.65rem;color:var(--muted)}
+.hdr-g{font-weight:700;letter-spacing:0.1em;text-transform:uppercase;font-size:0.72rem;color:var(--ink)}
+.hero{background:var(--navy);color:#fff;padding:5.5rem 2rem 4.5rem;position:relative;overflow:hidden}
+.hero::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 70% 30%,rgba(186,135,47,0.06),transparent 60%)}
+.hero-in{max-width:var(--mw);margin:0 auto;position:relative;z-index:1}
+.hero-tag{display:inline-block;font-size:0.68rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold-l);margin-bottom:1.5rem;opacity:0.8}
+.hero h1{font-family:var(--fd);font-size:clamp(2.2rem,4.5vw,3.2rem);font-weight:400;line-height:1.12;margin-bottom:1.25rem}
+.hero h1 em{font-style:italic;color:var(--gold-l)}
+.hero-sub{font-size:1.05rem;line-height:1.75;color:rgba(255,255,255,0.6);max-width:620px}
+.sec{max-width:var(--mw);margin:0 auto;padding:4rem 2rem}
+.sec-wide{max-width:960px}
+.sec-eye{font-size:0.68rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--teal);margin-bottom:0.5rem}
+.sec-t{font-family:var(--fd);font-size:clamp(1.6rem,3vw,2.2rem);font-weight:400;line-height:1.18;color:var(--navy);margin-bottom:1rem}
+.sec-intro{font-size:1rem;color:var(--muted);line-height:1.72;max-width:620px;margin-bottom:2rem}
+.divider{max-width:var(--mw);margin:0 auto;padding:0 2rem}
+.divider-w{max-width:960px}
+.divider hr{border:none;height:1px;background:var(--border)}
+.prose{max-width:var(--mw)}
+.prose p{font-size:1.02rem;line-height:1.82;color:var(--ink);margin-bottom:1.2rem}
+.prose p:first-of-type::first-letter{font-family:var(--fd);font-size:3rem;float:left;line-height:0.85;margin-right:0.1em;margin-top:0.08em;color:var(--navy)}
+.hl{background:rgba(186,135,47,0.1);padding:0.08em 0.25em;border-radius:3px;font-weight:600;color:var(--navy)}
+.xcard{background:var(--white);border:1px solid var(--border);border-radius:var(--r);margin-bottom:1rem;overflow:hidden;transition:box-shadow 0.2s}
+.xcard:hover{box-shadow:0 2px 12px rgba(15,25,40,0.04)}
+.xcard-hd{display:flex;align-items:center;gap:1rem;padding:1.25rem 1.5rem;cursor:pointer;user-select:none}
+.xcard-num{font-family:var(--fd);font-size:1.6rem;color:var(--border);min-width:30px;transition:color 0.2s}
+.xcard.open .xcard-num{color:var(--gold)}
+.xcard-hd h3{font-weight:600;font-size:0.95rem;color:var(--navy);flex:1}
+.xcard-tag{font-size:0.6rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--white);padding:0.15rem 0.6rem;border-radius:100px}
+.xcard-tag.core{background:var(--teal)}
+.xcard-tag.trans{background:var(--gold)}
+.xcard-tag.move{background:var(--navy)}
+.xcard-arrow{width:18px;height:18px;color:var(--muted);transition:transform 0.3s}
+.xcard.open .xcard-arrow{transform:rotate(180deg)}
+.xcard-body{max-height:0;overflow:hidden;transition:max-height 0.4s ease}
+.xcard.open .xcard-body{max-height:1200px}
+.xcard-body-in{padding:0 1.5rem 1.5rem 3.5rem;border-top:1px solid var(--border-l)}
+.xcard-body-in p{font-size:0.92rem;line-height:1.72;color:var(--text);margin-top:1rem}
+.detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;margin-top:1rem}
+.detail{background:var(--bg);border-radius:8px;padding:1rem}
+.detail h4{font-size:0.8rem;font-weight:700;color:var(--navy);margin-bottom:0.25rem}
+.detail p{font-size:0.78rem;color:var(--muted);line-height:1.55;margin:0}
+.impact-bg{background:var(--navy);color:#fff;padding:4.5rem 0}
+.impact-in{max-width:960px;margin:0 auto;padding:0 2rem}
+.impact-bg .sec-eye{color:var(--gold-l)}
+.impact-bg .sec-t{color:#fff}
+.impact-bg .sec-intro{color:rgba(255,255,255,0.5)}
+.imp-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:2rem}
+.imp-card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.07);border-radius:var(--r);padding:1.5rem;cursor:pointer;transition:all 0.2s}
+.imp-card:hover{background:rgba(255,255,255,0.06);border-color:rgba(255,255,255,0.12)}
+.imp-tag{font-size:0.6rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold-l);margin-bottom:0.5rem}
+.imp-card h3{font-family:var(--fd);font-size:1.1rem;color:#fff;margin-bottom:0.4rem}
+.imp-brief{font-size:0.85rem;color:rgba(255,255,255,0.45);line-height:1.6}
+.imp-exp{max-height:0;overflow:hidden;transition:max-height 0.4s,opacity 0.3s;opacity:0}
+.imp-card.open .imp-exp{max-height:500px;opacity:1}
+.imp-exp-in{margin-top:0.75rem;padding-top:0.75rem;border-top:1px solid rgba(255,255,255,0.08)}
+.imp-exp-in p{font-size:0.82rem;color:rgba(255,255,255,0.45);line-height:1.6;margin-bottom:0.5rem}
+.imp-metrics{display:flex;gap:1.5rem;margin-top:0.5rem;flex-wrap:wrap}
+.im-n{font-family:var(--fd);font-size:1.3rem;color:var(--gold-l);line-height:1}
+.im-d{font-size:0.68rem;color:rgba(255,255,255,0.35);margin-top:0.1rem}
+.imp-out{margin-top:0.6rem;padding:0.6rem 0.85rem;background:rgba(26,122,109,0.1);border-radius:6px;font-size:0.78rem;color:var(--teal-l);line-height:1.5}
+.imp-cue{font-size:0.68rem;font-weight:600;color:var(--teal-l);margin-top:0.6rem}
+.imp-card.open .imp-cue{display:none}
+.part-grid{display:grid;grid-template-columns:1fr 1px 1fr;gap:2rem;margin-top:2rem}
+.part-div{background:var(--border);align-self:stretch}
+.part-col h3{font-family:var(--fd);font-size:1.2rem;color:var(--navy);margin-bottom:1rem}
+.part-item{display:flex;gap:0.6rem;margin-bottom:0.75rem;align-items:flex-start}
+.pd{width:7px;height:7px;min-width:7px;border-radius:50%;margin-top:0.4rem}
+.pd-g{background:var(--gold)}
+.pd-t{background:var(--teal)}
+.part-item p{font-size:0.88rem;color:var(--text);line-height:1.5}
+/* Pillar interactive grid for FFI section */
+.p9-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border-radius:var(--r);overflow:hidden;margin-top:2rem;border:1px solid var(--border)}
+.p9{background:var(--white);padding:1.25rem;cursor:pointer;transition:all 0.2s;position:relative}
+.p9:hover{background:rgba(186,135,47,0.02)}
+.p9.on{background:rgba(186,135,47,0.04)}
+.p9-n{font-family:var(--fd);font-size:1.4rem;color:var(--border);margin-bottom:0.3rem;transition:color 0.2s}
+.p9:hover .p9-n,.p9.on .p9-n{color:var(--gold)}
+.p9 h4{font-weight:600;font-size:0.82rem;color:var(--navy);line-height:1.3;margin-bottom:0.2rem}
+.p9-d{font-size:0.72rem;color:var(--muted);line-height:1.45}
+.p9-pop{display:none;position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:2rem;max-width:480px;width:90%;z-index:200;box-shadow:0 20px 60px rgba(15,25,40,0.15)}
+.p9-pop.show{display:block}
+.p9-pop h3{font-family:var(--fd);font-size:1.3rem;color:var(--navy);margin-bottom:0.5rem}
+.p9-pop p{font-size:0.9rem;color:var(--text);line-height:1.7;margin-bottom:0.75rem}
+.p9-pop .p9-close{position:absolute;top:1rem;right:1rem;background:none;border:none;font-size:1.2rem;cursor:pointer;color:var(--muted)}
+.p9-overlay{display:none;position:fixed;inset:0;background:rgba(15,25,40,0.3);z-index:199}
+.p9-overlay.show{display:block}
+/* Power of partnership */
+.pow-block{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:2.5rem;margin-top:2rem}
+.pow-block h3{font-family:var(--fd);font-size:1.3rem;color:var(--navy);margin-bottom:0.75rem}
+.pow-block p{font-size:0.95rem;color:var(--text);line-height:1.75;margin-bottom:1rem}
+.pow-cols{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem;margin-top:1.5rem}
+.pow-col{background:var(--bg);border-radius:8px;padding:1.25rem;text-align:center}
+.pow-col h4{font-size:0.78rem;font-weight:700;color:var(--teal);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.4rem}
+.pow-col p{font-size:0.82rem;color:var(--muted);line-height:1.55;margin:0}
+/* Timeline / next steps expanded */
+.tl-step{display:grid;grid-template-columns:60px 1fr;gap:1.25rem;margin-bottom:0;padding:1.75rem 0;border-bottom:1px solid var(--border-l)}
+.tl-step:last-child{border-bottom:none}
+.tl-num{font-family:var(--fd);font-size:2.2rem;color:var(--border);text-align:center;line-height:1}
+.tl-step:hover .tl-num{color:var(--gold)}
+.tl-content h4{font-weight:700;font-size:0.95rem;color:var(--navy);margin-bottom:0.35rem}
+.tl-content p{font-size:0.88rem;color:var(--text);line-height:1.65}
+.tl-content .tl-tag{display:inline-block;font-size:0.6rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--teal);background:rgba(26,122,109,0.08);padding:0.15rem 0.5rem;border-radius:100px;margin-bottom:0.4rem}
+/* Investment */
+.inv-block{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:2rem;margin-top:1.5rem}
+.inv-range{display:flex;align-items:baseline;gap:0.4rem;margin-bottom:0.35rem}
+.inv-n{font-family:var(--fd);font-size:2rem;color:var(--navy)}
+.inv-s{color:var(--muted);font-size:1.1rem}
+.inv-l{font-size:0.82rem;color:var(--muted)}
+.inv-note{font-size:0.85rem;color:var(--muted);line-height:1.7;margin-top:1rem;padding-top:1rem;border-top:1px solid var(--border-l)}
+.ftr{max-width:var(--mw);margin:0 auto;padding:2rem;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:flex-end}
+.ftr-l{font-size:0.78rem;color:var(--muted);line-height:1.6}
+.ftr-c{font-size:0.85rem;color:var(--navy);font-weight:600;margin-top:0.4rem}
+.ftr-r{font-size:0.7rem;color:var(--muted);text-align:right}
+@media(max-width:768px){
+  .detail-grid,.pow-cols{grid-template-columns:1fr}
+  .imp-grid{grid-template-columns:1fr}
+  .part-grid{grid-template-columns:1fr;gap:1.5rem}
+  .part-div{display:none}
+  .p9-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:480px){.p9-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<header class="hdr"><div class="hdr-in">
+  <span class="hdr-ffi">Future Forward Institute</span>
+  <span class="hdr-x">&times;</span>
+  <span class="hdr-g">Gallup</span>
+</div></header>
+
+<section class="hero"><div class="hero-in">
+  <div class="hero-tag">Concept Note &mdash; Joint Research Initiative</div>
+  <h1>The Future of the Manager in an <em>AI-Driven Workplace</em></h1>
+  <p class="hero-sub">A large-scale, longitudinal research program to fill the data gap on AI&rsquo;s impact on managers &mdash; and to produce actionable toolkits for the leaders and organizations navigating this transition.</p>
+</div></section>
+
+<!-- 1. CONCEPT -->
+<section class="sec">
+  <p style="font-size:1.1rem;line-height:1.75;color:var(--ink);max-width:680px;font-family:var(--fd);font-style:italic">AI is transforming every dimension of how organizations operate &mdash; but the role most affected, the manager, is also the least studied. This initiative proposes to change that.</p>
+</section>
+
+<div class="divider"><hr></div>
+
+<!-- 2. PROBLEM -->
+<section class="sec">
+  <div class="sec-eye">The Problem</div>
+  <h2 class="sec-t">Leaders Are Making Consequential Decisions Without Evidence</h2>
+  <div class="prose">
+    <p>Managers sit at the epicenter of the AI transition. They translate strategy into execution, develop talent, and sustain the culture that makes organizations perform. Gallup&rsquo;s research has consistently found that managers account for 70% of the variance in team engagement. And yet, manager engagement itself fell from 30% to 27% globally in 2024 &mdash; the sharpest decline of any group in the workforce &mdash; even as organizations accelerated AI adoption. Gallup&rsquo;s 2025 State of the Global Workplace report, surveying nearly 250,000 workers across 160 countries, describes this as a pivotal moment: employees, particularly managers, feel disconnected at precisely the time they need to lead through AI-driven change.</p>
+    <p>The data that exists on AI&rsquo;s workplace impact is cross-sectional, anecdotal, and concentrated in the technology sector. No one has built a longitudinal, nationally representative dataset tracking how AI adoption is actually changing what managers do &mdash; how their responsibilities shift, what skills they need, where organizations should invest, and what happens to the teams they lead. <span class="hl">Organizations are restructuring management, deploying AI tools, and redesigning training programs largely without evidence.</span></p>
+    <p>This gap is not just a research problem. It is a strategic risk for every organization investing in AI &mdash; and for every funder investing in the future of work.</p>
+  </div>
+</section>
+
+<div class="divider"><hr></div>
+
+<!-- 3. PARTNERSHIP AS SOLUTION -->
+<section class="sec">
+  <div class="sec-eye">The Solution</div>
+  <h2 class="sec-t">A Partnership Built to Fill This Gap</h2>
+  <p class="sec-intro">Future Forward Institute and Gallup propose a joint research program that combines the intellectual framework with the research infrastructure to produce evidence at scale &mdash; and translate it into tools leaders can deploy immediately.</p>
+</section>
+
+<div class="divider"><hr></div>
+
+<!-- 4. THE PROJECT -->
+<section class="sec sec-wide">
+  <div class="sec-eye">The Project</div>
+  <h2 class="sec-t">What We Will Build Together</h2>
+  <p class="sec-intro">The program has two integrated components &mdash; a longitudinal research engine and a practitioner toolkit system &mdash; connected by a dissemination strategy designed to build a field, not just produce reports.</p>
+
+  <div class="xcard open" onclick="toggleX(this)">
+    <div class="xcard-hd">
+      <div class="xcard-num">01</div>
+      <h3>Longitudinal Research on Managers, Employees &amp; Leaders</h3>
+      <span class="xcard-tag core">Research Engine</span>
+      <svg class="xcard-arrow" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"/></svg>
+    </div>
+    <div class="xcard-body"><div class="xcard-body-in">
+      <p>A probability-based, nationally representative survey fielded annually over five years &mdash; creating the first longitudinal dataset tracking how AI adoption changes the manager role in practice. The survey will reach managers at every level (frontline through senior), with an oversample of Chief Learning Officers, stratified by industry, organization size, and region. The same respondents will be tracked year over year, enabling measurement of actual change &mdash; not snapshots.</p>
+      <p>Supplementing the quantitative core, semi-structured interviews and focus groups with managers and CLOs will capture context, resistance patterns, and emerging practice &mdash; the stories behind the data.</p>
+      <div class="detail-grid">
+        <div class="detail"><h4>Quantitative Survey</h4><p>3,000&ndash;5,000 managers per wave via Gallup Panel + address-based sampling. 300&ndash;500 CLO oversample. Longitudinal panel tracking. Annual waves over five years.</p></div>
+        <div class="detail"><h4>Core Measures</h4><p>AI adoption and usage in management tasks. Shifts in time allocation, decision-making authority, and span of control. Manager confidence, capability gaps, and training needs. Employee experience outcomes tied to the Win-Win Workplace&#8482; pillars.</p></div>
+        <div class="detail"><h4>Qualitative Deep Dives</h4><p>40&ndash;60 semi-structured interviews per wave with managers and CLOs. Focus groups organized by industry and management level. Designed for both research rigor and compelling narrative.</p></div>
+        <div class="detail"><h4>Why Longitudinal</h4><p>Cross-sectional surveys can describe the current moment but cannot track change. Following the same managers over five years reveals how AI adoption actually transforms roles, skills, and team dynamics &mdash; the causal patterns that single-wave studies miss.</p></div>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="xcard" onclick="toggleX(this)">
+    <div class="xcard-hd">
+      <div class="xcard-num">02</div>
+      <h3>Actionable Toolkits &amp; Thought Leadership</h3>
+      <span class="xcard-tag trans">Translation</span>
+      <svg class="xcard-arrow" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"/></svg>
+    </div>
+    <div class="xcard-body"><div class="xcard-body-in">
+      <p>Each wave of data feeds directly into practitioner toolkits &mdash; co-designed with CLOs and senior talent leaders through Future Forward Institute&rsquo;s practitioner network &mdash; that help organizations assess their own readiness, redesign manager development programs, and integrate AI capability alongside human capability. These are diagnostic instruments, planning frameworks, and decision tools designed for CLOs and CHROs to deploy in their own organizations.</p>
+      <p>Alongside the toolkits, a structured dissemination strategy ensures findings reach the audiences who can act: annual co-authored research reports, Gallup.com feature articles, media-ready data packages, and Summit presentations.</p>
+      <div class="detail-grid">
+        <div class="detail"><h4>Organizational Readiness Diagnostic</h4><p>A structured assessment CLOs can deploy to evaluate where their organization stands on AI integration &mdash; benchmarked against national data from the survey.</p></div>
+        <div class="detail"><h4>Manager Development Redesign Guide</h4><p>Evidence-based playbook for retooling manager development for AI-augmented work &mdash; capability frameworks, curriculum design, and measurement.</p></div>
+        <div class="detail"><h4>Practitioner Working Sessions</h4><p>Facilitated sessions with the CLO and CHRO network to test findings, stress-test tools, and build the community of practice that carries this work into organizations.</p></div>
+        <div class="detail"><h4>Thought Leadership &amp; Media</h4><p>Annual flagship report, Gallup.com articles, executive summaries, infographic series, and content designed for the Win-Win Workplace&#8482; Summit and major industry convenings.</p></div>
+      </div>
+    </div></div>
+  </div>
+</section>
+
+<div class="divider"><hr></div>
+
+<!-- 5. EXPECTED OUTCOMES -->
+<section class="sec">
+  <div class="sec-eye">Expected Outcomes</div>
+  <h2 class="sec-t">What This Work Will Produce</h2>
+  <div class="prose">
+    <p>By the end of this five-year program, this partnership will have produced the first longitudinal evidence base on how AI is transforming the manager role &mdash; a dataset that does not exist anywhere today. Organizations, funders, and policymakers will have a rigorous, nationally representative foundation for decisions they are currently making in the dark.</p>
+    <p>But data alone is not the goal. The toolkit system will give CLOs and CHROs a set of replicable instruments they can deploy immediately &mdash; diagnostic assessments benchmarked against national data, development frameworks grounded in evidence, and planning tools that help organizations design AI integration with the manager-employee relationship at the center. A practitioner co-design process ensures these tools are tested and refined by the leaders who will use them.</p>
+    <p>The dissemination strategy is designed to build a field, not just publish findings. Annual data releases, media placements, and Summit presentations will sustain public attention across all five years. Content tailored for workforce development stakeholders and the broader investment community will help align strategies with evidence as it develops. The aspiration is not a research report that sits on a shelf. It is a sustained, evidence-driven movement that changes how organizations invest in their managers through the AI transition.</p>
+  </div>
+</section>
+
+<div class="divider"><hr></div>
+
+<!-- 6. WHY NOW -->
+<section class="sec">
+  <div class="sec-eye">Why This Is Critical &mdash; And Why Now</div>
+  <h2 class="sec-t">The Window for Getting This Right Is Closing</h2>
+  <div class="prose">
+    <p>AI adoption in the U.S. workforce is accelerating rapidly. Gallup&rsquo;s tracking data shows that 45% of U.S. employees were using AI at work by Q3 2025 &mdash; and that number is climbing quarter over quarter. At the same time, Gallup&rsquo;s 2025 State of the Global Workplace report found that manager engagement fell to 27%, with the sharpest declines among young managers and women managers. The people who need to lead the AI transition are themselves struggling.</p>
+    <p>Gallup&rsquo;s own research has surfaced a critical finding: <span class="hl">despite rising AI investment, few firms are seeing return on that investment. The missing link is managers who can guide employees through adoption.</span> This is already showing up in Gallup&rsquo;s workplace data. But no one has yet built the longitudinal research program to track this relationship systematically and translate it into action.</p>
+    <p>The decisions being made right now &mdash; about management structures, training investments, AI deployment strategies &mdash; will shape the workplace for a generation. The organizations and funders making those decisions deserve an evidence base. This program will build it.</p>
+  </div>
+</section>
+
+<div class="divider"><hr></div>
+
+<!-- 7. GALLUP RELEVANT EXPERIENCE (moved here) -->
+<section class="impact-bg">
+<div class="impact-in">
+  <div class="sec-eye">Gallup&rsquo;s Relevant Experience</div>
+  <h2 class="sec-t">Research That Drives Action</h2>
+  <p class="sec-intro">The model underlying this program &mdash; large-scale research translated into replicable tools and sustained dissemination &mdash; is one Gallup has executed across multiple partnerships.</p>
+
+  <div class="imp-grid">
+    <div class="imp-card" onclick="toggleImp(this)"><div class="imp-tag">Global Workplace</div><h3>State of the Global Workplace</h3><div class="imp-brief">Gallup&rsquo;s annual study, surveying nearly 250,000 workers across 160 countries.</div><div class="imp-cue">See details &rarr;</div><div class="imp-exp"><div class="imp-exp-in">
+      <p>The 2024 report found that 62% of employees globally are not engaged and 15% are actively disengaged &mdash; costing the global economy an estimated $8.9 trillion annually (9% of global GDP). The 2025 report found engagement fell further to 21%, with manager engagement declining from 30% to 27%.</p>
+      <div class="imp-metrics"><div><div class="im-n">~250K</div><div class="im-d">workers surveyed (2025)</div></div><div><div class="im-n">160</div><div class="im-d">countries</div></div><div><div class="im-n">$8.9T</div><div class="im-d">cost of disengagement</div></div></div>
+      <div class="imp-out"><strong>Impact:</strong> The Q12 engagement survey, built from this research, became the global standard for measuring the manager-employee relationship. Gallup&rsquo;s finding that managers account for 70% of engagement variance reshaped how organizations invest in manager development.</div>
+    </div></div></div>
+
+    <div class="imp-card" onclick="toggleImp(this)"><div class="imp-tag">AI &amp; Public Opinion</div><h3>SCSP: American Attitudes Toward AI</h3><div class="imp-brief">Nationally representative survey with the Special Competitive Studies Project on AI trust, adoption, and regulation.</div><div class="imp-cue">See details &rarr;</div><div class="imp-exp"><div class="imp-exp-in">
+      <p>Published in 2025, the &ldquo;Reward, Risk, and Regulation&rdquo; report surveyed 3,128 U.S. adults. Findings: 79% say it is important for the U.S. to lead in AI. 72% support AI workforce training programs &mdash; the most popular policy option across partisan lines. Trust in AI doubles with use (46% of users vs. 23% of non-users).</p>
+      <div class="imp-metrics"><div><div class="im-n">3,128</div><div class="im-d">U.S. adults surveyed</div></div><div><div class="im-n">72%</div><div class="im-d">support AI training</div></div><div><div class="im-n">79%</div><div class="im-d">say U.S. must lead</div></div></div>
+      <div class="imp-out"><strong>Impact:</strong> Produced the first comprehensive public opinion baseline on AI, informing policy discussions on governance, workforce development, and national competitiveness.</div>
+    </div></div></div>
+
+    <div class="imp-card" onclick="toggleImp(this)"><div class="imp-tag">Purpose &amp; Engagement</div><h3>Stand Together: The Power of Purpose</h3><div class="imp-brief">Nationally representative study proving purpose at work is measurable and among the strongest predictors of engagement.</div><div class="imp-cue">See details &rarr;</div><div class="imp-exp"><div class="imp-exp-in">
+      <p>Surveyed 4,475 U.S. working adults in August 2025 and introduced the Work Purpose Index &mdash; a validated three-item measure. Workers with strong purpose: 50% engaged vs. 9% for low purpose. Only 18% currently experience strong purpose in their role.</p>
+      <div class="imp-metrics"><div><div class="im-n">4,475</div><div class="im-d">workers surveyed</div></div><div><div class="im-n">50% vs 9%</div><div class="im-d">engagement gap</div></div></div>
+      <div class="imp-out"><strong>Impact:</strong> Created the Work Purpose Index &mdash; a replicable measurement instrument organizations can deploy. Demonstrates the model: rigorous survey &rarr; validated instrument &rarr; tool leaders use.</div>
+    </div></div></div>
+
+    <div class="imp-card" onclick="toggleImp(this)"><div class="imp-tag">Employee Recognition</div><h3>Workhuman: Strategic Recognition Research</h3><div class="imp-brief">Multi-year partnership producing the largest evidence base on recognition&rsquo;s business impact.</div><div class="imp-cue">See details &rarr;</div><div class="imp-exp"><div class="imp-exp-in">
+      <p>Across reports from 2022 to 2024, Gallup and Workhuman studied over 12,000 employees in 12 countries and tracked 3,400 employees longitudinally. Employees who received high-quality recognition were 45% less likely to leave within two years. Organizations with strong recognition cultures can save more than $16 million annually.</p>
+      <div class="imp-metrics"><div><div class="im-n">12,000+</div><div class="im-d">employees, 12 countries</div></div><div><div class="im-n">45%</div><div class="im-d">turnover reduction</div></div><div><div class="im-n">$16M+</div><div class="im-d">annual savings</div></div></div>
+      <div class="imp-out"><strong>Impact:</strong> Produced ROI framework and measurement tools CHROs use to justify recognition investment. The multi-year, toolkit-driven model is directly analogous to this program.</div>
+    </div></div></div>
+
+    <div class="imp-card" onclick="toggleImp(this)"><div class="imp-tag">Job Quality</div><h3>JFF: The Gallup Great Jobs Survey</h3><div class="imp-brief">Partnership with Jobs for the Future that redefined &ldquo;good jobs&rdquo; from the worker&rsquo;s perspective.</div><div class="imp-cue">See details &rarr;</div><div class="imp-exp"><div class="imp-exp-in">
+      <p>Gallup partnered with JFF to create a nationally representative job quality measure that moves beyond wages to assess stability, purpose, respect, and growth from the worker&rsquo;s own experience.</p>
+      <div class="imp-out"><strong>Impact:</strong> Shifted the workforce development field toward worker-experienced quality as the measurement standard. The framework is used by funders and policymakers to evaluate program effectiveness.</div>
+    </div></div></div>
+
+    <div class="imp-card" onclick="toggleImp(this)"><div class="imp-tag">Communications</div><h3>Gallup Strategic Communications</h3><div class="imp-brief">The infrastructure ensuring research reaches the audiences who can act.</div><div class="imp-cue">See details &rarr;</div><div class="imp-exp"><div class="imp-exp-in">
+      <p>Every Gallup partnership benefits from in-house strategic communications &mdash; longstanding media relationships, convening infrastructure, and a digital platform. Research is designed for dissemination from inception.</p>
+      <div class="imp-metrics"><div><div class="im-n">30M+</div><div class="im-d">Gallup.com annual readers</div></div></div>
+    </div></div></div>
+  </div>
+</div>
+</section>
+
+<!-- 8. FUTURE FORWARD INSTITUTE (NEW) -->
+<section class="sec sec-wide">
+  <div class="sec-eye">Future Forward Institute</div>
+  <h2 class="sec-t">The Framework Behind This Initiative</h2>
+  <p class="sec-intro">Dr. Angela Jackson &mdash; Harvard researcher and professor, CEO of Future Forward Institute, and author of the New York Times bestseller <em>The Win-Win Workplace</em> &mdash; has built the intellectual foundation this program extends into the AI era.</p>
+
+  <div class="prose" style="margin-bottom:2rem">
+    <p style="font-size:0.95rem">Dr. Jackson&rsquo;s career spans global operating roles at Viacom and Nokia, a tenure as Managing Partner at New Profit where she architected the Future of Work Grand Challenge &mdash; an initiative that reskilled 25,000 workers displaced by COVID-19 and placed them in living-wage jobs &mdash; and her work as a Harvard researcher and professor leading studies on how employers can create workplaces where people and businesses thrive together. Her research across more than 1,200 companies, including Walmart, Google, and JPMorgan Chase, produced the first reliable quantification of the financial impact of investing in people. From that research, nine strategies emerged &mdash; the Win-Win Workplace&#8482; framework. Published in Harvard Business Review, Stanford Social Innovation Review, Forbes, Fortune, and The Wall Street Journal, and presented at TED, the Economist, and the World Economic Forum, this framework now provides the measurement architecture for this initiative. Click any pillar below to explore.</p>
+  </div>
+
+  <div class="p9-grid">
+    <div class="p9" onclick="showPillar(0)"><div class="p9-n">01</div><h4>Centering Employee Voices</h4><div class="p9-d">Formal feedback channels that improve the workplace</div></div>
+    <div class="p9" onclick="showPillar(1)"><div class="p9-n">02</div><h4>Mutualistic Working Relationships</h4><div class="p9-d">Intentional, collaborative employer-employee bonds</div></div>
+    <div class="p9" onclick="showPillar(2)"><div class="p9-n">03</div><h4>Intersectional Inclusion</h4><div class="p9-d">Workplaces that recognize every identity</div></div>
+    <div class="p9" onclick="showPillar(3)"><div class="p9-n">04</div><h4>Reimagining Benefits</h4><div class="p9-d">Human-centered offerings beyond the standard</div></div>
+    <div class="p9" onclick="showPillar(4)"><div class="p9-n">05</div><h4>Activating Frontline Leaders</h4><div class="p9-d">Equipping managers to drive strategy and equity</div></div>
+    <div class="p9" onclick="showPillar(5)"><div class="p9-n">06</div><h4>Hire STARS</h4><div class="p9-d">Skills-based hiring through alternative routes</div></div>
+    <div class="p9" onclick="showPillar(6)"><div class="p9-n">07</div><h4>Deep Talent Benches</h4><div class="p9-d">Continuous learning and internal mobility</div></div>
+    <div class="p9" onclick="showPillar(7)"><div class="p9-n">08</div><h4>Human Capital Reporting</h4><div class="p9-d">Workforce data as competitive strategy</div></div>
+    <div class="p9" onclick="showPillar(8)"><div class="p9-n">09</div><h4>Distributed Leadership</h4><div class="p9-d">Sharing power and ownership at every level</div></div>
+  </div>
+</section>
+
+<div class="p9-overlay" id="p9overlay" onclick="closePillar()"></div>
+<div class="p9-pop" id="p9pop"><button class="p9-close" onclick="closePillar()">&times;</button><h3 id="p9pop-t"></h3><p id="p9pop-d"></p><p id="p9pop-q" style="font-style:italic;color:var(--teal);font-size:0.88rem;margin:0"></p></div>
+
+<div class="divider divider-w"><hr></div>
+
+<!-- 9. POWER OF PARTNERSHIP (NEW) -->
+<section class="sec sec-wide">
+  <div class="sec-eye">The Power of This Partnership</div>
+  <h2 class="sec-t">Stronger Together: Framework Meets Infrastructure</h2>
+  <div class="pow-block">
+    <p>This partnership brings together two complementary strengths that amplify each other. Future Forward Institute contributes the intellectual framework (the nine Win-Win Workplace&#8482; pillars), a deep practitioner network of CLOs and CHROs, the Harvard research platform, and a powerful amplification infrastructure through the Summit, a bestselling platform, and established media reach. Gallup contributes the research infrastructure to generate evidence at the scale and rigor that framework demands: a probability-based panel of 100,000+ adults, 800+ research professionals, longitudinal tracking systems, the Q12 benchmark, and a strategic communications engine that delivers findings to 30M+ readers annually.</p>
+    <p>Together, this partnership can produce what neither think-tank reports nor consulting white papers can: nationally representative, longitudinal data that tracks real change over time &mdash; translated into replicable tools through a practitioner co-design process that ensures those tools actually work in organizations. The combination of world-class research methodology with a practitioner translation network is what makes this program unique.</p>
+    <div class="pow-cols">
+      <div class="pow-col"><h4>Framework + Data</h4><p>The nine pillars give structure to the research. Gallup&rsquo;s survey infrastructure gives it scale and rigor. Together: the first evidence base on AI &times; the workplace relationship.</p></div>
+      <div class="pow-col"><h4>Research + Practice</h4><p>Future Forward Institute&rsquo;s practitioner network ensures every finding is tested by CLOs and CHROs before becoming a tool. Gallup&rsquo;s toolkit track record (Q12, Purpose Index, Workhuman ROI) proves the translation model works.</p></div>
+      <div class="pow-col"><h4>Evidence + Reach</h4><p>The Summit and practitioner network put findings in front of decision-makers. Gallup.com and media infrastructure sustain attention year over year. Together: a movement, not a moment.</p></div>
+    </div>
+  </div>
+</section>
+
+<div class="divider divider-w"><hr></div>
+
+<!-- 10. NEXT STEPS (EXPANDED) -->
+<section class="sec sec-wide">
+  <div class="sec-eye">From Concept to Coalition</div>
+  <h2 class="sec-t">The Path Forward</h2>
+  <p class="sec-intro">This is a five-year program with a clear arc from co-design to sustained impact. Each phase builds on the last.</p>
+
+  <div class="tl-step"><div class="tl-num">01</div><div class="tl-content"><div class="tl-tag">Alignment</div><h4>Research Co-Design</h4><p>Joint scoping sessions to align on priority industries, regions, and Win-Win Workplace&#8482; pillars for Year 1. Gallup and Future Forward Institute collaborate on a survey instrument that integrates the nine pillars with AI-specific measures &mdash; covering adoption, attitudes, capability, and organizational investment. Qualitative protocols are designed in parallel: interview guides for managers and CLOs, focus group structures by industry and management level.</p></div></div>
+
+  <div class="tl-step"><div class="tl-num">02</div><div class="tl-content"><div class="tl-tag">Year 1</div><h4>Nationally Representative Data Collection</h4><p>Quantitative fielding via Gallup Panel and address-based sampling: 3,000&ndash;5,000 managers, 300&ndash;500 CLOs, nationally representative and stratified. Simultaneously, 40&ndash;60 in-depth qualitative interviews with managers and CLOs across industries &mdash; capturing the lived experience of managing alongside AI. Focus groups organized by role level and sector. All data weighted and analyzed with Gallup&rsquo;s dedicated statisticians.</p></div></div>
+
+  <div class="tl-step"><div class="tl-num">03</div><div class="tl-content"><div class="tl-tag">Year 1&ndash;2</div><h4>Analysis, Reporting &amp; Toolkit Development</h4><p>Findings synthesized into a flagship annual report co-authored by Future Forward Institute and Gallup. Simultaneously, data feeds into the first wave of practitioner toolkits &mdash; organizational readiness diagnostics, manager development redesign guides, and AI integration planning frameworks &mdash; co-designed with the practitioner network at Harvard. Industry-specific modules developed for priority sectors.</p></div></div>
+
+  <div class="tl-step"><div class="tl-num">04</div><div class="tl-content"><div class="tl-tag">Ongoing</div><h4>Strategic Communications &amp; Activation</h4><p>Gallup.com feature articles reaching 30M+ readers. Media-ready data packages and targeted pitching to outlets covering AI, management, and the future of work. Launch events with press, corporate leaders, and policymakers. Win-Win Workplace&#8482; Summit presentations. Satellite media tours and social content. Tailored briefings for workforce development stakeholders and investment partners with data formatted for their own communications and decision-making.</p></div></div>
+
+  <div class="tl-step"><div class="tl-num">05</div><div class="tl-content"><div class="tl-tag">Ongoing</div><h4>Employer Engagement &amp; Field-Building</h4><p>Direct engagement with employers through the CLO and CHRO practitioner network to pilot toolkits, gather implementation feedback, and build case studies of organizations using the tools. Conference placements at SHRM, ATD, Aspen Ideas, and the World Economic Forum. Roundtables with workforce development leaders and employers. The goal is not just to publish research but to build a sustained community of practice around evidence-driven manager investment in the AI era.</p></div></div>
+
+  <div class="tl-step"><div class="tl-num">06</div><div class="tl-content"><div class="tl-tag">Years 2&ndash;5</div><h4>Longitudinal Tracking &amp; Iteration</h4><p>Annual survey waves tracking the same respondents over time &mdash; measuring actual change in manager roles, capabilities, and team outcomes as AI adoption deepens. Each year&rsquo;s data refines and expands the toolkit system. Qualitative deep dives evolve based on emerging patterns. By Year 5, the program will have produced the most comprehensive longitudinal dataset on AI&rsquo;s impact on the workplace relationship in existence &mdash; and a toolkit ecosystem tested across industries and refined over five annual cycles.</p></div></div>
+</section>
+
+<div class="divider divider-w"><hr></div>
+
+<!-- 11. INVESTMENT (moved to bottom, updated) -->
+<section class="sec">
+  <div class="sec-eye">Illustrative Investment</div>
+  <h2 class="sec-t">Five-Year Program Estimate</h2>
+  <p style="font-size:0.95rem;color:var(--muted);line-height:1.7;max-width:620px;margin-bottom:1rem">Exact investment depends on final design choices &mdash; sample size, qualitative depth, toolkit complexity, and any industry- or region-specific modules that may be added.</p>
+  <div class="inv-block">
+    <div class="inv-range"><span class="inv-n">$600,000</span><span class="inv-s">&ndash;</span><span class="inv-n">$850,000</span><span class="inv-l">per year</span></div>
+    <div class="inv-range" style="margin-top:1.25rem"><span class="inv-n">$3.0M</span><span class="inv-s">&ndash;</span><span class="inv-n">$4.25M</span><span class="inv-l">five-year program</span></div>
+    <div class="inv-note">Includes quantitative survey design, fielding, and analysis; qualitative research (interviews and focus groups); practitioner toolkit development and facilitation; annual flagship reports; strategic communications, media pitching, and activation; and thought leadership content for Summit and industry audiences. Industry- or region-specific modules can be added as interest develops.</div>
+  </div>
+</section>
+
+<footer class="ftr">
+  <div class="ftr-l">
+    <strong>Future Forward Institute &times; Gallup</strong> &mdash; Concept Note<br>
+    Prepared jointly for discussion. All scope and investment details subject to final scoping.
+    <div class="ftr-c">Contact: Justin Lall, Principal, Gallup &nbsp;|&nbsp; justin_lall@gallup.com</div>
+  </div>
+  <div class="ftr-r">&copy; 2026 Gallup, Inc.<br>Confidential.</div>
+</footer>
+
+<script>
+function toggleX(el){
+  var w=el.classList.contains('open');
+  document.querySelectorAll('.xcard').forEach(function(c){c.classList.remove('open')});
+  if(!w)el.classList.add('open');
+}
+function toggleImp(el){
+  var w=el.classList.contains('open');
+  document.querySelectorAll('.imp-card').forEach(function(c){c.classList.remove('open')});
+  if(!w)el.classList.add('open');
+}
+var pillars=[
+  {t:"Centering Employee Voices",d:"Creating formal channels for employee feedback and using it to improve the workplace. Jackson's research shows that organizations that center employee voice see measurable gains in engagement and retention.",q:"As AI mediates feedback through sentiment analysis and automated surveys, does it amplify employee voice or dilute it?"},
+  {t:"Mutualistic Working Relationships",d:"Building intentional, collaborative relationships between employees and employers that move beyond transactional dynamics to genuine partnership.",q:"As AI automates coordination, what happens to the relational touchpoints where trust between managers and teams is built?"},
+  {t:"Intersectional Inclusion Strategies",d:"Creating workplaces inclusive of all employees, recognizing each individual's background and identities in how opportunity, advancement, and support are structured.",q:"How do AI systems in hiring, evaluation, and promotion reproduce or disrupt existing inequities?"},
+  {t:"Reimagining Employee Benefits",d:"Offering human-centered benefits including parental leave, subsidized childcare, dependent care, and flexible arrangements that reflect what workers actually need.",q:"As AI reshapes job structures and creates new categories of work, are benefits systems adapting fast enough?"},
+  {t:"Activating Frontline Leaders",d:"Equipping frontline managers to drive strategy, engagement, and equity. Jackson's research identifies this as the pillar with the highest leverage on organizational performance.",q:"As AI changes what managers do day-to-day — from coordination to coaching, from data-gathering to AI oversight — what new capabilities do they need?"},
+  {t:"Hire STARS",d:"Skills-based hiring that recognizes workers Skilled Through Alternative Routes — expanding talent pipelines beyond credential-based filtering.",q:"Is AI-powered screening actually expanding opportunity for STARS — or creating new credentialing barriers disguised as objectivity?"},
+  {t:"Develop Deep Talent Benches",d:"Investing in continuous learning and internal mobility at every level — building capability rather than just filling positions.",q:"AI-powered learning platforms promise personalized development at scale. Are they deepening capability or just delivering content?"},
+  {t:"Human Capital Reporting",d:"Using workforce data as a competitive strategy and transparency tool — measuring and disclosing how organizations invest in their people.",q:"AI generates unprecedented workforce data. Are organizations using this for investment in people — or for surveillance and optimization?"},
+  {t:"Distributed Leadership",d:"Sharing power and creating ownership structures at every level — the capstone pillar that enables all others.",q:"AI could be the greatest tool for distributing leadership — or for centralizing it. Which pattern is emerging?"}
+];
+function showPillar(i){
+  var p=pillars[i];
+  document.getElementById('p9pop-t').textContent=p.t;
+  document.getElementById('p9pop-d').textContent=p.d;
+  document.getElementById('p9pop-q').innerHTML='<strong style="color:var(--navy);font-style:normal">The AI Question:</strong> '+p.q;
+  document.getElementById('p9pop').classList.add('show');
+  document.getElementById('p9overlay').classList.add('show');
+  document.querySelectorAll('.p9').forEach(function(c,idx){c.classList.toggle('on',idx===i)});
+}
+function closePillar(){
+  document.getElementById('p9pop').classList.remove('show');
+  document.getElementById('p9overlay').classList.remove('show');
+  document.querySelectorAll('.p9').forEach(function(c){c.classList.remove('on')});
+}
+</script>
+</body>
+</html>
