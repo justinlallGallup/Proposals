@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gallup &amp; Pivotal Ventures &#8212; Women&#8217;s Health &amp; Power U.S. Research Proposal</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Source+Sans+3:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+<style>
+:root{--pv-coral:#D94F3B;--pv-coral-light:#E8705F;--pv-coral-dark:#B8392A;--pv-green:#4A6741;--pv-green-light:#6B8C5E;--pv-green-pale:#E8EDE5;--pv-charcoal:#2A2A2A;--pv-dark:#1A1A1A;--pv-warm-gray:#6B6560;--pv-cream:#FAF8F5;--pv-ivory:#F5F3EE;--pv-border:#E0DDD7;--pv-border-light:#EDEAE4;--gallup-blue:#003F5C;--font-display:'Playfair Display',Georgia,serif;--font-body:'Source Sans 3',-apple-system,sans-serif;--shadow-sm:0 1px 3px rgba(0,0,0,0.06);--shadow-md:0 4px 20px rgba(0,0,0,0.08);--radius:10px;--radius-lg:16px}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-body);color:var(--pv-charcoal);background:var(--pv-cream);line-height:1.7;font-size:16px;-webkit-font-smoothing:antialiased}
+.site-header{position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.94);backdrop-filter:blur(16px);border-bottom:1px solid var(--pv-border);padding:0 2rem}
+.header-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo-group{display:flex;align-items:center;gap:1.25rem}
+.logo-pivotal{font-family:var(--font-body);font-weight:700;font-size:1.1rem;color:var(--pv-coral);letter-spacing:0.12em;text-transform:uppercase}
+.logo-divider{width:1px;height:26px;background:var(--pv-border)}
+.logo-gallup{font-family:Georgia,serif;font-weight:400;font-size:1.1rem;color:var(--gallup-blue);letter-spacing:0.12em;text-transform:uppercase}
+.header-nav{display:flex;gap:1.75rem}
+.header-nav a{font-size:0.88rem;font-weight:500;color:var(--pv-warm-gray);text-decoration:none;letter-spacing:0.02em;transition:color 0.2s}
+.header-nav a:hover{color:var(--pv-coral)}
+.hero{max-width:1200px;margin:0 auto;padding:5rem 2rem 4rem;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.hero-eyebrow{font-family:var(--font-body);font-weight:600;font-size:0.82rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--pv-coral);margin-bottom:1.25rem}
+.hero h1{font-family:var(--font-display);font-weight:500;font-size:3rem;line-height:1.15;color:var(--pv-dark);margin-bottom:1.5rem}
+.hero h1 em{font-style:italic;color:var(--pv-coral)}
+.hero-sub{font-size:1.15rem;line-height:1.75;color:var(--pv-warm-gray);max-width:520px;margin-bottom:2rem}
+.hero-cta{display:inline-flex;align-items:center;gap:0.5rem;background:var(--pv-coral);color:#fff;padding:0.85rem 2rem;border-radius:50px;font-weight:600;font-size:0.95rem;text-decoration:none;border:none;cursor:pointer;transition:background 0.25s,transform 0.2s}
+.hero-cta:hover{background:var(--pv-coral-dark);transform:translateY(-1px)}
+.hero-visual{position:relative;display:flex;justify-content:center}
+.hero-graphic{width:100%;max-width:460px;aspect-ratio:1;border-radius:var(--radius-lg);background:linear-gradient(135deg,var(--pv-green-pale) 0%,#f0e6e0 50%,#fce4df 100%);display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative}
+.hero-graphic::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 30% 40%,rgba(217,79,59,0.08) 0%,transparent 60%),radial-gradient(circle at 70% 70%,rgba(74,103,65,0.06) 0%,transparent 50%)}
+.hero-stat-ring{width:280px;height:280px;border-radius:50%;border:3px solid rgba(217,79,59,0.15);display:flex;align-items:center;justify-content:center;flex-direction:column;position:relative;z-index:1}
+.hero-stat-ring::before{content:'';position:absolute;width:320px;height:320px;border-radius:50%;border:1px dashed rgba(74,103,65,0.2)}
+.hero-stat-big{font-family:var(--font-display);font-size:4rem;font-weight:500;color:var(--pv-coral);line-height:1}
+.hero-stat-label{font-size:0.92rem;color:var(--pv-warm-gray);text-align:center;max-width:200px;margin-top:0.5rem}
+.section{max-width:1200px;margin:0 auto;padding:4rem 2rem}
+.section-divider{max-width:1200px;margin:0 auto;padding:0 2rem}
+.section-divider hr{border:none;border-top:1px solid var(--pv-border);margin:0}
+.section-eyebrow{font-family:var(--font-body);font-weight:600;font-size:0.78rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--pv-coral);margin-bottom:0.75rem}
+.section-title{font-family:var(--font-display);font-weight:500;font-size:2.2rem;line-height:1.2;color:var(--pv-dark);margin-bottom:1rem}
+.section-intro{font-size:1.08rem;color:var(--pv-warm-gray);max-width:720px;line-height:1.75;margin-bottom:2.5rem}
+.framework-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:2rem}
+.framework-card{background:#fff;border:1px solid var(--pv-border-light);border-radius:var(--radius-lg);padding:2rem;transition:box-shadow 0.3s,transform 0.3s}
+.framework-card:hover{box-shadow:var(--shadow-md);transform:translateY(-2px)}
+.framework-card .card-icon{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:1.25rem;font-size:1.5rem}
+.framework-card .card-icon.coral{background:rgba(217,79,59,0.08);color:var(--pv-coral)}
+.framework-card .card-icon.green{background:rgba(74,103,65,0.08);color:var(--pv-green)}
+.framework-card .card-icon.blue{background:rgba(0,63,92,0.08);color:var(--gallup-blue)}
+.framework-card h3{font-family:var(--font-display);font-weight:500;font-size:1.25rem;margin-bottom:0.75rem;color:var(--pv-dark)}
+.framework-card p{font-size:0.95rem;color:var(--pv-warm-gray);line-height:1.7}
+.framework-card .research-questions{margin-top:1rem;padding-top:1rem;border-top:1px solid var(--pv-border-light)}
+.framework-card .research-questions li{font-size:0.88rem;color:var(--pv-warm-gray);line-height:1.6;margin-bottom:0.4rem;padding-left:1rem;list-style:none;position:relative}
+.framework-card .research-questions li::before{content:'\2192';position:absolute;left:0;color:var(--pv-coral);font-size:0.8rem}
+/* ---- timeline ---- */
+.timeline-container{background:#fff;border:1px solid var(--pv-border-light);border-radius:var(--radius-lg);padding:2rem 2.5rem;margin-top:2rem;overflow-x:auto}
+.timeline-header-row{display:flex;align-items:center;margin-bottom:0.5rem}
+.tl-phase-label{width:200px;flex-shrink:0;padding-right:1.5rem}
+.tl-months{flex:1;display:flex}
+.tl-month{flex:1;font-size:0.75rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--pv-warm-gray);text-align:center;padding-bottom:0.5rem;border-bottom:1px solid var(--pv-border-light)}
+.tl-row{display:flex;align-items:center;min-height:44px}
+.tl-phase-name{font-size:0.88rem;font-weight:600;color:var(--pv-dark);display:block}
+.tl-phase-duration{font-size:0.75rem;color:var(--pv-warm-gray)}
+.tl-track{flex:1;position:relative;height:32px}
+.tl-bar{position:absolute;top:4px;height:24px;border-radius:6px;display:flex;align-items:center;padding:0 0.6rem;transition:all 0.3s}
+.tl-bar span{font-size:0.7rem;font-weight:600;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tl-bar.tl-coral{background:var(--pv-coral)}
+.tl-bar.tl-green{background:var(--pv-green)}
+.tl-bar.tl-blue{background:var(--gallup-blue)}
+.tl-bar.tl-dashed{opacity:0.55;border:2px dashed rgba(255,255,255,0.5)}
+.tl-milestone-row .tl-phase-label{padding-top:0.25rem}
+.tl-milestone-name{color:var(--pv-coral);font-weight:700}
+.tl-milestone{position:absolute;top:0;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center}
+.tl-milestone-diamond{width:14px;height:14px;background:var(--pv-coral);transform:rotate(45deg);border-radius:2px;margin-bottom:0.2rem}
+.tl-milestone span{font-size:0.72rem;font-weight:700;color:var(--pv-coral)}
+.tl-optional-row{opacity:0.85}
+.tl-opt-label{color:var(--pv-warm-gray)!important;font-weight:500!important}
+.tl-note{margin-top:1.5rem;padding:1rem 1.25rem;background:rgba(217,79,59,0.04);border-radius:var(--radius);border:1px solid rgba(217,79,59,0.12);font-size:0.88rem;color:var(--pv-charcoal);line-height:1.65}
+.tl-note strong{color:var(--pv-coral)}
+.approach-phases{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:2rem}
+.approach-phase{background:#fff;border:1px solid var(--pv-border-light);border-radius:var(--radius-lg);padding:2rem;position:relative;overflow:hidden}
+.approach-phase::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
+.approach-phase.phase-core::before{background:var(--pv-coral)}
+.approach-phase.phase-qual::before{background:var(--pv-green)}
+.approach-phase.phase-comms::before{background:var(--gallup-blue)}
+.approach-phase-num{font-family:var(--font-display);font-size:2.5rem;font-weight:400;line-height:1;margin-bottom:0.75rem}
+.phase-core .approach-phase-num{color:var(--pv-coral)}
+.phase-qual .approach-phase-num{color:var(--pv-green)}
+.phase-comms .approach-phase-num{color:var(--gallup-blue)}
+.approach-phase h3{font-family:var(--font-display);font-weight:500;font-size:1.15rem;margin-bottom:0.5rem;color:var(--pv-dark)}
+.approach-phase p{font-size:0.92rem;color:var(--pv-warm-gray);line-height:1.65}
+/* ---- survey topics ---- */
+.topics-block{background:#fff;border:1px solid var(--pv-border-light);border-radius:var(--radius-lg);padding:2.5rem;margin-top:2rem}
+.topics-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:1.5rem}
+.topic-col h4{font-family:var(--font-display);font-size:1rem;font-weight:500;margin-bottom:0.75rem;color:var(--pv-dark)}
+.topic-col ul{list-style:none}
+.topic-col ul li{font-size:0.88rem;color:var(--pv-warm-gray);line-height:1.65;margin-bottom:0.5rem;padding-left:1.25rem;position:relative}
+.topic-col ul li::before{content:'\2022';position:absolute;left:0;color:var(--pv-coral);font-weight:700}
+.topics-note{margin-top:1.5rem;padding:1rem 1.25rem;background:rgba(74,103,65,0.04);border-radius:var(--radius);border-left:3px solid var(--pv-green);font-size:0.88rem;color:var(--pv-warm-gray);line-height:1.65}
+.topics-note strong{color:var(--pv-green)}
+/* ---- scope builder ---- */
+.scope-section{background:var(--pv-ivory);padding:4rem 0;border-top:1px solid var(--pv-border);border-bottom:1px solid var(--pv-border)}
+.scope-inner{max-width:1200px;margin:0 auto;padding:0 2rem}
+.scope-layout{display:grid;grid-template-columns:1fr 340px;gap:2.5rem;margin-top:2rem}
+.scope-sidebar{position:sticky;top:84px;align-self:start}
+.scope-category{margin-bottom:2rem}
+.scope-category-header{display:flex;align-items:center;gap:0.75rem;margin-bottom:1rem}
+.scope-category-dot{width:10px;height:10px;border-radius:50%}
+.scope-category-dot.coral{background:var(--pv-coral)}
+.scope-category-dot.green{background:var(--pv-green)}
+.scope-category-dot.blue{background:var(--gallup-blue)}
+.scope-category-label{font-weight:700;font-size:0.78rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--pv-warm-gray)}
+.scope-card{background:#fff;border:1px solid var(--pv-border-light);border-radius:var(--radius);padding:1.25rem 1.5rem;margin-bottom:0.75rem;cursor:pointer;transition:border-color 0.25s,box-shadow 0.25s;display:flex;align-items:flex-start;gap:1rem}
+.scope-card:hover{border-color:var(--pv-coral);box-shadow:var(--shadow-sm)}
+.scope-card.active{border-color:var(--pv-coral);box-shadow:0 0 0 1px var(--pv-coral),var(--shadow-sm)}
+.scope-card.locked{border-color:var(--pv-green);background:rgba(74,103,65,0.02);cursor:default}
+.scope-check{width:22px;height:22px;border-radius:6px;border:2px solid var(--pv-border);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;transition:all 0.2s}
+.scope-card.active .scope-check,.scope-card.locked .scope-check{background:var(--pv-coral);border-color:var(--pv-coral)}
+.scope-card.locked .scope-check{background:var(--pv-green);border-color:var(--pv-green)}
+.scope-check svg{width:14px;height:14px;color:#fff;opacity:0;transition:opacity 0.2s}
+.scope-card.active .scope-check svg,.scope-card.locked .scope-check svg{opacity:1}
+.scope-card-content{flex:1}
+.scope-card-title{font-weight:600;font-size:0.95rem;color:var(--pv-dark);margin-bottom:0.25rem}
+.scope-card-desc{font-size:0.85rem;color:var(--pv-warm-gray);line-height:1.6}
+.scope-card-meta{display:flex;gap:1rem;margin-top:0.5rem}
+.scope-card-meta span{font-size:0.78rem;font-weight:600;color:var(--pv-warm-gray);display:flex;align-items:center;gap:0.3rem}
+.scope-badge-rec{display:inline-flex;align-items:center;gap:0.3rem;font-size:0.7rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--pv-green);background:rgba(74,103,65,0.08);padding:0.15rem 0.5rem;border-radius:50px;margin-left:0.5rem}
+.addon-block{margin-top:0.5rem;margin-left:2rem;padding:0.75rem 1rem;background:rgba(74,103,65,0.03);border:1px dashed var(--pv-border);border-radius:var(--radius);display:none}
+.addon-block.visible{display:block}
+.addon-check-row{display:flex;align-items:center;gap:0.6rem;cursor:pointer}
+.addon-check-row input[type="checkbox"]{accent-color:var(--pv-green);width:16px;height:16px}
+.addon-check-row label{font-size:0.85rem;color:var(--pv-charcoal);cursor:pointer;flex:1}
+.addon-check-row .co-price{font-size:0.82rem;font-weight:600;color:var(--pv-warm-gray)}
+/* ---- report selector ---- */
+.report-options{margin-top:0.75rem;padding-top:0.75rem;border-top:1px solid var(--pv-border-light);display:none}
+.scope-card.active .report-options{display:block}
+.report-option{display:flex;align-items:flex-start;gap:0.75rem;padding:0.5rem 0;cursor:pointer}
+.report-option input[type="radio"]{accent-color:var(--pv-coral);width:16px;height:16px;margin-top:3px}
+.report-option label{font-size:0.85rem;color:var(--pv-charcoal);cursor:pointer;flex:1;line-height:1.5}
+.report-option .co-price{font-size:0.82rem;font-weight:600;color:var(--pv-warm-gray);white-space:nowrap}
+.ro-note{font-size:0.8rem;color:var(--pv-warm-gray);display:block;margin-top:0.15rem}
+/* ---- summary panel ---- */
+.summary-panel{background:#fff;border:1px solid var(--pv-border-light);border-radius:var(--radius-lg);overflow:hidden}
+.summary-header{background:var(--pv-dark);color:#fff;padding:1.25rem 1.5rem}
+.summary-header h3{font-family:var(--font-display);font-weight:500;font-size:1.1rem}
+.summary-body{padding:1.25rem 1.5rem}
+.summary-section{margin-bottom:1.25rem}
+.summary-section-label{font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--pv-warm-gray);margin-bottom:0.5rem}
+.summary-line{display:flex;justify-content:space-between;font-size:0.88rem;padding:0.3rem 0}
+.summary-line .sl-name{color:var(--pv-charcoal)}
+.summary-line .sl-val{font-weight:600;color:var(--pv-charcoal)}
+.summary-divider{border:none;border-top:1px solid var(--pv-border-light);margin:1rem 0}
+.summary-total{display:flex;justify-content:space-between;align-items:baseline;padding:0.5rem 0}
+.summary-total .st-label{font-family:var(--font-display);font-weight:500;font-size:1rem;color:var(--pv-dark)}
+.summary-total .st-val{font-family:var(--font-display);font-weight:600;font-size:1.4rem;color:var(--pv-coral);transition:all 0.3s}
+.summary-timeline{background:var(--pv-ivory);margin:0 -1.5rem;padding:1rem 1.5rem;border-top:1px solid var(--pv-border-light)}
+.summary-timeline-label{font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--pv-warm-gray);margin-bottom:0.25rem}
+.summary-timeline-val{font-family:var(--font-display);font-weight:500;font-size:1.2rem;color:var(--pv-green)}
+.summary-assumptions{font-size:0.75rem;color:var(--pv-warm-gray);padding:0.75rem 1.5rem;margin:0 -1.5rem;background:var(--pv-ivory);border-top:1px dashed var(--pv-border-light)}
+.summary-actions{margin:0 -1.5rem -1.25rem;padding:1rem 1.5rem;background:var(--pv-ivory);border-top:1px solid var(--pv-border-light);border-radius:0 0 var(--radius-lg) var(--radius-lg)}
+.btn-pdf{display:block;width:100%;text-align:center;background:var(--pv-coral);color:#fff;padding:0.75rem;border-radius:8px;font-weight:600;font-size:0.9rem;border:none;cursor:pointer;transition:background 0.2s}
+.btn-pdf:hover{background:var(--pv-coral-dark)}
+.btn-email{display:block;width:100%;text-align:center;background:var(--gallup-blue);color:#fff;padding:0.75rem;border-radius:8px;font-weight:600;font-size:0.9rem;border:none;cursor:pointer;transition:background 0.2s;margin-top:0.5rem;text-decoration:none}
+.btn-email:hover{background:#005577}
+/* ---- impact ---- */
+.impact-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:2rem}
+.impact-card{background:#fff;border:1px solid var(--pv-border-light);border-radius:var(--radius-lg);padding:2rem;display:flex;flex-direction:column}
+.impact-card .impact-tag{font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--pv-coral);margin-bottom:0.75rem}
+.impact-card h3{font-family:var(--font-display);font-weight:500;font-size:1.2rem;margin-bottom:0.75rem;color:var(--pv-dark)}
+.impact-card p{font-size:0.92rem;color:var(--pv-warm-gray);line-height:1.7;flex:1}
+.impact-stat{display:flex;gap:1.5rem;margin-top:1.25rem;padding-top:1.25rem;border-top:1px solid var(--pv-border-light)}
+.impact-stat-num{font-family:var(--font-display);font-size:1.6rem;font-weight:500;color:var(--pv-coral);line-height:1}
+.impact-stat-desc{font-size:0.78rem;color:var(--pv-warm-gray);margin-top:0.2rem}
+/* ---- deliverables detail ---- */
+.deliverables-block{background:#fff;border:1px solid var(--pv-border-light);border-radius:var(--radius-lg);padding:2.5rem;margin-top:2rem}
+.deliverables-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:1.5rem}
+.deliv-col h4{font-family:var(--font-display);font-size:1rem;font-weight:500;margin-bottom:0.75rem;color:var(--pv-dark)}
+.deliv-col p{font-size:0.88rem;color:var(--pv-warm-gray);line-height:1.65;margin-bottom:0.75rem}
+.site-footer{max-width:1200px;margin:0 auto;padding:3rem 2rem;border-top:1px solid var(--pv-border);display:flex;justify-content:space-between;align-items:center}
+.footer-left{font-size:0.82rem;color:var(--pv-warm-gray);line-height:1.6}
+.footer-right{font-size:0.78rem;color:var(--pv-warm-gray)}
+@media(max-width:900px){.hero{grid-template-columns:1fr;gap:2rem;padding:3rem 1.5rem 2rem}.hero h1{font-size:2.2rem}.hero-visual{display:none}.framework-grid,.approach-phases{grid-template-columns:1fr}.scope-layout{grid-template-columns:1fr}.scope-sidebar{position:relative;top:0}.impact-grid,.topics-grid,.deliverables-grid{grid-template-columns:1fr}.header-nav{display:none}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+.fade-up{animation:fadeUp 0.6s ease-out both}.fade-up-d1{animation-delay:0.1s}.fade-up-d2{animation-delay:0.2s}.fade-up-d3{animation-delay:0.3s}
+</style>
+</head>
+<body>
+
+<header class="site-header"><div class="header-inner"><div class="logo-group"><span class="logo-pivotal">Pivotal</span><span class="logo-divider"></span><span class="logo-gallup">Gallup</span></div><nav class="header-nav"><a href="#framework">Research Framework</a><a href="#topics">Survey Topics</a><a href="#approach">Approach</a><a href="#timeline">Timeline</a><a href="#scope">Configure Scope</a><a href="#impact">Impact</a></nav></div></header>
+
+<!-- HERO -->
+<section class="hero"><div class="hero-content fade-up"><div class="hero-eyebrow">U.S. Research Partnership Proposal</div><h1>Making the Case for Investing in Women&#8217;s <em>Health</em></h1><p class="hero-sub">A nationally representative U.S. survey to quantify the connection between women&#8217;s health and women&#8217;s power &#8212; illustrating the cost of the status quo and making a broad issue feel human, specific, and impossible to dismiss. Timed for a September 2026 release.</p><a href="#scope" class="hero-cta">Configure Your Research Scope &#8595;</a></div><div class="hero-visual fade-up fade-up-d2"><div class="hero-graphic"><div class="hero-stat-ring"><div class="hero-stat-big">4,000</div><div class="hero-stat-label">U.S. women surveyed via the Gallup Panel</div></div></div></div></section>
+
+<div class="section-divider"><hr></div>
+
+<!-- FRAMEWORK -->
+<section class="section" id="framework"><div class="section-eyebrow">Research Framework</div><h2 class="section-title">Health Shapes Power &#8212; At Home, at Work, and Beyond</h2><p class="section-intro">This research will generate new findings that help make the case for investing in women&#8217;s health by quantifying how health issues &#8212; symptoms overlooked, needs unmet, care delayed, lives affected &#8212; shape women&#8217;s ability to make decisions, control resources, and shape policies and perspectives.</p>
+<div class="framework-grid">
+<div class="framework-card fade-up"><div class="card-icon coral">&#128188;</div><h3>Workplace &amp; Economic Power</h3><p>What share of women say health issues &#8212; perimenopause, menopause, reproductive health, pregnancy, postpartum, mental health &#8212; have caused them to step back at work, miss days, forgo a promotion, or decide against starting a business?</p><ul class="research-questions"><li>Work missed and days quantified by health condition</li><li>Career decisions deferred or abandoned</li><li>Entrepreneurial ambitions shelved due to health</li></ul></div>
+<div class="framework-card fade-up fade-up-d1"><div class="card-icon green">&#127963;</div><h3>Civic &amp; Community Power</h3><p>How do health conditions drive women to step back from community leadership, volunteerism, activism, and serving in school or civic roles?</p><ul class="research-questions"><li>Community engagement and leadership attrition</li><li>Volunteerism and activism participation</li><li>Stepping back from personal passions and hobbies</li></ul></div>
+<div class="framework-card fade-up fade-up-d2"><div class="card-icon blue">&#127968;</div><h3>Family &amp; Personal Power</h3><p>How do women&#8217;s health challenges affect quality time with children and families, ability to care for loved ones, and overall wellbeing?</p><ul class="research-questions"><li>Quality time with kids and family reduced</li><li>Caregiving capacity diminished by health burden</li><li>Mental health impacts of perimenopause, postpartum, and midlife</li></ul></div>
+</div></section>
+
+<div class="section-divider"><hr></div>
+
+<!-- SURVEY TOPICS -->
+<section class="section" id="topics"><div class="section-eyebrow">Survey Content</div><h2 class="section-title">What We&#8217;ll Measure</h2><p class="section-intro">A ~15 minute survey instrument designed to generate headline-ready findings while capturing baseline data on public sentiment around women&#8217;s health. Topics will be refined collaboratively during instrument development.</p>
+<div class="topics-block">
+<div class="topics-grid">
+<div class="topic-col"><h4>Lived Experiences &amp; Impact on Power</h4><ul>
+<li>Impact of perimenopause/menopause, reproductive health, pregnancy/postpartum, and mental health on specific life decisions</li>
+<li>Work missed + quantified days by condition</li>
+<li>Decisions against career changes, promotions, or starting a business</li>
+<li>Stepping back from community leadership, volunteerism, activism</li>
+<li>Reduced quality time with children and families</li>
+<li>Mental health experiences connected to perimenopause/menopause and pregnancy/postpartum</li>
+</ul></div>
+<div class="topic-col"><h4>Healthcare Access &amp; Public Sentiment</h4><ul>
+<li>Autonomy over health decisions</li>
+<li>Pain minimized, misunderstood, or dismissed by healthcare professionals</li>
+<li>Access to healthcare and concern about losing access</li>
+<li>Experience seeking care for menopause symptoms, contraception, mental health</li>
+<li>Use of AI platforms for mental health support</li>
+<li>Most trusted source for health information (doctor, social media, AI, friends/family)</li>
+<li>Health decisions influenced by social media content</li>
+<li>Public support for prioritizing women&#8217;s health &#8212; by government, philanthropy, and private sector</li>
+<li>Support for women making their own health decisions</li>
+<li>Belief that women deserve whole-person care (mental + physical)</li>
+</ul></div>
+</div>
+<div class="topics-note"><strong>Audience segmentation:</strong> The survey will include Pivotal&#8217;s typing tool questions so that the data can be segmented at the analysis stage accordingly. Pivotal will receive crosstabulations, a deidentified dataset inclusive of the weighting variable for future analysis. Gallup will also obtain permission from respondents to share their email address with Pivotal/StatSocial for the purposes of further internal analysis at Pivotal.</div>
+</div></section>
+
+<div class="section-divider"><hr></div>
+
+<!-- APPROACH -->
+<section class="section" id="approach"><div class="section-eyebrow">Phased Approach</div><h2 class="section-title">From Instrument to Impact</h2><p class="section-intro">Designed for a September 2026 release. Each phase builds on the last to move from data to narrative to public conversation.</p>
+<div class="approach-phases">
+<div class="approach-phase phase-core fade-up"><div class="approach-phase-num">01</div><h3>Survey Design &amp; Data Collection</h3><p>Collaborative instrument development, cognitive testing, programming, fielding via the Gallup Panel (nationally representative), statistical weighting, and data processing. Gallup&#8217;s iterative process ensures the survey is designed for both analytic rigor and media-ready findings.</p></div>
+<div class="approach-phase phase-qual fade-up fade-up-d1"><div class="approach-phase-num">02</div><h3>Quantitative Analysis &amp; Qualitative Interviews</h3><p>Full quantitative analysis mapped to the health-power framework, plus optional qualitative interviews that surface the human stories behind the data &#8212; making the findings concrete, specific, and impossible to dismiss.</p></div>
+<div class="approach-phase phase-comms fade-up fade-up-d2"><div class="approach-phase-num">03</div><h3>Communications &amp; Media Activation</h3><p>Co-branded reporting, strategic media pitching, potential paid media partnership, and coordinated launch activities designed to bring attention, energy, and support for critically underfunded areas of women&#8217;s health.</p></div>
+</div></section>
+
+<div class="section-divider"><hr></div>
+
+<!-- TIMELINE -->
+<section class="section" id="timeline"><div class="section-eyebrow">Project Timeline</div><h2 class="section-title">Research Timeline &#8212; September 2026 Release</h2><p class="section-intro">An 18-week core research timeline targeting an early September 2026 release. Qualitative research and communications activities can run in parallel or sequentially depending on scope.</p>
+
+<div class="timeline-container">
+<div class="timeline-header-row">
+<div class="tl-phase-label"></div>
+<div class="tl-months">
+<div class="tl-month">May</div>
+<div class="tl-month">Jun</div>
+<div class="tl-month">Jul</div>
+<div class="tl-month">Aug</div>
+<div class="tl-month">Sep</div>
+</div>
+</div>
+
+<div class="tl-row">
+<div class="tl-phase-label"><span class="tl-phase-name">Survey Development</span><span class="tl-phase-duration">4 weeks</span></div>
+<div class="tl-track"><div class="tl-bar tl-coral" style="left:0%;width:22.2%"><span>May 4 &#8211; May 31</span></div></div>
+</div>
+
+<div class="tl-row">
+<div class="tl-phase-label"><span class="tl-phase-name">Program &amp; Test</span><span class="tl-phase-duration">2 weeks</span></div>
+<div class="tl-track"><div class="tl-bar tl-coral" style="left:22.2%;width:11.1%"><span>Jun 1 &#8211; Jun 14</span></div></div>
+</div>
+
+<div class="tl-row">
+<div class="tl-phase-label"><span class="tl-phase-name">Fielding</span><span class="tl-phase-duration">3 weeks</span></div>
+<div class="tl-track"><div class="tl-bar tl-coral" style="left:33.3%;width:16.7%"><span>Jun 15 &#8211; Jul 5</span></div></div>
+</div>
+
+<div class="tl-row">
+<div class="tl-phase-label"><span class="tl-phase-name">Data QA &amp; Weighting</span><span class="tl-phase-duration">2 weeks</span></div>
+<div class="tl-track"><div class="tl-bar tl-coral" style="left:50%;width:11.1%"><span>Jul 6 &#8211; Jul 19</span></div></div>
+</div>
+
+<div class="tl-row">
+<div class="tl-phase-label"><span class="tl-phase-name">Analysis</span><span class="tl-phase-duration">3 weeks</span></div>
+<div class="tl-track"><div class="tl-bar tl-green" style="left:61.1%;width:16.7%"><span>Jul 20 &#8211; Aug 9</span></div></div>
+</div>
+
+<div class="tl-row">
+<div class="tl-phase-label"><span class="tl-phase-name">Report &amp; Article</span><span class="tl-phase-duration">4 weeks</span></div>
+<div class="tl-track"><div class="tl-bar tl-blue" style="left:77.8%;width:22.2%"><span>Aug 10 &#8211; Sep 6</span></div></div>
+</div>
+
+<div class="tl-row tl-milestone-row">
+<div class="tl-phase-label"><span class="tl-phase-name tl-milestone-name">&#127881; Public Release</span><span class="tl-phase-duration"></span></div>
+<div class="tl-track"><div class="tl-milestone" style="left:100%"><div class="tl-milestone-diamond"></div><span>Sep 7</span></div></div>
+</div>
+
+<div class="tl-row tl-optional-row">
+<div class="tl-phase-label"><span class="tl-phase-name tl-opt-label">Qualitative Interviews</span><span class="tl-phase-duration">optional</span></div>
+<div class="tl-track"><div class="tl-bar tl-green tl-dashed" style="left:33.3%;width:33.4%"><span>Can run parallel to fielding &amp; QA</span></div></div>
+</div>
+
+<div class="tl-row tl-optional-row">
+<div class="tl-phase-label"><span class="tl-phase-name tl-opt-label">Media Strategy &amp; Pitching</span><span class="tl-phase-duration">optional</span></div>
+<div class="tl-track"><div class="tl-bar tl-blue tl-dashed" style="left:55.6%;width:44.4%"><span>Begins during analysis, peaks at release</span></div></div>
+</div>
+
+</div>
+
+<div class="tl-note">Start date of <strong>May 4, 2026</strong> required to hit early September release. Qualitative and communications workstreams shown as optional overlays &#8212; they extend the timeline only if run sequentially with the quantitative research.</div>
+
+</section>
+
+<div class="section-divider"><hr></div>
+
+<!-- COMMUNICATIONS DETAIL -->
+<section class="section" id="comms-detail"><div class="section-eyebrow">Communications Support</div><h2 class="section-title">Designed for Coverage from Day One</h2><p class="section-intro">Gallup&#8217;s strategic communications team doesn&#8217;t treat media as an afterthought &#8212; research is designed with coverage in mind from the first question. Our team connects partners to leading journalists and influencers, leveraging longstanding relationships with top-tier outlets.</p>
+<div class="deliverables-block">
+<div class="deliverables-grid">
+<div class="deliv-col"><h4>Media Partnership &amp; Pitching</h4>
+<p>Gallup will work with Pivotal&#8217;s communications team to develop a strategic media plan designed to maximize coverage of the findings. This includes:</p>
+<p><strong>Pre-release:</strong> Identifying and pitching exclusive or embargoed access to a top-tier outlet (e.g., New York Times, Washington Post, CNN) to create a tentpole moment. Gallup has existing relationships across broadcast, print, and digital media and can broker new ones where needed.</p>
+<p><strong>Paid media partnership:</strong> Support for Pivotal&#8217;s planned paid editorial partnership, where the outlet creates a content package pairing data with human storytelling. Gallup helps design data points for editorial impact and provides supporting materials.</p>
+<p><strong>Post-release:</strong> Broader media pitching to drive a second wave of coverage &#8212; op-eds, broadcast segments, podcast features. Qualitative interview footage (if produced) provides broadcast-ready human stories to pair with data.</p>
+</div>
+<div class="deliv-col"><h4>Reporting &amp; Content</h4>
+<p><strong>Standard Report (10 pages):</strong> Executive summary, key findings with data visualizations, and topline implications. Designed as a concise, shareable document for media, policymakers, and stakeholders.</p>
+<p><strong>Expanded Report (30 pages):</strong> Comprehensive deep-dive including full methodology, detailed cross-tabulations by demographic group, thematic analysis, policy implications, and narrative context from qualitative findings (if conducted). Designed as the definitive reference document.</p>
+<p><strong>Gallup.com Article:</strong> A companion piece published on Gallup.com reaching Gallup&#8217;s global audience of policymakers, business leaders, and media professionals.</p>
+<p><strong>Satellite Media Tour:</strong> Coordinated broadcast appearances across major U.S. outlets to amplify findings and put a face on the data through Gallup analysts and/or Pivotal spokespeople.</p>
+</div>
+</div></div></section>
+
+<div class="section-divider"><hr></div>
+
+<!-- SCOPE BUILDER -->
+<section class="scope-section" id="scope"><div class="scope-inner"><div class="section-eyebrow">Configure Your Research Scope</div><h2 class="section-title">Build Your Research Program</h2><p class="section-intro">The core U.S. survey is pre-selected. Add optional components to expand the depth and reach of the research. Investment and timeline update in real time.</p>
+
+<div class="scope-layout"><div class="scope-main">
+
+<!-- Core -->
+<div class="scope-category"><div class="scope-category-header"><div class="scope-category-dot coral"></div><span class="scope-category-label">Core Research (Always Included)</span></div>
+
+<div class="scope-card locked"><div class="scope-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg></div><div class="scope-card-content"><div class="scope-card-title">Survey Instrument Development (~15 min survey)</div><div class="scope-card-desc">Collaborative questionnaire design with Pivotal, cognitive testing, expert review, and programming. Includes Pivotal&#8217;s typing tool questions for audience segmentation. Designed for both analytic rigor and headline-ready findings.</div><div class="scope-card-meta"><span>&#128197; 6&#8211;8 weeks</span></div></div></div>
+
+<div class="scope-card locked"><div class="scope-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg></div><div class="scope-card-content"><div class="scope-card-title">U.S. Women &#8212; n=4,000 via Gallup Panel <span class="scope-badge-rec">Flagship</span></div><div class="scope-card-desc">Nationally representative web-based survey of 4,000 U.S. women (18+) via the Gallup Panel, reflecting diversity across race, gender identity, sexual orientation, socioeconomic background, and more. Includes statistical weighting, data processing, and delivery of crosstabulations and a deidentified dataset inclusive of the weighting variable.</div><div class="scope-card-meta"><span>&#128101; n=4,000</span><span>&#128197; 4&#8211;6 weeks fielding</span></div></div></div>
+
+<div class="scope-card locked"><div class="scope-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg></div><div class="scope-card-content"><div class="scope-card-title">Analysis &amp; Data Delivery</div><div class="scope-card-desc">Full analysis of health-power linkages, data visualizations, crosstabulations, and a deidentified dataset inclusive of the weighting variable. Gallup will obtain permission from respondents to share their email address with Pivotal/StatSocial for further internal analysis.</div><div class="scope-card-meta"><span>&#128197; 4&#8211;6 weeks</span></div></div></div>
+
+</div>
+
+<!-- Optional: Comparison Group -->
+<div class="scope-category"><div class="scope-category-header"><div class="scope-category-dot coral"></div><span class="scope-category-label">Comparison Group</span></div>
+
+<div class="scope-card" data-type="toggle" data-id="men" data-price="37500" data-weeks="0" onclick="toggleCard(this)"><div class="scope-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg></div><div class="scope-card-content"><div class="scope-card-title">U.S. Men Comparison Group &#8212; n=500 <span class="scope-badge-rec">Strongly Recommended</span></div><div class="scope-card-desc">A nationally representative sample of 500 U.S. men (18+) answering parallel questions about how their physical and mental health has affected their work, community engagement, and family life. This comparison group enables powerful data contrasts that pre-empt the inevitable media question: &#8220;How do these numbers compare to men?&#8221; &#8212; and strengthens the evidence base by showing the disproportionate impact on women.</div><div class="scope-card-meta"><span>&#128101; n=500</span><span>&#128197; Fields concurrently</span></div></div></div>
+
+</div>
+
+<!-- Qualitative -->
+<div class="scope-category"><div class="scope-category-header"><div class="scope-category-dot green"></div><span class="scope-category-label">Qualitative Research</span></div>
+
+<div class="scope-card" data-type="toggle" data-id="idi" data-price="48000" data-weeks="4" onclick="toggleCard(this)"><div class="scope-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg></div><div class="scope-card-content"><div class="scope-card-title">In-Depth Interviews with Women (30)</div><div class="scope-card-desc">Long-form qualitative interviews with women across life stages, backgrounds, and health experiences. These are the human stories that make data feel concrete, specific, and impossible to dismiss &#8212; the narratives that media partners and editorial content packages need alongside the numbers.</div><div class="scope-card-meta"><span>&#128197; +4 weeks</span></div></div></div>
+
+<div class="addon-block" id="addon-video"><div class="addon-check-row"><input type="checkbox" id="video-addon" onchange="recalc()"><label for="video-addon"><strong>Add video production</strong> &#8212; Professionally recorded video of the 30 in-depth interviews for broadcast media, paid editorial partnerships, events, and digital storytelling</label><span class="co-price">+$22,000</span></div></div>
+
+</div>
+
+<!-- Communications -->
+<div class="scope-category"><div class="scope-category-header"><div class="scope-category-dot blue"></div><span class="scope-category-label">Communications &amp; Activation</span></div>
+
+<div class="scope-card" data-type="report" data-id="report" onclick="toggleCard(this)"><div class="scope-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg></div><div class="scope-card-content"><div class="scope-card-title">Co-Branded Research Report &amp; Gallup.com Article</div><div class="scope-card-desc">Polished co-branded publication with data visualizations and a companion Gallup.com article. Choose between a concise standard format or a comprehensive expanded version.</div>
+<div class="report-options"><div class="report-option"><input type="radio" name="report-type" value="standard" id="report-std" checked onchange="recalc()"><label for="report-std"><strong>Standard Report (10 pages)</strong><span class="ro-note">Executive summary, key findings, data visualizations, and topline implications. Designed as a concise, shareable document for media and stakeholders.</span></label><span class="co-price">$35,000</span></div><div class="report-option"><input type="radio" name="report-type" value="expanded" id="report-exp" onchange="recalc()"><label for="report-exp"><strong>Expanded Report (30 pages)</strong><span class="ro-note">Comprehensive deep-dive with full methodology, detailed crosstabulations by demographic group, thematic analysis, policy implications, and qualitative narrative context.</span></label><span class="co-price">$55,000</span></div></div>
+</div></div>
+
+<div class="scope-card" data-type="toggle" data-id="media" data-price="55000" data-weeks="4" data-comms="1" onclick="toggleCard(this)"><div class="scope-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg></div><div class="scope-card-content"><div class="scope-card-title">Strategic Media Partnership &amp; Pitching</div><div class="scope-card-desc">Full-cycle media strategy: pre-release exclusive/embargo pitching to top-tier outlets (NYT, Washington Post, CNN), support for Pivotal&#8217;s planned paid editorial partnership, and post-release second-wave pitching including op-eds, broadcast segments, and podcast placements. Gallup brokers media relationships where needed and designs data points for maximum editorial impact.</div><div class="scope-card-meta"><span>&#128197; 4 weeks</span></div></div></div>
+
+<div class="scope-card" data-type="toggle" data-id="event" data-price="75000" data-weeks="4" data-comms="1" onclick="toggleCard(this)"><div class="scope-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg></div><div class="scope-card-content"><div class="scope-card-title">Gallup-Hosted Launch Event</div><div class="scope-card-desc">A marquee event at Gallup&#8217;s Washington, D.C. offices convening policymakers, media, advocates, and healthcare leaders for the public release of findings. Designed to generate earned media coverage and position Pivotal as a leader in the women&#8217;s health conversation.</div><div class="scope-card-meta"><span>&#128197; 4 weeks</span></div></div></div>
+
+<div class="scope-card" data-type="toggle" data-id="social" data-price="42000" data-weeks="4" data-comms="1" onclick="toggleCard(this)"><div class="scope-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg></div><div class="scope-card-content"><div class="scope-card-title">Social Media &amp; Digital Content</div><div class="scope-card-desc">Shareable data graphics, video clips from qualitative interviews (if produced), Gallup podcast feature, and static social content optimized for Pivotal and Gallup channels.</div><div class="scope-card-meta"><span>&#128197; 4 weeks</span></div></div></div>
+
+<div class="scope-card" data-type="toggle" data-id="dashboard" data-price="85000" data-weeks="12" onclick="toggleCard(this)"><div class="scope-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg></div><div class="scope-card-content"><div class="scope-card-title">Interactive Data Dashboard</div><div class="scope-card-desc">A public-facing web platform allowing users to explore findings by health condition, power domain, and demographic group &#8212; a living resource for journalists, researchers, and advocates.</div><div class="scope-card-meta"><span>&#128197; 12 weeks (after research completion)</span></div></div></div>
+
+<div class="scope-card" data-type="toggle" data-id="smt" data-price="58000" data-weeks="4" data-comms="1" onclick="toggleCard(this)"><div class="scope-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg></div><div class="scope-card-content"><div class="scope-card-title">Satellite Media Tour</div><div class="scope-card-desc">Coordinated broadcast media appearances across major U.S. outlets featuring Gallup analysts and/or Pivotal spokespeople to amplify key findings and put a human face on the data.</div><div class="scope-card-meta"><span>&#128197; 4 weeks</span></div></div></div>
+
+</div></div>
+
+<!-- SIDEBAR -->
+<div class="scope-sidebar"><div class="summary-panel"><div class="summary-header"><h3>Scope Summary</h3></div><div class="summary-body">
+<div class="summary-section"><div class="summary-section-label">Core Research</div><div class="summary-line"><span class="sl-name">Instrument + U.S. Women (n=4,000) + Analysis</span><span class="sl-val" id="sum-core">$380,000</span></div></div>
+<div class="summary-section" id="sum-comp-section" style="display:none"><div class="summary-section-label">Comparison Group</div><div id="sum-comp-list"></div></div>
+<div class="summary-section" id="sum-qual-section" style="display:none"><div class="summary-section-label">Qualitative</div><div id="sum-qual-list"></div></div>
+<div class="summary-section" id="sum-comms-section" style="display:none"><div class="summary-section-label">Communications</div><div id="sum-comms-list"></div></div>
+<hr class="summary-divider">
+<div class="summary-total"><span class="st-label">Total Investment</span><span class="st-val" id="sum-total">$380,000</span></div>
+<div class="summary-timeline"><div class="summary-timeline-label">Estimated Timeline</div><div class="summary-timeline-val" id="sum-weeks">~18 weeks</div></div>
+<div class="summary-assumptions">Assumes ~15 min survey instrument. Timeline targets September 2026 release.</div>
+<div class="summary-actions"><button class="btn-pdf" onclick="printSummary()">Download Summary PDF</button><button class="btn-email" onclick="emailSummary()">Email Selections to Gallup</button></div>
+</div></div></div>
+
+</div></div></section>
+
+<!-- IMPACT -->
+<section class="section" id="impact"><div class="section-eyebrow">Gallup&#8217;s Track Record</div><h2 class="section-title">Proven Impact at Global Scale</h2><p class="section-intro">Gallup has a demonstrated history of producing research that shapes global policy, drives media coverage, and creates lasting institutional partnerships.</p>
+
+<div class="impact-grid">
+<div class="impact-card fade-up"><div class="impact-tag">Women&#8217;s Health Partnership</div><h3>Hologic Global Women&#8217;s Health Index</h3><p>In partnership with Hologic, Gallup created the world&#8217;s most comprehensive global survey documenting women&#8217;s health across 142+ countries. Now in its fifth year, the Index has become a critical accountability tool, with elements integrated into the Bill &amp; Melinda Gates Foundation&#8217;s Global Gender Gap Report. Hologic credits the Index with boosting employee engagement and providing a platform for executives to engage with national decision makers on women&#8217;s health investment.</p><div class="impact-stat"><div class="impact-stat-item"><div class="impact-stat-num">142+</div><div class="impact-stat-desc">countries surveyed</div></div><div class="impact-stat-item"><div class="impact-stat-num">146K</div><div class="impact-stat-desc">annual respondents</div></div><div class="impact-stat-item"><div class="impact-stat-num">97%</div><div class="impact-stat-desc">of global female population represented</div></div></div></div>
+
+<div class="impact-card fade-up fade-up-d1"><div class="impact-tag">Policy &amp; Global Governance</div><h3>Driving Legislation &amp; Institutional Action</h3><p>Gallup&#8217;s ILO Women at Work study &#8212; the first-ever global account of attitudes toward women and work across 142 countries &#8212; provided data that ILO country teams used in ministerial briefings to advocate for the adoption of Convention 190 against workplace violence and harassment. Gallup&#8217;s FINDEX data became the official G-20 Financial Inclusion Indicator and tracks the World Bank&#8217;s Universal Financial Access Goal, informing financial inclusion strategies in 110+ countries.</p><div class="impact-stat"><div class="impact-stat-item"><div class="impact-stat-num">110+</div><div class="impact-stat-desc">countries using FINDEX data for policy</div></div><div class="impact-stat-item"><div class="impact-stat-num">C190</div><div class="impact-stat-desc">ILO convention supported by Gallup data</div></div><div class="impact-stat-item"><div class="impact-stat-num">3</div><div class="impact-stat-desc">official UN SDG indicators tracked</div></div></div></div>
+
+<div class="impact-card fade-up fade-up-d2"><div class="impact-tag">Global Wellbeing</div><h3>World Happiness Report</h3><p>Gallup data underpins the annual World Happiness Report &#8212; a partnership with Oxford University and the UN Sustainable Development Solutions Network &#8212; which helped inspire UN General Assembly Resolution 65/309, calling on member countries to measure happiness and use data to guide public policy.</p><div class="impact-stat"><div class="impact-stat-item"><div class="impact-stat-num">$164M</div><div class="impact-stat-desc">advertising value equivalency</div></div><div class="impact-stat-item"><div class="impact-stat-num">150+</div><div class="impact-stat-desc">countries tracked</div></div></div></div>
+
+<div class="impact-card fade-up fade-up-d3"><div class="impact-tag">Communications &amp; Media Reach</div><h3>Gallup Strategic Communications</h3><p>Gallup&#8217;s in-house strategic communications team connects partners to leading journalists and influencers, leveraging longstanding relationships with top-tier media to amplify research findings. The approach includes convening events, policy roundtables, and coordinated media campaigns &#8212; designing research for coverage from the start, not as an afterthought.</p><div class="impact-stat"><div class="impact-stat-item"><div class="impact-stat-num">500K+</div><div class="impact-stat-desc">media placements annually</div></div><div class="impact-stat-item"><div class="impact-stat-num">2.8B</div><div class="impact-stat-desc">people reached annually</div></div></div></div>
+</div></section>
+
+<footer class="site-footer"><div class="footer-left"><strong>Pivotal &amp; Gallup</strong> &#8212; Women&#8217;s Health &amp; Power U.S. Research Proposal<br>Prepared exclusively for Pivotal Ventures. All scope and investment details are subject to final scoping discussions.</div><div class="footer-right">&copy; 2026 Gallup, Inc. All rights reserved. Confidential and proprietary.</div></footer>
+
+<script>
+var CORE_PRICE=380000;var CORE_WEEKS=18;
+var toggleItems={};
+
+function toggleCard(el){
+  var id=el.dataset.id;
+  if(id==='report'){
+    if(!toggleItems[id]){toggleItems[id]={active:false,price:35000,weeks:4,comms:true,name:'Co-Branded Report & Gallup.com Article'}}
+    toggleItems[id].active=!toggleItems[id].active;
+    el.classList.toggle('active');
+    recalc();return;
+  }
+  if(!toggleItems[id]){
+    toggleItems[id]={active:false,price:parseInt(el.dataset.price),weeks:parseInt(el.dataset.weeks),comms:el.dataset.comms==='1',name:el.querySelector('.scope-card-title').textContent.replace(/Recommended|Strongly Recommended|Enhanced|Flagship/g,'').trim()};
+  }
+  toggleItems[id].active=!toggleItems[id].active;
+  el.classList.toggle('active');
+  if(id==='idi'){var addon=document.getElementById('addon-video');if(toggleItems[id].active){addon.classList.add('visible')}else{addon.classList.remove('visible');document.getElementById('video-addon').checked=false}}
+  recalc();
+}
+
+function recalc(){
+  var tp=CORE_PRICE,qualP=0,commsP=0,compP=0;
+  // Comparison group
+  var compS=document.getElementById('sum-comp-section'),compL=document.getElementById('sum-comp-list');
+  var compH='';
+  if(toggleItems['men']&&toggleItems['men'].active){compP=toggleItems['men'].price;compH='<div class="summary-line"><span class="sl-name">U.S. Men (n=500)</span><span class="sl-val">'+fmt(compP)+'</span></div>'}
+  compS.style.display=compP>0?'block':'none';compL.innerHTML=compH;
+
+  // Qualitative
+  var ql=document.getElementById('sum-qual-list'),qs=document.getElementById('sum-qual-section');
+  var qh='',qc=0,qw=0;
+  ['ki','idi'].forEach(function(id){if(toggleItems[id]&&toggleItems[id].active){qc++;qualP+=toggleItems[id].price;qw+=toggleItems[id].weeks;qh+='<div class="summary-line"><span class="sl-name">'+toggleItems[id].name+'</span><span class="sl-val">'+fmt(toggleItems[id].price)+'</span></div>'}});
+  var vc=document.getElementById('video-addon').checked;
+  if(vc&&toggleItems['idi']&&toggleItems['idi'].active){qualP+=22000;qh+='<div class="summary-line"><span class="sl-name">Video Production (IDIs)</span><span class="sl-val">'+fmt(22000)+'</span></div>'}
+  qs.style.display=qc>0?'block':'none';ql.innerHTML=qh;
+
+  // Communications
+  var cml=document.getElementById('sum-comms-list'),cms=document.getElementById('sum-comms-section');
+  var cmh='',cmc=0,hc=false,dw=0;
+
+  // Report
+  if(toggleItems['report']&&toggleItems['report'].active){
+    var rType=document.querySelector('input[name="report-type"]:checked');
+    var rPrice=rType&&rType.value==='expanded'?55000:35000;
+    var rName=rType&&rType.value==='expanded'?'Expanded Report (30pg) + Gallup.com':'Standard Report (10pg) + Gallup.com';
+    toggleItems['report'].price=rPrice;
+    toggleItems['report'].name=rName;
+    cmc++;commsP+=rPrice;hc=true;
+    cmh+='<div class="summary-line"><span class="sl-name">'+rName+'</span><span class="sl-val">'+fmt(rPrice)+'</span></div>';
+  }
+
+  Object.keys(toggleItems).forEach(function(id){
+    if(id==='ki'||id==='idi'||id==='men'||id==='report')return;
+    var it=toggleItems[id];
+    if(it&&it.active){cmc++;commsP+=it.price;if(id==='dashboard')dw=it.weeks;else hc=true;cmh+='<div class="summary-line"><span class="sl-name">'+it.name+'</span><span class="sl-val">'+fmt(it.price)+'</span></div>'}
+  });
+  cms.style.display=cmc>0?'block':'none';cml.innerHTML=cmh;
+
+  tp=CORE_PRICE+compP+qualP+commsP;
+  var tw=CORE_WEEKS;tw+=qw;if(hc)tw+=4;tw+=dw;
+
+  document.getElementById('sum-total').textContent=fmt(tp);
+  document.getElementById('sum-weeks').textContent='~'+tw+' weeks';
+}
+
+function fmt(n){return '$'+n.toLocaleString('en-US')}
+
+function printSummary(){
+  var ls=['<h2>Core Research</h2><p>Survey Instrument (~15 min) + U.S. Women (n=4,000) + Analysis &amp; Data Delivery &#8212; '+fmt(CORE_PRICE)+'</p>'];
+  if(toggleItems['men']&&toggleItems['men'].active)ls.push('<p>U.S. Men Comparison Group (n=500) &#8212; '+fmt(toggleItems['men'].price)+'</p>');
+  var qi=['ki','idi'].filter(function(id){return toggleItems[id]&&toggleItems[id].active});
+  if(qi.length){ls.push('<h2>Qualitative Research</h2>');qi.forEach(function(id){ls.push('<p>'+toggleItems[id].name+' &#8212; '+fmt(toggleItems[id].price)+'</p>')});if(document.getElementById('video-addon').checked&&toggleItems['idi']&&toggleItems['idi'].active)ls.push('<p>Video Production (IDIs) &#8212; '+fmt(22000)+'</p>')}
+  var ci=Object.keys(toggleItems).filter(function(id){return id!=='ki'&&id!=='idi'&&id!=='men'&&toggleItems[id]&&toggleItems[id].active});
+  if(ci.length){ls.push('<h2>Communications &amp; Activation</h2>');ci.forEach(function(id){ls.push('<p>'+toggleItems[id].name+' &#8212; '+fmt(toggleItems[id].price)+'</p>')})}
+  var tot=document.getElementById('sum-total').textContent,wks=document.getElementById('sum-weeks').textContent;
+  var h='<!DOCTYPE html><html><head><title>Pivotal &amp; Gallup Scope Summary</title><style>body{font-family:Georgia,serif;max-width:700px;margin:40px auto;color:#2A2A2A;line-height:1.7;padding:0 20px}h1{font-size:1.6rem;color:#D94F3B;border-bottom:2px solid #E0DDD7;padding-bottom:12px}h2{font-size:0.9rem;color:#4A6741;margin-top:1.5rem;margin-bottom:0.5rem;text-transform:uppercase;letter-spacing:0.05em}p{margin:0.3rem 0;font-size:0.95rem}.total{font-size:1.3rem;color:#D94F3B;font-weight:bold;margin-top:2rem;padding-top:1rem;border-top:2px solid #E0DDD7}.timeline{font-size:1rem;color:#4A6741;margin-top:0.5rem}.footer{margin-top:3rem;font-size:0.8rem;color:#6B6560;border-top:1px solid #E0DDD7;padding-top:1rem}</style></head><body><h1>Pivotal &amp; Gallup<br>Women\'s Health &amp; Power &#8212; U.S. Scope Summary</h1>'+ls.join('')+'<div class="total">Total Investment: '+tot+'</div><div class="timeline">Estimated Timeline: '+wks+'</div><div class="footer">Assumes ~15 minute survey instrument. Timeline targets September 2026 release.<br>Prepared exclusively for Pivotal Ventures. All scope and investment details are subject to final scoping discussions.<br>Copyright &copy; 2026 Gallup, Inc.</div><script>window.onload=function(){window.print()}<\/script></body></html>';
+  var w=window.open('','_blank');w.document.write(h);w.document.close();
+}
+
+function emailSummary(){
+  var lines=[];
+  lines.push('SCOPE SUMMARY');
+  lines.push('=============');
+  lines.push('');
+  lines.push('CORE RESEARCH');
+  lines.push('  Survey Instrument (~15 min) + U.S. Women (n=4,000) + Analysis & Data Delivery — '+fmt(CORE_PRICE));
+  if(toggleItems['men']&&toggleItems['men'].active){lines.push('  U.S. Men Comparison Group (n=500) — '+fmt(toggleItems['men'].price))}
+  var qi=['idi'].filter(function(id){return toggleItems[id]&&toggleItems[id].active});
+  if(qi.length){lines.push('');lines.push('QUALITATIVE RESEARCH');qi.forEach(function(id){lines.push('  '+toggleItems[id].name+' — '+fmt(toggleItems[id].price))});if(document.getElementById('video-addon').checked&&toggleItems['idi']&&toggleItems['idi'].active)lines.push('  Video Production (IDIs) — '+fmt(22000))}
+  var ci=Object.keys(toggleItems).filter(function(id){return id!=='ki'&&id!=='idi'&&id!=='men'&&toggleItems[id]&&toggleItems[id].active});
+  if(ci.length){lines.push('');lines.push('COMMUNICATIONS & ACTIVATION');ci.forEach(function(id){lines.push('  '+toggleItems[id].name+' — '+fmt(toggleItems[id].price))})}
+  lines.push('');
+  lines.push('————————————————');
+  lines.push('Total Investment: '+document.getElementById('sum-total').textContent);
+  lines.push('Estimated Timeline: '+document.getElementById('sum-weeks').textContent);
+  lines.push('');
+  lines.push('Assumes ~15 minute survey instrument. Timeline targets September 2026 release.');
+  var subj=encodeURIComponent('Pivotal x Gallup — Women\'s Health Research Scope Selections');
+  var body=encodeURIComponent(lines.join('\n'));
+  window.location.href='mailto:justin_lall@gallup.com?subject='+subj+'&body='+body;
+}
+document.querySelectorAll('.report-option input,.report-option label,.addon-check-row input,.addon-check-row label').forEach(function(el){el.addEventListener('click',function(e){e.stopPropagation()})});
+recalc();
+</script>
+</body>
+</html>
