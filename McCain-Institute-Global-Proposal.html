@@ -1,0 +1,1401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Global Leadership & Credibility Survey — McCain Institute × Gallup</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #0a1628;
+  --navy-mid: #162240;
+  --navy-light: #1e3054;
+  --slate: #2d3d56;
+  --gold: #c9a84c;
+  --gold-light: #d4b96a;
+  --gold-pale: #f5edd6;
+  --gold-wash: rgba(201,168,76,0.06);
+  --warm-white: #faf9f6;
+  --warm-gray: #f2f0eb;
+  --border: #e6e3dc;
+  --text: #1a1a2e;
+  --text-secondary: #5c6478;
+  --text-muted: #8d93a1;
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-body: 'DM Sans', -apple-system, sans-serif;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--font-body); color: var(--text); background: var(--warm-white); -webkit-font-smoothing: antialiased; }
+::selection { background: var(--gold); color: var(--navy); }
+
+.site-header {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(250,249,246,0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+}
+.header-inner {
+  max-width: 1200px; margin: 0 auto;
+  padding: 0.9rem 2.5rem;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.logo-group { display: flex; align-items: center; gap: 1.2rem; }
+.logo-mccain {
+  font-family: var(--font-display); font-weight: 700; font-size: 1.05rem;
+  color: var(--navy); letter-spacing: 0.02em; line-height: 1.1;
+}
+.logo-mccain span { display: block; font-size: 0.6rem; font-family: var(--font-body); font-weight: 500; color: var(--text-muted); letter-spacing: 0.08em; text-transform: uppercase; margin-top: 0.15rem; }
+.logo-divider { width: 1px; height: 28px; background: var(--border); }
+.logo-gallup {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-weight: 400; font-size: 1rem;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--navy);
+}
+.header-actions { display: flex; align-items: center; gap: 0.7rem; }
+.btn-header {
+  display: flex; align-items: center; gap: 0.45rem;
+  padding: 0.5rem 1rem;
+  border: none; border-radius: 6px;
+  font-family: var(--font-body); font-size: 0.75rem; font-weight: 600;
+  letter-spacing: 0.02em; cursor: pointer;
+  transition: all 0.2s ease;
+}
+.btn-header svg { width: 14px; height: 14px; flex-shrink: 0; }
+.btn-investment { background: var(--navy); color: #fff; }
+.btn-investment:hover { background: var(--navy-mid); }
+.btn-export { background: #fff; color: var(--navy); border: 1px solid var(--border) !important; }
+.btn-export:hover { background: var(--warm-gray); }
+.btn-email { background: var(--gold); color: var(--navy); }
+.btn-email:hover { background: var(--gold-light); }
+
+.hero {
+  position: relative; overflow: hidden;
+  background: var(--navy);
+  color: #fff;
+  padding: 6rem 2.5rem 5rem;
+}
+.hero::before {
+  content: ''; position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 15% 70%, rgba(201,168,76,0.07) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 50% at 85% 20%, rgba(255,255,255,0.03) 0%, transparent 60%);
+}
+.hero::after {
+  content: ''; position: absolute; inset: 0;
+  background: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.012'%3E%3Cpath d='M40 0l2 2-2 2-2-2 2-2zm0 76l2 2-2 2-2-2 2-2z'/%3E%3C/g%3E%3C/svg%3E");
+}
+.hero-inner { max-width: 900px; margin: 0 auto; position: relative; z-index: 1; }
+.hero-label {
+  display: inline-block;
+  font-size: 0.68rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 1.8rem;
+  animation: fadeUp 0.6s ease both;
+}
+.hero h1 {
+  font-family: var(--font-display); font-weight: 500;
+  font-size: clamp(2.6rem, 5.5vw, 3.8rem);
+  line-height: 1.12; margin-bottom: 1.5rem;
+  animation: fadeUp 0.6s 0.08s ease both;
+}
+.hero h1 em { font-style: italic; color: var(--gold-light); }
+.hero-sub {
+  font-size: 1.08rem; line-height: 1.78; color: rgba(255,255,255,0.68);
+  max-width: 640px; font-weight: 300;
+  animation: fadeUp 0.6s 0.16s ease both;
+}
+.hero-stats {
+  display: flex; gap: 2.5rem; margin-top: 3rem;
+  animation: fadeUp 0.6s 0.24s ease both;
+}
+.hero-stat-n {
+  font-family: var(--font-display); font-weight: 600;
+  font-size: 2rem; color: var(--gold);
+}
+.hero-stat-label {
+  font-size: 0.72rem; font-weight: 500;
+  color: rgba(255,255,255,0.4);
+  letter-spacing: 0.08em; text-transform: uppercase;
+  margin-top: 0.15rem;
+}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.section { max-width: 1200px; margin: 0 auto; padding: 5rem 2.5rem; }
+.section-narrow { max-width: 860px; }
+.section-label {
+  font-size: 0.68rem; font-weight: 600; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--gold); margin-bottom: 0.6rem;
+}
+.section-title {
+  font-family: var(--font-display); font-weight: 500;
+  font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+  line-height: 1.2; color: var(--navy); margin-bottom: 0.8rem;
+}
+.section-subtitle {
+  font-size: 1rem; color: var(--text-secondary); line-height: 1.72; max-width: 640px;
+}
+
+.narrative { max-width: 860px; margin: 0 auto; }
+.narrative p {
+  font-size: 1.05rem; line-height: 1.82; color: var(--text);
+  margin-bottom: 1.4rem;
+}
+.narrative p:first-of-type::first-letter {
+  font-family: var(--font-display);
+  font-size: 3.4rem; font-weight: 600;
+  float: left; line-height: 0.85;
+  margin: 0.08rem 0.6rem 0 0;
+  color: var(--navy);
+}
+
+.callout {
+  position: relative;
+  margin: 3rem 0;
+  padding: 2.2rem 2.5rem;
+  background: var(--gold-wash);
+  border-left: 3px solid var(--gold);
+  border-radius: 0 8px 8px 0;
+}
+.callout p {
+  font-family: var(--font-display); font-size: 1.35rem;
+  line-height: 1.6; color: var(--navy); font-weight: 500;
+  font-style: italic; margin: 0;
+}
+.callout cite {
+  display: block; margin-top: 0.8rem;
+  font-family: var(--font-body); font-size: 0.78rem;
+  font-style: normal; font-weight: 500;
+  color: var(--text-muted); letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.framework-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;
+  margin-top: 2.5rem;
+}
+.fw-card {
+  padding: 2rem 1.8rem;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.fw-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(10,22,40,0.06); }
+.fw-card-icon {
+  width: 40px; height: 40px;
+  background: var(--navy);
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 1.2rem;
+}
+.fw-card-icon svg { width: 20px; height: 20px; }
+.fw-card h3 {
+  font-family: var(--font-display); font-weight: 600;
+  font-size: 1.2rem; color: var(--navy); margin-bottom: 0.6rem;
+}
+.fw-card p { font-size: 0.88rem; line-height: 1.72; color: var(--text-secondary); }
+.fw-card .question {
+  margin-top: 1rem; padding-top: 1rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.82rem; line-height: 1.6;
+  color: var(--navy); font-weight: 500; font-style: italic;
+  font-family: var(--font-display);
+}
+
+.approach-phases {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  border: 1px solid var(--border); border-radius: 10px;
+  overflow: hidden; background: #fff;
+  margin-top: 2.5rem;
+}
+.approach-phase {
+  padding: 2rem 1.6rem;
+  border-right: 1px solid var(--border);
+}
+.approach-phase:last-child { border-right: none; }
+.ap-number {
+  font-family: var(--font-display); font-weight: 700;
+  font-size: 2rem; color: var(--gold); line-height: 1;
+  margin-bottom: 0.6rem;
+}
+.ap-title { font-weight: 700; font-size: 0.82rem; color: var(--navy); margin-bottom: 0.5rem; }
+.ap-desc { font-size: 0.8rem; line-height: 1.65; color: var(--text-secondary); }
+.ap-timing {
+  margin-top: 1rem; padding-top: 0.8rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.72rem; font-weight: 600;
+  color: var(--text-muted); letter-spacing: 0.06em; text-transform: uppercase;
+}
+
+.deliverables-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;
+  margin-top: 2rem;
+}
+.deliv-card {
+  padding: 2rem;
+  background: #fff; border: 1px solid var(--border); border-radius: 10px;
+}
+.deliv-card.primary { border-color: var(--navy); border-width: 2px; }
+.deliv-tag {
+  display: inline-block;
+  font-size: 0.62rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+  padding: 0.25rem 0.7rem; border-radius: 4px;
+  margin-bottom: 1rem;
+}
+.deliv-tag-1 { background: var(--navy); color: var(--gold); }
+.deliv-tag-2 { background: var(--gold); color: var(--navy); }
+.deliv-card h3 {
+  font-family: var(--font-display); font-weight: 600;
+  font-size: 1.15rem; color: var(--navy); margin-bottom: 0.6rem;
+}
+.deliv-card p { font-size: 0.85rem; line-height: 1.72; color: var(--text-secondary); margin-bottom: 0.8rem; }
+.deliv-list { list-style: none; padding: 0; }
+.deliv-list li {
+  font-size: 0.82rem; line-height: 1.6; color: var(--text-secondary);
+  padding: 0.35rem 0 0.35rem 1.2rem;
+  position: relative;
+}
+.deliv-list li::before {
+  content: '\203A'; position: absolute; left: 0;
+  color: var(--gold); font-weight: 700; font-size: 1rem;
+}
+
+.annual-block {
+  margin-top: 2.5rem;
+  background: linear-gradient(135deg, var(--navy), var(--navy-mid));
+  border-radius: 14px;
+  padding: 2.5rem 3rem;
+  color: #fff;
+}
+.annual-block h3 {
+  font-family: var(--font-display); font-weight: 600;
+  font-size: 1.5rem; margin-bottom: 0.8rem;
+}
+.annual-block p { font-size: 0.92rem; line-height: 1.78; color: rgba(255,255,255,0.68); margin-bottom: 1.5rem; }
+.year-track { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0.8rem; }
+.year-card {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 10px;
+  padding: 1.2rem;
+  text-align: center;
+}
+.year-card.active { border-color: var(--gold); background: rgba(201,168,76,0.1); }
+.year-card-yr {
+  font-family: var(--font-display); font-weight: 700;
+  font-size: 1.3rem; margin-bottom: 0.3rem;
+}
+.year-card.active .year-card-yr { color: var(--gold); }
+.year-card-label {
+  font-size: 0.68rem; color: rgba(255,255,255,0.45);
+  letter-spacing: 0.04em; line-height: 1.4;
+}
+.year-card.active .year-card-label { color: rgba(255,255,255,0.7); }
+
+.section-divider { max-width: 1200px; margin: 0 auto; padding: 0 2.5rem; }
+.section-divider hr { border: none; height: 1px; background: var(--border); }
+
+.scope-section { background: var(--warm-gray); }
+.scope-container { display: grid; grid-template-columns: 1fr 340px; gap: 2.5rem; align-items: start; }
+.scope-sidebar {
+  position: sticky; top: 80px;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+.sidebar-header {
+  background: var(--navy);
+  color: #fff; padding: 1.4rem 1.6rem;
+}
+.sidebar-header h3 {
+  font-family: var(--font-display); font-weight: 600;
+  font-size: 1.1rem; margin-bottom: 0.2rem;
+}
+.sidebar-header p { font-size: 0.72rem; color: rgba(255,255,255,0.5); }
+.sidebar-body { padding: 1.4rem 1.6rem; }
+.sidebar-line {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 0.55rem 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.82rem;
+}
+.sidebar-line:last-child { border-bottom: none; }
+.sidebar-line-name { color: var(--text-secondary); }
+.sidebar-line-price { font-weight: 700; color: var(--navy); font-variant-numeric: tabular-nums; }
+.sidebar-line-price.empty { color: var(--text-muted); font-weight: 400; }
+.sidebar-total {
+  padding: 1.2rem 1.6rem;
+  background: var(--navy);
+  display: flex; justify-content: space-between; align-items: center;
+}
+.sidebar-total-label { font-size: 0.78rem; font-weight: 600; color: rgba(255,255,255,0.7); text-transform: uppercase; letter-spacing: 0.06em; }
+.sidebar-total-value {
+  font-family: var(--font-display); font-weight: 700;
+  font-size: 1.5rem; color: var(--gold);
+}
+.sidebar-timeline {
+  padding: 1rem 1.6rem;
+  background: var(--gold-wash);
+  display: flex; justify-content: space-between; align-items: center;
+}
+.sidebar-timeline-label { font-size: 0.72rem; font-weight: 600; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.06em; }
+.sidebar-timeline-value { font-weight: 700; font-size: 0.92rem; color: var(--navy); }
+
+.toggle-group {
+  display: inline-flex;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 3px;
+  margin-bottom: 2rem;
+}
+.toggle-btn {
+  padding: 0.6rem 1.5rem;
+  border-radius: 6px; border: none;
+  background: transparent;
+  font-family: var(--font-body); font-size: 0.82rem; font-weight: 600;
+  color: var(--text-secondary); cursor: pointer;
+  transition: all 0.2s ease;
+}
+.toggle-btn.active { background: var(--navy); color: #fff; }
+
+.phase-block { margin-bottom: 2.5rem; }
+.phase-header {
+  display: flex; align-items: center; gap: 0.8rem;
+  margin-bottom: 1rem;
+}
+.phase-tag {
+  font-size: 0.65rem; font-weight: 700;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  padding: 0.3rem 0.8rem; border-radius: 4px;
+}
+.phase-tag-1 { background: var(--navy); color: var(--gold); }
+.phase-tag-2 { background: var(--gold); color: var(--navy); }
+.phase-header h3 {
+  font-family: var(--font-display); font-weight: 600;
+  font-size: 1.15rem; color: var(--navy);
+}
+.phase-header .count {
+  font-size: 0.78rem; color: var(--text-muted); font-weight: 400;
+  margin-left: auto;
+}
+
+.country-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.5rem; }
+.country-item {
+  padding: 0.65rem 0.9rem;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  display: flex; align-items: center; gap: 0.55rem;
+  font-size: 0.82rem; font-weight: 600; color: var(--text);
+}
+.country-flag { font-size: 1.1rem; }
+.country-badge {
+  margin-left: auto;
+  font-size: 0.55rem; font-weight: 700;
+  letter-spacing: 0.05em; text-transform: uppercase;
+  padding: 0.15rem 0.4rem; border-radius: 3px;
+  background: rgba(201,168,76,0.12); color: #9a7d2e;
+}
+
+.addon-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.8rem; }
+.addon-card {
+  display: flex; align-items: flex-start; gap: 1rem;
+  padding: 1.2rem 1.4rem;
+  background: #fff; border: 1px solid var(--border); border-radius: 10px;
+  cursor: pointer; transition: all 0.2s ease;
+  user-select: none;
+}
+.addon-card:hover { border-color: var(--navy); }
+.addon-card.selected { border-color: var(--navy); background: linear-gradient(135deg, rgba(10,22,40,0.02), rgba(201,168,76,0.04)); }
+.addon-check {
+  width: 22px; height: 22px; flex-shrink: 0;
+  border: 2px solid var(--border); border-radius: 5px;
+  display: flex; align-items: center; justify-content: center;
+  transition: all 0.15s ease; margin-top: 2px;
+}
+.addon-card.selected .addon-check { background: var(--navy); border-color: var(--navy); }
+.addon-check svg { width: 13px; height: 13px; display: none; }
+.addon-card.selected .addon-check svg { display: block; }
+.addon-title { font-weight: 700; font-size: 0.85rem; color: var(--navy); margin-bottom: 0.25rem; }
+.addon-desc { font-size: 0.78rem; line-height: 1.6; color: var(--text-secondary); }
+.addon-price { font-size: 0.75rem; font-weight: 600; color: var(--gold); margin-top: 0.4rem; }
+
+.gallup-block {
+  background: var(--navy);
+  color: #fff; border-radius: 14px;
+  padding: 3rem;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 3rem;
+  margin-top: 2rem;
+}
+.gallup-block h3 {
+  font-family: var(--font-display); font-weight: 600;
+  font-size: 1.6rem; line-height: 1.3; margin-bottom: 1rem;
+}
+.gallup-block p { font-size: 0.92rem; line-height: 1.78; color: rgba(255,255,255,0.68); }
+.gallup-stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.gallup-stat {
+  padding: 1.2rem;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 10px;
+}
+.gallup-stat-n {
+  font-family: var(--font-display); font-weight: 700;
+  font-size: 1.6rem; color: var(--gold); margin-bottom: 0.2rem;
+}
+.gallup-stat-l { font-size: 0.72rem; color: rgba(255,255,255,0.45); letter-spacing: 0.06em; text-transform: uppercase; font-weight: 500; }
+
+.timeline-steps { margin-top: 2.5rem; }
+.tl-step {
+  display: grid; grid-template-columns: 100px 24px 1fr; gap: 0 1.2rem;
+  align-items: start; min-height: 100px;
+}
+.tl-time {
+  font-size: 0.75rem; font-weight: 600;
+  color: var(--text-muted); letter-spacing: 0.04em;
+  text-transform: uppercase; text-align: right;
+  padding-top: 0.1rem;
+}
+.tl-track { display: flex; flex-direction: column; align-items: center; }
+.tl-dot {
+  width: 12px; height: 12px; border-radius: 50%;
+  background: var(--navy); border: 3px solid var(--warm-white);
+  box-shadow: 0 0 0 2px var(--navy);
+  flex-shrink: 0;
+}
+.tl-dot.gold { background: var(--gold); box-shadow: 0 0 0 2px var(--gold); }
+.tl-line { width: 2px; flex: 1; background: var(--border); margin: 4px 0; }
+.tl-step:last-child .tl-line { display: none; }
+.tl-content { padding-bottom: 2rem; }
+.tl-title { font-weight: 700; font-size: 0.92rem; color: var(--navy); margin-bottom: 0.3rem; }
+.tl-desc { font-size: 0.82rem; line-height: 1.65; color: var(--text-secondary); }
+
+.footer {
+  background: var(--navy); color: rgba(255,255,255,0.35);
+  padding: 2.5rem;
+  text-align: center; font-size: 0.72rem; line-height: 1.7;
+}
+
+.drawer-overlay {
+  position: fixed; inset: 0; background: rgba(10,22,40,0.5);
+  z-index: 200; opacity: 0; pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+.drawer-overlay.open { opacity: 1; pointer-events: auto; }
+.drawer {
+  position: fixed; top: 0; right: -440px; bottom: 0; width: 420px;
+  background: #fff; z-index: 201;
+  box-shadow: -8px 0 40px rgba(10,22,40,0.12);
+  transition: right 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  display: flex; flex-direction: column;
+}
+.drawer.open { right: 0; }
+.drawer-header {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 1.4rem 1.8rem;
+  border-bottom: 1px solid var(--border);
+}
+.drawer-header h2 {
+  font-family: var(--font-display); font-weight: 600;
+  font-size: 1.3rem; color: var(--navy);
+}
+.drawer-close {
+  width: 32px; height: 32px;
+  border: 1px solid var(--border); border-radius: 6px;
+  background: #fff; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+}
+.drawer-close svg { width: 14px; height: 14px; }
+.drawer-body { flex: 1; overflow-y: auto; padding: 1.6rem 1.8rem; }
+.drawer-group { margin-bottom: 1.5rem; }
+.drawer-group-label {
+  font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--text-muted);
+  margin-bottom: 0.6rem;
+}
+.drawer-line {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 0.5rem 0; font-size: 0.85rem;
+}
+.drawer-line-name { color: var(--text-secondary); }
+.drawer-line-price { font-weight: 700; color: var(--navy); font-variant-numeric: tabular-nums; }
+.drawer-subtotal {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 0.7rem 0; margin-top: 0.3rem;
+  border-top: 1px solid var(--border);
+  font-weight: 700; font-size: 0.88rem; color: var(--navy);
+}
+.drawer-grand {
+  padding: 1.2rem 1.8rem;
+  background: var(--navy);
+  display: flex; justify-content: space-between; align-items: center;
+}
+.drawer-grand-label { font-size: 0.78rem; font-weight: 600; color: rgba(255,255,255,0.65); text-transform: uppercase; letter-spacing: 0.06em; }
+.drawer-grand-value {
+  font-family: var(--font-display); font-weight: 700;
+  font-size: 1.6rem; color: var(--gold);
+}
+.drawer-actions {
+  padding: 1.2rem 1.8rem;
+  display: flex; gap: 0.6rem;
+  border-top: 1px solid var(--border);
+}
+.drawer-actions button {
+  flex: 1; padding: 0.7rem 1rem;
+  border-radius: 6px; border: none;
+  font-family: var(--font-body); font-size: 0.8rem; font-weight: 600;
+  cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 0.4rem;
+  transition: all 0.2s ease;
+}
+.drawer-actions button svg { width: 14px; height: 14px; flex-shrink: 0; }
+.btn-drawer-pdf { background: var(--warm-gray); color: var(--navy); }
+.btn-drawer-pdf:hover { background: var(--border); }
+.btn-drawer-email { background: var(--gold); color: var(--navy); }
+.btn-drawer-email:hover { background: var(--gold-light); }
+.drawer-note {
+  padding: 1.2rem 1.8rem;
+  font-size: 0.72rem; line-height: 1.6; color: var(--text-muted);
+  background: var(--warm-gray);
+}
+
+.modal-overlay {
+  position: fixed; inset: 0; background: rgba(10,22,40,0.5);
+  z-index: 300; display: none; align-items: center; justify-content: center;
+}
+.modal-overlay.open { display: flex; }
+.modal {
+  background: #fff; border-radius: 14px;
+  width: 480px; max-width: 90vw;
+  box-shadow: 0 20px 60px rgba(10,22,40,0.2);
+  overflow: hidden;
+}
+.modal-header {
+  padding: 1.5rem 2rem;
+  border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: space-between;
+}
+.modal-header h3 {
+  font-family: var(--font-display); font-weight: 600;
+  font-size: 1.15rem; color: var(--navy);
+}
+.modal-body { padding: 1.5rem 2rem; }
+.modal-body label {
+  display: block; font-size: 0.75rem; font-weight: 600;
+  color: var(--text-muted); letter-spacing: 0.06em; text-transform: uppercase;
+  margin-bottom: 0.4rem;
+}
+.modal-body input, .modal-body textarea {
+  width: 100%; padding: 0.65rem 0.9rem;
+  border: 1px solid var(--border); border-radius: 6px;
+  font-family: var(--font-body); font-size: 0.88rem;
+  color: var(--text); margin-bottom: 1rem;
+  outline: none; transition: border-color 0.2s ease;
+}
+.modal-body input:focus, .modal-body textarea:focus { border-color: var(--navy); }
+.modal-body textarea { resize: vertical; min-height: 80px; }
+.modal-footer {
+  padding: 1rem 2rem 1.5rem;
+  display: flex; justify-content: flex-end; gap: 0.6rem;
+}
+.modal-footer button {
+  padding: 0.6rem 1.4rem; border-radius: 6px; border: none;
+  font-family: var(--font-body); font-size: 0.82rem; font-weight: 600;
+  cursor: pointer; transition: all 0.2s;
+}
+.btn-modal-cancel { background: var(--warm-gray); color: var(--text-secondary); }
+.btn-modal-send { background: var(--navy); color: #fff; }
+.btn-modal-send:hover { background: var(--navy-mid); }
+
+/* COUNTRY CONFIG CARDS */
+.country-grid-config { display: flex; flex-direction: column; gap: 0.4rem; }
+.country-config {
+  display: flex; align-items: center; gap: 0.8rem;
+  padding: 0.6rem 1rem;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+.country-config.skipped {
+  opacity: 0.4;
+  background: var(--warm-gray);
+}
+.country-config .cc-flag { font-size: 1.15rem; flex-shrink: 0; }
+.country-config .cc-name {
+  font-size: 0.84rem; font-weight: 600; color: var(--text);
+  flex: 1; min-width: 0;
+}
+.country-config .cc-price {
+  font-size: 0.78rem; font-weight: 700; color: var(--navy);
+  font-variant-numeric: tabular-nums;
+  width: 60px; text-align: right; flex-shrink: 0;
+}
+.country-config.skipped .cc-price { color: var(--text-muted); }
+.cc-toggle {
+  display: inline-flex;
+  background: var(--warm-gray);
+  border-radius: 6px;
+  padding: 2px;
+  flex-shrink: 0;
+}
+.cc-toggle button {
+  padding: 0.3rem 0.65rem;
+  border-radius: 5px; border: none;
+  font-family: var(--font-body); font-size: 0.68rem; font-weight: 600;
+  color: var(--text-muted); cursor: pointer;
+  background: transparent;
+  transition: all 0.15s ease;
+  line-height: 1;
+}
+.cc-toggle button.active { background: var(--navy); color: #fff; }
+.cc-toggle button.skip-active { background: var(--text-muted); color: #fff; }
+
+@media (max-width: 920px) {
+  .framework-grid { grid-template-columns: 1fr; }
+  .approach-phases { grid-template-columns: repeat(2, 1fr); }
+  .approach-phase { border-bottom: 1px solid var(--border); }
+  .scope-container { grid-template-columns: 1fr; }
+  .scope-sidebar { position: static; }
+  .country-grid { grid-template-columns: repeat(3, 1fr); }
+  .addon-grid { grid-template-columns: 1fr; }
+  .gallup-block { grid-template-columns: 1fr; }
+  .deliverables-grid { grid-template-columns: 1fr; }
+  .year-track { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 600px) {
+  .approach-phases { grid-template-columns: 1fr; }
+  .country-grid { grid-template-columns: repeat(2, 1fr); }
+  .hero-stats { flex-direction: column; gap: 1rem; }
+  .year-track { grid-template-columns: repeat(2, 1fr); }
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <div class="logo-group">
+      <div class="logo-mccain">McCain Institute<span>Arizona State University</span></div>
+      <div class="logo-divider"></div>
+      <div class="logo-gallup">GALLUP</div>
+    </div>
+    <div class="header-actions">
+      <button class="btn-header btn-investment" onclick="openDrawer()">
+        <svg viewBox="0 0 20 20" fill="currentColor"><path d="M4 4a2 2 0 00-2 2v1h16V6a2 2 0 00-2-2H4z"/><path fill-rule="evenodd" d="M18 9H2v5a2 2 0 002 2h12a2 2 0 002-2V9zM4 13a1 1 0 011-1h1a1 1 0 110 2H5a1 1 0 01-1-1zm5-1a1 1 0 100 2h1a1 1 0 100-2H9z" clip-rule="evenodd"/></svg>
+        View Investment
+      </button>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-label">A McCain Institute Democracy Program Initiative</div>
+    <h1>Measuring Global <em>Leadership &amp; Credibility</em> in a Shifting World</h1>
+    <p class="hero-sub">A multi-country public opinion initiative to understand how citizens around the world assess the credibility, reliability, and leadership of major global powers &mdash; and what that means for alliances, partnerships, and the rules-based international order.</p>
+    <div class="hero-stats">
+      <div><div class="hero-stat-n">26</div><div class="hero-stat-label">Countries</div></div>
+      <div><div class="hero-stat-n">2</div><div class="hero-stat-label">Phases</div></div>
+      <div><div class="hero-stat-n">10 min</div><div class="hero-stat-label">Survey Length</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-narrow">
+  <div class="narrative">
+    <p>Senator John McCain believed that America's greatest strength lay not in military might alone, but in its credibility &mdash; the willingness of allies and partners to trust the United States as a principled, reliable leader committed to shared rules rather than raw power. That conviction animated his decades of service and remains the foundation of the McCain Institute's work in the arena of democracy, human rights, and international leadership.</p>
+    <p>Today, perceptions of global leadership are shifting amid extraordinary geopolitical uncertainty. Ongoing conflicts in Europe and the Middle East, China's increasingly assertive economic and diplomatic posture, volatility in energy markets, and questions about the consistency of American engagement abroad are reshaping how publics around the world view major powers. These perceptions are not merely academic. They drive alliance behavior, economic alignment, and the willingness of governments and societies to cooperate on shared global challenges.</p>
+    <p>And yet, no comprehensive, repeatable instrument exists to measure these perceptions across countries, over time, with the rigor and independence the moment demands.</p>
+    <div class="callout">
+      <p>&ldquo;Our interests are our values, and our values are our interests.&rdquo;</p>
+      <cite>Senator John McCain</cite>
+    </div>
+    <p>The McCain Institute proposes partnering with Gallup to launch a Global Leadership and Credibility Survey &mdash; a comparative public opinion initiative designed not as a one-time snapshot, but as the foundation of an annual measurement program spanning five years. Rather than tracking surface-level favorability, this survey will explore the deeper architecture of global trust: which nations are seen as credible leaders, reliable partners, and responsible actors in the international system &mdash; and how those perceptions are changing over time.</p>
+  </div>
+</section>
+
+<div class="section-divider"><hr></div>
+
+<section class="section">
+  <div class="section-label">Project Approach</div>
+  <div class="section-title">How We Will Work Together</div>
+  <div class="section-subtitle">A collaborative, phased process designed for methodological rigor, cultural sensitivity, and long-term repeatability. Each stage builds on the last &mdash; with Gallup and the McCain Institute partnering at every step.</div>
+
+  <div style="display: grid; grid-template-columns: repeat(7, 1fr); gap: 0; margin-top: 2.5rem; position: relative;">
+    <!-- Connecting line -->
+    <div style="position: absolute; top: 32px; left: 7%; right: 7%; height: 2px; background: var(--border); z-index: 0;"></div>
+
+    <div style="text-align: center; position: relative; z-index: 1;">
+      <div style="width: 64px; height: 64px; background: var(--navy); border-radius: 14px; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center;">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div style="font-weight: 700; font-size: 0.78rem; color: var(--navy); margin-bottom: 0.3rem; line-height: 1.3;">Survey Instrument Design</div>
+      <div style="font-size: 0.7rem; color: var(--text-muted); line-height: 1.5; padding: 0 0.2rem;">Gallup and the McCain Institute co-develop the survey instrument through iterative design, cognitive testing, and cross-cultural piloting</div>
+    </div>
+
+    <div style="text-align: center; position: relative; z-index: 1;">
+      <div style="width: 64px; height: 64px; background: var(--navy); border-radius: 14px; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center;">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#c9a84c" stroke-width="1.5"/><path d="M12 3a15 15 0 014 9 15 15 0 01-4 9 15 15 0 01-4-9 15 15 0 014-9z" stroke="#c9a84c" stroke-width="1.5"/><path d="M3 12h18" stroke="#c9a84c" stroke-width="1.5"/></svg>
+      </div>
+      <div style="font-weight: 700; font-size: 0.78rem; color: var(--navy); margin-bottom: 0.3rem; line-height: 1.3;">Wave 1 Data Collection</div>
+      <div style="font-size: 0.7rem; color: var(--text-muted); line-height: 1.5; padding: 0 0.2rem;">Deploy across 12 Phase 1 countries with real-time quality monitoring and data validation</div>
+    </div>
+
+    <div style="text-align: center; position: relative; z-index: 1;">
+      <div style="width: 64px; height: 64px; background: var(--navy); border-radius: 14px; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center;">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M9 17v-2m3 2v-4m3 4v-6" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round"/><rect x="3" y="3" width="18" height="18" rx="2" stroke="#c9a84c" stroke-width="1.5"/></svg>
+      </div>
+      <div style="font-weight: 700; font-size: 0.78rem; color: var(--navy); margin-bottom: 0.3rem; line-height: 1.3;">Analysis &amp; Phase 1 Report</div>
+      <div style="font-size: 0.7rem; color: var(--text-muted); line-height: 1.5; padding: 0 0.2rem;">Cross-country analysis and 10-page findings report delivered for internal briefings and early intelligence</div>
+    </div>
+
+    <div style="text-align: center; position: relative; z-index: 1;">
+      <div style="width: 64px; height: 64px; background: var(--gold); border-radius: 14px; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center;">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z" stroke="var(--navy)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 22v-7" stroke="var(--navy)" stroke-width="1.5" stroke-linecap="round"/></svg>
+      </div>
+      <div style="font-weight: 700; font-size: 0.78rem; color: var(--navy); margin-bottom: 0.3rem; line-height: 1.3;">Instrument Refinement</div>
+      <div style="font-size: 0.7rem; color: var(--text-muted); line-height: 1.5; padding: 0 0.2rem;">Jointly review Phase 1 learnings and refine the instrument for improved clarity and cross-cultural validity</div>
+    </div>
+
+    <div style="text-align: center; position: relative; z-index: 1;">
+      <div style="width: 64px; height: 64px; background: var(--navy); border-radius: 14px; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center;">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#c9a84c" stroke-width="1.5"/><path d="M12 3a15 15 0 014 9 15 15 0 01-4 9 15 15 0 01-4-9 15 15 0 014-9z" stroke="#c9a84c" stroke-width="1.5"/><path d="M3 12h18" stroke="#c9a84c" stroke-width="1.5"/><path d="M3 8h18M3 16h18" stroke="#c9a84c" stroke-width="1" opacity="0.4"/></svg>
+      </div>
+      <div style="font-weight: 700; font-size: 0.78rem; color: var(--navy); margin-bottom: 0.3rem; line-height: 1.3;">Wave 2 Data Collection</div>
+      <div style="font-size: 0.7rem; color: var(--text-muted); line-height: 1.5; padding: 0 0.2rem;">Expand to 14 additional countries for full 26-country global coverage</div>
+    </div>
+
+    <div style="text-align: center; position: relative; z-index: 1;">
+      <div style="width: 64px; height: 64px; background: var(--navy); border-radius: 14px; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center;">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" stroke="#c9a84c" stroke-width="1.5"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round"/></svg>
+      </div>
+      <div style="font-weight: 700; font-size: 0.78rem; color: var(--navy); margin-bottom: 0.3rem; line-height: 1.3;">Global Report &amp; Public Release</div>
+      <div style="font-size: 0.7rem; color: var(--text-muted); line-height: 1.5; padding: 0 0.2rem;">Comprehensive 26-country analysis, policy brief, and public-facing report for Sedona Forum launch</div>
+    </div>
+
+    <div style="text-align: center; position: relative; z-index: 1;">
+      <div style="width: 64px; height: 64px; background: var(--gold); border-radius: 14px; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center;">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M22 12h-4l-3 9L9 3l-3 9H2" stroke="var(--navy)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div style="font-weight: 700; font-size: 0.78rem; color: var(--navy); margin-bottom: 0.3rem; line-height: 1.3;">Dissemination &amp; Strategic Comms</div>
+      <div style="font-size: 0.7rem; color: var(--text-muted); line-height: 1.5; padding: 0 0.2rem;">Media engagement, Gallup.com publication, social content, and ongoing policy distribution</div>
+    </div>
+  </div>
+
+  <div style="margin-top: 2rem; padding: 1.4rem 1.8rem; background: var(--gold-wash); border-left: 3px solid var(--gold); border-radius: 0 8px 8px 0;">
+    <p style="font-size: 0.9rem; line-height: 1.7; color: var(--navy); margin: 0;"><strong>A collaborative partnership.</strong> Survey design is not a hand-off &mdash; Gallup and the McCain Institute work as thought partners throughout the instrument development process, from initial concept through cognitive testing and cultural adaptation. The goal is a research instrument that reflects the Institute's policy priorities while meeting the highest standards of global survey methodology.</p>
+  </div>
+</section>
+
+<div class="section-divider"><hr></div>
+
+<!-- PROJECT APPROACH -->
+<section class="section">
+  <div class="section-label">Proposed Research Framework</div>
+  <div class="section-title">What We Will Explore Together</div>
+  <div class="section-subtitle">The following dimensions represent Gallup's initial recommendation for the survey's core focus areas. Final research questions will be developed collaboratively with the McCain Institute team during the instrument design phase.</div>
+  <div class="framework-grid">
+    <div class="fw-card">
+      <div class="fw-card-icon"><svg viewBox="0 0 20 20" fill="none"><path d="M10 2L3 7v8l7 5 7-5V7l-7-5z" stroke="#c9a84c" stroke-width="1.5"/><circle cx="10" cy="10" r="2.5" stroke="#c9a84c" stroke-width="1.5"/></svg></div>
+      <h3>Global Credibility</h3>
+      <p>Understanding which countries are viewed as credible, consistent leaders on the world stage &mdash; and which have seen their standing erode in the eyes of global publics.</p>
+      <div class="question">Illustrative: &ldquo;Which country do you view as the most credible leader in international affairs?&rdquo;</div>
+    </div>
+    <div class="fw-card">
+      <div class="fw-card-icon"><svg viewBox="0 0 20 20" fill="none"><path d="M4 10a6 6 0 0112 0M7 10a3 3 0 016 0" stroke="#c9a84c" stroke-width="1.5"/><circle cx="10" cy="10" r="1.5" fill="#c9a84c"/></svg></div>
+      <h3>Partner Reliability</h3>
+      <p>Exploring the extent to which major powers are perceived as dependable allies and responsible stakeholders &mdash; nations others would count on in times of crisis.</p>
+      <div class="question">Illustrative: &ldquo;If your country faced a serious challenge, which global power would you most trust to help?&rdquo;</div>
+    </div>
+    <div class="fw-card">
+      <div class="fw-card-icon"><svg viewBox="0 0 20 20" fill="none"><path d="M3 10h14M10 3v14" stroke="#c9a84c" stroke-width="1.5"/><path d="M5 5l10 10M15 5L5 15" stroke="#c9a84c" stroke-width="1" opacity="0.4"/></svg></div>
+      <h3>Self-Interest vs. Common Good</h3>
+      <p>Examining which powers are perceived as acting in the global interest versus those seen as pursuing narrow, transactional self-interest at the expense of others.</p>
+      <div class="question">Illustrative: &ldquo;Which major power acts most in the interest of the broader global community?&rdquo;</div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"><hr></div>
+
+<section class="section">
+  <div class="section-label">Program Architecture</div>
+  <div class="section-title">Year One Timeline</div>
+  <div class="section-subtitle">Two formal deliverable milestones ensure the McCain Institute has actionable intelligence at every step.</div>
+
+  <!-- VISUAL GANTT-STYLE TIMELINE -->
+  <div style="margin-top: 3rem; position: relative;">
+    <!-- Gantt header -->
+    <div style="display: grid; grid-template-columns: 200px 1fr; gap: 0; margin-bottom: 0.5rem;">
+      <div></div>
+      <div style="display: grid; grid-template-columns: repeat(5, 1fr); font-size: 0.65rem; font-weight: 600; color: var(--text-muted); letter-spacing: 0.08em; text-transform: uppercase;">
+        <div>Q3 2026</div><div>Q4 2026</div><div>Q1 2027</div><div>Q2 2027</div><div>May 2027</div>
+      </div>
+    </div>
+
+    <!-- Gantt rows -->
+    <div style="display: grid; grid-template-columns: 200px 1fr; gap: 0; align-items: center; margin-bottom: 0.6rem;">
+      <div style="font-weight: 700; font-size: 0.82rem; color: var(--navy); padding-right: 1rem;">Survey Design &amp; Piloting</div>
+      <div style="position: relative; height: 36px; background: var(--warm-gray); border-radius: 6px; overflow: hidden;">
+        <div style="position: absolute; left: 0; top: 0; bottom: 0; width: 20%; background: var(--navy); border-radius: 6px; display: flex; align-items: center; padding-left: 0.8rem;">
+          <span style="font-size: 0.68rem; color: rgba(255,255,255,0.8); font-weight: 500;">Weeks 1&ndash;6</span>
+        </div>
+      </div>
+    </div>
+    <div style="display: grid; grid-template-columns: 200px 1fr; gap: 0; align-items: center; margin-bottom: 0.6rem;">
+      <div style="font-weight: 700; font-size: 0.82rem; color: var(--navy); padding-right: 1rem;">Phase 1 Fieldwork</div>
+      <div style="position: relative; height: 36px; background: var(--warm-gray); border-radius: 6px; overflow: hidden;">
+        <div style="position: absolute; left: 20%; top: 0; bottom: 0; width: 27%; background: var(--navy); border-radius: 6px; display: flex; align-items: center; padding-left: 0.8rem;">
+          <span style="font-size: 0.68rem; color: rgba(255,255,255,0.8); font-weight: 500;">12 countries</span>
+        </div>
+      </div>
+    </div>
+    <div style="display: grid; grid-template-columns: 200px 1fr; gap: 0; align-items: center; margin-bottom: 0.6rem;">
+      <div style="font-weight: 700; font-size: 0.82rem; color: var(--navy); padding-right: 1rem;">Instrument Refinement</div>
+      <div style="position: relative; height: 36px; background: var(--warm-gray); border-radius: 6px; overflow: hidden;">
+        <div style="position: absolute; left: 44%; top: 0; bottom: 0; width: 8%; background: var(--slate); border-radius: 6px; display: flex; align-items: center; justify-content: center;">
+          <span style="font-size: 0.62rem; color: rgba(255,255,255,0.8); font-weight: 500;"></span>
+        </div>
+      </div>
+    </div>
+    <div style="display: grid; grid-template-columns: 200px 1fr; gap: 0; align-items: center; margin-bottom: 0.6rem;">
+      <div style="font-weight: 700; font-size: 0.82rem; color: var(--navy); padding-right: 1rem;">Phase 2 Fieldwork</div>
+      <div style="position: relative; height: 36px; background: var(--warm-gray); border-radius: 6px; overflow: hidden;">
+        <div style="position: absolute; left: 47%; top: 0; bottom: 0; width: 33%; background: var(--gold); border-radius: 6px; display: flex; align-items: center; padding-left: 0.8rem;">
+          <span style="font-size: 0.68rem; color: var(--navy); font-weight: 600;">+14 countries</span>
+        </div>
+      </div>
+    </div>
+    <div style="display: grid; grid-template-columns: 200px 1fr; gap: 0; align-items: center; margin-bottom: 0.6rem;">
+      <div style="font-weight: 700; font-size: 0.82rem; color: var(--navy); padding-right: 1rem;">Analysis &amp; Reporting</div>
+      <div style="position: relative; height: 36px; background: var(--warm-gray); border-radius: 6px; overflow: hidden;">
+        <div style="position: absolute; left: 80%; top: 0; bottom: 0; width: 17%; background: linear-gradient(90deg, var(--navy), var(--navy-mid)); border-radius: 6px; display: flex; align-items: center; padding-left: 0.6rem;">
+          <span style="font-size: 0.68rem; color: rgba(255,255,255,0.8); font-weight: 500;">Final</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Milestone markers -->
+    <div style="display: grid; grid-template-columns: 200px 1fr; gap: 0; margin-top: 1rem;">
+      <div></div>
+      <div style="position: relative; height: 2px; background: var(--border);">
+        <!-- Milestone 1: Phase 1 Report -->
+        <div style="position: absolute; left: 47%; top: -12px; transform: translateX(-50%); text-align: center;">
+          <div style="width: 24px; height: 24px; background: var(--navy); border: 3px solid var(--warm-white); box-shadow: 0 0 0 2px var(--navy); border-radius: 50%; margin: 0 auto 0.4rem;"></div>
+          <div style="font-size: 0.72rem; font-weight: 700; color: var(--navy); white-space: nowrap;">Phase 1 Report</div>
+          <div style="font-size: 0.62rem; color: var(--text-muted); white-space: nowrap;">10-page findings</div>
+        </div>
+        <!-- Milestone 2: Final Report -->
+        <div style="position: absolute; left: 78%; top: -12px; transform: translateX(-50%); text-align: center;">
+          <div style="width: 24px; height: 24px; background: var(--gold); border: 3px solid var(--warm-white); box-shadow: 0 0 0 2px var(--gold); border-radius: 50%; margin: 0 auto 0.4rem;"></div>
+          <div style="font-size: 0.72rem; font-weight: 700; color: var(--gold); white-space: nowrap;">Global Report</div>
+          <div style="font-size: 0.62rem; color: var(--text-muted); white-space: nowrap;">26-country analysis</div>
+        </div>
+        <!-- Milestone 3: Sedona -->
+        <div style="position: absolute; left: 97%; top: -12px; transform: translateX(-50%); text-align: center;">
+          <div style="width: 28px; height: 28px; background: var(--gold); border: 3px solid var(--warm-white); box-shadow: 0 0 0 2px var(--gold), 0 0 12px rgba(201,168,76,0.3); border-radius: 50%; margin: 0 auto 0.4rem; display: flex; align-items: center; justify-content: center;">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 1l1.5 3.5L11 5l-2.5 2.5.5 3.5L6 9.5 3 11l.5-3.5L1 5l3.5-.5L6 1z" fill="var(--navy)"/></svg>
+          </div>
+          <div style="font-size: 0.72rem; font-weight: 700; color: var(--gold); white-space: nowrap;">Sedona Forum</div>
+          <div style="font-size: 0.62rem; color: var(--text-muted); white-space: nowrap;">Public launch</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"><hr></div>
+
+<!-- DELIVERABLES - RICH VISUAL -->
+<section class="section">
+  <div class="section-label">Deliverables</div>
+  <div class="section-title">Deliverables</div>
+  <div class="section-subtitle">Two formal reporting milestones and a complete research dataset &mdash; each designed for a specific audience and purpose.</div>
+
+  <div class="deliverables-grid" style="margin-top: 2rem;">
+    <!-- Phase 1 Report -->
+    <div class="deliv-card" style="position: relative; overflow: hidden;">
+      <div style="position: absolute; top: 0; left: 0; right: 0; height: 4px; background: var(--navy);"></div>
+      <span class="deliv-tag deliv-tag-1">Milestone 1 &mdash; Q4 2026</span>
+      <h3>Phase 1 Findings Report</h3>
+      <p style="font-size: 0.9rem; color: var(--text); font-weight: 500; margin-bottom: 0.5rem;">10-page executive report &mdash; 12 priority countries</p>
+      <p>Designed for internal use: briefing leadership, informing early strategy, and preparing stakeholders for the full global dataset. Delivered as soon as Phase 1 fieldwork closes.</p>
+      <ul class="deliv-list">
+        <li>Topline data tables for all 12 Phase 1 countries</li>
+        <li>Cross-country comparison on credibility and reliability dimensions</li>
+        <li>Preliminary patterns and standout findings</li>
+        <li>Annotated data visualizations for internal presentation</li>
+        <li>Methodological appendix with demographics and margins of error</li>
+      </ul>
+    </div>
+    <!-- Final Report -->
+    <div class="deliv-card primary" style="position: relative; overflow: hidden;">
+      <div style="position: absolute; top: 0; left: 0; right: 0; height: 4px; background: var(--gold);"></div>
+      <span class="deliv-tag deliv-tag-2">Milestone 2 &mdash; Q2 2027</span>
+      <h3>Global Leadership &amp; Credibility Report</h3>
+      <p style="font-size: 0.9rem; color: var(--text); font-weight: 500; margin-bottom: 0.5rem;">Comprehensive analytical report &mdash; all 26 countries</p>
+      <p>The flagship public deliverable. Designed for the Sedona Forum launch, policy audiences, media, and long-term academic impact.</p>
+      <ul class="deliv-list">
+        <li>Full 26-country dataset with complete cross-tabulations</li>
+        <li>In-depth analysis across all three research dimensions</li>
+        <li>Country-by-country profiles with comparative benchmarks</li>
+        <li>Demographic and generational breakdowns (age, education, urban/rural)</li>
+        <li>Executive summary and stand-alone policy brief</li>
+        <li>Presentation-ready data visualizations and graphics</li>
+        <li>Full methodological documentation</li>
+        <li>Raw dataset delivery (cleaned, weighted, fully documented)</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Multi-Year Program -->
+  <div class="annual-block">
+    <h3>Recommended: A Five-Year Annual Program</h3>
+    <p>Gallup's experience with long-running global research programs &mdash; including the World Bank Global Findex and Wellcome Global Monitor &mdash; demonstrates that the most impactful public survey initiatives are built on multi-year cadence. Trend data becomes exponentially more valuable with each wave, and public release is most effective when audiences can track change over time. Gallup recommends an initial five-year commitment to maximize longitudinal value.</p>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.5rem;">
+      <div style="padding: 1.2rem 1.4rem; background: rgba(201,168,76,0.12); border: 1px solid var(--gold); border-radius: 10px;">
+        <div style="font-weight: 700; font-size: 0.85rem; color: var(--gold); margin-bottom: 0.3rem;">5-Year Term (Recommended)</div>
+        <div style="font-size: 0.78rem; color: rgba(255,255,255,0.65); line-height: 1.6;">Annual cost increases capped and discounted. Locked-in pricing for fieldwork and analysis through Year 5. Greatest longitudinal impact.</div>
+      </div>
+      <div style="padding: 1.2rem 1.4rem; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 10px;">
+        <div style="font-weight: 700; font-size: 0.85rem; margin-bottom: 0.3rem;">3-Year Term (Alternative)</div>
+        <div style="font-size: 0.78rem; color: rgba(255,255,255,0.65); line-height: 1.6;">Standard annual pricing. Three waves of data establish initial trends. Option to extend after Year 3.</div>
+      </div>
+    </div>
+    <div style="font-size: 0.78rem; color: rgba(255,255,255,0.55); margin-bottom: 1.2rem; font-style: italic;">Years 2&ndash;5 are streamlined: instrument development and refinement are replaced by a lighter instrument review and project management fee. No Wave 1 interim report &mdash; a single comprehensive global report each year.</div>
+    <div class="year-track">
+      <div class="year-card active">
+        <div class="year-card-yr">2027</div>
+        <div class="year-card-label">Year 1</div>
+      </div>
+      <div class="year-card">
+        <div class="year-card-yr">2028</div>
+        <div class="year-card-label">Year 2</div>
+      </div>
+      <div class="year-card">
+        <div class="year-card-yr">2029</div>
+        <div class="year-card-label">Year 3</div>
+      </div>
+      <div class="year-card">
+        <div class="year-card-yr">2030</div>
+        <div class="year-card-label">Year 4</div>
+      </div>
+      <div class="year-card">
+        <div class="year-card-yr">2031</div>
+        <div class="year-card-label">Year 5</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"><hr></div>
+
+<section class="section scope-section" id="scope">
+  <div class="section-label">Configure Your Scope</div>
+  <div class="section-title">Year 1 &mdash; Survey Countries &amp; Sample Size</div>
+  <div class="section-subtitle" style="margin-bottom: 2rem;">Phase 1 establishes the baseline in 12 priority countries. Phase 2 expands coverage to 14 additional markets. All Phase 1 countries carry into Phase 2 for full annual coverage.</div>
+  <div class="scope-container">
+    <div class="scope-main">
+      <div class="phase-block">
+        <div class="phase-header">
+          <span class="phase-tag phase-tag-1">Phase 1</span>
+          <h3>Phase 1 Countries</h3>
+          <span class="count" id="p1Count">12 countries</span>
+        </div>
+        <div class="country-grid-config" id="phase1Grid"></div>
+      </div>
+      <div class="phase-block">
+        <div class="phase-header">
+          <span class="phase-tag phase-tag-2">Phase 2</span>
+          <h3>Phase 2 Countries</h3>
+          <span class="count" id="p2Count">14 countries</span>
+        </div>
+        <div class="country-grid-config" id="phase2Grid"></div>
+      </div>
+      <div style="margin-top: 1.5rem;">
+        <div style="font-size: 0.72rem; font-weight: 600; color: var(--text-muted); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.5rem;">Optional: Communications &amp; Amplification</div>
+        <p style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.65; margin-bottom: 1.2rem;">Extend the impact of findings through Gallup's global communications infrastructure &mdash; ensuring findings are seen, shared, and acted upon.</p>
+        <div class="addon-grid" id="addonGrid"></div>
+      </div>
+    </div>
+    <div class="scope-sidebar">
+      <div class="sidebar-header"><h3>Investment Summary</h3><p>Year 1 estimated investment</p></div>
+      <div class="sidebar-body">
+        <div class="sidebar-line"><span class="sidebar-line-name">Survey Instrument Design</span><span class="sidebar-line-price">$45,000</span></div>
+        <div class="sidebar-line"><span class="sidebar-line-name">Phase 1 Fieldwork (<span id="sP1n">12</span>)</span><span class="sidebar-line-price" id="sP1">$0</span></div>
+        <div class="sidebar-line"><span class="sidebar-line-name">Phase 1 Report (10-page)</span><span class="sidebar-line-price">$25,000</span></div>
+        <div class="sidebar-line"><span class="sidebar-line-name">Instrument Refinement</span><span class="sidebar-line-price">$15,000</span></div>
+        <div class="sidebar-line"><span class="sidebar-line-name">Phase 2 Fieldwork (<span id="sP2n">14</span>)</span><span class="sidebar-line-price" id="sP2">$0</span></div>
+        <div class="sidebar-line"><span class="sidebar-line-name">Weighting &amp; Analysis</span><span class="sidebar-line-price">$35,000</span></div>
+        <div class="sidebar-line"><span class="sidebar-line-name">Final Global Report</span><span class="sidebar-line-price">$55,000</span></div>
+        <div class="sidebar-line"><span class="sidebar-line-name" style="color: var(--navy); font-weight: 600;">Comms Add-Ons</span><span class="sidebar-line-price" id="sComms">$0</span></div>
+      </div>
+      <div class="sidebar-total"><span class="sidebar-total-label">Year 1 Total</span><span class="sidebar-total-value" id="sTotal">$0</span></div>
+      <div class="sidebar-timeline"><span class="sidebar-timeline-label">Est. Timeline</span><span class="sidebar-timeline-value" id="sWeeks">30 weeks</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"><hr></div>
+
+<div class="section-divider"><hr></div>
+
+<section class="section">
+  <div class="section-label">Why Gallup</div>
+  <div class="section-title">Proven Track Record in Global Survey Research</div>
+  <div class="section-subtitle" style="margin-bottom: 0;">Gallup has designed, fielded, and delivered multi-country attitudinal research programs for the world's leading institutions &mdash; producing data that shapes global policy, drives media coverage, and builds longitudinal understanding of the issues that matter most.</div>
+  <div class="gallup-block">
+    <div>
+      <h3>Selected Global Research Programs</h3>
+      <p style="margin-bottom: 1.5rem;">Gallup brings decades of experience executing exactly the kind of comparative, cross-national attitudinal survey this initiative requires &mdash; including sensitive topics across diverse political and cultural contexts.</p>
+      <div style="margin-bottom: 1.2rem; padding: 1rem 1.2rem; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px;">
+        <div style="font-weight: 700; font-size: 0.85rem; margin-bottom: 0.25rem;">World Bank &mdash; Global Findex</div>
+        <div style="font-size: 0.78rem; color: rgba(255,255,255,0.6); line-height: 1.6;">Nationally representative surveys of 150,000+ adults across 140+ economies, fielded every three years since 2011. The definitive global dataset on financial inclusion, used by the United Nations to track SDG progress.</div>
+      </div>
+      <div style="margin-bottom: 1.2rem; padding: 1rem 1.2rem; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px;">
+        <div style="font-weight: 700; font-size: 0.85rem; margin-bottom: 0.25rem;">Wellcome Trust &mdash; Global Monitor</div>
+        <div style="font-size: 0.78rem; color: rgba(255,255,255,0.6); line-height: 1.6;">The first-ever global study of attitudes toward science and health &mdash; 140,000+ adults in 144 countries. Cognitive testing across 7 countries, pilot testing in 10, with a 30-question attitudinal module translated and localized for every market.</div>
+      </div>
+      <div style="padding: 1rem 1.2rem; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px;">
+        <div style="font-weight: 700; font-size: 0.85rem; margin-bottom: 0.25rem;">Knight Foundation &mdash; Trust, Media &amp; Democracy</div>
+        <div style="font-size: 0.78rem; color: rgba(255,255,255,0.6); line-height: 1.6;">Multi-wave U.S. survey program examining trust in media and democratic institutions. Combined quantitative polling with qualitative focus groups and in-depth interviews for a comprehensive view of public sentiment.</div>
+      </div>
+    </div>
+    <div>
+      <div class="gallup-stat-grid">
+        <div class="gallup-stat"><div class="gallup-stat-n">168+</div><div class="gallup-stat-l">Countries Surveyed</div></div>
+        <div class="gallup-stat"><div class="gallup-stat-n">85+</div><div class="gallup-stat-l">Years of Research</div></div>
+        <div class="gallup-stat"><div class="gallup-stat-n">140+</div><div class="gallup-stat-l">Languages Supported</div></div>
+        <div class="gallup-stat"><div class="gallup-stat-n">40+</div><div class="gallup-stat-l">Global Partners</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ACTION BUTTONS -->
+<section class="section section-narrow" style="text-align: center; padding-top: 2rem;">
+  <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+    <button class="btn-header btn-investment" onclick="openDrawer()" style="padding: 0.7rem 1.6rem; font-size: 0.82rem;">
+      <svg viewBox="0 0 20 20" fill="currentColor"><path d="M4 4a2 2 0 00-2 2v1h16V6a2 2 0 00-2-2H4z"/><path fill-rule="evenodd" d="M18 9H2v5a2 2 0 002 2h12a2 2 0 002-2V9zM4 13a1 1 0 011-1h1a1 1 0 110 2H5a1 1 0 01-1-1zm5-1a1 1 0 100 2h1a1 1 0 100-2H9z" clip-rule="evenodd"/></svg>
+      View Investment Summary
+    </button>
+    <button class="btn-header btn-export" onclick="exportPDF()" style="padding: 0.7rem 1.6rem; font-size: 0.82rem;">
+      <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+      Export PDF
+    </button>
+    <button class="btn-header btn-email" onclick="openEmailModal()" style="padding: 0.7rem 1.6rem; font-size: 0.82rem;">
+      <svg viewBox="0 0 20 20" fill="currentColor"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/></svg>
+      Email Selections to Gallup
+    </button>
+  </div>
+</section>
+
+<div class="footer">
+  All scope and investment details are subject to final scoping discussions and vendor confirmation.<br>
+  Copyright &copy; 2026 Gallup, Inc. All rights reserved. Confidential and proprietary.
+</div>
+
+<div class="drawer-overlay" id="drawerOverlay" onclick="closeDrawer()"></div>
+<div class="drawer" id="drawer">
+  <div class="drawer-header"><h2>Investment Summary</h2><button class="drawer-close" onclick="closeDrawer()"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="5" x2="15" y2="15"/><line x1="15" y1="5" x2="5" y2="15"/></svg></button></div>
+  <div class="drawer-body">
+    <div class="drawer-group">
+      <div class="drawer-group-label">Core Research &mdash; Year 1</div>
+      <div class="drawer-line"><span class="drawer-line-name">Survey Instrument Design</span><span class="drawer-line-price">$45,000</span></div>
+      <div class="drawer-line"><span class="drawer-line-name">Phase 1 Fieldwork (12 countries)</span><span class="drawer-line-price" id="dP1">$0</span></div>
+      <div class="drawer-line"><span class="drawer-line-name">Phase 1 Findings Report (10-page)</span><span class="drawer-line-price">$25,000</span></div>
+      <div class="drawer-line"><span class="drawer-line-name">Instrument Refinement</span><span class="drawer-line-price">$15,000</span></div>
+      <div class="drawer-line"><span class="drawer-line-name">Phase 2 Fieldwork (14 countries)</span><span class="drawer-line-price" id="dP2">$0</span></div>
+      <div class="drawer-line"><span class="drawer-line-name">Weighting &amp; Analysis</span><span class="drawer-line-price">$35,000</span></div>
+      <div class="drawer-line"><span class="drawer-line-name">Final Global Report &amp; Deliverables</span><span class="drawer-line-price">$55,000</span></div>
+      <div class="drawer-subtotal"><span>Core Subtotal</span><span id="dCoreSub">$0</span></div>
+    </div>
+    <div class="drawer-group" id="dCommsGroup" style="display:none;">
+      <div class="drawer-group-label">Communications &amp; Amplification</div>
+      <div id="dCommsLines"></div>
+      <div class="drawer-subtotal"><span>Comms Subtotal</span><span id="dCommsSub">$0</span></div>
+    </div>
+    <!-- Multi-year term toggle -->
+    <div class="drawer-group">
+      <div class="drawer-group-label">Program Term</div>
+      <div style="display: flex; gap: 0.4rem; margin-bottom: 0.8rem;">
+        <button id="termBtn1" onclick="setTerm(1)" style="flex:1;padding:0.5rem 0.8rem;border-radius:6px;border:2px solid var(--navy);background:var(--navy);color:#fff;font-family:var(--font-body);font-size:0.75rem;font-weight:700;cursor:pointer;transition:all 0.15s;">Year 1 Only</button>
+        <button id="termBtn3" onclick="setTerm(3)" style="flex:1;padding:0.5rem 0.8rem;border-radius:6px;border:2px solid var(--border);background:#fff;color:var(--text-secondary);font-family:var(--font-body);font-size:0.75rem;font-weight:700;cursor:pointer;transition:all 0.15s;">3-Year Term</button>
+        <button id="termBtn5" onclick="setTerm(5)" style="flex:1;padding:0.5rem 0.8rem;border-radius:6px;border:2px solid var(--border);background:#fff;color:var(--text-secondary);font-family:var(--font-body);font-size:0.75rem;font-weight:700;cursor:pointer;transition:all 0.15s;">5-Year Term</button>
+      </div>
+      <div id="termNote" style="font-size:0.7rem;color:var(--text-muted);line-height:1.5;display:none;margin-bottom:0.6rem;"></div>
+      <div id="multiYearBreakdown"></div>
+    </div>
+  </div>
+  <div class="drawer-grand"><span class="drawer-grand-label">Year 1 Total</span><span class="drawer-grand-value" id="dTotal">$0</span></div>
+  <div class="drawer-actions">
+    <button class="btn-drawer-pdf" onclick="exportPDF()"><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>Export PDF</button>
+    <button class="btn-drawer-email" onclick="openEmailModal()"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/></svg>Email Selections to Gallup</button>
+  </div>
+  <div class="drawer-note">Fieldwork pricing is illustrative and subject to final vendor quotation. Complex markets may carry premium pricing due to access constraints or limited panel availability.</div>
+</div>
+
+<div class="modal-overlay" id="emailModal">
+  <div class="modal">
+    <div class="modal-header"><h3>Email Scope Selections to Gallup</h3><button class="drawer-close" onclick="closeEmailModal()"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="5" x2="15" y2="15"/><line x1="15" y1="5" x2="5" y2="15"/></svg></button></div>
+    <div class="modal-body">
+      <label>Your Name</label>
+      <input type="text" id="emailName" placeholder="Enter your name">
+      <label>Your Email</label>
+      <input type="email" id="emailAddr" placeholder="your@email.com">
+      <label>Notes (Optional)</label>
+      <textarea id="emailNotes" placeholder="Any additional context or questions..."></textarea>
+      <div id="emailPreview" style="background: var(--warm-gray); border-radius: 8px; padding: 1rem 1.2rem; font-size: 0.78rem; line-height: 1.6; color: var(--text-secondary); max-height: 180px; overflow-y: auto;"></div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn-modal-cancel" onclick="closeEmailModal()">Cancel</button>
+      <button class="btn-modal-send" onclick="sendEmail()">Open in Email Client</button>
+    </div>
+  </div>
+</div>
+
+<script>
+var PHASE1=[{name:'Canada',flag:'\u{1F1E8}\u{1F1E6}',p:{500:6250,1000:9250}},{name:'Mexico',flag:'\u{1F1F2}\u{1F1FD}',p:{500:6050,1000:9625}},{name:'Germany',flag:'\u{1F1E9}\u{1F1EA}',p:{500:5300,1000:8125}},{name:'Russia',flag:'\u{1F1F7}\u{1F1FA}',p:{500:6450,1000:10000}},{name:'China',flag:'\u{1F1E8}\u{1F1F3}',p:{500:6450,1000:10000}},{name:'Turkey',flag:'\u{1F1F9}\u{1F1F7}',p:{500:5875,1000:9250}},{name:'India',flag:'\u{1F1EE}\u{1F1F3}',p:{500:6450,1000:10000}},{name:'Brazil',flag:'\u{1F1E7}\u{1F1F7}',p:{500:6050,1000:9625}},{name:'Japan',flag:'\u{1F1EF}\u{1F1F5}',p:{500:7750,1000:12625}},{name:'Egypt',flag:'\u{1F1EA}\u{1F1EC}',p:{500:7950,1000:13000}},{name:'Saudi Arabia',flag:'\u{1F1F8}\u{1F1E6}',p:{500:9200,1000:15800}},{name:'Ukraine',flag:'\u{1F1FA}\u{1F1E6}',p:{500:5700,1000:8500}}];
+var PHASE2=[{name:'France',flag:'\u{1F1EB}\u{1F1F7}',p:{500:5300,1000:8125}},{name:'United Kingdom',flag:'\u{1F1EC}\u{1F1E7}',p:{500:6200,1000:9875}},{name:'South Korea',flag:'\u{1F1F0}\u{1F1F7}',p:{500:7750,1000:12625}},{name:'Argentina',flag:'\u{1F1E6}\u{1F1F7}',p:{500:6050,1000:9625}},{name:'Kenya',flag:'\u{1F1F0}\u{1F1EA}',p:{500:7550,1000:12625}},{name:'Pakistan',flag:'\u{1F1F5}\u{1F1F0}',p:{500:8250,1000:14000}},{name:'Vietnam',flag:'\u{1F1FB}\u{1F1F3}',p:{500:6700,1000:10500}},{name:'Nigeria',flag:'\u{1F1F3}\u{1F1EC}',p:{500:7550,1000:12625}},{name:'Lithuania',flag:'\u{1F1F1}\u{1F1F9}',p:{500:6700,1000:10875}},{name:'Poland',flag:'\u{1F1F5}\u{1F1F1}',p:{500:5875,1000:9250}},{name:'Australia',flag:'\u{1F1E6}\u{1F1FA}',p:{500:5875,1000:9250}},{name:'South Africa',flag:'\u{1F1FF}\u{1F1E6}',p:{500:7875,1000:13250}},{name:'Indonesia',flag:'\u{1F1EE}\u{1F1E9}',p:{500:7000,1000:11125}},{name:'Philippines',flag:'\u{1F1F5}\u{1F1ED}',p:{500:6050,1000:9300}}];
+var ADDONS=[{id:'gallup_article',title:'Gallup.com Feature Article',desc:"Flagship article with global distribution through Gallup\u2019s media network.",price:18000},{id:'media_pitching',title:'Media Pitching & Placement',desc:'Targeted outreach to tier-one global outlets for earned media coverage.',price:22000},{id:'sedona_support',title:'Sedona Forum Presentation Support',desc:'Gallup-supported briefing materials, talking points, and data visualizations.',price:15000},{id:'social_media',title:'Social Media Content Package',desc:'Recorded interviews, data-driven graphics, and short-form video content.',price:24000},{id:'dashboard',title:'Interactive Data Dashboard',desc:'Custom web-based exploration tool by country, region, and demographic.',price:46000},{id:'policy_brief',title:'Additional Policy Briefs (3)',desc:'Targeted briefs for policymakers, allied governments, and academic audiences.',price:28000}];
+var FIXED={design:45000,p1report:25000,refinement:15000,analysis:35000,report:55000};
+var selectedAddons=new Set();
+
+// Per-country state: 500, 1000, or 0 (skip)
+var p1State=PHASE1.map(function(){return 1000;});
+var p2State=PHASE2.map(function(){return 1000;});
+
+function fmt(n){return '$'+n.toLocaleString('en-US');}
+
+function setCountry(phase,idx,val){
+  if(phase===1) p1State[idx]=val;
+  else p2State[idx]=val;
+  updateCard(phase,idx);
+  recalc();
+}
+
+function updateCard(phase,idx){
+  var val=phase===1?p1State[idx]:p2State[idx];
+  var list=phase===1?PHASE1:PHASE2;
+  var card=document.getElementById('cc-'+phase+'-'+idx);
+  var priceEl=card.querySelector('.cc-price');
+  card.classList.toggle('skipped',val===0);
+  priceEl.textContent=val===0?'\u2014':fmt(list[idx].p[val]);
+  card.querySelectorAll('.cc-toggle button').forEach(function(btn){
+    btn.classList.remove('active','skip-active');
+    var bv=parseInt(btn.getAttribute('data-val'));
+    if(bv===val&&val>0) btn.classList.add('active');
+    if(bv===0&&val===0) btn.classList.add('skip-active');
+  });
+}
+
+function renderCountries(){
+  ['phase1Grid','phase2Grid'].forEach(function(gridId,gi){
+    var phase=gi+1;
+    var list=phase===1?PHASE1:PHASE2;
+    var state=phase===1?p1State:p2State;
+    document.getElementById(gridId).innerHTML=list.map(function(c,i){
+      var val=state[i];
+      var price=val===0?'\u2014':fmt(c.p[val]);
+      var skClass=val===0?' skipped':'';
+      return '<div class="country-config'+skClass+'" id="cc-'+phase+'-'+i+'">'
+        +'<span class="cc-flag">'+c.flag+'</span>'
+        +'<span class="cc-name">'+c.name+'</span>'
+        +'<div class="cc-toggle">'
+        +'<button data-val="500" class="'+(val===500?'active':'')+'" onclick="setCountry('+phase+','+i+',500)">500</button>'
+        +'<button data-val="1000" class="'+(val===1000?'active':'')+'" onclick="setCountry('+phase+','+i+',1000)">1,000</button>'
+        +'<button data-val="0" class="'+(val===0?'skip-active':'')+'" onclick="setCountry('+phase+','+i+',0)">Skip</button>'
+        +'</div>'
+        +'<span class="cc-price">'+price+'</span>'
+        +'</div>';
+    }).join('');
+  });
+}
+
+function renderAddons(){
+  document.getElementById('addonGrid').innerHTML=ADDONS.map(function(a){return '<div class="addon-card" id="addon-'+a.id+'" onclick="toggleAddon(\''+a.id+'\')"><div class="addon-check"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7l3 3 5-5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div><div class="addon-title">'+a.title+'</div><div class="addon-desc">'+a.desc+'</div><div class="addon-price">'+fmt(a.price)+'</div></div></div>';}).join('');
+}
+
+function toggleAddon(id){
+  if(selectedAddons.has(id))selectedAddons.delete(id);else selectedAddons.add(id);
+  document.getElementById('addon-'+id).classList.toggle('selected');
+  recalc();
+}
+
+function getFieldCosts(){
+  var p1=0,p1n=0,p2=0,p2n=0;
+  PHASE1.forEach(function(c,i){if(p1State[i]>0){p1+=c.p[p1State[i]];p1n++;}});
+  PHASE2.forEach(function(c,i){if(p2State[i]>0){p2+=c.p[p2State[i]];p2n++;}});
+  return {p1:p1,p1n:p1n,p2:p2,p2n:p2n};
+}
+
+function recalc(){
+  var f=getFieldCosts();
+  var commsTotal=ADDONS.filter(function(a){return selectedAddons.has(a.id);}).reduce(function(s,a){return s+a.price;},0);
+  var core=FIXED.design+f.p1+FIXED.p1report+FIXED.refinement+f.p2+FIXED.analysis+FIXED.report;
+  var grand=core+commsTotal;
+
+  document.getElementById('sP1').textContent=fmt(f.p1);
+  document.getElementById('sP1n').textContent=f.p1n;
+  document.getElementById('sP2').textContent=fmt(f.p2);
+  document.getElementById('sP2n').textContent=f.p2n;
+  document.getElementById('p1Count').textContent=f.p1n+' of 12 selected';
+  document.getElementById('p2Count').textContent=f.p2n+' of 14 selected';
+  var sCommsEl=document.getElementById('sComms');
+  sCommsEl.textContent=commsTotal>0?fmt(commsTotal):'$0';
+  sCommsEl.classList.toggle('empty',commsTotal===0);
+  document.getElementById('sTotal').textContent=fmt(grand);
+
+  var weeks=30;
+  if(selectedAddons.has('dashboard'))weeks=Math.max(weeks,42);
+  document.getElementById('sWeeks').textContent=weeks+' weeks';
+
+  document.getElementById('dP1').textContent=fmt(f.p1);
+  document.getElementById('dP2').textContent=fmt(f.p2);
+  document.getElementById('dCoreSub').textContent=fmt(core);
+  document.getElementById('dTotal').textContent=fmt(grand);
+
+  var commsGroup=document.getElementById('dCommsGroup');
+  var commsLines=document.getElementById('dCommsLines');
+  if(commsTotal>0){
+    commsGroup.style.display='block';
+    commsLines.innerHTML=ADDONS.filter(function(a){return selectedAddons.has(a.id);}).map(function(a){return '<div class="drawer-line"><span class="drawer-line-name">'+a.title+'</span><span class="drawer-line-price">'+fmt(a.price)+'</span></div>';}).join('');
+    document.getElementById('dCommsSub').textContent=fmt(commsTotal);
+  }else{commsGroup.style.display='none';}
+  updateEmailPreview();
+}
+
+function openDrawer(){document.getElementById('drawer').classList.add('open');document.getElementById('drawerOverlay').classList.add('open');document.body.style.overflow='hidden';}
+function closeDrawer(){document.getElementById('drawer').classList.remove('open');document.getElementById('drawerOverlay').classList.remove('open');document.body.style.overflow='';}
+
+function buildSummaryText(){
+  var f=getFieldCosts();
+  var commsTotal=ADDONS.filter(function(a){return selectedAddons.has(a.id);}).reduce(function(s,a){return s+a.price;},0);
+  var core=FIXED.design+f.p1+FIXED.p1report+FIXED.refinement+f.p2+FIXED.analysis+FIXED.report;
+  var grand=core+commsTotal;
+  var lines=[];
+  lines.push('GLOBAL LEADERSHIP & CREDIBILITY SURVEY \u2014 SCOPE SELECTIONS');
+  lines.push('McCain Institute \u00d7 Gallup');
+  lines.push('');
+  lines.push('PHASE 1 COUNTRIES ('+f.p1n+' selected)');
+  PHASE1.forEach(function(c,i){
+    if(p1State[i]>0) lines.push('  '+c.name+' (n='+p1State[i].toLocaleString()+'): '+fmt(c.p[p1State[i]]));
+    else lines.push('  '+c.name+': Skipped');
+  });
+  lines.push('  Phase 1 Fieldwork: '+fmt(f.p1));
+  lines.push('');
+  lines.push('PHASE 2 COUNTRIES ('+f.p2n+' selected)');
+  PHASE2.forEach(function(c,i){
+    if(p2State[i]>0) lines.push('  '+c.name+' (n='+p2State[i].toLocaleString()+'): '+fmt(c.p[p2State[i]]));
+    else lines.push('  '+c.name+': Skipped');
+  });
+  lines.push('  Phase 2 Fieldwork: '+fmt(f.p2));
+  lines.push('');
+  lines.push('CORE COSTS');
+  lines.push('  Survey Instrument Design: '+fmt(FIXED.design));
+  lines.push('  Phase 1 Findings Report: '+fmt(FIXED.p1report));
+  lines.push('  Instrument Refinement: '+fmt(FIXED.refinement));
+  lines.push('  Weighting & Analysis: '+fmt(FIXED.analysis));
+  lines.push('  Final Global Report: '+fmt(FIXED.report));
+  lines.push('  Core Subtotal: '+fmt(core));
+  if(commsTotal>0){
+    lines.push('');
+    lines.push('COMMUNICATIONS ADD-ONS');
+    ADDONS.filter(function(a){return selectedAddons.has(a.id);}).forEach(function(a){lines.push('  '+a.title+': '+fmt(a.price));});
+    lines.push('  Comms Subtotal: '+fmt(commsTotal));
+  }
+  lines.push('');
+  lines.push('YEAR 1 ESTIMATED TOTAL: '+fmt(grand));
+  return lines.join('\n');
+}
+
+function updateEmailPreview(){
+  var el=document.getElementById('emailPreview');
+  if(el)el.innerHTML='<strong style="display:block;margin-bottom:0.4rem;color:var(--navy);">Scope Summary Preview</strong>'+buildSummaryText().replace(/\n/g,'<br>');
+}
+
+function openEmailModal(){updateEmailPreview();document.getElementById('emailModal').classList.add('open');}
+function closeEmailModal(){document.getElementById('emailModal').classList.remove('open');}
+
+function sendEmail(){
+  var name=document.getElementById('emailName').value||'';
+  var notes=document.getElementById('emailNotes').value||'';
+  var summary=buildSummaryText();
+  var body=(notes?'Notes: '+notes+'\n\n':'')+summary+(name?'\n\n\u2014 '+name:'');
+  var subject='McCain Institute \u2014 Global Survey Scope Selections';
+  var mailto='mailto:?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
+  window.open(mailto,'_blank');
+  closeEmailModal();
+}
+
+function exportPDF(){
+  var summary=buildSummaryText();
+  var html='<!DOCTYPE html><html><head><title>McCain Institute \u00d7 Gallup \u2014 Scope Summary</title></head><body style="font-family:Georgia,serif;max-width:700px;margin:40px auto;padding:20px;color:#1a1a2e"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:2rem;padding-bottom:1rem;border-bottom:2px solid #0a1628"><div><strong style="font-size:1.1rem;color:#0a1628">McCain Institute \u00d7 Gallup</strong><br><span style="font-size:0.85rem;color:#5c6478">Global Leadership & Credibility Survey</span></div><div style="font-size:0.78rem;color:#8d93a1;text-align:right">Scope Configuration<br>'+new Date().toLocaleDateString('en-US',{month:'long',day:'numeric',year:'numeric'})+'</div></div><pre style="font-family:DM Sans,sans-serif;font-size:0.88rem;line-height:1.7;white-space:pre-wrap;color:#2d3d56">'+summary+'</pre><div style="margin-top:2rem;font-size:0.72rem;color:#8d93a1;border-top:1px solid #e6e3dc;padding-top:1rem">All scope and investment details are subject to final scoping discussions and vendor confirmation.<br>Copyright \u00a9 2026 Gallup, Inc. All rights reserved. Confidential and proprietary.</div><script>window.onload=function(){window.print();}<\/script></body></html>';
+  var w=window.open('','_blank');
+  w.document.write(html);
+  w.document.close();
+}
+
+var selectedTerm=1;
+
+function setTerm(years){
+  selectedTerm=years;
+  ['termBtn1','termBtn3','termBtn5'].forEach(function(id){
+    var btn=document.getElementById(id);
+    var active=parseInt(id.replace('termBtn',''))===years;
+    btn.style.background=active?'var(--navy)':'#fff';
+    btn.style.color=active?'#fff':'var(--text-secondary)';
+    btn.style.borderColor=active?'var(--navy)':'var(--border)';
+  });
+  renderMultiYear();
+}
+
+function renderMultiYear(){
+  var container=document.getElementById('multiYearBreakdown');
+  var noteEl=document.getElementById('termNote');
+  if(selectedTerm===1){
+    container.innerHTML='';
+    noteEl.style.display='none';
+    return;
+  }
+  var f=getFieldCosts();
+  var totalFieldwork=f.p1+f.p2;
+  var instrumentReview=Math.round(FIXED.design*0.25);
+  var escalation=selectedTerm===3?0.03:0;
+  noteEl.style.display='block';
+  noteEl.innerHTML=selectedTerm===5
+    ?'<strong style="color:var(--gold);">5-Year Term:</strong> No annual cost escalations. Instrument development and refinement replaced by annual instrument review &amp; project management.'
+    :'<strong>3-Year Term:</strong> 3% annual escalation on fieldwork and analysis. Instrument development and refinement replaced by annual instrument review &amp; project management.';
+
+  var html='';
+  for(var yr=2;yr<=selectedTerm;yr++){
+    var mult=Math.pow(1+escalation,yr-1);
+    var yrFieldwork=Math.round(totalFieldwork*mult);
+    var yrAnalysis=Math.round(FIXED.analysis*mult);
+    var yrReport=Math.round(FIXED.report*mult);
+    var yrTotal=instrumentReview+yrFieldwork+yrAnalysis+yrReport;
+    html+='<div style="margin-bottom:0.8rem;padding:0.8rem 1rem;background:var(--warm-gray);border-radius:8px;">';
+    html+='<div style="font-weight:700;font-size:0.82rem;color:var(--navy);margin-bottom:0.5rem;">Year '+yr+' ('+(2026+yr)+')</div>';
+    html+='<div class="drawer-line"><span class="drawer-line-name">Instrument Review &amp; PM</span><span class="drawer-line-price">'+fmt(instrumentReview)+'</span></div>';
+    html+='<div class="drawer-line"><span class="drawer-line-name">Fieldwork (26 countries)</span><span class="drawer-line-price">'+fmt(yrFieldwork)+'</span></div>';
+    html+='<div class="drawer-line"><span class="drawer-line-name">Weighting &amp; Analysis</span><span class="drawer-line-price">'+fmt(yrAnalysis)+'</span></div>';
+    html+='<div class="drawer-line"><span class="drawer-line-name">Global Report &amp; Deliverables</span><span class="drawer-line-price">'+fmt(yrReport)+'</span></div>';
+    html+='<div class="drawer-subtotal"><span>Year '+yr+' Total</span><span>'+fmt(yrTotal)+'</span></div>';
+    html+='</div>';
+  }
+  container.innerHTML=html;
+}
+
+renderCountries();
+renderAddons();
+recalc();
+</script>
+</body>
+</html>
