@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Gallup Center for AI & American Life</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@300;400;600;700;800&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--green:#00857c;--green-dark:#006b63;--green-light:#e6f5f3;--warm:#1a1a1a;--text:#2d2d2d;--text2:#555;--text3:#888;--bg:#fafaf8;--card:#fff;--border:#e8e6e1}
+*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text)}
+.topnav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(250,250,248,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 40px;height:56px}
+.topnav-brand{font-family:'Source Serif 4',serif;font-weight:700;font-size:15px;color:var(--green);letter-spacing:-0.3px}
+.topnav-links{display:flex;gap:28px}
+.topnav-links a{font-size:12px;color:var(--text3);text-decoration:none;letter-spacing:0.5px;text-transform:uppercase;font-weight:500;transition:color 0.2s}
+.topnav-links a:hover{color:var(--green)}
+.hero{min-height:100vh;position:relative;display:flex;align-items:flex-end;background:linear-gradient(to bottom,rgba(0,0,0,0.08),rgba(0,0,0,0.55)),url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=1600&q=80') center/cover no-repeat;padding:0 0 80px 0}
+.hero-inner{max-width:900px;padding:0 48px}
+.hero-tag{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,0.7);margin-bottom:20px}
+.hero h1{font-family:'Source Serif 4',serif;font-weight:800;font-size:clamp(36px,5.5vw,68px);line-height:1.08;color:#fff;margin-bottom:20px;max-width:780px}
+.hero-sub{font-size:18px;color:rgba(255,255,255,0.85);max-width:620px;line-height:1.7;font-weight:300}
+.s{padding:100px 48px;max-width:1000px;margin:0 auto}
+.s-wide{padding:100px 48px;max-width:1200px;margin:0 auto}
+.s-label{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--green);margin-bottom:16px}
+.s h2{font-family:'Source Serif 4',serif;font-weight:700;font-size:clamp(26px,3.5vw,42px);line-height:1.18;margin-bottom:24px;color:var(--warm);max-width:740px}
+.s p,.s-wide p{font-size:17px;color:var(--text2);max-width:680px;margin-bottom:20px;line-height:1.75;font-weight:300}
+.s p strong{color:var(--text);font-weight:600}
+.img-band{width:100%;height:420px;position:relative;overflow:hidden;background-size:cover;background-position:center;display:flex;align-items:flex-end}
+.img-band-caption{background:linear-gradient(to top,rgba(0,0,0,0.7),transparent);width:100%;padding:40px 48px 32px;font-family:'Source Serif 4',serif;font-size:22px;color:#fff;font-weight:600;line-height:1.4}
+.img-band-sub{font-family:'Inter',sans-serif;font-size:13px;font-weight:400;color:rgba(255,255,255,0.7);margin-top:6px}
+.stat-row{display:flex;gap:32px;margin:48px 0;flex-wrap:wrap}
+.stat-item{flex:1;min-width:180px}
+.stat-big{font-family:'Source Serif 4',serif;font-size:48px;font-weight:800;color:var(--green);line-height:1}
+.stat-desc{font-size:13px;color:var(--text2);margin-top:6px;line-height:1.5}
+.stat-src{font-size:10px;color:var(--text3);margin-top:4px;font-style:italic}
+.quote-block{border-left:3px solid var(--green);padding:32px 0 32px 32px;margin:48px 0}
+.quote-text{font-family:'Source Serif 4',serif;font-size:clamp(18px,2.2vw,24px);font-weight:400;line-height:1.5;color:var(--warm);font-style:italic}
+
+/* Partner callout */
+.partner-block{background:var(--green-light);border:1px solid rgba(0,133,124,0.15);border-radius:16px;padding:48px;margin:48px 0}
+.partner-block h3{font-family:'Source Serif 4',serif;font-size:24px;font-weight:700;color:var(--warm);margin-bottom:16px}
+.partner-block p{font-size:16px;color:var(--text2);line-height:1.7;max-width:660px;margin-bottom:16px}
+.partner-list{list-style:none;margin-top:20px}
+.partner-list li{font-size:15px;color:var(--text2);padding:8px 0;display:flex;align-items:flex-start;gap:10px;border-bottom:1px solid rgba(0,133,124,0.1)}
+.partner-list li::before{content:'→';color:var(--green);font-weight:600;flex-shrink:0}
+
+/* Domain grid */
+.domain-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;margin:48px 0}
+.domain-card{background:var(--card);border:1px solid var(--border);border-radius:12px;overflow:hidden;transition:border-color 0.2s}
+.domain-card:hover{border-color:var(--green)}
+.domain-img{width:100%;height:200px;object-fit:cover;filter:saturate(0.85)}
+.domain-body{padding:28px}
+.domain-name{font-family:'Source Serif 4',serif;font-size:20px;font-weight:700;color:var(--warm);margin-bottom:8px}
+.domain-question{font-size:15px;color:var(--text2);line-height:1.65;font-style:italic;margin-bottom:14px}
+.domain-items{list-style:none}
+.domain-items li{font-size:13px;color:var(--text2);padding:5px 0;display:flex;align-items:flex-start;gap:8px;border-bottom:1px solid var(--border)}
+.domain-items li::before{content:'→';color:var(--green);font-weight:600;flex-shrink:0}
+
+/* Phase cards */
+.phases{display:flex;gap:0;margin:48px -48px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding:0 48px}
+.phase{min-width:380px;max-width:420px;flex-shrink:0;scroll-snap-align:start;border:1px solid var(--border);background:var(--card);overflow:hidden}
+.phase:first-child{border-radius:12px 0 0 12px}.phase:last-child{border-radius:0 12px 12px 0}
+.phase-img{width:100%;height:200px;object-fit:cover;display:block;filter:saturate(0.85)}
+.phase-body{padding:28px}
+.phase-num{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--green);margin-bottom:8px}
+.phase-name{font-family:'Source Serif 4',serif;font-size:20px;font-weight:700;color:var(--warm);margin-bottom:10px}
+.phase-desc{font-size:14px;color:var(--text2);line-height:1.65}
+
+/* Output grid */
+.output-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin:40px 0}
+.output-card{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:24px;transition:border-color 0.2s}
+.output-card:hover{border-color:var(--green)}
+.output-card.featured{border-color:var(--green);background:var(--green-light)}
+.output-label{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--green);margin-bottom:8px}
+.output-text{font-size:14px;color:var(--text2);line-height:1.6}
+
+/* Gallup section */
+.gallup-bar{background:var(--warm);color:#fff;padding:60px 48px}
+.gallup-inner{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+.gallup-stat{text-align:center}
+.gallup-num{font-family:'Source Serif 4',serif;font-size:56px;font-weight:800;color:var(--green);line-height:1}
+.gallup-desc{font-size:13px;color:rgba(255,255,255,0.6);margin-top:6px}
+.gallup-text p{font-size:16px;color:rgba(255,255,255,0.8);line-height:1.7;margin-bottom:16px}
+.gallup-text p strong{color:#fff}
+
+.footer-band{background:var(--bg);padding:80px 48px;text-align:center;border-top:1px solid var(--border)}
+.footer-band h2{font-family:'Source Serif 4',serif;font-size:clamp(26px,3.5vw,40px);font-weight:700;margin-bottom:16px;line-height:1.2;color:var(--warm)}
+.footer-band p{font-size:16px;color:var(--text2);max-width:560px;margin:0 auto 32px;line-height:1.7}
+.footer-brand{font-size:12px;color:var(--text3);letter-spacing:1px}
+.reveal{opacity:0;transform:translateY(24px);transition:all 0.6s cubic-bezier(0.16,1,0.3,1)}.reveal.visible{opacity:1;transform:translateY(0)}
+.div-line{max-width:1000px;margin:0 auto;border-top:1px solid var(--border)}
+@media(max-width:900px){.domain-grid{grid-template-columns:1fr}.hero-inner{padding:0 24px}.s,.s-wide{padding:60px 24px}.topnav-links{display:none}.phases{padding:0 24px}.phase{min-width:300px}.gallup-inner{grid-template-columns:1fr}.partner-block{padding:32px}}
+@media(max-width:600px){.stat-row{flex-direction:column}}
+</style>
+</head>
+<body>
+<nav class="topnav"><div class="topnav-brand">Gallup</div><div class="topnav-links"><a href="#opportunity">The Opportunity</a><a href="#center">The Center</a><a href="#platform">The Platform</a><a href="#research">The Research</a></div></nav>
+
+<!-- ====== HERO ====== -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-tag">Seeking a Signature Partner</div>
+    <h1>The Gallup Center for AI & American Life</h1>
+    <p class="hero-sub">Gallup is establishing a dedicated research center to measure how AI is changing the way Americans work, learn, access care, and participate in their communities. We are seeking one signature partner to shape the initiative.</p>
+  </div>
+</section>
+
+<!-- ====== THE OPPORTUNITY ====== -->
+<section class="s" id="opportunity">
+  <div class="reveal">
+    <div class="s-label">The Opportunity</div>
+    <h2>AI Has Enormous Potential to Improve How People Work, Learn, and Live. The Evidence Base Hasn't Kept Up.</h2>
+    <p>
+      AI is already expanding what people can do — giving individuals access to expertise that was once scarce, helping employers make better decisions, enabling students to learn at their own pace, and opening new pathways to economic opportunity. The potential is extraordinary.
+    </p>
+    <p>
+      But we're flying blind on the most important questions. Is AI actually delivering on that potential in people's everyday lives? Where is it working well, and what makes the difference? Is it reaching the people and communities who stand to benefit most? When work changes, does it still provide meaning and purpose? When students use AI to learn, are they developing deeper capabilities?
+    </p>
+    <p>
+      The measurement systems society relies on — labor statistics, GDP, educational assessments — were built for a different era. They can track jobs and wages but not whether work is fulfilling. They can track school enrollment but not whether learning is deepening. They can track economic output but not whether the gains are reaching the people who need them most. <strong>What's missing is a measurement system designed for this moment.</strong>
+    </p>
+  </div>
+
+  <div class="stat-row reveal">
+    <div class="stat-item">
+      <div class="stat-big">8.7×</div>
+      <div class="stat-desc">When managers support AI adoption, employees are 8.7× more likely to say it has transformed their work. The human variable makes all the difference.</div>
+      <div class="stat-src">Gallup, 2026</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-big">5.6×</div>
+      <div class="stat-desc">Employees with strong purpose at work are 5.6× more engaged. As AI reshapes roles, understanding what sustains purpose is essential.</div>
+      <div class="stat-src">Gallup, 2025</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-big">155+</div>
+      <div class="stat-desc">Countries where Gallup already collects nationally representative data on work, wellbeing, and economic life — continuously since 2005.</div>
+      <div class="stat-src">Gallup World Poll</div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== IMAGE BAND ====== -->
+<div class="img-band" style="background-image:linear-gradient(to right,rgba(0,0,0,0.5),rgba(0,0,0,0.2)),url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1600&q=80')">
+  <div><div class="img-band-caption">The organizations and leaders who understand how AI is actually affecting people's lives — with real evidence, at national scale — will shape the conversation for a generation.<div class="img-band-sub"></div></div></div>
+</div>
+
+<!-- ====== THE CENTER ====== -->
+<section class="s" id="center">
+  <div class="reveal">
+    <div class="s-label">The Center</div>
+    <h2>Gallup Is Building a Dedicated Research Center. One Partner Will Shape It.</h2>
+    <p>
+      The Gallup Center for AI & American Life will be an ongoing research and public engagement program — the first continuous, nationally representative effort to measure how AI is changing the lived experiences of Americans across work, health, education, and community life.
+    </p>
+    <p>
+      Gallup is committing its measurement infrastructure, its scientific credibility, and its 80-year track record of giving Americans a voice on the issues that matter most. We are seeking <strong>one signature partner</strong> to co-shape the research agenda, the public platform, and the national conversation the Center will drive.
+    </p>
+    <p>
+      The signature partner doesn't just fund research. They shape what questions get asked, how findings reach the public, and which audiences the Center convenes. They become the name alongside Gallup on the most credible, ongoing measurement of AI's impact on American life.
+    </p>
+  </div>
+
+  <div class="partner-block reveal">
+    <h3>If OpenAI Foundation Is the Partner</h3>
+    <p>
+      The Center's research agenda would align with the Foundation's commitment to understanding AI's economic impact, supporting workers and communities through the transition, and building long-term economic security. Specifically, the partnership could shape the Center to focus on:
+    </p>
+    <ul class="partner-list">
+      <li>Where AI is expanding what people can do and access — career guidance, healthcare, legal and financial expertise, education — particularly for those least served by existing systems</li>
+      <li>Whether AI-driven economic transitions are leading to better work, more stability, broader capabilities, and more real choices in people's lives</li>
+      <li>How workers experience AI deployment — including whether they have agency and voice in the process</li>
+      <li>When work provides meaning, purpose, and satisfaction as AI reshapes roles — and what conditions make that possible</li>
+      <li>Which communities and populations are benefiting from AI and which are being left behind — with the depth to understand why</li>
+      <li>Whether investments in worker support, retraining, and policy interventions are actually producing the outcomes they're designed for</li>
+      <li>Global measurement via the Gallup World Poll — tracking AI's impact in low- and middle-income countries alongside the U.S.</li>
+    </ul>
+  </div>
+</section>
+
+<div class="div-line"></div>
+
+<!-- ====== THE PUBLIC PLATFORM ====== -->
+<section class="s" id="platform">
+  <div class="reveal">
+    <div class="s-label">The Public Platform</div>
+    <h2>The Center's Value Isn't the Data. It's What the Data Becomes.</h2>
+    <p>
+      Research that sits in a report doesn't change anything. The Center is designed to produce a sustained, visible, public platform — a constant presence in the national conversation that keeps AI's real impact on people at the center of how employers, policymakers, media, and the public understand this transition.
+    </p>
+    <p>
+      The signature partner's brand is embedded throughout — not as a funder acknowledged in footnotes, but as the co-author of the most credible, most-cited source on how AI is changing American life.
+    </p>
+  </div>
+
+  <div class="output-grid reveal">
+    <div class="output-card featured">
+      <div class="output-label">Quarterly Data Releases</div>
+      <div class="output-text">Fresh, nationally representative findings every 90 days — timed to news cycles, policy moments, and public attention. Each release is a new story, a new headline, a new reason for coverage. The signature partner is named on every release.</div>
+    </div>
+    <div class="output-card featured">
+      <div class="output-label">Monthly Content</div>
+      <div class="output-text">A constant stream of articles, op-eds, data features, infographics, and short-form video on Gallup.com and placed in major outlets. Not a quarterly pulse — a monthly presence that establishes the Center as the go-to source.</div>
+    </div>
+    <div class="output-card featured">
+      <div class="output-label">Flagship Media Launches</div>
+      <div class="output-text">Major report releases with embargoed access for top-tier media. National press events. The kind of launches that produce front-page stories, cable news segments, and social media conversation for days.</div>
+    </div>
+    <div class="output-card">
+      <div class="output-label">Annual State of AI & American Life Report</div>
+      <div class="output-text">The definitive annual reference — the report that employers, policymakers, media, and researchers cite when they want to understand what AI is actually doing to people's lives.</div>
+    </div>
+    <div class="output-card">
+      <div class="output-label">Executive Roundtables</div>
+      <div class="output-text">Intimate convenings with employers, AI leaders, and workforce innovators. Working sessions grounded in the data — designed to move from findings to commitments.</div>
+    </div>
+    <div class="output-card">
+      <div class="output-label">Policy Briefings</div>
+      <div class="output-text">Congressional briefings, White House and agency sessions, state-level convenings. Independent, non-partisan data that both sides of the aisle can use — and that the signature partner is associated with delivering.</div>
+    </div>
+    <div class="output-card">
+      <div class="output-label">Human Stories</div>
+      <div class="output-text">Long-form narrative content from qualitative interviews. Real people, real experiences, real names. The texture that makes data matter to the public and the media in ways charts never will.</div>
+    </div>
+    <div class="output-card">
+      <div class="output-label">Community Convenings</div>
+      <div class="output-text">Taking findings back to the communities they came from. Partnering with community organizations to make the evidence useful on the ground — and to listen to what the next round of research should explore.</div>
+    </div>
+    <div class="output-card">
+      <div class="output-label">Annual Summit</div>
+      <div class="output-text">A major annual convening — employers, policymakers, researchers, community leaders, workers — to review the year's findings, share what's working, and shape the agenda for what comes next.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== IMAGE BAND ====== -->
+<div class="img-band" style="background-image:linear-gradient(to right,rgba(0,0,0,0.5),rgba(0,0,0,0.15)),url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=1600&q=80')">
+  <div><div class="img-band-caption">Quarterly findings. Monthly content. Annual summits. Policy briefings. Executive roundtables. Human stories. A constant, credible presence in the national conversation — with the signature partner's name on every piece of it.<div class="img-band-sub"></div></div></div>
+</div>
+
+<!-- ====== THE RESEARCH ====== -->
+<section class="s-wide" id="research">
+  <div class="reveal">
+    <div class="s-label">The Research</div>
+    <h2>Four Domains. Continuous Measurement. The Full Picture.</h2>
+    <p>The Center measures AI's impact across four interconnected domains of American life. The signature partner helps shape which questions are prioritized, which populations are oversampled, and which findings are elevated — but the scope ensures the Center captures the complete picture.</p>
+  </div>
+
+  <div class="domain-grid reveal">
+    <div class="domain-card">
+      <img class="domain-img" src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=800&q=80" alt="Workplace">
+      <div class="domain-body">
+        <div class="domain-name">Work & Economic Life</div>
+        <div class="domain-question">How is AI changing people's experience of work — and is it expanding or narrowing economic opportunity?</div>
+        <ul class="domain-items">
+          <li>Purpose, meaning, and satisfaction as AI reshapes roles</li>
+          <li>Worker agency and voice in AI deployment</li>
+          <li>Manager support — the 8.7× multiplier</li>
+          <li>Skills development and economic mobility</li>
+          <li>How AI-generated value is distributed</li>
+          <li>Frontline, blue collar, and service workers</li>
+        </ul>
+      </div>
+    </div>
+    <div class="domain-card">
+      <img class="domain-img" src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800&q=80" alt="Healthcare">
+      <div class="domain-body">
+        <div class="domain-name">Health & Wellbeing</div>
+        <div class="domain-question">Is AI expanding access to care, improving health outcomes, and reaching the people who need it most?</div>
+        <ul class="domain-items">
+          <li>AI as equalizer — access to expertise in underserved areas</li>
+          <li>Trust in AI-mediated health guidance</li>
+          <li>Patient and provider experience</li>
+          <li>Mental health and wellbeing</li>
+          <li>Overall life wellbeing tracked against AI exposure</li>
+        </ul>
+      </div>
+    </div>
+    <div class="domain-card">
+      <img class="domain-img" src="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?w=800&q=80" alt="Education">
+      <div class="domain-body">
+        <div class="domain-name">Education & Learning</div>
+        <div class="domain-question">Is AI deepening learning, expanding access, and preparing the next generation — or creating new dependencies?</div>
+        <ul class="domain-items">
+          <li>Student experience with AI learning tools</li>
+          <li>Teacher and educator perspectives</li>
+          <li>Engagement, agency, and critical thinking</li>
+          <li>Parent confidence and trust</li>
+          <li>Career readiness in an AI-transformed economy</li>
+        </ul>
+      </div>
+    </div>
+    <div class="domain-card">
+      <img class="domain-img" src="https://images.unsplash.com/photo-1531206715517-5c0ba140b2b8?w=800&q=80" alt="Community">
+      <div class="domain-body">
+        <div class="domain-name">Community & Civic Life</div>
+        <div class="domain-question">Which communities are thriving through the AI transition — and what conditions make the difference?</div>
+        <ul class="domain-items">
+          <li>Community-level economic health and opportunity</li>
+          <li>AI and public services — is government delivering better?</li>
+          <li>Civic trust and citizen voice</li>
+          <li>Geographic variation: rural, urban, post-industrial</li>
+          <li>Community organizations' capacity to support people</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="div-line"></div>
+
+<!-- ====== HOW IT WORKS ====== -->
+<section class="s-wide">
+  <div class="reveal">
+    <div class="s-label">How It Works</div>
+    <h2>A Continuous Research Cycle That Compounds Over Time</h2>
+    <p>The Center runs on a quarterly cycle. Each round builds on the last — producing richer trend data, deeper insights, and a growing public platform.</p>
+  </div>
+</section>
+
+<div class="s-wide">
+  <div class="phases reveal">
+    <div class="phase"><img class="phase-img" src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80" alt="Convening"><div class="phase-body"><div class="phase-num">Phase 01</div><div class="phase-name">Convene & Listen</div><div class="phase-desc">A working advisory group of economists, AI researchers, workforce leaders, educators, healthcare experts, union leaders, small business owners, and community organizers. Expert interviews that surface the questions existing research hasn't asked. The signature partner helps shape who's at the table.</div></div></div>
+    <div class="phase"><img class="phase-img" src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&q=80" alt="Instrument"><div class="phase-body"><div class="phase-num">Phase 02</div><div class="phase-name">Build the Instrument</div><div class="phase-desc">A rigorously developed survey with every question tested through cognitive interviews — real respondents walking through each item. Refined until the instrument produces the kind of data that holds up to scientific scrutiny and earns public trust.</div></div></div>
+    <div class="phase"><img class="phase-img" src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800&q=80" alt="Diverse respondents"><div class="phase-body"><div class="phase-num">Phase 03</div><div class="phase-name">Field at Scale</div><div class="phase-desc">Nationally representative data collection via the Gallup Panel — the largest probability-based panel in the country. Address-based sampling reaches every American, including those hardest to reach: rural, lower-income, non-English speaking, frontline workers. Oversamples of the populations that matter most to the research agenda.</div></div></div>
+    <div class="phase"><img class="phase-img" src="https://images.unsplash.com/photo-1573497620053-ea5300f94f21?w=800&q=80" alt="Interview"><div class="phase-body"><div class="phase-num">Phase 04</div><div class="phase-name">Go Deeper</div><div class="phase-desc">Qualitative interviews with respondents whose data tells a compelling story. Real people, real names, real experiences. The human texture that turns findings into stories media wants to tell and the public wants to hear.</div></div></div>
+    <div class="phase"><img class="phase-img" src="https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=800&q=80" alt="Launch"><div class="phase-body"><div class="phase-num">Phase 05</div><div class="phase-name">Publish & Convene</div><div class="phase-desc">Media launches, policy briefings, executive roundtables, community convenings, monthly content. The research enters the national conversation — with the signature partner's name on every finding, every article, every event.</div></div></div>
+    <div class="phase"><img class="phase-img" src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80" alt="Tracking"><div class="phase-body"><div class="phase-num">Phase 06</div><div class="phase-name">Track & Learn</div><div class="phase-desc">The full cycle repeats quarterly. Trend data accumulates. The Center gets smarter about what to ask and who to listen to. Before-during-after measurement evaluates whether interventions and investments are producing real outcomes in people's lives.</div></div></div>
+  </div>
+</div>
+
+<!-- ====== GALLUP BAR ====== -->
+<div class="gallup-bar" style="margin-top:60px">
+  <div class="gallup-inner">
+    <div class="gallup-text">
+      <p><strong>Gallup has spent 80+ years building the measurement infrastructure for understanding American life.</strong> Engagement at work. Wellbeing at home. Student experience in schools. Trust in institutions. Community health across all 50 states. All of it nationally representative. All of it longitudinal. All of it built to track change over time.</p>
+      <p>That infrastructure is in place — in the U.S. and in 155+ countries. The Center extends it into the AI era. The signature partner shapes what it measures, who it reaches, and how the world hears about it.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px">
+      <div class="gallup-stat"><div class="gallup-num">80+</div><div class="gallup-desc">years of national measurement</div></div>
+      <div class="gallup-stat"><div class="gallup-num">2.7M</div><div class="gallup-desc">teams studied</div></div>
+      <div class="gallup-stat"><div class="gallup-num">155+</div><div class="gallup-desc">countries</div></div>
+      <div class="gallup-stat"><div class="gallup-num">50</div><div class="gallup-desc">states with community data</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ====== FOOTER ====== -->
+<div class="footer-band">
+  <h2>Gallup is building the Center.<br>The question is who shapes it.</h2>
+  <p>We're looking for the right partner to define the research agenda, co-author the findings, and put their name on the most credible ongoing measurement of AI's impact on American life.</p>
+  <div class="footer-brand" style="margin-top:24px">THE GALLUP CENTER FOR AI & AMERICAN LIFE</div>
+</div>
+
+<script>
+const reveals=document.querySelectorAll('.reveal');
+const observer=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')})},{threshold:0.1});
+reveals.forEach(el=>observer.observe(el));
+</script>
+</body>
+</html>
