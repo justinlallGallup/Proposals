@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tracking the Prediction — Gallup</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@300;400;600;700;800&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--green:#00857c;--green-dark:#006b63;--green-light:#e6f5f3;--warm:#1a1a1a;--text:#2d2d2d;--text2:#555;--text3:#888;--bg:#fafaf8;--card:#fff;--border:#e8e6e1}
+*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text)}
+.topnav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(250,250,248,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 40px;height:56px}
+.topnav-brand{font-family:'Source Serif 4',serif;font-weight:700;font-size:15px;color:var(--green);letter-spacing:-0.3px}
+.topnav-links{display:flex;gap:28px}
+.topnav-links a{font-size:12px;color:var(--text3);text-decoration:none;letter-spacing:0.5px;text-transform:uppercase;font-weight:500;transition:color 0.2s}
+.topnav-links a:hover{color:var(--green)}
+.hero{min-height:100vh;position:relative;display:flex;align-items:flex-end;background:linear-gradient(to bottom,rgba(0,0,0,0.08),rgba(0,0,0,0.6)),url('https://images.unsplash.com/photo-1518770660439-4636190af475?w=1600&q=80') center/cover no-repeat;padding:0 0 80px 0}
+.hero-inner{max-width:900px;padding:0 48px}
+.hero-tag{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,0.7);margin-bottom:20px}
+.hero h1{font-family:'Source Serif 4',serif;font-weight:800;font-size:clamp(36px,5.5vw,68px);line-height:1.08;color:#fff;margin-bottom:20px;max-width:800px}
+.hero-sub{font-size:18px;color:rgba(255,255,255,0.85);max-width:620px;line-height:1.7;font-weight:300}
+.s{padding:100px 48px;max-width:1000px;margin:0 auto}.s-wide{padding:100px 48px;max-width:1200px;margin:0 auto}
+.s-label{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--green);margin-bottom:16px}
+.s h2{font-family:'Source Serif 4',serif;font-weight:700;font-size:clamp(26px,3.5vw,42px);line-height:1.18;margin-bottom:24px;color:var(--warm);max-width:740px}
+.s p,.s-wide p{font-size:17px;color:var(--text2);max-width:680px;margin-bottom:20px;line-height:1.75;font-weight:300}.s p strong{color:var(--text);font-weight:600}
+.img-band{width:100%;height:420px;position:relative;overflow:hidden;background-size:cover;background-position:center;display:flex;align-items:flex-end}
+.img-band-caption{background:linear-gradient(to top,rgba(0,0,0,0.7),transparent);width:100%;padding:40px 48px 32px;font-family:'Source Serif 4',serif;font-size:22px;color:#fff;font-weight:600;line-height:1.4}
+.stat-row{display:flex;gap:32px;margin:48px 0;flex-wrap:wrap}.stat-item{flex:1;min-width:180px}
+.stat-big{font-family:'Source Serif 4',serif;font-size:48px;font-weight:800;line-height:1}.stat-big.green{color:var(--green)}.stat-big.red{color:#b44a1a}
+.stat-desc{font-size:13px;color:var(--text2);margin-top:6px;line-height:1.5}.stat-src{font-size:10px;color:var(--text3);margin-top:4px;font-style:italic}
+
+/* Prediction cards */
+.pred-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;margin:48px 0}
+.pred-card{background:var(--warm);border-radius:12px;padding:32px;color:#fff}
+.pred-claim{font-family:'Source Serif 4',serif;font-size:20px;font-weight:700;line-height:1.3;margin-bottom:12px}
+.pred-source{font-size:11px;color:rgba(255,255,255,0.5);margin-bottom:16px;font-style:italic}
+.pred-measure{font-size:14px;color:rgba(255,255,255,0.8);line-height:1.6;border-top:1px solid rgba(255,255,255,0.15);padding-top:14px}
+.pred-measure strong{color:var(--green)}
+
+.partner-block{background:var(--green-light);border:1px solid rgba(0,133,124,0.15);border-radius:16px;padding:48px;margin:48px 0}
+.partner-block h3{font-family:'Source Serif 4',serif;font-size:24px;font-weight:700;color:var(--warm);margin-bottom:16px}
+.partner-block p{font-size:16px;color:var(--text2);line-height:1.7;max-width:660px;margin-bottom:16px}
+.partner-list{list-style:none;margin-top:20px}
+.partner-list li{font-size:15px;color:var(--text2);padding:8px 0;display:flex;align-items:flex-start;gap:10px;border-bottom:1px solid rgba(0,133,124,0.1)}
+.partner-list li::before{content:'→';color:var(--green);font-weight:600;flex-shrink:0}
+
+.phases{display:flex;gap:0;margin:48px -48px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding:0 48px}
+.phase{min-width:380px;max-width:420px;flex-shrink:0;scroll-snap-align:start;border:1px solid var(--border);background:var(--card);overflow:hidden}
+.phase:first-child{border-radius:12px 0 0 12px}.phase:last-child{border-radius:0 12px 12px 0}
+.phase-img{width:100%;height:200px;object-fit:cover;display:block;filter:saturate(0.85)}
+.phase-body{padding:28px}
+.phase-num{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--green);margin-bottom:8px}
+.phase-name{font-family:'Source Serif 4',serif;font-size:20px;font-weight:700;color:var(--warm);margin-bottom:10px}
+.phase-desc{font-size:14px;color:var(--text2);line-height:1.65}
+.output-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin:40px 0}
+.output-card{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:24px;transition:border-color 0.2s}.output-card:hover{border-color:var(--green)}
+.output-card.featured{border-color:var(--green);background:var(--green-light)}
+.output-label{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--green);margin-bottom:8px}
+.output-text{font-size:14px;color:var(--text2);line-height:1.6}
+.gallup-bar{background:var(--warm);color:#fff;padding:60px 48px}
+.gallup-inner{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+.gallup-stat{text-align:center}.gallup-num{font-family:'Source Serif 4',serif;font-size:56px;font-weight:800;color:var(--green);line-height:1}.gallup-desc{font-size:13px;color:rgba(255,255,255,0.6);margin-top:6px}
+.gallup-text p{font-size:16px;color:rgba(255,255,255,0.8);line-height:1.7;margin-bottom:16px}.gallup-text p strong{color:#fff}
+.footer-band{background:var(--bg);padding:80px 48px;text-align:center;border-top:1px solid var(--border)}
+.footer-band h2{font-family:'Source Serif 4',serif;font-size:clamp(24px,3.5vw,38px);font-weight:700;margin-bottom:16px;line-height:1.25;color:var(--warm);max-width:700px;margin-left:auto;margin-right:auto}
+.footer-band p{font-size:16px;color:var(--text2);max-width:560px;margin:0 auto 32px;line-height:1.7}
+.footer-brand{font-size:12px;color:var(--text3);letter-spacing:1px}
+.reveal{opacity:0;transform:translateY(24px);transition:all 0.6s cubic-bezier(0.16,1,0.3,1)}.reveal.visible{opacity:1;transform:translateY(0)}
+.div-line{max-width:1000px;margin:0 auto;border-top:1px solid var(--border)}
+@media(max-width:900px){.pred-grid{grid-template-columns:1fr}.hero-inner{padding:0 24px}.s,.s-wide{padding:60px 24px}.topnav-links{display:none}.phases{padding:0 24px}.phase{min-width:300px}.gallup-inner{grid-template-columns:1fr}.partner-block{padding:32px}}
+@media(max-width:600px){.stat-row{flex-direction:column}}
+</style>
+</head>
+<body>
+<nav class="topnav"><div class="topnav-brand">Gallup</div><div class="topnav-links"><a href="#prediction">The Prediction</a><a href="#scoreboard">The Scoreboard</a><a href="#platform">The Platform</a><a href="#method">How It Works</a></div></nav>
+
+<!-- ====== HERO ====== -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-tag">Seeking a Signature Partner</div>
+    <h1>You Made the Biggest Prediction in AI. Nobody Is Tracking Whether It's Coming True.</h1>
+    <p class="hero-sub">80% of jobs replaceable by 2030. Free expertise. The end of the old system. It's either the most important economic prediction of the decade — or it's wrong. Gallup is building the scoreboard.</p>
+  </div>
+</section>
+
+<!-- ====== THE PREDICTION ====== -->
+<section class="s" id="prediction">
+  <div class="reveal">
+    <div class="s-label">The Prediction</div>
+    <h2>Bold Claims. No Measurement System. That's a Problem — Even If You're Right.</h2>
+    <p>
+      <strong>"Starting in about 2030 — 80% of all jobs will be capable of being done by an AI."</strong> That prediction has rattled markets, dominated headlines, and reshaped how investors, employers, and policymakers think about the next decade. It may be the single most consequential claim being made about AI's economic impact.
+    </p>
+    <p>
+      But right now, it's a prediction without a scoreboard. Nobody is independently tracking whether it's happening — how fast, to which workers, in which industries, with what consequences. The data that exists is scattered: one-off academic studies, corporate surveys from companies selling AI, and labor statistics built for a different century.
+    </p>
+    <p>
+      If you're right, the evidence should show it — quarter by quarter, nationally representative, independent of the companies building AI. And if the transition is more nuanced than 80% replacement — if the reality is more interesting than the headline — the data should show that too. <strong>Either way, the person who funds the measurement owns the most credible evidence on the most important economic question of the decade.</strong>
+    </p>
+  </div>
+
+  <div class="stat-row reveal">
+    <div class="stat-item">
+      <div class="stat-big red">89%</div>
+      <div class="stat-desc">of executives report no measurable AI effect on productivity. The prediction says transformation is coming. The data says it hasn't landed yet.</div>
+      <div class="stat-src">NBER, 6,000 executives</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-big red">12%</div>
+      <div class="stat-desc">of employees in AI-implemented orgs say it has actually transformed their work. Where's the other 88%?</div>
+      <div class="stat-src">Gallup, 2026</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-big green">8.7×</div>
+      <div class="stat-desc">When managers support AI adoption, transformation is 8.7× more likely. The bottleneck isn't the technology — it's the deployment.</div>
+      <div class="stat-src">Gallup, 2026</div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== IMAGE BAND ====== -->
+<div class="img-band" style="background-image:linear-gradient(to right,rgba(0,0,0,0.55),rgba(0,0,0,0.2)),url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1600&q=80')">
+  <div><div class="img-band-caption">A prediction this big deserves a measurement system this rigorous. Not to argue for or against it — but to track what's actually happening, in real time, at national scale.</div></div>
+</div>
+
+<!-- ====== YOUR PREDICTIONS AS THE FRAMEWORK ====== -->
+<section class="s-wide" id="scoreboard">
+  <div class="reveal">
+    <div class="s-label">The Scoreboard</div>
+    <h2>Your Predictions Create Measurable Hypotheses. Gallup Tracks Them.</h2>
+    <p>Every major claim you've made about AI's impact translates into something Gallup can measure — independently, quarterly, at nationally representative scale. Not to prove you right. To find out what's true.</p>
+  </div>
+
+  <div class="pred-grid reveal">
+    <div class="pred-card">
+      <div class="pred-claim">"80% of all jobs will be capable of being done by an AI"</div>
+      <div class="pred-source">Fortune 500: Titans & Disruptors, March 2026</div>
+      <div class="pred-measure"><strong>What Gallup tracks:</strong> The percentage of workers whose jobs have been materially changed by AI — quarter by quarter, by industry, by role type, by income level. Not whether AI can theoretically do the job. Whether it's actually happening to real people.</div>
+    </div>
+    <div class="pred-card">
+      <div class="pred-claim">"If all medical expertise is free… you have unlimited primary care doctors"</div>
+      <div class="pred-source">Uncapped with Jack Altman, 2025</div>
+      <div class="pred-measure"><strong>What Gallup tracks:</strong> Whether AI is actually expanding access to health expertise — especially in underserved communities. Are people using AI for health guidance? Do they trust it? Is it reaching the people who can't afford a doctor?</div>
+    </div>
+    <div class="pred-card">
+      <div class="pred-claim">"People will work on things because they want to, not because they need to"</div>
+      <div class="pred-source">Uncapped with Jack Altman, 2025</div>
+      <div class="pred-measure"><strong>What Gallup tracks:</strong> Purpose, meaning, and satisfaction at work — measured continuously as AI reshapes roles. Are people feeling more free to do meaningful work? Or are they feeling displaced from work that gave them meaning?</div>
+    </div>
+    <div class="pred-card">
+      <div class="pred-claim">"A child in a remote village could receive better instruction from an AI tutor"</div>
+      <div class="pred-source">Oneindia, August 2025</div>
+      <div class="pred-measure"><strong>What Gallup tracks:</strong> Student experience with AI learning tools. Engagement, agency, critical thinking. Is AI expanding educational access — or creating dependency? Tracked through Gallup's Voices of Gen Z panel and extendable globally through the Gallup World Poll.</div>
+    </div>
+    <div class="pred-card">
+      <div class="pred-claim">"This is not an improvement of the old system — it's the end of the old system"</div>
+      <div class="pred-source">Oneindia, August 2025</div>
+      <div class="pred-measure"><strong>What Gallup tracks:</strong> The full landscape — are existing economic structures being transformed or merely adjusted? Worker experience, employer behavior, community impact, government effectiveness. The comprehensive picture that isolated studies can't provide.</div>
+    </div>
+    <div class="pred-card">
+      <div class="pred-claim">"The 2030s will see a faster rate of demise of Fortune 500 companies than we've ever seen"</div>
+      <div class="pred-source">Fortune, July 2025</div>
+      <div class="pred-measure"><strong>What Gallup tracks:</strong> How workers inside disrupted organizations experience the transition. Are they gaining skills and moving to better opportunities? Or are they being deskilled and stranded? The human story inside the corporate disruption data.</div>
+    </div>
+  </div>
+</section>
+
+<div class="div-line"></div>
+
+<!-- ====== THE CENTER ====== -->
+<section class="s">
+  <div class="reveal">
+    <div class="s-label">The Center</div>
+    <h2>Gallup Is Building a Dedicated AI Research Center. One Partner Shapes It.</h2>
+    <p>
+      The Gallup Center for AI & American Life will be an ongoing, nationally representative research program tracking what AI is actually doing to the way people work, learn, access expertise, and live their daily lives. Independent of every AI company. Quarterly. Continuous. Building a longitudinal record of the biggest economic transition in generations.
+    </p>
+    <p>
+      We are seeking <strong>one signature partner</strong> to co-shape the research agenda and the public platform. The partner's name goes on every finding, every release, every briefing. They don't just fund measurement — they own the most credible ongoing data on AI's real-world impact.
+    </p>
+  </div>
+
+  <div class="partner-block reveal">
+    <h3>What the Signature Partner Shapes</h3>
+    <ul class="partner-list">
+      <li>The research agenda — which hypotheses get tracked, which populations get oversampled, which findings get elevated</li>
+      <li>The advisory group — engineers, economists, workers, founders, the people who know what questions matter because they're living the answers</li>
+      <li>The public platform — quarterly data releases, national media, policy briefings, all carrying the partner's name alongside Gallup's</li>
+      <li>Global reach — extending measurement to 155+ countries through the Gallup World Poll, tracking whether AI's transformation plays out differently in emerging economies</li>
+      <li>The accountability function — real-time evidence of whether AI products, investments, and policies are delivering what they promise</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ====== PUBLIC PLATFORM ====== -->
+<section class="s" id="platform">
+  <div class="reveal">
+    <div class="s-label">The Platform</div>
+    <h2>Data That Enters the Conversation and Doesn't Leave</h2>
+    <p>The Center produces a sustained public platform — not a report that gets filed, but a constant stream of independent findings that shape how employers, policymakers, investors, and the public understand AI's real impact.</p>
+  </div>
+
+  <div class="output-grid reveal">
+    <div class="output-card featured">
+      <div class="output-label">Quarterly Data Releases</div>
+      <div class="output-text">Fresh, nationally representative findings every 90 days. Each release is a new data point the entire AI conversation has to reckon with. A real-time scoreboard for the biggest economic prediction of the decade.</div>
+    </div>
+    <div class="output-card featured">
+      <div class="output-label">Monthly Content</div>
+      <div class="output-text">Articles, data features, and analysis on Gallup.com and placed in major outlets. The Center becomes the go-to source — not projections or models, but what's actually happening to people right now.</div>
+    </div>
+    <div class="output-card featured">
+      <div class="output-label">Flagship Media Launches</div>
+      <div class="output-text">Major releases with embargoed media access. Independent data that produces headlines because it's measurement, not marketing. The signature partner's name on all of it.</div>
+    </div>
+    <div class="output-card">
+      <div class="output-label">Annual State of AI & American Life</div>
+      <div class="output-text">The definitive annual reference on what AI is actually doing to work, health, education, and daily life. The report people cite when they want facts instead of forecasts.</div>
+    </div>
+    <div class="output-card">
+      <div class="output-label">Policy Briefings</div>
+      <div class="output-text">Congressional and executive branch briefings. Non-partisan, independent data that gives policymakers the facts. Both sides can use it because neither side produced it.</div>
+    </div>
+    <div class="output-card">
+      <div class="output-label">Investor & Employer Briefings</div>
+      <div class="output-text">Working sessions with AI investors, employers, and founders. Real data on which AI deployments are producing results and which are burning money. Proprietary insight the market doesn't have.</div>
+    </div>
+    <div class="output-card">
+      <div class="output-label">Real Stories</div>
+      <div class="output-text">In-depth interviews with real Americans — workers, small business owners, students, patients — whose data tells a story. The human evidence behind the numbers.</div>
+    </div>
+    <div class="output-card">
+      <div class="output-label">Global Tracking</div>
+      <div class="output-text">Core measures replicated across 155+ countries via the Gallup World Poll. Is the prediction playing out the same way in India, Nigeria, and Brazil as it is in the United States?</div>
+    </div>
+    <div class="output-card">
+      <div class="output-label">Annual Summit</div>
+      <div class="output-text">An annual convening of founders, investors, economists, workers, and policymakers — reviewing what the independent data actually shows, and what it means for the next year.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== IMAGE BAND ====== -->
+<div class="img-band" style="background-image:linear-gradient(to right,rgba(0,0,0,0.5),rgba(0,0,0,0.15)),url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=1600&q=80')">
+  <div><div class="img-band-caption">Quarterly data. Monthly analysis. Annual summits. Policy briefings. Investor sessions. Global tracking. The signature partner's name on all of it.</div></div>
+</div>
+
+<!-- ====== HOW IT WORKS ====== -->
+<section class="s-wide" id="method">
+  <div class="reveal">
+    <div class="s-label">How It Works</div>
+    <h2>Quarterly Cycle. Continuous Data. Compounding Over Time.</h2>
+    <p>Not a study. A measurement engine. Each quarterly cycle builds on the last, producing richer trend data and a growing public record of what's actually happening.</p>
+  </div>
+</section>
+
+<div class="s-wide">
+  <div class="phases reveal">
+    <div class="phase"><img class="phase-img" src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80" alt="Advisory"><div class="phase-body"><div class="phase-num">Phase 01</div><div class="phase-name">Assemble the Right People</div><div class="phase-desc">A working advisory group — engineers, economists, AI founders, workers, small business owners. Not a ceremonial board. People who know what to measure because they're living the transition. The signature partner helps shape who's at the table.</div></div></div>
+    <div class="phase"><img class="phase-img" src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&q=80" alt="Instrument"><div class="phase-body"><div class="phase-num">Phase 02</div><div class="phase-name">Build the Instrument</div><div class="phase-desc">Rigorously developed survey questions tested through cognitive interviews with real respondents. Not questions designed to confirm a thesis. Questions designed to find out what's true. Refined until the data holds up to any scrutiny.</div></div></div>
+    <div class="phase"><img class="phase-img" src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800&q=80" alt="Field"><div class="phase-body"><div class="phase-num">Phase 03</div><div class="phase-name">Ask Everyone</div><div class="phase-desc">Nationally representative data via the Gallup Panel — the largest probability-based panel in the country. Not a tech-bubble survey of Bay Area knowledge workers. Address-based sampling that reaches every American — rural, urban, every income level, every industry, every background.</div></div></div>
+    <div class="phase"><img class="phase-img" src="https://images.unsplash.com/photo-1573497620053-ea5300f94f21?w=800&q=80" alt="Stories"><div class="phase-body"><div class="phase-num">Phase 04</div><div class="phase-name">Get the Real Stories</div><div class="phase-desc">In-depth interviews with respondents whose data tells a story. A factory worker whose job changed. A nurse using AI diagnostics. A small business owner who automated half the work. The human texture behind the national numbers.</div></div></div>
+    <div class="phase"><img class="phase-img" src="https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=800&q=80" alt="Publish"><div class="phase-body"><div class="phase-num">Phase 05</div><div class="phase-name">Put It in the Open</div><div class="phase-desc">Quarterly media releases, monthly content, policy briefings, investor sessions. The data goes public. Everyone — investors, employers, policymakers, the press — has to contend with what the numbers actually say.</div></div></div>
+    <div class="phase"><img class="phase-img" src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80" alt="Track"><div class="phase-body"><div class="phase-num">Phase 06</div><div class="phase-name">Track the Trajectory</div><div class="phase-desc">The cycle repeats quarterly. Trend data accumulates. The prediction either validates or evolves. The record builds — independent, longitudinal, getting sharper every 90 days. By 2030, we'll know.</div></div></div>
+  </div>
+</div>
+
+<!-- ====== GALLUP BAR ====== -->
+<div class="gallup-bar" style="margin-top:60px">
+  <div class="gallup-inner">
+    <div class="gallup-text">
+      <p><strong>Gallup has been independently measuring what Americans experience for over 80 years.</strong> No AI product to sell. No thesis to protect. No portfolio companies to validate. Just data — nationally representative, scientifically rigorous, and trusted because it's independent.</p>
+      <p>The infrastructure exists. The panel exists. The global reach exists. What's needed is the partner who made the prediction and wants the measurement to match it.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px">
+      <div class="gallup-stat"><div class="gallup-num">80+</div><div class="gallup-desc">years of independent measurement</div></div>
+      <div class="gallup-stat"><div class="gallup-num">2.7M</div><div class="gallup-desc">teams studied</div></div>
+      <div class="gallup-stat"><div class="gallup-num">155+</div><div class="gallup-desc">countries</div></div>
+      <div class="gallup-stat"><div class="gallup-num">0</div><div class="gallup-desc">AI products to sell</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ====== FOOTER ====== -->
+<div class="footer-band">
+  <h2>You predicted the biggest economic transformation in generations. The person who funds the independent measurement of whether it's happening owns the most valuable data in the room.</h2>
+  <p>Gallup is building the Center. We're looking for one partner who wants the scoreboard.</p>
+  <div class="footer-brand" style="margin-top:24px">THE GALLUP CENTER FOR AI & AMERICAN LIFE</div>
+</div>
+
+<script>
+const reveals=document.querySelectorAll('.reveal');const observer=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')})},{threshold:0.1});reveals.forEach(el=>observer.observe(el));
+</script>
+</body>
+</html>
