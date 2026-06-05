@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Evidence for the Golden Age — Gallup</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@300;400;600;700;800&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--green:#00857c;--green-dark:#006b63;--green-light:#e6f5f3;--warm:#1a1a1a;--text:#2d2d2d;--text2:#555;--text3:#888;--bg:#fafaf8;--card:#fff;--border:#e8e6e1}
+*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text)}
+.topnav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(250,250,248,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 40px;height:56px}
+.topnav-brand{font-family:'Source Serif 4',serif;font-weight:700;font-size:15px;color:var(--green);letter-spacing:-0.3px}
+.topnav-links{display:flex;gap:28px}
+.topnav-links a{font-size:12px;color:var(--text3);text-decoration:none;letter-spacing:0.5px;text-transform:uppercase;font-weight:500;transition:color 0.2s}
+.topnav-links a:hover{color:var(--green)}
+.hero{min-height:100vh;position:relative;display:flex;align-items:flex-end;background:linear-gradient(to bottom,rgba(0,0,0,0.08),rgba(0,0,0,0.58)),url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1600&q=80') center/cover no-repeat;padding:0 0 80px 0}
+.hero-inner{max-width:900px;padding:0 48px}
+.hero-tag{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,0.7);margin-bottom:20px}
+.hero h1{font-family:'Source Serif 4',serif;font-weight:800;font-size:clamp(36px,5.5vw,66px);line-height:1.08;color:#fff;margin-bottom:20px;max-width:800px}
+.hero-sub{font-size:18px;color:rgba(255,255,255,0.85);max-width:620px;line-height:1.7;font-weight:300}
+.s{padding:100px 48px;max-width:1000px;margin:0 auto}.s-wide{padding:100px 48px;max-width:1200px;margin:0 auto}
+.s-label{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--green);margin-bottom:16px}
+.s h2{font-family:'Source Serif 4',serif;font-weight:700;font-size:clamp(26px,3.5vw,42px);line-height:1.18;margin-bottom:24px;color:var(--warm);max-width:740px}
+.s p,.s-wide p{font-size:17px;color:var(--text2);max-width:680px;margin-bottom:20px;line-height:1.75;font-weight:300}.s p strong{color:var(--text);font-weight:600}
+.img-band{width:100%;height:420px;position:relative;overflow:hidden;background-size:cover;background-position:center;display:flex;align-items:flex-end}
+.img-band-caption{background:linear-gradient(to top,rgba(0,0,0,0.7),transparent);width:100%;padding:40px 48px 32px;font-family:'Source Serif 4',serif;font-size:22px;color:#fff;font-weight:600;line-height:1.4}
+.stat-row{display:flex;gap:32px;margin:48px 0;flex-wrap:wrap}.stat-item{flex:1;min-width:180px}
+.stat-big{font-family:'Source Serif 4',serif;font-size:48px;font-weight:800;line-height:1}.stat-big.green{color:var(--green)}.stat-big.red{color:#b44a1a}
+.stat-desc{font-size:13px;color:var(--text2);margin-top:6px;line-height:1.5}.stat-src{font-size:10px;color:var(--text3);margin-top:4px;font-style:italic}
+
+/* Thesis cards */
+.thesis-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin:48px 0}
+.thesis-card{border-radius:12px;padding:32px;transition:border-color 0.2s}
+.thesis-card.claim{background:var(--warm);color:#fff;border:1px solid var(--warm)}
+.thesis-card.evidence{background:var(--card);border:1px solid var(--border)}
+.thesis-card.evidence:hover{border-color:var(--green)}
+.thesis-label{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;margin-bottom:10px}
+.thesis-card.claim .thesis-label{color:rgba(255,255,255,0.5)}
+.thesis-card.evidence .thesis-label{color:var(--green)}
+.thesis-text{font-family:'Source Serif 4',serif;font-size:18px;font-weight:700;line-height:1.35;margin-bottom:12px}
+.thesis-card.claim .thesis-text{color:#fff}
+.thesis-detail{font-size:14px;line-height:1.6}
+.thesis-card.claim .thesis-detail{color:rgba(255,255,255,0.75)}
+.thesis-card.evidence .thesis-detail{color:var(--text2)}
+
+.partner-block{background:var(--green-light);border:1px solid rgba(0,133,124,0.15);border-radius:16px;padding:48px;margin:48px 0}
+.partner-block h3{font-family:'Source Serif 4',serif;font-size:24px;font-weight:700;color:var(--warm);margin-bottom:16px}
+.partner-block p{font-size:16px;color:var(--text2);line-height:1.7;max-width:660px;margin-bottom:16px}
+.partner-list{list-style:none;margin-top:20px}
+.partner-list li{font-size:15px;color:var(--text2);padding:8px 0;display:flex;align-items:flex-start;gap:10px;border-bottom:1px solid rgba(0,133,124,0.1)}
+.partner-list li::before{content:'→';color:var(--green);font-weight:600;flex-shrink:0}
+
+.phases{display:flex;gap:0;margin:48px -48px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding:0 48px}
+.phase{min-width:380px;max-width:420px;flex-shrink:0;scroll-snap-align:start;border:1px solid var(--border);background:var(--card);overflow:hidden}
+.phase:first-child{border-radius:12px 0 0 12px}.phase:last-child{border-radius:0 12px 12px 0}
+.phase-img{width:100%;height:200px;object-fit:cover;display:block;filter:saturate(0.85)}
+.phase-body{padding:28px}
+.phase-num{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--green);margin-bottom:8px}
+.phase-name{font-family:'Source Serif 4',serif;font-size:20px;font-weight:700;color:var(--warm);margin-bottom:10px}
+.phase-desc{font-size:14px;color:var(--text2);line-height:1.65}
+.output-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin:40px 0}
+.output-card{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:24px;transition:border-color 0.2s}.output-card:hover{border-color:var(--green)}
+.output-card.featured{border-color:var(--green);background:var(--green-light)}
+.output-label{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--green);margin-bottom:8px}
+.output-text{font-size:14px;color:var(--text2);line-height:1.6}
+.gallup-bar{background:var(--warm);color:#fff;padding:60px 48px}
+.gallup-inner{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+.gallup-stat{text-align:center}.gallup-num{font-family:'Source Serif 4',serif;font-size:56px;font-weight:800;color:var(--green);line-height:1}.gallup-desc{font-size:13px;color:rgba(255,255,255,0.6);margin-top:6px}
+.gallup-text p{font-size:16px;color:rgba(255,255,255,0.8);line-height:1.7;margin-bottom:16px}.gallup-text p strong{color:#fff}
+.footer-band{background:var(--bg);padding:80px 48px;text-align:center;border-top:1px solid var(--border)}
+.footer-band h2{font-family:'Source Serif 4',serif;font-size:clamp(24px,3.5vw,38px);font-weight:700;margin-bottom:16px;line-height:1.25;color:var(--warm);max-width:700px;margin-left:auto;margin-right:auto}
+.footer-band p{font-size:16px;color:var(--text2);max-width:560px;margin:0 auto 32px;line-height:1.7}
+.footer-brand{font-size:12px;color:var(--text3);letter-spacing:1px}
+.reveal{opacity:0;transform:translateY(24px);transition:all 0.6s cubic-bezier(0.16,1,0.3,1)}.reveal.visible{opacity:1;transform:translateY(0)}
+.div-line{max-width:1000px;margin:0 auto;border-top:1px solid var(--border)}
+@media(max-width:900px){.thesis-grid{grid-template-columns:1fr}.hero-inner{padding:0 24px}.s,.s-wide{padding:60px 24px}.topnav-links{display:none}.phases{padding:0 24px}.phase{min-width:300px}.gallup-inner{grid-template-columns:1fr}.partner-block{padding:32px}}
+@media(max-width:600px){.stat-row{flex-direction:column}}
+</style>
+</head>
+<body>
+<nav class="topnav"><div class="topnav-brand">Gallup</div><div class="topnav-links"><a href="#thesis">The Thesis</a><a href="#center">The Center</a><a href="#platform">The Platform</a><a href="#method">How It Works</a></div></nav>
+
+<!-- ====== HERO ====== -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-tag">Seeking a Signature Partner</div>
+    <h1>The Golden Age Thesis Is the Most Important Argument in Technology. It Deserves Evidence to Match.</h1>
+    <p class="hero-sub">AI is creating unprecedented opportunity. Costs are collapsing. Capabilities are accelerating. But the argument needs more than conviction — it needs independent, rigorous, nationally representative data showing what AI is actually doing to people's lives. Gallup is building that.</p>
+  </div>
+</section>
+
+<!-- ====== THE THESIS ====== -->
+<section class="s" id="thesis">
+  <div class="reveal">
+    <div class="s-label">The Thesis</div>
+    <h2>The Optimist Case Is Strong. The Evidence Base Is Thin. That's the Vulnerability.</h2>
+    <p>
+      The golden age argument is compelling: AI collapses the cost of intelligence, restores historical productivity growth, creates more jobs than it displaces, and expands access to expertise that was previously scarce and expensive. It's the most important argument being made about technology's role in society.
+    </p>
+    <p>
+      But the critics don't have to disprove the thesis. They just have to point out that <strong>there's no independent, ongoing, nationally representative data showing it's happening.</strong> Job openings are up? That's a snapshot. Productivity models project gains? That's a projection. Costs are falling? That's supply-side. None of it tells you what AI is actually doing to the experience of the people whose lives it's supposed to improve.
+    </p>
+    <p>
+      The strongest move for the optimist case isn't arguing louder. It's funding the independent measurement. If the thesis is right, the data will show it — in a way that critics can't dismiss as industry marketing, theoretical modeling, or cherry-picked anecdotes.
+    </p>
+  </div>
+
+  <div class="stat-row reveal">
+    <div class="stat-item">
+      <div class="stat-big red">2%</div>
+      <div class="stat-desc">of Americans fully trust AI. The golden age hasn't reached the public yet — even frequent AI users distrust it.</div>
+      <div class="stat-src">Gallup-SCSP, 2025</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-big green">8.7×</div>
+      <div class="stat-desc">When managers support AI adoption, employees are 8.7× more likely to say it transformed their work. The golden age has a delivery mechanism — it's the manager.</div>
+      <div class="stat-src">Gallup, 2026</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-big red">61%</div>
+      <div class="stat-desc">believe AI will destroy more jobs than it creates. The public narrative is winning against the optimist case — because the optimist case doesn't have ongoing data.</div>
+      <div class="stat-src">Gallup-SCSP, 2025</div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== IMAGE BAND ====== -->
+<div class="img-band" style="background-image:linear-gradient(to right,rgba(0,0,0,0.55),rgba(0,0,0,0.2)),url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1600&q=80')">
+  <div><div class="img-band-caption">Conviction without evidence is opinion. The golden age thesis deserves measurement infrastructure as ambitious as the argument itself.</div></div>
+</div>
+
+<!-- ====== THESIS vs EVIDENCE ====== -->
+<section class="s-wide">
+  <div class="reveal">
+    <div class="s-label">Thesis → Evidence</div>
+    <h2>Every Element of the Optimist Case Creates a Measurable Hypothesis</h2>
+    <p>The golden age thesis makes specific claims about what AI will do for people. Each one can be tracked — independently, quarterly, at nationally representative scale.</p>
+  </div>
+
+  <div class="thesis-grid reveal">
+    <div class="thesis-card claim">
+      <div class="thesis-label">The Thesis</div>
+      <div class="thesis-text">"AI will restore historical productivity growth and spark net job creation"</div>
+      <div class="thesis-detail">Job openings data and GDP projections support the direction. But they don't capture whether the new jobs are better or worse than the old ones — or whether the people in them are thriving.</div>
+    </div>
+    <div class="thesis-card evidence">
+      <div class="thesis-label">What Gallup Tracks</div>
+      <div class="thesis-text">The quality of work — not just the quantity of jobs</div>
+      <div class="thesis-detail">Are people in AI-augmented roles more engaged, more purposeful, more economically secure? Or are they working more for less meaning? The human experience inside the productivity number.</div>
+    </div>
+
+    <div class="thesis-card claim">
+      <div class="thesis-label">The Thesis</div>
+      <div class="thesis-text">"The cost of intelligence is collapsing — prices for goods and services will crash to near zero"</div>
+      <div class="thesis-detail">On the supply side, costs are falling fast. But is that reaching people? Is access to expertise actually expanding for the people who need it most?</div>
+    </div>
+    <div class="thesis-card evidence">
+      <div class="thesis-label">What Gallup Tracks</div>
+      <div class="thesis-text">Whether collapsing costs translate into expanding access</div>
+      <div class="thesis-detail">Are Americans using AI to access healthcare guidance, legal help, financial advice, and career support they couldn't afford before? Who is gaining access — and who is being left out? Tracked continuously across income, education, geography.</div>
+    </div>
+
+    <div class="thesis-card claim">
+      <div class="thesis-label">The Thesis</div>
+      <div class="thesis-text">"AI job loss fears are all fake — we need AI precisely as populations shrink"</div>
+      <div class="thesis-detail">The macro argument is sound. But "no net job loss" doesn't mean no disruption. The people moving between industries, retraining, and adapting have an experience that aggregate data doesn't capture.</div>
+    </div>
+    <div class="thesis-card evidence">
+      <div class="thesis-label">What Gallup Tracks</div>
+      <div class="thesis-text">The experience of transition — worker by worker, quarter by quarter</div>
+      <div class="thesis-detail">For workers whose roles are changing: are they gaining skills and moving into better work? Or being deskilled and stranded? What makes the difference? The individual-level evidence that resolves the "fake vs. real" debate with data instead of argument.</div>
+    </div>
+
+    <div class="thesis-card claim">
+      <div class="thesis-label">The Thesis</div>
+      <div class="thesis-text">"We are living through the most incredible time in history"</div>
+      <div class="thesis-detail">American wellbeing has fallen to its lowest point since the pandemic. Employee engagement is at an 11-year low. The golden age may be arriving — but people aren't feeling it yet.</div>
+    </div>
+    <div class="thesis-card evidence">
+      <div class="thesis-label">What Gallup Tracks</div>
+      <div class="thesis-text">Whether people's lives are actually getting better — measured directly</div>
+      <div class="thesis-detail">Gallup's Well-Being Index has tracked five dimensions of American life since 2008. Overlaying AI exposure and adoption tells you whether the golden age is materializing in people's lived experience — or only in market returns.</div>
+    </div>
+  </div>
+</section>
+
+<div class="div-line"></div>
+
+<!-- ====== THE CENTER ====== -->
+<section class="s" id="center">
+  <div class="reveal">
+    <div class="s-label">The Center</div>
+    <h2>Gallup Is Building an Independent AI Research Center. One Partner Shapes It.</h2>
+    <p>
+      The Gallup Center for AI & American Life will be an ongoing, nationally representative research program tracking what AI is actually doing to people's work, economic opportunity, access to expertise, and quality of life. Independent of every AI company. Quarterly. Continuous. Building the longitudinal evidence base for the most consequential economic argument of the decade.
+    </p>
+    <p>
+      We are seeking <strong>one signature partner</strong> to co-shape the research agenda and the public platform. The partner's name goes on every finding, every release, every briefing — becoming the name behind the most credible, independent, ongoing measurement of AI's real-world impact.
+    </p>
+  </div>
+
+  <div class="partner-block reveal">
+    <h3>What the Signature Partner Shapes</h3>
+    <ul class="partner-list">
+      <li>The research agenda — which hypotheses get tracked, which populations get studied, which findings get elevated</li>
+      <li>The advisory group — engineers, economists, founders, operators, workers. People who know what matters because they're building it or living it</li>
+      <li>The public platform — quarterly data releases, national media, policy briefings, employer roundtables, all carrying the partner's name</li>
+      <li>The access lens — is AI actually expanding access to expertise (health, legal, financial, educational) for people who couldn't afford it before?</li>
+      <li>Global reach — extending measurement to 155+ countries through the Gallup World Poll. Is the golden age materializing the same way in emerging economies?</li>
+      <li>The credibility of independence — Gallup has no AI product, no portfolio to validate. The data is trusted because it comes from an institution with no stake in the outcome</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ====== PUBLIC PLATFORM ====== -->
+<section class="s" id="platform">
+  <div class="reveal">
+    <div class="s-label">The Platform</div>
+    <h2>Independent Data That Shapes the Conversation</h2>
+    <p>The Center produces a sustained public platform — quarterly independent findings that inform how employers, investors, policymakers, and the public understand AI's real impact. The signature partner's name on every piece of it.</p>
+  </div>
+
+  <div class="output-grid reveal">
+    <div class="output-card featured">
+      <div class="output-label">Quarterly Data Releases</div>
+      <div class="output-text">Fresh findings every 90 days. The signature partner gets early access. Each quarter is new evidence the AI conversation has to engage with — independent, rigorous, and impossible to dismiss as marketing.</div>
+    </div>
+    <div class="output-card featured">
+      <div class="output-label">Monthly Content</div>
+      <div class="output-text">Articles, data features, and analysis on Gallup.com and placed in major outlets. The Center becomes the definitive source — grounded in evidence, not projection.</div>
+    </div>
+    <div class="output-card featured">
+      <div class="output-label">Flagship Media Launches</div>
+      <div class="output-text">Major releases with embargoed media access. Independent measurement that generates coverage because it answers the questions everyone is arguing about — with data.</div>
+    </div>
+    <div class="output-card">
+      <div class="output-label">Annual State of AI & American Life</div>
+      <div class="output-text">The definitive annual reference on what AI is actually doing to work, access, opportunity, and quality of life. The report people cite when they want evidence instead of argument.</div>
+    </div>
+    <div class="output-card">
+      <div class="output-label">Investor & Employer Roundtables</div>
+      <div class="output-text">Working sessions with AI investors, founders, and employers. Independent data on where AI deployments are producing real human outcomes — not just financial returns.</div>
+    </div>
+    <div class="output-card">
+      <div class="output-label">Policy Briefings</div>
+      <div class="output-text">Congressional and executive branch sessions. Non-partisan, independent data that both sides can use — because neither side produced it.</div>
+    </div>
+    <div class="output-card">
+      <div class="output-label">Real Stories</div>
+      <div class="output-text">In-depth interviews with Americans experiencing the transition — the human evidence that makes data relatable and findings impossible to dismiss.</div>
+    </div>
+    <div class="output-card">
+      <div class="output-label">Global Tracking</div>
+      <div class="output-text">Core measures across 155+ countries via the Gallup World Poll. Is AI expanding access and opportunity globally — or concentrating gains in markets that already have them?</div>
+    </div>
+    <div class="output-card">
+      <div class="output-label">Annual Summit</div>
+      <div class="output-text">Founders, investors, economists, workers, policymakers — reviewing what the independent data shows about whether the golden age is materializing. The convening that matters.</div>
+    </div>
+  </div>
+</section>
+
+<div class="img-band" style="background-image:linear-gradient(to right,rgba(0,0,0,0.5),rgba(0,0,0,0.15)),url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=1600&q=80')">
+  <div><div class="img-band-caption">Quarterly evidence. Monthly analysis. Annual summits. Policy briefings. Investor sessions. The independent record of whether the most optimistic thesis in technology is coming true.</div></div>
+</div>
+
+<!-- ====== HOW IT WORKS ====== -->
+<section class="s-wide" id="method">
+  <div class="reveal">
+    <div class="s-label">How It Works</div>
+    <h2>Quarterly Cycle. Continuous Data. Compounding Over Time.</h2>
+    <p>Each cycle builds on the last. The evidence either strengthens the thesis or surfaces where it needs refinement. The record grows sharper every 90 days.</p>
+  </div>
+</section>
+
+<div class="s-wide">
+  <div class="phases reveal">
+    <div class="phase"><img class="phase-img" src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80" alt="Advisory"><div class="phase-body"><div class="phase-num">Phase 01</div><div class="phase-name">Assemble the Right People</div><div class="phase-desc">A working advisory group — engineers, economists, AI founders, operators, workers. People who know what to measure because they're building the future or experiencing its effects. The signature partner helps shape who's at the table.</div></div></div>
+    <div class="phase"><img class="phase-img" src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&q=80" alt="Instrument"><div class="phase-body"><div class="phase-num">Phase 02</div><div class="phase-name">Build the Instrument</div><div class="phase-desc">Rigorously developed questions tested through cognitive interviews with real respondents. Not designed to confirm any thesis. Designed to find what's true. Refined until the data holds up to the most hostile scrutiny — which is exactly the point.</div></div></div>
+    <div class="phase"><img class="phase-img" src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800&q=80" alt="Field"><div class="phase-body"><div class="phase-num">Phase 03</div><div class="phase-name">Ask Everyone</div><div class="phase-desc">Nationally representative data via the Gallup Panel — the largest probability-based panel in the country. Every American, every income level, every industry, every background. Including the populations whose experience determines whether the golden age is real or theoretical.</div></div></div>
+    <div class="phase"><img class="phase-img" src="https://images.unsplash.com/photo-1573497620053-ea5300f94f21?w=800&q=80" alt="Stories"><div class="phase-body"><div class="phase-num">Phase 04</div><div class="phase-name">Get the Real Stories</div><div class="phase-desc">In-depth interviews with people whose data tells a compelling story. A worker who gained access to expertise. A small business owner who scaled with AI. A nurse using AI diagnostics. The human evidence behind the national numbers.</div></div></div>
+    <div class="phase"><img class="phase-img" src="https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=800&q=80" alt="Publish"><div class="phase-body"><div class="phase-num">Phase 05</div><div class="phase-name">Publish & Convene</div><div class="phase-desc">Signature partner gets early access. Then: media launches, investor roundtables, policy briefings, monthly content, annual report. The data enters the national conversation — independent, rigorous, and carrying the partner's name.</div></div></div>
+    <div class="phase"><img class="phase-img" src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80" alt="Track"><div class="phase-body"><div class="phase-num">Phase 06</div><div class="phase-name">Track the Trajectory</div><div class="phase-desc">The cycle repeats quarterly. Trend data accumulates. The thesis either validates or evolves. The record builds — independent, longitudinal, and getting more definitive every 90 days.</div></div></div>
+  </div>
+</div>
+
+<!-- ====== GALLUP BAR ====== -->
+<div class="gallup-bar" style="margin-top:60px">
+  <div class="gallup-inner">
+    <div class="gallup-text">
+      <p><strong>Gallup has spent 80+ years measuring what Americans actually experience.</strong> Not what markets signal. Not what models predict. What people live. Engagement at work. Wellbeing at home. Economic confidence. Access to opportunity. Trust in institutions. Across 2.7 million teams, 155+ countries, and every industry.</p>
+      <p>The infrastructure is in place. The golden age thesis is the most important argument in technology. What it needs is evidence infrastructure to match. The signature partner shapes it and owns what comes out of it.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px">
+      <div class="gallup-stat"><div class="gallup-num">80+</div><div class="gallup-desc">years of measuring American life</div></div>
+      <div class="gallup-stat"><div class="gallup-num">2.7M</div><div class="gallup-desc">teams studied</div></div>
+      <div class="gallup-stat"><div class="gallup-num">155+</div><div class="gallup-desc">countries</div></div>
+      <div class="gallup-stat"><div class="gallup-num">0</div><div class="gallup-desc">AI products to sell</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ====== FOOTER ====== -->
+<div class="footer-band">
+  <h2>The strongest move for the optimist case isn't arguing louder. It's funding the independent measurement. If the thesis is right, the data will show it.</h2>
+  <p>Gallup is building the Center. We're looking for one partner who wants the evidence to match the conviction.</p>
+  <div class="footer-brand" style="margin-top:24px">THE GALLUP CENTER FOR AI & AMERICAN LIFE</div>
+</div>
+
+<script>
+const reveals=document.querySelectorAll('.reveal');const observer=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')})},{threshold:0.1});reveals.forEach(el=>observer.observe(el));
+</script>
+</body>
+</html>
