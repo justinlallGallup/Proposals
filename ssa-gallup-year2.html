@@ -1,0 +1,1103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Continuing the Stop Scams Alliance–Gallup U.S. National Survey — Year 2</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #0b140f;
+  --ink-mid: #11201a;
+  --green: #1a8250;
+  --green-deep: #12683f;
+  --green-light: #34a76a;
+  --green-pale: #e8f3ec;
+  --green-wash: rgba(26,130,80,0.07);
+  --gold: #bd9a45;
+  --gold-light: #d0b264;
+  --warm-white: #faf9f6;
+  --warm-gray: #f1f0eb;
+  --border: #e4e2da;
+  --text: #14201a;
+  --text-secondary: #56615a;
+  --text-muted: #8a938c;
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-body: 'DM Sans', -apple-system, sans-serif;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--font-body); color: var(--text); background: var(--warm-white); -webkit-font-smoothing: antialiased; }
+::selection { background: var(--green); color: #fff; }
+
+.site-header { position: sticky; top: 0; z-index: 100; background: rgba(250,249,246,0.92); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-bottom: 1px solid var(--border); }
+.header-inner { max-width: 1200px; margin: 0 auto; padding: 0.9rem 2.5rem; display: flex; align-items: center; justify-content: space-between; }
+.logo-group { display: flex; align-items: center; gap: 1.2rem; }
+.logo-ssa { font-family: var(--font-display); font-weight: 700; font-size: 1.05rem; color: var(--ink); letter-spacing: 0.01em; line-height: 1.1; }
+.logo-ssa span { display: block; font-size: 0.58rem; font-family: var(--font-body); font-weight: 500; color: var(--text-muted); letter-spacing: 0.09em; text-transform: uppercase; margin-top: 0.18rem; }
+.logo-divider { width: 1px; height: 28px; background: var(--border); }
+.logo-gallup { font-family: Georgia, 'Times New Roman', serif; font-weight: 700; font-size: 1rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--green); }
+.header-actions { display: flex; align-items: center; gap: 0.7rem; }
+.btn-header { display: flex; align-items: center; gap: 0.45rem; padding: 0.5rem 1rem; border: none; border-radius: 6px; font-family: var(--font-body); font-size: 0.75rem; font-weight: 600; letter-spacing: 0.02em; cursor: pointer; transition: all 0.2s ease; }
+.btn-header svg { width: 14px; height: 14px; flex-shrink: 0; }
+.btn-investment { background: var(--green); color: #fff; }
+.btn-investment:hover { background: var(--green-deep); }
+.btn-export { background: #fff; color: var(--ink); border: 1px solid var(--border) !important; }
+.btn-export:hover { background: var(--warm-gray); }
+.btn-email { background: var(--ink); color: #fff; }
+.btn-email:hover { background: var(--ink-mid); }
+
+.hero { position: relative; overflow: hidden; background: var(--ink); color: #fff; padding: 6rem 2.5rem 5rem; }
+.hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 80% 60% at 12% 78%, rgba(26,130,80,0.22) 0%, transparent 62%), radial-gradient(ellipse 55% 50% at 88% 10%, rgba(52,167,106,0.10) 0%, transparent 60%); }
+.hero-inner { max-width: 940px; margin: 0 auto; position: relative; z-index: 1; }
+.hero-label { display: inline-block; font-size: 0.68rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--green-light); margin-bottom: 1.8rem; animation: fadeUp 0.6s ease both; }
+.hero h1 { font-family: var(--font-display); font-weight: 500; font-size: clamp(2.6rem, 5.5vw, 3.9rem); line-height: 1.1; margin-bottom: 1.5rem; animation: fadeUp 0.6s 0.08s ease both; }
+.hero h1 em { font-style: italic; color: var(--green-light); }
+.hero-sub { font-size: 1.08rem; line-height: 1.78; color: rgba(255,255,255,0.66); max-width: 660px; font-weight: 300; animation: fadeUp 0.6s 0.16s ease both; }
+.hero-figures { display: flex; gap: 2.8rem; margin-top: 3rem; flex-wrap: wrap; align-items: flex-end; animation: fadeUp 0.6s 0.24s ease both; }
+.hf-block { position: relative; }
+.hf-n { font-family: var(--font-display); font-weight: 600; font-size: 2.8rem; color: var(--gold-light); line-height: 1; }
+.hf-n small { font-size: 1.3rem; }
+.hf-label { font-size: 0.74rem; font-weight: 500; color: rgba(255,255,255,0.55); line-height: 1.5; margin-top: 0.5rem; max-width: 190px; }
+.hf-vs { font-family: var(--font-display); font-style: italic; font-size: 1.1rem; color: rgba(255,255,255,0.35); padding-bottom: 1.6rem; }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+
+.section { max-width: 1200px; margin: 0 auto; padding: 5rem 2.5rem; }
+.section-narrow { max-width: 860px; }
+.section-label { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--green); margin-bottom: 0.6rem; }
+.section-title { font-family: var(--font-display); font-weight: 500; font-size: clamp(1.8rem, 3.5vw, 2.4rem); line-height: 1.2; color: var(--ink); margin-bottom: 0.8rem; }
+.section-subtitle { font-size: 1rem; color: var(--text-secondary); line-height: 1.72; max-width: 680px; }
+
+.narrative { max-width: 860px; margin: 0 auto; }
+.narrative p { font-size: 1.05rem; line-height: 1.82; color: var(--text); margin-bottom: 1.4rem; }
+.narrative p:first-of-type::first-letter { font-family: var(--font-display); font-size: 3.4rem; font-weight: 600; float: left; line-height: 0.85; margin: 0.08rem 0.6rem 0 0; color: var(--green); }
+
+.thesis { margin: 3rem 0; padding: 2.4rem 2.6rem; background: var(--ink); border-radius: 12px; color: #fff; position: relative; overflow: hidden; }
+.thesis::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 70% 80% at 90% 20%, rgba(26,130,80,0.20) 0%, transparent 60%); }
+.thesis-text { font-family: var(--font-display); font-size: 1.5rem; line-height: 1.5; font-weight: 500; position: relative; z-index: 1; }
+.thesis-text em { font-style: italic; color: var(--green-light); }
+
+.framework-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 2.5rem; }
+.fw-card { padding: 2rem 1.8rem; background: #fff; border: 1px solid var(--border); border-radius: 10px; transition: transform 0.2s ease, box-shadow 0.2s ease; }
+.fw-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(11,20,15,0.06); }
+.fw-card-icon { width: 40px; height: 40px; background: var(--ink); border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.2rem; }
+.fw-card-icon svg { width: 20px; height: 20px; }
+.fw-card h3 { font-family: var(--font-display); font-weight: 600; font-size: 1.25rem; color: var(--ink); margin-bottom: 0.6rem; }
+.fw-card p { font-size: 0.88rem; line-height: 1.72; color: var(--text-secondary); }
+.fw-card .tags { margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--border); font-size: 0.78rem; line-height: 1.7; color: var(--text-secondary); }
+.fw-card .tags strong { color: var(--green-deep); font-weight: 600; }
+
+.approach-phases { display: grid; grid-template-columns: repeat(4, 1fr); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; background: #fff; margin-top: 2.5rem; }
+.approach-phase { padding: 2rem 1.6rem; border-right: 1px solid var(--border); }
+.approach-phase:last-child { border-right: none; }
+.ap-number { font-family: var(--font-display); font-weight: 700; font-size: 2rem; color: var(--green); line-height: 1; margin-bottom: 0.6rem; }
+.ap-title { font-weight: 700; font-size: 0.82rem; color: var(--ink); margin-bottom: 0.5rem; }
+.ap-desc { font-size: 0.8rem; line-height: 1.65; color: var(--text-secondary); }
+
+.core-card { margin-top: 2rem; background: #fff; border: 2px solid var(--green); border-radius: 12px; padding: 2.2rem 2.4rem; }
+.core-card .deliv-tag { display: inline-block; font-size: 0.62rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.25rem 0.7rem; border-radius: 4px; margin-bottom: 1rem; background: var(--green); color: #fff; }
+.core-card h3 { font-family: var(--font-display); font-weight: 600; font-size: 1.3rem; color: var(--ink); margin-bottom: 0.5rem; }
+.core-card > p { font-size: 0.9rem; line-height: 1.7; color: var(--text-secondary); margin-bottom: 1.2rem; max-width: 720px; }
+.deliv-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 0 2.5rem; }
+.deliv-list { list-style: none; padding: 0; }
+.deliv-list li { font-size: 0.85rem; line-height: 1.55; color: var(--text-secondary); padding: 0.4rem 0 0.4rem 1.3rem; position: relative; }
+.deliv-list li::before { content: '\2713'; position: absolute; left: 0; color: var(--green); font-weight: 700; font-size: 0.85rem; }
+
+.section-divider { max-width: 1200px; margin: 0 auto; padding: 0 2.5rem; }
+.section-divider hr { border: none; height: 1px; background: var(--border); }
+
+.scope-section { background: var(--warm-gray); }
+.scope-container { display: grid; grid-template-columns: 1fr 350px; gap: 2.5rem; align-items: start; }
+
+/* Funding model strip */
+.funding-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-bottom: 2.5rem; }
+.fund-cell { background: #fff; border: 1px solid var(--border); border-radius: 10px; padding: 1.3rem 1.4rem; }
+.fund-cell .fc-tag { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--green); }
+.fund-cell h4 { font-family: var(--font-display); font-size: 1.1rem; font-weight: 600; color: var(--ink); margin: 0.3rem 0 0.4rem; }
+.fund-cell p { font-size: 0.78rem; line-height: 1.6; color: var(--text-secondary); }
+
+.config-block { margin-bottom: 2.4rem; }
+.config-head { display: flex; align-items: baseline; gap: 0.6rem; margin-bottom: 0.3rem; flex-wrap: wrap; }
+.config-num { font-family: var(--font-display); font-weight: 700; font-size: 1rem; color: var(--green); }
+.config-label { font-size: 0.95rem; font-weight: 700; color: var(--ink); letter-spacing: 0.01em; }
+.config-pill { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; padding: 0.2rem 0.55rem; border-radius: 20px; }
+.pill-base { background: var(--green); color: #fff; }
+.pill-decision { background: var(--gold); color: var(--ink); }
+.pill-optional { background: var(--warm-gray); color: var(--text-secondary); border: 1px solid var(--border); }
+.config-hint { font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 1rem; }
+
+/* Radio option rows */
+.radio-stack { display: flex; flex-direction: column; gap: 0.7rem; }
+.radio-row { display: flex; align-items: flex-start; gap: 1rem; padding: 1.1rem 1.3rem; background: #fff; border: 1px solid var(--border); border-radius: 10px; cursor: pointer; transition: all 0.2s ease; user-select: none; }
+.radio-row:hover { border-color: var(--green); }
+.radio-row.selected { border-color: var(--green); border-width: 2px; background: var(--green-wash); padding: calc(1.1rem - 1px) calc(1.3rem - 1px); }
+.radio-dot { width: 20px; height: 20px; flex-shrink: 0; border: 2px solid var(--border); border-radius: 50%; margin-top: 2px; display: flex; align-items: center; justify-content: center; transition: all 0.15s; }
+.radio-row.selected .radio-dot { border-color: var(--green); }
+.radio-row.selected .radio-dot::after { content: ''; width: 10px; height: 10px; border-radius: 50%; background: var(--green); }
+.radio-body { flex: 1; }
+.radio-top { display: flex; justify-content: space-between; align-items: baseline; gap: 0.6rem; }
+.radio-title { font-weight: 700; font-size: 0.9rem; color: var(--ink); }
+.radio-price { font-size: 0.85rem; font-weight: 700; color: var(--green); white-space: nowrap; }
+.radio-desc { font-size: 0.79rem; line-height: 1.6; color: var(--text-secondary); margin-top: 0.3rem; }
+
+/* Toggle / forced cards */
+.opt-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.8rem; }
+.opt-card { display: flex; align-items: flex-start; gap: 1rem; padding: 1.2rem 1.4rem; background: #fff; border: 1px solid var(--border); border-radius: 10px; cursor: pointer; transition: all 0.2s ease; user-select: none; }
+.opt-card:hover { border-color: var(--green); }
+.opt-card.selected { border-color: var(--green); background: var(--green-wash); }
+.opt-check { width: 22px; height: 22px; flex-shrink: 0; border: 2px solid var(--border); border-radius: 5px; display: flex; align-items: center; justify-content: center; transition: all 0.15s ease; margin-top: 1px; }
+.opt-card.selected .opt-check { background: var(--green); border-color: var(--green); }
+.opt-check svg { width: 13px; height: 13px; display: none; }
+.opt-card.selected .opt-check svg { display: block; }
+.opt-body { flex: 1; }
+.opt-title-row { display: flex; justify-content: space-between; align-items: baseline; gap: 0.6rem; }
+.opt-title { font-weight: 700; font-size: 0.88rem; color: var(--ink); }
+.opt-price { font-size: 0.82rem; font-weight: 700; color: var(--green); white-space: nowrap; }
+.opt-desc { font-size: 0.78rem; line-height: 1.58; color: var(--text-secondary); margin-top: 0.3rem; }
+.opt-meta { font-size: 0.69rem; font-weight: 600; color: var(--gold); margin-top: 0.45rem; letter-spacing: 0.02em; text-transform: uppercase; }
+.fundable-tag { display: inline-block; font-size: 0.58rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; color: var(--green-deep); background: var(--green-pale); padding: 0.12rem 0.45rem; border-radius: 3px; margin-left: 0.4rem; vertical-align: middle; }
+
+/* Sidebar */
+.scope-sidebar { position: sticky; top: 80px; background: #fff; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
+.sidebar-header { background: var(--ink); color: #fff; padding: 1.4rem 1.6rem; }
+.sidebar-header h3 { font-family: var(--font-display); font-weight: 600; font-size: 1.15rem; margin-bottom: 0.2rem; }
+.sidebar-header p { font-size: 0.72rem; color: rgba(255,255,255,0.5); }
+.sidebar-body { padding: 1.2rem 1.6rem; }
+.sidebar-line { display: flex; justify-content: space-between; align-items: center; padding: 0.55rem 0; border-bottom: 1px solid var(--border); font-size: 0.82rem; }
+.sidebar-line:last-child { border-bottom: none; }
+.sidebar-line.heavy { font-weight: 700; color: var(--ink); }
+.sidebar-line-name { color: var(--text-secondary); padding-right: 0.6rem; }
+.sidebar-line.heavy .sidebar-line-name { color: var(--ink); }
+.sidebar-line-price { font-weight: 700; color: var(--ink); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.sidebar-line-price.empty { color: var(--text-muted); font-weight: 400; }
+.sidebar-total { padding: 1.2rem 1.6rem; background: var(--green); display: flex; justify-content: space-between; align-items: center; }
+.sidebar-total-label { font-size: 0.78rem; font-weight: 600; color: rgba(255,255,255,0.85); text-transform: uppercase; letter-spacing: 0.06em; }
+.sidebar-total-value { font-family: var(--font-display); font-weight: 700; font-size: 1.55rem; color: #fff; }
+.sidebar-actions { padding: 1rem 1.6rem; display: flex; gap: 0.5rem; border-top: 1px solid var(--border); }
+.sidebar-actions button { flex: 1; padding: 0.6rem; border-radius: 6px; border: none; font-family: var(--font-body); font-size: 0.74rem; font-weight: 600; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 0.35rem; transition: all 0.2s; }
+.sidebar-actions svg { width: 13px; height: 13px; }
+.btn-sb-detail { background: var(--ink); color: #fff; }
+.btn-sb-detail:hover { background: var(--ink-mid); }
+.btn-sb-email { background: var(--gold); color: var(--ink); }
+.btn-sb-email:hover { background: var(--gold-light); }
+.sidebar-note { padding: 0.9rem 1.6rem; font-size: 0.68rem; line-height: 1.5; color: var(--text-muted); background: var(--warm-gray); }
+
+.timeline-steps { margin-top: 2.5rem; }
+.tl-summary { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 1rem; }
+.tl-sum-cell { background: #fff; border: 1px solid var(--border); border-radius: 10px; padding: 1.3rem 1.4rem; text-align: center; }
+.tl-sum-n { font-family: var(--font-display); font-weight: 700; font-size: 1.9rem; color: var(--green); line-height: 1; transition: color 0.2s; }
+.tl-sum-l { font-size: 0.74rem; line-height: 1.5; color: var(--text-secondary); margin-top: 0.4rem; }
+.tl-step { display: grid; grid-template-columns: 120px 24px 1fr; gap: 0 1.2rem; align-items: start; }
+.tl-time { font-size: 0.75rem; font-weight: 600; color: var(--text-muted); letter-spacing: 0.04em; text-transform: uppercase; text-align: right; padding-top: 0.1rem; }
+.tl-track { display: flex; flex-direction: column; align-items: center; }
+.tl-dot { width: 12px; height: 12px; border-radius: 50%; background: var(--green); border: 3px solid var(--warm-white); box-shadow: 0 0 0 2px var(--green); flex-shrink: 0; }
+.tl-dot.gold { background: var(--gold); box-shadow: 0 0 0 2px var(--gold); }
+.tl-line { width: 2px; flex: 1; background: var(--border); margin: 4px 0; min-height: 38px; }
+.tl-step:last-child .tl-line { display: none; }
+.tl-content { padding-bottom: 2rem; }
+.tl-title { font-weight: 700; font-size: 0.92rem; color: var(--ink); margin-bottom: 0.3rem; }
+.tl-desc { font-size: 0.82rem; line-height: 1.65; color: var(--text-secondary); }
+
+.gallup-block { background: var(--ink); color: #fff; border-radius: 14px; padding: 3rem; display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-top: 2rem; }
+.gallup-block h3 { font-family: var(--font-display); font-weight: 600; font-size: 1.6rem; line-height: 1.3; margin-bottom: 1rem; }
+.gallup-block p { font-size: 0.92rem; line-height: 1.78; color: rgba(255,255,255,0.66); }
+.gallup-stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.gallup-stat { padding: 1.2rem; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; }
+.gallup-stat-n { font-family: var(--font-display); font-weight: 700; font-size: 1.55rem; color: var(--green-light); margin-bottom: 0.2rem; }
+.gallup-stat-l { font-size: 0.72rem; color: rgba(255,255,255,0.45); letter-spacing: 0.05em; text-transform: uppercase; font-weight: 500; }
+
+.footer { background: var(--ink); color: rgba(255,255,255,0.35); padding: 2.5rem; text-align: center; font-size: 0.72rem; line-height: 1.7; }
+
+.summary-overlay { position: fixed; inset: 0; z-index: 400; background: rgba(11,20,15,0.62); display: none; }
+.summary-overlay.open { display: block; }
+.summary-shell { position: absolute; top: 2.5%; left: 50%; transform: translateX(-50%); width: min(840px, 95vw); height: 95%; background: #fff; border-radius: 12px; display: flex; flex-direction: column; overflow: hidden; box-shadow: 0 24px 70px rgba(0,0,0,0.35); }
+.summary-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 0.6rem; padding: 0.85rem 1.2rem; border-bottom: 1px solid var(--border); background: var(--warm-white); flex-shrink: 0; }
+.summary-toolbar .st-title { font-family: var(--font-display); font-weight: 600; font-size: 1.05rem; color: var(--ink); }
+.summary-toolbar .st-actions { display: flex; gap: 0.5rem; }
+.summary-toolbar button { padding: 0.5rem 0.9rem; border-radius: 6px; border: none; font-family: var(--font-body); font-size: 0.76rem; font-weight: 600; cursor: pointer; transition: all 0.2s; }
+.st-print { background: var(--green); color: #fff; }
+.st-print:hover { background: var(--green-deep); }
+.st-close { background: var(--warm-gray); color: var(--text-secondary); }
+.st-close:hover { background: var(--border); }
+.summary-frame { flex: 1; width: 100%; border: none; background: #fff; }
+@media (max-width: 600px) { .summary-toolbar .st-title { display: none; } .summary-shell { width: 100vw; height: 100%; top: 0; border-radius: 0; } }
+@media print {
+  body > *:not(.summary-overlay) { display: none !important; }
+  .summary-overlay { position: static; background: #fff; display: block !important; }
+  .summary-shell { position: static; transform: none; width: auto; height: auto; box-shadow: none; border-radius: 0; }
+  .summary-toolbar { display: none !important; }
+  .summary-frame { height: 100vh; }
+}
+.drawer-overlay { position: fixed; inset: 0; background: rgba(11,20,15,0.5); z-index: 200; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; }
+.drawer-overlay.open { opacity: 1; pointer-events: auto; }
+.drawer { position: fixed; top: 0; right: -480px; bottom: 0; width: 460px; max-width: 92vw; background: #fff; z-index: 201; box-shadow: -8px 0 40px rgba(11,20,15,0.12); transition: right 0.35s cubic-bezier(0.22, 1, 0.36, 1); display: flex; flex-direction: column; }
+.drawer.open { right: 0; }
+.drawer-header { display: flex; align-items: center; justify-content: space-between; padding: 1.4rem 1.8rem; border-bottom: 1px solid var(--border); }
+.drawer-header h2 { font-family: var(--font-display); font-weight: 600; font-size: 1.3rem; color: var(--ink); }
+.drawer-close { width: 32px; height: 32px; border: 1px solid var(--border); border-radius: 6px; background: #fff; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+.drawer-close svg { width: 14px; height: 14px; }
+.drawer-body { flex: 1; overflow-y: auto; padding: 1.6rem 1.8rem; }
+.drawer-group { margin-bottom: 1.5rem; }
+.drawer-group-label { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.6rem; }
+.drawer-line { display: flex; justify-content: space-between; align-items: baseline; padding: 0.5rem 0; font-size: 0.85rem; gap: 0.6rem; }
+.drawer-line-name { color: var(--text-secondary); }
+.drawer-line-price { font-weight: 700; color: var(--ink); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.drawer-subtotal { display: flex; justify-content: space-between; align-items: center; padding: 0.7rem 0; margin-top: 0.3rem; border-top: 1px solid var(--border); font-weight: 700; font-size: 0.88rem; color: var(--ink); }
+.drawer-grand { padding: 1.2rem 1.8rem; background: var(--green); display: flex; justify-content: space-between; align-items: center; }
+.drawer-grand-label { font-size: 0.78rem; font-weight: 600; color: rgba(255,255,255,0.85); text-transform: uppercase; letter-spacing: 0.06em; }
+.drawer-grand-value { font-family: var(--font-display); font-weight: 700; font-size: 1.6rem; color: #fff; }
+.drawer-actions { padding: 1.2rem 1.8rem; display: flex; gap: 0.6rem; border-top: 1px solid var(--border); }
+.drawer-actions button { flex: 1; padding: 0.7rem 1rem; border-radius: 6px; border: none; font-family: var(--font-body); font-size: 0.8rem; font-weight: 600; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 0.4rem; transition: all 0.2s ease; }
+.drawer-actions svg { width: 14px; height: 14px; flex-shrink: 0; }
+.btn-drawer-pdf { background: var(--warm-gray); color: var(--ink); }
+.btn-drawer-pdf:hover { background: var(--border); }
+.btn-drawer-email { background: var(--gold); color: var(--ink); }
+.btn-drawer-email:hover { background: var(--gold-light); }
+.drawer-note { padding: 1.2rem 1.8rem; font-size: 0.72rem; line-height: 1.6; color: var(--text-muted); background: var(--warm-gray); }
+
+.modal-overlay { position: fixed; inset: 0; background: rgba(11,20,15,0.5); z-index: 300; display: none; align-items: center; justify-content: center; padding: 1rem; }
+.modal-overlay.open { display: flex; }
+.modal { background: #fff; border-radius: 14px; width: 480px; max-width: 100%; box-shadow: 0 20px 60px rgba(11,20,15,0.2); overflow: hidden; }
+.modal-header { padding: 1.5rem 2rem; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; }
+.modal-header h3 { font-family: var(--font-display); font-weight: 600; font-size: 1.15rem; color: var(--ink); }
+.modal-body { padding: 1.5rem 2rem; }
+.modal-body label { display: block; font-size: 0.75rem; font-weight: 600; color: var(--text-muted); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 0.4rem; }
+.modal-body input, .modal-body textarea { width: 100%; padding: 0.65rem 0.9rem; border: 1px solid var(--border); border-radius: 6px; font-family: var(--font-body); font-size: 0.88rem; color: var(--text); margin-bottom: 1rem; outline: none; transition: border-color 0.2s ease; }
+.modal-body input:focus, .modal-body textarea:focus { border-color: var(--green); }
+.modal-body textarea { resize: vertical; min-height: 80px; }
+.modal-footer { padding: 1rem 2rem 1.5rem; display: flex; justify-content: flex-end; gap: 0.6rem; }
+.modal-footer button { padding: 0.6rem 1.4rem; border-radius: 6px; border: none; font-family: var(--font-body); font-size: 0.82rem; font-weight: 600; cursor: pointer; transition: all 0.2s; }
+.btn-modal-cancel { background: var(--warm-gray); color: var(--text-secondary); }
+.btn-modal-send { background: var(--green); color: #fff; }
+.btn-modal-send:hover { background: var(--green-deep); }
+
+@media (max-width: 920px) {
+  .header-inner { padding: 0.9rem 1.4rem; }
+  .framework-grid { grid-template-columns: 1fr; }
+  .approach-phases { grid-template-columns: repeat(2, 1fr); }
+  .approach-phase { border-bottom: 1px solid var(--border); }
+  .scope-container { grid-template-columns: 1fr; }
+  .scope-sidebar { position: static; }
+  .opt-grid { grid-template-columns: 1fr; }
+  .gallup-block { grid-template-columns: 1fr; padding: 2rem; }
+  .deliv-cols { grid-template-columns: 1fr; }
+  .funding-strip { grid-template-columns: 1fr; }
+  .section { padding: 3.5rem 1.4rem; }
+}
+@media (max-width: 600px) {
+  .approach-phases { grid-template-columns: 1fr; }
+  .hero { padding: 4rem 1.4rem 3.5rem; }
+  .hero-figures { gap: 1.6rem; }
+  .tl-summary { grid-template-columns: 1fr; }
+  .hf-vs { display: none; }
+  .tl-step { grid-template-columns: 84px 20px 1fr; }
+  .header-actions .btn-export, .header-actions .btn-email { display: none; }
+}
+.gate { position: fixed; inset: 0; z-index: 1000; background: var(--ink); display: flex; align-items: center; justify-content: center; padding: 1.5rem; }
+.gate::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 70% 60% at 50% 70%, rgba(26,130,80,0.18) 0%, transparent 62%); }
+.gate-card { position: relative; z-index: 1; width: 100%; max-width: 430px; text-align: center; color: #fff; }
+.gate-logos { display: flex; align-items: center; justify-content: center; gap: 0.9rem; margin-bottom: 2.2rem; }
+.gate-ssa { font-family: var(--font-display); font-weight: 700; font-size: 1rem; color: #fff; }
+.gate-x { color: rgba(255,255,255,0.35); font-size: 0.85rem; }
+.gate-gallup { font-family: Georgia, serif; font-weight: 700; letter-spacing: 0.2em; font-size: 0.92rem; color: var(--green-light); }
+.gate-lock { width: 44px; height: 44px; margin: 0 auto 1.3rem; border-radius: 10px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); display: flex; align-items: center; justify-content: center; }
+.gate-lock svg { width: 20px; height: 20px; }
+.gate h1 { font-family: var(--font-display); font-weight: 500; font-size: 1.9rem; line-height: 1.15; margin-bottom: 0.7rem; }
+.gate p { font-size: 0.92rem; line-height: 1.65; color: rgba(255,255,255,0.6); max-width: 360px; margin: 0 auto 1.8rem; font-weight: 300; }
+.gate-form { display: flex; gap: 0.5rem; max-width: 360px; margin: 0 auto; }
+.gate input { flex: 1; padding: 0.75rem 1rem; border-radius: 8px; border: 1px solid rgba(255,255,255,0.16); background: rgba(255,255,255,0.05); color: #fff; font-family: var(--font-body); font-size: 0.92rem; outline: none; transition: border-color 0.2s; }
+.gate input::placeholder { color: rgba(255,255,255,0.4); }
+.gate input:focus { border-color: var(--green-light); }
+.gate button { padding: 0.75rem 1.4rem; border-radius: 8px; border: none; background: var(--green); color: #fff; font-family: var(--font-body); font-weight: 600; font-size: 0.88rem; cursor: pointer; transition: background 0.2s; }
+.gate button:hover { background: var(--green-light); }
+.gate-error { display: none; margin-top: 1rem; font-size: 0.82rem; color: #e9a3a3; }
+</style>
+</head>
+<body>
+
+<div class="gate" id="gate">
+  <div class="gate-card">
+    <div class="gate-logos">
+      <span class="gate-ssa">Stop Scams Alliance</span>
+      <span class="gate-x">&times;</span>
+      <span class="gate-gallup">GALLUP</span>
+    </div>
+    <div class="gate-lock"><svg viewBox="0 0 20 20" fill="none" stroke="#34a76a" stroke-width="1.6"><rect x="4" y="9" width="12" height="8" rx="1.5"/><path d="M7 9V6.5a3 3 0 016 0V9"/></svg></div>
+    <h1>Confidential Draft</h1>
+    <p>Continuing the Stop Scams Alliance&ndash;Gallup U.S. National Survey. Please enter the access password to continue.</p>
+    <div class="gate-form">
+      <input type="password" id="gatePass" placeholder="Access password" autocomplete="off" autofocus onkeydown="if(event.key==='Enter'){gateCheck();}">
+      <button onclick="gateCheck()">Unlock</button>
+    </div>
+    <div class="gate-error" id="gateError">Incorrect password &mdash; please try again.</div>
+  </div>
+</div>
+<script>
+  document.body.style.overflow = 'hidden';
+  function gateCheck(){
+    var v = document.getElementById('gatePass').value;
+    if (v === 'SSA-Gallup2026') {
+      document.getElementById('gate').style.display = 'none';
+      document.body.style.overflow = '';
+    } else {
+      document.getElementById('gateError').style.display = 'block';
+      var i = document.getElementById('gatePass');
+      i.value = ''; i.focus();
+    }
+  }
+</script>
+
+<header class="site-header">
+  <div class="header-inner">
+    <div class="logo-group">
+      <div class="logo-ssa">Stop Scams Alliance<span>Scams in the United States</span></div>
+      <div class="logo-divider"></div>
+      <div class="logo-gallup">GALLUP</div>
+    </div>
+    <div class="header-actions">
+      <button class="btn-header btn-export" onclick="exportProjectSummary()">
+        <svg viewBox="0 0 20 20" fill="currentColor"><path d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V7a2 2 0 00-2-2h-6L8 3H4z"/></svg>
+        Project Summary
+      </button>
+      <button class="btn-header btn-email" onclick="openEmailModal()">
+        <svg viewBox="0 0 20 20" fill="currentColor"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/></svg>
+        Email Selections
+      </button>
+      <button class="btn-header btn-investment" onclick="openDrawer()">
+        <svg viewBox="0 0 20 20" fill="currentColor"><path d="M4 4a2 2 0 00-2 2v1h16V6a2 2 0 00-2-2H4z"/><path fill-rule="evenodd" d="M18 9H2v5a2 2 0 002 2h12a2 2 0 002-2V9zM4 13a1 1 0 011-1h1a1 1 0 110 2H5a1 1 0 01-1-1zm5-1a1 1 0 100 2h1a1 1 0 100-2H9z" clip-rule="evenodd"/></svg>
+        View Investment
+      </button>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-label">Continuing the Stop Scams Alliance&ndash;Gallup U.S. National Survey</div>
+    <h1>One Year of Data Is a Number. <em>Two Is a Trend.</em></h1>
+    <p class="hero-sub">Year 1 gave the country its first rigorous measure of how scams reach American households. Year 2 turns that measure into a trend line &mdash; and turns a landmark report into the durable, annual record the field has never had.</p>
+    <div class="hero-figures">
+      <div class="hf-block">
+        <div class="hf-n">$68<small>B</small></div>
+        <div class="hf-label">estimated lost to scams by Americans in 2025</div>
+      </div>
+      <div class="hf-block">
+        <div class="hf-n">15<small>M</small></div>
+        <div class="hf-label">U.S. adults victimized &mdash; roughly 6% of all adults</div>
+      </div>
+      <div class="hf-block">
+        <div class="hf-n">73<small>%</small></div>
+        <div class="hf-label">of affected households report harm to their mental wellbeing</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-narrow">
+  <div class="narrative">
+    <p>In Year 1, Stop Scams Alliance and Gallup built something the field had long needed and never had: a nationally representative, methodologically rigorous measure of how scams actually affect American households. A survey of more than 5,100 U.S. adults &mdash; paired with in-depth interviews with fraud victims, a public report, a Gallup News article, an expert roundtable, and a research hub on Gallup.com &mdash; produced the most comprehensive baseline on scam victimization ever assembled in this country. The headline is sobering: an estimated $68 billion lost in 2025, roughly 15 million adults victimized, and emotional harm reported by nearly three-quarters of affected households.</p>
+    <p>That baseline is only as valuable as what comes next. The greatest risk now is that the data becomes a snapshot rather than a story &mdash; a single data point rather than a trend line. A one-time study establishes what the problem is. Annual tracking, fielded in the same season each year to remove seasonal noise, tells us whether things are getting better or worse, which populations remain most vulnerable, and whether interventions are working. No single study can do that.</p>
+    <div class="thesis">
+      <div class="thesis-text">The studies that move policy are not one-time reports. They become <em>institutions</em> &mdash; the Global Slavery Index and the Global Women&rsquo;s Health Index, both built with Gallup, became the cited, ongoing measures in their fields. Scams in the United States is positioned to become that for fraud.</div>
+    </div>
+    <p>The step that gets us there is Year 2: repeating the study on the same schedule to produce the first real trend line. Because Year 2 builds on established instruments, infrastructure, and media relationships, it costs less than the inaugural study. At the same time, partner feedback has been clear that Year 2 is also the moment to sharpen the instrument and extend its reach &mdash; refining how scams are categorized, closing known blind spots such as the systematic undercount of total victimization, and exploring populations the field knows least about.</p>
+    <p>This proposal is built to make those choices fundable. It defines a <strong>core annual study</strong> as the base, presents specific <strong>expansions that a funder can choose to support independently</strong>, and accounts for the <strong>operating support</strong> that sustains the program. The configurator below lets each element be turned on or off so partners can see precisely what their investment delivers.</p>
+  </div>
+</section>
+
+<div class="section-divider"><hr></div>
+
+<section class="section">
+  <div class="section-label">What Year 2 Adds</div>
+  <div class="section-title">Sharper, Deeper, Broader</div>
+  <div class="section-subtitle">Year 2 retains the Year 1 core module in full &mdash; preserving comparability for trend tracking &mdash; while incorporating refinements and expansions surfaced through partner and funder feedback.</div>
+  <div class="framework-grid">
+    <div class="fw-card">
+      <div class="fw-card-icon"><svg viewBox="0 0 20 20" fill="none"><path d="M3 16l4-4 3 3 7-7" stroke="#34a76a" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 8h3v3" stroke="#34a76a" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <h3>A Trend Line</h3>
+      <p>The Year 1 core module is retained so prevalence, scam types, platforms, demographics, reporting behaviors, and financial and emotional impacts can be tracked year over year, fielded in the same season for valid comparison.</p>
+      <div class="tags"><strong>Preserves:</strong> full comparability with the Year 1 baseline.</div>
+    </div>
+    <div class="fw-card">
+      <div class="fw-card-icon"><svg viewBox="0 0 20 20" fill="none"><circle cx="9" cy="9" r="5.5" stroke="#34a76a" stroke-width="1.6"/><path d="M13 13l4 4" stroke="#34a76a" stroke-width="1.6" stroke-linecap="round"/><path d="M9 6.5v5M6.5 9h5" stroke="#34a76a" stroke-width="1.3" stroke-linecap="round"/></svg></div>
+      <h3>Higher Resolution</h3>
+      <p>Clearer categorization of scam typology and origin, richer detail by scam type (average loss and demographics), and the larger samples needed to report reliably at the level of individual scam experiences.</p>
+      <div class="tags"><strong>Closes gaps:</strong> systematic undercount and under-reported scam types.</div>
+    </div>
+    <div class="fw-card">
+      <div class="fw-card-icon"><svg viewBox="0 0 20 20" fill="none"><circle cx="6.5" cy="7" r="2.3" stroke="#34a76a" stroke-width="1.5"/><circle cx="13.5" cy="7" r="2.3" stroke="#34a76a" stroke-width="1.5"/><path d="M3 16c0-2.2 1.6-3.5 3.5-3.5S10 13.8 10 16M10 16c0-2.2 1.6-3.5 3.5-3.5S17 13.8 17 16" stroke="#34a76a" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+      <h3>New Populations</h3>
+      <p>Optional dedicated samples reach audiences the field knows least about &mdash; teens aged 13&ndash;18, fielded through Gallup&rsquo;s existing Gen Z panel, and small-business owners &mdash; each with a purpose-built module.</p>
+      <div class="tags"><strong>Extends reach:</strong> youth and small business victimization.</div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"><hr></div>
+
+<section class="section">
+  <div class="section-label">Approach</div>
+  <div class="section-title">Built on Year 1, Designed to Repeat</div>
+  <div class="section-subtitle">Gallup conducts the second annual cycle on the proven Year 1 foundation &mdash; the probability-based Gallup Panel, an iterative design process, and the same seasonal window &mdash; so that what changes in the data reflects the world, not the method.</div>
+  <div class="approach-phases">
+    <div class="approach-phase"><div class="ap-number">01</div><div class="ap-title">Instrument Refinement</div><div class="ap-desc">Design workshop and stakeholder input to refine the core instrument, sharpen scam categorization, and add new and updated items &mdash; without breaking trend comparability.</div></div>
+    <div class="approach-phase"><div class="ap-number">02</div><div class="ap-title">Cognitive Testing</div><div class="ap-desc">Cognitive interviews to confirm clarity, reduce respondent burden, and validate new items before fielding, following Gallup&rsquo;s standard pre-field protocol.</div></div>
+    <div class="approach-phase"><div class="ap-number">03</div><div class="ap-title">Fielding</div><div class="ap-desc">Web administration via the Gallup Panel to a nationally representative sample, fielded in the same season as Year 1, with real-time quality monitoring.</div></div>
+    <div class="approach-phase"><div class="ap-number">04</div><div class="ap-title">Analysis &amp; Trend Report</div><div class="ap-desc">Weighting, subgroup analysis, and year-over-year trend analysis, delivered as a 30-page public report, a Gallup News article, and a refreshed research hub.</div></div>
+  </div>
+</section>
+
+<div class="section-divider"><hr></div>
+
+<section class="section">
+  <div class="section-label">The Base</div>
+  <div class="section-title">What the Core Study Always Includes</div>
+  <div class="section-subtitle">Every configuration below builds on this foundation &mdash; a complete, publishable annual study delivering the first year-over-year trend analysis on scam victimization in America.</div>
+  <div class="core-card">
+    <span class="deliv-tag">Core Study &mdash; Base Funding Requirement</span>
+    <h3>Annual U.S. Survey &amp; Trend Report</h3>
+    <p>A full second cycle on the Gallup Panel with a refined instrument, retaining the Year 1 core for comparability and delivering the first real trend line.</p>
+    <div class="deliv-cols">
+      <ul class="deliv-list">
+        <li>Nationally representative survey of U.S. adults (18+) via the Gallup Panel</li>
+        <li>Instrument refinement and new items, with the Year 1 core retained</li>
+        <li>Cognitive testing, data processing, weighting, and subgroup analysis</li>
+        <li>Up to 20 in-depth interviews with fraud and scam victims</li>
+      </ul>
+      <ul class="deliv-list">
+        <li>30-page public report with year-over-year trend analysis</li>
+        <li>Gallup News article with media pitching and social engagement</li>
+        <li>Research hub on Gallup.com updated for the Year 2 report</li>
+        <li>Topline results and a de-identified dataset at project close</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"><hr></div>
+
+<section class="section scope-section" id="scope">
+  <div class="section-label">Configure the Program</div>
+  <div class="section-title">Build the Year 2 Scope</div>
+  <div class="section-subtitle" style="margin-bottom: 2rem;">Set the core study, then add the expansions a funder may choose to support. The base is required; each expansion can be funded independently. The investment summary sits to the side so this stays a conversation about scope.</div>
+
+  <div class="funding-strip">
+    <div class="fund-cell"><div class="fc-tag">Base</div><h4>Core Annual Study</h4><p>The foundation the whole program rests on. Configured by sample size and instrument depth below.</p></div>
+    <div class="fund-cell"><div class="fc-tag">Standalone &amp; Funder-Owned</div><h4>Expansions &amp; Add-Ons</h4><p>New audiences and owned modules a single funder can take on as a standalone commitment &mdash; funding the component in full and owning the deliverable.</p></div>
+    <div class="fund-cell"><div class="fc-tag">Sustaining</div><h4>Operating Support</h4><p>Stop Scams Alliance program and operating costs that keep the study running as an institution.</p></div>
+  </div>
+
+  <div class="scope-container">
+    <div class="scope-main">
+
+      <div class="config-block">
+        <div class="config-head"><span class="config-num">01</span><span class="config-label">General Population Sample</span><span class="config-pill pill-base">In the base</span></div>
+        <div class="config-hint">Sample size determines how finely findings can be reported. Larger samples directly address where Year 1 reporting hit its limits.</div>
+        <div class="radio-stack" id="sampleStack"></div>
+      </div>
+
+      <div class="config-block">
+        <div class="config-head"><span class="config-num">02</span><span class="config-label">Survey Instrument &mdash; 15 minutes total</span><span class="config-pill pill-base">In the base</span></div>
+        <div class="config-hint">Every option holds the instrument at 15 minutes total &mdash; what changes is how much of that time is reserved for new and refined items rather than the retained Year 1 core. More room means more partner priorities addressed in a single cycle.</div>
+        <div class="radio-stack" id="instrumentStack"></div>
+      </div>
+
+      <div class="config-block">
+        <div class="config-head"><span class="config-num">03</span><span class="config-label">Additional Audiences</span><span class="config-pill pill-optional">Optional &middot; stackable</span></div>
+        <div class="config-hint">Dedicated samples for populations the field knows least about. Each is independently fundable and includes its own purpose-built module.</div>
+        <div class="opt-grid" id="audienceGrid"></div>
+      </div>
+
+      <div class="config-block">
+        <div class="config-head"><span class="config-num">04</span><span class="config-label">Owned Modules</span><span class="config-pill pill-decision">Funder-owned options</span></div>
+        <div class="config-hint">Focused thematic lines of inquiry &mdash; a dedicated set of questions and analysis, each delivering its own standalone thematic report. Each module can be owned by a single funder, a clean way for one partner to underwrite a defined piece of the work. Gallup recommends including these to address the priorities partners have raised.</div>
+        <div class="opt-grid" id="moduleGrid"></div>
+      </div>
+
+      <div class="config-block">
+        <div class="config-head"><span class="config-num">05</span><span class="config-label">Engagement &amp; Amplification</span><span class="config-pill pill-optional">Optional</span></div>
+        <div class="config-hint">Extend the reach and convening power of the findings.</div>
+        <div class="opt-grid" id="enhanceGrid"></div>
+      </div>
+
+    </div>
+
+    <div class="scope-sidebar">
+      <div class="sidebar-header"><h3>Investment Summary</h3><p>Year 2 estimated investment</p></div>
+      <div class="sidebar-body">
+        <div class="sidebar-line"><span class="sidebar-line-name">Core base (instrument + sample)</span><span class="sidebar-line-price" id="sBase">$476,000</span></div>
+        <div class="sidebar-line"><span class="sidebar-line-name">Additional audiences</span><span class="sidebar-line-price empty" id="sAud">$0</span></div>
+        <div class="sidebar-line"><span class="sidebar-line-name">Owned modules</span><span class="sidebar-line-price empty" id="sMod">$0</span></div>
+        <div class="sidebar-line"><span class="sidebar-line-name">Engagement &amp; amplification</span><span class="sidebar-line-price empty" id="sEnh">$0</span></div>
+        <div class="sidebar-line heavy"><span class="sidebar-line-name">Program subtotal</span><span class="sidebar-line-price" id="sSubtotal">$476,000</span></div>
+        <div class="sidebar-line"><span class="sidebar-line-name">SSA operating support (15%)</span><span class="sidebar-line-price" id="sOps">$71,400</span></div>
+      </div>
+      <div class="sidebar-total"><span class="sidebar-total-label">Year 2 Total</span><span class="sidebar-total-value" id="sTotal">$547,400</span></div>
+      <div style="padding: 1rem 1.6rem 0;">
+        <button onclick="exportProjectSummary()" style="width:100%; padding:0.8rem; border:none; border-radius:8px; background:var(--green); color:#fff; font-family:var(--font-body); font-size:0.82rem; font-weight:700; cursor:pointer; display:flex; align-items:center; justify-content:center; gap:0.45rem; transition:background 0.2s;" onmouseover="this.style.background='var(--green-deep)'" onmouseout="this.style.background='var(--green)'">
+          <svg viewBox="0 0 20 20" fill="currentColor" style="width:15px;height:15px;"><path d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V7a2 2 0 00-2-2h-6L8 3H4z"/></svg>
+          Export Project Summary
+        </button>
+      </div>
+      <div class="sidebar-actions">
+        <button class="btn-sb-detail" onclick="openDrawer()"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M3 4h14v2H3zM3 9h14v2H3zM3 14h9v2H3z"/></svg>Full Detail</button>
+        <button class="btn-sb-email" onclick="openEmailModal()"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/></svg>Email</button>
+      </div>
+      <div class="sidebar-note">The Export Project Summary button generates a funder-ready narrative built from your selections. Operating support shown at an illustrative 15%; the base is the minimum to field, and each expansion can be owned and funded in full by a single funder.</div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"><hr></div>
+
+<section class="section section-narrow">
+  <div class="section-label">Adaptive Timeline</div>
+  <div class="section-title">A Schedule That Flexes With Scope</div>
+  <div class="section-subtitle" style="margin-bottom: 1.5rem;">The plan below updates with your selections &mdash; survey development runs longer with a deeper instrument and added audiences, and fielding scales with sample size. Fielding is timed to match the Year 1 season so the year-over-year comparison holds.</div>
+  <div class="tl-summary">
+    <div class="tl-sum-cell"><div class="tl-sum-n" id="tlWeeks">27</div><div class="tl-sum-l">weeks &middot; kickoff to public release</div></div>
+    <div class="tl-sum-cell"><div class="tl-sum-n" id="tlStart">Sep 2026</div><div class="tl-sum-l">estimated kickoff</div></div>
+    <div class="tl-sum-cell"><div class="tl-sum-n" id="tlEnd">Mar 2027</div><div class="tl-sum-l">estimated public release</div></div>
+  </div>
+  <div class="timeline-steps" id="timelineSteps"></div>
+  <p style="font-size:0.75rem;color:var(--text-muted);margin-top:1rem;line-height:1.6;">Durations are planning estimates along the critical path; qualitative interviews and the Gallup News article run in parallel and are reflected in the relevant phases. Kickoff assumes award following the funder process.</p>
+</section>
+
+<div class="section-divider"><hr></div>
+
+<section class="section">
+  <div class="section-label">Why Gallup</div>
+  <div class="section-title">The Infrastructure to Make It Annual</div>
+  <div class="section-subtitle" style="margin-bottom: 0;">A continuous tracking program needs a partner built for exactly that &mdash; probability-based sampling, a standing Gen Z panel, decades of attitudinal research, and a global news platform to carry the findings.</div>
+  <div class="gallup-block">
+    <div>
+      <h3>Probability-Based, Built to Repeat</h3>
+      <p>For more than 85 years, Gallup has led public opinion research. The Gallup Panel &mdash; the largest probability-based panel in the U.S., with more than 100,000 adults recruited via random-digit-dial and address-based sampling &mdash; keeps results representative year after year, and a standing Gen Z panel makes reaching teens feasible. Findings can be carried by Gallup&rsquo;s own news service, which reaches a global audience and is regularly featured in leading outlets, giving the research the visibility it needs to drive change.</p>
+    </div>
+    <div>
+      <div class="gallup-stat-grid">
+        <div class="gallup-stat"><div class="gallup-stat-n">100K+</div><div class="gallup-stat-l">Gallup Panel Members</div></div>
+        <div class="gallup-stat"><div class="gallup-stat-n">85+</div><div class="gallup-stat-l">Years of Research</div></div>
+        <div class="gallup-stat"><div class="gallup-stat-n">1.2M</div><div class="gallup-stat-l">Gallup.com Monthly Visits</div></div>
+        <div class="gallup-stat"><div class="gallup-stat-n">140K+</div><div class="gallup-stat-l">Annual Media Mentions</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="footer">
+  All scope and investment figures are illustrative estimates for planning purposes and subject to final scoping and confirmation. Operating support is shown at an illustrative rate. Year 1 figures are drawn from the published Stop Scams Alliance&ndash;Gallup study released June 30, 2026.<br>
+  Copyright &copy; 2026 Gallup, Inc. &amp; Stop Scams Alliance. Confidential and proprietary.
+</div>
+
+<div class="summary-overlay" id="summaryOverlay">
+  <div class="summary-shell">
+    <div class="summary-toolbar">
+      <span class="st-title">Project Summary &mdash; preview</span>
+      <div class="st-actions">
+        <button class="st-print" onclick="printSummary()">Print / Save PDF</button>
+        <button class="st-close" onclick="closeSummary()">Close</button>
+      </div>
+    </div>
+    <iframe id="summaryFrame" class="summary-frame" title="Project Summary"></iframe>
+  </div>
+</div>
+
+<div class="drawer-overlay" id="drawerOverlay" onclick="closeDrawer()"></div>
+<div class="drawer" id="drawer">
+  <div class="drawer-header"><h2>Investment Detail</h2><button class="drawer-close" onclick="closeDrawer()"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="5" x2="15" y2="15"/><line x1="15" y1="5" x2="5" y2="15"/></svg></button></div>
+  <div class="drawer-body">
+    <div class="drawer-group">
+      <div class="drawer-group-label">Base &mdash; Core Annual Study</div>
+      <div class="drawer-line"><span class="drawer-line-name" id="dInstrName">Instrument: 5 min for new items (within 15-min instrument)</span><span class="drawer-line-price" id="dInstrPrice">$476,000</span></div>
+      <div class="drawer-line" id="dSampleLine" style="display:none;"><span class="drawer-line-name" id="dSampleName"></span><span class="drawer-line-price" id="dSamplePrice"></span></div>
+      <div class="drawer-subtotal"><span>Base Subtotal</span><span id="dBaseSub">$476,000</span></div>
+    </div>
+    <div class="drawer-group" id="dAudGroup" style="display:none;">
+      <div class="drawer-group-label">Additional Audiences &mdash; funder-owned, fundable in full</div>
+      <div id="dAudLines"></div>
+      <div class="drawer-subtotal"><span>Audiences Subtotal</span><span id="dAudSub">$0</span></div>
+    </div>
+    <div class="drawer-group" id="dModGroup" style="display:none;">
+      <div class="drawer-group-label">Owned Modules &mdash; each incl. thematic report</div>
+      <div id="dModLines"></div>
+      <div class="drawer-subtotal"><span>Modules Subtotal</span><span id="dModSub">$0</span></div>
+    </div>
+    <div class="drawer-group" id="dEnhGroup" style="display:none;">
+      <div class="drawer-group-label">Engagement &amp; Amplification</div>
+      <div id="dEnhLines"></div>
+      <div class="drawer-subtotal"><span>Amplification Subtotal</span><span id="dEnhSub">$0</span></div>
+    </div>
+    <div class="drawer-group">
+      <div class="drawer-group-label">Program &amp; Operating</div>
+      <div class="drawer-line"><span class="drawer-line-name">Program subtotal</span><span class="drawer-line-price" id="dProgSub">$476,000</span></div>
+      <div class="drawer-line"><span class="drawer-line-name">SSA operating support (15%, est.)</span><span class="drawer-line-price" id="dOps">$71,400</span></div>
+    </div>
+  </div>
+  <div class="drawer-grand"><span class="drawer-grand-label">Year 2 Total</span><span class="drawer-grand-value" id="dTotal">$547,400</span></div>
+  <div class="drawer-actions">
+    <button class="btn-drawer-pdf" onclick="exportPDF()"><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>Export PDF</button>
+    <button class="btn-drawer-email" onclick="openEmailModal()"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/></svg>Email Selections</button>
+  </div>
+  <div class="drawer-note">Figures are illustrative planning estimates and subject to final scoping. The base is the minimum required to field; each expansion can be owned and funded in full by a single funder. Annual program costs are expected to escalate modestly year over year.</div>
+</div>
+
+<div class="modal-overlay" id="emailModal">
+  <div class="modal">
+    <div class="modal-header"><h3>Email Scope Selections</h3><button class="drawer-close" onclick="closeEmailModal()"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="5" x2="15" y2="15"/><line x1="15" y1="5" x2="5" y2="15"/></svg></button></div>
+    <div class="modal-body">
+      <label>Your Name</label>
+      <input type="text" id="emailName" placeholder="Enter your name">
+      <label>Notes (Optional)</label>
+      <textarea id="emailNotes" placeholder="Any additional context or questions..."></textarea>
+      <div id="emailPreview" style="background: var(--warm-gray); border-radius: 8px; padding: 1rem 1.2rem; font-size: 0.78rem; line-height: 1.6; color: var(--text-secondary); max-height: 180px; overflow-y: auto;"></div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn-modal-cancel" onclick="closeEmailModal()">Cancel</button>
+      <button class="btn-modal-send" onclick="sendEmail()">Open in Email Client</button>
+    </div>
+  </div>
+</div>
+
+<script>
+var OPS_RATE = 0.15;
+
+var INSTRUMENTS = [
+  {id:'i5', label:'5 min for new items (within 15-min instrument)', base:476000, desc:'Of the 15-minute instrument, 5 minutes are reserved for new and refined items; the rest retains the Year 1 core. Baseline refinement that protects trend comparability.'},
+  {id:'i75', label:'7.5 min for new items (within 15-min instrument)', base:505500, desc:'More of the same 15 minutes devoted to new and refined items \u2014 addresses more partner priorities in a single cycle.'},
+  {id:'i10', label:'10 min for new items (within 15-min instrument)', base:535000, desc:'Maximum room for new content within the 15-minute instrument, while still retaining the core needed for comparability.'}
+];
+var SAMPLES = [
+  {id:5000, label:'n = 5,000', delta:0, desc:'Maintains the trend lines and matches the Year 1 sample for clean year-over-year comparison.'},
+  {id:10000, label:'n = 10,000', delta:175000, desc:'More granular reporting \u2014 unlocks reportability by scam-experience type, including per-scam-type detail where Year 1 reporting hit its limits.'},
+  {id:20000, label:'n = 20,000', delta:395000, desc:'Best same-level reportability with multiple layers of data cuts \u2014 the strongest basis for demographic and per-type analysis.'}
+];
+var AUDIENCES = [
+  {id:'youth', title:'Youth (ages 13\u201318)', price:160000, desc:'A dedicated sample of n=2,000 teens with a purpose-built youth module \u2014 a meaningful, currently uncaptured category of victimization.', meta:'n = 2,000 \u00b7 via Gallup Gen Z panel', fundable:true},
+  {id:'sbo', title:'Small Business Owners', price:195000, desc:'A dedicated sample of n=1,000 small-business owners with a custom module on how scams affect businesses and their owners.', meta:'n = 1,000 \u00b7 includes SBO module', fundable:true}
+];
+var MODULES = [
+  {id:'chronology', title:'Scam Chronology &amp; Process', price:65000, desc:'How scams unfold step by step, with segmentation linking channel of contact to scam type and outcome. Includes a standalone thematic report.', fundable:true},
+  {id:'consumer_ed', title:'Consumer Education Deep-Dive', price:65000, desc:'What builds consumer trust, which messages and content are most effective, and what consumers want to see and hear. Includes a standalone thematic report.', fundable:true}
+];
+var ENHANCEMENTS = [
+  {id:'launch', title:'Public Launch Event', price:65000, desc:'A public launch of the Year 2 findings in Washington, D.C., with press and the option of a congressional fireside-chat format.'},
+  {id:'roundtable', title:'Expert Roundtable', price:32000, desc:'One 90-minute convening of leaders and practitioners (in-person in D.C. or Chicago, or virtual) with a discussion summary.'},
+  {id:'comms', title:'Additional Supported Comms', price:48000, desc:'Extended media campaign, executive presentation deck, added social and short-form video, and supplementary briefs.'}
+];
+
+var instrument = 'i5';
+var sampleSize = 5000;
+var selAud = new Set();
+var selMod = new Set();
+var selEnh = new Set();
+
+function fmt(n){ return '$' + Math.round(n).toLocaleString('en-US'); }
+function instr(){ return INSTRUMENTS.find(function(i){return i.id===instrument;}); }
+function samp(){ return SAMPLES.find(function(s){return s.id===sampleSize;}); }
+
+function renderSampleStack(){
+  document.getElementById('sampleStack').innerHTML = SAMPLES.map(function(s){
+    return '<div class="radio-row" id="smp-'+s.id+'" onclick="setSample('+s.id+')">'+
+      '<div class="radio-dot"></div><div class="radio-body">'+
+      '<div class="radio-top"><span class="radio-title">'+s.label+'</span><span class="radio-price">'+(s.delta===0?'In base':'+'+fmt(s.delta))+'</span></div>'+
+      '<div class="radio-desc">'+s.desc+'</div></div></div>';
+  }).join('');
+}
+function renderInstrumentStack(){
+  document.getElementById('instrumentStack').innerHTML = INSTRUMENTS.map(function(i){
+    return '<div class="radio-row" id="ins-'+i.id+'" onclick="setInstrument(\''+i.id+'\')">'+
+      '<div class="radio-dot"></div><div class="radio-body">'+
+      '<div class="radio-top"><span class="radio-title">'+i.label+'</span><span class="radio-price">'+fmt(i.base)+'</span></div>'+
+      '<div class="radio-desc">'+i.desc+'</div></div></div>';
+  }).join('');
+}
+function cardHTML(prefix, item){
+  return '<div class="opt-card" id="'+prefix+'-'+item.id+'" onclick="toggleOpt(\''+prefix+'\',\''+item.id+'\')">'+
+    '<div class="opt-check"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7l3 3 5-5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>'+
+    '<div class="opt-body"><div class="opt-title-row"><span class="opt-title">'+item.title+(item.fundable?'<span class="fundable-tag">Funder-owned</span>':'')+'</span><span class="opt-price">+'+fmt(item.price)+'</span></div>'+
+    '<div class="opt-desc">'+item.desc+'</div>'+
+    (item.meta?'<div class="opt-meta">'+item.meta+'</div>':'')+'</div></div>';
+}
+function renderOptions(){
+  document.getElementById('audienceGrid').innerHTML = AUDIENCES.map(function(a){return cardHTML('aud',a);}).join('');
+  document.getElementById('moduleGrid').innerHTML = MODULES.map(function(m){return cardHTML('mod',m);}).join('');
+  document.getElementById('enhanceGrid').innerHTML = ENHANCEMENTS.map(function(e){return cardHTML('enh',e);}).join('');
+}
+
+function setSample(n){ sampleSize = n; syncUI(); recalc(); }
+function setInstrument(id){ instrument = id; syncUI(); recalc(); }
+function toggleOpt(prefix, id){
+  var set = prefix==='aud'?selAud:(prefix==='mod'?selMod:selEnh);
+  if(set.has(id)) set.delete(id); else set.add(id);
+  syncUI(); recalc();
+}
+
+function syncUI(){
+  SAMPLES.forEach(function(s){ document.getElementById('smp-'+s.id).classList.toggle('selected', s.id===sampleSize); });
+  INSTRUMENTS.forEach(function(i){ document.getElementById('ins-'+i.id).classList.toggle('selected', i.id===instrument); });
+  AUDIENCES.forEach(function(a){ document.getElementById('aud-'+a.id).classList.toggle('selected', selAud.has(a.id)); });
+  MODULES.forEach(function(m){ document.getElementById('mod-'+m.id).classList.toggle('selected', selMod.has(m.id)); });
+  ENHANCEMENTS.forEach(function(e){ document.getElementById('enh-'+e.id).classList.toggle('selected', selEnh.has(e.id)); });
+}
+
+function sumSet(list, set){ var t=0; set.forEach(function(id){ t += list.find(function(x){return x.id===id;}).price; }); return t; }
+
+function recalc(){
+  var base = instr().base + samp().delta;
+  var audTotal = sumSet(AUDIENCES, selAud);
+  var modTotal = sumSet(MODULES, selMod);
+  var enhTotal = sumSet(ENHANCEMENTS, selEnh);
+  var programSub = base + audTotal + modTotal + enhTotal;
+  var ops = programSub * OPS_RATE;
+  var grand = programSub + ops;
+
+  // Sidebar
+  document.getElementById('sBase').textContent = fmt(base);
+  setLine('sAud', audTotal); setLine('sMod', modTotal); setLine('sEnh', enhTotal);
+  document.getElementById('sSubtotal').textContent = fmt(programSub);
+  document.getElementById('sOps').textContent = fmt(ops);
+  document.getElementById('sTotal').textContent = fmt(grand);
+
+  // Drawer
+  document.getElementById('dInstrName').textContent = 'Instrument: ' + instr().label;
+  document.getElementById('dInstrPrice').textContent = fmt(instr().base);
+  var sLine = document.getElementById('dSampleLine');
+  if(samp().delta>0){
+    sLine.style.display='flex';
+    document.getElementById('dSampleName').textContent = 'Sample upgrade to n='+sampleSize.toLocaleString();
+    document.getElementById('dSamplePrice').textContent = '+'+fmt(samp().delta);
+  } else { sLine.style.display='none'; }
+  document.getElementById('dBaseSub').textContent = fmt(base);
+  fillDrawerGroup('dAud', AUDIENCES, selAud, audTotal);
+  fillDrawerGroup('dMod', MODULES, selMod, modTotal);
+  fillDrawerGroup('dEnh', ENHANCEMENTS, selEnh, enhTotal);
+  document.getElementById('dProgSub').textContent = fmt(programSub);
+  document.getElementById('dOps').textContent = fmt(ops);
+  document.getElementById('dTotal').textContent = fmt(grand);
+
+  updateEmailPreview();
+  renderTimeline();
+}
+function setLine(id, val){ var el=document.getElementById(id); el.textContent = val>0?'+'+fmt(val):'$0'; el.classList.toggle('empty', val===0); }
+function fillDrawerGroup(prefix, list, set, total){
+  var group = document.getElementById(prefix+'Group');
+  if(total>0){
+    group.style.display='block';
+    document.getElementById(prefix+'Lines').innerHTML = list.filter(function(i){return set.has(i.id);}).map(function(i){
+      return '<div class="drawer-line"><span class="drawer-line-name">'+stripTags(i.title)+'</span><span class="drawer-line-price">+'+fmt(i.price)+'</span></div>';
+    }).join('');
+    document.getElementById(prefix+'Sub').textContent = fmt(total);
+  } else { group.style.display='none'; }
+}
+
+function openDrawer(){ document.getElementById('drawer').classList.add('open'); document.getElementById('drawerOverlay').classList.add('open'); document.body.style.overflow='hidden'; }
+function closeDrawer(){ document.getElementById('drawer').classList.remove('open'); document.getElementById('drawerOverlay').classList.remove('open'); document.body.style.overflow=''; }
+
+function stripTags(s){ return s.replace(/&amp;/g,'&').replace(/&mdash;/g,'\u2014').replace(/&ndash;/g,'\u2013').replace(/&rsquo;/g,'\u2019'); }
+
+function buildSummaryText(){
+  var base = instr().base + samp().delta;
+  var audTotal = sumSet(AUDIENCES, selAud), modTotal = sumSet(MODULES, selMod), enhTotal = sumSet(ENHANCEMENTS, selEnh);
+  var programSub = base + audTotal + modTotal + enhTotal;
+  var ops = programSub * OPS_RATE, grand = programSub + ops;
+  var L = [];
+  L.push('SCAMS IN THE UNITED STATES \u2014 YEAR 2 NATIONAL SURVEY');
+  L.push('Stop Scams Alliance \u00d7 Gallup \u2014 Scope Selections');
+  L.push('');
+  L.push('BASE \u2014 CORE ANNUAL STUDY');
+  L.push('  Instrument: '+stripTags(instr().label)+': '+fmt(instr().base));
+  L.push('  General population sample: n='+sampleSize.toLocaleString()+(samp().delta>0?' (+'+fmt(samp().delta)+')':' (in base)'));
+  L.push('  Base subtotal: '+fmt(base));
+  if(audTotal>0){
+    L.push('');
+    L.push('ADDITIONAL AUDIENCES (funder-owned, fundable in full)');
+    AUDIENCES.filter(function(a){return selAud.has(a.id);}).forEach(function(a){ L.push('  '+stripTags(a.title)+': +'+fmt(a.price)); });
+    L.push('  Subtotal: '+fmt(audTotal));
+  }
+  if(modTotal>0){
+    L.push('');
+    L.push('OWNED MODULES (each includes a thematic report)');
+    MODULES.filter(function(m){return selMod.has(m.id);}).forEach(function(m){ L.push('  '+stripTags(m.title)+': +'+fmt(m.price)); });
+    L.push('  Subtotal: '+fmt(modTotal));
+  }
+  if(enhTotal>0){
+    L.push('');
+    L.push('ENGAGEMENT & AMPLIFICATION');
+    ENHANCEMENTS.filter(function(e){return selEnh.has(e.id);}).forEach(function(e){ L.push('  '+stripTags(e.title)+': +'+fmt(e.price)); });
+    L.push('  Subtotal: '+fmt(enhTotal));
+  }
+  L.push('');
+  L.push('Program subtotal: '+fmt(programSub));
+  L.push('SSA operating support (15%, est.): '+fmt(ops));
+  L.push('YEAR 2 ESTIMATED TOTAL: '+fmt(grand));
+  L.push('');
+  L.push('Figures are illustrative planning estimates, subject to final scoping.');
+  return L.join('\n');
+}
+function updateEmailPreview(){ var el=document.getElementById('emailPreview'); if(el) el.innerHTML='<strong style="display:block;margin-bottom:0.4rem;color:var(--ink);">Scope Summary Preview</strong>'+buildSummaryText().replace(/\n/g,'<br>'); }
+function openEmailModal(){ updateEmailPreview(); document.getElementById('emailModal').classList.add('open'); }
+function closeEmailModal(){ document.getElementById('emailModal').classList.remove('open'); }
+function sendEmail(){
+  var name=document.getElementById('emailName').value||'', notes=document.getElementById('emailNotes').value||'';
+  var body=(notes?'Notes: '+notes+'\n\n':'')+buildSummaryText()+(name?'\n\n\u2014 '+name:'');
+  window.open('mailto:?subject='+encodeURIComponent('Scams in the United States \u2014 Year 2 Scope Selections')+'&body='+encodeURIComponent(body),'_blank');
+  closeEmailModal();
+}
+function exportPDF(){
+  var summary=buildSummaryText();
+  var html='<!DOCTYPE html><html><head><title>Scams in the U.S. \u2014 Year 2 Scope Summary</title></head>'+
+    '<body style="font-family:Georgia,serif;max-width:700px;margin:40px auto;padding:20px;color:#14201a">'+
+    '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:2rem;padding-bottom:1rem;border-bottom:2px solid #1a8250">'+
+    '<div><strong style="font-size:1.1rem;color:#0b140f">Stop Scams Alliance \u00d7 Gallup</strong><br>'+
+    '<span style="font-size:0.85rem;color:#56615a">Scams in the United States \u2014 Year 2 National Survey</span></div>'+
+    '<div style="font-size:0.78rem;color:#8a938c;text-align:right">Scope Configuration<br>'+new Date().toLocaleDateString('en-US',{month:'long',day:'numeric',year:'numeric'})+'</div></div>'+
+    '<pre style="font-family:DM Sans,Arial,sans-serif;font-size:0.88rem;line-height:1.7;white-space:pre-wrap;color:#1a2c24">'+summary+'</pre>'+
+    '<div style="margin-top:2rem;font-size:0.72rem;color:#8a938c;border-top:1px solid #e4e2da;padding-top:1rem">'+
+    'All scope and investment figures are illustrative estimates for planning purposes and subject to final scoping.<br>'+
+    'Copyright \u00a9 2026 Gallup, Inc. & Stop Scams Alliance. Confidential and proprietary.</div>'+
+    '<scr'+'ipt>window.onload=function(){window.print();}<\/scr'+'ipt></body></html>';
+  var w=window.open('','_blank'); w.document.write(html); w.document.close();
+}
+
+/* ---------- Adaptive timeline ---------- */
+var TL_START = new Date(2026, 8, 1); // Sep 1, 2026 (illustrative kickoff)
+function fmtMonth(d){ return d.toLocaleDateString('en-US', {month:'short', year:'numeric'}); }
+
+function computeTimeline(){
+  var instrBase = {i5:8, i75:10, i10:12}[instrument];
+  var audCount = selAud.size, modCount = selMod.size;
+  var dev = Math.min(16, instrBase + 2*audCount);
+  var fieldBase = {5000:4, 10000:5, 20000:6}[sampleSize];
+  var field = Math.min(8, fieldBase + audCount);
+  var proc = 3 + ((sampleSize===20000 || audCount>0) ? 1 : 0);
+  var report = 9 + audCount;
+  var thematic = 2*modCount;
+  var release = 3 + (selEnh.has('launch') ? 2 : 0);
+
+  var phases = [
+    {title:'Survey Development', weeks:dev, desc:'Instrument refinement, new and refined items, and cognitive testing.' + (audCount>0 ? ' Includes building the custom module' + (audCount>1?'s':'') + ' for the added audience' + (audCount>1?'s':'') + '.' : '')},
+    {title:'Fielding', weeks:field, desc:'Sampling, programming, and data collection via the Gallup Panel' + (audCount>0 ? ' plus the dedicated audience sample' + (audCount>1?'s':'') : '') + ', timed to match the Year 1 season.'},
+    {title:'Data Processing & Weighting', weeks:proc, desc:'Cleaning, weighting for national representativeness, and final dataset assembly.'},
+    {title:'Analysis & 30-Page Report', weeks:report, desc:'Year-over-year trend analysis, subgroup cuts' + (sampleSize>5000 ? ' including per-scam-type detail' : '') + ', and the flagship public report. In-depth victim interviews run in parallel.'}
+  ];
+  if(thematic>0) phases.push({title:'Thematic Report' + (modCount>1?'s':''), weeks:thematic, desc:'Standalone thematic report' + (modCount>1?'s':'') + ' for the selected owned module' + (modCount>1?'s':'') + '.'});
+  phases.push({title:'Public Release & Communications', weeks:release, desc:'Gallup News article, media pitching, and social engagement.' + (selEnh.has('launch') ? ' Includes a public launch event in Washington, D.C.' : '') + (selEnh.has('roundtable') ? ' Expert roundtable convened alongside release.' : '') + (selEnh.has('comms') ? ' Extended media and content campaign.' : '')});
+  return phases;
+}
+
+function renderTimeline(){
+  var phases = computeTimeline();
+  var total = phases.reduce(function(s,p){return s+p.weeks;}, 0);
+  var cursor = new Date(TL_START), startWeek = 1;
+  var html = phases.map(function(p, idx){
+    var pStart = new Date(cursor);
+    var pEnd = new Date(cursor); pEnd.setDate(pEnd.getDate() + p.weeks*7 - 1);
+    var endWeek = startWeek + p.weeks - 1;
+    var wkLabel = 'Wk ' + startWeek + '\u2013' + endWeek;
+    var dateLabel = fmtMonth(pStart) + (fmtMonth(pStart)===fmtMonth(pEnd) ? '' : ' \u2013 ' + fmtMonth(pEnd));
+    cursor = new Date(pEnd); cursor.setDate(cursor.getDate() + 1);
+    startWeek = endWeek + 1;
+    var last = (idx === phases.length - 1);
+    return '<div class="tl-step"><div class="tl-time">' + wkLabel + '</div>' +
+      '<div class="tl-track"><div class="tl-dot' + (last?' gold':'') + '"></div>' + (last?'':'<div class="tl-line"></div>') + '</div>' +
+      '<div class="tl-content"><div class="tl-title">' + p.title + '</div>' +
+      '<div style="font-size:0.72rem;font-weight:600;color:var(--green-deep);margin-bottom:0.3rem;letter-spacing:0.02em;">' + dateLabel + ' &middot; ' + p.weeks + ' week' + (p.weeks>1?'s':'') + '</div>' +
+      '<div class="tl-desc">' + p.desc + '</div></div></div>';
+  }).join('');
+  document.getElementById('timelineSteps').innerHTML = html;
+  document.getElementById('tlWeeks').textContent = total;
+  document.getElementById('tlStart').textContent = fmtMonth(TL_START);
+  var end = new Date(TL_START); end.setDate(end.getDate() + total*7);
+  document.getElementById('tlEnd').textContent = fmtMonth(end);
+}
+
+/* ---------- Project summary generator ---------- */
+function exportProjectSummary(){
+  var base = instr().base + samp().delta;
+  var audTotal = sumSet(AUDIENCES, selAud), modTotal = sumSet(MODULES, selMod), enhTotal = sumSet(ENHANCEMENTS, selEnh);
+  var programSub = base + audTotal + modTotal + enhTotal;
+  var ops = programSub * OPS_RATE, grand = programSub + ops;
+  var phases = computeTimeline();
+  var totalWeeks = phases.reduce(function(s,p){return s+p.weeks;}, 0);
+  var endDate = new Date(TL_START); endDate.setDate(endDate.getDate() + totalWeeks*7);
+
+  function P(t){ return '<p>' + t + '</p>'; }
+  function H(t){ return '<h2>' + t + '</h2>'; }
+
+  // Section: Year 2 program narrative, organized by research lifecycle
+  var prog = [];
+  prog.push(P('Year 2 follows the same research lifecycle that produced the Year 1 baseline, carried out by Gallup end to end. What changes is depth: the selections in this configuration shape how the instrument is built, how much data is collected and from whom, and how far the analysis and reporting can reach.'));
+
+  // 1. Instrument development & refinement
+  var instrText = {
+    i5: 'reserving five of the survey\u2019s 15 minutes for new and refined items \u2014 enough to sharpen how scam typology and origin are captured while protecting the wording the trend depends on',
+    i75: 'reserving 7.5 of the survey\u2019s 15 minutes \u2014 half the instrument \u2014 for new and refined content, with room to clarify typology, deepen the questions on how victims were targeted and what they did next, and address more partner priorities in a single cycle',
+    i10: 'reserving a full 10 of the survey\u2019s 15 minutes for new and refined content \u2014 the most ambitious refinement consistent with the trend, including room to begin closing the systematic undercount built into Year 1, where only each household\u2019s single most costly scam was captured'
+  }[instrument];
+  var dev = '<strong>Instrument development and refinement.</strong> Year 2 begins where every credible tracking study must: with an instrument that measures change without breaking comparability. Through a design workshop and an iterative, cognitively tested drafting process, Gallup retains the Year 1 core module in full &mdash; the questions whose exact wording the trend depends on &mdash; while ' + instrText + '. Because the core is preserved, every figure reported in Year 2 can be set directly against the baseline Year 1 established, turning isolated numbers into a trend that shows how the problem is changing.';
+  if(selMod.size){
+    var modBits = [];
+    if(selMod.has('chronology')) modBits.push('a Scam Chronology &amp; Process module that traces how scams unfold from first contact to loss');
+    if(selMod.has('consumer_ed')) modBits.push('a Consumer Education Deep-Dive module examining what builds trust and changes behavior');
+    dev += ' This cycle also builds in ' + (modBits.length>1 ? modBits.slice(0,-1).join(', ') + ' and ' + modBits.slice(-1) : modBits[0]) + ' &mdash; ' + (selMod.size>1?'each a dedicated, funder-owned line of inquiry that produces its own standalone thematic report':'a dedicated, funder-owned line of inquiry that produces its own standalone thematic report') + '.';
+  }
+  prog.push(P(dev));
+
+  // 2. Quantitative data collection
+  var sampText = {
+    5000: 'Here the sample is set at n=5,000, matching Year 1 exactly to keep the trend clean and reproduce the core subgroup breakdowns \u2014 by age, race and ethnicity, income, education, region, and gender \u2014 that anchored the first report',
+    10000: 'Here the sample is doubled to n=10,000, which directly answers a Year 1 limitation: because each household is asked only about its single most costly scam, smaller cells made it hard to report any one scam type with confidence. At this size, findings can be reported reliably by individual scam experience',
+    20000: 'Here the sample is expanded to n=20,000 \u2014 four times the Year 1 base \u2014 the strongest footing for reporting at the level of individual scam experiences and for layered cuts of scam type by demographic by channel'
+  }[sampleSize];
+  var qdc = '<strong>Quantitative data collection.</strong> The survey is fielded to a nationally representative sample of U.S. adults through the Gallup Panel, the largest probability-based panel in the country, with more than 100,000 members recruited through random-digit-dial and address-based sampling rather than self-selection &mdash; the basis for results that represent all U.S. adults rather than only those who volunteer. ' + sampText + '.';
+  if(selAud.size){
+    var audBits = [];
+    if(selAud.has('youth')) audBits.push('a dedicated sample of 2,000 teens aged 13\u201318, fielded efficiently through Gallup\u2019s standing Gen Z panel');
+    if(selAud.has('sbo')) audBits.push('a dedicated sample of 1,000 small-business owners, drawing on a recently completed Gallup dataset');
+    qdc += ' Alongside the general population, this configuration adds ' + (audBits.length>1 ? audBits.slice(0,-1).join(' and ') : audBits[0]) + ', each carrying its own tailored module so these populations are directly measured rather than inferred.';
+  }
+  prog.push(P(qdc));
+
+  // 3. Qualitative interviews
+  prog.push(P('<strong>Qualitative interviews.</strong> Quantitative findings establish the scale of the problem; they do not, on their own, convey what it is to be deceived out of a month\u2019s rent. Upon completion of the survey, Gallup conducts up to 20 in-depth interviews of up to one hour each with respondents identified as fraud victims, to garner the insights and verbatim statements that give the report its human weight. These accounts add color and context to the numbers and are woven directly into the published report.'));
+
+  // 4. Analysis
+  var ana = '<strong>Analysis.</strong> Once collected, the data are weighted to correct for nonresponse so the final sample reflects the entire U.S. adult population. Analysis spans crosstabulations, descriptive statistics, and regression. The defining addition in Year 2 is trend analysis &mdash; a direct, like-for-like comparison against the Year 1 baseline that shows how prevalence, losses, channels, and impact are shifting over time.';
+  var advBits = [];
+  if(sampleSize>5000) advBits.push('report reliably by individual scam type, including the average loss and demographic profile for each');
+  if(selMod.has('chronology')) advBits.push('model the scam life cycle from first contact through to loss');
+  if(selMod.has('consumer_ed')) advBits.push('connect attitudes about trust and education to real victimization');
+  if(advBits.length){
+    ana += ' The selections here open deeper analysis as well &mdash; the ability to ' + (advBits.length>1 ? advBits.slice(0,-1).join(', ') + ' and ' + advBits.slice(-1) : advBits[0]) + ' &mdash; turning broad totals into targeted, actionable insight.';
+  }
+  prog.push(P(ana));
+
+  // 5. Reporting
+  var rep = '<strong>Reporting.</strong> The findings are synthesized into a 30-page report designed for public consumption &mdash; narrative, data visualizations, qualitative vignettes, and a full methodology statement &mdash; carrying the Gallup name, an independent and trusted brand that lends the findings credibility with policymakers, the press, and the public. Gallup leads the communications effort, authoring a Gallup News article to accompany the report and hosting both on a research hub on Gallup.com. At close, Gallup delivers a de-identified dataset and toplines to partners for their own further analysis';
+  rep += selMod.size ? (', alongside the standalone thematic report' + (selMod.size>1?'s':'') + ' for the owned module' + (selMod.size>1?'s':'') + '.') : '.';
+  prog.push(P(rep));
+
+  // 6. Additional amplification (only if engagement selected)
+  if(selEnh.size){
+    var ampBits = [];
+    if(selEnh.has('launch')) ampBits.push('a public launch event in Washington, D.C., with press engagement and the option of a congressional fireside-chat format, carrying the trend story directly to the policymakers positioned to act on it');
+    if(selEnh.has('roundtable')) ampBits.push('a 90-minute expert roundtable of practitioners and policy leaders &mdash; a format Gallup has used to durable effect, as with a convening for the International Labour Organization that drew independent follow-on commentary');
+    if(selEnh.has('comms')) ampBits.push('an extended amplification package of executive briefing materials, social and short-form video, and supplementary briefs, carried through Gallup\u2019s news platform of roughly 1.2 million monthly visits and well over 100,000 annual media mentions');
+    prog.push(P('<strong>Additional amplification.</strong> This configuration extends the study\u2019s reach beyond the core release with ' + (ampBits.length>1 ? ampBits.slice(0,-1).join('; ') + '; and ' + ampBits.slice(-1) : ampBits[0]) + '.'));
+  }
+
+  // Sustaining the program (operating support)
+  prog.push(P('<strong>Sustaining the program.</strong> Holding all of this together is Stop Scams Alliance program and operating capacity &mdash; the coordination across a multi-funder coalition, the stakeholder management, and the program leadership that keep the research independent, credible, and on schedule year over year. An illustrative ' + Math.round(OPS_RATE*100) + '% is shown for this support; the final structure would follow the overhead guidance funders apply.'));
+
+  // Impact, conditional
+  var impact = [];
+  impact.push(P('A second year converts a landmark finding into something far more powerful: direction. A single study can say that Americans lost an estimated $68 billion to scams in 2025; only a second, comparable year can say whether that number is climbing, who is being pulled into it, and whether the prevention, reporting, and enforcement efforts now underway are bending the curve. That is the difference between a study that documents a problem and one that helps solve it.'));
+  impact.push(P('Repeated on the same schedule, the research compounds in value &mdash; each wave makes the last one more useful. Within a few cycles, Scams in the United States becomes what the Global Slavery Index and the Global Women\u2019s Health Index became for their fields: the cited, ongoing benchmark that journalists quote, that agencies reference, and that advocates use to hold the system accountable. For the coalition behind it, that is a durable, compounding return on a single year\u2019s investment.'));
+  var extras = [];
+  if(sampleSize>5000) extras.push('report reliably at the level of individual scam types, the granularity Year 1 could not fully support');
+  if(selAud.has('youth')) extras.push('quantify teen victimization for the first time');
+  if(selAud.has('sbo')) extras.push('extend the evidence base to small businesses');
+  if(selMod.has('chronology')) extras.push('map how scams unfold so prevention can target the right moment');
+  if(selMod.has('consumer_ed')) extras.push('identify what consumer education actually changes behavior');
+  if(extras.length){
+    impact.push(P('The configuration outlined here sharpens that impact further. It would let the partnership ' + (extras.length>1 ? extras.slice(0,-1).join(', ') + ', and ' + extras.slice(-1) : extras[0]) + '.'));
+  }
+  impact.push(P('Year 1 did not only measure scale; it exposed where the system breaks. Only 13% of scams reached the Federal Trade Commission or federal law enforcement, two-thirds of victims recovered nothing, and roughly two-thirds of adults said they would not know where to report a $5,000 scam. Each of those is a policy lever &mdash; for reporting infrastructure, consumer protection, and public awareness &mdash; and each becomes far more persuasive backed by a trend than by a single reading. A sustained annual measure, built with the nation\u2019s leading public-opinion research organization, gives this coalition the evidence to press for change and the credibility to be believed when it does.'));
+  impact.push(P('This is how a strong first year becomes a lasting institution &mdash; and how the partners who fund Year 2 are remembered not for a report, but for the measure that helped turn the tide on scams in America.'));
+
+  var componentsList = ['Core annual study (instrument + n=' + sampleSize.toLocaleString() + ' general population): ' + fmt(base)];
+  AUDIENCES.filter(function(a){return selAud.has(a.id);}).forEach(function(a){ componentsList.push(stripTags(a.title) + ': ' + fmt(a.price)); });
+  MODULES.filter(function(m){return selMod.has(m.id);}).forEach(function(m){ componentsList.push(stripTags(m.title) + ': ' + fmt(m.price)); });
+  ENHANCEMENTS.filter(function(e){return selEnh.has(e.id);}).forEach(function(e){ componentsList.push(stripTags(e.title) + ': ' + fmt(e.price)); });
+  var invRows = componentsList.map(function(c){ var parts=c.split(': '); return '<tr><td>'+parts[0]+'</td><td style="text-align:right;white-space:nowrap;">'+parts[1]+'</td></tr>'; }).join('');
+
+  var phaseRows = phases.map(function(p){ return '<tr><td>'+p.title+'</td><td style="text-align:right;white-space:nowrap;">'+p.weeks+' week'+(p.weeks>1?'s':'')+'</td></tr>'; }).join('');
+
+  var doc =
+    '<!DOCTYPE html><html><head><meta charset="UTF-8"><title>Scams in the United States \u2014 Year 2 Project Summary</title>' +
+    '<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">' +
+    '<style>' +
+    '@page { margin: 0.9in 0.85in; }' +
+    'body { font-family: "DM Sans", Arial, sans-serif; color: #14201a; line-height: 1.6; max-width: 720px; margin: 40px auto; padding: 0 24px; }' +
+    '.cn-head { border-bottom: 3px solid #1a8250; padding-bottom: 1.2rem; margin-bottom: 2rem; }' +
+    '.cn-kicker { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #1a8250; }' +
+    '.cn-title { font-family: "Cormorant Garamond", Georgia, serif; font-weight: 600; font-size: 2.3rem; line-height: 1.1; color: #0b140f; margin: 0.5rem 0 0.3rem; }' +
+    '.cn-sub { font-size: 0.92rem; color: #56615a; }' +
+    '.cn-meta { font-size: 0.75rem; color: #8a938c; margin-top: 0.8rem; }' +
+    'h2 { font-family: "Cormorant Garamond", Georgia, serif; font-weight: 600; font-size: 1.5rem; color: #12683f; margin: 2rem 0 0.6rem; border-bottom: 1px solid #e4e2da; padding-bottom: 0.3rem; }' +
+    'p { font-size: 0.92rem; margin: 0 0 0.9rem; }' +
+    '.cn-figs { display: flex; gap: 1.5rem; margin: 1.2rem 0; flex-wrap: wrap; }' +
+    '.cn-fig { flex: 1; min-width: 120px; background: #f1f0eb; border-radius: 8px; padding: 1rem; }' +
+    '.cn-fig-n { font-family: "Cormorant Garamond", serif; font-weight: 700; font-size: 1.7rem; color: #1a8250; }' +
+    '.cn-fig-l { font-size: 0.72rem; color: #56615a; line-height: 1.4; }' +
+    'table { width: 100%; border-collapse: collapse; margin: 0.6rem 0 1rem; font-size: 0.88rem; }' +
+    'td { padding: 0.4rem 0; border-bottom: 1px solid #e4e2da; }' +
+    'tr.cn-total td { border-top: 2px solid #1a8250; border-bottom: none; font-weight: 700; color: #0b140f; padding-top: 0.6rem; }' +
+    '.cn-foot { margin-top: 2.5rem; border-top: 1px solid #e4e2da; padding-top: 1rem; font-size: 0.7rem; color: #8a938c; }' +
+    '.cn-print { position: fixed; top: 16px; right: 16px; background: #1a8250; color: #fff; border: none; border-radius: 6px; padding: 0.6rem 1rem; font-family: "DM Sans", sans-serif; font-weight: 600; font-size: 0.8rem; cursor: pointer; }' +
+    '@media print { .cn-print { display: none; } body { margin: 0; } }' +
+    '</style></head><body>' +
+    '<div class="cn-head"><div class="cn-kicker">Project Summary &middot; Prepared by Gallup for Stop Scams Alliance</div>' +
+    '<div class="cn-title">Scams in the United States: Year 2</div>' +
+    '<div class="cn-sub">Continuing the nation\u2019s definitive measure of scam victimization \u2014 from baseline to trend line.</div>' +
+    '<div class="cn-meta">' + new Date().toLocaleDateString('en-US',{month:'long',day:'numeric',year:'numeric'}) + ' &nbsp;|&nbsp; Estimated Year 2 investment: ' + fmt(grand) + ' &nbsp;|&nbsp; Estimated duration: ' + totalWeeks + ' weeks</div></div>' +
+
+    H('Year 1: Establishing the Baseline') +
+    P('In 2025, Stop Scams Alliance and Gallup conducted the most rigorous examination of scam victimization ever fielded in the United States. Drawing on the probability-based Gallup Panel &mdash; so the findings represent all U.S. adults rather than only those who volunteer &mdash; the study surveyed more than 5,100 adults on how often they are scammed, the types and platforms involved, the amounts lost, whether and to whom victims reported the crime, and the financial and emotional toll. It was paired with in-depth interviews with victims, a 30-page public report, a Gallup News article, an expert roundtable, and a research hub on Gallup.com. Released on June 30, 2026, it gave policymakers, funders, and the public their first reliable picture of a problem long measured only at its visible edges.') +
+    '<div class="cn-figs">' +
+    '<div class="cn-fig"><div class="cn-fig-n">$68B</div><div class="cn-fig-l">estimated lost to scams in 2025</div></div>' +
+    '<div class="cn-fig"><div class="cn-fig-n">15M</div><div class="cn-fig-l">adults victimized (about 6%)</div></div>' +
+    '<div class="cn-fig"><div class="cn-fig-n">73%</div><div class="cn-fig-l">of affected households report emotional harm</div></div>' +
+    '</div>' +
+    P('The baseline also exposed how much stays hidden. About one in four adults reported being scammed at some point, 41% said they are targeted daily, and the median loss was $500 &mdash; but two-thirds of victims recovered nothing, and nearly half reported moderate or severe financial hardship, concentrated among lower-income households. Most strikingly, only 13% of scams reached the Federal Trade Commission or federal law enforcement, and roughly two-thirds of adults said they would not know where to report a $5,000 scam. The picture was clear, and so was its limitation: it was a single year.') +
+
+    H('Why Year 2') +
+    P('A one-time study establishes what the problem is; only annual tracking reveals whether it is getting better or worse, and why. The studies that move policy are rarely one-time reports &mdash; they become institutions. The Global Slavery Index and the Global Women\u2019s Health Index, both built with Gallup, grew from inaugural studies into the authoritative, ongoing measures in their fields, cited in policy debates year after year. Scams in the United States is positioned to become that for fraud.') +
+    P('Year 2 repeats the study on the same schedule, fielded in the same season to remove seasonal noise, producing the first true year-over-year trend line. Because the instrument, data infrastructure, institutional knowledge, and media relationships built in Year 1 all carry forward, Year 2 is delivered at a meaningfully lower cost than the inaugural study &mdash; even as partner feedback has made clear that this is also the moment to sharpen the instrument and extend its reach to populations and questions Year 1 could not cover.') +
+    P('There is also a window. The Year 1 launch has put scams in front of Congress, the press, and a coalition of funders at the same moment. A second wave fielded now preserves that momentum and keeps the comparison clean; waiting does not merely delay the trend, it risks losing the seasonal alignment and the audience that make the trend worth having.') +
+
+    H('The Year 2 Program') +
+    prog.join('') +
+
+    H('Investment') +
+    P('The figures below reflect the configuration selected. The core study is the base required to field; each expansion can be owned and funded in full by a single funder.') +
+    '<table>' + invRows +
+    '<tr><td>Program subtotal</td><td style="text-align:right;">' + fmt(programSub) + '</td></tr>' +
+    '<tr><td>Stop Scams Alliance operating support (' + Math.round(OPS_RATE*100) + '%, est.)</td><td style="text-align:right;">' + fmt(ops) + '</td></tr>' +
+    '<tr class="cn-total"><td>Estimated Year 2 total</td><td style="text-align:right;">' + fmt(grand) + '</td></tr>' +
+    '</table>' +
+
+    H('Timeline') +
+    P('An estimated ' + totalWeeks + ' weeks from kickoff to public release, with fielding timed to match the Year 1 season. Survey development and fielding scale with the depth of the instrument and the audiences and sample selected.') +
+    '<table>' + phaseRows +
+    '<tr class="cn-total"><td>Total, kickoff to release</td><td style="text-align:right;">' + totalWeeks + ' weeks</td></tr>' +
+    '</table>' +
+
+    H('Anticipated Impact') +
+    impact.join('') +
+
+    '<div class="cn-foot">All scope, investment, and timeline figures are illustrative planning estimates and subject to final scoping and confirmation. Year 1 figures are drawn from the published Stop Scams Alliance&ndash;Gallup study released June 30, 2026. Operating support is shown at an illustrative rate.<br>Copyright \u00a9 2026 Gallup, Inc. &amp; Stop Scams Alliance. Confidential and proprietary.</div>' +
+    '</body></html>';
+
+  lastSummaryDoc = doc;
+  document.getElementById('summaryFrame').srcdoc = doc;
+  document.getElementById('summaryOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+var lastSummaryDoc = '';
+function closeSummary(){ document.getElementById('summaryOverlay').classList.remove('open'); document.body.style.overflow = ''; }
+function printSummary(){
+  try { var f = document.getElementById('summaryFrame'); f.contentWindow.focus(); f.contentWindow.print(); }
+  catch(e) { try { window.print(); } catch(e2){} }
+}
+
+renderSampleStack();
+renderInstrumentStack();
+renderOptions();
+syncUI();
+recalc();
+</script>
+</body>
+</html>
