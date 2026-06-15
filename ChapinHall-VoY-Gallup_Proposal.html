@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Voices of Youth Count — Renewing the National Count | Chapin Hall × Gallup</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Libre+Franklin:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #11302b;
+  --ink-2: #1a3f39;
+  --ink-3: #234d45;
+  --teal: #2c6256;
+  --teal-soft: #3a7466;
+  --clay: #bf6a3a;
+  --clay-l: #d4824f;
+  --clay-pale: #f3e3d6;
+  --clay-wash: rgba(191,106,58,0.07);
+  --gold: #b3863c;
+  --maroon: #7d2230;
+  --paper: #f8f4ec;
+  --cream: #efe8da;
+  --warm-gray: #ece5d8;
+  --border: #e2dac8;
+  --text: #1b231e;
+  --text-secondary: #54605a;
+  --text-muted: #8a9089;
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-body: 'Libre Franklin', -apple-system, sans-serif;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--font-body); color: var(--text); background: var(--paper); -webkit-font-smoothing: antialiased; }
+::selection { background: var(--clay); color: #fff; }
+
+/* ---------- Header ---------- */
+.site-header {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(248,244,236,0.92);
+  backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+}
+.header-inner {
+  max-width: 1200px; margin: 0 auto; padding: 0.9rem 2.5rem;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.logo-group { display: flex; align-items: center; gap: 1.2rem; }
+.logo-chapin {
+  font-family: var(--font-display); font-weight: 600; font-size: 1.04rem;
+  color: var(--ink); letter-spacing: 0.01em; line-height: 1.05;
+}
+.logo-chapin span { display: block; font-size: 0.58rem; font-family: var(--font-body); font-weight: 600; color: var(--text-muted); letter-spacing: 0.09em; text-transform: uppercase; margin-top: 0.2rem; }
+.logo-divider { width: 1px; height: 30px; background: var(--border); }
+.logo-gallup {
+  font-family: Georgia, 'Times New Roman', serif; font-weight: 700; font-size: 1rem;
+  letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink);
+}
+.header-actions { display: flex; align-items: center; gap: 0.6rem; }
+.btn-header {
+  display: flex; align-items: center; gap: 0.45rem;
+  padding: 0.5rem 1rem; border: none; border-radius: 6px;
+  font-family: var(--font-body); font-size: 0.74rem; font-weight: 600;
+  letter-spacing: 0.01em; cursor: pointer; transition: all 0.2s ease;
+}
+.btn-header svg { width: 14px; height: 14px; flex-shrink: 0; }
+.btn-investment { background: var(--ink); color: #fff; }
+.btn-investment:hover { background: var(--ink-2); }
+.btn-export { background: #fff; color: var(--ink); border: 1px solid var(--border) !important; }
+.btn-export:hover { background: var(--warm-gray); }
+.btn-email { background: var(--clay); color: #fff; }
+.btn-email:hover { background: var(--clay-l); }
+
+/* ---------- Hero ---------- */
+.hero { position: relative; overflow: hidden; background: var(--ink); color: #fff; padding: 6rem 2.5rem 5rem; }
+.hero::before {
+  content: ''; position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 75% 55% at 12% 75%, rgba(191,106,58,0.12) 0%, transparent 60%),
+    radial-gradient(ellipse 55% 50% at 88% 15%, rgba(255,255,255,0.04) 0%, transparent 60%);
+}
+.hero::after {
+  content: ''; position: absolute; inset: 0; opacity: 0.5;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23ffffff' stroke-opacity='0.018'%3E%3Cpath d='M0 30h60M30 0v60'/%3E%3C/g%3E%3C/svg%3E");
+}
+.hero-inner { max-width: 920px; margin: 0 auto; position: relative; z-index: 1; }
+.hero-label {
+  display: inline-block; font-size: 0.68rem; font-weight: 600; letter-spacing: 0.16em;
+  text-transform: uppercase; color: var(--clay-l); margin-bottom: 1.8rem;
+  animation: fadeUp 0.6s ease both;
+}
+.hero h1 {
+  font-family: var(--font-display); font-weight: 500; font-size: clamp(2.5rem, 5.4vw, 3.7rem);
+  line-height: 1.1; margin-bottom: 1.5rem; letter-spacing: -0.01em;
+  animation: fadeUp 0.6s 0.08s ease both;
+}
+.hero h1 em { font-style: italic; color: var(--clay-l); }
+.hero-sub {
+  font-size: 1.08rem; line-height: 1.78; color: rgba(255,255,255,0.72);
+  max-width: 660px; font-weight: 300; animation: fadeUp 0.6s 0.16s ease both;
+}
+.hero-stats { display: flex; flex-wrap: wrap; gap: 2.6rem; margin-top: 3rem; animation: fadeUp 0.6s 0.24s ease both; }
+.hero-stat-n { font-family: var(--font-display); font-weight: 600; font-size: 1.95rem; color: var(--clay-l); }
+.hero-stat-label { font-size: 0.7rem; font-weight: 500; color: rgba(255,255,255,0.45); letter-spacing: 0.07em; text-transform: uppercase; margin-top: 0.2rem; }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+
+/* ---------- Sections ---------- */
+.section { max-width: 1200px; margin: 0 auto; padding: 5rem 2.5rem; }
+.section-narrow { max-width: 860px; }
+.section-label { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--clay); margin-bottom: 0.6rem; }
+.section-title { font-family: var(--font-display); font-weight: 500; font-size: clamp(1.8rem, 3.5vw, 2.45rem); line-height: 1.18; color: var(--ink); margin-bottom: 0.8rem; letter-spacing: -0.01em; }
+.section-subtitle { font-size: 1rem; color: var(--text-secondary); line-height: 1.72; max-width: 660px; }
+.section-divider { max-width: 1200px; margin: 0 auto; padding: 0 2.5rem; }
+.section-divider hr { border: none; height: 1px; background: var(--border); }
+
+/* ---------- Narrative ---------- */
+.narrative { max-width: 860px; margin: 0 auto; }
+.narrative p { font-size: 1.06rem; line-height: 1.84; color: var(--text); margin-bottom: 1.4rem; }
+.narrative p:first-of-type::first-letter { font-family: var(--font-display); font-size: 3.6rem; font-weight: 600; float: left; line-height: 0.82; margin: 0.1rem 0.6rem 0 0; color: var(--clay); }
+.callout { position: relative; margin: 3rem 0; padding: 2.2rem 2.6rem; background: var(--clay-wash); border-left: 3px solid var(--clay); border-radius: 0 8px 8px 0; }
+.callout p { font-family: var(--font-display); font-size: 1.4rem; line-height: 1.55; color: var(--ink); font-weight: 500; font-style: italic; margin: 0; }
+.callout cite { display: block; margin-top: 0.9rem; font-family: var(--font-body); font-size: 0.74rem; font-style: normal; font-weight: 600; color: var(--text-muted); letter-spacing: 0.06em; text-transform: uppercase; }
+
+/* ---------- Framework cards ---------- */
+.framework-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 2.5rem; }
+.fw-card { padding: 2rem 1.8rem; background: #fff; border: 1px solid var(--border); border-radius: 12px; transition: transform 0.2s ease, box-shadow 0.2s ease; }
+.fw-card:hover { transform: translateY(-3px); box-shadow: 0 10px 28px rgba(17,48,43,0.07); }
+.fw-card-icon { width: 42px; height: 42px; background: var(--ink); border-radius: 9px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.2rem; }
+.fw-card-icon svg { width: 21px; height: 21px; }
+.fw-card h3 { font-family: var(--font-display); font-weight: 600; font-size: 1.22rem; color: var(--ink); margin-bottom: 0.6rem; }
+.fw-card p { font-size: 0.89rem; line-height: 1.72; color: var(--text-secondary); }
+.fw-card .tagline { margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--border); font-size: 0.82rem; line-height: 1.55; color: var(--ink); font-weight: 500; font-style: italic; font-family: var(--font-display); }
+
+/* ---------- Methodology / sample architecture ---------- */
+.method-section { background: var(--ink); color: #fff; }
+.method-section .section-label { color: var(--clay-l); }
+.method-section .section-title { color: #fff; }
+.method-section .section-subtitle { color: rgba(255,255,255,0.66); }
+.method-lede { max-width: 760px; font-size: 1.05rem; line-height: 1.8; color: rgba(255,255,255,0.8); margin-top: 1.6rem; }
+.method-lede strong { color: var(--clay-l); font-weight: 600; }
+
+.arch { margin-top: 3rem; display: grid; grid-template-columns: 1fr 1fr; gap: 1.4rem; }
+.arch-frame {
+  background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 12px; padding: 1.8rem 1.7rem; position: relative;
+}
+.arch-frame.panel { border-top: 3px solid var(--teal-soft); }
+.arch-frame.rdd { border-top: 3px solid var(--clay-l); }
+.arch-tag { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.55); margin-bottom: 0.7rem; }
+.arch-share { font-family: var(--font-display); font-weight: 700; font-size: 2.4rem; line-height: 1; margin-bottom: 0.2rem; }
+.arch-frame.panel .arch-share { color: var(--teal-soft); }
+.arch-frame.rdd .arch-share { color: var(--clay-l); }
+.arch-n { font-size: 0.82rem; color: rgba(255,255,255,0.55); margin-bottom: 1rem; }
+.arch-frame h4 { font-family: var(--font-display); font-weight: 600; font-size: 1.12rem; margin-bottom: 0.5rem; color: #fff; }
+.arch-frame p { font-size: 0.85rem; line-height: 1.68; color: rgba(255,255,255,0.66); }
+
+.funnel { margin-top: 1.4rem; display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.8rem; align-items: stretch; }
+.funnel-step { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 1.4rem 1.3rem; text-align: center; position: relative; }
+.funnel-step.highlight { border-color: var(--clay-l); background: rgba(191,106,58,0.12); }
+.funnel-n { font-family: var(--font-display); font-weight: 700; font-size: 1.9rem; line-height: 1; color: #fff; margin-bottom: 0.35rem; }
+.funnel-step.highlight .funnel-n { color: var(--clay-l); }
+.funnel-l { font-size: 0.72rem; color: rgba(255,255,255,0.6); line-height: 1.5; }
+.funnel-arrow { display: none; }
+
+.method-points { margin-top: 3rem; display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.2rem 2.4rem; }
+.mp { display: flex; gap: 0.9rem; align-items: flex-start; }
+.mp-num { font-family: var(--font-display); font-weight: 700; font-size: 1.05rem; color: var(--clay-l); flex-shrink: 0; width: 1.4rem; }
+.mp h4 { font-size: 0.92rem; font-weight: 700; color: #fff; margin-bottom: 0.3rem; }
+.mp p { font-size: 0.84rem; line-height: 1.66; color: rgba(255,255,255,0.66); }
+
+/* ---------- Comparison ---------- */
+.compare-wrap { margin-top: 2.5rem; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; background: #fff; }
+.compare-row { display: grid; grid-template-columns: 1.4fr 1fr 1fr; border-bottom: 1px solid var(--border); }
+.compare-row:last-child { border-bottom: none; }
+.compare-row.head { background: var(--ink); color: #fff; }
+.compare-cell { padding: 1.1rem 1.4rem; font-size: 0.86rem; line-height: 1.55; }
+.compare-cell.dim { color: var(--text-secondary); }
+.compare-row.head .compare-cell { font-weight: 700; font-size: 0.78rem; letter-spacing: 0.03em; }
+.compare-cell.crit { font-weight: 600; color: var(--ink); background: var(--warm-gray); }
+.compare-row.head .compare-cell.crit { color: #fff; background: transparent; }
+.compare-cell.ours { background: var(--clay-wash); }
+.compare-row.head .compare-cell.ours { background: var(--clay); }
+.compare-cell .x { color: var(--maroon); font-weight: 700; }
+.compare-cell .ck { color: var(--teal); font-weight: 700; }
+
+/* ---------- Scope detail ---------- */
+.scope-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.4rem; margin-top: 2.5rem; }
+.scope-card { background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 1.8rem; }
+.scope-card h4 { font-family: var(--font-display); font-weight: 600; font-size: 1.1rem; color: var(--ink); margin-bottom: 0.8rem; }
+.scope-list { list-style: none; padding: 0; }
+.scope-list li { font-size: 0.86rem; line-height: 1.6; color: var(--text-secondary); padding: 0.4rem 0 0.4rem 1.3rem; position: relative; }
+.scope-list li::before { content: '\203A'; position: absolute; left: 0; color: var(--clay); font-weight: 700; font-size: 1rem; top: 0.3rem; }
+.scope-list strong { color: var(--ink); font-weight: 600; }
+
+/* ---------- Deliverables ---------- */
+.deliverables-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 2rem; }
+.deliv-card { padding: 2rem; background: #fff; border: 1px solid var(--border); border-radius: 12px; }
+.deliv-card.primary { border-color: var(--clay); border-width: 2px; }
+.deliv-tag { display: inline-block; font-size: 0.62rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.25rem 0.7rem; border-radius: 4px; margin-bottom: 1rem; }
+.deliv-tag-1 { background: var(--ink); color: var(--clay-l); }
+.deliv-tag-2 { background: var(--clay); color: #fff; }
+.deliv-card h3 { font-family: var(--font-display); font-weight: 600; font-size: 1.18rem; color: var(--ink); margin-bottom: 0.6rem; }
+.deliv-card p { font-size: 0.86rem; line-height: 1.72; color: var(--text-secondary); margin-bottom: 0.8rem; }
+.deliv-list { list-style: none; padding: 0; }
+.deliv-list li { font-size: 0.84rem; line-height: 1.6; color: var(--text-secondary); padding: 0.35rem 0 0.35rem 1.2rem; position: relative; }
+.deliv-list li::before { content: '\203A'; position: absolute; left: 0; color: var(--clay); font-weight: 700; font-size: 1rem; }
+
+/* ---------- Amplification value ---------- */
+.value-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 2.5rem; }
+.value-card { background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 2rem 1.9rem; }
+.value-card-head { display: flex; align-items: center; gap: 0.9rem; margin-bottom: 0.9rem; }
+.value-num { font-family: var(--font-display); font-weight: 700; font-size: 1.4rem; color: var(--clay); line-height: 1; }
+.value-card-head h3 { font-family: var(--font-display); font-weight: 600; font-size: 1.18rem; color: var(--ink); }
+.value-card p { font-size: 0.9rem; line-height: 1.78; color: var(--text-secondary); }
+.pitch-block { margin-top: 2.5rem; background: var(--ink); border-radius: 14px; padding: 2.6rem 2.8rem; color: #fff; }
+.pitch-head { max-width: 720px; margin-bottom: 2rem; }
+.pitch-head h3 { font-family: var(--font-display); font-weight: 600; font-size: 1.5rem; color: #fff; margin: 0.4rem 0 0.7rem; }
+.pitch-head p { font-size: 0.92rem; line-height: 1.74; color: rgba(255,255,255,0.66); }
+.pitch-steps { display: grid; grid-template-columns: 1fr 1fr; gap: 1.4rem 2.6rem; }
+.pitch-step { display: flex; gap: 1rem; align-items: flex-start; }
+.ps-n { width: 30px; height: 30px; flex-shrink: 0; border-radius: 50%; background: rgba(191,106,58,0.16); border: 1px solid var(--clay-l); color: var(--clay-l); font-family: var(--font-display); font-weight: 700; font-size: 0.95rem; display: flex; align-items: center; justify-content: center; margin-top: 0.1rem; }
+.pitch-step h4 { font-size: 0.94rem; font-weight: 700; color: #fff; margin-bottom: 0.3rem; }
+.pitch-step p { font-size: 0.84rem; line-height: 1.66; color: rgba(255,255,255,0.66); }
+
+/* ---------- Timeline ---------- */
+.timeline-steps { margin-top: 2.5rem; }
+.tl-step { display: grid; grid-template-columns: 110px 24px 1fr; gap: 0 1.2rem; align-items: start; }
+.tl-time { font-size: 0.74rem; font-weight: 600; color: var(--text-muted); letter-spacing: 0.03em; text-transform: uppercase; text-align: right; padding-top: 0.1rem; }
+.tl-track { display: flex; flex-direction: column; align-items: center; }
+.tl-dot { width: 12px; height: 12px; border-radius: 50%; background: var(--ink); border: 3px solid var(--paper); box-shadow: 0 0 0 2px var(--ink); flex-shrink: 0; }
+.tl-dot.clay { background: var(--clay); box-shadow: 0 0 0 2px var(--clay); }
+.tl-line { width: 2px; flex: 1; background: var(--border); margin: 4px 0; }
+.tl-step:last-child .tl-line { display: none; }
+.tl-content { padding-bottom: 2rem; }
+.tl-title { font-weight: 700; font-size: 0.94rem; color: var(--ink); margin-bottom: 0.3rem; }
+.tl-desc { font-size: 0.84rem; line-height: 1.68; color: var(--text-secondary); }
+.screen-split { display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; margin-top: 0.9rem; }
+.ss-box { border: 1px solid var(--border); border-radius: 9px; padding: 0.95rem 1.05rem; background: var(--warm-gray); }
+.ss-box.highlight { background: var(--clay-wash); border-color: var(--clay); }
+.ss-h { font-size: 0.76rem; font-weight: 700; color: var(--ink); margin-bottom: 0.35rem; }
+.ss-box p { font-size: 0.79rem; line-height: 1.58; color: var(--text-secondary); }
+
+/* ---------- Why Gallup ---------- */
+.gallup-block { background: var(--ink); color: #fff; border-radius: 14px; padding: 3rem; display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-top: 2rem; }
+.gallup-block h3 { font-family: var(--font-display); font-weight: 600; font-size: 1.55rem; line-height: 1.3; margin-bottom: 1rem; }
+.gallup-block p { font-size: 0.92rem; line-height: 1.8; color: rgba(255,255,255,0.7); margin-bottom: 1rem; }
+.gallup-stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.gallup-stat { padding: 1.2rem; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; }
+.gallup-stat-n { font-family: var(--font-display); font-weight: 700; font-size: 1.55rem; color: var(--clay-l); margin-bottom: 0.2rem; }
+.gallup-stat-l { font-size: 0.71rem; color: rgba(255,255,255,0.5); letter-spacing: 0.05em; text-transform: uppercase; font-weight: 500; line-height: 1.4; }
+
+/* ---------- Investment ---------- */
+.invest-section { background: var(--cream); }
+.invest-container { display: grid; grid-template-columns: 1fr 360px; gap: 2.5rem; align-items: start; }
+.invest-table { background: #fff; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
+.invest-row { display: flex; justify-content: space-between; align-items: baseline; gap: 1.5rem; padding: 1.2rem 1.6rem; border-bottom: 1px solid var(--border); }
+.invest-row:last-of-type { border-bottom: none; }
+.invest-row-main { display: flex; flex-direction: column; gap: 0.25rem; }
+.invest-name { font-size: 0.92rem; font-weight: 600; color: var(--ink); }
+.invest-note { font-size: 0.78rem; line-height: 1.5; color: var(--text-muted); max-width: 480px; }
+.invest-amt { font-family: var(--font-display); font-weight: 600; font-size: 1.1rem; color: var(--ink); white-space: nowrap; font-variant-numeric: tabular-nums; }
+.invest-total-row { display: flex; justify-content: space-between; align-items: center; padding: 1.4rem 1.6rem; background: var(--ink); }
+.invest-total-label { font-size: 0.78rem; font-weight: 600; color: rgba(255,255,255,0.7); text-transform: uppercase; letter-spacing: 0.06em; }
+.invest-total-value { font-family: var(--font-display); font-weight: 700; font-size: 1.8rem; color: var(--clay-l); }
+
+.invest-sidebar { position: sticky; top: 86px; display: flex; flex-direction: column; gap: 1rem; }
+.invest-summary-card { background: #fff; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
+.iss-header { background: var(--ink); color: #fff; padding: 1.3rem 1.5rem; }
+.iss-header h3 { font-family: var(--font-display); font-weight: 600; font-size: 1.1rem; margin-bottom: 0.15rem; }
+.iss-header p { font-size: 0.72rem; color: rgba(255,255,255,0.55); }
+.iss-body { padding: 1.3rem 1.5rem; }
+.iss-line { display: flex; justify-content: space-between; padding: 0.5rem 0; font-size: 0.82rem; border-bottom: 1px solid var(--border); }
+.iss-line:last-child { border-bottom: none; }
+.iss-line-name { color: var(--text-secondary); }
+.iss-line-val { font-weight: 600; color: var(--ink); font-variant-numeric: tabular-nums; }
+.iss-total { padding: 1.1rem 1.5rem; background: var(--clay-wash); display: flex; justify-content: space-between; align-items: center; }
+.iss-total-l { font-size: 0.74rem; font-weight: 700; color: var(--ink); text-transform: uppercase; letter-spacing: 0.05em; }
+.iss-total-v { font-family: var(--font-display); font-weight: 700; font-size: 1.4rem; color: var(--clay); }
+.iss-actions { padding: 1.1rem 1.5rem; display: flex; flex-direction: column; gap: 0.6rem; border-top: 1px solid var(--border); }
+.iss-actions button { padding: 0.7rem 1rem; border-radius: 7px; border: none; font-family: var(--font-body); font-size: 0.8rem; font-weight: 600; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 0.45rem; transition: all 0.2s ease; }
+.iss-actions button svg { width: 14px; height: 14px; }
+.btn-iss-pdf { background: var(--warm-gray); color: var(--ink); }
+.btn-iss-pdf:hover { background: var(--border); }
+.btn-iss-email { background: var(--clay); color: #fff; }
+.btn-iss-email:hover { background: var(--clay-l); }
+.invest-context { background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 1.3rem 1.5rem; }
+.invest-context p { font-size: 0.78rem; line-height: 1.6; color: var(--text-muted); }
+.invest-context strong { color: var(--ink); }
+
+/* ---------- Investment (simple) ---------- */
+.invest-simple { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 1.5rem; align-items: stretch; margin-top: 2rem; }
+.invest-amount-card { background: var(--ink); color: #fff; border-radius: 16px; padding: 2.8rem 3rem; position: relative; overflow: hidden; }
+.invest-amount-card::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 70% 60% at 85% 15%, rgba(191,106,58,0.14) 0%, transparent 60%); }
+.iac-label { position: relative; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-bottom: 0.7rem; }
+.iac-value { position: relative; font-family: var(--font-display); font-weight: 700; font-size: clamp(3rem, 6vw, 4.2rem); line-height: 1; color: var(--clay-l); margin-bottom: 1.3rem; }
+.iac-desc { position: relative; font-size: 0.95rem; line-height: 1.78; color: rgba(255,255,255,0.74); max-width: 480px; }
+.iac-probono { position: relative; margin-top: 1.7rem; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.13); font-size: 0.88rem; line-height: 1.72; color: rgba(255,255,255,0.74); }
+.iac-probono span { display: inline-block; font-size: 0.6rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink); background: var(--clay-l); padding: 0.3rem 0.7rem; border-radius: 5px; margin-right: 0.55rem; vertical-align: 1px; }
+.invest-side-note { background: #fff; border: 1px solid var(--border); border-radius: 16px; padding: 2.2rem 2.2rem; display: flex; flex-direction: column; justify-content: center; }
+.invest-side-note p { font-size: 0.88rem; line-height: 1.72; color: var(--text-secondary); margin-bottom: 1rem; }
+.invest-side-note p:last-child { margin-bottom: 0; }
+.invest-side-note strong { color: var(--ink); }
+
+/* ---------- Footer ---------- */
+.footer { background: var(--ink); color: rgba(255,255,255,0.4); padding: 2.6rem; text-align: center; font-size: 0.72rem; line-height: 1.7; }
+
+/* ---------- Drawer ---------- */
+.drawer-overlay { position: fixed; inset: 0; background: rgba(17,48,43,0.5); z-index: 200; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; }
+.drawer-overlay.open { opacity: 1; pointer-events: auto; }
+.drawer { position: fixed; top: 0; right: -460px; bottom: 0; width: 430px; background: #fff; z-index: 201; box-shadow: -8px 0 40px rgba(17,48,43,0.16); transition: right 0.35s cubic-bezier(0.22,1,0.36,1); display: flex; flex-direction: column; }
+.drawer.open { right: 0; }
+.drawer-header { display: flex; align-items: center; justify-content: space-between; padding: 1.4rem 1.8rem; border-bottom: 1px solid var(--border); }
+.drawer-header h2 { font-family: var(--font-display); font-weight: 600; font-size: 1.3rem; color: var(--ink); }
+.drawer-close { width: 32px; height: 32px; border: 1px solid var(--border); border-radius: 6px; background: #fff; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+.drawer-close svg { width: 14px; height: 14px; }
+.drawer-body { flex: 1; overflow-y: auto; padding: 1.6rem 1.8rem; }
+.drawer-group-label { font-size: 0.66rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.6rem; }
+.drawer-line { display: flex; justify-content: space-between; gap: 1rem; padding: 0.6rem 0; font-size: 0.84rem; border-bottom: 1px solid var(--border); }
+.drawer-line:last-child { border-bottom: none; }
+.drawer-line-name { color: var(--text-secondary); }
+.drawer-line-price { font-weight: 700; color: var(--ink); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.drawer-grand { padding: 1.2rem 1.8rem; background: var(--ink); display: flex; justify-content: space-between; align-items: center; }
+.drawer-grand-label { font-size: 0.78rem; font-weight: 600; color: rgba(255,255,255,0.65); text-transform: uppercase; letter-spacing: 0.06em; }
+.drawer-grand-value { font-family: var(--font-display); font-weight: 700; font-size: 1.6rem; color: var(--clay-l); }
+.drawer-actions { padding: 1.2rem 1.8rem; display: flex; gap: 0.6rem; border-top: 1px solid var(--border); }
+.drawer-actions button { flex: 1; padding: 0.7rem 1rem; border-radius: 6px; border: none; font-family: var(--font-body); font-size: 0.8rem; font-weight: 600; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 0.4rem; transition: all 0.2s ease; }
+.drawer-actions button svg { width: 14px; height: 14px; }
+.btn-drawer-pdf { background: var(--warm-gray); color: var(--ink); }
+.btn-drawer-pdf:hover { background: var(--border); }
+.btn-drawer-email { background: var(--clay); color: #fff; }
+.btn-drawer-email:hover { background: var(--clay-l); }
+.drawer-note { padding: 1.2rem 1.8rem; font-size: 0.72rem; line-height: 1.6; color: var(--text-muted); background: var(--warm-gray); }
+
+/* ---------- Modal ---------- */
+.modal-overlay { position: fixed; inset: 0; background: rgba(17,48,43,0.5); z-index: 300; display: none; align-items: center; justify-content: center; }
+.modal-overlay.open { display: flex; }
+.modal { background: #fff; border-radius: 14px; width: 500px; max-width: 90vw; box-shadow: 0 20px 60px rgba(17,48,43,0.22); overflow: hidden; }
+.modal-header { padding: 1.5rem 2rem; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; }
+.modal-header h3 { font-family: var(--font-display); font-weight: 600; font-size: 1.15rem; color: var(--ink); }
+.modal-body { padding: 1.5rem 2rem; }
+.modal-body label { display: block; font-size: 0.72rem; font-weight: 600; color: var(--text-muted); letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 0.4rem; }
+.modal-body input, .modal-body textarea { width: 100%; padding: 0.65rem 0.9rem; border: 1px solid var(--border); border-radius: 6px; font-family: var(--font-body); font-size: 0.88rem; color: var(--text); margin-bottom: 1rem; outline: none; transition: border-color 0.2s ease; }
+.modal-body input:focus, .modal-body textarea:focus { border-color: var(--ink); }
+.modal-body textarea { resize: vertical; min-height: 70px; }
+.modal-footer { padding: 1rem 2rem 1.5rem; display: flex; justify-content: flex-end; gap: 0.6rem; }
+.modal-footer button { padding: 0.6rem 1.4rem; border-radius: 6px; border: none; font-family: var(--font-body); font-size: 0.82rem; font-weight: 600; cursor: pointer; transition: all 0.2s; }
+.btn-modal-cancel { background: var(--warm-gray); color: var(--text-secondary); }
+.btn-modal-send { background: var(--ink); color: #fff; }
+.btn-modal-send:hover { background: var(--ink-2); }
+
+@media (max-width: 920px) {
+  .header-inner { padding: 0.9rem 1.4rem; }
+  .framework-grid { grid-template-columns: 1fr; }
+  .arch { grid-template-columns: 1fr; }
+  .funnel { grid-template-columns: 1fr; }
+  .method-points { grid-template-columns: 1fr; }
+  .scope-grid { grid-template-columns: 1fr; }
+  .deliverables-grid { grid-template-columns: 1fr; }
+  .value-grid { grid-template-columns: 1fr; }
+  .pitch-steps { grid-template-columns: 1fr; }
+  .pitch-block { padding: 2rem 1.6rem; }
+  .screen-split { grid-template-columns: 1fr; }
+  .gallup-block { grid-template-columns: 1fr; padding: 2rem; }
+  .invest-container { grid-template-columns: 1fr; }
+  .invest-sidebar { position: static; }
+  .invest-simple { grid-template-columns: 1fr; }
+  .invest-amount-card { padding: 2.2rem 1.8rem; }
+  .compare-row { grid-template-columns: 1fr; }
+  .compare-cell { border-bottom: 1px solid var(--border); }
+  .compare-row.head { display: none; }
+}
+@media (max-width: 600px) {
+  .section { padding: 3.5rem 1.4rem; }
+  .hero { padding: 4rem 1.4rem 3.5rem; }
+  .hero-stats { gap: 1.4rem; }
+  .header-actions .btn-export, .header-actions .btn-email { display: none; }
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <div class="logo-group">
+      <div class="logo-chapin">Chapin Hall<span>at the University of Chicago</span></div>
+      <div class="logo-divider"></div>
+      <div class="logo-gallup">GALLUP</div>
+    </div>
+    <div class="header-actions">
+      <button class="btn-header btn-investment" onclick="document.getElementById('investment').scrollIntoView();">
+        <svg viewBox="0 0 20 20" fill="currentColor"><path d="M4 4a2 2 0 00-2 2v1h16V6a2 2 0 00-2-2H4z"/><path fill-rule="evenodd" d="M18 9H2v5a2 2 0 002 2h12a2 2 0 002-2V9zM4 13a1 1 0 011-1h1a1 1 0 110 2H5a1 1 0 01-1-1zm5-1a1 1 0 100 2h1a1 1 0 100-2H9z" clip-rule="evenodd"/></svg>
+        View Investment
+      </button>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-label">A Proposal to Continue Voices of Youth Count</div>
+    <h1>The National Count of Youth Homelessness &mdash; <em>Built to Be Trusted</em></h1>
+    <p class="hero-sub">Gallup is enthusiastic about the opportunity to partner with Chapin Hall to provide a critical, timely update on youth homelessness in the U.S., building upon the research Gallup helped Chapin Hall establish a decade ago.</p>
+    <div class="hero-stats">
+      <div><div class="hero-stat-n">4.2M</div><div class="hero-stat-label">Young people affected each year</div></div>
+      <div><div class="hero-stat-n">1 in 10</div><div class="hero-stat-label">Young adults ages 18&ndash;25</div></div>
+      <div><div class="hero-stat-n">1 in 30</div><div class="hero-stat-label">Adolescents ages 13&ndash;17</div></div>
+      <div><div class="hero-stat-n">2016&ndash;17</div><div class="hero-stat-label">The baseline Gallup helped establish</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-narrow">
+  <div class="narrative">
+    <p>Nearly a decade ago, Voices of Youth Count gave the nation its first credible national picture of youth homelessness. The findings reframed the conversation: roughly one in ten young adults ages 18&ndash;25, and at least one in thirty adolescents ages 13&ndash;17, experience some form of homelessness over the course of a year &mdash; about 4.2 million young people in all, once couch surfing and other hidden situations are counted alongside shelters and the street. The data showed that youth homelessness is just as common in rural America as in cities, and that it falls hardest on Black and Hispanic young people, LGBTQ youth, young parents, and those who never finished high school.</p>
+    <p>Those numbers unlocked federal attention, guided philanthropic strategy, and gave communities a shared baseline to work from.</p>
+    <p>Since then, the ground has shifted given the pandemic, stagnant wages, interrupted schooling, and a worsening housing market that have all reshaped the risks young people face. The nation needs a fresh, comparable national count.</p>
+    <p>The original estimates were derived from a survey module on the Gallup Daily Tracking survey, which is now retired given the shift away from telephone surveys nationally. Gallup is recommending an updated design that preserves the probability-based nature of the prior tool to ensure comparability in estimates despite some methodological changes.</p>
+  </div>
+</section>
+
+<div class="section-divider"><hr></div>
+
+<section class="section">
+  <div class="section-title">What We Will Measure</div>
+  <div class="section-subtitle">A faithful continuation of the national prevalence and incidence study that preserves the original survey items, definitions, and age frame so that change over time can be measured cleanly.</div>
+  <div class="framework-grid">
+    <div class="fw-card">
+      <div class="fw-card-icon"><svg viewBox="0 0 20 20" fill="none"><path d="M4 5h12M4 10h12M4 15h8" stroke="#bf6a3a" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+      <h3>A Consistent Instrument</h3>
+      <p>We retain the original household screener and definitions &mdash; capturing the full range of homelessness for 13- to 25-year-olds, from sleeping in shelters, cars, or on the street to running away, being asked to leave, and couch surfing without a safe, stable place to stay. Where Chapin Hall wishes to refine specific items, we will calibrate any changes so that comparability with the original estimates is preserved.</p>
+    </div>
+    <div class="fw-card">
+      <div class="fw-card-icon"><svg viewBox="0 0 20 20" fill="none"><path d="M10 2C6 2 3 5 3 9c0 5 7 9 7 9s7-4 7-9c0-4-3-7-7-7z" stroke="#bf6a3a" stroke-width="1.6"/><circle cx="10" cy="9" r="2" stroke="#bf6a3a" stroke-width="1.6"/></svg></div>
+      <h3>Coverage of the Hidden &amp; Hard to Reach</h3>
+      <p>Youth homelessness is disproportionately rural, offline, and out of view. A probability-based design with a telephone component reaches households that online-only approaches systematically miss &mdash; the very families this study exists to count.</p>
+    </div>
+    <div class="fw-card">
+      <div class="fw-card-icon"><svg viewBox="0 0 20 20" fill="none"><path d="M3 15l4-5 3 3 5-7" stroke="#bf6a3a" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="15" cy="6" r="1.4" fill="#bf6a3a"/></svg></div>
+      <h3>Trend Integrity Over a Decade</h3>
+      <p>We explicitly engineer for comparability: matched wording, a probability-based foundation, a bridge to the original telephone survey, and weighting to federal benchmarks, with trend calibration relative to the 2017 baseline.</p>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"><hr></div>
+
+<section class="section method-section">
+  <div class="section-title">Methodology</div>
+
+  <p class="method-lede">The 2017 estimates were produced on Gallup&rsquo;s national <strong>random-digit-dial telephone survey</strong> &mdash; a probability-based, dual-frame (landline and cellphone) instrument with live interviewers. That is the baseline any renewed count must be compared against. Our design preserves that lineage by combining two <strong>probability-based</strong> sources rather than an opt-in or fully online option, which will systematically underestimate the exact population we seek to cover.</p>
+
+  <div class="arch">
+    <div class="arch-frame panel">
+      <div class="arch-tag">Source One</div>
+      <div class="arch-share">20,000</div>
+      <div class="arch-n">household screens &middot; fielded in July 2026</div>
+      <h4>Gallup&rsquo;s Probability-Based Panel</h4>
+      <p>Gallup&rsquo;s national panel is recruited through probability-based methods (using ABS and RDD).</p>
+    </div>
+    <div class="arch-frame rdd">
+      <div class="arch-tag">Source Two</div>
+      <div class="arch-share">12,000</div>
+      <div class="arch-n">household screens &middot; ~2,000 per month, rolling</div>
+      <h4>RDD Telephone</h4>
+      <p>A live-interviewer, dual-frame RDD telephone component &mdash; the same methodology that produced the 2017 estimates. A large, standalone probability-based survey that will complement the Gallup Panel and ensure broader, more complete coverage of the underlying population.</p>
+    </div>
+  </div>
+
+  <div class="funnel">
+    <div class="funnel-step">
+      <div class="funnel-n">20,000</div>
+      <div class="funnel-l">Household screens via the probability panel, fielded in July</div>
+    </div>
+    <div class="funnel-step">
+      <div class="funnel-n">12,000</div>
+      <div class="funnel-l">RDD telephone screens, rolling through the fall</div>
+    </div>
+    <div class="funnel-step highlight">
+      <div class="funnel-n">~32,000</div>
+      <div class="funnel-l">Households screened &mdash; at or above the screening base of the original count</div>
+    </div>
+  </div>
+
+  <div class="method-points">
+    <div class="mp"><div class="mp-num">01</div><div><h4>Two probability-based sources, no opt-in dependence</h4><p>Both the panel and the RDD frame are probability-based. The estimate never rests on self-selected respondents &mdash; a common source of bias in national prevalence figures.</p></div></div>
+    <div class="mp"><div class="mp-num">02</div><div><h4>A bridge to the original survey</h4><p>Retaining a live-interviewer telephone component and probability-based methods lets us compare estimates directly to the 2017 results.</p></div></div>
+    <div class="mp"><div class="mp-num">03</div><div><h4>Coverage of the populations most at risk</h4><p>Rural, lower-income, and offline households &mdash; over-represented in youth homelessness and under-represented online &mdash; are reached through the RDD frame, protecting the validity of subgroup estimates.</p></div></div>
+    <div class="mp"><div class="mp-num">04</div><div><h4>Screening at national scale</h4><p>The RDD survey alone is a substantial probability-based effort, and roughly 32,000 household screens sit at or above the screening base of the original count &mdash; ample for stable prevalence estimates and for the rural and demographic breakouts the report depends upon.</p></div></div>
+    <div class="mp"><div class="mp-num">05</div><div><h4>Cost discipline by design</h4><p>RDD is the more expensive frame. Concentrating it where it earns its cost while carrying the balance on the probability panel maximizes reportability and credibility while holding cost down.</p></div></div>
+  </div>
+</section>
+
+<div class="section-divider"><hr></div>
+
+<section class="section">
+  <div class="section-title">Why the Design Choices Matter</div>
+  <div class="section-subtitle">Many capable firms can field an online panel. For a study whose value depends on being trended over time, the question is whether the design protects comparability and reaches the households this count must include.</div>
+  <div class="compare-wrap">
+    <div class="compare-row head">
+      <div class="compare-cell crit">Consideration</div>
+      <div class="compare-cell">Single-Frame, Panel-Only Approach</div>
+      <div class="compare-cell ours">Gallup Dual-Frame Probability Design</div>
+    </div>
+    <div class="compare-row">
+      <div class="compare-cell crit">Coverage of offline, rural &amp; older households</div>
+      <div class="compare-cell dim"><span class="x">&times;</span> &nbsp;Online reach leaves systematic gaps in exactly the at-risk groups this study must count</div>
+      <div class="compare-cell ours"><span class="ck">&check;</span> &nbsp;RDD telephone frame reaches households the internet does not</div>
+    </div>
+    <div class="compare-row">
+      <div class="compare-cell crit">Comparability with the 2017 telephone baseline</div>
+      <div class="compare-cell dim"><span class="x">&times;</span> &nbsp;A wholesale shift in mode confounds real change with method change</div>
+      <div class="compare-cell ours"><span class="ck">&check;</span> &nbsp;Live-interviewer telephone component bridges directly to the original methodology</div>
+    </div>
+    <div class="compare-row">
+      <div class="compare-cell crit">Defensibility in peer and policy review</div>
+      <div class="compare-cell dim"><span class="x">&times;</span> &nbsp;Heavier reliance on a single frame invites sharper questions in peer and policy review</div>
+      <div class="compare-cell ours"><span class="ck">&check;</span> &nbsp;Two independent probability sources, transparently documented and reconciled</div>
+    </div>
+    <div class="compare-row">
+      <div class="compare-cell crit">Trend integrity over a decade</div>
+      <div class="compare-cell dim"><span class="x">&times;</span> &nbsp;Difficult to defend a year-over-decade comparison built on a different instrument</div>
+      <div class="compare-cell ours"><span class="ck">&check;</span> &nbsp;Engineered as a genuine repeat of the original, with documented adjustments</div>
+    </div>
+    <div class="compare-row">
+      <div class="compare-cell crit">Cost at national scale</div>
+      <div class="compare-cell dim"><span class="ck">&check;</span> &nbsp;Lower unit cost &mdash; the reason all-panel designs are tempting</div>
+      <div class="compare-cell ours"><span class="ck">&check;</span> &nbsp;Captured by carrying the majority of the screening on the panel; RDD used precisely where it earns its cost</div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"><hr></div>
+
+<section class="section">
+  <div class="section-title">Scope in Detail</div>
+  <div class="scope-grid">
+    <div class="scope-card">
+      <h4>Population &amp; Definitions</h4>
+      <ul class="scope-list">
+        <li><strong>Age frame:</strong> youth and young adults ages 13&ndash;25, reported via the household screener, consistent with 2017.</li>
+        <li><strong>Homelessness, broadly defined:</strong> explicit homelessness (streets, cars, shelters, transitional housing) plus couch surfing &mdash; staying with others while lacking a safe, stable arrangement.</li>
+        <li><strong>Measures:</strong> 12-month prevalence and incidence, plus the core characteristics and disparities the original report established.</li>
+        <li><strong>Inclusivity:</strong> Spanish-language interviewing and all 50 states, preserving the reach of the original design.</li>
+      </ul>
+    </div>
+    <div class="scope-card">
+      <h4>Screening &amp; Fielding</h4>
+      <ul class="scope-list">
+        <li><strong>20,000 household screens</strong> fielded in July 2026 through Gallup&rsquo;s probability-based panel.</li>
+        <li><strong>12,000 RDD telephone screens</strong> at roughly 2,000 per month, dual-frame (landline + cell), live interviewers, multi-call design.</li>
+        <li><strong>~32,000 household screens in all</strong> &mdash; at or above the screening base of the original count &mdash; with those that screen in continuing to the full survey.</li>
+        <li><strong>The majority of screening from the panel, anchored by a large probability-based telephone screen</strong> &mdash; a balance chosen to protect coverage and comparability while controlling cost.</li>
+      </ul>
+    </div>
+    <div class="scope-card">
+      <h4>Weighting &amp; Integration</h4>
+      <ul class="scope-list">
+        <li>Dual-frame integration reconciling the panel and RDD screening sources into a single national estimate.</li>
+        <li>Weighting for unequal selection probability, nonresponse, and frame overlap, then to federal demographic benchmarks (CPS / ACS).</li>
+        <li>Mode-effect and trend calibration relative to the 2017 baseline.</li>
+      </ul>
+    </div>
+    <div class="scope-card">
+      <h4>Quality Assurance</h4>
+      <ul class="scope-list">
+        <li>Real-time field monitoring and validation across both sources.</li>
+        <li>Standing data-quality checks applied to the probability panel, consistent with Gallup&rsquo;s published practice.</li>
+        <li>Instrument pretesting to confirm question wording performs as it did in the original count.</li>
+        <li>Full methodological transparency suitable for peer, funder, and federal review.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"><hr></div>
+
+<section class="section">
+  <div class="section-title">What Chapin Hall Receives</div>
+  <div class="deliverables-grid">
+    <div class="deliv-card">
+      <span class="deliv-tag deliv-tag-1">The Evidence Base</span>
+      <h3>Dataset, Cross-Tabs &amp; Documentation</h3>
+      <ul class="deliv-list">
+        <li>Cleaned, weighted, fully documented dataset (delivered ready for analysis)</li>
+        <li>Comprehensive cross-tabulations across the core research dimensions</li>
+        <li>Topline national prevalence and incidence figures</li>
+        <li>Demographic, geographic (rural/urban), and subgroup breakouts</li>
+        <li>Full methodology documentation, including the trend-comparability and mode-adjustment approach</li>
+      </ul>
+    </div>
+    <div class="deliv-card primary">
+      <span class="deliv-tag deliv-tag-2">Provided Pro Bono</span>
+      <h3>Gallup.com Feature &amp; Strategic Communications</h3>
+      <ul class="deliv-list">
+        <li>A flagship Gallup.com feature article on the new national findings</li>
+        <li>Media pitching and placement with national outlets</li>
+        <li>Distribution through Gallup&rsquo;s owned media and audience network</li>
+        <li>Coordinated messaging and data storytelling aligned with Chapin Hall&rsquo;s policy goals</li>
+        <li>Presentation-ready data visualizations and key-finding graphics</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"><hr></div>
+
+<section class="section">
+  <div class="section-title">Amplification &amp; Reach &mdash; At No Cost</div>
+  <div class="section-subtitle">The 2017 estimates reshaped the national conversation because they were both credible and visible. Gallup is contributing its full communications capability &mdash; pro bono &mdash; to make sure the new numbers travel just as far.</div>
+
+  <div class="value-grid">
+    <div class="value-card">
+      <div class="value-card-head"><span class="value-num">01</span><h3>The Value of a Trusted Messenger</h3></div>
+      <p>When a finding carries the Gallup name, newsrooms and policymakers treat it as authoritative by default. That standing &mdash; built over decades of independent, non-partisan measurement &mdash; is the scarcest asset in research communications. It cannot be bought with a press release, and it is exactly what a politically charged topic like youth homelessness needs to be heard across the aisle. Releasing the findings through Gallup lends Chapin Hall&rsquo;s research an independent imprimatur that sharpens its credibility rather than competing with it.</p>
+    </div>
+    <div class="value-card">
+      <div class="value-card-head"><span class="value-num">02</span><h3>A Gallup.com Feature, Not a Footnote</h3></div>
+      <p>The findings will anchor a flagship article on Gallup.com &mdash; written by Gallup&rsquo;s editorial team, framed for a policy and general audience, and published as Gallup&rsquo;s own analysis. It is not coverage Chapin Hall has to chase, but a feature carried on one of the most-cited data platforms in the country, with the visualizations and clear writing that make a complex prevalence estimate land.</p>
+    </div>
+  </div>
+
+  <div class="pitch-block">
+    <div class="pitch-head">
+      <h3>Media Pitching &amp; Placement &mdash; The Method</h3>
+      <p>Amplification is not a single press release. It is a sequenced campaign Gallup&rsquo;s strategic communications team runs to maximize reach, accuracy, and policy traction on release.</p>
+    </div>
+    <div class="pitch-steps">
+      <div class="pitch-step"><div class="ps-n">1</div><div><h4>Narrative &amp; message development</h4><p>We distill the data into a small number of disciplined, defensible storylines &mdash; the headline number, the human stakes, and the policy hook &mdash; with messaging built to survive scrutiny rather than overreach.</p></div></div>
+      <div class="pitch-step"><div class="ps-n">2</div><div><h4>Embargoed briefings for tier-one outlets</h4><p>Ahead of release, we offer select national reporters an advance, embargoed look so they can prepare considered coverage &mdash; the difference between a same-day mention and a substantive feature.</p></div></div>
+      <div class="pitch-step"><div class="ps-n">3</div><div><h4>Targeted pitching to the right beats</h4><p>We pitch the reporters who own this subject &mdash; housing, poverty, youth, education, and social policy desks &mdash; drawing on Gallup&rsquo;s standing relationships with national and trade press rather than a blast list.</p></div></div>
+      <div class="pitch-step"><div class="ps-n">4</div><div><h4>Owned-channel amplification</h4><p>The Gallup.com feature, Gallup&rsquo;s newsletters, and its social and professional audiences carry the findings directly to a built-in readership of decision-makers, journalists, and researchers.</p></div></div>
+      <div class="pitch-step"><div class="ps-n">5</div><div><h4>Spokesperson support &amp; message discipline</h4><p>We prepare talking points, Q&amp;A, and briefing materials so Chapin Hall&rsquo;s experts can speak to the data with confidence and consistency across interviews, op-eds, and broadcast.</p></div></div>
+      <div class="pitch-step"><div class="ps-n">6</div><div><h4>Coordinated timing &amp; measurement</h4><p>We align release-day sequencing with Chapin Hall&rsquo;s policy calendar, then track pickup, reach, and share of voice so the impact of the launch is documented, not assumed.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"><hr></div>
+
+<section class="section section-narrow">
+  <div class="section-title">The Fielding Process, Step by Step</div>
+  <div class="section-subtitle" style="margin-bottom: 0.5rem;">From locking the instrument to delivering the data &mdash; the operational path of the study, and the timing behind each stage.</div>
+  <div class="timeline-steps">
+    <div class="tl-step"><div class="tl-time">Jun 2026</div><div class="tl-track"><div class="tl-dot"></div><div class="tl-line"></div></div><div class="tl-content"><div class="tl-title">1 &middot; Instrument Programming &amp; Harmonization</div><div class="tl-desc">Lock the questionnaire to the 2017 original &mdash; same wording, definitions, and 13&ndash;25 age frame. Program it for both telephone (CATI) and panel administration, translate into Spanish, and run a cognitive pretest to confirm the items still perform as they did in the first count.</div></div></div>
+    <div class="tl-step"><div class="tl-time">Jul 2026</div><div class="tl-track"><div class="tl-dot clay"></div><div class="tl-line"></div></div><div class="tl-content"><div class="tl-title">2 &middot; Panel Screening &mdash; 20,000 Households</div><div class="tl-desc">Screen roughly 20,000 households through Gallup&rsquo;s probability-based panel at the outset, putting the bulk of the screening in hand quickly and giving Chapin Hall an early read on the data.</div></div></div>
+    <div class="tl-step"><div class="tl-time">Jul&ndash;Dec 2026</div><div class="tl-track"><div class="tl-dot"></div><div class="tl-line"></div></div><div class="tl-content"><div class="tl-title">3 &middot; Rolling RDD Telephone Screening &mdash; 12,000 Households</div><div class="tl-desc">Concurrently and through the fall, screen roughly 2,000 households per month by dual-frame RDD (landline and cellphone), with live interviewers and a multi-call design &mdash; reaching about 12,000 RDD screens, for roughly 32,000 household screens in all.</div></div></div>
+    <div class="tl-step"><div class="tl-time">Throughout</div><div class="tl-track"><div class="tl-dot"></div><div class="tl-line"></div></div><div class="tl-content"><div class="tl-title">4 &middot; Screen-In &rarr; Full Survey</div><div class="tl-desc">Each contact begins with the screener; what happens next depends on the household.</div>
+      <div class="screen-split">
+        <div class="ss-box"><div class="ss-h">Every household screened</div><p>Answers the core household-report items &mdash; whether anyone aged 13&ndash;25 experienced any form of homelessness in the past 12 months. This is the base for the national prevalence estimate.</p></div>
+        <div class="ss-box highlight"><div class="ss-h">Households that screen in</div><p>Those with an age-eligible young person continue into the full survey module &mdash; the detailed items on circumstances, types of homelessness, characteristics, and risk factors.</p></div>
+      </div>
+    </div></div>
+    <div class="tl-step"><div class="tl-time">Dec 2026&ndash;Jan 2027</div><div class="tl-track"><div class="tl-dot"></div><div class="tl-line"></div></div><div class="tl-content"><div class="tl-title">5 &middot; Integration, Weighting &amp; Trend Calibration</div><div class="tl-desc">Clean and reconcile both screening sources, integrate the dual frames, weight to federal benchmarks (CPS / ACS), and calibrate for mode and technological-landscape change against the 2017 baseline.</div></div></div>
+    <div class="tl-step"><div class="tl-time">Early 2027</div><div class="tl-track"><div class="tl-dot clay"></div></div><div class="tl-content"><div class="tl-title" style="color: var(--clay);">6 &middot; Delivery &amp; National Amplification</div><div class="tl-desc">Cleaned and weighted dataset, full cross-tabulations, and methodology documentation delivered &mdash; alongside the pro bono Gallup.com feature and communications program to bring the new numbers to the national conversation.</div></div></div>
+  </div>
+</section>
+
+<div class="section-divider"><hr></div>
+
+<section class="section">
+  <div class="section-title">Why Gallup</div>
+  <div class="gallup-block">
+    <div>
+      <p>Gallup fielded the national household survey behind the original Voices of Youth Count estimates. That institutional memory &mdash; of the instrument, the definitions, and the fielding &mdash; is precisely what a faithful repeat requires. Few partners can credibly claim to be replicating their own work to the closest possible standard; Gallup can.</p>
+      <p>Just as important, Gallup keeps the rigor and the reach under one roof: an all-probability sampling capability and a strategic communications team that carries findings into the national debate. A study that must be both rigorous and widely heard is best served by a single partner that produced the original baseline.</p>
+      <p>And Gallup&rsquo;s independence is itself an asset. On a subject where the numbers will be cited in funding fights and policy hearings, an estimate released under a trusted, non-partisan name is far harder to dismiss than the same estimate released alone.</p>
+    </div>
+    <div>
+      <div class="gallup-stat-grid">
+        <div class="gallup-stat"><div class="gallup-stat-n">2016&ndash;17</div><div class="gallup-stat-l">Fielded the Original VoYC Survey</div></div>
+        <div class="gallup-stat"><div class="gallup-stat-n">Probability</div><div class="gallup-stat-l">Panel &amp; RDD, Not Opt-In</div></div>
+        <div class="gallup-stat"><div class="gallup-stat-n">Dual-Frame</div><div class="gallup-stat-l">Landline + Cell Telephone</div></div>
+        <div class="gallup-stat"><div class="gallup-stat-n">Trusted</div><div class="gallup-stat-l">Independent National Voice</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"><hr></div>
+
+<section class="section invest-section" id="investment">
+  <div class="section-title">Total Investment</div>
+  <div class="section-subtitle" style="margin-bottom: 2rem;">A single fixed fee for the complete research program. The Gallup.com feature and full communications program are included at no charge.</div>
+  <div class="invest-simple">
+    <div class="invest-amount-card">
+      <div class="iac-label">Year-One Total &mdash; Voices of Youth Count</div>
+      <div class="iac-value">$243,000</div>
+      <div class="iac-desc">Covers the entire research program: survey design and instrument harmonization, all-probability fieldwork, dual-frame integration and weighting, and the full dataset, cross-tabulations, and methodology documentation.</div>
+      <div class="iac-probono"><span>At No Charge</span>The Gallup.com feature article, media pitching, and strategic communications &mdash; a substantial program in its own right &mdash; are contributed pro bono.</div>
+    </div>
+    <div class="invest-side-note">
+      <p><strong>A fixed fee, not an estimate to be negotiated upward.</strong> The figure above is the all-in price for the work as scoped.</p>
+      <p>Final field costs are subject to confirmation, and complex fielding conditions can carry premium pricing. Year-one delivery targets early 2027.</p>
+    </div>
+  </div>
+</section>
+
+<div class="footer">
+  Prepared by Gallup for Chapin Hall at the University of Chicago &mdash; Voices of Youth Count, national prevalence and incidence survey.<br>
+  Scope, design, and investment details are subject to final scoping discussions and confirmation. Confidential and proprietary.
+</div>
+
+</body>
+</html>
