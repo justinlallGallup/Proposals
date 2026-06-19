@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gallup &amp; Pivotal Ventures &#8212; UK &amp; Communications Addendum</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Source+Sans+3:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+<style>
+:root{--pv-coral:#D94F3B;--pv-coral-light:#E8705F;--pv-coral-dark:#B8392A;--pv-green:#4A6741;--pv-green-light:#6B8C5E;--pv-green-pale:#E8EDE5;--pv-charcoal:#2A2A2A;--pv-dark:#1A1A1A;--pv-warm-gray:#6B6560;--pv-cream:#FAF8F5;--pv-ivory:#F5F3EE;--pv-border:#E0DDD7;--pv-border-light:#EDEAE4;--gallup-blue:#003F5C;--font-display:'Playfair Display',Georgia,serif;--font-body:'Source Sans 3',-apple-system,sans-serif;--shadow-sm:0 1px 3px rgba(0,0,0,0.06);--shadow-md:0 4px 20px rgba(0,0,0,0.08);--radius:10px;--radius-lg:16px}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-body);color:var(--pv-charcoal);background:var(--pv-cream);line-height:1.7;font-size:16px;-webkit-font-smoothing:antialiased}
+
+.site-header{position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.94);backdrop-filter:blur(16px);border-bottom:1px solid var(--pv-border);padding:0 2rem}
+.header-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo-group{display:flex;align-items:center;gap:1.25rem}
+.logo-pivotal{font-family:var(--font-body);font-weight:700;font-size:1.1rem;color:var(--pv-coral);letter-spacing:0.12em;text-transform:uppercase}
+.logo-divider{width:1px;height:26px;background:var(--pv-border)}
+.logo-gallup{font-family:Georgia,serif;font-weight:400;font-size:1.1rem;color:var(--gallup-blue);letter-spacing:0.12em;text-transform:uppercase}
+.header-badge{font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--pv-coral);background:rgba(217,79,59,0.08);padding:0.3rem 0.8rem;border-radius:50px}
+
+.hero-mini{max-width:1200px;margin:0 auto;padding:3.5rem 2rem 3rem}
+.hero-mini-eyebrow{font-weight:600;font-size:0.78rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--pv-coral);margin-bottom:0.75rem}
+.hero-mini h1{font-family:var(--font-display);font-weight:500;font-size:2.4rem;line-height:1.2;color:var(--pv-dark);margin-bottom:1rem}
+.hero-mini h1 em{font-style:italic;color:var(--pv-coral)}
+.hero-mini-sub{font-size:1.08rem;line-height:1.75;color:var(--pv-warm-gray);max-width:720px}
+
+.section{max-width:1200px;margin:0 auto;padding:3.5rem 2rem}
+.section-divider{max-width:1200px;margin:0 auto;padding:0 2rem}
+.section-divider hr{border:none;border-top:1px solid var(--pv-border);margin:0}
+.section-eyebrow{font-weight:600;font-size:0.78rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--pv-coral);margin-bottom:0.75rem}
+.section-title{font-family:var(--font-display);font-weight:500;font-size:1.8rem;line-height:1.2;color:var(--pv-dark);margin-bottom:0.75rem}
+.section-intro{font-size:1.02rem;color:var(--pv-warm-gray);max-width:720px;line-height:1.75;margin-bottom:2rem}
+
+/* ---- spec block ---- */
+.spec-block{background:#fff;border:1px solid var(--pv-border-light);border-radius:var(--radius-lg);overflow:hidden;margin-bottom:1.5rem}
+.spec-header{padding:1.5rem 2rem;border-bottom:1px solid var(--pv-border-light);display:flex;align-items:center;justify-content:space-between}
+.spec-header h3{font-family:var(--font-display);font-weight:500;font-size:1.2rem;color:var(--pv-dark)}
+.spec-header .spec-price{font-family:var(--font-display);font-weight:600;font-size:1.3rem;color:var(--pv-coral)}
+.spec-body{padding:1.5rem 2rem}
+.spec-grid{display:grid;grid-template-columns:140px 1fr;gap:0.4rem 1.5rem}
+.spec-label{font-size:0.78rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--pv-warm-gray);padding-top:0.15rem}
+.spec-value{font-size:0.92rem;color:var(--pv-charcoal);line-height:1.6}
+.spec-divider{grid-column:1/-1;border:none;border-top:1px solid var(--pv-border-light);margin:0.75rem 0}
+
+/* ---- deliverable selector ---- */
+.deliv-selector{margin-top:1.25rem;padding-top:1.25rem;border-top:1px solid var(--pv-border-light)}
+.deliv-selector-label{font-size:0.78rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--pv-warm-gray);margin-bottom:0.75rem}
+.deliv-option{display:flex;align-items:flex-start;gap:0.75rem;padding:0.75rem 1rem;margin-bottom:0.5rem;background:var(--pv-ivory);border:1px solid var(--pv-border-light);border-radius:var(--radius);cursor:pointer;transition:border-color 0.2s}
+.deliv-option:hover{border-color:var(--pv-coral)}
+.deliv-option.selected{border-color:var(--pv-coral);background:rgba(217,79,59,0.03)}
+.deliv-option input[type="radio"]{accent-color:var(--pv-coral);width:16px;height:16px;margin-top:2px}
+.deliv-option label{font-size:0.88rem;color:var(--pv-charcoal);cursor:pointer;flex:1;line-height:1.5}
+.deliv-option label strong{color:var(--pv-dark)}
+.deliv-option .deliv-price{font-size:0.85rem;font-weight:600;color:var(--pv-warm-gray);white-space:nowrap}
+.deliv-note{font-size:0.8rem;color:var(--pv-warm-gray);display:block;margin-top:0.1rem}
+
+/* ---- comms items ---- */
+.comms-item{background:#fff;border:1px solid var(--pv-border-light);border-radius:var(--radius-lg);padding:1.5rem 2rem;margin-bottom:1rem;display:flex;align-items:flex-start;gap:1.25rem;cursor:pointer;transition:border-color 0.25s,box-shadow 0.25s}
+.comms-item:hover{border-color:var(--pv-coral);box-shadow:var(--shadow-sm)}
+.comms-item.active{border-color:var(--pv-coral);box-shadow:0 0 0 1px var(--pv-coral),var(--shadow-sm)}
+.comms-check{width:22px;height:22px;border-radius:6px;border:2px solid var(--pv-border);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;transition:all 0.2s}
+.comms-item.active .comms-check{background:var(--pv-coral);border-color:var(--pv-coral)}
+.comms-check svg{width:14px;height:14px;color:#fff;opacity:0;transition:opacity 0.2s}
+.comms-item.active .comms-check svg{opacity:1}
+.comms-content{flex:1}
+.comms-title-row{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:0.35rem}
+.comms-title{font-weight:600;font-size:0.95rem;color:var(--pv-dark)}
+.comms-price{font-family:var(--font-display);font-weight:600;font-size:1.05rem;color:var(--pv-coral)}
+.comms-desc{font-size:0.85rem;color:var(--pv-warm-gray);line-height:1.6;margin-bottom:0.5rem}
+.comms-details{list-style:none;margin-top:0.5rem}
+.comms-details li{font-size:0.82rem;color:var(--pv-warm-gray);line-height:1.55;padding:0.15rem 0 0.15rem 1.1rem;position:relative}
+.comms-details li::before{content:'\2713';position:absolute;left:0;color:var(--pv-green);font-weight:700;font-size:0.75rem}
+.comms-group-parent:hover{border-color:var(--pv-border-light)!important;box-shadow:none!important}
+.video-clips-section{display:none;margin-top:1rem;padding-top:0}
+.comms-item.active .video-clips-section{display:block}
+.static-option{padding:0.75rem 1rem;background:var(--pv-ivory);border:1px solid var(--pv-border-light);border-radius:var(--radius);transition:border-color 0.2s}
+.static-option.has-qty{border-color:var(--pv-coral);background:rgba(217,79,59,0.03)}
+.static-option-main{display:flex;align-items:center;gap:1rem}
+.static-option-text{flex:1}
+.static-option-text strong{font-size:0.85rem;color:var(--pv-dark);display:block}
+.static-detail{display:block;font-size:0.8rem;color:var(--pv-warm-gray);margin-top:0.1rem}
+.qty-control{display:flex;align-items:center;gap:0;border:1px solid var(--pv-border);border-radius:6px;overflow:hidden;flex-shrink:0}
+.qty-btn{width:32px;height:32px;border:none;background:#fff;font-size:1rem;font-weight:600;color:var(--pv-charcoal);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background 0.15s}
+.qty-btn:hover{background:var(--pv-ivory)}
+.qty-btn:active{background:var(--pv-border)}
+.qty-val{width:36px;height:32px;display:flex;align-items:center;justify-content:center;font-size:0.92rem;font-weight:700;color:var(--pv-dark);border-left:1px solid var(--pv-border);border-right:1px solid var(--pv-border);background:#fff}
+
+/* ---- summary panel ---- */
+.scope-section{background:var(--pv-ivory);padding:3rem 0;border-top:1px solid var(--pv-border);border-bottom:1px solid var(--pv-border)}
+.scope-inner{max-width:1200px;margin:0 auto;padding:0 2rem}
+.summary-bar{background:#fff;border:1px solid var(--pv-border-light);border-radius:var(--radius-lg);padding:1.5rem 2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1.5rem}
+.summary-items{display:flex;gap:2.5rem;flex-wrap:wrap}
+.summary-item-label{font-size:0.68rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--pv-warm-gray);margin-bottom:0.15rem}
+.summary-item-val{font-family:var(--font-display);font-weight:600;font-size:1.3rem;color:var(--pv-dark)}
+.summary-item-val.coral{color:var(--pv-coral)}
+.summary-btns{display:flex;gap:0.5rem}
+.btn-s{padding:0.65rem 1.4rem;border-radius:8px;font-weight:600;font-size:0.85rem;border:none;cursor:pointer;transition:background 0.2s}
+.btn-s-coral{background:var(--pv-coral);color:#fff}.btn-s-coral:hover{background:var(--pv-coral-dark)}
+.btn-s-blue{background:var(--gallup-blue);color:#fff}.btn-s-blue:hover{background:#005577}
+
+.site-footer{max-width:1200px;margin:0 auto;padding:2.5rem 2rem;border-top:1px solid var(--pv-border);display:flex;justify-content:space-between;align-items:center;font-size:0.78rem;color:var(--pv-warm-gray)}
+@media(max-width:900px){.spec-grid{grid-template-columns:1fr}.summary-bar{flex-direction:column;align-items:flex-start}.summary-items{flex-direction:column;gap:1rem}}
+</style>
+</head>
+<body>
+
+<header class="site-header"><div class="header-inner"><div class="logo-group"><span class="logo-pivotal">Pivotal</span><span class="logo-divider"></span><span class="logo-gallup">Gallup</span></div><span class="header-badge">Addendum</span></div></header>
+
+<section class="hero-mini">
+<div class="hero-mini-eyebrow">Addendum to U.S. Research Proposal</div>
+<h1>United Kingdom Data Collection &amp; <em>Digital Communications</em></h1>
+<p class="hero-mini-sub">Supplementary components to extend the U.S. Women&#8217;s Health &amp; Power research program with a parallel UK data collection effort and targeted digital and social communications activations.</p>
+</section>
+
+<div class="section-divider"><hr></div>
+
+<!-- UK DATA COLLECTION -->
+<section class="section" id="uk">
+<div class="section-eyebrow">Component 1</div>
+<h2 class="section-title">United Kingdom Data Collection</h2>
+<p class="section-intro">An abbreviated, web-based survey fielded in the UK using a parallel version of the U.S. instrument, measuring core health-and-power dimensions among UK women and men.</p>
+
+<div class="spec-block">
+<div class="spec-header"><h3>UK Survey &#8212; Data Collection &amp; Processing</h3><span class="spec-price" id="uk-price">$28,200</span></div>
+<div class="spec-body">
+<div class="spec-grid">
+<span class="spec-label">Methodology</span>
+<span class="spec-value">Web-based survey administered through an online panel</span>
+
+<span class="spec-label">Instrument</span>
+<span class="spec-value">
+<div class="deliv-option selected" onclick="selectInstrument(this, '2min')" style="margin-bottom:0.5rem">
+<input type="radio" name="uk-instrument" value="2min" id="uk-2min" checked onchange="recalc()">
+<label for="uk-2min"><strong>~2 minutes (6&#8211;8 questions)</strong><span class="deliv-note">Focused version covering core health-and-power questions</span></label>
+<span class="deliv-price">$28,200</span>
+</div>
+<div class="deliv-option" onclick="selectInstrument(this, '5min')">
+<input type="radio" name="uk-instrument" value="5min" id="uk-5min" onchange="recalc()">
+<label for="uk-5min"><strong>~5 minutes (15&#8211;20 questions)</strong><span class="deliv-note">Expanded version allowing for a full module or section from the U.S. instrument with additional topic coverage</span></label>
+<span class="deliv-price">$44,500</span>
+</div>
+</span>
+
+<span class="spec-label">Total Completes</span>
+<span class="spec-value"><strong>2,000</strong> completed surveys</span>
+
+<hr class="spec-divider">
+
+<span class="spec-label">Women</span>
+<span class="spec-value"><strong>n = 1,500</strong> &#8212; Demographically balanced sample of UK women (18+)</span>
+
+<span class="spec-label">Men</span>
+<span class="spec-value"><strong>n = 500</strong> &#8212; Comparison group enabling cross-gender analysis, mirroring the U.S. design</span>
+
+<hr class="spec-divider">
+
+<span class="spec-label">Processing</span>
+<span class="spec-value">Statistical weighting, data cleaning, QA, and delivery of crosstabulations</span>
+
+<span class="spec-label">Fielding</span>
+<span class="spec-value">Estimated 2&#8211;3 weeks</span>
+</div>
+
+<div class="deliv-selector">
+<div class="deliv-selector-label">Deliverable (select one)</div>
+<div class="deliv-option selected" onclick="selectDeliv(this, 'memo')">
+<input type="radio" name="uk-deliv" value="memo" id="uk-memo" checked onchange="recalc()">
+<label for="uk-memo"><strong>3-Page Research Memo</strong><span class="deliv-note">Concise written summary with up to 8 data visualizations. Designed for internal briefings and quick stakeholder reads.</span></label>
+<span class="deliv-price">$11,000</span>
+</div>
+<div class="deliv-option" onclick="selectDeliv(this, 'report')">
+<input type="radio" name="uk-deliv" value="report" id="uk-report" onchange="recalc()">
+<label for="uk-report"><strong>10-Page Designed Report</strong><span class="deliv-note">Comprehensive designed report with full findings and data visualizations.</span></label>
+<span class="deliv-price">$30,000</span>
+</div>
+</div>
+
+</div></div>
+</section>
+
+<div class="section-divider"><hr></div>
+
+<!-- DIGITAL & SOCIAL -->
+<section class="section" id="digital">
+<div class="section-eyebrow">Component 2</div>
+<h2 class="section-title">Digital &amp; Social Communications</h2>
+<p class="section-intro">Individual activations to amplify research findings &#8212; from the U.S. study, the UK study, or both &#8212; through Gallup&#8217;s owned channels and deliver branded content assets to Pivotal for independent distribution. Select any combination of the components below.</p>
+
+<div class="comms-item" onclick="toggleComms(this, 'podcast')" data-id="podcast" data-price="8500">
+<div class="comms-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+<div class="comms-content">
+<div class="comms-title-row"><span class="comms-title">Gallup Podcast Feature</span><span class="comms-price">$8,500</span></div>
+<div class="comms-desc">A dedicated audio-only segment on the official Gallup Podcast spotlighting key findings from the Women&#8217;s Health &amp; Power research. Can be conducted remotely or in-studio.</div>
+<ul class="comms-details">
+<li>10-minute produced audio segment</li>
+<li>Distributed on the Gallup Podcast platform: Apple Podcasts, Spotify, Spreaker, and all major podcast directories</li>
+<li>Reaches Gallup&#8217;s established podcast audience of researchers, policymakers, and business leaders</li>
+</ul>
+</div></div>
+
+<div class="comms-item" onclick="toggleComms(this, 'video')" data-id="video" data-price="16500" id="video-card">
+<div class="comms-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+<div class="comms-content">
+<div class="comms-title-row"><span class="comms-title">Recorded Video Interview in Gallup Studio</span><span class="comms-price">$16,500</span></div>
+<div class="comms-desc">A professionally produced video interview recorded at Gallup&#8217;s studio, featuring Gallup researchers and/or Pivotal spokespeople discussing key findings.</div>
+<ul class="comms-details">
+<li>Flexible segment length (up to 15 minutes)</li>
+<li>Professionally edited and designed with branded graphics</li>
+<li>Full edited video file delivered to Pivotal</li>
+</ul>
+<div class="video-clips-section" id="video-clips-section">
+<div style="font-size:0.82rem;font-weight:700;color:var(--pv-warm-gray);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:0.5rem;padding-top:0.75rem;border-top:1px solid var(--pv-border-light)">Add Video Clips</div>
+<div style="font-size:0.82rem;color:var(--pv-warm-gray);margin-bottom:0.75rem">Short-form clips produced from the interview, edited and branded for social media. <em style="color:var(--pv-coral);font-style:normal;font-weight:600;font-size:0.75rem">(Included with video interview selection above)</em></div>
+<div class="static-option" id="opt-clips_gallup" style="margin-bottom:0.5rem">
+<div class="static-option-main">
+<div class="static-option-text">
+<strong>Posted on Gallup Channels &#8212; $2,800 per clip</strong>
+<span class="static-detail">Up to 60 seconds each. Gallup-branded clip posted on official Gallup social accounts (X, LinkedIn, or YouTube). Up to 2 clips.</span>
+</div>
+<div class="qty-control" onclick="event.stopPropagation()">
+<button class="qty-btn" onclick="event.stopPropagation();adjustQty('clips_gallup', -1)">&#8722;</button>
+<span class="qty-val" id="qty-clips_gallup">0</span>
+<button class="qty-btn" onclick="event.stopPropagation();adjustQty('clips_gallup', 1)">+</button>
+</div>
+</div>
+</div>
+<div class="static-option" id="opt-clips_pivotal">
+<div class="static-option-main">
+<div class="static-option-text">
+<strong>Delivered to Pivotal &#8212; $1,500 per clip</strong>
+<span class="static-detail">Up to 60 seconds each. Gallup/Pivotal co-branded clip delivered as a file for Pivotal&#8217;s own distribution. Up to 6 clips.</span>
+</div>
+<div class="qty-control" onclick="event.stopPropagation()">
+<button class="qty-btn" onclick="event.stopPropagation();adjustQty('clips_pivotal', -1)">&#8722;</button>
+<span class="qty-val" id="qty-clips_pivotal">0</span>
+<button class="qty-btn" onclick="event.stopPropagation();adjustQty('clips_pivotal', 1)">+</button>
+</div>
+</div>
+</div>
+</div>
+</div></div>
+
+<div class="comms-item comms-group-parent" style="cursor:default;flex-direction:column;gap:0">
+<div style="display:flex;align-items:flex-start;gap:1.25rem;width:100%">
+<div style="width:22px;flex-shrink:0"></div>
+<div class="comms-content">
+<div class="comms-title-row"><span class="comms-title">Static Content Development</span></div>
+<div class="comms-desc">Branded data visualizations created from the research findings. Select quantity for each distribution option.</div>
+</div>
+</div>
+<div style="padding:0.75rem 0 0 3.25rem;width:100%;display:flex;flex-direction:column;gap:0.5rem">
+
+<div class="static-option" id="opt-static_gallup">
+<div class="static-option-main">
+<div class="static-option-text">
+<strong>Posted on Gallup Channels &#8212; $9,500 per set</strong>
+<span class="static-detail">4 co-branded data visualizations designed from the research findings, published as 2 social media posts &#8212; 1 on Gallup&#8217;s official X account and 1 on Gallup&#8217;s official LinkedIn account. All 4 visualization files also delivered to Pivotal.</span>
+</div>
+<div class="qty-control">
+<button class="qty-btn" onclick="adjustQty('static_gallup', -1)">&#8722;</button>
+<span class="qty-val" id="qty-static_gallup">0</span>
+<button class="qty-btn" onclick="adjustQty('static_gallup', 1)">+</button>
+</div>
+</div>
+</div>
+
+<div class="static-option" id="opt-static_pivotal">
+<div class="static-option-main">
+<div class="static-option-text">
+<strong>Delivered to Pivotal &#8212; $6,500 per set</strong>
+<span class="static-detail">Each set includes 4 co-branded data visualizations delivered as high-resolution files for Pivotal&#8217;s own channels. Not posted on Gallup channels.</span>
+</div>
+<div class="qty-control">
+<button class="qty-btn" onclick="adjustQty('static_pivotal', -1)">&#8722;</button>
+<span class="qty-val" id="qty-static_pivotal">0</span>
+<button class="qty-btn" onclick="adjustQty('static_pivotal', 1)">+</button>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+
+
+<div class="comms-item comms-group-parent" style="cursor:default;flex-direction:column;gap:0">
+<div style="display:flex;align-items:flex-start;gap:1.25rem;width:100%">
+<div style="width:22px;flex-shrink:0"></div>
+<div class="comms-content">
+<div class="comms-title-row"><span class="comms-title">Gallup.com Article Development &amp; Media Pitch</span></div>
+<div class="comms-desc">Feature articles published on Gallup.com and distributed through news.gallup.com, with proactive media pitching to journalists covering women&#8217;s health, workplace, and policy.</div>
+</div>
+</div>
+<div style="padding:0.75rem 0 0 3.25rem;width:100%;display:flex;flex-direction:column;gap:0.5rem">
+
+<div class="static-option" id="opt-article">
+<div class="static-option-main">
+<div class="static-option-text">
+<strong>Gallup.com Article &#8212; $12,000 each</strong>
+<span class="static-detail">Full-length article with 2&#8211;3 Gallup-branded visualizations, written and published on Gallup.com, distributed through news.gallup.com to Gallup&#8217;s media subscriber list, with proactive pitching to drive earned coverage.</span>
+</div>
+<div class="qty-control">
+<button class="qty-btn" onclick="adjustQty('article', -1)">&#8722;</button>
+<span class="qty-val" id="qty-article">0</span>
+<button class="qty-btn" onclick="adjustQty('article', 1)">+</button>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+</section>
+
+<!-- SUMMARY BAR -->
+<section class="scope-section">
+<div class="scope-inner">
+<div class="section-eyebrow">Addendum Summary</div>
+<div class="summary-bar">
+<div class="summary-items">
+<div><div class="summary-item-label">UK Data Collection</div><div class="summary-item-val" id="sum-uk">$39,200</div></div>
+<div><div class="summary-item-label">Digital &amp; Social</div><div class="summary-item-val" id="sum-comms">$0</div></div>
+<div><div class="summary-item-label">Addendum Total</div><div class="summary-item-val coral" id="sum-total">$39,200</div></div>
+</div>
+<div class="summary-btns">
+<button class="btn-s btn-s-coral" onclick="printSummary()">Download PDF</button>
+<button class="btn-s btn-s-blue" onclick="emailSummary()">Email to Gallup</button>
+</div>
+</div>
+</div>
+</section>
+
+<footer class="site-footer"><div>Prepared exclusively for Pivotal Ventures. All scope and investment details are subject to final scoping discussions.</div><div>&copy; 2026 Gallup, Inc. Confidential and proprietary.</div></footer>
+
+<script>
+var UK_PRICES={'2min':28200,'5min':44500};
+var commsItems={};
+
+function getUKBase(){
+  var sel=document.querySelector('input[name="uk-instrument"]:checked');
+  return sel?UK_PRICES[sel.value]:28200;
+}
+
+function getDelivPrice(){
+  var sel=document.querySelector('input[name="uk-deliv"]:checked');
+  return sel&&sel.value==='report'?30000:11000;
+}
+
+function selectInstrument(el,val){
+  el.parentNode.querySelectorAll('.deliv-option').forEach(function(d){d.classList.remove('selected')});
+  el.classList.add('selected');
+  el.querySelector('input').checked=true;
+  recalc();
+}
+
+function selectDeliv(el,val){
+  var parent=el.closest('.deliv-selector');
+  parent.querySelectorAll('.deliv-option').forEach(function(d){d.classList.remove('selected')});
+  el.classList.add('selected');
+  el.querySelector('input').checked=true;
+  recalc();
+}
+
+function toggleComms(el,id){
+  var price=parseInt(el.dataset.price);
+  if(!commsItems[id])commsItems[id]={active:false,price:price,name:el.querySelector('.comms-title').textContent};
+  commsItems[id].active=!commsItems[id].active;
+  el.classList.toggle('active');
+  if(id==='video'&&!commsItems[id].active){
+    staticQty.clips_gallup=0;staticQty.clips_pivotal=0;
+    document.getElementById('qty-clips_gallup').textContent='0';
+    document.getElementById('qty-clips_pivotal').textContent='0';
+    var cg=document.getElementById('opt-clips_gallup');if(cg)cg.classList.remove('has-qty');
+    var cp=document.getElementById('opt-clips_pivotal');if(cp)cp.classList.remove('has-qty');
+  }
+  recalc();
+}
+
+var staticPrices={static_gallup:9500,static_pivotal:6500,clips_gallup:2800,clips_pivotal:1500,article:12000};
+var staticNames={static_gallup:'Static Content — Posted on Gallup Channels',static_pivotal:'Static Content — Delivered to Pivotal',clips_gallup:'Video Clips — Posted on Gallup Channels',clips_pivotal:'Video Clips — Delivered to Pivotal',article:'Gallup.com Article & Media Pitch'};
+var staticQty={static_gallup:0,static_pivotal:0,clips_gallup:0,clips_pivotal:0,article:0};
+var staticMax={static_gallup:4,static_pivotal:99,clips_gallup:2,clips_pivotal:6,article:4};
+
+function adjustQty(id,delta){
+  var max=staticMax[id]||99;
+  staticQty[id]=Math.max(0,Math.min(max,staticQty[id]+delta));
+  document.getElementById('qty-'+id).textContent=staticQty[id];
+  document.getElementById('opt-'+id).classList.toggle('has-qty',staticQty[id]>0);
+  recalc();
+}
+
+function recalc(){
+  var ukBase=getUKBase();
+  var delivP=getDelivPrice();
+  var ukTotal=ukBase+delivP;
+  var commsTotal=0;
+  Object.keys(commsItems).forEach(function(id){if(commsItems[id].active)commsTotal+=commsItems[id].price});
+  Object.keys(staticQty).forEach(function(id){commsTotal+=staticQty[id]*staticPrices[id]});
+  document.getElementById('uk-price').textContent=fmt(ukBase);
+  document.getElementById('sum-uk').textContent=fmt(ukTotal);
+  document.getElementById('sum-comms').textContent=fmt(commsTotal);
+  document.getElementById('sum-total').textContent=fmt(ukTotal+commsTotal);
+}
+
+function fmt(n){return '$'+n.toLocaleString('en-US')}
+
+function buildQtyLines(format){
+  var items=[];
+  Object.keys(staticQty).forEach(function(id){
+    if(staticQty[id]>0){
+      var total=staticQty[id]*staticPrices[id];
+      if(format==='html')items.push('<p>'+staticNames[id]+' x'+staticQty[id]+' &mdash; '+fmt(total)+'</p>');
+      else items.push('  '+staticNames[id]+' x'+staticQty[id]+' — '+fmt(total));
+    }
+  });
+  return items;
+}
+
+function printSummary(){
+  var ukBase=getUKBase();
+  var instLen=document.querySelector('input[name="uk-instrument"]:checked').value==='5min'?'~5 min':'~2 min';
+  var delivP=getDelivPrice();
+  var delivName=delivP===30000?'10-Page Designed Report':'3-Page Research Memo';
+  var ls=['<h2>UK Data Collection</h2>','<p>UK Survey (2,000 completes: 1,500 women + 500 men, web-based, '+instLen+') &mdash; '+fmt(ukBase)+'</p>','<p>'+delivName+' &mdash; '+fmt(delivP)+'</p>'];
+  var ci=Object.keys(commsItems).filter(function(id){return commsItems[id].active});
+  var qtyLines=buildQtyLines('html');
+  if(ci.length>0||qtyLines.length>0){ls.push('<h2>Digital &amp; Social Communications</h2>');ci.forEach(function(id){ls.push('<p>'+commsItems[id].name+' &mdash; '+fmt(commsItems[id].price)+'</p>')});qtyLines.forEach(function(l){ls.push(l)})}
+  var tot=document.getElementById('sum-total').textContent;
+  var h='<!DOCTYPE html><html><head><title>Pivotal &amp; Gallup &mdash; Addendum Summary</title><style>body{font-family:Georgia,serif;max-width:700px;margin:40px auto;color:#2A2A2A;line-height:1.7;padding:0 20px}h1{font-size:1.4rem;color:#D94F3B;border-bottom:2px solid #E0DDD7;padding-bottom:12px}h2{font-size:0.9rem;color:#4A6741;margin-top:1.5rem;margin-bottom:0.5rem;text-transform:uppercase;letter-spacing:0.05em}p{margin:0.3rem 0;font-size:0.95rem}.total{font-size:1.3rem;color:#D94F3B;font-weight:bold;margin-top:2rem;padding-top:1rem;border-top:2px solid #E0DDD7}.footer{margin-top:3rem;font-size:0.8rem;color:#6B6560;border-top:1px solid #E0DDD7;padding-top:1rem}</style></head><body><h1>Pivotal &amp; Gallup<br>UK &amp; Communications Addendum</h1>'+ls.join('')+'<div class="total">Addendum Total: '+tot+'</div><div class="footer">Addendum to U.S. Women\'s Health &amp; Power Research Proposal.<br>Prepared exclusively for Pivotal Ventures. Subject to final scoping discussions.<br>Copyright &copy; 2026 Gallup, Inc.</div><script>window.onload=function(){window.print()}<\/script></body></html>';
+  var w=window.open('','_blank');w.document.write(h);w.document.close();
+}
+
+function emailSummary(){
+  var ukBase=getUKBase();
+  var instLen=document.querySelector('input[name="uk-instrument"]:checked').value==='5min'?'~5 min':'~2 min';
+  var delivP=getDelivPrice();
+  var delivName=delivP===30000?'10-Page Designed Report':'3-Page Research Memo';
+  var lines=['ADDENDUM SCOPE SUMMARY','======================','','UK DATA COLLECTION','  UK Survey (2,000 completes: 1,500 women + 500 men, '+instLen+') — '+fmt(ukBase),'  '+delivName+' — '+fmt(delivP)];
+  var ci=Object.keys(commsItems).filter(function(id){return commsItems[id].active});
+  var qtyLines=buildQtyLines('text');
+  if(ci.length>0||qtyLines.length>0){lines.push('');lines.push('DIGITAL & SOCIAL COMMUNICATIONS');ci.forEach(function(id){lines.push('  '+commsItems[id].name+' — '+fmt(commsItems[id].price))});qtyLines.forEach(function(l){lines.push(l)})}
+  lines.push('');lines.push('————————————————');lines.push('Addendum Total: '+document.getElementById('sum-total').textContent);
+  var subj=encodeURIComponent('Pivotal x Gallup — UK & Communications Addendum Selections');
+  var body=encodeURIComponent(lines.join('\n'));
+  window.location.href='mailto:justin_lall@gallup.com?subject='+subj+'&body='+body;
+}
+
+document.querySelectorAll('.deliv-option input,.deliv-option label').forEach(function(el){el.addEventListener('click',function(e){e.stopPropagation()})});
+recalc();
+</script>
+</body>
+</html>
