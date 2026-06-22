@@ -1,0 +1,560 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Power of Purpose Fellowship</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&family=Inter:wght@400;500;600;700&display=swap');
+
+  :root{
+    --crimson:#9B1B30;
+    --crimson-deep:#6E0F20;
+    --ink:#1A1A1A;
+    --slate:#4A4A4A;
+    --mist:#6E6E6E;
+    --paper:#FBF9F6;
+    --card:#FFFFFF;
+    --line:#E6E1DA;
+    --gold:#C9A24B;
+    --serif:'Source Serif 4',Georgia,serif;
+    --sans:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    font-family:var(--sans);
+    color:var(--ink);
+    background:var(--paper);
+    line-height:1.6;
+    font-size:16px;
+  }
+  .wrap{max-width:880px;margin:0 auto;padding:0 28px}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    background:var(--crimson-deep);
+    background:linear-gradient(155deg,var(--crimson-deep) 0%,var(--crimson) 70%);
+    color:#fff;
+    padding:64px 0 56px;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero::after{
+    content:"";
+    position:absolute;
+    right:-120px;top:-120px;
+    width:420px;height:420px;
+    border-radius:50%;
+    border:1px solid rgba(255,255,255,.12);
+    box-shadow:0 0 0 60px rgba(255,255,255,.04) inset;
+  }
+  .eyebrow{
+    font-family:var(--sans);
+    font-size:12.5px;
+    font-weight:600;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    color:var(--gold);
+    margin-bottom:22px;
+    display:flex;align-items:center;gap:12px;
+  }
+  .eyebrow::before{content:"";width:34px;height:1.5px;background:var(--gold);display:inline-block}
+  .brandmark{
+    font-family:Georgia,'Times New Roman',serif;
+    font-weight:400;
+    font-size:17px;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+    color:#fff;
+    position:absolute;top:30px;left:28px;
+  }
+  .brandmark span{color:var(--gold);font-size:11px;vertical-align:super;letter-spacing:0}
+  h1{
+    font-family:var(--serif);
+    font-weight:600;
+    font-size:clamp(34px,6vw,54px);
+    line-height:1.04;
+    letter-spacing:-0.015em;
+    margin-bottom:22px;
+    max-width:16ch;
+  }
+  .hero-lede{
+    font-family:var(--serif);
+    font-size:clamp(17px,2.4vw,21px);
+    font-weight:400;
+    line-height:1.5;
+    color:rgba(255,255,255,.92);
+    max-width:54ch;
+  }
+  .hero-meta{
+    margin-top:34px;
+    display:flex;flex-wrap:wrap;gap:30px;
+    border-top:1px solid rgba(255,255,255,.18);
+    padding-top:22px;
+  }
+  .hero-meta div{min-width:90px}
+  .hero-meta dt{
+    font-size:11px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;
+    color:rgba(255,255,255,.6);margin-bottom:5px;
+  }
+  .hero-meta dd{font-family:var(--serif);font-size:21px;font-weight:600}
+
+  /* ---------- SECTIONS ---------- */
+  section{padding:52px 0}
+  .section-label{
+    font-size:12px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;
+    color:var(--crimson);margin-bottom:14px;
+  }
+  h2{
+    font-family:var(--serif);font-weight:600;
+    font-size:clamp(24px,3.4vw,32px);line-height:1.12;
+    letter-spacing:-0.01em;margin-bottom:18px;color:var(--ink);
+  }
+  .prose{font-size:17px;color:var(--slate);max-width:62ch}
+  .prose strong{color:var(--ink);font-weight:600}
+  .prose + .prose{margin-top:14px}
+
+  .divider{height:1px;background:var(--line);max-width:880px;margin:0 auto}
+
+  /* ---------- PILLARS / WHAT IT IS ---------- */
+  .pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:34px}
+  .pillar{
+    background:var(--card);border:1px solid var(--line);border-radius:3px;
+    padding:24px 22px;position:relative;
+  }
+  .pillar .num{
+    font-family:var(--serif);font-size:13px;font-weight:700;color:var(--crimson);
+    letter-spacing:.04em;margin-bottom:12px;display:block;
+  }
+  .pillar h3{font-family:var(--serif);font-size:18px;font-weight:600;margin-bottom:8px;line-height:1.2}
+  .pillar p{font-size:14.5px;color:var(--mist);line-height:1.55}
+
+  /* ---------- TIMELINE ---------- */
+  .phase{
+    display:grid;grid-template-columns:160px 1fr;gap:28px;
+    padding:26px 0;border-top:1px solid var(--line);
+  }
+  .phase:first-of-type{border-top:none}
+  .phase-head .tag{
+    font-size:11px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;
+    color:var(--crimson);display:block;margin-bottom:6px;
+  }
+  .phase-head h3{font-family:var(--serif);font-size:20px;font-weight:600;line-height:1.15}
+  .phase-head .dur{font-size:13px;color:var(--mist);margin-top:6px;font-weight:500}
+  .phase-body ul{list-style:none}
+  .phase-body li{
+    position:relative;padding-left:20px;margin-bottom:10px;
+    font-size:15.5px;color:var(--slate);line-height:1.5;
+  }
+  .phase-body li::before{
+    content:"";position:absolute;left:0;top:9px;
+    width:7px;height:7px;border-radius:50%;
+    border:1.5px solid var(--crimson);
+  }
+  .phase-body li strong{color:var(--ink);font-weight:600}
+
+  /* ---------- SESSION TIMELINE ---------- */
+  .arc-intro{display:flex;flex-wrap:wrap;gap:24px;margin:18px 0 6px}
+  .arc-fact{border-left:2px solid var(--crimson);padding-left:14px}
+  .arc-fact dt{font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--mist);margin-bottom:3px}
+  .arc-fact dd{font-family:var(--serif);font-size:17px;font-weight:600;color:var(--ink)}
+
+  .sessions{margin-top:34px;position:relative}
+  .sessions::before{
+    content:"";position:absolute;left:23px;top:14px;bottom:14px;width:2px;
+    background:linear-gradient(var(--crimson),var(--line));
+  }
+  .ses{display:grid;grid-template-columns:48px 1fr;gap:22px;padding-bottom:26px;position:relative}
+  .ses:last-child{padding-bottom:0}
+  .ses-dot{
+    width:48px;height:48px;border-radius:50%;background:var(--crimson);color:#fff;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    z-index:1;line-height:1;box-shadow:0 0 0 5px var(--paper);
+  }
+  .ses-dot .wk{font-size:9px;font-weight:600;letter-spacing:.06em;opacity:.8;margin-bottom:2px}
+  .ses-dot .no{font-family:var(--serif);font-size:18px;font-weight:700}
+  .ses-card{padding-top:2px}
+  .ses-card h3{font-family:var(--serif);font-size:19px;font-weight:600;line-height:1.2;margin-bottom:3px}
+  .ses-card .when{font-size:12.5px;font-weight:500;color:var(--crimson);letter-spacing:.02em;margin-bottom:9px}
+  .ses-card p{font-size:15px;color:var(--slate);line-height:1.5;margin-bottom:10px}
+  .ses-do{
+    background:var(--card);border:1px solid var(--line);border-left:3px solid var(--gold);
+    border-radius:3px;padding:11px 15px;font-size:13.5px;color:var(--slate);line-height:1.5;
+  }
+  .ses-do b{color:var(--ink);font-weight:600;letter-spacing:.04em;font-size:11px;text-transform:uppercase;display:block;margin-bottom:3px;color:var(--mist)}
+
+  /* ---------- COMMITMENTS ---------- */
+  .commit{background:var(--crimson-deep);color:#fff}
+  .commit .section-label{color:var(--gold)}
+  .commit h2{color:#fff}
+  .commit .prose{color:rgba(255,255,255,.85)}
+  .commit-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:rgba(255,255,255,.16);
+    border:1px solid rgba(255,255,255,.16);border-radius:3px;overflow:hidden;margin-top:30px}
+  .commit-cell{background:var(--crimson-deep);padding:22px 22px}
+  .commit-cell .ci{font-family:var(--serif);font-size:14px;font-weight:700;color:var(--gold);margin-bottom:8px}
+  .commit-cell h4{font-family:var(--serif);font-size:17px;font-weight:600;margin-bottom:6px;color:#fff}
+  .commit-cell p{font-size:14px;color:rgba(255,255,255,.82);line-height:1.5}
+  .time-ask{margin-top:26px;font-size:14.5px;color:rgba(255,255,255,.9);
+    border-top:1px solid rgba(255,255,255,.18);padding-top:18px}
+  .time-ask strong{color:var(--gold);font-weight:600}
+
+  /* ---------- VALUE / WHAT'S IN IT ---------- */
+  .value-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:32px}
+  .value-card{
+    background:var(--card);border:1px solid var(--line);border-radius:3px;
+    padding:24px 22px;position:relative;
+  }
+  .value-card .vi{
+    width:34px;height:34px;border-radius:8px;background:rgba(155,27,48,.08);
+    display:flex;align-items:center;justify-content:center;margin-bottom:14px;
+  }
+  .value-card .vi svg{width:18px;height:18px;stroke:var(--crimson);fill:none;stroke-width:1.8}
+  .value-card h3{font-family:var(--serif);font-size:18px;font-weight:600;margin-bottom:7px;line-height:1.2}
+  .value-card p{font-size:14.5px;color:var(--mist);line-height:1.55}
+
+  /* ---------- FACILITATORS ---------- */
+  .facils{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:30px}
+  .facil{
+    background:var(--card);border:1px solid var(--line);border-radius:3px;
+    border-top:3px solid var(--crimson);padding:24px 22px;
+  }
+  .facil .role{font-size:11px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:var(--crimson);margin-bottom:8px}
+  .facil h3{font-family:var(--serif);font-size:21px;font-weight:600;line-height:1.1;margin-bottom:3px}
+  .facil .title{font-size:13.5px;color:var(--mist);font-weight:500;margin-bottom:11px}
+  .facil p{font-size:14.5px;color:var(--slate);line-height:1.55}
+
+  /* ---------- WHO ---------- */
+  .who{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .who-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:30px}
+  .who-card{
+    border:1px solid var(--line);border-radius:3px;padding:22px 22px;
+    display:flex;gap:15px;align-items:flex-start;background:var(--paper);
+  }
+  .who-card .check{
+    flex-shrink:0;width:26px;height:26px;border-radius:50%;
+    background:var(--crimson);color:#fff;display:flex;align-items:center;justify-content:center;
+    font-size:14px;font-weight:700;margin-top:1px;
+  }
+  .who-card p{font-size:15px;color:var(--slate);line-height:1.5}
+  .who-card p strong{color:var(--ink);font-weight:600;display:block;margin-bottom:2px;font-size:15.5px}
+
+  /* ---------- OUTCOMES ---------- */
+  .outcomes{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:30px;
+    border:1px solid var(--line);border-radius:3px;overflow:hidden;background:#fff}
+  .outcome{padding:26px 22px;border-right:1px solid var(--line)}
+  .outcome:last-child{border-right:none}
+  .outcome .mk{font-family:var(--serif);font-size:30px;font-weight:700;color:var(--crimson);line-height:1;margin-bottom:12px}
+  .outcome h4{font-family:var(--serif);font-size:16px;font-weight:600;margin-bottom:6px}
+  .outcome p{font-size:14px;color:var(--mist);line-height:1.5}
+
+  /* ---------- CTA ---------- */
+  .cta{background:var(--ink);color:#fff;padding:48px 0}
+  .cta h2{color:#fff;margin-bottom:14px}
+  .cta p{color:rgba(255,255,255,.78);font-size:17px;max-width:58ch;margin-bottom:8px}
+  .cta .signoff{margin-top:24px;font-size:14px;color:rgba(255,255,255,.55);letter-spacing:.02em}
+  .cta .signoff strong{color:var(--gold);font-weight:600}
+  .cta-terms{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+  .cta-terms span{
+    font-size:12.5px;font-weight:500;color:rgba(255,255,255,.82);
+    border:1px solid rgba(255,255,255,.2);border-radius:100px;padding:6px 14px;
+    display:inline-flex;align-items:center;gap:7px;
+  }
+  .cta-terms span::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--gold)}
+
+  footer{padding:26px 0;text-align:center;font-size:12.5px;color:var(--mist);letter-spacing:.03em}
+  footer .g{font-weight:700;color:var(--crimson)}
+
+  @media(max-width:680px){
+    .pillars,.outcomes,.who-grid,.commit-grid,.value-grid,.facils{grid-template-columns:1fr}
+    .outcome{border-right:none;border-bottom:1px solid var(--line)}
+    .outcome:last-child{border-bottom:none}
+    .phase{grid-template-columns:1fr;gap:14px}
+    .hero{padding-top:72px}
+    .arc-intro{gap:16px}
+  }
+  @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+
+<div class="hero">
+  <div class="brandmark">GALLUP<span>®</span></div>
+  <div class="wrap">
+    <div class="eyebrow">In partnership with Stand Together</div>
+    <h1>The Power of Purpose Fellowship</h1>
+    <p class="hero-lede">A working cohort of leaders who have put real resources behind employee purpose — together turning hard-won lessons into interventions, proof points, and results that hold up inside their own organizations.</p>
+    <dl class="hero-meta">
+      <div><dt>Length</dt><dd>12 weeks</dd></div>
+      <div><dt>Cohort sessions</dt><dd>4 sessions</dd></div>
+      <div><dt>Each session</dt><dd>90 minutes</dd></div>
+    </dl>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="section-label">The Idea</div>
+    <h2>Purpose is easy to declare and hard to operationalize.</h2>
+    <p class="prose">Most organizations agree that purpose matters. Far fewer have figured out how to embed it where it actually moves the business — in hiring, development, engagement, and retention. The leaders who have made progress did so by committing real resources to solve a concrete problem, not because purpose sounded like a good idea.</p>
+    <p class="prose">The Power of Purpose Fellowship brings those leaders into one room. Grounded in Gallup's research and a structured discovery process, the cohort moves from diagnosis to designed, piloted interventions — each company working its own highest-stakes problem, with the group as a shared brain trust.</p>
+
+    <div class="pillars">
+      <div class="pillar">
+        <span class="num">Understand</span>
+        <h3>Why purpose investments happen</h3>
+        <p>Just as people "hire" a job to make progress, organizations commit to purpose to solve a real struggle. The discovery uncovers that underlying causality — so we know how to make the next move succeed.</p>
+      </div>
+      <div class="pillar">
+        <span class="num">Design</span>
+        <h3>Interventions that fit your org</h3>
+        <p>Map where purpose erodes across the employee lifecycle, then design specific, doable interventions that accelerate work already underway.</p>
+      </div>
+      <div class="pillar">
+        <span class="num">Prove</span>
+        <h3>Results you can stand behind</h3>
+        <p>Pilot in your own organization between sessions, generating early proof points and case studies as you go — practical, not theoretical.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section>
+  <div class="wrap">
+    <div class="section-label">How It Works</div>
+    <h2>A guided arc from discovery to piloted action.</h2>
+
+    <div class="phase">
+      <div class="phase-head">
+        <span class="tag">Before the sprint</span>
+        <h3>Discovery</h3>
+        <div class="dur">Pre-program</div>
+      </div>
+      <div class="phase-body">
+        <ul>
+          <li>We align on selection criteria together and lock a cohort of <strong>5–8 employers</strong> across diverse industries and sectors.</li>
+          <li>A <strong>Jobs to Be Done discovery</strong> — led by Michael Horn, co-founder of the Clayton Christensen Institute and bestselling author of <em>Job Moves</em> — surfaces the real causes, not correlates, of why leaders commit resources to purpose, and what competes against it.</li>
+          <li>We take inventory of what's already working, inviting leaders to share success stories and current practices that drive purpose, so the cohort starts from strengths.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="phase">
+      <div class="phase-head">
+        <span class="tag">The core</span>
+        <h3>The 12-Week Sprint</h3>
+        <div class="dur">Four facilitated sessions, with applied work between</div>
+      </div>
+      <div class="phase-body">
+        <dl class="arc-intro">
+          <div class="arc-fact"><dt>Duration</dt><dd>12 weeks</dd></div>
+          <div class="arc-fact"><dt>Cohort sessions</dt><dd>4 × 90 min</dd></div>
+          <div class="arc-fact"><dt>Cadence</dt><dd>~ every 3 weeks</dd></div>
+          <div class="arc-fact"><dt>Between sessions</dt><dd>2–3 hrs applied</dd></div>
+        </dl>
+
+        <div class="sessions">
+
+          <div class="ses">
+            <div class="ses-dot"><span class="wk">Week</span><span class="no">1</span></div>
+            <div class="ses-card">
+              <h3>Kickoff & alignment</h3>
+              <div class="when">Session 1 · 90 min, full cohort</div>
+              <p>Each company names what it wants from the Fellowship and its single biggest purpose breakdown. We ground the cohort in the Power of Purpose research and the discovery findings, and set shared working norms for the 12 weeks.</p>
+              <div class="ses-do"><b>Before week 4, you'll</b>Pressure-test your stated breakdown against what's actually happening in your org, and gather any internal data or signals that sharpen it.</div>
+            </div>
+          </div>
+
+          <div class="ses">
+            <div class="ses-dot"><span class="wk">Week</span><span class="no">4</span></div>
+            <div class="ses-card">
+              <h3>Map where purpose erodes</h3>
+              <div class="when">Session 2 · 90 min, full cohort</div>
+              <p>Map the points across the employee lifecycle — onboarding, performance, development, mobility, manager transitions — where purpose breaks down, and pick the one or two highest-leverage moments to act on. Peers stress-test each other's diagnosis.</p>
+              <div class="ses-do"><b>Before week 7, you'll</b>Validate your highest-leverage moment with your own team and confirm you have the authority and resources to move on it.</div>
+            </div>
+          </div>
+
+          <div class="ses">
+            <div class="ses-dot"><span class="wk">Week</span><span class="no">7</span></div>
+            <div class="ses-card">
+              <h3>Design the intervention</h3>
+              <div class="when">Session 3 · 90 min, full cohort + paired work</div>
+              <p>Design a specific, doable intervention that accelerates work already underway — not a net-new program. This is where complementary pairing pays off: leaders who've solved a given problem coach those still working it, and vice versa.</p>
+              <div class="ses-do"><b>Before week 10, you'll</b>Stand up your pilot, define how you'll know it's working, and capture an early read so there's something real to bring back.</div>
+            </div>
+          </div>
+
+          <div class="ses">
+            <div class="ses-dot"><span class="wk">Week</span><span class="no">10</span></div>
+            <div class="ses-card">
+              <h3>Pilot, measure & commit forward</h3>
+              <div class="when">Session 4 · 90 min, full cohort</div>
+              <p>Share early proof points, troubleshoot with the cohort, and commit to the next phase of the pilot. We close by capturing each company's story and contribution to Gallup's cross-cohort findings.</p>
+              <div class="ses-do"><b>Weeks 10–12</b>Continue the pilot, finalize your case study, and prepare to share results at the Summit.</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-label">What's In It For You</div>
+    <h2>Access, peers, and evidence you can't get on your own.</h2>
+    <p class="prose">The Fellowship is built to give back more than it asks. You join a curated room of senior peers, gain direct access to Gallup's experts and data, and leave with work that's been pressure-tested by people who've faced the same problem.</p>
+
+    <div class="value-grid">
+      <div class="value-card">
+        <div class="vi"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <h3>A curated peer network</h3>
+        <p>Build lasting relationships with a small group of senior leaders who've made real commitments to purpose — peers you'll keep calling on long after the 12 weeks end.</p>
+      </div>
+      <div class="value-card">
+        <div class="vi"><svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
+        <h3>Shared learning, not lectures</h3>
+        <p>Diagnose alongside peers and learn from how others have solved what you're facing. Complementary pairing means someone in the room has likely cracked your hardest problem.</p>
+      </div>
+      <div class="value-card">
+        <div class="vi"><svg viewBox="0 0 24 24"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg></div>
+        <h3>Gallup data deep-dives</h3>
+        <p>Go beneath the headlines into Gallup's research on engagement, purpose, and the employee experience — guided sessions that connect the data directly to your own organization.</p>
+      </div>
+      <div class="value-card">
+        <div class="vi"><svg viewBox="0 0 24 24"><polygon points="12 2 15 8.5 22 9.3 17 14 18.2 21 12 17.7 5.8 21 7 14 2 9.3 9 8.5 12 2"/></svg></div>
+        <h3>Expert guidance, one-to-one</h3>
+        <p>Work directly with Gallup facilitators and a leading Jobs to Be Done practitioner who help you frame the problem, design the intervention, and define how you'll measure it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section>
+  <div class="wrap">
+    <div class="section-label">Who Guides The Work</div>
+    <h2>Facilitated by leaders in purpose, culture, and Jobs to Be Done.</h2>
+    <p class="prose">You won't be working through this alone. The cohort is guided end-to-end by experts who've shaped how organizations think about purpose and change.</p>
+
+    <div class="facils">
+      <div class="facil">
+        <div class="role">Gallup Facilitator</div>
+        <h3>Ed O'Boyle</h3>
+        <div class="title">Global Practice Leader, Gallup</div>
+        <p>Ed leads Gallup's Workplace and Marketplace practices and is the architect of several of the firm's core consulting frameworks. He brings decades of research on engagement, culture, and what actually moves performance to bear on each company's work.</p>
+      </div>
+      <div class="facil">
+        <div class="role">Discovery Lead</div>
+        <h3>Michael Horn</h3>
+        <div class="title">Co-founder, Clayton Christensen Institute · Author, <em>Job Moves</em></div>
+        <p>Michael leads the Jobs to Be Done discovery. A bestselling author and Harvard lecturer, he uncovers the real causality behind why leaders commit to purpose — and turns that insight into a clear path for making the next move succeed.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section class="commit">
+  <div class="wrap">
+    <div class="section-label">What You Commit To</div>
+    <h2>This is a working cohort, not a webinar.</h2>
+    <p class="prose">The value comes from leaders doing real work in their own organizations and being candid with one another about what's working and what isn't. Joining means committing to four things.</p>
+
+    <div class="commit-grid">
+      <div class="commit-cell">
+        <div class="ci">I.</div>
+        <h4>Show up to all four sessions</h4>
+        <p>Attend each 90-minute cohort session over the 12 weeks — personally, as the decision-maker, not via a delegate.</p>
+      </div>
+      <div class="commit-cell">
+        <div class="ci">II.</div>
+        <h4>Pilot inside your own org</h4>
+        <p>Put a real intervention into practice between sessions and define, up front, how you'll know whether it's working.</p>
+      </div>
+      <div class="commit-cell">
+        <div class="ci">III.</div>
+        <h4>Share openly with peers</h4>
+        <p>Bring your real challenges, data, and lessons to the table — and coach other leaders where your experience can fill their gaps.</p>
+      </div>
+      <div class="commit-cell">
+        <div class="ci">IV.</div>
+        <h4>Contribute to the findings</h4>
+        <p>Help turn your work into a case study and a story to share at the Summit, feeding Gallup's cross-cohort findings — published research your organization helped shape.</p>
+      </div>
+    </div>
+
+    <p class="time-ask">Realistic time commitment: <strong>roughly 6 hours of cohort sessions plus 2–3 hours of applied work between each</strong> — about 12–15 hours of your time across the full 12 weeks.</p>
+  </div>
+</section>
+
+<section class="who">
+  <div class="wrap">
+    <div class="section-label">Who This Is For</div>
+    <h2>Senior leaders with the will — and the means — to act.</h2>
+    <p class="prose">The Fellowship is built for executives who own the budget and the team to move on purpose, and who are already in motion or genuinely ready to be. The cohort is deliberately small and selectively assembled — you'll be working alongside peers of comparable seniority who've made real commitments of their own.</p>
+    <p class="prose">Findings, case studies, and proof points generated through the Fellowship will be shared — at the Summit and through Gallup's published research — so the work you do here helps shape the broader conversation on purpose at work.</p>
+    <div class="who-grid">
+      <div class="who-card">
+        <div class="check">✓</div>
+        <p><strong>Resource authority</strong>Senior leaders with budget and team-allocation responsibility — the person who can actually commit resources, not only recommend them.</p>
+      </div>
+      <div class="who-card">
+        <div class="check">✓</div>
+        <p><strong>Real commitment behind purpose</strong>You've invested real resources to move the purpose needle — or you're ready to, with the capability and authority to follow through.</p>
+      </div>
+      <div class="who-card">
+        <div class="check">✓</div>
+        <p><strong>A concrete problem to solve</strong>Your interest comes from a real struggle you're working to address — purpose tied to a business outcome, not a checkbox.</p>
+      </div>
+      <div class="who-card">
+        <div class="check">✓</div>
+        <p><strong>Willing to do the work</strong>Ready to engage across the sprint, pilot inside your own org, and share what you learn with the cohort.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-label">What You Leave With</div>
+    <h2>Designed work, early evidence, and a story to tell.</h2>
+    <p class="prose">Purpose isn't a soft metric here. The intervention you design targets the outcomes your leadership team already tracks — engagement, retention, manager effectiveness, and the performance that follows — with early evidence you can take back to your board.</p>
+    <div class="outcomes">
+      <div class="outcome">
+        <div class="mk">01</div>
+        <h4>Designed interventions</h4>
+        <p>Specific interventions your organization begins piloting during the Fellowship.</p>
+      </div>
+      <div class="outcome">
+        <div class="mk">02</div>
+        <h4>Early proof points</h4>
+        <p>Evidence of impact on engagement, retention, and manager effectiveness you can put in front of your board.</p>
+      </div>
+      <div class="outcome">
+        <div class="mk">03</div>
+        <h4>A platform to lead</h4>
+        <p>Your work featured at the Summit and in Gallup's published cross-cohort findings — positioning you at the forefront of the conversation.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="cta">
+  <div class="wrap">
+    <h2>Join the founding cohort.</h2>
+    <p>We're assembling a small group of leaders who are serious about turning purpose into practice. If that's you — or someone on your team — we'd welcome a conversation.</p>
+    <div class="cta-terms">
+      <span>No fee to participate</span>
+      <span>By invitation</span>
+      <span>Convened by Gallup &amp; Stand Together</span>
+    </div>
+    <div class="signoff">A Gallup and Stand Together collaboration · <strong>Contact: Justin Lall, Gallup</strong></div>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap"><span class="g">GALLUP®</span> &nbsp;·&nbsp; The Power of Purpose Fellowship</div>
+</footer>
