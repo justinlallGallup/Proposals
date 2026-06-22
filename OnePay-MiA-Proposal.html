@@ -1,0 +1,1358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Money in America — A Proposed Research Partnership · OnePay × Gallup</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --blue:#1E55F0;
+  --blue-bright:#2E6BFF;
+  --blue-2:#1746CF;
+  --navy:#081633;
+  --navy-2:#0E2350;
+  --ink:#0B1220;
+  --slate:#475068;
+  --muted:#8089A0;
+  --line:#E6EAF3;
+  --line-2:#D8DEEC;
+  --sky:#EEF3FF;
+  --sky-2:#E1EAFF;
+  --bg:#FBFCFE;
+  --white:#FFFFFF;
+  --gold:#F0B429;
+  --disp:'Sora',-apple-system,sans-serif;
+  --body:'Inter',-apple-system,sans-serif;
+  --mono:'JetBrains Mono',ui-monospace,monospace;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:var(--body);color:var(--ink);background:var(--bg);-webkit-font-smoothing:antialiased;line-height:1.5;}
+::selection{background:var(--blue);color:#fff;}
+a{color:inherit;}
+img{max-width:100%;display:block;}
+
+.eyebrow{font-family:var(--mono);font-size:0.7rem;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--blue);}
+.wrap{max-width:1180px;margin:0 auto;padding:0 2.2rem;}
+.sec{padding:5.5rem 0;}
+
+/* HEADER */
+.hdr{position:sticky;top:0;z-index:100;background:rgba(251,252,254,0.85);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-bottom:1px solid var(--line);}
+.hdr-in{max-width:1180px;margin:0 auto;padding:0.85rem 2.2rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;}
+.brand{display:flex;align-items:center;gap:1rem;}
+.brand-one{display:flex;align-items:center;gap:0.5rem;font-family:var(--disp);font-weight:700;font-size:1.12rem;color:var(--ink);letter-spacing:-0.02em;}
+.brand-dot{width:22px;height:22px;border-radius:50%;background:var(--blue);position:relative;flex-shrink:0;}
+.brand-dot::after{content:'';position:absolute;inset:6px;border-radius:50%;background:#fff;}
+.brand-x{width:1px;height:26px;background:var(--line-2);}
+.brand-gallup{font-family:Georgia,'Times New Roman',serif;font-weight:700;font-size:0.95rem;letter-spacing:0.24em;color:var(--navy);}
+.hdr-actions{display:flex;align-items:center;gap:0.5rem;}
+.btn{display:inline-flex;align-items:center;gap:0.45rem;font-family:var(--body);font-size:0.78rem;font-weight:600;border:none;border-radius:9px;padding:0.6rem 1rem;cursor:pointer;transition:all 0.18s ease;text-decoration:none;}
+.btn svg{width:15px;height:15px;flex-shrink:0;}
+.btn:focus-visible{outline:2px solid var(--blue);outline-offset:2px;}
+.btn-ghost{background:transparent;color:var(--slate);border:1px solid var(--line-2);}
+.btn-ghost:hover{background:var(--white);color:var(--ink);border-color:var(--muted);}
+.btn-primary{background:var(--blue);color:#fff;}
+.btn-primary:hover{background:var(--blue-2);}
+.btn-invest{background:var(--navy);color:#fff;}
+.btn-invest:hover{background:var(--navy-2);}
+
+/* HERO */
+.hero{position:relative;overflow:hidden;background:var(--navy);color:#fff;}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(60% 50% at 78% 18%, rgba(46,107,255,0.42) 0%, transparent 62%),radial-gradient(50% 60% at 10% 90%, rgba(30,85,240,0.30) 0%, transparent 60%);}
+.orbits{position:absolute;top:50%;right:-12%;transform:translateY(-50%);width:760px;height:760px;opacity:0.5;pointer-events:none;}
+.orbits circle{fill:none;stroke:rgba(255,255,255,0.10);stroke-width:1;}
+.hero-in{position:relative;z-index:2;display:grid;grid-template-columns:1.15fr 0.85fr;gap:3rem;align-items:center;padding:5.5rem 0 5rem;}
+.hero-eyebrow{color:#8FB2FF;margin-bottom:1.6rem;animation:rise 0.7s ease both;}
+.hero h1{font-family:var(--disp);font-weight:600;font-size:clamp(2.3rem,4.4vw,3.35rem);line-height:1.08;letter-spacing:-0.025em;margin-bottom:1.4rem;animation:rise 0.7s 0.08s ease both;}
+.hero h1 em{font-style:normal;color:#8FB2FF;}
+.hero-sub{font-size:1.06rem;line-height:1.72;color:rgba(255,255,255,0.74);max-width:540px;font-weight:400;animation:rise 0.7s 0.16s ease both;}
+.hero-sub strong{color:#fff;font-weight:600;}
+.hero-stats{display:grid;grid-template-columns:repeat(4,auto);gap:1.8rem;margin-top:2.8rem;animation:rise 0.7s 0.24s ease both;}
+.hstat-n{font-family:var(--mono);font-weight:700;font-size:1.45rem;color:#fff;letter-spacing:-0.02em;}
+.hstat-l{font-size:0.7rem;color:rgba(255,255,255,0.5);letter-spacing:0.04em;margin-top:0.3rem;max-width:120px;line-height:1.35;}
+@keyframes rise{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+.gauge-card{position:relative;z-index:2;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.12);border-radius:22px;padding:2.2rem;backdrop-filter:blur(6px);animation:rise 0.7s 0.3s ease both;}
+.gauge-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:0.4rem;}
+.gauge-tag{font-family:var(--mono);font-size:0.6rem;letter-spacing:0.14em;color:#8FB2FF;text-transform:uppercase;}
+.gauge-illus{font-family:var(--mono);font-size:0.55rem;letter-spacing:0.1em;color:rgba(255,255,255,0.4);border:1px solid rgba(255,255,255,0.18);border-radius:20px;padding:0.2rem 0.55rem;text-transform:uppercase;}
+.gauge-svg{width:100%;height:auto;display:block;margin:0.4rem 0;}
+.gauge-title{font-family:var(--disp);font-weight:600;font-size:1.05rem;color:#fff;margin-top:0.4rem;}
+.gauge-desc{font-size:0.8rem;line-height:1.55;color:rgba(255,255,255,0.6);margin-top:0.35rem;}
+
+/* OPPORTUNITY */
+.lead{font-family:var(--disp);font-weight:500;font-size:clamp(1.5rem,2.6vw,2rem);line-height:1.34;letter-spacing:-0.015em;color:var(--ink);max-width:880px;}
+.lead em{font-style:normal;color:var(--blue);}
+.body-copy{max-width:760px;}
+.body-copy p{font-size:1.04rem;line-height:1.78;color:var(--slate);margin-top:1.3rem;}
+.sec-head{margin-bottom:2.6rem;}
+.sec-head .eyebrow{margin-bottom:0.7rem;}
+.sec-title{font-family:var(--disp);font-weight:600;font-size:clamp(1.7rem,3vw,2.25rem);line-height:1.16;letter-spacing:-0.02em;color:var(--ink);}
+.sec-intro{font-size:1.02rem;line-height:1.7;color:var(--slate);max-width:640px;margin-top:0.8rem;}
+.contrast{display:grid;grid-template-columns:1fr 1fr;gap:1.4rem;margin-top:2.8rem;}
+.contrast-card{border-radius:16px;padding:1.9rem;border:1px solid var(--line);}
+.contrast-card.macro{background:var(--white);}
+.contrast-card.lived{background:var(--navy);color:#fff;border-color:var(--navy);}
+.cc-label{font-family:var(--mono);font-size:0.62rem;letter-spacing:0.14em;text-transform:uppercase;margin-bottom:1.1rem;}
+.contrast-card.macro .cc-label{color:var(--muted);}
+.contrast-card.lived .cc-label{color:#8FB2FF;}
+.cc-row{display:flex;align-items:baseline;gap:0.7rem;padding:0.55rem 0;border-top:1px solid var(--line);font-size:0.92rem;}
+.contrast-card.lived .cc-row{border-color:rgba(255,255,255,0.12);}
+.cc-row:first-of-type{border-top:none;}
+.cc-k{font-family:var(--mono);font-size:0.82rem;font-weight:500;}
+.contrast-card.macro .cc-k{color:var(--blue);}
+.contrast-card.lived .cc-k{color:#8FB2FF;}
+.cc-v{color:var(--slate);}
+.contrast-card.lived .cc-v{color:rgba(255,255,255,0.78);}
+
+/* FRAMEWORK */
+.fw-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.3rem;margin-top:1rem;}
+.fw-card{background:var(--white);border:1px solid var(--line);border-radius:16px;padding:1.9rem;transition:transform 0.2s ease,box-shadow 0.2s ease,border-color 0.2s ease;}
+.fw-card:hover{transform:translateY(-3px);box-shadow:0 14px 34px rgba(8,22,51,0.07);border-color:var(--sky-2);}
+.fw-num{font-family:var(--mono);font-size:0.72rem;font-weight:700;color:var(--blue);letter-spacing:0.04em;}
+.fw-card h3{font-family:var(--disp);font-weight:600;font-size:1.18rem;color:var(--ink);margin:0.7rem 0 0.55rem;letter-spacing:-0.01em;}
+.fw-card p{font-size:0.9rem;line-height:1.62;color:var(--slate);}
+.fw-q{margin-top:1.1rem;padding-top:1rem;border-top:1px solid var(--line);font-size:0.88rem;line-height:1.5;color:var(--ink);font-weight:500;}
+.fw-q::before{content:'\201C';color:var(--blue);}
+.fw-q::after{content:'\201D';color:var(--blue);}
+.index-strip{margin-top:1.3rem;display:flex;align-items:center;gap:1.3rem;background:linear-gradient(110deg,var(--blue),var(--blue-bright));border-radius:16px;padding:1.7rem 2rem;color:#fff;}
+.index-mark{flex-shrink:0;width:58px;height:58px;border-radius:50%;border:2px solid rgba(255,255,255,0.5);display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-weight:700;font-size:0.95rem;}
+.index-strip h4{font-family:var(--disp);font-weight:600;font-size:1.12rem;}
+.index-strip p{font-size:0.9rem;line-height:1.55;color:rgba(255,255,255,0.85);margin-top:0.2rem;}
+
+/* WHY GALLUP */
+.why{background:var(--navy);color:#fff;}
+.why .sec-title{color:#fff;}
+.why .eyebrow{color:#8FB2FF;}
+.why .sec-intro{color:rgba(255,255,255,0.66);}
+.why-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.3rem;margin-top:0.5rem;}
+.why-card{background:rgba(255,255,255,0.045);border:1px solid rgba(255,255,255,0.10);border-radius:16px;padding:1.9rem;}
+.why-card.feature{grid-column:span 2;background:linear-gradient(120deg,rgba(46,107,255,0.18),rgba(255,255,255,0.04));border-color:rgba(143,178,255,0.35);}
+.why-ic{width:38px;height:38px;border-radius:10px;background:rgba(46,107,255,0.22);display:flex;align-items:center;justify-content:center;margin-bottom:1.1rem;}
+.why-ic svg{width:19px;height:19px;stroke:#8FB2FF;fill:none;}
+.why-card h3{font-family:var(--disp);font-weight:600;font-size:1.16rem;margin-bottom:0.55rem;}
+.why-card.feature h3{font-size:1.4rem;}
+.why-card p{font-size:0.92rem;line-height:1.66;color:rgba(255,255,255,0.72);}
+.why-card p .hl{color:#fff;font-weight:600;}
+.panel-meta{display:flex;flex-wrap:wrap;gap:0.6rem;margin-top:1.3rem;}
+.chip{font-family:var(--mono);font-size:0.66rem;letter-spacing:0.05em;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.14);border-radius:30px;padding:0.4rem 0.8rem;color:rgba(255,255,255,0.82);}
+.equation{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:0.8rem;margin-top:1.4rem;font-family:var(--disp);font-weight:600;font-size:1rem;color:#fff;}
+.eq-pill{background:rgba(255,255,255,0.08);border:1px solid rgba(143,178,255,0.3);border-radius:10px;padding:0.55rem 0.95rem;}
+.eq-op{color:#8FB2FF;font-family:var(--mono);}
+
+/* PROCESS */
+.proc{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line);border-radius:18px;overflow:hidden;background:var(--white);margin-top:1rem;}
+.proc-step{padding:2rem 1.6rem;border-right:1px solid var(--line);}
+.proc-step:last-child{border-right:none;}
+.proc-n{font-family:var(--mono);font-weight:700;font-size:1.8rem;color:var(--blue);line-height:1;}
+.proc-step h4{font-family:var(--disp);font-weight:600;font-size:1rem;color:var(--ink);margin:0.7rem 0 0.5rem;}
+.proc-step p{font-size:0.85rem;line-height:1.58;color:var(--slate);}
+
+/* PROOF / PAST PERFORMANCE */
+.proof-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.3rem;margin-top:1rem;}
+.proof-card{background:var(--white);border:1px solid var(--line);border-radius:16px;padding:1.9rem;display:flex;flex-direction:column;}
+.proof-card.wide{grid-column:span 2;}
+.proof-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem;}
+.proof-client{font-family:var(--disp);font-weight:700;font-size:1.15rem;color:var(--ink);letter-spacing:-0.01em;}
+.proof-kicker{font-family:var(--mono);font-size:0.62rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--blue);}
+.proof-card h3{font-family:var(--disp);font-weight:500;font-size:1.05rem;color:var(--slate);margin-bottom:0.8rem;line-height:1.4;}
+.proof-card p{font-size:0.9rem;line-height:1.64;color:var(--slate);}
+.proof-stats{display:flex;gap:1.6rem;margin:0.4rem 0 1rem;}
+.ps-n{font-family:var(--mono);font-weight:700;font-size:1.5rem;color:var(--blue);letter-spacing:-0.02em;}
+.ps-l{font-size:0.72rem;color:var(--muted);margin-top:0.2rem;line-height:1.3;}
+.outlets{margin-top:auto;padding-top:1.1rem;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:0.5rem 0.9rem;align-items:center;}
+.outlet{font-family:var(--disp);font-weight:600;font-size:0.82rem;color:var(--muted);letter-spacing:0.01em;}
+
+/* MEDIA / VIDEO */
+.media-row{display:grid;grid-template-columns:1.3fr 1fr;gap:1.3rem;margin-top:1.3rem;align-items:stretch;}
+.video-wrap{position:relative;width:100%;padding-top:56.25%;border-radius:16px;overflow:hidden;border:1px solid var(--line);background:#000;}
+.video-wrap iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
+.video-side{background:var(--white);border:1px solid var(--line);border-radius:16px;padding:1.9rem;display:flex;flex-direction:column;justify-content:center;}
+.video-side h3{font-family:var(--disp);font-weight:600;font-size:1.25rem;color:var(--ink);margin-bottom:0.7rem;letter-spacing:-0.01em;}
+.video-side p{font-size:0.92rem;line-height:1.66;color:var(--slate);}
+.stage-list{display:flex;flex-wrap:wrap;gap:0.5rem;margin-top:1.2rem;}
+.stage{font-family:var(--mono);font-size:0.66rem;letter-spacing:0.04em;background:var(--sky);border:1px solid var(--sky-2);border-radius:30px;padding:0.4rem 0.85rem;color:var(--blue-2);}
+
+/* COMMS */
+.comms{background:var(--sky);}
+.comms-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem;margin-top:1rem;}
+.comms-card{background:var(--white);border:1px solid var(--line);border-radius:16px;padding:1.7rem;}
+.cm-ic{width:34px;height:34px;border-radius:9px;background:var(--sky-2);display:flex;align-items:center;justify-content:center;margin-bottom:1rem;}
+.cm-ic svg{width:17px;height:17px;stroke:var(--blue);fill:none;}
+.comms-card h4{font-family:var(--disp);font-weight:600;font-size:1.02rem;color:var(--ink);margin-bottom:0.45rem;}
+.comms-card p{font-size:0.86rem;line-height:1.6;color:var(--slate);}
+.reach-banner{margin-top:1.3rem;display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:16px;overflow:hidden;}
+.reach-cell{background:var(--white);padding:1.7rem 1.4rem;text-align:center;}
+.reach-n{font-family:var(--mono);font-weight:700;font-size:1.7rem;color:var(--blue);letter-spacing:-0.02em;}
+.reach-l{font-size:0.74rem;color:var(--slate);margin-top:0.3rem;line-height:1.35;}
+
+/* EXPERTS */
+.exp-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.3rem;margin-top:1rem;}
+.exp-card{display:flex;gap:1.3rem;background:var(--white);border:1px solid var(--line);border-radius:16px;padding:1.7rem;}
+.exp-avatar{position:relative;overflow:hidden;flex-shrink:0;width:62px;height:62px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--navy-2));color:#fff;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-weight:700;font-size:1.15rem;letter-spacing:-0.02em;}
+.exp-avatar img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 25%;}
+.exp-name{font-family:var(--disp);font-weight:600;font-size:1.08rem;color:var(--ink);}
+.exp-role{font-family:var(--mono);font-size:0.68rem;letter-spacing:0.05em;color:var(--blue);text-transform:uppercase;margin:0.25rem 0 0.6rem;}
+.exp-bio{font-size:0.87rem;line-height:1.6;color:var(--slate);}
+
+/* CONFIGURE / SCOPE */
+.config{background:var(--white);}
+.cfg-grid{display:grid;grid-template-columns:1fr 320px;gap:2.4rem;align-items:start;}
+.cfg-block{margin-bottom:2.2rem;}
+.cfg-label{font-family:var(--mono);font-size:0.68rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);margin-bottom:0.8rem;}
+.toggle-group{display:inline-flex;background:var(--sky);border:1px solid var(--line);border-radius:11px;padding:4px;}
+.tg-btn{font-family:var(--body);font-size:0.84rem;font-weight:600;color:var(--slate);background:transparent;border:none;border-radius:8px;padding:0.6rem 1.2rem;cursor:pointer;transition:all 0.18s ease;}
+.tg-btn.active{background:var(--blue);color:#fff;box-shadow:0 2px 8px rgba(30,85,240,0.3);}
+.tg-btn:focus-visible{outline:2px solid var(--blue);outline-offset:2px;}
+.sample-note{font-size:0.82rem;color:var(--slate);margin-top:0.7rem;line-height:1.5;max-width:520px;}
+.included{background:var(--sky);border:1px solid var(--sky-2);border-radius:16px;padding:1.6rem 1.8rem;}
+.included h4{font-family:var(--disp);font-weight:600;font-size:1rem;color:var(--ink);margin-bottom:0.3rem;}
+.inc-sub{font-size:0.82rem;color:var(--slate);margin-bottom:1rem;}
+.inc-list{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:0.5rem 1.4rem;}
+.inc-list li{position:relative;padding-left:1.5rem;font-size:0.85rem;line-height:1.45;color:var(--ink);}
+.inc-list li::before{content:'';position:absolute;left:0;top:5px;width:14px;height:14px;border-radius:50%;background:var(--blue);}
+.addon-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.8rem;}
+.addon{position:relative;display:flex;gap:0.95rem;background:var(--white);border:1.5px solid var(--line);border-radius:14px;padding:1.25rem 1.3rem;cursor:pointer;transition:all 0.18s ease;user-select:none;}
+.addon:hover{border-color:var(--blue-bright);}
+.addon.on{border-color:var(--blue);background:linear-gradient(120deg,rgba(30,85,240,0.04),rgba(46,107,255,0.06));}
+.addon:focus-visible{outline:2px solid var(--blue);outline-offset:2px;}
+.addon-check{flex-shrink:0;width:22px;height:22px;border:2px solid var(--line-2);border-radius:6px;display:flex;align-items:center;justify-content:center;margin-top:2px;transition:all 0.15s ease;}
+.addon.on .addon-check{background:var(--blue);border-color:var(--blue);}
+.addon-check svg{width:12px;height:12px;stroke:#fff;stroke-width:3;fill:none;display:none;}
+.addon.on .addon-check svg{display:block;}
+.addon-title{font-family:var(--disp);font-weight:600;font-size:0.92rem;color:var(--ink);display:flex;align-items:center;gap:0.5rem;flex-wrap:wrap;}
+.addon-desc{font-size:0.81rem;line-height:1.5;color:var(--slate);margin-top:0.3rem;}
+.addon-price{font-family:var(--mono);font-size:0.78rem;font-weight:500;color:var(--blue);margin-top:0.55rem;}
+.rec-badge{font-family:var(--mono);font-size:0.55rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;background:rgba(240,180,41,0.16);color:#9a6f08;border-radius:20px;padding:0.18rem 0.5rem;}
+
+/* INVESTMENT RAIL */
+.rail{position:sticky;top:84px;}
+.rail-card{background:var(--navy);border-radius:20px;overflow:hidden;box-shadow:0 18px 44px rgba(8,22,51,0.18);}
+.rail-head{padding:1.5rem 1.6rem 1.2rem;}
+.rail-head .eyebrow{color:#8FB2FF;}
+.rail-total{font-family:var(--mono);font-weight:700;font-size:2.5rem;color:#fff;letter-spacing:-0.03em;line-height:1;margin-top:0.5rem;transition:opacity 0.18s ease;}
+.rail-sub{font-size:0.78rem;color:rgba(255,255,255,0.55);margin-top:0.55rem;line-height:1.45;}
+.rail-meta{display:flex;border-top:1px solid rgba(255,255,255,0.1);}
+.rail-mcell{flex:1;padding:1.1rem 1.6rem;}
+.rail-mcell+.rail-mcell{border-left:1px solid rgba(255,255,255,0.1);}
+.rail-mk{font-family:var(--mono);font-size:0.6rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.45);}
+.rail-mv{font-family:var(--disp);font-weight:600;font-size:1.05rem;color:#fff;margin-top:0.3rem;}
+.rail-actions{padding:1.2rem 1.6rem;display:flex;flex-direction:column;gap:0.6rem;}
+.rail-actions .btn{justify-content:center;width:100%;}
+.btn-gold{background:var(--gold);color:#3a2a00;}
+.btn-gold:hover{background:#ffc94a;}
+.btn-rail-ghost{background:rgba(255,255,255,0.08);color:#fff;border:1px solid rgba(255,255,255,0.18);}
+.btn-rail-ghost:hover{background:rgba(255,255,255,0.14);}
+.rail-fine{font-size:0.68rem;line-height:1.5;color:var(--muted);padding:1.1rem 1.6rem;background:rgba(255,255,255,0.03);}
+
+/* TIMELINE */
+.tl-head-row{display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:1rem;margin-bottom:1.4rem;}
+.tl-weeks{text-align:right;}
+.tl-weeks-n{font-family:var(--mono);font-weight:700;font-size:2.4rem;color:var(--blue);letter-spacing:-0.03em;line-height:1;}
+.tl-weeks-l{font-size:0.74rem;color:var(--slate);margin-top:0.3rem;}
+.cadence{display:inline-flex;background:var(--sky);border:1px solid var(--line);border-radius:11px;padding:4px;margin-bottom:2rem;}
+.timeline{position:relative;}
+.tl-phase{display:grid;grid-template-columns:150px 22px 1fr;gap:0 1.2rem;align-items:start;}
+.tl-when{font-family:var(--mono);font-size:0.72rem;font-weight:500;color:var(--muted);text-align:right;padding-top:1px;letter-spacing:0.02em;}
+.tl-rail{display:flex;flex-direction:column;align-items:center;}
+.tl-dot{width:13px;height:13px;border-radius:50%;background:var(--blue);border:3px solid var(--bg);box-shadow:0 0 0 2px var(--blue);flex-shrink:0;}
+.tl-dot.gold{background:var(--gold);box-shadow:0 0 0 2px var(--gold);}
+.tl-conn{width:2px;flex:1;background:var(--line);margin:4px 0;min-height:26px;}
+.tl-phase:last-child .tl-conn{display:none;}
+.tl-body{padding-bottom:1.7rem;}
+.tl-body h4{font-family:var(--disp);font-weight:600;font-size:0.98rem;color:var(--ink);}
+.tl-body p{font-size:0.85rem;line-height:1.55;color:var(--slate);margin-top:0.25rem;}
+.tl-phase.off{opacity:0.4;}
+.tl-phase.off .tl-dot{background:var(--bg);box-shadow:0 0 0 2px var(--line-2);}
+.annual{margin-top:2.4rem;border-top:1px solid var(--line);padding-top:2.2rem;display:none;}
+.annual.show{display:block;}
+.year-track{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:0.9rem;margin-top:1.2rem;}
+.rail-program{margin-top:0.7rem;padding-top:0.7rem;border-top:1px solid var(--line);font-size:0.78rem;line-height:1.55;color:var(--slate);}
+.rail-program b{color:var(--ink);font-weight:700;}
+.year-card{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:1.3rem;}
+.year-card.first{border-color:var(--blue);background:linear-gradient(135deg,rgba(30,85,240,0.05),rgba(46,107,255,0.04));}
+.yc-yr{font-family:var(--mono);font-weight:700;font-size:1.2rem;color:var(--ink);}
+.year-card.first .yc-yr{color:var(--blue);}
+.yc-l{font-size:0.78rem;color:var(--slate);margin-top:0.35rem;line-height:1.4;}
+
+/* CTA / FOOTER */
+.cta{background:var(--navy);color:#fff;text-align:center;padding:5rem 0;position:relative;overflow:hidden;}
+.cta::before{content:'';position:absolute;inset:0;background:radial-gradient(50% 80% at 50% 0%,rgba(46,107,255,0.32),transparent 65%);}
+.cta-in{position:relative;z-index:2;max-width:680px;margin:0 auto;}
+.cta h2{font-family:var(--disp);font-weight:600;font-size:clamp(1.8rem,3vw,2.4rem);letter-spacing:-0.02em;margin-bottom:1rem;}
+.cta p{font-size:1.02rem;line-height:1.7;color:rgba(255,255,255,0.72);margin-bottom:2rem;}
+.cta-actions{display:flex;gap:0.7rem;justify-content:center;flex-wrap:wrap;}
+.cta .btn{padding:0.85rem 1.6rem;font-size:0.88rem;}
+.footer{background:#050E22;color:rgba(255,255,255,0.4);padding:2.6rem 0;font-size:0.74rem;line-height:1.7;}
+.footer-in{display:flex;justify-content:space-between;gap:1.5rem;flex-wrap:wrap;align-items:center;}
+.footer strong{color:rgba(255,255,255,0.7);font-weight:600;}
+
+/* DRAWER */
+.scrim{position:fixed;inset:0;background:rgba(8,22,51,0.55);z-index:200;opacity:0;pointer-events:none;transition:opacity 0.3s ease;}
+.scrim.open{opacity:1;pointer-events:auto;}
+.drawer{position:fixed;top:0;right:-460px;bottom:0;width:440px;max-width:92vw;background:var(--bg);z-index:201;box-shadow:-10px 0 50px rgba(8,22,51,0.2);transition:right 0.36s cubic-bezier(0.22,1,0.36,1);display:flex;flex-direction:column;}
+.drawer.open{right:0;}
+.drawer-head{display:flex;align-items:center;justify-content:space-between;padding:1.5rem 1.8rem;border-bottom:1px solid var(--line);background:var(--white);}
+.drawer-head h2{font-family:var(--disp);font-weight:600;font-size:1.2rem;color:var(--ink);}
+.x-btn{width:34px;height:34px;border:1px solid var(--line-2);border-radius:8px;background:var(--white);cursor:pointer;display:flex;align-items:center;justify-content:center;}
+.x-btn svg{width:14px;height:14px;stroke:var(--slate);stroke-width:2;fill:none;}
+.x-btn:focus-visible{outline:2px solid var(--blue);outline-offset:2px;}
+.drawer-body{flex:1;overflow-y:auto;padding:1.8rem;}
+.drawer-total-card{background:var(--navy);border-radius:18px;padding:1.8rem;text-align:center;color:#fff;}
+.dtc-label{font-family:var(--mono);font-size:0.64rem;letter-spacing:0.14em;text-transform:uppercase;color:#8FB2FF;}
+.dtc-total{font-family:var(--mono);font-weight:700;font-size:3rem;color:#fff;letter-spacing:-0.03em;line-height:1;margin:0.6rem 0;}
+.dtc-meta{font-size:0.8rem;color:rgba(255,255,255,0.6);}
+.dgroup-label{font-family:var(--mono);font-size:0.66rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin:1.8rem 0 0.7rem;}
+.dline{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;padding:0.6rem 0;border-bottom:1px solid var(--line);font-size:0.88rem;}
+.dline-name{color:var(--ink);}
+.dline-price{font-family:var(--mono);font-weight:500;color:var(--slate);white-space:nowrap;}
+.drawer-actions{padding:1.3rem 1.8rem;border-top:1px solid var(--line);background:var(--white);display:flex;flex-direction:column;gap:0.6rem;}
+.drawer-actions .btn{justify-content:center;width:100%;padding:0.8rem;}
+.drawer-fine{padding:0 1.8rem 1.6rem;font-size:0.7rem;line-height:1.5;color:var(--muted);background:var(--white);}
+
+/* MODAL */
+.modal-scrim{position:fixed;inset:0;background:rgba(8,22,51,0.55);z-index:300;display:none;align-items:center;justify-content:center;padding:1.5rem;}
+.modal-scrim.open{display:flex;}
+.modal{background:var(--white);border-radius:18px;width:500px;max-width:100%;box-shadow:0 24px 70px rgba(8,22,51,0.25);overflow:hidden;}
+.modal-head{padding:1.5rem 1.9rem;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;}
+.modal-head h3{font-family:var(--disp);font-weight:600;font-size:1.12rem;color:var(--ink);}
+.modal-body{padding:1.6rem 1.9rem;}
+.modal-body label{display:block;font-family:var(--mono);font-size:0.66rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);margin-bottom:0.4rem;}
+.modal-body input,.modal-body textarea{width:100%;padding:0.7rem 0.9rem;border:1px solid var(--line-2);border-radius:9px;font-family:var(--body);font-size:0.9rem;color:var(--ink);margin-bottom:1rem;outline:none;transition:border-color 0.18s ease;}
+.modal-body input:focus,.modal-body textarea:focus{border-color:var(--blue);}
+.modal-body textarea{resize:vertical;min-height:74px;}
+.preview{background:var(--sky);border-radius:11px;padding:1rem 1.2rem;font-family:var(--mono);font-size:0.72rem;line-height:1.6;color:var(--slate);max-height:170px;overflow-y:auto;white-space:pre-wrap;}
+.modal-foot{padding:1.1rem 1.9rem 1.6rem;display:flex;justify-content:flex-end;gap:0.6rem;}
+
+/* PRINT */
+.print-only{display:none;}
+@media print{
+  .hdr,.scrim,.drawer,.modal-scrim,.cta,.footer,.rail-actions,.drawer-actions,.video-wrap,.vid-gallery,.vp-strip,.photo-gallery,.btn,.orbits{display:none !important;}
+  body{background:#fff;}
+  .print-only{display:block;}
+  .ps-doc{max-width:100%;font-family:var(--body);color:#0B1220;}
+  .ps-h{display:flex;justify-content:space-between;align-items:flex-start;border-bottom:2px solid var(--navy);padding-bottom:1rem;margin-bottom:1.6rem;}
+  .ps-brand{font-family:var(--disp);font-weight:700;font-size:1.2rem;color:var(--navy);}
+  .ps-brand span{display:block;font-size:0.85rem;font-weight:400;color:#475068;margin-top:0.2rem;}
+  .ps-date{font-family:var(--mono);font-size:0.72rem;color:#8089A0;text-align:right;}
+  .ps-tot{font-family:var(--mono);font-weight:700;font-size:2.2rem;color:var(--blue);margin:0.4rem 0 1.4rem;}
+  .ps-line{display:flex;justify-content:space-between;padding:0.45rem 0;border-bottom:1px solid #E6EAF3;font-size:0.92rem;}
+  .ps-line .pn{font-family:var(--mono);}
+  .ps-sec-label{font-family:var(--mono);font-size:0.68rem;letter-spacing:0.1em;text-transform:uppercase;color:#8089A0;margin:1.6rem 0 0.6rem;}
+  .sec,.why,.comms,.config{padding:1.4rem 0 !important;}
+}
+
+/* RESPONSIVE */
+@media (max-width:980px){
+  .hero-in{grid-template-columns:1fr;gap:2.5rem;}
+  .orbits{opacity:0.25;}
+  .contrast,.fw-grid,.why-grid,.proof-grid,.media-row,.exp-grid{grid-template-columns:1fr;}
+  .why-card.feature,.proof-card.wide{grid-column:auto;}
+  .proc{grid-template-columns:repeat(2,1fr);}
+  .proc-step{border-bottom:1px solid var(--line);}
+  .comms-grid{grid-template-columns:1fr 1fr;}
+  .reach-banner,.year-track{grid-template-columns:repeat(2,1fr);}
+  .cfg-grid{grid-template-columns:1fr;}
+  .rail{position:static;}
+  .inc-list,.addon-grid{grid-template-columns:1fr;}
+}
+@media (max-width:600px){
+  .wrap{padding:0 1.3rem;}
+  .hdr-in{padding:0.7rem 1.3rem;}
+  .hdr-actions .btn-ghost,.hdr-actions .btn-primary{display:none;}
+  .hero-stats{grid-template-columns:1fr 1fr;gap:1.3rem;}
+  .proc,.comms-grid,.reach-banner,.year-track{grid-template-columns:1fr;}
+  .tl-phase{grid-template-columns:88px 22px 1fr;}
+  .brand-gallup,.brand-x{display:none;}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none !important;transition:none !important;scroll-behavior:auto !important;}
+}
+
+/* ===== v2 additions ===== */
+/* OVERVIEW */
+.overview{background:linear-gradient(180deg,var(--sky),var(--white));border-bottom:1px solid var(--line);}
+.ov-lead{font-family:var(--disp);font-weight:500;font-size:clamp(1.4rem,2.4vw,1.9rem);line-height:1.36;letter-spacing:-0.015em;color:var(--ink);max-width:920px;}
+.ov-lead b{color:var(--blue);font-weight:600;}
+.ov-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.3rem;margin-top:2.6rem;}
+.ov-card{background:var(--white);border:1px solid var(--line);border-radius:16px;padding:1.8rem;}
+.ov-ic{width:40px;height:40px;border-radius:11px;background:var(--sky-2);display:flex;align-items:center;justify-content:center;margin-bottom:1.05rem;}
+.ov-ic svg{width:20px;height:20px;stroke:var(--blue);fill:none;}
+.ov-card h4{font-family:var(--disp);font-weight:600;font-size:1.08rem;color:var(--ink);margin-bottom:0.45rem;}
+.ov-card p{font-size:0.9rem;line-height:1.62;color:var(--slate);}
+/* VALUE-PROP STRIP */
+.vp-strip{margin-top:2.6rem;background:var(--navy);border-radius:18px;padding:2.2rem 2.4rem;color:#fff;display:grid;grid-template-columns:auto 1fr;gap:1.6rem;align-items:center;}
+.vp-ic{width:56px;height:56px;border-radius:15px;background:rgba(46,107,255,0.22);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.vp-ic svg{width:27px;height:27px;stroke:#8FB2FF;fill:none;}
+.vp-strip h3{font-family:var(--disp);font-weight:600;font-size:1.3rem;margin-bottom:0.4rem;}
+.vp-strip p{font-size:0.96rem;line-height:1.66;color:rgba(255,255,255,0.76);}
+.vp-strip p b{color:#fff;font-weight:600;}
+/* VIDEO GALLERY */
+.vid-gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.1rem;margin-top:1.4rem;}
+.vid-card{display:block;text-decoration:none;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--white);transition:transform 0.2s ease,box-shadow 0.2s ease;}
+.vid-card:hover{transform:translateY(-3px);box-shadow:0 14px 30px rgba(8,22,51,0.1);}
+.vid-thumb{position:relative;aspect-ratio:16/9;background:var(--navy);overflow:hidden;}
+.vid-thumb img{width:100%;height:100%;object-fit:cover;}
+.vid-play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;}
+.vid-play span{width:54px;height:54px;border-radius:50%;background:rgba(8,22,51,0.6);display:flex;align-items:center;justify-content:center;}
+.vid-play svg{width:20px;height:20px;fill:#fff;margin-left:3px;}
+.vid-cap{padding:1rem 1.1rem;}
+.vid-cap h4{font-family:var(--disp);font-weight:600;font-size:0.92rem;color:var(--ink);line-height:1.3;}
+.vid-cap p{font-size:0.76rem;color:var(--muted);margin-top:0.3rem;}
+/* PROOF COVER VISUAL */
+.cover{position:relative;border-radius:12px;overflow:hidden;padding:1.5rem 1.6rem;margin-bottom:1.3rem;min-height:118px;display:flex;flex-direction:column;justify-content:flex-end;color:#fff;}
+.cover::after{content:'';position:absolute;right:-34px;top:-34px;width:132px;height:132px;border-radius:50%;border:1px solid rgba(255,255,255,0.22);}
+.cover-tag{position:relative;z-index:1;font-family:var(--mono);font-size:0.58rem;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.72);margin-bottom:0.35rem;}
+.cover-title{position:relative;z-index:1;font-family:var(--disp);font-weight:600;font-size:1.18rem;line-height:1.18;}
+.cover-sub{position:relative;z-index:1;font-size:0.78rem;color:rgba(255,255,255,0.74);margin-top:0.35rem;}
+/* PHOTO GALLERY */
+.photo-gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:1.1rem;margin-top:1.4rem;}
+.photo-card{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--white);transition:transform 0.2s ease,box-shadow 0.2s ease;}
+.photo-card:hover{transform:translateY(-3px);box-shadow:0 14px 30px rgba(8,22,51,0.1);}
+.photo-frame{position:relative;aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;overflow:hidden;}
+.photo-frame img{width:100%;height:100%;object-fit:cover;display:block;}
+.photo-frame svg{width:42px;height:42px;opacity:0.9;}
+.photo-cap{padding:0.85rem 1rem;}
+.photo-cap h4{font-family:var(--disp);font-weight:600;font-size:0.9rem;color:var(--ink);line-height:1.3;letter-spacing:-0.01em;}
+.photo-cap p{font-size:0.75rem;line-height:1.5;color:var(--slate);margin-top:0.2rem;}
+@media (max-width:980px){.ov-grid,.vid-gallery{grid-template-columns:1fr;} .vp-strip{grid-template-columns:1fr;} .photo-gallery{grid-template-columns:repeat(2,1fr);}}
+@media (max-width:560px){.photo-gallery{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="hdr">
+  <div class="hdr-in">
+    <div class="brand">
+      <div class="brand-one"><span class="brand-dot"></span>OnePay</div>
+      <div class="brand-x"></div>
+      <div class="brand-gallup">GALLUP</div>
+    </div>
+    <div class="hdr-actions">
+      <button class="btn btn-ghost" onclick="exportPDF()"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 9l4 4 4-4M10 13V3M4 17h12"/></svg>Export PDF</button>
+      <button class="btn btn-primary" onclick="openEmail()"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M2 6.5l8 4 8-4A2 2 0 0016 5H4a2 2 0 00-2 1.5z"/><path d="M18 8.6l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.6z"/></svg>Email scope</button>
+      <button class="btn btn-invest" onclick="openDrawer()"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M4 4a2 2 0 00-2 2v1h16V6a2 2 0 00-2-2H4z"/><path d="M18 9H2v5a2 2 0 002 2h12a2 2 0 002-2V9zM4 13a1 1 0 011-1h2a1 1 0 110 2H5a1 1 0 01-1-1z"/></svg>View investment</button>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <svg class="orbits" viewBox="0 0 760 760" aria-hidden="true">
+    <circle cx="380" cy="380" r="120"/><circle cx="380" cy="380" r="200"/><circle cx="380" cy="380" r="290"/><circle cx="380" cy="380" r="375"/>
+  </svg>
+  <div class="wrap">
+    <div class="hero-in">
+      <div>
+        <div class="eyebrow hero-eyebrow">A Proposal for OnePay &middot; Prepared by Gallup</div>
+        <h1>The country measures its economy in GDP, inflation, and rate decisions. <em>People measure it in whether the money lasts to the end of the month.</em></h1>
+        <p class="hero-sub">Gallup proposes to build OnePay <strong>Money in America</strong> &mdash; the definitive annual measure of how Americans manage, feel about, and make progress with their money &mdash; and to make OnePay the name the country turns to for the answer. Powered by the one kind of data the world's most trusted institutions still stand behind.</p>
+        <div class="hero-stats">
+          <div><div class="hstat-n">90 yrs</div><div class="hstat-l">Measuring how the world thinks, since 1935</div></div>
+          <div><div class="hstat-n">160+</div><div class="hstat-l">Countries in the Gallup World Poll</div></div>
+          <div><div class="hstat-n">98%</div><div class="hstat-l">Of the world's adults its research reaches</div></div>
+          <div><div class="hstat-n">Millions</div><div class="hstat-l">Of conversations behind the data each year</div></div>
+        </div>
+      </div>
+      <div class="gauge-card">
+        <div class="gauge-top">
+          <span class="gauge-tag">The Signature Metric</span>
+          <span class="gauge-illus">Concept</span>
+        </div>
+        <svg class="gauge-svg" viewBox="0 0 260 168" aria-hidden="true">
+          <path d="M30 150 A100 100 0 0 1 230 150" fill="none" stroke="rgba(255,255,255,0.14)" stroke-width="16" stroke-linecap="round"/>
+          <path d="M30 150 A100 100 0 0 1 196 92" fill="none" stroke="url(#g)" stroke-width="16" stroke-linecap="round"/>
+          <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#2E6BFF"/><stop offset="1" stop-color="#8FB2FF"/></linearGradient></defs>
+          <text x="130" y="118" text-anchor="middle" fill="#fff" font-family="JetBrains Mono, monospace" font-weight="700" font-size="40" letter-spacing="-2">00.0</text>
+          <text x="130" y="142" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="2">INDEX 0&ndash;100</text>
+        </svg>
+        <div class="gauge-title">The Better Money Index&trade;</div>
+        <div class="gauge-desc">One headline number, fielded every year &mdash; a national read on whether Americans feel they're moving forward with their money. The repeatable moment the press, partners, and the public can track over time.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OVERVIEW / CASE FOR GALLUP -->
+<section class="sec overview">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">The Case for Gallup</div>
+      <h2 class="sec-title">Anyone can run a survey. Almost no one can make the world believe it.</h2>
+    </div>
+    <p class="ov-lead">A number only matters if it travels &mdash; if newsrooms run it without flinching, academics cite it, policymakers quote it, and the public repeats it. That requires data the world trusts and a brand that can carry it onto the biggest stages. <b>That list of partners is short, and Gallup sits at the top of it.</b></p>
+    <div class="ov-grid">
+      <div class="ov-card">
+        <div class="ov-ic"><svg viewBox="0 0 24 24" stroke-width="1.7"><path d="M12 2L4 6v6c0 5 3.5 8 8 10 4.5-2 8-5 8-10V6l-8-4z"/><path d="M9 12l2 2 4-4"/></svg></div>
+        <h4>Data the world will trust</h4>
+        <p>One of only a few probability-based panels in the country &mdash; and the largest. Not an opt-in list. Because it can be projected to all U.S. adults, it's the data serious newsrooms still run when they won't touch anyone else's.</p>
+      </div>
+      <div class="ov-card">
+        <div class="ov-ic"><svg viewBox="0 0 24 24" stroke-width="1.7"><path d="M9 3h6M10 3v5l-5 9a2 2 0 002 3h10a2 2 0 002-3l-5-9V3"/></svg></div>
+        <h4>Thought leadership, by design</h4>
+        <p>We don't field and forget. We build the instrument with outside experts and our own economists, test every question, and bring journalists in early &mdash; so the findings are engineered to be covered, cited, and remembered.</p>
+      </div>
+      <div class="ov-card">
+        <div class="ov-ic"><svg viewBox="0 0 24 24" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></svg></div>
+        <h4>A brand that earns the stage</h4>
+        <p>Full-service from question to culture moment: earned media, owned channels reaching a million-plus readers a month, the Gallup Podcast, and the rooms where decisions get made &mdash; Davos, Milken, Aspen Ideas.</p>
+      </div>
+    </div>
+    <div class="vp-strip">
+      <div class="vp-ic"><svg viewBox="0 0 24 24" stroke-width="1.7"><path d="M8 21h8M12 17v4M5 4h14v4a7 7 0 01-14 0V4zM5 6H3v1a3 3 0 003 3M19 6h2v1a3 3 0 01-3 3"/></svg></div>
+      <div>
+        <h3>Gallup doesn't just deliver data &mdash; it makes its partners the authority.</h3>
+        <p>We put Hologic's CEO on the World Economic Forum main stage as the voice of women's health. We turned the Gallup World Poll into the World Happiness Report the entire world cites every year. We made Lloyd's Register Foundation the global standard on safety. <b>Money in America is how we do the same for OnePay.</b></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OPPORTUNITY -->
+<section class="sec">
+  <div class="wrap">
+    <p class="lead">Personal-finance coverage is saturated with the macro story &mdash; inflation prints, rate cuts, sentiment indexes. <em>Almost no one measures the part that actually governs how people live: the day-to-day reality of money.</em></p>
+    <div class="body-copy">
+      <p>Americans don't experience the economy as a chart. They experience it as a balance on a Tuesday, a paycheck that lands two days early, a savings buffer that's either there or isn't, a quiet sense that they're building toward something &mdash; or just treading water. That lived experience is where trust, anxiety, loyalty, and financial behavior are actually formed. And at national scale, it is almost entirely unmeasured.</p>
+      <p>That gap is OnePay's white space. As an all-in-one platform built for how real people manage money &mdash; banking, saving, building credit, investing, and paying over time &mdash; OnePay is uniquely positioned to own the conversation about the everyday financial life of America. Not by talking about products, but by leading with people: what financial progress means to them, what gets in the way, and what "better money" actually looks like across income, generation, and place.</p>
+      <p>Done right, this isn't a one-time report. It's a repeatable annual moment &mdash; a credible, people-first body of evidence that compounds in authority every year, fuels evergreen content across PR, social, and marketing, and positions OnePay as the leading voice on the state of personal finances in America.</p>
+    </div>
+    <div class="contrast">
+      <div class="contrast-card macro">
+        <div class="cc-label">How the economy is usually measured</div>
+        <div class="cc-row"><span class="cc-k">GDP</span><span class="cc-v">Aggregate output &mdash; tells you nothing about a household</span></div>
+        <div class="cc-row"><span class="cc-k">CPI</span><span class="cc-v">A basket's price &mdash; not whether you can afford yours</span></div>
+        <div class="cc-row"><span class="cc-k">Fed&nbsp;rate</span><span class="cc-v">A policy lever, felt unevenly and months later</span></div>
+        <div class="cc-row"><span class="cc-k">Sentiment</span><span class="cc-v">A mood reading, rarely tied to real behavior</span></div>
+      </div>
+      <div class="contrast-card lived">
+        <div class="cc-label">How people actually measure it</div>
+        <div class="cc-row"><span class="cc-k">Cash&nbsp;flow</span><span class="cc-v">Does the money make it to the end of the month?</span></div>
+        <div class="cc-row"><span class="cc-k">Buffer</span><span class="cc-v">Could I absorb a $400 surprise without spiraling?</span></div>
+        <div class="cc-row"><span class="cc-k">Progress</span><span class="cc-v">Am I moving forward, or just staying afloat?</span></div>
+        <div class="cc-row"><span class="cc-k">Meaning</span><span class="cc-v">What would "better money" actually change for me?</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FRAMEWORK -->
+<section class="sec" style="background:var(--white);border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">What Money in America Measures</div>
+      <h2 class="sec-title">Four dimensions of how Americans live with their money</h2>
+      <p class="sec-intro">A purpose-built instrument that moves past macro indicators to the lived reality &mdash; engineered to support clean subgroup reads by income tier, generation, and region.</p>
+    </div>
+    <div class="fw-grid">
+      <div class="fw-card">
+        <div class="fw-num">01</div>
+        <h3>Day-to-Day Financial Management</h3>
+        <p>The daily mechanics and emotions of money &mdash; cash flow, control, timing, stress, and the small decisions that define financial life between paychecks.</p>
+        <div class="fw-q">In a typical month, how often does your money run short before more comes in?</div>
+      </div>
+      <div class="fw-card">
+        <div class="fw-num">02</div>
+        <h3>Savings &amp; Financial Resilience</h3>
+        <p>The buffer beneath the surface &mdash; emergency savings, the ability to absorb a shock, and how protected or exposed people feel when the unexpected hits.</p>
+        <div class="fw-q">If you faced a sudden $400 expense, how would you cover it?</div>
+      </div>
+      <div class="fw-card">
+        <div class="fw-num">03</div>
+        <h3>Financial Progress &amp; the Future</h3>
+        <p>Momentum and outlook &mdash; whether people feel they're building toward something, growing credit and savings, and the confidence they hold about what's ahead.</p>
+        <div class="fw-q">Compared with a year ago, are you moving forward, holding steady, or falling behind?</div>
+      </div>
+      <div class="fw-card">
+        <div class="fw-num">04</div>
+        <h3>The Meaning of "Better Money"</h3>
+        <p>The human definition of financial wellbeing &mdash; what progress means to real people, the goals behind the numbers, and what would genuinely change their lives.</p>
+        <div class="fw-q">What would having "better money" let you do that you can't do today?</div>
+      </div>
+    </div>
+    <div class="index-strip">
+      <div class="index-mark">BMI</div>
+      <div>
+        <h4>Anchored by the Better Money Index&trade;</h4>
+        <p>A single, defensible composite score &mdash; fielded the same way every year &mdash; that turns the four dimensions into one trackable national number. The headline that makes this a recurring story, not a one-off.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY GALLUP -->
+<section class="sec why">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Why Gallup</div>
+      <h2 class="sec-title">The findings only matter if the world believes them</h2>
+      <p class="sec-intro">A media moment is built long before launch day. It starts with data the press, academics, and policymakers actually trust &mdash; and a brand that can carry it into the rooms that matter.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card feature">
+        <div class="why-ic"><svg viewBox="0 0 20 20" stroke-width="1.7"><path d="M10 2L3 6v8l7 4 7-4V6l-7-4z"/><circle cx="10" cy="10" r="2.6"/></svg></div>
+        <h3>One of only a few probability-based panels in America &mdash; and the largest</h3>
+        <p>Most "national surveys" are stitched together from people who opted in online. The Gallup Panel is a different instrument entirely: members are recruited at random through <span class="hl">address-based sampling and random-digit-dialing</span>, so every person has a known chance of selection. It is <span class="hl">not an opt-in list</span> &mdash; it is one of only a handful of true probability-based panels in the country, and the largest of its kind. That is why a Gallup number can be projected to <span class="hl">every U.S. adult</span> and defended under any scrutiny, and why it carries weight a convenience sample never will.</p>
+        <div class="panel-meta">
+          <span class="chip">Address-based + RDD recruitment</span>
+          <span class="chip">Not opt-in</span>
+          <span class="chip">The largest of only a few</span>
+          <span class="chip">Projectable to every U.S. adult</span>
+        </div>
+      </div>
+      <div class="why-card">
+        <div class="why-ic"><svg viewBox="0 0 20 20" stroke-width="1.7"><path d="M10 2l2.5 5 5.5.8-4 3.9 1 5.5L10 20l-5-2.6 1-5.5-4-3.9 5.5-.8z"/></svg></div>
+        <h3>Trust is the whole game &mdash; and it is getting scarcer</h3>
+        <p>As AI-generated and fraudulent answers flood cheap online panels, major newsrooms have begun refusing them outright &mdash; <span class="hl">ABC and The Washington Post among them</span>. The bar for being taken seriously has risen, and Gallup sits on the right side of it. Trusted data gets covered, cited, and believed; convenient data gets ignored.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-ic"><svg viewBox="0 0 20 20" stroke-width="1.7"><path d="M4 16V4M4 4h9l-1.5 3L13 10H4"/></svg></div>
+        <h3>We take the time to do it right</h3>
+        <p>Headlines are won at the design stage, not on launch day. We build the instrument with outside experts and Gallup's own economists, pressure-test every question in cognitive interviews so it cannot be misread, and bring journalists in early so the study answers what the world is actually asking. <span class="hl">Weak questions get torn apart by the smart people who make decisions. Ours are built to hold.</span></p>
+      </div>
+      <div class="why-card feature">
+        <div class="why-ic"><svg viewBox="0 0 20 20" stroke-width="1.7"><circle cx="10" cy="10" r="8"/><path d="M2 10h16M10 2c2.5 2.5 2.5 13 0 16M10 2c-2.5 2.5-2.5 13 0 16"/></svg></div>
+        <h3>A full-service engine, from question to culture moment</h3>
+        <p>Gallup does not hand over a dataset and walk away. We carry the work from design through analysis, narrative, and amplification &mdash; landing tier-one coverage, publishing custom content on <span class="hl">news.gallup.com and across the Gallup Podcast and official channels</span>, crafting the narrative-driven data stories the public latches onto, and putting partners on the stages where influence concentrates. The deliverable isn't a report. It's a moment the world pays attention to.</p>
+        <div class="panel-meta">
+          <span class="chip">news.gallup.com &middot; 1M+ monthly</span>
+          <span class="chip">The Gallup Podcast + socials</span>
+          <span class="chip">Tier-one earned media</span>
+          <span class="chip">WEF &middot; Milken &middot; Aspen stages</span>
+          <span class="chip">Launch moments &amp; activations</span>
+        </div>
+      </div>
+    </div>
+    <div class="equation">
+      <span class="eq-pill">Good questions</span>
+      <span class="eq-op">+</span>
+      <span class="eq-pill">a source the world trusts</span>
+      <span class="eq-op">=</span>
+      <span class="eq-pill" style="background:rgba(46,107,255,0.3);">earned media, public trust &amp; academic credibility</span>
+    </div>
+    <div class="equation" style="margin-top:0.8rem;opacity:0.62;">
+      <span class="eq-pill" style="background:rgba(255,255,255,0.05);">Weak questions</span>
+      <span class="eq-op">or</span>
+      <span class="eq-pill" style="background:rgba(255,255,255,0.05);">a convenience sample</span>
+      <span class="eq-op">=</span>
+      <span class="eq-pill" style="background:rgba(255,255,255,0.05);">a study no one covers, and no one cites</span>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">How We Build It</div>
+      <h2 class="sec-title">A deliberate path from question to coverage</h2>
+      <p class="sec-intro">Four stages that protect credibility at every step &mdash; the reason Gallup findings hold up in front of economists and editors alike.</p>
+    </div>
+    <div class="proc">
+      <div class="proc-step">
+        <div class="proc-n">01</div>
+        <h4>Design with experts</h4>
+        <p>Frame the questions with subject-matter experts and Gallup economists, then refine through cognitive interviews so every item is clear, unbiased, and built to withstand scrutiny.</p>
+      </div>
+      <div class="proc-step">
+        <div class="proc-n">02</div>
+        <h4>Field on the panel</h4>
+        <p>Collect from a nationally representative, probability-based sample with live quality monitoring &mdash; the foundation that makes the findings projectable and trusted.</p>
+      </div>
+      <div class="proc-step">
+        <div class="proc-n">03</div>
+        <h4>Analyze for the story</h4>
+        <p>Weight and analyze beyond toplines &mdash; the subgroup contrasts and correlations that turn data into a narrative worth covering and citing.</p>
+      </div>
+      <div class="proc-step">
+        <div class="proc-n">04</div>
+        <h4>Activate the moment</h4>
+        <p>Shape findings into reports, press materials, and content &mdash; with media brought in early so launch lands with maximum reach.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROOF / PAST PERFORMANCE -->
+<section class="sec" style="background:var(--white);border-top:1px solid var(--line);">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Proven Impact</div>
+      <h2 class="sec-title">Brand studies that became the story</h2>
+      <p class="sec-intro">Gallup has built exactly this kind of program for the world's most recognized companies &mdash; turning proprietary research into national coverage, credibility, and content that lasts.</p>
+    </div>
+    <div class="proof-grid">
+      <div class="proof-card wide">
+        <div class="cover" style="background:linear-gradient(135deg,#3A1F6B,#B0228C);">
+          <div class="cover-tag">Hologic &times; Gallup &middot; World Economic Forum, Davos</div>
+          <div class="cover-title">The Hologic Global Women's Health Index</div>
+          <div class="cover-sub">The exact blueprint for Money in America</div>
+        </div>
+        <div class="proof-stats">
+          <div><div class="ps-n">140+</div><div class="ps-l">countries &<br>territories</div></div>
+          <div><div class="ps-n">145K+</div><div class="ps-l">people<br>interviewed</div></div>
+          <div><div class="ps-n">97%</div><div class="ps-l">of the world's<br>women reached</div></div>
+        </div>
+        <p>Gallup built the largest, first-of-its-kind global measure of women's health from scratch &mdash; designed with experts from Johns Hopkins and George Washington University, fielded annually, and benchmarkable over time. Then we made it a moment: the Index now launches at the World Economic Forum in Davos, with Hologic's CEO on the main stage as the voice of women's health worldwide. A medical-device company became <strong>the global authority on a human issue</strong>. That is precisely the arc we propose for OnePay.</p>
+        <div class="outlets">
+          <span class="outlet">World Economic Forum</span><span class="outlet">Business Wire</span><span class="outlet">Annual since 2021</span><span class="outlet">40+ languages</span>
+        </div>
+      </div>
+      <div class="proof-card">
+        <div class="cover" style="background:linear-gradient(135deg,#0E5A4A,#159C73);">
+          <div class="cover-tag">Edward Jones &times; Gallup &middot; 2026</div>
+          <div class="cover-title">Financial Fulfillment in America</div>
+          <div class="cover-sub">Proof Gallup owns the money beat</div>
+        </div>
+        <div class="proof-stats">
+          <div><div class="ps-n">16%</div><div class="ps-l">feel financially<br>fulfilled</div></div>
+          <div><div class="ps-n">83%</div><div class="ps-l">report financial<br>stress or strain</div></div>
+        </div>
+        <p>A national study that defined financial fulfillment and proved it isn't about income &mdash; built on 5,075 interviews. It became a wave of earned media within days, with Edward Jones' managing partner quoted across the business press. The clearest possible proof Gallup commands the exact territory OnePay wants to own.</p>
+        <div class="outlets">
+          <span class="outlet">Fortune</span><span class="outlet">Financial Planning</span><span class="outlet">Int'l Business Times</span><span class="outlet">Moneywise</span>
+        </div>
+      </div>
+      <div class="proof-card">
+        <div class="cover" style="background:linear-gradient(135deg,#8A4B12,#E08A1E);">
+          <div class="cover-tag">Lloyd's Register Foundation &times; Gallup</div>
+          <div class="cover-title">The World Risk Poll</div>
+          <div class="cover-sub">Data the world acts on</div>
+        </div>
+        <div class="proof-stats">
+          <div><div class="ps-n">140+</div><div class="ps-l">countries &<br>territories</div></div>
+          <div><div class="ps-n">150K+</div><div class="ps-l">people<br>interviewed</div></div>
+        </div>
+        <p>The first global study of how people experience risk and safety &mdash; filling a gap no official data covered. It hasn't just been covered; it has changed things: informing national legislation, tracking a UN disaster-preparedness goal, and cited at global summits and in academic research. Gallup doesn't just make headlines &mdash; it builds the evidence the world acts on.</p>
+        <div class="outlets">
+          <span class="outlet">United Nations</span><span class="outlet">ILO</span><span class="outlet">Forbes</span><span class="outlet">Global summits</span>
+        </div>
+      </div>
+      <div class="proof-card wide">
+        <div class="cover" style="background:linear-gradient(135deg,#0E2350,#2E6BFF);">
+          <div class="cover-tag">Powered by the Gallup World Poll</div>
+          <div class="cover-title">The World Happiness Report</div>
+          <div class="cover-sub">The statistic the entire world cites</div>
+        </div>
+        <p>Every March, on the UN's International Day of Happiness, the world ranks its nations by wellbeing &mdash; and the rankings every major newsroom on earth reports are powered by the Gallup World Poll. Published with the University of Oxford and the UN's Sustainable Development Solutions Network, it is the definition of an <strong>official statistic the world sees</strong>. This is the ceiling of what a Gallup partnership can become: not a study that gets covered, but a number that becomes part of how the world keeps score. Money in America is built to climb toward exactly that.</p>
+        <div class="outlets">
+          <span class="outlet">UN Int'l Day of Happiness</span><span class="outlet">University of Oxford</span><span class="outlet">Annual since 2012</span><span class="outlet">Global press, every year</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="vp-strip" style="margin-top:2.4rem;">
+      <div class="vp-ic"><svg viewBox="0 0 24 24" stroke-width="1.7"><path d="M3 17l5-5 3 3 7-8"/><path d="M15 7h5v5"/></svg></div>
+      <div>
+        <h3>We don't just measure the conversation. We set its terms.</h3>
+        <p>The numbers the press repeats and policymakers quote &mdash; the happiness of nations, the state of work, the wellbeing of the world &mdash; carry the Gallup name. When OnePay's findings do too, they inherit that authority. <b>See it in action:</b></p>
+      </div>
+    </div>
+    <div class="vid-gallery">
+      <a class="vid-card" href="https://www.youtube.com/watch?v=QT0bfGdjLs0" target="_blank" rel="noopener">
+        <div class="vid-thumb"><img src="https://i.ytimg.com/vi/QT0bfGdjLs0/hqdefault.jpg" alt="Introducing the Hologic Global Women's Health Index" loading="lazy"><div class="vid-play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></div></div>
+        <div class="vid-cap"><h4>Introducing the Global Women's Health Index</h4><p>Hologic &times; Gallup &mdash; the index that made a client the global authority</p></div>
+      </a>
+      <a class="vid-card" href="https://www.youtube.com/watch?v=kbHutisfzBU" target="_blank" rel="noopener">
+        <div class="vid-thumb"><img src="https://i.ytimg.com/vi/kbHutisfzBU/hqdefault.jpg" alt="Jon Clifton at Semafor's World Economy Summit" loading="lazy"><div class="vid-play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></div></div>
+        <div class="vid-cap"><h4>At Semafor's World Economy Summit</h4><p>Jon Clifton, Gallup CEO</p></div>
+      </a>
+      <a class="vid-card" href="https://www.youtube.com/watch?v=dk_WJzdvPRc" target="_blank" rel="noopener">
+        <div class="vid-thumb"><img src="https://i.ytimg.com/vi/dk_WJzdvPRc/hqdefault.jpg" alt="PacSun CEO Brieane Olson interviewed at the Gallup studio" loading="lazy"><div class="vid-play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></div></div>
+        <div class="vid-cap"><h4>Client interviewed at the Gallup studio</h4><p>PacSun CEO Brieane Olson &middot; Gallup's Leading With Strengths study</p></div>
+      </a>
+      <a class="vid-card" href="https://www.youtube.com/watch?v=gAABFw4N4rE" target="_blank" rel="noopener">
+        <div class="vid-thumb"><img src="https://i.ytimg.com/vi/gAABFw4N4rE/hqdefault.jpg" alt="Featured Gallup video" loading="lazy"><div class="vid-play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></div></div>
+        <div class="vid-cap"><h4>Gallup client data on national media</h4><p>A client's findings, featured on national news</p></div>
+      </a>
+    </div>
+    <div class="stage-list" style="margin-top:1.5rem;">
+      <span class="stage">World Economic Forum</span>
+      <span class="stage">Milken Institute</span>
+      <span class="stage">Aspen Ideas</span>
+      <span class="stage">United Nations</span>
+      <span class="stage">Cannes Lions</span>
+    </div>
+
+    <div style="margin-top:2.6rem;">
+      <div class="eyebrow">The playbook</div>
+      <h3 style="font-family:var(--disp);font-weight:600;font-size:1.35rem;color:var(--ink);letter-spacing:-0.01em;margin:0.2rem 0 0.3rem;">From the research to the front pages</h3>
+      <p style="font-size:0.9rem;line-height:1.6;color:var(--slate);max-width:62ch;">The same arc we would build for OnePay: research <b>built</b> with Gallup, <b>convened</b> before the leaders who matter, <b>elevated</b> to the world's stages, and <b>amplified</b> by the newsrooms that carry it.</p>
+    </div>
+    <div class="photo-gallery">
+      <div class="photo-card">
+        <div class="photo-frame" style="background:linear-gradient(135deg,#3A1F6B,#B0228C);">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Gallup_DC_Office.jpg" alt="Gallup World Headquarters, Washington, D.C." loading="lazy">
+        </div>
+        <div class="photo-cap"><h4>1 &middot; Built with Gallup</h4><p>Where the research is designed, fielded, and launched</p></div>
+      </div>
+      <div class="photo-card">
+        <div class="photo-frame" style="background:linear-gradient(135deg,#0E2350,#2E6BFF);">
+          <img src="https://media.licdn.com/dms/image/v2/D5622AQF-upxjljxLiw/feedshare-shrink_800/B56ZoUqkefJwAo-/0/1761283339452?e=1783555200&v=beta&t=d482o21gTpgXDXdHhKKVv-AuiMXi6lS2en5GvOdKI1c" alt="Gallup convening" loading="lazy">
+        </div>
+        <div class="photo-cap"><h4>2 &middot; Gallup convenes leaders</h4><p>The standing to gather decision-makers around the findings</p></div>
+      </div>
+      <div class="photo-card">
+        <div class="photo-frame" style="background:linear-gradient(135deg,#8A4B12,#E08A1E);">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Davos_Congress_Centre.jpg" alt="The Davos Congress Centre, World Economic Forum" loading="lazy">
+        </div>
+        <div class="photo-cap"><h4>3 &middot; Elevated to the world's stages</h4><p>From Davos to the platforms where influence concentrates</p></div>
+      </div>
+      <div class="photo-card">
+        <div class="photo-frame" style="background:var(--navy);flex-direction:column;gap:0.6rem;padding:1rem 1.1rem;">
+          <div style="font-family:var(--mono);font-size:0.5rem;letter-spacing:0.16em;color:rgba(255,255,255,0.55);text-transform:uppercase;">Where Gallup data runs</div>
+          <div style="display:flex;flex-wrap:wrap;gap:0.4rem 0.8rem;justify-content:center;align-items:center;line-height:1.05;">
+            <span style="font-family:Georgia,serif;font-size:0.88rem;font-weight:700;color:#fff;">The New York Times</span>
+            <span style="font-family:Georgia,serif;font-size:0.88rem;font-weight:700;color:#fff;">The Wall Street Journal</span>
+            <span style="font-family:var(--disp);font-size:0.92rem;font-weight:700;color:#fff;">Bloomberg</span>
+            <span style="font-family:var(--disp);font-size:0.92rem;font-weight:800;color:#fff;letter-spacing:-0.01em;">Forbes</span>
+            <span style="font-family:var(--disp);font-size:0.95rem;font-weight:800;color:#fff;">CNN</span>
+            <span style="font-family:Georgia,serif;font-size:0.88rem;font-weight:700;font-style:italic;color:#fff;">Fortune</span>
+          </div>
+        </div>
+        <div class="photo-cap"><h4>4 &middot; Amplified by the press</h4><p>Carried by the newsrooms that reach millions</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="position:relative;padding:0;">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Gallup_DC_Office.jpg" alt="Gallup World Headquarters, Washington, D.C." style="display:block;width:100%;height:300px;object-fit:cover;">
+  <div style="position:absolute;left:0;right:0;bottom:0;padding:1.5rem 2rem;background:linear-gradient(transparent,rgba(8,22,51,0.82));color:#fff;font-family:var(--mono);font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;">Gallup World Headquarters &middot; Washington, D.C.</div>
+</section>
+
+<!-- COMMS / ACTIVATION -->
+<section class="sec comms">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Strategic Communications &amp; Activation</div>
+      <h2 class="sec-title">Built to be seen &mdash; not just published</h2>
+      <p class="sec-intro">A study is only as valuable as the moment it creates. Gallup pairs the research with a full communications engine designed to put OnePay's findings &mdash; and OnePay &mdash; in front of the right audiences.</p>
+    </div>
+    <div class="comms-grid">
+      <div class="comms-card">
+        <div class="cm-ic"><svg viewBox="0 0 20 20" stroke-width="1.7"><rect x="3" y="4" width="14" height="12" rx="2"/><path d="M3 8h14"/></svg></div>
+        <h4>Gallup's own channels</h4>
+        <p>Custom content published where the public already trusts the source &mdash; news.gallup.com, with more than a million monthly visitors, plus Gallup's official social channels.</p>
+      </div>
+      <div class="comms-card">
+        <div class="cm-ic"><svg viewBox="0 0 20 20" stroke-width="1.7"><path d="M3 7v6M7 4v12M11 6v8M15 9v3"/></svg></div>
+        <h4>The Gallup Podcast</h4>
+        <p>Recorded interviews and a dedicated podcast feature turn findings into long-form, on-brand audio and video built to travel across platforms.</p>
+      </div>
+      <div class="comms-card">
+        <div class="cm-ic"><svg viewBox="0 0 20 20" stroke-width="1.7"><path d="M3 17l5-5 3 3 6-7"/><path d="M14 8h3v3"/></svg></div>
+        <h4>Earned media placement</h4>
+        <p>Targeted pitching and embargoed briefings to tier-one finance, business, and consumer outlets &mdash; from the relationships only a trusted source can open.</p>
+      </div>
+      <div class="comms-card">
+        <div class="cm-ic"><svg viewBox="0 0 20 20" stroke-width="1.7"><path d="M10 2v4M10 14v4M4 10h12"/><circle cx="10" cy="10" r="3"/></svg></div>
+        <h4>The stages that matter</h4>
+        <p>Gallup brings partners onto the platforms where decisions get made &mdash; the World Economic Forum, the Milken Institute, Aspen Ideas &mdash; alongside the people who shape them.</p>
+      </div>
+      <div class="comms-card">
+        <div class="cm-ic"><svg viewBox="0 0 20 20" stroke-width="1.7"><path d="M4 5h12v9H4z"/><path d="M8 18h4M10 14v4"/></svg></div>
+        <h4>Narrative data stories</h4>
+        <p>We craft the human, narrative-driven stories &mdash; not just charts &mdash; that the public latches onto and the press wants to tell.</p>
+      </div>
+      <div class="comms-card">
+        <div class="cm-ic"><svg viewBox="0 0 20 20" stroke-width="1.7"><path d="M10 3l2 4 4 .6-3 3 .8 4.4-3.8-2-3.8 2 .8-4.4-3-3 4-.6z"/></svg></div>
+        <h4>Launch moments</h4>
+        <p>A purpose-built activation &mdash; an event, a briefing, a debut &mdash; that turns release day into a moment with the influencers and decision-makers who matter.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERTS -->
+<section class="sec" style="background:var(--white);border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">The Team</div>
+      <h2 class="sec-title">The people behind the numbers</h2>
+      <p class="sec-intro">The credibility of this study comes from the people who build it &mdash; economists, methodologists, and leaders whose names carry weight with the press and the academy alike.</p>
+    </div>
+    <div class="exp-grid">
+      <div class="exp-card">
+        <div class="exp-avatar"><img src="https://tse1.explicit.bing.net/th/id/OIP.8m06jQ2FFPy1VM_FPA7aNwHaF7?r=0&cb=thfc1falcon2&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Jon Clifton" loading="lazy">JC</div>
+        <div>
+          <div class="exp-name">Jon Clifton</div>
+          <div class="exp-role">CEO, Gallup</div>
+          <p class="exp-bio">Leads Gallup and its global research mission, including the Gallup World Poll. Author of the Wall Street Journal bestseller <em>Blind Spot</em>, he presents Gallup's findings everywhere from the Milken Institute and Aspen Ideas to the United Nations and the U.S. Congress.</p>
+        </div>
+      </div>
+      <div class="exp-card">
+        <div class="exp-avatar"><img src="https://tse1.mm.bing.net/th/id/OIP.rrXw5vbZ6uu4K_zma7ksnwHaHa?r=0&cb=thfc1falcon2&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Jonathan Rothwell" loading="lazy">JR</div>
+        <div>
+          <div class="exp-name">Jonathan Rothwell</div>
+          <div class="exp-role">Principal Economist</div>
+          <p class="exp-bio">Gallup's principal economist and a nonresident senior fellow at Brookings, specializing in labor markets, wellbeing, and household economics. He led the primary research for the Bureau of Labor Statistics' work on AI and the workplace and has contributed to The New York Times' Upshot.</p>
+        </div>
+      </div>
+      <div class="exp-card">
+        <div class="exp-avatar"><img src="https://images.squarespace-cdn.com/content/v1/5f355115b662176833bb813c/136d4f9b-bc07-4754-80c6-30e9cef90e8f/Makridis+Headshot+-+Tie.jpg?format=750w" alt="Christos Makridis" loading="lazy">CM</div>
+        <div>
+          <div class="exp-name">Christos Makridis</div>
+          <div class="exp-role">Economist &middot; Household Finance</div>
+          <p class="exp-bio">An economist whose research spans labor, the digital economy, and household finance, with affiliations across Gallup, Arizona State, and Stanford. His focus maps directly onto the questions of money, progress, and wellbeing at the center of this study.</p>
+        </div>
+      </div>
+      <div class="exp-card">
+        <div class="exp-avatar"><img src="https://thf.bing.com/th/id/R.c01c41d391a5732a6dda11f84657789f?rik=gsNfAx1lhjF3yQ&riu=http%3a%2f%2fwww.mapor.org%2fwp-content%2fuploads%2f2022%2f09%2fJenny_Marlar-25.jpg&ehk=zGoPNmjUJHKuFKuVUouRfhXVCfI%2fguCz%2f%2f%2bxesWuDDM%3d&risl=&pid=ImgRaw&r=0" alt="Jenny Marlar" loading="lazy">JM</div>
+        <div>
+          <div class="exp-name">Jenny Marlar, Ph.D.</div>
+          <div class="exp-role">Director of Survey Research</div>
+          <p class="exp-bio">Gallup's lead methodologist, who manages the Gallup Panel and specializes in probability-based sampling, address-based methods, and survey quality. A leader within AAPOR and the guarantor of the rigor that makes these findings defensible.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONFIGURE / SCOPE BUILDER -->
+<section class="sec config" id="configure">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Configure the Program</div>
+      <h2 class="sec-title">Build the scope. See one number.</h2>
+      <p class="sec-intro">Every configuration includes the full core study and every deliverable named in OnePay's RFP. Add the optional amplification and depth that fit OnePay's goals &mdash; the estimated investment updates as a single figure.</p>
+    </div>
+    <div class="cfg-grid">
+      <div class="cfg-main">
+        <div class="cfg-block">
+          <div class="cfg-label">1 &middot; Program length</div>
+          <div class="toggle-group" role="group" aria-label="Program length">
+            <button class="tg-btn" onclick="setCommit(1,this)">1 year</button>
+            <button class="tg-btn" onclick="setCommit(3,this)">3-year &middot; 3% off</button>
+            <button class="tg-btn active" onclick="setCommit(5,this)">5-year &middot; 5% off</button>
+          </div>
+          <p class="sample-note" id="commitNote">Recommended. Money in America is built as a five-year program &mdash; the arc over which one study becomes a movement OnePay owns. A multi-year commitment earns a partnership discount; a single year remains available.</p>
+        </div>
+        <div class="cfg-block">
+          <div class="cfg-label">2 &middot; Sample size</div>
+          <div class="toggle-group" role="group" aria-label="Sample size">
+            <button class="tg-btn active" onclick="setSample(2000,this)">n = 2,000</button>
+            <button class="tg-btn" onclick="setSample(3000,this)">n = 3,000</button>
+            <button class="tg-btn" onclick="setSample(4000,this)">n = 4,000</button>
+          </div>
+          <p class="sample-note" id="sampleNote">A nationally representative sample of 2,000 supports headline national findings and core subgroup cuts by income tier, generation (Gen Z, Millennial, Gen X, Boomer), and region. Larger samples sharpen reads on smaller subgroups.</p>
+        </div>
+
+        <div class="cfg-block">
+          <div class="cfg-label">3 &middot; Always included &mdash; every deliverable in your RFP</div>
+          <div class="included">
+            <h4>Money in America &mdash; the complete scope of work</h4>
+            <div class="inc-sub">Every deliverable named in OnePay's RFP, designed and fielded on Gallup's probability-based panel and delivered as one launch-ready package. Core topic areas: <b>day-to-day financial management</b>; <b>savings &amp; financial resilience</b>; <b>financial progress &amp; the future</b>; and <b>the meaning of &ldquo;better money.&rdquo;</b></div>
+            <ul class="inc-list">
+              <li><b>National Consumer Survey</b> &mdash; 2,000&ndash;4,000 U.S. adults, nationally representative, fielded annually, with subgroup cuts by income tier, generation (Gen Z, Millennial, Gen X, Boomer), and region</li>
+              <li><b>Full Data Tables</b> &mdash; complete results across all key demographic cuts</li>
+              <li><b>Topline Report</b> &mdash; summary of key findings, top stats, and headline numbers</li>
+              <li><b>Narrative Deck</b> &mdash; insight-driven story with framing, data callouts, and chart-ready data</li>
+              <li><b>Press Materials</b> &mdash; press release, stats one-sheet, and quotable findings ready for media outreach</li>
+              <li><b>Data Visualizations</b> &mdash; charts and graphic assets sized for digital and social use</li>
+              <li><b>Activation &amp; Distribution Plan</b> &mdash; distribution strategy across finance, policy, business, and consumer media, with proposed media targets and outreach</li>
+              <li><b>Instrument design, cognitive testing, weighting &amp; quality controls</b> &mdash; the methodological rigor behind every number</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="cfg-block">
+          <div class="cfg-label">4 &middot; Amplify &amp; deepen &mdash; select what fits</div>
+          <div class="addon-grid" id="addonGrid"></div>
+        </div>
+      </div>
+
+      <div class="rail">
+        <div class="rail-card">
+          <div class="rail-head">
+            <div class="eyebrow">Estimated annual investment</div>
+            <div class="rail-total" id="railTotal">$0</div>
+            <div class="rail-sub">Per-year, all-in: the core study plus your selected amplification and depth.</div>
+            <div class="rail-program" id="railProgram"></div>
+          </div>
+          <div class="rail-meta">
+            <div class="rail-mcell"><div class="rail-mk">Sample</div><div class="rail-mv" id="railSample">n = 2,000</div></div>
+            <div class="rail-mcell"><div class="rail-mk">Timeline</div><div class="rail-mv" id="railWeeks">16 weeks</div></div>
+          </div>
+          <div class="rail-actions">
+            <button class="btn btn-gold" onclick="openDrawer()"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M3 5h14v3H3zM3 10h14v5a1 1 0 01-1 1H4a1 1 0 01-1-1z"/></svg>View full breakdown</button>
+            <button class="btn btn-rail-ghost" onclick="openEmail()"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M2 6.5l8 4 8-4A2 2 0 0016 5H4a2 2 0 00-2 1.5z"/><path d="M18 8.6l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.6z"/></svg>Email this scope</button>
+          </div>
+          <div class="rail-fine">Figures are planning estimates for proposal purposes and are confirmed in final scoping. Fielding in lower-incidence subgroups may carry incremental cost.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section class="sec" style="background:var(--white);border-top:1px solid var(--line);">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Timeline</div>
+      <h2 class="sec-title">A clear path from kickoff to launch</h2>
+      <p class="sec-intro">The plan flexes with your scope. Qualitative work and a dashboard extend the build; communications activities run in parallel. The estimate updates live.</p>
+    </div>
+    <div class="tl-head-row">
+      <div><div class="cfg-label" style="margin:0;">Estimated duration, kickoff to launch</div></div>
+      <div class="tl-weeks"><div class="tl-weeks-n" id="tlWeeks">16</div><div class="tl-weeks-l">weeks for your current scope</div></div>
+    </div>
+    <div class="timeline">
+      <div class="tl-phase" id="row-design">
+        <div class="tl-when" id="when-design">Weeks 1&ndash;4</div>
+        <div class="tl-rail"><div class="tl-dot"></div><div class="tl-conn"></div></div>
+        <div class="tl-body"><h4>Design &amp; instrument</h4><p>Question development with experts and economists, cognitive testing, translation of concepts into a defensible instrument, and media input.</p></div>
+      </div>
+      <div class="tl-phase off" id="row-qual">
+        <div class="tl-when" id="when-qual">&mdash;</div>
+        <div class="tl-rail"><div class="tl-dot"></div><div class="tl-conn"></div></div>
+        <div class="tl-body"><h4>In-depth interviews <span style="color:var(--muted);font-weight:400;font-size:0.82rem;">(if selected)</span></h4><p>Qualitative conversations with everyday Americans to surface the human stories behind the numbers.</p></div>
+      </div>
+      <div class="tl-phase" id="row-field">
+        <div class="tl-when" id="when-field">Weeks 5&ndash;9</div>
+        <div class="tl-rail"><div class="tl-dot"></div><div class="tl-conn"></div></div>
+        <div class="tl-body"><h4>Fieldwork</h4><p>Data collection on Gallup's nationally representative, probability-based panel, with live quality monitoring throughout.</p></div>
+      </div>
+      <div class="tl-phase" id="row-analysis">
+        <div class="tl-when" id="when-analysis">Weeks 10&ndash;12</div>
+        <div class="tl-rail"><div class="tl-dot"></div><div class="tl-conn"></div></div>
+        <div class="tl-body"><h4>Analysis &amp; weighting</h4><p>Weighting, quality checks, and analysis beyond toplines &mdash; the subgroup contrasts that make the story.</p></div>
+      </div>
+      <div class="tl-phase" id="row-report">
+        <div class="tl-when" id="when-report">Weeks 13&ndash;16</div>
+        <div class="tl-rail"><div class="tl-dot"></div><div class="tl-conn"></div></div>
+        <div class="tl-body"><h4>Reporting &amp; narrative</h4><p>Topline, narrative deck, press materials, and data visualizations &mdash; the launch-ready package and client reviews.</p></div>
+      </div>
+      <div class="tl-phase off" id="row-dashboard">
+        <div class="tl-when" id="when-dashboard">&mdash;</div>
+        <div class="tl-rail"><div class="tl-dot"></div><div class="tl-conn"></div></div>
+        <div class="tl-body"><h4>Interactive dashboard <span style="color:var(--muted);font-weight:400;font-size:0.82rem;">(if selected)</span></h4><p>A web tool to explore findings by income, generation, and region &mdash; built after the data lands.</p></div>
+      </div>
+      <div class="tl-phase off" id="row-activate">
+        <div class="tl-when" id="when-activate">&mdash;</div>
+        <div class="tl-rail"><div class="tl-dot gold"></div><div class="tl-conn"></div></div>
+        <div class="tl-body"><h4>Activation &amp; launch <span style="color:var(--muted);font-weight:400;font-size:0.82rem;">(if comms selected)</span></h4><p>Media pitching, content, and the launch moment &mdash; communications run in parallel for maximum reach on release.</p></div>
+      </div>
+    </div>
+    <div class="annual" id="annualBlock">
+      <div class="cfg-label" style="margin:0 0 0.3rem;">Gallup's framework for building a movement</div>
+      <p class="sec-intro" style="margin-top:0;">A single study is an event; a multi-year program is a movement. We structure each year around a deliberate strategy &mdash; <b>establish, build, institutionalize, lead, own</b> &mdash; so the Better Money Index compounds in authority with every release and OnePay's ownership of the category becomes unassailable.</p>
+      <div class="year-track" id="yearTrack"></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <div class="wrap"><div class="cta-in">
+    <h2>Let's make OnePay the voice of money in America.</h2>
+    <p>A trusted instrument, a story the country will follow, and a moment that returns every year. We'd welcome a conversation to shape the scope together.</p>
+    <div class="cta-actions">
+      <a class="btn btn-gold" href="#configure">Build your scope</a>
+      <button class="btn btn-primary" onclick="openDrawer()">View the investment</button>
+      <button class="btn btn-rail-ghost" onclick="openEmail()">Email this scope</button>
+    </div>
+  </div></div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="wrap"><div class="footer-in">
+    <div><strong>Money in America</strong> &nbsp;&middot;&nbsp; A proposed research partnership prepared by Gallup for OnePay.</div>
+    <div>Confidential &amp; proprietary. Figures are planning estimates, subject to final scoping. &copy; 2026 Gallup, Inc.</div>
+  </div></div>
+</footer>
+
+<!-- INVESTMENT DRAWER -->
+<div class="scrim" id="scrim" onclick="closeDrawer()"></div>
+<aside class="drawer" id="drawer" aria-label="Investment summary">
+  <div class="drawer-head">
+    <h2>Investment summary</h2>
+    <button class="x-btn" onclick="closeDrawer()" aria-label="Close"><svg viewBox="0 0 20 20"><path d="M5 5l10 10M15 5L5 15"/></svg></button>
+  </div>
+  <div class="drawer-body">
+    <div class="drawer-total-card">
+      <div class="dtc-label">Estimated annual investment</div>
+      <div class="dtc-total" id="drawerTotal">$0</div>
+      <div class="dtc-meta" id="drawerMeta">Sample n = 2,000 &middot; ~16 weeks</div>
+    </div>
+    <div class="dgroup-label">Included &mdash; core study</div>
+    <div class="dline"><span class="dline-name">Money in America &mdash; core research &amp; full deliverables</span><span class="dline-price" id="drawerCore">$0</span></div>
+    <div class="dgroup-label">Selected amplification &amp; depth</div>
+    <div id="drawerAddons"></div>
+    <div id="drawerEmpty" style="font-size:0.84rem;color:var(--muted);padding:0.4rem 0;">No add-ons selected yet &mdash; the core study stands on its own. Add amplification above to extend reach.</div>
+  </div>
+  <div class="drawer-actions">
+    <button class="btn btn-gold" onclick="openEmail()"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M2 6.5l8 4 8-4A2 2 0 0016 5H4a2 2 0 00-2 1.5z"/><path d="M18 8.6l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.6z"/></svg>Email this scope</button>
+    <button class="btn btn-ghost" onclick="exportPDF()"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 9l4 4 4-4M10 13V3M4 17h12"/></svg>Export as PDF</button>
+  </div>
+  <div class="drawer-fine">All figures are planning estimates prepared for proposal discussion and confirmed in final scoping. Lower-incidence subgroup targets may carry incremental cost.</div>
+</aside>
+
+<!-- EMAIL MODAL -->
+<div class="modal-scrim" id="modalScrim">
+  <div class="modal" role="dialog" aria-label="Email this scope">
+    <div class="modal-head">
+      <h3>Email this scope</h3>
+      <button class="x-btn" onclick="closeEmail()" aria-label="Close"><svg viewBox="0 0 20 20"><path d="M5 5l10 10M15 5L5 15"/></svg></button>
+    </div>
+    <div class="modal-body">
+      <label for="emName">Your name</label>
+      <input type="text" id="emName" placeholder="Name">
+      <label for="emEmail">Your email</label>
+      <input type="email" id="emEmail" placeholder="you@onepay.com">
+      <label for="emNotes">Notes (optional)</label>
+      <textarea id="emNotes" placeholder="Anything you'd like to flag or ask..."></textarea>
+      <div class="preview" id="emPreview"></div>
+    </div>
+    <div class="modal-foot">
+      <button class="btn btn-ghost" onclick="closeEmail()">Cancel</button>
+      <button class="btn btn-primary" onclick="sendEmail()">Open in email</button>
+    </div>
+  </div>
+</div>
+
+<!-- PRINT SUMMARY -->
+<div class="print-only">
+  <div class="ps-doc">
+    <div class="ps-h">
+      <div class="ps-brand">OnePay &times; Gallup<span>Money in America &mdash; proposed scope &amp; investment</span></div>
+      <div class="ps-date" id="psDate"></div>
+    </div>
+    <div class="ps-sec-label">Estimated annual investment</div>
+    <div class="ps-tot" id="psTotal">$0</div>
+    <div id="psBody"></div>
+    <div class="ps-sec-label" style="margin-top:1.6rem;">Note</div>
+    <p style="font-size:0.82rem;color:#475068;line-height:1.6;">Figures are planning estimates prepared for proposal discussion and confirmed in final scoping. Prepared by Gallup for OnePay. Confidential &amp; proprietary.</p>
+  </div>
+</div>
+
+<script>
+var CORE={2000:285000,3000:315000,4000:345000};
+var FIELD={2000:5,3000:6,4000:7};
+var SNOTE={
+  2000:'A nationally representative sample of 2,000 supports headline national findings and core subgroup cuts by income tier, generation (Gen Z, Millennial, Gen X, Boomer), and region.',
+  3000:'3,000 sharpens reads on smaller subgroups \u2014 generational and regional comparisons hold up with confidence.',
+  4000:'4,000 enables the most granular analysis \u2014 robust cuts within generations and income tiers, and the richest base for trends.'
+};
+var ADDONS=[
+  {id:'article',title:'Gallup.com feature article',desc:'A flagship findings article published on news.gallup.com.',price:14500,comms:true,rec:true,def:true},
+  {id:'media',title:'Earned media pitching and placement',desc:'Targeted outreach and embargoed briefings to tier-one outlets.',price:22400,comms:true,rec:true,def:true},
+  {id:'video',title:'Narrative video and podcast feature',desc:'Recorded interviews, a Gallup Podcast feature, and short-form video.',price:40000,comms:true,rec:true,def:true},
+  {id:'social',title:'Social content package',desc:'Data-driven graphics, stat cards, and shareable short-form video.',price:30000,comms:true,rec:false,def:false},
+  {id:'qual',title:'In-depth interviews with everyday Americans',desc:'Qualitative money-lives interviews that put real people at the center.',price:48000,comms:false,rec:true,def:false},
+  {id:'dashboard',title:'Interactive data dashboard',desc:'Explore findings by income, generation, and region \u2014 a year-round asset.',price:55000,comms:false,rec:false,def:false},
+  {id:'gen',title:'Generational deep-dive report',desc:'A companion report on a single generation \u2014 for example, Gen Z and money.',price:25000,comms:false,rec:false,def:false},
+  {id:'launch_hq',title:'Launch event at Gallup World Headquarters',desc:'Host the debut at Gallup\u2019s Washington, D.C. headquarters \u2014 a Gallup-convened event that puts OnePay on the stage where the findings break.',price:55000,comms:true,rec:false,def:false},
+  {id:'launch_ext',title:'Launch support at an external event',desc:'Gallup-supported debut at a partner or third-party event \u2014 briefing materials, talking points, and on-site support.',price:28000,comms:true,rec:false,def:false},
+  {id:'tour',title:'Satellite media tour and spokesperson prep',desc:'A broadcast media tour plus media training for spokespeople.',price:38000,comms:true,rec:false,def:false},
+  {id:'deck',title:'Media and stakeholder briefing support',desc:'Briefing materials and live support for press, policy, and stakeholder audiences.',price:22000,comms:true,rec:false,def:false},
+  {id:'oped',title:'Bylined op-ed support',desc:'A ghost-drafted, placed op-ed that carries the OnePay point of view.',price:15000,comms:true,rec:false,def:false}
+];
+var sample=2000;
+var commitment=5;
+var DISC={1:0,3:0.03,5:0.05};
+var YEARS=[
+ {p:'Establish',d:'Baseline the four dimensions and launch the inaugural Better Money Index \u2014 the foundation everything builds on.'},
+ {p:'Build',d:'The first year-over-year trend. The story gains momentum and the Index becomes a number people watch for.'},
+ {p:'Institutionalize',d:'An anticipated annual benchmark. Deeper segment strategy and a widening base of press and partners.'},
+ {p:'Lead',d:'OnePay sets the terms of the national money conversation \u2014 the definitive, most-cited read.'},
+ {p:'Own',d:'A five-year body of evidence no rival can replicate. OnePay owns the category outright.'}
+];
+var selected=new Set();
+ADDONS.forEach(function(a){if(a.def)selected.add(a.id);});
+
+function fmt(n){return '$'+n.toLocaleString('en-US');}
+
+function renderAddons(){
+  document.getElementById('addonGrid').innerHTML=ADDONS.map(function(a){
+    return '<div class="addon'+(a.def?' on':'')+'" id="ad-'+a.id+'" role="button" tabindex="0" '+
+      'onclick="toggleAddon(\''+a.id+'\')" onkeydown="if(event.key===\'Enter\'||event.key===\' \'){event.preventDefault();toggleAddon(\''+a.id+'\');}">'+
+      '<div class="addon-check"><svg viewBox="0 0 14 14"><path d="M3 7l2.6 2.6 5.4-6"/></svg></div>'+
+      '<div><div class="addon-title">'+a.title+(a.rec?' <span class="rec-badge">Recommended</span>':'')+'</div>'+
+      '<div class="addon-desc">'+a.desc+'</div>'+
+      '<div class="addon-price">+'+fmt(a.price)+'</div></div></div>';
+  }).join('');
+}
+
+function toggleAddon(id){
+  if(selected.has(id))selected.delete(id); else selected.add(id);
+  var el=document.getElementById('ad-'+id);
+  if(el)el.classList.toggle('on');
+  recalc();
+}
+
+function setSample(n,btn){
+  sample=n;
+  var g=btn.parentNode.querySelectorAll('.tg-btn');
+  for(var i=0;i<g.length;i++){g[i].classList.remove('active');}
+  btn.classList.add('active');
+  document.getElementById('sampleNote').textContent=SNOTE[n];
+  recalc();
+}
+
+function setCommit(y,btn){
+  commitment=y;
+  var g=btn.parentNode.querySelectorAll('.tg-btn');
+  for(var i=0;i<g.length;i++){g[i].classList.remove('active');}
+  btn.classList.add('active');
+  document.getElementById('annualBlock').classList.toggle('show',y>1);
+  renderYears();
+  recalc();
+}
+function renderYears(){
+  var el=document.getElementById('yearTrack');if(!el)return;
+  var n=commitment>1?commitment:5;
+  el.innerHTML=YEARS.slice(0,n).map(function(y,i){
+    return '<div class="year-card'+(i===0?' first':'')+'"><div class="yc-yr">Year '+(i+1)+' \u00b7 '+y.p+'</div><div class="yc-l">'+y.d+'</div></div>';
+  }).join('');
+}
+function discPct(){return Math.round(DISC[commitment]*100);}
+
+function anyComms(){return ADDONS.some(function(a){return a.comms&&selected.has(a.id);});}
+
+function grossAnnual(){
+  var t=CORE[sample];
+  ADDONS.forEach(function(a){if(selected.has(a.id))t+=a.price;});
+  return t;
+}
+function computeTotal(){return Math.round(grossAnnual()*(1-DISC[commitment]));}
+function programTotal(){return computeTotal()*commitment;}
+
+function updateTimeline(){
+  var phases=[
+    {id:'design',dur:4,on:true},
+    {id:'qual',dur:3,on:selected.has('qual')},
+    {id:'field',dur:FIELD[sample],on:true},
+    {id:'analysis',dur:3,on:true},
+    {id:'report',dur:4,on:true},
+    {id:'dashboard',dur:6,on:selected.has('dashboard')},
+    {id:'activate',dur:4,on:anyComms()}
+  ];
+  var cur=1;
+  phases.forEach(function(p){
+    var row=document.getElementById('row-'+p.id);
+    var when=document.getElementById('when-'+p.id);
+    if(p.on){
+      if(row)row.classList.remove('off');
+      var s=cur,e=cur+p.dur-1;
+      if(when)when.innerHTML=(s===e?('Week '+s):('Weeks '+s+'\u2013'+e));
+      cur=e+1;
+    }else{
+      if(row)row.classList.add('off');
+      if(when)when.innerHTML='\u2014';
+    }
+  });
+  return cur-1;
+}
+
+function buildSummaryText(){
+  var total=computeTotal();
+  var anyc=anyComms();
+  var weeks=4+(selected.has('qual')?3:0)+FIELD[sample]+3+4+(selected.has('dashboard')?6:0)+(anyc?4:0);
+  var L=[];
+  L.push('MONEY IN AMERICA \u2014 OnePay \u00d7 Gallup');
+  L.push('Configured scope and estimated investment');
+  L.push('');
+  L.push('Sample: n = '+sample.toLocaleString('en-US')+' U.S. adults, nationally representative');
+  L.push('Estimated timeline: ~'+weeks+' weeks, kickoff to launch');
+  L.push('Program length: '+commitment+(commitment>1?'-year program ('+discPct()+'% multi-year discount)':'-year (single year)'));
+  L.push('');
+  L.push('CORE STUDY AND DELIVERABLES (annual): '+fmt(CORE[sample]));
+  var sel=ADDONS.filter(function(a){return selected.has(a.id);});
+  if(sel.length){
+    L.push('');
+    L.push('AMPLIFICATION AND DEPTH (annual):');
+    sel.forEach(function(a){L.push('  - '+a.title+': +'+fmt(a.price));});
+  }
+  L.push('');
+  if(commitment>1){
+    L.push('Annual subtotal: '+fmt(grossAnnual()));
+    L.push(commitment+'-year partnership discount ('+discPct()+'%): -'+fmt(grossAnnual()-total));
+  }
+  L.push('ESTIMATED ANNUAL INVESTMENT: '+fmt(total));
+  if(commitment>1){L.push('TOTAL '+commitment+'-YEAR PROGRAM: '+fmt(programTotal()));}
+  L.push('');
+  L.push('Planning estimate for proposal discussion; confirmed in final scoping.');
+  return L.join('\n');
+}
+
+function updateDrawer(total,weeks){
+  document.getElementById('drawerTotal').textContent=fmt(total);
+  document.getElementById('drawerMeta').innerHTML='Sample n = '+sample.toLocaleString('en-US')+' \u00b7 ~'+weeks+' weeks \u00b7 '+(commitment>1?commitment+'-year program':'single year');
+  document.getElementById('drawerCore').textContent=fmt(CORE[sample]);
+  var sel=ADDONS.filter(function(a){return selected.has(a.id);});
+  var html=sel.map(function(a){
+    return '<div class="dline"><span class="dline-name">'+a.title+'</span><span class="dline-price">+'+fmt(a.price)+'</span></div>';
+  }).join('');
+  if(commitment>1){
+    html+='<div class="dline"><span class="dline-name">'+commitment+'-year partnership discount ('+discPct()+'%)</span><span class="dline-price">\u2212'+fmt(grossAnnual()-total)+'</span></div>';
+    html+='<div class="dline" style="border-top:1px solid var(--line);margin-top:0.4rem;padding-top:0.5rem;font-weight:700;"><span class="dline-name">Total '+commitment+'-year program</span><span class="dline-price">'+fmt(programTotal())+'</span></div>';
+  }
+  document.getElementById('drawerAddons').innerHTML=html;
+  document.getElementById('drawerEmpty').style.display=sel.length?'none':'block';
+}
+
+function updatePrint(total,weeks){
+  var d=document.getElementById('psDate');
+  if(d)d.textContent=new Date().toLocaleDateString('en-US',{month:'long',day:'numeric',year:'numeric'});
+  document.getElementById('psTotal').textContent=fmt(total);
+  var rows='<div class="ps-line"><span>Sample and timeline</span><span class="pn">n = '+sample.toLocaleString('en-US')+' \u00b7 ~'+weeks+' wks</span></div>';
+  rows+='<div class="ps-line"><span>Program length</span><span class="pn">'+commitment+(commitment>1?'-year program ('+discPct()+'% off)':'-year (single)')+'</span></div>';
+  rows+='<div class="ps-line"><span>Core study and deliverables (annual)</span><span class="pn">'+fmt(CORE[sample])+'</span></div>';
+  ADDONS.filter(function(a){return selected.has(a.id);}).forEach(function(a){
+    rows+='<div class="ps-line"><span>'+a.title+' (annual)</span><span class="pn">+'+fmt(a.price)+'</span></div>';
+  });
+  if(commitment>1){
+    rows+='<div class="ps-line"><span>'+commitment+'-year partnership discount</span><span class="pn">\u2212'+fmt(grossAnnual()-total)+'</span></div>';
+    rows+='<div class="ps-line"><span>Total '+commitment+'-year program</span><span class="pn">'+fmt(programTotal())+'</span></div>';
+  }
+  document.getElementById('psBody').innerHTML=rows;
+}
+
+function updatePreview(){var el=document.getElementById('emPreview');if(el)el.textContent=buildSummaryText();}
+
+function recalc(){
+  var total=computeTotal();
+  var weeks=updateTimeline();
+  document.getElementById('railTotal').textContent=fmt(total);
+  document.getElementById('railSample').textContent='n = '+sample.toLocaleString('en-US');
+  document.getElementById('railWeeks').textContent=weeks+' weeks';
+  document.getElementById('tlWeeks').textContent=weeks;
+  var rp=document.getElementById('railProgram');
+  if(rp){
+    rp.innerHTML=commitment>1
+      ? '<b>'+commitment+'-year program</b> \u00b7 '+discPct()+'% partnership discount applied<br>Total program investment: <b>'+fmt(programTotal())+'</b>'
+      : '<b>Single-year engagement</b> \u00b7 the five-year program is recommended';
+  }
+  updateDrawer(total,weeks);
+  updatePreview();
+  updatePrint(total,weeks);
+}
+
+function openDrawer(){recalc();document.getElementById('drawer').classList.add('open');document.getElementById('scrim').classList.add('open');document.body.style.overflow='hidden';}
+function closeDrawer(){document.getElementById('drawer').classList.remove('open');document.getElementById('scrim').classList.remove('open');document.body.style.overflow='';}
+function openEmail(){updatePreview();document.getElementById('modalScrim').classList.add('open');}
+function closeEmail(){document.getElementById('modalScrim').classList.remove('open');}
+function sendEmail(){
+  var name=(document.getElementById('emName').value||'').trim();
+  var notes=(document.getElementById('emNotes').value||'').trim();
+  var body=(notes?notes+'\n\n':'')+buildSummaryText()+(name?'\n\n\u2014 '+name:'');
+  var subject='OnePay \u00d7 Gallup \u2014 Money in America: configured scope';
+  window.location.href='mailto:?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
+  closeEmail();
+}
+function exportPDF(){recalc();window.print();}
+
+document.addEventListener('keydown',function(e){if(e.key==='Escape'){closeDrawer();closeEmail();}});
+
+renderAddons();
+renderYears();
+document.getElementById('annualBlock').classList.add('show');
+recalc();
+</script>
+</body>
+</html>
