@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Gallup &amp; SBE Council — Aspen Meeting Briefing</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,500&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap');
+
+  :root{
+    --paper:#F5F4FB; --card:#FFFFFF; --ink:#17142B; --ink-soft:#46415E; --slate:#6E6A85;
+    --violet:#4C3DBD; --violet-2:#6E5CE6; --violet-deep:#221C52; --violet-deepest:#171346;
+    --lilac:#ECEAF9; --lilac-line:#DEDAF3; --line:#E4E2F0;
+    --emerald:#1C7E52; --emerald-soft:#E4F2EB; --emerald-line:#C7E5D4;
+    --display:'Fraunces',Georgia,'Times New Roman',serif;
+    --sans:'IBM Plex Sans',system-ui,-apple-system,'Segoe UI',sans-serif;
+    --mono:'IBM Plex Mono',ui-monospace,'SFMono-Regular',Menlo,monospace;
+    --rail-w:340px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0; background:var(--paper); color:var(--ink); font-family:var(--sans);
+    font-size:16px; line-height:1.6; -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;}
+  ::selection{background:#d9d2fb;}
+
+  /* progress bar */
+  .progress{position:fixed; top:0; left:0; height:3px; width:0%;
+    background:linear-gradient(90deg,var(--violet),var(--emerald)); z-index:60; transition:width .08s linear;}
+
+  /* layout */
+  .wrap{display:grid; grid-template-columns:var(--rail-w) 1fr; min-height:100vh;}
+
+  /* ===== RAIL / COVER ===== */
+  .rail{
+    background:radial-gradient(120% 90% at 0% 0%, #2E2766 0%, var(--violet-deep) 45%, var(--violet-deepest) 100%);
+    color:#EDEAFB; position:sticky; top:0; height:100vh; overflow:auto;
+    padding:38px 30px 26px; display:flex; flex-direction:column; gap:22px;
+    border-right:1px solid rgba(255,255,255,.06);
+  }
+  .brand{font-family:var(--mono); font-size:11px; letter-spacing:.22em; color:#B7AEF0; text-transform:uppercase;}
+  .cover-title{font-family:var(--display); font-weight:600; line-height:1.02; font-size:40px; letter-spacing:-.01em; margin:2px 0 0; color:#fff;
+    font-variation-settings:"opsz" 96;}
+  .cover-sub{font-family:var(--display); font-style:italic; font-weight:500; font-size:17px; color:#CFC7F6; line-height:1.35; margin-top:8px;}
+  .thesis{font-size:13.5px; color:#CFC9EC; border-left:2px solid var(--violet-2); padding:2px 0 2px 12px; line-height:1.5;}
+
+  .meta{display:flex; flex-direction:column; gap:11px; margin-top:2px;}
+  .meta-row{display:flex; flex-direction:column; gap:1px;}
+  .meta-k{font-family:var(--mono); font-size:9.5px; letter-spacing:.18em; color:#9C92DC; text-transform:uppercase;}
+  .meta-v{font-size:13px; color:#ECE9FA; font-weight:500;}
+
+  nav.jump{margin-top:auto; display:flex; flex-direction:column; gap:1px; border-top:1px solid rgba(255,255,255,.09); padding-top:16px;}
+  .jump a{display:flex; align-items:baseline; gap:12px; text-decoration:none; padding:8px 10px; border-radius:8px;
+    color:#B9B1E6; font-size:14px; transition:background .15s,color .15s;}
+  .jump a .n{font-family:var(--mono); font-size:11px; color:#7E73C9; min-width:18px;}
+  .jump a:hover{background:rgba(255,255,255,.06); color:#fff;}
+  .jump a.active{background:rgba(110,92,230,.22); color:#fff;}
+  .jump a.active .n{color:var(--violet-2);}
+  .confidential{font-family:var(--mono); font-size:10px; letter-spacing:.12em; color:#7E74BD; text-transform:uppercase; display:flex; align-items:center; gap:7px;}
+  .dot{width:6px; height:6px; border-radius:50%; background:var(--emerald); box-shadow:0 0 0 3px rgba(28,126,82,.25);}
+
+  /* ===== MAIN ===== */
+  main{padding:0; max-width:880px;}
+  .section{padding:64px 64px 18px; scroll-margin-top:14px;}
+  .section + .section{border-top:1px solid var(--line);}
+  .eyebrow{font-family:var(--mono); font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:var(--violet); display:flex; gap:10px; align-items:center;}
+  .eyebrow .idx{color:var(--slate);}
+  h2.h{font-family:var(--display); font-weight:600; font-size:33px; line-height:1.05; letter-spacing:-.015em; margin:12px 0 18px; font-variation-settings:"opsz" 60;}
+  .lede{font-size:17.5px; color:var(--ink-soft); line-height:1.55; max-width:62ch;}
+  p{margin:0 0 14px;}
+
+  /* at-a-glance grid (meeting) */
+  .glance{display:grid; grid-template-columns:repeat(2,1fr); gap:1px; background:var(--line); border:1px solid var(--line); border-radius:14px; overflow:hidden; margin-top:26px;}
+  .glance div{background:var(--card); padding:16px 18px;}
+  .glance .gk{font-family:var(--mono); font-size:10px; letter-spacing:.16em; text-transform:uppercase; color:var(--slate); margin-bottom:5px;}
+  .glance .gv{font-size:14.5px; color:var(--ink); font-weight:500;}
+
+  /* people cards */
+  .cards{display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-top:26px;}
+  .card{background:var(--card); border:1px solid var(--line); border-radius:16px; padding:22px 22px 18px; display:flex; flex-direction:column;}
+  .card .tag{font-family:var(--mono); font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:var(--violet);}
+  .card h3{font-family:var(--display); font-weight:600; font-size:22px; margin:6px 0 4px; letter-spacing:-.01em;}
+  .card .role{font-size:12.5px; color:var(--slate); margin-bottom:12px; font-family:var(--mono); letter-spacing:.02em;}
+  .card .blurb{font-size:14.5px; color:var(--ink-soft); line-height:1.55;}
+  .keyline{display:flex; gap:8px; align-items:center; margin:13px 0 4px; padding:9px 12px; background:var(--lilac); border-radius:10px; font-size:13px; color:var(--violet-deep);}
+  .keyline b{font-weight:600;}
+  .facts{display:flex; flex-direction:column; gap:7px; margin:6px 0 2px;}
+  .facts span{position:relative; padding-left:16px; font-size:13.5px; color:var(--ink-soft); line-height:1.45;}
+  .facts span::before{content:""; position:absolute; left:2px; top:8px; width:5px; height:5px; border-radius:50%; background:var(--violet);}
+
+  /* disclosure */
+  .disc-btn{margin-top:14px; align-self:flex-start; display:inline-flex; align-items:center; gap:9px; cursor:pointer;
+    background:none; border:none; padding:6px 0; font-family:var(--mono); font-size:11.5px; letter-spacing:.08em; text-transform:uppercase;
+    color:var(--violet); font-weight:500;}
+  .disc-btn .chev{width:15px; height:15px; border-right:1.6px solid var(--violet); border-bottom:1.6px solid var(--violet);
+    transform:rotate(45deg); transition:transform .25s ease; margin-top:-3px;}
+  .disc-btn[aria-expanded="true"] .chev{transform:rotate(-135deg); margin-top:2px;}
+  .panel{max-height:0; overflow:hidden; transition:max-height .35s ease;}
+  .panel-inner{padding-top:12px;}
+  .panel ul{margin:0; padding-left:0; list-style:none; display:flex; flex-direction:column; gap:9px;}
+  .panel li{position:relative; padding-left:20px; font-size:14px; color:var(--ink-soft); line-height:1.5;}
+  .panel li::before{content:""; position:absolute; left:2px; top:9px; width:6px; height:6px; border-radius:1.5px; background:var(--violet); transform:rotate(45deg);}
+  .panel li b{color:var(--ink); font-weight:600;}
+  .panel h4{font-family:var(--mono); font-size:10.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--slate); margin:16px 0 9px;}
+
+  /* endorsement callout */
+  .endorse{margin-top:26px; border:1px solid var(--emerald-line); background:linear-gradient(180deg,var(--emerald-soft),#fff);
+    border-radius:16px; padding:22px 24px;}
+  .endorse .badge{display:inline-flex; align-items:center; gap:8px; font-family:var(--mono); font-size:10.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--emerald); font-weight:600;}
+  .endorse .badge .tick{width:16px; height:16px; border-radius:50%; background:var(--emerald); color:#fff; display:inline-flex; align-items:center; justify-content:center; font-size:10px;}
+  .endorse h3{font-family:var(--display); font-weight:600; font-size:19px; margin:10px 0 12px;}
+  .cites{display:flex; flex-direction:column; gap:10px;}
+  .cite{display:flex; gap:13px; align-items:flex-start; font-size:14px; color:var(--ink-soft); line-height:1.5;}
+  .cite .date{font-family:var(--mono); font-size:11px; color:var(--emerald); font-weight:600; min-width:104px; padding-top:1px;}
+  .endorse .kicker{margin-top:13px; font-style:italic; font-family:var(--display); font-size:14.5px; color:var(--ink);}
+
+  /* research tabs */
+  .study-meta{margin-top:6px; font-family:var(--mono); font-size:12px; color:var(--slate); letter-spacing:.01em; line-height:1.6;}
+  .study-meta b{color:var(--violet-deep); font-weight:600;}
+  .tabs{display:flex; gap:6px; margin-top:26px; flex-wrap:wrap; border-bottom:1px solid var(--line); padding-bottom:0;}
+  .tab{cursor:pointer; border:none; background:none; font-family:var(--sans); font-size:14.5px; font-weight:500; color:var(--slate);
+    padding:11px 16px 14px; border-bottom:2.5px solid transparent; margin-bottom:-1px; transition:color .15s,border-color .15s; display:flex; gap:9px; align-items:center;}
+  .tab .lbl-dot{width:7px;height:7px;border-radius:50%;background:var(--lilac-line); transition:background .15s;}
+  .tab:hover{color:var(--ink);}
+  .tab[aria-selected="true"]{color:var(--violet-deep); border-color:var(--violet); font-weight:600;}
+  .tab[aria-selected="true"] .lbl-dot{background:var(--violet);}
+  .tabpanel{display:none; padding-top:26px;}
+  .tabpanel.show{display:block; animation:fade .4s ease;}
+  @keyframes fade{from{opacity:0; transform:translateY(6px);} to{opacity:1; transform:none;}}
+  .panel-lede{font-size:15.5px; color:var(--ink-soft); max-width:60ch; margin-bottom:20px;}
+
+  .stats{display:grid; grid-template-columns:repeat(4,1fr); gap:14px;}
+  .stats.two{grid-template-columns:repeat(2,1fr); max-width:520px;}
+  .stat{background:var(--card); border:1px solid var(--line); border-radius:14px; padding:18px 16px 15px; position:relative; overflow:hidden;}
+  .stat::after{content:""; position:absolute; left:0; top:0; bottom:0; width:3px; background:var(--violet);}
+  .stat.pos::after{background:var(--emerald);}
+  .stat .num{font-family:var(--display); font-weight:600; font-size:38px; line-height:1; letter-spacing:-.02em; color:var(--violet-deep); font-variation-settings:"opsz" 60;}
+  .stat.pos .num{color:var(--emerald);}
+  .stat .lab{font-size:12.5px; color:var(--ink-soft); margin-top:9px; line-height:1.4;}
+  .stat .sub{font-family:var(--mono); font-size:10.5px; color:var(--slate); margin-top:6px; letter-spacing:.01em;}
+
+  /* talking points */
+  .tp-head{display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:14px; margin-top:6px;}
+  .toggle-all{cursor:pointer; background:none; border:1px solid var(--lilac-line); color:var(--violet); border-radius:999px;
+    font-family:var(--mono); font-size:11px; letter-spacing:.08em; text-transform:uppercase; padding:8px 15px; transition:background .15s,border-color .15s;}
+  .toggle-all:hover{background:var(--lilac);}
+  .tps{margin-top:24px; display:flex; flex-direction:column; gap:12px;}
+  .tp{background:var(--card); border:1px solid var(--line); border-radius:14px; overflow:hidden; transition:border-color .2s,box-shadow .2s;}
+  .tp.open{border-color:var(--lilac-line); box-shadow:0 6px 26px -18px rgba(76,61,189,.5);}
+  .tp-btn{width:100%; cursor:pointer; background:none; border:none; text-align:left; padding:18px 20px; display:flex; gap:16px; align-items:center;}
+  .tp-num{font-family:var(--mono); font-size:12px; color:var(--violet); font-weight:600; min-width:24px;}
+  .tp-txt{flex:1; display:flex; flex-direction:column; gap:3px;}
+  .tp-lead{font-family:var(--display); font-weight:600; font-size:18px; letter-spacing:-.01em; color:var(--ink);}
+  .tp-gist{font-size:13.5px; color:var(--slate); margin-top:2px;}
+  .tp-chev{width:13px; height:13px; border-right:1.8px solid var(--violet); border-bottom:1.8px solid var(--violet); transform:rotate(45deg); transition:transform .25s; margin-right:4px;}
+  .tp.open .tp-chev{transform:rotate(-135deg);}
+  .tp-body{max-height:0; overflow:hidden; transition:max-height .4s ease;}
+  .tp-body-inner{padding:0 20px 20px 60px; font-size:15px; color:var(--ink-soft); line-height:1.62;}
+
+  /* footer */
+  footer{padding:40px 64px 60px; border-top:1px solid var(--line); margin-top:30px;}
+  .src{font-size:12px; color:var(--slate); line-height:1.6; max-width:80ch;}
+  .src b{color:var(--ink-soft); font-family:var(--mono); font-size:10.5px; letter-spacing:.1em; text-transform:uppercase;}
+
+  /* mobile nav header (hidden on desktop) */
+  .mtop{display:none;}
+
+  @media (max-width:920px){
+    .wrap{grid-template-columns:1fr;}
+    .rail{position:static; height:auto; overflow:visible; padding:34px 26px 26px;}
+    nav.jump{display:none;}
+    .mtop{display:flex; position:sticky; top:0; z-index:50; background:rgba(245,244,251,.92); backdrop-filter:blur(8px);
+      border-bottom:1px solid var(--line); gap:6px; padding:10px 16px; overflow-x:auto;}
+    .mtop a{flex:0 0 auto; text-decoration:none; font-family:var(--mono); font-size:11px; letter-spacing:.06em; text-transform:uppercase;
+      color:var(--slate); padding:7px 12px; border-radius:999px; white-space:nowrap;}
+    .mtop a.active{background:var(--violet); color:#fff;}
+    .section{padding:48px 22px 14px;}
+    h2.h{font-size:28px;}
+    .cards{grid-template-columns:1fr;}
+    .stats,.stats.two{grid-template-columns:repeat(2,1fr);}
+    .glance{grid-template-columns:1fr;}
+    footer{padding:34px 22px 50px;}
+    .tp-body-inner{padding-left:20px;}
+  }
+  @media (max-width:430px){
+    .stats,.stats.two{grid-template-columns:1fr;}
+    .cover-title{font-size:34px;}
+  }
+
+  :focus-visible{outline:2.5px solid var(--violet-2); outline-offset:3px; border-radius:6px;}
+  @media (prefers-reduced-motion:reduce){
+    *{scroll-behavior:auto !important; transition:none !important; animation:none !important;}
+  }
+</style>
+</head>
+<body>
+<div class="progress" id="progress"></div>
+
+<div class="wrap">
+  <!-- ============ COVER RAIL ============ -->
+  <aside class="rail">
+    <div>
+      <div class="brand">Executive Brief</div>
+      <h1 class="cover-title">Gallup &amp; the<br>SBE&nbsp;Council</h1>
+      <div class="cover-sub">Aspen Ideas meeting · June&nbsp;2026</div>
+    </div>
+
+    <div class="thesis">Gallup's Pathways to Wealth research overlaps directly with SBE Council's focus on capital, AI, and small-business growth — the basis for this conversation.</div>
+
+    <div class="meta">
+      <div class="meta-row"><span class="meta-k">Prepared for</span><span class="meta-v">Stephanie Marken · Senior Partner</span></div>
+      <div class="meta-row"><span class="meta-k">Meeting with</span><span class="meta-v">Karen Kerrigan · President &amp; CEO, SBE Council</span></div>
+      <div class="meta-row"><span class="meta-k">When</span><span class="meta-v">Aspen Ideas Festival · June 2026</span></div>
+      <div class="meta-row"><span class="meta-k">Intent</span><span class="meta-v">Introductory — explore collaboration</span></div>
+    </div>
+
+    <nav class="jump" id="jump">
+      <a href="#meeting"><span class="n">01</span> Overview</a>
+      <a href="#people"><span class="n">02</span> Who you're meeting</a>
+      <a href="#research"><span class="n">03</span> The research</a>
+      <a href="#talking"><span class="n">04</span> Connections</a>
+    </nav>
+
+    <div class="confidential"><span class="dot"></span> Confidential briefing</div>
+  </aside>
+
+  <!-- ============ MAIN ============ -->
+  <main>
+    <div class="mtop" id="mtop">
+      <a href="#meeting">01 Overview</a>
+      <a href="#people">02 Who</a>
+      <a href="#research">03 Research</a>
+      <a href="#talking">04 Connections</a>
+    </div>
+
+    <!-- 01 MEETING -->
+    <section class="section" id="meeting">
+      <div class="eyebrow"><span class="idx">01</span> Overview</div>
+      <h2 class="h">An introductory meeting.</h2>
+      <p class="lede">Gallup reached out ahead of Karen's Aspen Ideas session and offered an introduction, which she accepted. The purpose is to get acquainted and explore where Gallup and SBE Council might work together. The Pathways to Wealth research is the backdrop and the reason the two organizations' interests overlap.</p>
+      <div class="glance">
+        <div><div class="gk">Format</div><div class="gv">Introductory — building the relationship</div></div>
+        <div><div class="gk">Setting</div><div class="gv">Aspen (June 2026), or Zoom shortly after</div></div>
+        <div><div class="gk">Goal</div><div class="gv">Explore future collaboration</div></div>
+        <div><div class="gk">Tone</div><div class="gv">A conversation, not a findings readout</div></div>
+      </div>
+    </section>
+
+    <!-- 02 PEOPLE -->
+    <section class="section" id="people">
+      <div class="eyebrow"><span class="idx">02</span> Who you're meeting</div>
+      <h2 class="h">Karen Kerrigan &amp; the SBE&nbsp;Council.</h2>
+      <p class="lede">Background on Karen Kerrigan and the SBE Council, whose research overlaps directly with Gallup's. Open each card for the full detail.</p>
+
+      <div class="cards">
+        <!-- Karen -->
+        <div class="card">
+          <div class="tag">The counterpart</div>
+          <h3>Karen Kerrigan</h3>
+          <div class="role">Founder &amp; CEO, SBE Council — since 1994</div>
+          <div class="facts">
+            <span>Has led SBE Council for more than 30 years</span>
+            <span>Helped shape the JOBS Act's crowdfunding framework (2012)</span>
+            <span>Frequent Congressional witness on small business and the economy</span>
+            <span>Chairs the Small Business Roundtable coalition</span>
+            <span>Regular Fox Business commentator</span>
+          </div>
+          <button class="disc-btn" aria-expanded="false" data-panel="karen">Deep dive <span class="chev"></span></button>
+          <div class="panel" id="karen"><div class="panel-inner">
+            <ul>
+              <li><b>Access to capital</b> is the issue she is most associated with — the JOBS Act crowdfunding framework being the signature example</li>
+              <li>Federal advisory roles: <b>National Women's Business Council</b>; U.S. Treasury Taxpayer Advisory Panel</li>
+              <li>SUNY Cortland graduate; chairs its entrepreneurship center advisory board</li>
+              <li>Certified <b>health &amp; wellness coach (2024)</b> — a personal connection to the study's wealth-<em>and-wellbeing</em> framing</li>
+            </ul>
+          </div></div>
+        </div>
+
+        <!-- SBE -->
+        <div class="card">
+          <div class="tag">The organization</div>
+          <h3>The SBE Council</h3>
+          <div class="role">Small-business policy &amp; research · Washington, DC</div>
+          <div class="blurb">A small business and entrepreneurship organization, founded in 1994, focused on policy and research.</div>
+          <div class="keyline"><b>Runs its own surveys&nbsp;</b> — including on AI and technology adoption</div>
+          <button class="disc-btn" aria-expanded="false" data-panel="sbe">Deep dive <span class="chev"></span></button>
+          <div class="panel" id="sbe"><div class="panel-inner">
+            <h4>Their research portfolio</h4>
+            <ul>
+              <li><b>Quarterly Small Business Check Up Survey</b> — sentiment, policy priorities, pain points, and digital/AI adoption</li>
+              <li><b>Annual Small Business Technology Use Survey</b> — directly mirrors our AI themes</li>
+            </ul>
+            <h4>What's on their mind now</h4>
+            <ul>
+              <li>Actively <b>publishing on small-business succession</b> (employer vs. nonemployer) in recent weeks — which lands right on one of our sharpest findings</li>
+            </ul>
+          </div></div>
+        </div>
+      </div>
+
+      <!-- endorsement -->
+      <div class="endorse">
+        <span class="badge"><span class="tick">&#10003;</span> On the record citing Gallup</span>
+        <h3>SBE Council has cited Gallup's research twice in recent weeks.</h3>
+        <div class="cites">
+          <div class="cite"><span class="date">Jun 23, 2026</span><span>Cited the <b>Milken Center–Gallup American Dream study</b> in a piece tied to America's 250th.</span></div>
+          <div class="cite"><span class="date">Jun 2, 2026</span><span>Chief economist <b>Ray Keating</b> ran a favorable write-up of Pathways to Wealth — pulling out the AI findings and lining them up against SBE's own tech survey.</span></div>
+        </div>
+        <div class="kicker">Keating's June 2 column was a favorable write-up of the research now under discussion.</div>
+      </div>
+    </section>
+
+    <!-- 03 RESEARCH -->
+    <section class="section" id="research">
+      <div class="eyebrow"><span class="idx">03</span> The research</div>
+      <h2 class="h">What Pathways to Wealth found.</h2>
+      <div class="study-meta"><b>Gallup × JPMorgan Chase Foundation × Ewing Marion Kauffman Foundation.</b><br>A first-of-its-kind longitudinal panel — the same workers and owners tracked across 2023, 2024 &amp; 2025.</div>
+
+      <div class="tabs" role="tablist" aria-label="Research areas">
+        <button class="tab" role="tab" aria-selected="true" aria-controls="t-own" id="tab-own"><span class="lbl-dot"></span>Owner-employers</button>
+        <button class="tab" role="tab" aria-selected="false" aria-controls="t-cap" id="tab-cap" tabindex="-1"><span class="lbl-dot"></span>Capital</button>
+        <button class="tab" role="tab" aria-selected="false" aria-controls="t-ai" id="tab-ai" tabindex="-1"><span class="lbl-dot"></span>AI</button>
+        <button class="tab" role="tab" aria-selected="false" aria-controls="t-suc" id="tab-suc" tabindex="-1"><span class="lbl-dot"></span>Succession</button>
+      </div>
+
+      <!-- OWNER-EMPLOYERS -->
+      <div class="tabpanel show" id="t-own" role="tabpanel" aria-labelledby="tab-own">
+        <p class="panel-lede">Employing others is the real pathway to wealth and wellbeing — but it's rare, and hard to hold onto.</p>
+        <div class="stats">
+          <div class="stat"><div class="num" data-to="68" data-suf="%">0</div><div class="lab">of owner-employers are thriving</div><div class="sub">vs 49% of employee-only</div></div>
+          <div class="stat"><div class="num" data-pre="$" data-to="155" data-suf="K">0</div><div class="lab">median household income</div><div class="sub">vs $105K for employees</div></div>
+          <div class="stat"><div class="num" data-to="2" data-suf="%">0</div><div class="lab">of working adults employ anyone</div><div class="sub">the rare top tier</div></div>
+          <div class="stat"><div class="num" data-to="58" data-suf="%">0</div><div class="lab">kept employer status, 2023→2025</div><div class="sub">the rest is fragile</div></div>
+        </div>
+        <button class="disc-btn" aria-expanded="false" data-panel="own-dd">Full findings <span class="chev"></span></button>
+        <div class="panel" id="own-dd"><div class="panel-inner"><ul>
+          <li><b>The winners:</b> 68% thriving vs. 49% employee-only; $155K median household income vs. $105K; 55% living comfortably vs. 32%</li>
+          <li><b>But rare:</b> only ~2% of working adults employ anyone</li>
+          <li><b>And fragile:</b> just 58% of 2023 owner-employers still employed others by 2025</li>
+          <li><b>Hardest jump in entrepreneurship:</b> only 5% of non-employer owners became employers over two years — owning and employing are different stages, not one ramp</li>
+        </ul></div></div>
+      </div>
+
+      <!-- CAPITAL -->
+      <div class="tabpanel" id="t-cap" role="tabpanel" aria-labelledby="tab-cap">
+        <p class="panel-lede">From the Year 2 report, <em>Scaling to One Million: The Complicated Role of Capital</em> — Karen's home turf, and the data reframes it.</p>
+        <div class="stats">
+          <div class="stat"><div class="num" data-to="45" data-suf="%">0</div><div class="lab">of non-owners: lack of capital is the #1 barrier</div><div class="sub">the perception</div></div>
+          <div class="stat"><div class="num" data-to="10" data-suf="%">0</div><div class="lab">of owners actually sought capital in 2023</div><div class="sub">the reality</div></div>
+          <div class="stat"><div class="num" data-to="6" data-suf="&#215;">0</div><div class="lab">likelier to apply for a loan after hiring</div><div class="sub">capital is a scaling tool</div></div>
+          <div class="stat"><div class="num" data-to="75" data-suf="%">0</div><div class="lab">of owner-employers report excellent credit</div><div class="sub">vs 51% of non-employer owners</div></div>
+        </div>
+        <button class="disc-btn" aria-expanded="false" data-panel="cap-dd">Full findings <span class="chev"></span></button>
+        <div class="panel" id="cap-dd"><div class="panel-inner"><ul>
+          <li><b>Perception:</b> for non-owners, lack of capital is the top barrier to starting (45%); 40% say "not wealthy enough"</li>
+          <li>Among those who seriously considered it: capital (49%) and wealth (45%) lead the list</li>
+          <li><b>The "complicated" part:</b> most actual owners don't seek capital — only 10% did in 2023; just 3% applied for a loan</li>
+          <li><b>Why not:</b> 47% don't want debt; 45% can cover expenses without outside funding</li>
+          <li><b>Capital is a scaling tool:</b> owners who hired recently were 3× likelier to seek capital and 6× likelier to apply for a loan (24% vs. 8%)</li>
+          <li><b>Credit is the gatekeeper:</b> 75% of owner-employers report excellent credit vs. 51% of non-employer owners</li>
+          <li><b>And it predicts performance:</b> median profit $10K (excellent credit) vs. $1K (less-than-good); revenue ~5× higher</li>
+          <li><b>Local support helps:</b> 41% of owners who got a loan or grant grew revenue vs. 24% who didn't — though direct financial support is rare</li>
+          <li><b>Takeaway:</b> most don't need capital at launch (they rely on savings); external capital mainly matters for hiring/scaling firms; strong credit is the key to getting it</li>
+        </ul></div></div>
+      </div>
+
+      <!-- AI -->
+      <div class="tabpanel" id="t-ai" role="tabpanel" aria-labelledby="tab-ai">
+        <p class="panel-lede">The freshest material and the strongest common ground: owners are adopting AI, finding real value in it, and — so far — using it to hire.</p>
+        <div class="stats">
+          <div class="stat"><div class="num" data-to="38" data-suf="%">0</div><div class="lab">of owner-employers used AI for work last month</div><div class="sub">vs 30% of employees</div></div>
+          <div class="stat pos"><div class="num" data-to="10" data-suf="%">0</div><div class="lab">say AI helped them hire <em>more</em></div><div class="sub">vs 4% who laid off</div></div>
+          <div class="stat"><div class="num" data-to="8.7" data-suf="&#215;" data-dec="1">0</div><div class="lab">likelier to say AI transformed work when a manager champions it</div><div class="sub">adoption runs through people</div></div>
+          <div class="stat pos"><div class="num" data-to="55" data-suf="%">0</div><div class="lab">of net U.S. job creation is small business (2013–23)</div><div class="sub">why the hiring signal matters</div></div>
+        </div>
+        <button class="disc-btn" aria-expanded="false" data-panel="ai-dd">Full findings <span class="chev"></span></button>
+        <div class="panel" id="ai-dd"><div class="panel-inner">
+          <h4>Adoption &amp; value</h4>
+          <ul>
+            <li><b>Owners out-adopt employees:</b> ~38% of owner-employers and 37% of self-employed used an AI chatbot for work in the last 30 days, vs. 30% of employee-only</li>
+            <li><b>Context:</b> across the broader Gallup workforce (Q4 2025), 46% of U.S. employees use AI at work at least occasionally; 26% frequently</li>
+            <li>Owners <b>self-direct</b> adoption — little formal training or strategy; employer-provided tools mostly go to employee-only staff at large firms (13%)</li>
+            <li>Owners rate AI <b>"highly useful"</b> more than employees (every owner type); almost none call it "not useful"</li>
+            <li><b>Top owner uses:</b> general inquiries/research (29%), emails/proposals (27%), product/service creation (21%), solving customer problems (19%), plus marketing and accounting/tax</li>
+          </ul>
+          <h4>Jobs</h4>
+          <ul>
+            <li><b>Net positive so far:</b> 4% of owner-employers say AI led to layoffs; 10% say it helped them hire more</li>
+            <li><b>Counter-signal:</b> 17% of employee-only workers say AI led their org to avoid new hiring (larger firms)</li>
+            <li><b>Stakes:</b> small businesses = 55% of net U.S. job creation, 2013–2023</li>
+          </ul>
+          <h4>The Gallup point of view</h4>
+          <ul>
+            <li><b>Adoption happens through people, not tools</b> — the #1 predictor of org adoption is a manager championing it (8.7× likelier to say AI transformed their work); in a small business, the owner <em>is</em> that manager</li>
+            <li><b>AI is an amplifier</b> of existing management quality — owners with strong management practices benefit most; management fundamentals = the best AI-readiness program</li>
+            <li><b>Macro caution:</b> despite ~$40B in enterprise AI spend, ~95% of orgs report no measurable profit impact and ~89% no productivity effect — but small owners, closer to their problems, may be better positioned to capture value</li>
+            <li><b>Where AI can unlock scaling:</b> cutting the admin load of becoming an employer — payroll, compliance, benefits, bookkeeping, customer management</li>
+          </ul>
+        </div></div>
+      </div>
+
+      <!-- SUCCESSION -->
+      <div class="tabpanel" id="t-suc" role="tabpanel" aria-labelledby="tab-suc">
+        <p class="panel-lede">A forming cliff — and a theme SBE Council is already writing about, which makes it the most obvious thing to build together.</p>
+        <div class="stats two">
+          <div class="stat"><div class="num" data-to="27" data-suf="%">0</div><div class="lab">of employer firms with owners 55+ are unsure of their plan or expect to close</div><div class="sub">a forming succession cliff</div></div>
+          <div class="stat pos"><div class="num" data-to="58" data-suf="%">0</div><div class="lab">of 2023 owner-employers still employed others by 2025</div><div class="sub">status is hard to sustain</div></div>
+        </div>
+        <button class="disc-btn" aria-expanded="false" data-panel="suc-dd">Why it's shared ground <span class="chev"></span></button>
+        <div class="panel" id="suc-dd"><div class="panel-inner"><ul>
+          <li>SBE Council has been <b>publishing on the employer-vs-nonemployer succession question</b> in recent weeks</li>
+          <li>We hold the <b>hard longitudinal numbers</b> — including the 55+ cliff and the fragility of employer status over time</li>
+          <li>It's an active concern for them and a concrete candidate for <b>joint work</b> — a place where our data could directly support their agenda</li>
+        </ul></div></div>
+      </div>
+    </section>
+
+    <!-- 04 TALKING POINTS -->
+    <section class="section" id="talking">
+      <div class="tp-head">
+        <div>
+          <div class="eyebrow"><span class="idx">04</span> Points of connection</div>
+          <h2 class="h" style="margin-bottom:4px;">Where Gallup and SBE Council align.</h2>
+        </div>
+        <button class="toggle-all" id="toggleAll">Expand all</button>
+      </div>
+      <p class="lede">Five areas where the two organizations' work overlaps. Each opens to the full context.</p>
+
+      <div class="tps" id="tps">
+        <div class="tp">
+          <button class="tp-btn" aria-expanded="false" data-tp="tp1">
+            <span class="tp-num">01</span>
+            <span class="tp-txt"><span class="tp-lead">Capital</span><span class="tp-gist">Karen's area — and the data reframes it.</span></span>
+            <span class="tp-chev"></span>
+          </button>
+          <div class="tp-body" id="tp1"><div class="tp-body-inner">Capital access is the issue Karen is most associated with — she helped build the crowdfunding framework that became the JOBS Act — and it runs throughout the research. The Year 2 report reframes it: capital is the single biggest barrier in the minds of people who have not started a business (45% cite it), yet most actual owners do not pursue outside financing — only 10% sought capital in 2023, and most say they either don't want debt or don't need it. The deeper constraint is creditworthiness, which shapes both whether owners can secure financing and how their businesses perform. The picture is more nuanced than "entrepreneurs need more money" — an evidence base that connects directly to her decades of work on capital access.</div></div>
+        </div>
+
+        <div class="tp">
+          <button class="tp-btn" aria-expanded="false" data-tp="tp2">
+            <span class="tp-num">02</span>
+            <span class="tp-txt"><span class="tp-lead">AI</span><span class="tp-gist">Owners are adopting it — and it's adding jobs.</span></span>
+            <span class="tp-chev"></span>
+          </button>
+          <div class="tp-body" id="tp2"><div class="tp-body-inner">The AI findings are the freshest material and the clearest area of overlap. Small business owners are out-adopting traditional employees — roughly 38% of owner-employers used an AI chatbot for work in the last month versus 30% of employee-only workers — rate it "highly useful" more often, and are using it to grow rather than cut: among owner-employers, 10% report AI helped them hire more people while 4% report layoffs. These results mirror SBE Council's own technology survey — two independent research efforts arriving at the same picture. The Gallup point of view adds depth: AI adoption happens through people, not tools, and the strongest predictor of whether an organization adopts AI is whether a manager actively champions it. In a small business, the owner is that manager — which is why management fundamentals function as the practical foundation for getting value from AI, since AI tends to amplify whatever systems a business already has.</div></div>
+        </div>
+
+        <div class="tp">
+          <button class="tp-btn" aria-expanded="false" data-tp="tp3">
+            <span class="tp-num">03</span>
+            <span class="tp-txt"><span class="tp-lead">Succession</span><span class="tp-gist">They're publishing on it; Gallup has the data.</span></span>
+            <span class="tp-chev"></span>
+          </button>
+          <div class="tp-body" id="tp3"><div class="tp-body-inner">SBE Council has been publishing on small-business succession in recent weeks — the employer-versus-nonemployer question specifically — and Gallup holds the longitudinal numbers, including that 27% of employer firms with owners 55 and older are unsure of their long-term plan or expect to close. It is an active topic for them and a concrete area where the two organizations' work could connect.</div></div>
+        </div>
+
+        <div class="tp">
+          <button class="tp-btn" aria-expanded="false" data-tp="tp4">
+            <span class="tp-num">04</span>
+            <span class="tp-txt"><span class="tp-lead">Local ecosystems</span><span class="tp-gist">What helps entrepreneurs is local and addressable.</span></span>
+            <span class="tp-chev"></span>
+          </button>
+          <div class="tp-body" id="tp4"><div class="tp-body-inner">One of the more counterintuitive results is that owners feel far better about their local environment than the national one — 47% are highly satisfied locally even as national sentiment runs negative — and that what drives local satisfaction is community infrastructure: peer-to-peer networks, permitting and local regulation, and city services, more than tax rates or real estate costs. For a policy and research organization, that points to levers cities and local institutions can act on. It also connects to the AI findings, since owners tend to adopt through trusted peer networks rather than top-down programs.</div></div>
+        </div>
+
+        <div class="tp">
+          <button class="tp-btn" aria-expanded="false" data-tp="tp5">
+            <span class="tp-num">05</span>
+            <span class="tp-txt"><span class="tp-lead">Collaboration &amp; wellbeing</span><span class="tp-gist">Complementary strengths, and a shared interest in wellbeing.</span></span>
+            <span class="tp-chev"></span>
+          </button>
+          <div class="tp-body" id="tp5"><div class="tp-body-inner">The two organizations bring complementary strengths: Gallup's rigorous, original, longitudinal measurement, and SBE Council's reach into the entrepreneurial community and policy voice. Wellbeing is another natural point of connection — the study is as much about wellbeing as wealth, a theme Karen engages with both personally and professionally.</div></div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="src"><b>Sources</b><br>Gallup Pathways to Wealth — <em>The Ownership Advantage</em> and <em>Scaling to One Million: The Complicated Role of Capital</em> (JPMorgan Chase Foundation &amp; Ewing Marion Kauffman Foundation), 2023–2025; Gallup <em>State of the Global Workplace 2026</em> and U.S. workforce AI tracking; SBE Council (sbecouncil.org); McKinsey, 2026. &nbsp;·&nbsp; Confidential — prepared for internal use.</div>
+    </footer>
+  </main>
+</div>
+
+<script>
+(function(){
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---- progress bar ---- */
+  var bar = document.getElementById('progress');
+  function onScroll(){
+    var h = document.documentElement;
+    var max = h.scrollHeight - h.clientHeight;
+    bar.style.width = (max>0 ? (h.scrollTop/max*100) : 0) + '%';
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+
+  /* ---- generic disclosure (deep dives) ---- */
+  function setPanel(panel, open){
+    if(open){ panel.style.maxHeight = panel.scrollHeight + 'px'; }
+    else { panel.style.maxHeight = panel.scrollHeight + 'px'; void panel.offsetHeight; panel.style.maxHeight = '0px'; }
+  }
+  document.querySelectorAll('.disc-btn').forEach(function(btn){
+    var panel = document.getElementById(btn.getAttribute('data-panel'));
+    btn.addEventListener('click', function(){
+      var open = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', String(!open));
+      setPanel(panel, !open);
+    });
+  });
+  // recompute open panel heights on resize
+  window.addEventListener('resize', function(){
+    document.querySelectorAll('.disc-btn[aria-expanded="true"]').forEach(function(b){
+      var p = document.getElementById(b.getAttribute('data-panel'));
+      p.style.maxHeight = 'none'; var hgt = p.scrollHeight; p.style.maxHeight = hgt + 'px';
+    });
+  });
+
+  /* ---- count-up stats ---- */
+  function animateStat(el){
+    if(el.dataset.done) return; el.dataset.done = '1';
+    var to = parseFloat(el.getAttribute('data-to'));
+    var pre = el.getAttribute('data-pre') || '';
+    var suf = el.getAttribute('data-suf') || '';
+    var dec = parseInt(el.getAttribute('data-dec') || '0', 10);
+    if(reduce){ el.textContent = pre + to.toFixed(dec) + suf; return; }
+    var dur = 1100, start = null;
+    function ease(t){ return 1 - Math.pow(1 - t, 3); }
+    function step(ts){
+      if(start===null) start = ts;
+      var p = Math.min((ts - start)/dur, 1);
+      var v = to * ease(p);
+      el.textContent = pre + v.toFixed(dec) + suf;
+      if(p < 1) requestAnimationFrame(step);
+      else el.textContent = pre + to.toFixed(dec) + suf;
+    }
+    requestAnimationFrame(step);
+  }
+  function animatePanelStats(panel){
+    panel.querySelectorAll('.num[data-to]').forEach(animateStat);
+  }
+  // animate the active tab's stats when research scrolls into view
+  var research = document.getElementById('research');
+  var researchSeen = false;
+  var rObs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting && !researchSeen){
+        researchSeen = true;
+        var active = document.querySelector('.tabpanel.show');
+        if(active) animatePanelStats(active);
+      }
+    });
+  }, {threshold:0.2});
+  rObs.observe(research);
+
+  /* ---- tabs ---- */
+  var tabs = Array.prototype.slice.call(document.querySelectorAll('.tab'));
+  function selectTab(tab){
+    tabs.forEach(function(t){
+      var on = t === tab;
+      t.setAttribute('aria-selected', String(on));
+      t.tabIndex = on ? 0 : -1;
+      var panel = document.getElementById(t.getAttribute('aria-controls'));
+      panel.classList.toggle('show', on);
+      if(on){ animatePanelStats(panel); }
+    });
+  }
+  tabs.forEach(function(tab, i){
+    tab.addEventListener('click', function(){ selectTab(tab); });
+    tab.addEventListener('keydown', function(e){
+      var idx = null;
+      if(e.key === 'ArrowRight') idx = (i+1) % tabs.length;
+      else if(e.key === 'ArrowLeft') idx = (i-1+tabs.length) % tabs.length;
+      if(idx !== null){ e.preventDefault(); tabs[idx].focus(); selectTab(tabs[idx]); }
+    });
+  });
+
+  /* ---- talking points ---- */
+  var tpBtns = Array.prototype.slice.call(document.querySelectorAll('.tp-btn'));
+  function setTP(btn, open){
+    var card = btn.closest('.tp');
+    var body = document.getElementById(btn.getAttribute('data-tp'));
+    btn.setAttribute('aria-expanded', String(open));
+    card.classList.toggle('open', open);
+    if(open){ body.style.maxHeight = body.scrollHeight + 'px'; }
+    else { body.style.maxHeight = body.scrollHeight + 'px'; void body.offsetHeight; body.style.maxHeight = '0px'; }
+  }
+  tpBtns.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      setTP(btn, btn.getAttribute('aria-expanded') !== 'true');
+      syncToggleAll();
+    });
+  });
+  var toggleAll = document.getElementById('toggleAll');
+  function allOpen(){ return tpBtns.every(function(b){ return b.getAttribute('aria-expanded')==='true'; }); }
+  function syncToggleAll(){ toggleAll.textContent = allOpen() ? 'Collapse all' : 'Expand all'; }
+  toggleAll.addEventListener('click', function(){
+    var open = !allOpen();
+    tpBtns.forEach(function(b){ setTP(b, open); });
+    syncToggleAll();
+  });
+
+  /* ---- active nav (rail + mobile) ---- */
+  var navLinks = Array.prototype.slice.call(document.querySelectorAll('#jump a, #mtop a'));
+  function setActive(id){
+    navLinks.forEach(function(a){ a.classList.toggle('active', a.getAttribute('href') === '#' + id); });
+  }
+  var secObs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if(e.isIntersecting) setActive(e.target.id); });
+  }, {rootMargin:'-45% 0px -50% 0px', threshold:0});
+  ['meeting','people','research','talking'].forEach(function(id){
+    var s = document.getElementById(id); if(s) secObs.observe(s);
+  });
+})();
+</script>
+</body>
+</html>
