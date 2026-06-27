@@ -1,0 +1,1036 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Gallup × With Honor — Meeting Prep</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#15191f;
+    --ink-soft:#262c35;
+    --paper:#f3f1ea;
+    --paper-2:#ece8dd;
+    --paper-3:#e4dfd1;
+    --line:#d7d1c1;
+    --line-soft:#e0dbcd;
+    --brass:#a87b2d;
+    --brass-bright:#c99a45;
+    --slate:#2c4642;
+    --slate-soft:#456360;
+    --signal:#9b4a2f;
+    --muted:#6a6354;
+    --muted-2:#857d6b;
+    --on-ink:#edeae0;
+    --on-ink-dim:#a9a596;
+    --maxw:1140px;
+    --font-d:'Saira Condensed','Arial Narrow',sans-serif;
+    --font-s:'Newsreader',Georgia,'Times New Roman',serif;
+    --font-m:'IBM Plex Mono',ui-monospace,'SFMono-Regular',Menlo,monospace;
+  }
+
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--font-s);
+    font-size:18px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+  }
+  ::selection{background:var(--brass);color:#fff}
+
+  a{color:var(--slate);text-decoration:none}
+  a:focus-visible,button:focus-visible{outline:2.5px solid var(--brass);outline-offset:3px;border-radius:2px}
+
+  /* ---------- shared structural ---------- */
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 32px}
+  .section{padding:84px 0;border-bottom:1px solid var(--line)}
+  .section:last-of-type{border-bottom:none}
+  [id]{scroll-margin-top:84px}
+
+  .eyebrow{
+    font-family:var(--font-m);
+    font-size:11.5px;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    color:var(--brass);
+    font-weight:600;
+    display:flex;align-items:center;gap:12px;
+    margin:0 0 22px;
+  }
+  .eyebrow::before{content:"";width:26px;height:2px;background:var(--brass);display:inline-block}
+  .eyebrow .num{color:var(--muted-2)}
+
+  h2.sec-title{
+    font-family:var(--font-d);
+    font-weight:600;
+    font-size:clamp(34px,5vw,52px);
+    line-height:1.02;
+    letter-spacing:.005em;
+    margin:0 0 14px;
+    color:var(--ink);
+  }
+  .sec-lede{
+    font-size:clamp(18px,2.2vw,21px);
+    color:var(--ink-soft);
+    max-width:60ch;
+    margin:0 0 40px;
+  }
+
+  /* ---------- top nav ---------- */
+  .topbar{
+    position:sticky;top:0;z-index:60;
+    background:rgba(243,241,234,.86);
+    backdrop-filter:saturate(140%) blur(10px);
+    -webkit-backdrop-filter:saturate(140%) blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .topbar-inner{
+    max-width:var(--maxw);margin:0 auto;padding:0 32px;
+    height:60px;display:flex;align-items:center;justify-content:space-between;gap:16px;
+  }
+  .brandmark{
+    font-family:var(--font-m);font-size:12px;font-weight:600;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--ink);white-space:nowrap;display:flex;align-items:center;gap:9px;
+  }
+  .brandmark .x{color:var(--brass);font-weight:600}
+  .brandmark .dot{width:6px;height:6px;border-radius:50%;background:var(--slate);display:inline-block}
+  .topnav{display:flex;gap:4px;align-items:center}
+  .topnav a{
+    font-family:var(--font-m);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;
+    color:var(--muted);padding:8px 11px;border-radius:3px;transition:color .15s,background .15s;font-weight:500;
+  }
+  .topnav a:hover{color:var(--ink);background:var(--paper-2)}
+  .topnav a.active{color:var(--ink);background:var(--paper-3)}
+  .topnav a.active::after{content:"";display:block;height:2px;background:var(--brass);margin-top:3px}
+  .nav-toggle{display:none}
+
+  /* ---------- hero ---------- */
+  .hero{
+    background:var(--ink);color:var(--on-ink);position:relative;overflow:hidden;
+    border-bottom:3px solid var(--brass);
+  }
+  .hero::before{
+    content:"";position:absolute;inset:0;pointer-events:none;opacity:.5;
+    background:repeating-linear-gradient(to bottom,transparent 0 31px,rgba(237,234,224,.045) 31px 32px);
+  }
+  .hero::after{
+    content:"";position:absolute;right:-160px;top:-160px;width:520px;height:520px;border-radius:50%;
+    background:radial-gradient(circle,rgba(201,154,69,.16),transparent 62%);pointer-events:none;
+  }
+  .hero-inner{max-width:var(--maxw);margin:0 auto;padding:74px 32px 60px;position:relative}
+  .hero .eyebrow{color:var(--brass-bright)}
+  .hero .eyebrow::before{background:var(--brass-bright)}
+  .hero h1{
+    font-family:var(--font-d);font-weight:600;
+    font-size:clamp(42px,7vw,82px);line-height:.97;letter-spacing:.004em;
+    margin:0 0 26px;max-width:18ch;
+  }
+  .hero h1 em{font-style:normal;color:var(--brass-bright)}
+  .hero .standfirst{
+    font-size:clamp(19px,2.4vw,24px);line-height:1.5;color:var(--on-ink);
+    max-width:60ch;margin:0 0 38px;font-weight:400;
+  }
+  .hero .standfirst b{color:#fff;font-weight:600}
+
+  .datastrip{
+    display:flex;flex-wrap:wrap;gap:0;border-top:1px solid rgba(237,234,224,.18);
+    border-bottom:1px solid rgba(237,234,224,.18);margin:0 0 36px;
+  }
+  .datastrip .d{
+    padding:18px 26px 16px;flex:1 1 160px;border-right:1px solid rgba(237,234,224,.13);
+  }
+  .datastrip .d:last-child{border-right:none}
+  .datastrip .dnum{
+    font-family:var(--font-d);font-weight:600;font-size:38px;line-height:1;color:var(--brass-bright);
+  }
+  .datastrip .dlab{
+    font-family:var(--font-m);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;
+    color:var(--on-ink-dim);margin-top:8px;line-height:1.45;
+  }
+
+  .meta-row{display:flex;flex-wrap:wrap;gap:34px}
+  .meta-row .m .k{
+    font-family:var(--font-m);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--on-ink-dim);margin-bottom:5px;
+  }
+  .meta-row .m .v{font-family:var(--font-d);font-size:18px;font-weight:500;letter-spacing:.01em;color:var(--on-ink)}
+
+  /* ---------- about ---------- */
+  .about-grid{display:grid;grid-template-columns:1.45fr 1fr;gap:54px;align-items:start}
+  .about-grid p{margin:0 0 18px;color:var(--ink-soft)}
+  .about-grid p:first-child{font-size:20px;color:var(--ink)}
+  .lead-cap::first-letter{
+    font-family:var(--font-d);font-weight:600;float:left;font-size:62px;line-height:.74;
+    padding:6px 12px 0 0;color:var(--brass);
+  }
+  .factcard{
+    background:var(--ink);color:var(--on-ink);border-radius:4px;padding:30px 30px 26px;
+    position:sticky;top:84px;
+  }
+  .factcard h3{
+    font-family:var(--font-m);font-size:11px;letter-spacing:.18em;text-transform:uppercase;
+    color:var(--brass-bright);margin:0 0 20px;font-weight:600;
+  }
+  .factrow{padding:14px 0;border-top:1px solid rgba(237,234,224,.14);display:flex;flex-direction:column;gap:3px}
+  .factrow:first-of-type{border-top:none;padding-top:0}
+  .factrow .fk{font-family:var(--font-m);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--on-ink-dim)}
+  .factrow .fv{font-size:16.5px;color:var(--on-ink);line-height:1.45}
+  .factrow .fv b{color:var(--brass-bright);font-family:var(--font-d);font-weight:600;font-size:19px}
+  .pledge{display:flex;gap:8px;flex-wrap:wrap;margin-top:4px}
+  .pledge span{
+    font-family:var(--font-m);font-size:11px;letter-spacing:.06em;text-transform:uppercase;
+    border:1px solid rgba(201,154,69,.5);color:var(--brass-bright);padding:4px 9px;border-radius:3px;
+  }
+
+  .person{
+    margin-top:54px;background:var(--paper-2);border:1px solid var(--line);border-radius:4px;
+    border-left:3px solid var(--brass);padding:36px 40px;display:grid;grid-template-columns:1fr;gap:8px;
+  }
+  .person .ptag{font-family:var(--font-m);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+  .person h3{font-family:var(--font-d);font-weight:600;font-size:30px;margin:0 0 2px;letter-spacing:.01em}
+  .person .prole{font-family:var(--font-m);font-size:12.5px;letter-spacing:.05em;color:var(--slate);margin-bottom:14px}
+  .person p{margin:0 0 14px;color:var(--ink-soft);max-width:72ch}
+  .bookcard{
+    margin-top:8px;background:var(--ink);color:var(--on-ink);border-radius:4px;padding:24px 26px;
+    display:flex;gap:22px;align-items:flex-start;flex-wrap:wrap;
+  }
+  .bookcard .spine{
+    width:54px;min-width:54px;height:78px;border-radius:2px;
+    background:linear-gradient(155deg,var(--brass-bright),var(--brass) 55%,var(--signal));
+    box-shadow:inset -3px 0 0 rgba(0,0,0,.22);position:relative;
+  }
+  .bookcard .spine::after{content:"";position:absolute;left:7px;top:8px;bottom:8px;width:2px;background:rgba(255,255,255,.35)}
+  .bookcard .bmeta{flex:1 1 240px}
+  .bookcard .btitle{font-family:var(--font-d);font-weight:600;font-size:23px;letter-spacing:.01em;color:#fff}
+  .bookcard .bsub{font-family:var(--font-m);font-size:11.5px;letter-spacing:.05em;color:var(--brass-bright);margin:6px 0 10px}
+  .bookcard p{font-size:15.5px;color:var(--on-ink);margin:0}
+  .bookcard .badge{
+    display:inline-block;font-family:var(--font-m);font-size:10px;letter-spacing:.12em;text-transform:uppercase;
+    background:rgba(201,154,69,.16);color:var(--brass-bright);border:1px solid rgba(201,154,69,.45);
+    padding:4px 8px;border-radius:3px;margin-top:12px;
+  }
+
+  /* ---------- findings ---------- */
+  .jump{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 44px}
+  .jump a{
+    font-family:var(--font-m);font-size:11.5px;letter-spacing:.05em;text-transform:uppercase;
+    border:1px solid var(--line);background:var(--paper-2);color:var(--ink-soft);
+    padding:9px 14px;border-radius:30px;transition:.15s;font-weight:500;
+  }
+  .jump a:hover{border-color:var(--brass);color:var(--ink);background:#fff}
+  .jump a .jn{color:var(--brass);font-weight:600;margin-right:6px}
+
+  /* signature: courage gap */
+  .gap-feature{
+    background:var(--ink);color:var(--on-ink);border-radius:5px;overflow:hidden;
+    display:grid;grid-template-columns:1.05fr 1fr;margin:0 0 56px;border:1px solid #000;
+  }
+  .gap-feature::selection,.gap-feature *::selection{background:var(--brass-bright);color:var(--ink)}
+  .gap-copy{padding:42px 44px}
+  .gap-copy .tag{font-family:var(--font-m);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--brass-bright);margin-bottom:18px}
+  .gap-copy h3{font-family:var(--font-d);font-weight:600;font-size:clamp(28px,3.6vw,40px);line-height:1.02;margin:0 0 16px;color:#fff}
+  .gap-copy h3 em{font-style:normal;color:var(--brass-bright)}
+  .gap-copy p{font-size:16.5px;color:var(--on-ink);margin:0 0 12px;max-width:46ch}
+  .gap-copy .src{font-family:var(--font-m);font-size:11px;color:var(--on-ink-dim);letter-spacing:.03em;margin-top:18px}
+
+  .gap-viz{
+    padding:42px 40px;display:flex;align-items:flex-end;gap:30px;justify-content:center;
+    background:linear-gradient(180deg,rgba(255,255,255,.015),rgba(0,0,0,.18));position:relative;min-height:340px;
+  }
+  .bar{width:96px;display:flex;flex-direction:column;align-items:center;height:100%;justify-content:flex-end}
+  .bar .col{
+    width:100%;height:0;border-radius:3px 3px 0 0;transition:height 1.1s cubic-bezier(.16,1,.3,1);
+    display:flex;align-items:flex-start;justify-content:center;position:relative;
+  }
+  .bar.community .col{background:linear-gradient(180deg,var(--brass-bright),var(--brass))}
+  .bar.dc .col{background:linear-gradient(180deg,#566069,#3a424b)}
+  .bar .pct{
+    font-family:var(--font-d);font-weight:600;font-size:32px;color:#fff;margin-top:-46px;opacity:0;
+    transition:opacity .5s .6s;
+  }
+  .gap-viz.show .bar.community .col{height:62%}
+  .gap-viz.show .bar.dc .col{height:30%}
+  .gap-viz.show .pct{opacity:1}
+  .bar .blab{
+    font-family:var(--font-m);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;
+    color:var(--on-ink-dim);margin-top:14px;text-align:center;line-height:1.4;
+  }
+  .gap-bracket{
+    position:absolute;right:30px;top:28px;text-align:right;opacity:0;transition:opacity .5s 1s;
+  }
+  .gap-viz.show .gap-bracket{opacity:1}
+  .gap-bracket .gnum{font-family:var(--font-d);font-weight:700;font-size:40px;color:var(--brass-bright);line-height:1}
+  .gap-bracket .glab{font-family:var(--font-m);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--on-ink-dim);margin-top:4px}
+
+  /* finding groups */
+  .fgroup{margin:0 0 50px}
+  .fgroup-head{display:flex;align-items:baseline;gap:16px;border-bottom:2px solid var(--ink);padding-bottom:12px;margin-bottom:26px;flex-wrap:wrap}
+  .fgroup-head .fnum{font-family:var(--font-d);font-weight:700;font-size:24px;color:var(--brass)}
+  .fgroup-head h3{font-family:var(--font-d);font-weight:600;font-size:clamp(23px,3vw,30px);margin:0;letter-spacing:.01em;flex:1 1 auto}
+  .fgroup-head .fwhen{font-family:var(--font-m);font-size:11.5px;color:var(--muted);letter-spacing:.03em;text-align:right}
+
+  .statgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:4px;overflow:hidden}
+  .stat{background:var(--paper);padding:24px 24px 22px;display:flex;flex-direction:column;gap:9px}
+  .stat .snum{font-family:var(--font-d);font-weight:600;font-size:48px;line-height:.9;color:var(--ink)}
+  .stat.hl .snum{color:var(--brass)}
+  .stat .snum .suf{font-size:22px;color:var(--muted-2);font-weight:500;margin-left:2px}
+  .stat .stxt{font-size:15px;color:var(--ink-soft);line-height:1.45}
+  .stat .stxt b{color:var(--ink);font-weight:600}
+
+  .fnote{margin-top:18px;font-size:15.5px;color:var(--muted);max-width:74ch;border-left:3px solid var(--brass);padding:4px 0 4px 18px}
+  .fnote b{color:var(--ink)}
+
+  /* ---------- talking points ---------- */
+  #points{background:var(--paper-2)}
+  .tp-bar{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;margin-bottom:34px}
+  .oneliner{
+    font-family:var(--font-s);font-style:italic;font-size:clamp(21px,2.8vw,28px);line-height:1.4;
+    color:var(--ink);max-width:34ch;border-left:4px solid var(--brass);padding-left:22px;margin:0;
+  }
+  .copyall{
+    font-family:var(--font-m);font-size:12px;letter-spacing:.05em;text-transform:uppercase;font-weight:600;
+    background:var(--ink);color:var(--on-ink);border:none;padding:13px 20px;border-radius:4px;cursor:pointer;
+    transition:background .15s,transform .05s;white-space:nowrap;
+  }
+  .copyall:hover{background:var(--slate)}
+  .copyall:active{transform:translateY(1px)}
+
+  .tp-list{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+  .tp{
+    background:var(--paper);border:1px solid var(--line);border-radius:5px;padding:26px 28px 22px;
+    position:relative;display:flex;flex-direction:column;
+  }
+  .tp .tphead{display:flex;align-items:center;gap:12px;margin-bottom:13px}
+  .tp .tpn{font-family:var(--font-d);font-weight:700;font-size:21px;color:var(--brass);min-width:34px}
+  .tp .tpk{font-family:var(--font-m);font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:var(--slate);font-weight:600}
+  .tp .tpbody{font-size:16.5px;line-height:1.55;color:var(--ink-soft);margin:0 0 16px;flex:1}
+  .tp .tpbody b{color:var(--ink);font-weight:600}
+  .tp .copy{
+    align-self:flex-start;font-family:var(--font-m);font-size:11px;letter-spacing:.08em;text-transform:uppercase;
+    background:transparent;border:1px solid var(--line);color:var(--muted);padding:7px 12px;border-radius:30px;
+    cursor:pointer;transition:.15s;font-weight:500;display:inline-flex;align-items:center;gap:7px;
+  }
+  .tp .copy:hover{border-color:var(--brass);color:var(--ink)}
+  .tp .copy.done{border-color:var(--slate);color:var(--slate);background:rgba(44,70,66,.07)}
+
+  /* ---------- relationship / history ---------- */
+  .tl-rail{display:flex;gap:6px;margin:0 0 6px;flex-wrap:wrap}
+  .tl-chip{
+    flex:1 1 140px;text-align:left;background:var(--paper-2);border:1px solid var(--line);
+    border-bottom:3px solid var(--line);border-radius:4px 4px 0 0;padding:16px 16px 14px;cursor:pointer;
+    transition:.18s;font-family:inherit;color:var(--ink);
+  }
+  .tl-chip:hover{background:#fff;border-bottom-color:var(--brass-bright)}
+  .tl-chip.active{background:var(--ink);border-color:var(--ink);border-bottom-color:var(--brass)}
+  .tl-chip .cph{font-family:var(--font-m);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+  .tl-chip.active .cph{color:var(--brass-bright)}
+  .tl-chip .cwhen{font-family:var(--font-d);font-weight:600;font-size:17px;margin:5px 0 4px;letter-spacing:.01em}
+  .tl-chip.active .cwhen{color:#fff}
+  .tl-chip .ctit{font-size:13.5px;color:var(--ink-soft);line-height:1.35}
+  .tl-chip.active .ctit{color:var(--on-ink)}
+
+  .tl-panel-wrap{background:var(--ink);color:var(--on-ink);border-radius:0 4px 4px 4px;padding:40px 44px;min-height:200px}
+  .tl-panel{display:none;animation:fade .4s ease}
+  .tl-panel.active{display:block}
+  @keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+  .tl-panel .ph{font-family:var(--font-m);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--brass-bright);margin-bottom:10px}
+  .tl-panel h3{font-family:var(--font-d);font-weight:600;font-size:clamp(26px,3.4vw,36px);line-height:1.04;margin:0 0 18px;color:#fff}
+  .tl-panel p{font-size:16.5px;line-height:1.6;color:var(--on-ink);margin:0 0 16px;max-width:76ch}
+  .tl-panel p b{color:var(--brass-bright);font-weight:600}
+  .tl-panel ul{margin:0;padding:0;list-style:none;display:grid;gap:10px;max-width:80ch}
+  .tl-panel li{font-size:15.5px;color:var(--on-ink);padding-left:22px;position:relative;line-height:1.5}
+  .tl-panel li::before{content:"";position:absolute;left:0;top:10px;width:8px;height:2px;background:var(--brass-bright)}
+
+  .arch{margin-top:60px;border-top:1px solid var(--line);padding-top:48px}
+  .arch h3{font-family:var(--font-d);font-weight:600;font-size:clamp(24px,3vw,32px);margin:0 0 8px;letter-spacing:.01em}
+  .arch .lede{color:var(--ink-soft);max-width:66ch;margin:0 0 32px}
+  .arch-flow{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:34px}
+  .astep{background:var(--paper-2);border:1px solid var(--line);border-top:3px solid var(--slate);border-radius:4px;padding:20px 20px 18px}
+  .astep .an{font-family:var(--font-d);font-weight:700;font-size:18px;color:var(--slate)}
+  .astep h4{font-family:var(--font-d);font-weight:600;font-size:18px;margin:6px 0 8px;letter-spacing:.01em}
+  .astep p{font-size:14px;color:var(--ink-soft);margin:0;line-height:1.45}
+  .moral{background:var(--ink);color:var(--on-ink);border-radius:4px;padding:34px 38px;border-left:3px solid var(--brass)}
+  .moral .mt{font-family:var(--font-m);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--brass-bright);margin-bottom:14px}
+  .moral h4{font-family:var(--font-d);font-weight:600;font-size:24px;margin:0 0 8px;color:#fff;letter-spacing:.01em}
+  .moral .mdef{font-style:italic;color:var(--on-ink);margin:0 0 20px;max-width:70ch;font-size:16px}
+  .moral .mgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px}
+  .moral .mi{font-size:14.5px;color:var(--on-ink);padding-left:22px;position:relative;line-height:1.45}
+  .moral .mi::before{content:"\203A";position:absolute;left:0;top:-1px;color:var(--brass-bright);font-size:18px;font-weight:700}
+
+  /* key personnel + international */
+  .team{margin-top:60px;border-top:1px solid var(--line);padding-top:48px}
+  .team h3{font-family:var(--font-d);font-weight:600;font-size:clamp(24px,3vw,32px);margin:0 0 8px;letter-spacing:.01em}
+  .team .lede{color:var(--ink-soft);max-width:62ch;margin:0 0 30px}
+  .people{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:30px}
+  .pcard{background:var(--paper-2);border:1px solid var(--line);border-top:3px solid var(--brass);border-radius:4px;padding:22px 22px 20px}
+  .pcard .prole2{font-family:var(--font-m);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--slate);font-weight:600}
+  .pcard .pname{font-family:var(--font-d);font-weight:600;font-size:23px;color:var(--ink);margin-top:7px;letter-spacing:.01em}
+  .intl{background:var(--ink);color:var(--on-ink);border-radius:4px;padding:30px 36px;border-left:3px solid var(--brass)}
+  .intl .intl-tag{font-family:var(--font-m);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--brass-bright);margin-bottom:12px}
+  .intl p{font-size:17px;line-height:1.55;color:var(--on-ink);margin:0;max-width:74ch}
+  .intl a{
+    display:inline-block;margin-top:6px;color:var(--brass-bright);font-family:var(--font-m);
+    font-size:13.5px;letter-spacing:.02em;border-bottom:1px solid rgba(201,154,69,.5);
+    padding-bottom:2px;transition:.15s;
+  }
+  .intl a:hover{color:#fff;border-bottom-color:#fff}
+
+  /* ---------- footer / methods / sources ---------- */
+  footer{background:var(--ink);color:var(--on-ink-dim);padding:64px 0 56px}
+  footer .eyebrow{color:var(--brass-bright)}
+  footer .eyebrow::before{background:var(--brass-bright)}
+  footer h2{font-family:var(--font-d);font-weight:600;font-size:clamp(26px,3.4vw,34px);color:#fff;margin:0 0 30px;letter-spacing:.01em}
+  .meth-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(237,234,224,.13);border:1px solid rgba(237,234,224,.13);border-radius:4px;overflow:hidden;margin-bottom:0}
+  .meth{background:var(--ink);padding:24px 26px}
+  .meth .mh{font-family:var(--font-d);font-weight:600;font-size:18px;color:#fff;margin-bottom:12px;letter-spacing:.01em}
+  .meth .ml{font-family:var(--font-m);font-size:12px;line-height:1.85;color:var(--on-ink-dim)}
+  .meth .ml b{color:var(--brass-bright);font-weight:500}
+
+  .pubs-block{margin-top:48px;border-top:1px solid rgba(237,234,224,.13);padding-top:40px}
+  .pubs-block .ph2{font-family:var(--font-d);font-weight:600;font-size:clamp(22px,3vw,28px);color:#fff;margin:0 0 6px;letter-spacing:.01em}
+  .pubs-block .psub{font-family:var(--font-m);font-size:12px;color:var(--on-ink-dim);letter-spacing:.03em;margin:0 0 26px}
+  .pubs{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:rgba(237,234,224,.13);border:1px solid rgba(237,234,224,.13);border-radius:4px;overflow:hidden}
+  a.pub{
+    background:var(--ink);padding:20px 24px;display:flex;flex-direction:column;gap:6px;
+    transition:background .15s;text-decoration:none;
+  }
+  a.pub:hover{background:var(--ink-soft)}
+  a.pub .pcat{font-family:var(--font-m);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--brass-bright)}
+  a.pub .ptitle{font-family:var(--font-d);font-weight:600;font-size:20px;color:#fff;line-height:1.1;letter-spacing:.01em}
+  a.pub .ptitle .arr{color:var(--brass-bright);margin-left:6px;font-weight:500}
+  a.pub:hover .ptitle{color:var(--brass-bright)}
+  a.pub:hover .ptitle .arr{color:#fff}
+  a.pub .pmeta{font-family:var(--font-m);font-size:11px;color:var(--on-ink-dim);letter-spacing:.02em}
+
+  .colophon{margin-top:42px;border-top:1px solid rgba(237,234,224,.13);padding-top:24px;font-family:var(--font-m);font-size:11px;letter-spacing:.03em;color:var(--on-ink-dim);display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap}
+
+  /* ---------- responsive ---------- */
+  @media (max-width:880px){
+    .about-grid{grid-template-columns:1fr;gap:36px}
+    .factcard,.person{position:static}
+    .gap-feature{grid-template-columns:1fr}
+    .tp-list{grid-template-columns:1fr}
+    .arch-flow{grid-template-columns:1fr 1fr}
+    .people{grid-template-columns:1fr 1fr}
+    .meth-grid{grid-template-columns:1fr}
+    .pubs{grid-template-columns:1fr}
+    .topnav{
+      position:absolute;top:60px;left:0;right:0;background:var(--paper);border-bottom:1px solid var(--line);
+      flex-direction:column;align-items:stretch;padding:8px;gap:2px;display:none;box-shadow:0 14px 24px -18px rgba(0,0,0,.4);
+    }
+    .topnav.open{display:flex}
+    .topnav a{padding:12px;font-size:13px}
+    .topnav a.active::after{display:none}
+    .nav-toggle{
+      display:inline-flex;align-items:center;gap:8px;background:none;border:1px solid var(--line);
+      border-radius:4px;padding:8px 12px;font-family:var(--font-m);font-size:11px;letter-spacing:.1em;
+      text-transform:uppercase;color:var(--ink);cursor:pointer;
+    }
+  }
+  @media (max-width:560px){
+    .wrap{padding:0 20px}
+    .hero-inner{padding:54px 20px 44px}
+    .section{padding:60px 0}
+    .arch-flow{grid-template-columns:1fr}
+    .people{grid-template-columns:1fr}
+    .datastrip .d{flex:1 1 100%;border-right:none;border-bottom:1px solid rgba(237,234,224,.13)}
+    .gap-copy,.gap-viz,.tl-panel-wrap,.moral,.intl{padding-left:24px;padding-right:24px}
+    .person{padding:26px 22px}
+  }
+
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    *{animation-duration:.001ms !important;transition-duration:.001ms !important}
+    .gap-viz .bar.community .col{height:62%}
+    .gap-viz .bar.dc .col{height:30%}
+    .gap-viz .pct,.gap-bracket{opacity:1}
+  }
+
+  @media print{
+    .topbar,.nav-toggle,.copyall,.tp .copy,.jump{display:none !important}
+    body{background:#fff;color:#000;font-size:11pt}
+    .hero,.factcard,.bookcard,.gap-feature,.tl-panel-wrap,.moral,.astep,.intl,a.pub,footer{background:#fff !important;color:#000 !important;border:1px solid #999 !important}
+    .hero h1,.hero .standfirst b,.tl-panel h3,.gap-copy h3,.moral h4,footer h2,a.pub .ptitle{color:#000 !important}
+    .tl-panel{display:block !important}
+    .section{padding:24px 0;page-break-inside:avoid}
+    .hero::before,.hero::after{display:none}
+  }
+</style>
+</head>
+<body>
+
+<!-- ===================== TOP BAR ===================== -->
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="brandmark">GALLUP <span class="x">×</span> WITH&nbsp;HONOR <span class="dot"></span> MEETING&nbsp;PREP</div>
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="topnav">Menu</button>
+    <nav class="topnav" id="topnav" aria-label="Section navigation">
+      <a href="#about">About</a>
+      <a href="#relationship">The Relationship</a>
+      <a href="#points">Talking Points</a>
+      <a href="#findings">Findings</a>
+      <a href="#methods">Sources</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ===================== HERO ===================== -->
+<section class="hero">
+  <div class="hero-inner">
+    <p class="eyebrow">Meeting Preparation · Internal &amp; Confidential</p>
+    <h1>The veterans Americans trust — and the <em>courage</em> they say is missing.</h1>
+    <p class="standfirst">A briefing on the <b>Gallup × With Honor Institute</b> research partnership: what began as a 2025 study of public trust in veterans is now a multi-year platform on courage, civic values and national unity. This document gives you the background, the joint findings, and ready-to-use talking points.</p>
+
+    <div class="datastrip" aria-hidden="false">
+      <div class="d"><div class="dnum"><span class="count" data-target="55">0</span><span class="suf">%</span></div><div class="dlab">More likely to vote for a veteran candidate (vs. 7% less likely)</div></div>
+      <div class="d"><div class="dnum"><span class="count" data-target="67">0</span><span class="suf">%</span></div><div class="dlab">Rate veterans' ethics high — #2 of all professions, behind nurses</div></div>
+      <div class="d"><div class="dnum"><span class="count" data-target="32">0</span><span class="suf">pt</span></div><div class="dlab">Gap between courage Americans see at home vs. in Washington</div></div>
+      <div class="d"><div class="dnum"><span class="count" data-target="474">0</span></div><div class="dlab">Verified veteran candidates With Honor is tracking for 2026</div></div>
+    </div>
+
+    <div class="meta-row">
+      <div class="m"><div class="k">Subject</div><div class="v">Gallup × With Honor partnership</div></div>
+      <div class="m"><div class="k">Status</div><div class="v">Internal · Confidential</div></div>
+      <div class="m"><div class="k">Updated</div><div class="v">June 27, 2026</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== ABOUT ===================== -->
+<section class="section" id="about">
+  <div class="wrap">
+    <p class="eyebrow"><span class="num">01</span> About With Honor</p>
+    <h2 class="sec-title">A cross-partisan bet on veteran leadership</h2>
+    <p class="sec-lede">With Honor exists on a simple premise: principled veteran leadership can lower the temperature of American politics and strengthen democracy — and veterans are one of the few groups the public still trusts across party lines.</p>
+
+    <div class="about-grid">
+      <div>
+        <p class="lead-cap">With Honor recruits, trains, supports and elects principled veteran leaders who commit to serving with integrity, civility and courage — including a pledge to work across party lines. It is built around a theory of change: the cross-partisan trust veterans still command can be converted into public leadership that is less performative, less polarized, and more oriented toward country, service and problem-solving.</p>
+        <p>The broader ecosystem includes political and advocacy arms (With Honor Action), while <b>With Honor Institute</b> is the 501(c)(3) nonpartisan nonprofit focused on research, education, convenings, fellowships and evidence-based work on democracy and polarization. The Gallup partnership runs through the Institute. That is precisely why Gallup matters to them: it supplies credible, nonpartisan evidence that the public still sees veterans as unusually trusted civic actors — letting With Honor move from assertion to data.</p>
+        <p>The footprint is real. After the 2018 cycle, With Honor–backed veterans co-founded the For Country Caucus — now roughly 37 members of the U.S. House, united not by ideology but by shared service and a commitment to country over party. Looking to the 2026 midterms, With Honor is tracking 474 verified veteran candidates in federal races, with veteran candidacies expected to rise on both sides of the aisle.</p>
+      </div>
+
+      <aside class="factcard">
+        <h3>At a glance</h3>
+        <div class="factrow"><span class="fk">Founded</span><span class="fv"><b>2017</b> · Rye Barcott, Peter Dixon &amp; the late David Gergen</span></div>
+        <div class="factrow"><span class="fk">Mission</span><span class="fv">Fight polarization; strengthen democracy through principled veteran leadership</span></div>
+        <div class="factrow"><span class="fk">Research arm</span><span class="fv">With Honor Institute — 501(c)(3) nonpartisan</span></div>
+        <div class="factrow"><span class="fk">Values</span>
+          <span class="pledge"><span>Integrity</span><span>Civility</span><span>Courage</span></span>
+        </div>
+      </aside>
+    </div>
+
+    <div class="person">
+      <span class="ptag">The Principal</span>
+      <h3>Rye Barcott</h3>
+      <div class="prole">Co-Founder &amp; CEO, With Honor · U.S. Marine Corps veteran</div>
+      <p>Barcott's path blends military service, civic entrepreneurship and democracy reform. He served in the Marines in Iraq, Bosnia and the Horn of Africa. Before With Honor, he co-founded Carolina for Kibera, a community-development organization in the Kibera settlement of Nairobi, and wrote about that work and his service in <em>It Happened on the Way to War</em>. His graduate study at Harvard — and the Kennedy School's "Profiles in Courage" tradition — shaped a lasting interest in political courage. His public message isn't simply that veterans should hold office; it's that the country needs leaders with the courage to put country over party, build trust across difference, and take principled stands even when there's a political cost.</p>
+      <div class="bookcard">
+        <div class="spine" aria-hidden="true"></div>
+        <div class="bmeta">
+          <div class="btitle">Courage Can Save US</div>
+          <div class="bsub">Bloomsbury · June 9, 2026</div>
+          <p>Profiles ten leaders in public life — five Democrats and five Republicans — who took principled stands at real personal cost. Three years in the making; all author proceeds go to With Honor. The argument mirrors what the new survey now confirms: courage in public life hasn't vanished — it's just rare enough to be remarkable.</p>
+          <span class="badge">New York Times &amp; USA Today bestseller</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== RELATIONSHIP / HISTORY ===================== -->
+<section class="section" id="relationship">
+  <div class="wrap">
+    <p class="eyebrow"><span class="num">02</span> The relationship</p>
+    <h2 class="sec-title">From one custom module to a five-year platform</h2>
+    <p class="sec-lede">A short history in five phases. Select a phase to see the scope, the deliverables and what each step unlocked.</p>
+
+    <div class="tl-rail" role="tablist" aria-label="Relationship phases">
+      <button class="tl-chip active" role="tab" aria-selected="true" aria-controls="ph1" data-phase="1">
+        <div class="cph">Phase 1</div><div class="cwhen">Jul 2025</div><div class="ctit">Launch &amp; design</div>
+      </button>
+      <button class="tl-chip" role="tab" aria-selected="false" aria-controls="ph2" data-phase="2">
+        <div class="cph">Phase 2</div><div class="cwhen">Sep–Oct 2025</div><div class="ctit">First public release</div>
+      </button>
+      <button class="tl-chip" role="tab" aria-selected="false" aria-controls="ph3" data-phase="3">
+        <div class="cph">Phase 3</div><div class="cwhen">Dec 2025</div><div class="ctit">Benchmark integration</div>
+      </button>
+      <button class="tl-chip" role="tab" aria-selected="false" aria-controls="ph4" data-phase="4">
+        <div class="cph">Phase 4</div><div class="cwhen">Mar 2026</div><div class="ctit">The expansion</div>
+      </button>
+      <button class="tl-chip" role="tab" aria-selected="false" aria-controls="ph5" data-phase="5">
+        <div class="cph">Phase 5</div><div class="cwhen">Jun 2026</div><div class="ctit">Values releases</div>
+      </button>
+    </div>
+
+    <div class="tl-panel-wrap">
+      <div class="tl-panel active" id="ph1" role="tabpanel">
+        <div class="ph">Phase 1 · July 2025</div>
+        <h3>Launch &amp; design — trust in veterans</h3>
+        <p>The engagement was formalized in July 2025 around a focused question: how do Americans view veterans, and do they see military service as a meaningful qualification for leadership? <b>Year 1 was built around a custom veteran-leadership survey.</b></p>
+        <ul>
+          <li>A custom ~2-minute module (5–8 items), fielded to a nationally representative sample of ~2,000 U.S. adults on the Gallup Panel.</li>
+          <li>Gallup led survey design, data collection, analysis, toplines, a Gallup.com article and communications support — tied to With Honor's October 2025 gala.</li>
+        </ul>
+      </div>
+
+      <div class="tl-panel" id="ph2" role="tabpanel">
+        <div class="ph">Phase 2 · September–October 2025</div>
+        <h3>First public release — veterans as trusted leaders</h3>
+        <p>Announced September 3, 2025 as the first collaboration and <b>a landmark study on public trust in veterans</b>. The findings — "Military Experience Tops Candidate Credentials" — were released around Veterans Day.</p>
+        <ul>
+          <li>Positioned the work as the start of a broader effort to understand how Americans perceive veterans' role in society.</li>
+          <li>Established the candidate advantage (55% more likely) and a leadership profile: country-before-self, ability to work across difference, credibility in high-stakes settings.</li>
+          <li>Fielded Aug 1–15, 2025 (n=2,132); amplified through op-eds and partner coverage.</li>
+        </ul>
+      </div>
+
+      <div class="tl-panel" id="ph3" role="tabpanel">
+        <div class="ph">Phase 3 · December 2025</div>
+        <h3>Benchmark integration — Honesty &amp; Ethics</h3>
+        <p>The relationship moved into Gallup's longitudinal public-trust infrastructure. <b>Veterans were added to Gallup's annual Honesty &amp; Ethics ratings</b> (and the Confidence in Institutions track).</p>
+        <ul>
+          <li>Dec 1–15, 2025 poll; veterans debut at 67% — #2 behind nurses, ahead of doctors and pharmacists.</li>
+          <li>The clean talking point: veterans aren't just respected in a custom study — they rank among the most trusted groups in a benchmark tracked for decades.</li>
+          <li>Converts a one-time finding into a recurring, trendable signal.</li>
+        </ul>
+      </div>
+
+      <div class="tl-panel" id="ph4" role="tabpanel">
+        <div class="ph">Phase 4 · March 2026</div>
+        <h3>The expansion — America250, values &amp; courage</h3>
+        <p>A change order added a <b>five-year standalone public-opinion research program</b>, broadening the inquiry from trust in veterans to the values veterans — and With Honor's mission — are meant to represent: courage, integrity, service, civility, unity and principled leadership.</p>
+        <ul>
+          <li>An annual ~30-item, ~7-minute survey: a recurring core module plus rotating annual topics.</li>
+          <li>Gallup Panel fielding at n≈3,000; weighted, nationally representative results with demographic breakdowns.</li>
+          <li>Year-over-year tracking beginning in Year 2, with annual co-branded deliverables.</li>
+          <li>Themes span moral and physical courage, unity, national pride and optimism — framed around whether the values that made the country possible are still alive, and who's carrying them forward.</li>
+        </ul>
+      </div>
+
+      <div class="tl-panel" id="ph5" role="tabpanel">
+        <div class="ph">Phase 5 · June 2026</div>
+        <h3>Public values releases — renewal &amp; courage</h3>
+        <p>The first expanded releases, both drawn from the <b>May 12–22, 2026 survey</b>, connected With Honor's leadership mission to the country's 250th anniversary.</p>
+        <ul>
+          <li>The America250 article (June 17) — pride, connection and optimism as the nation approaches 250.</li>
+          <li>The Courage release (June 24) — the courage gap between home and Washington, and the cost of principled leadership.</li>
+          <li>Timed with Rye Barcott's bestselling <em>Courage Can Save US</em>, giving the data a human, cross-partisan face.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- WHAT THE NEW SURVEY MEASURES -->
+    <div class="arch">
+      <h3>What the new survey actually measures</h3>
+      <p class="lede">The 2026 work isn't a single courage question — it's a full values architecture, moving from how the country feels to where courage and unity actually live.</p>
+      <div class="arch-flow">
+        <div class="astep"><div class="an">01</div><h4>National climate</h4><p>The country's mood and each respondent's personal outlook — the baseline for everything that follows.</p></div>
+        <div class="astep"><div class="an">02</div><h4>Values index</h4><p>Which values Americans see as important, which are stronger or weaker, and who demonstrates them — everyday Americans vs. government leaders.</p></div>
+        <div class="astep"><div class="an">03</div><h4>Courage Barometer</h4><p>Separates moral courage from physical courage, and asks where Americans see each in public life.</p></div>
+        <div class="astep"><div class="an">04</div><h4>Unity framework</h4><p>Which institutions and experiences bring Americans together or push them apart — tying courage to depolarization.</p></div>
+      </div>
+
+      <div class="moral">
+        <div class="mt">The moral-courage items — mapped to With Honor's mission</div>
+        <h4>"Doing what you believe is right even when it's difficult, unpopular, or costly."</h4>
+        <p class="mdef">That's how the survey defines moral courage. The specific behaviors it tests are, almost line for line, the things With Honor asks its leaders to do:</p>
+        <div class="mgrid">
+          <div class="mi">Speaking up when someone is treated unfairly</div>
+          <div class="mi">Admitting when you are wrong</div>
+          <div class="mi">Disagreeing publicly with your own side</div>
+          <div class="mi">Standing by a decision despite personal attacks</div>
+          <div class="mi">Reaching out across deep disagreement to find common ground</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- KEY PERSONNEL + INTERNATIONAL -->
+    <div class="team">
+      <h3>Key personnel</h3>
+      <p class="lede">The people behind the partnership, across the research and account sides of the work.</p>
+      <div class="people">
+        <div class="pcard"><div class="prole2">Principal</div><div class="pname">Justin Lall</div></div>
+        <div class="pcard"><div class="prole2">Account lead</div><div class="pname">Michael Tilton</div></div>
+        <div class="pcard"><div class="prole2">Researcher</div><div class="pname">Ellyn Maese</div></div>
+        <div class="pcard"><div class="prole2">Communications lead</div><div class="pname">Kristjan Archer</div></div>
+      </div>
+      <div class="intl">
+        <div class="intl-tag">What's next</div>
+        <p>Gallup is proposing to take the partnership international, beginning with a companion study of courage and service in the United Kingdom — extending the U.S. values research into a second market.
+        <br><a href="https://global.gallupproposals.com/withhonor-gallup-uk.html" target="_blank" rel="noopener">Courage &amp; Service in the United Kingdom — With Honor × Gallup →</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== TALKING POINTS ===================== -->
+<section class="section" id="points">
+  <div class="wrap">
+    <p class="eyebrow"><span class="num">03</span> Key talking points</p>
+    <div class="tp-bar">
+      <p class="oneliner">"Americans trust veterans; Americans believe courage is declining; Americans want leaders who'll act with courage across divides. With Honor sits at the intersection of all three."</p>
+      <button class="copyall" id="copyAll" type="button">Copy all points</button>
+    </div>
+
+    <div class="tp-list" id="tpList">
+      <div class="tp">
+        <div class="tphead"><span class="tpn">1</span><span class="tpk">Where it started</span></div>
+        <p class="tpbody">Our partnership began with one question: do Americans still see veterans as trusted civic leaders? They do. <b>Military service is the single strongest positive credential we tested</b> — 55% more likely to vote for a veteran, just 7% less — and Americans credit veterans with strong leadership, putting country over party, and working across differences.</p>
+        <button class="copy" type="button">Copy</button>
+      </div>
+      <div class="tp">
+        <div class="tphead"><span class="tpn">2</span><span class="tpk">The benchmark</span></div>
+        <p class="tpbody">We then gave that trust a permanent home. When we added veterans to Gallup's Honesty and Ethics ratings for the first time, they came in <b>second only to nurses, at 67%</b>. In a year when most professions hit record lows, veterans are one of the few groups that still carry cross-partisan credibility.</p>
+        <button class="copy" type="button">Copy</button>
+      </div>
+      <div class="tp">
+        <div class="tphead"><span class="tpn">3</span><span class="tpk">The evolution</span></div>
+        <p class="tpbody">The work has grown from a veterans-and-trust study into a <b>multi-year platform on civic values and democracy</b>. The question now isn't only whether Americans trust veterans — it's whether the country still has enough courage, integrity, service and civility in public life, and who can carry those values forward.</p>
+        <button class="copy" type="button">Copy</button>
+      </div>
+      <div class="tp">
+        <div class="tphead"><span class="tpn">4</span><span class="tpk">The headline</span></div>
+        <p class="tpbody">Americans haven't lost faith in courage — they've stopped seeing it in Washington. <b>62% see courage in their own communities; only 30% in their elected leaders.</b> That 32-point gap is the story, and it's exactly the gap With Honor exists to close.</p>
+        <button class="copy" type="button">Copy</button>
+      </div>
+      <div class="tp">
+        <div class="tphead"><span class="tpn">5</span><span class="tpk">Essential but costly</span></div>
+        <p class="tpbody">Americans overwhelmingly say courage matters — 79% call it vital for leaders — yet <b>76% believe leaders are punished</b> for taking principled, unpopular stands. That's a direct opening for With Honor's message: the country needs leaders willing to absorb those costs.</p>
+        <button class="copy" type="button">Copy</button>
+      </div>
+      <div class="tp">
+        <div class="tphead"><span class="tpn">6</span><span class="tpk">Not partisan</span></div>
+        <p class="tpbody">The strongest signal in the data is that the appetite for courage and principled leadership <b>cuts across party lines</b>. Americans disagree on plenty, but they broadly agree leaders should stand up for what's right and work across the aisle even when it's risky.</p>
+        <button class="copy" type="button">Copy</button>
+      </div>
+      <div class="tp">
+        <div class="tphead"><span class="tpn">7</span><span class="tpk">The 250th frame</span></div>
+        <p class="tpbody">As the country turns 250, the research asks whether the values that made America possible are still alive and who's carrying them forward. Two-thirds plan to mark the milestone, <b>96% feel pride, and 88% see reason for optimism</b> — the most-cited reason being people willing to stand up for what they believe.</p>
+        <button class="copy" type="button">Copy</button>
+      </div>
+      <div class="tp">
+        <div class="tphead"><span class="tpn">8</span><span class="tpk">Why Gallup</span></div>
+        <p class="tpbody">Gallup is what lets With Honor <b>move from assertion to evidence</b> — a nonpartisan, methodologically rigorous way to talk about trust, veterans, courage and democracy. That credibility is the strategic value of the relationship in a low-trust environment.</p>
+        <button class="copy" type="button">Copy</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FINDINGS ===================== -->
+<section class="section" id="findings">
+  <div class="wrap">
+    <p class="eyebrow"><span class="num">04</span> Findings</p>
+    <h2 class="sec-title">Key insights from the Gallup–With Honor partnership</h2>
+    <p class="sec-lede">The research builds in a deliberate line — from "Do Americans trust veterans?" to "Does America still have the courage and values it needs, and who's carrying them forward?"</p>
+
+    <nav class="jump" aria-label="Jump to evidence">
+      <a href="#f-candidates"><span class="jn">A</span>Veterans as candidates</a>
+      <a href="#f-ethics"><span class="jn">B</span>Honesty &amp; Ethics</a>
+      <a href="#f-america250"><span class="jn">C</span>America at 250</a>
+      <a href="#f-courage"><span class="jn">D</span>The Courage Barometer</a>
+    </nav>
+
+    <!-- SIGNATURE: COURAGE GAP -->
+    <div class="gap-feature">
+      <div class="gap-copy">
+        <div class="tag">The headline finding · June 2026</div>
+        <h3>Americans still see courage. They just don't see it in <em>Washington</em>.</h3>
+        <p>Sixty-two percent say people in their own communities act with courage. Just 30% say the same of elected leaders — a 32-point gap. Asked which groups they most associate with courage, Americans name first responders and military personnel first; elected leaders rank near the bottom.</p>
+        <p>It is, almost exactly, the gap With Honor exists to close.</p>
+        <div class="src">With Honor–Gallup survey · n=3,199 U.S. adults · released June 24, 2026</div>
+      </div>
+      <div class="gap-viz" id="gapViz">
+        <div class="bar community">
+          <div class="col"><span class="pct">62%</span></div>
+          <div class="blab">In their own<br>community</div>
+        </div>
+        <div class="bar dc">
+          <div class="col"><span class="pct">30%</span></div>
+          <div class="blab">In elected<br>leaders</div>
+        </div>
+        <div class="gap-bracket"><div class="gnum">−32</div><div class="glab">point gap</div></div>
+      </div>
+    </div>
+
+    <!-- GROUP A -->
+    <div class="fgroup" id="f-candidates">
+      <div class="fgroup-head">
+        <span class="fnum">A</span>
+        <h3>Military experience tops candidate credentials</h3>
+        <span class="fwhen">Fielded Aug 1–15, 2025 · n=2,132 · ±3 pts</span>
+      </div>
+      <div class="statgrid">
+        <div class="stat hl"><div class="snum"><span class="count" data-target="55">0</span><span class="suf">%</span></div><div class="stxt"><b>more likely</b> to vote for a candidate with military service — vs. just 7% less likely. It beat government (52%) and business (46%) experience.</div></div>
+        <div class="stat"><div class="snum"><span class="count" data-target="83">0</span><span class="suf">%</span></div><div class="stxt">credit veterans with <b>strong leadership</b> — the top quality Americans attribute to those who served.</div></div>
+        <div class="stat"><div class="snum"><span class="count" data-target="78">0</span><span class="suf">%</span></div><div class="stxt">say veterans put <b>country ahead</b> of personal or partisan interests.</div></div>
+        <div class="stat"><div class="snum"><span class="count" data-target="77">0</span><span class="suf">%</span></div><div class="stxt">say veterans <b>work well</b> with people from different backgrounds.</div></div>
+        <div class="stat"><div class="snum"><span class="count" data-target="83">0</span><span class="suf">%</span></div><div class="stxt">trust veterans most to lead <b>disaster response</b>; 70% to shape foreign policy; 68% community leadership.</div></div>
+      </div>
+      <div class="fnote">Published as <b>"Military Experience Tops Candidate Credentials"</b> (Gallup.com, fall 2025) — the first public output of the partnership, timed around Veterans Day. It established the candidate advantage and the leadership profile in one stroke.</div>
+    </div>
+
+    <!-- GROUP B -->
+    <div class="fgroup" id="f-ethics">
+      <div class="fgroup-head">
+        <span class="fnum">B</span>
+        <h3>Veterans enter Gallup's Honesty &amp; Ethics benchmark</h3>
+        <span class="fwhen">Fielded Dec 1–15, 2025 · n=1,016 · ±4 pts</span>
+      </div>
+      <div class="statgrid">
+        <div class="stat hl"><div class="snum"><span class="count" data-target="67">0</span><span class="suf">%</span></div><div class="stxt">rate veterans' honesty and ethics <b>"very high" or "high"</b> — second only to nurses.</div></div>
+        <div class="stat"><div class="snum"><span class="count" data-target="75">0</span><span class="suf">%</span></div><div class="stxt">rate <b>nurses</b> #1 — veterans land just behind, ahead of doctors and pharmacists.</div></div>
+        <div class="stat"><div class="snum">4</div><div class="stxt">the only professions a <b>majority</b> calls highly ethical: nurses, veterans, doctors, pharmacists.</div></div>
+        <div class="stat"><div class="snum">1<span class="suf">st</span></div><div class="stxt">veterans' <b>debut year</b> on the list — added in partnership with With Honor.</div></div>
+      </div>
+      <div class="fnote">This is the strongest structural win. Veterans now sit inside one of Gallup's most established public-trust benchmarks — tracked for decades — rather than a one-off custom topic. And it landed in a year when most professions hit or neared <b>record lows</b>, which makes the standing all the more notable.</div>
+    </div>
+
+    <!-- GROUP C -->
+    <div class="fgroup" id="f-america250">
+      <div class="fgroup-head">
+        <span class="fnum">C</span>
+        <h3>America at 250: pride, connection, optimism</h3>
+        <span class="fwhen">Released June 17, 2026 · from the May 2026 survey</span>
+      </div>
+      <div class="statgrid">
+        <div class="stat hl"><div class="snum"><span class="count" data-target="66">0</span><span class="suf">%</span></div><div class="stxt">plan to <b>mark the 250th anniversary</b> in some way; 53% with social gatherings; 51% civically or educationally.</div></div>
+        <div class="stat"><div class="snum"><span class="count" data-target="96">0</span><span class="suf">%</span></div><div class="stxt">feel <b>proud</b> of the country in some way — top sources: freedoms (35%), diversity (28%), opportunity (24%).</div></div>
+        <div class="stat"><div class="snum"><span class="count" data-target="88">0</span><span class="suf">%</span></div><div class="stxt">name at least one reason for <b>optimism</b> about the future.</div></div>
+        <div class="stat"><div class="snum"><span class="count" data-target="26">0</span><span class="suf">%</span></div><div class="stxt">cite <b>people willing to stand up</b> for what they believe — the #1 source of optimism, ahead of freedoms and diversity.</div></div>
+      </div>
+      <div class="fnote">The story Gallup and With Honor told here is less about division and more about <b>connection</b>: across generations and party lines, Americans are finding ways to mark the milestone, and the single most-cited reason for optimism is the very thing courage is made of.</div>
+    </div>
+
+    <!-- GROUP D -->
+    <div class="fgroup" id="f-courage">
+      <div class="fgroup-head">
+        <span class="fnum">D</span>
+        <h3>The Courage Barometer</h3>
+        <span class="fwhen">Released June 24, 2026 · from the May 2026 survey</span>
+      </div>
+      <div class="statgrid">
+        <div class="stat hl"><div class="snum"><span class="count" data-target="67">0</span><span class="suf">%</span></div><div class="stxt">say courage in American society is <b>weaker than 20 years ago</b> (19% same, 13% stronger).</div></div>
+        <div class="stat"><div class="snum"><span class="count" data-target="69">0</span><span class="suf">%</span></div><div class="stxt">say <b>elected leaders</b> show less courage than 20 years ago; just 12% say more. (47% say young adults show less.)</div></div>
+        <div class="stat hl"><div class="snum"><span class="count" data-target="79">0</span><span class="suf">%</span></div><div class="stxt">say courage from <b>elected leaders is vital</b> to the nation's future; 96% say everyday Americans should act with courage.</div></div>
+        <div class="stat"><div class="snum"><span class="count" data-target="76">0</span><span class="suf">%</span></div><div class="stxt">believe leaders <b>lose</b> support or votes for a principled-but-unpopular stand within their own party; ~1 in 10 think they gain.</div></div>
+        <div class="stat"><div class="snum"><span class="count" data-target="87">0</span><span class="suf">%</span></div><div class="stxt">call it a <b>"major problem"</b> when leaders won't stand up for what they believe is right.</div></div>
+        <div class="stat"><div class="snum"><span class="count" data-target="70">0</span><span class="suf">%</span></div><div class="stxt">say someone's courage has <b>personally inspired</b> them — usually someone they know.</div></div>
+      </div>
+      <div class="fnote">Beneath the headline gap is the mechanism: Americans prize courage, believe it's declining where it matters most, and understand it carries real cost — for leaders and for themselves (44% worry about personal consequences for publicly disagreeing with their own side). That's the exact opening for With Honor's message: the country needs leaders willing to absorb those costs.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== METHODS / SOURCES / FOOTER ===================== -->
+<footer id="methods">
+  <div class="wrap">
+    <p class="eyebrow"><span class="num">05</span> Methods &amp; sources</p>
+    <h2>The numbers behind the talking points</h2>
+
+    <div class="meth-grid">
+      <div class="meth">
+        <div class="mh">Candidate credentials</div>
+        <div class="ml">Fielded <b>Aug 1–15, 2025</b><br>Gallup Panel · web<br>n = <b>2,132</b> U.S. adults<br>Margin of error <b>±3 pts</b></div>
+      </div>
+      <div class="meth">
+        <div class="mh">Honesty &amp; Ethics</div>
+        <div class="ml">Fielded <b>Dec 1–15, 2025</b><br>Telephone interviews<br>n = <b>1,016</b> U.S. adults<br>Margin of error <b>±4 pts</b></div>
+      </div>
+      <div class="meth">
+        <div class="mh">2026 values survey</div>
+        <div class="ml">Fielded <b>May 12–22, 2026</b><br>Gallup Panel · web<br>n = <b>3,199</b> U.S. adults<br>Margin of error <b>±2.1 pts</b> · weighted</div>
+      </div>
+    </div>
+
+    <!-- PUBLISHED RESEARCH -->
+    <div class="pubs-block">
+      <div class="ph2">Published research</div>
+      <p class="psub">The public-facing Gallup articles from the partnership, plus the launch announcement.</p>
+      <div class="pubs">
+        <a class="pub" href="https://news.gallup.com/poll/695648/military-experience-tops-candidate-credentials.aspx" target="_blank" rel="noopener">
+          <span class="pcat">Gallup · Fall 2025</span>
+          <span class="ptitle">Military Experience Tops Candidate Credentials<span class="arr">→</span></span>
+          <span class="pmeta">Veterans as candidates &amp; civic leaders</span>
+        </a>
+        <a class="pub" href="https://news.gallup.com/poll/700736/nurses-continue-lead-honesty-ethics-ratings.aspx" target="_blank" rel="noopener">
+          <span class="pcat">Gallup · January 2026</span>
+          <span class="ptitle">Nurses Continue to Lead in Honesty &amp; Ethics Ratings<span class="arr">→</span></span>
+          <span class="pmeta">Veterans debut at #2, behind nurses</span>
+        </a>
+        <a class="pub" href="https://news.gallup.com/poll/711530/beyond-fireworks-americans-mark-250th-anniversary.aspx" target="_blank" rel="noopener">
+          <span class="pcat">Gallup · June 17, 2026</span>
+          <span class="ptitle">Beyond Fireworks: How Americans Will Mark 250th Anniversary<span class="arr">→</span></span>
+          <span class="pmeta">Pride, connection &amp; optimism at 250</span>
+        </a>
+        <a class="pub" href="https://news.gallup.com/poll/711713/americans-say-courage-declining-nationwide.aspx" target="_blank" rel="noopener">
+          <span class="pcat">Gallup · June 24, 2026</span>
+          <span class="ptitle">Americans Say Courage Is Declining Nationwide<span class="arr">→</span></span>
+          <span class="pmeta">The Courage Barometer &amp; the Washington gap</span>
+        </a>
+        <a class="pub" href="https://withhonor.org/news/with-honor-gallup-courage-polling/" target="_blank" rel="noopener">
+          <span class="pcat">With Honor · June 24, 2026</span>
+          <span class="ptitle">Courage Is Vanishing in Washington — A New Book Says Otherwise<span class="arr">→</span></span>
+          <span class="pmeta">Co-branded release tied to <em>Courage Can Save US</em></span>
+        </a>
+        <a class="pub" href="https://www.prnewswire.com/news-releases/gallup-and-with-honor-institute-launch-landmark-study-on-public-trust-in-veterans-302544488.html" target="_blank" rel="noopener">
+          <span class="pcat">Announcement · September 3, 2025</span>
+          <span class="ptitle">Gallup &amp; With Honor Launch Landmark Study on Trust in Veterans<span class="arr">→</span></span>
+          <span class="pmeta">The partnership launch</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="colophon">
+      <span>Gallup × With Honor Institute · Internal meeting preparation</span>
+      <span>Sources: Gallup.com · withhonor.org · partnership drafts · Updated June 27, 2026</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---- mobile nav ---- */
+  var toggle = document.getElementById('navToggle');
+  var nav = document.getElementById('topnav');
+  if(toggle){
+    toggle.addEventListener('click', function(){
+      var open = nav.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', open ? 'true':'false');
+    });
+    nav.addEventListener('click', function(e){
+      if(e.target.tagName === 'A'){ nav.classList.remove('open'); toggle.setAttribute('aria-expanded','false'); }
+    });
+  }
+
+  /* ---- count up ---- */
+  function animateCount(el){
+    var target = parseFloat(el.getAttribute('data-target'));
+    if(reduce){ el.textContent = target; return; }
+    var dur = 1100, start = null;
+    function step(ts){
+      if(!start) start = ts;
+      var p = Math.min((ts - start)/dur, 1);
+      var eased = 1 - Math.pow(1 - p, 3);
+      var val = target * eased;
+      el.textContent = (target % 1 === 0) ? Math.round(val) : val.toFixed(1);
+      if(p < 1){ requestAnimationFrame(step); } else { el.textContent = target; }
+    }
+    requestAnimationFrame(step);
+  }
+  var counters = document.querySelectorAll('.count');
+  if('IntersectionObserver' in window && !reduce){
+    var co = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){ animateCount(en.target); co.unobserve(en.target); }
+      });
+    }, {threshold:0.6});
+    counters.forEach(function(c){ co.observe(c); });
+  } else {
+    counters.forEach(function(c){ c.textContent = c.getAttribute('data-target'); });
+  }
+
+  /* ---- courage gap reveal ---- */
+  var gv = document.getElementById('gapViz');
+  if(gv){
+    if(reduce){ gv.classList.add('show'); }
+    else if('IntersectionObserver' in window){
+      var go = new IntersectionObserver(function(entries){
+        entries.forEach(function(en){ if(en.isIntersecting){ gv.classList.add('show'); go.unobserve(en.target); }});
+      }, {threshold:0.4});
+      go.observe(gv);
+    } else { gv.classList.add('show'); }
+  }
+
+  /* ---- scrollspy nav ---- */
+  var links = Array.prototype.slice.call(document.querySelectorAll('.topnav a'));
+  var ids = links.map(function(l){ return l.getAttribute('href').slice(1); });
+  var sections = ids.map(function(id){ return document.getElementById(id); }).filter(Boolean);
+  if('IntersectionObserver' in window && sections.length){
+    var so = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){
+          var cur = en.target.id;
+          links.forEach(function(l){ l.classList.toggle('active', l.getAttribute('href') === '#'+cur); });
+        }
+      });
+    }, {rootMargin:'-45% 0px -50% 0px', threshold:0});
+    sections.forEach(function(s){ so.observe(s); });
+  }
+
+  /* ---- relationship timeline ---- */
+  var chips = Array.prototype.slice.call(document.querySelectorAll('.tl-chip'));
+  var panels = Array.prototype.slice.call(document.querySelectorAll('.tl-panel'));
+  function activate(idx){
+    chips.forEach(function(c,i){
+      var on = i === idx;
+      c.classList.toggle('active', on);
+      c.setAttribute('aria-selected', on ? 'true':'false');
+    });
+    panels.forEach(function(p,i){ p.classList.toggle('active', i === idx); });
+  }
+  chips.forEach(function(chip, i){
+    chip.addEventListener('click', function(){ activate(i); });
+    chip.addEventListener('keydown', function(e){
+      if(e.key === 'ArrowRight' || e.key === 'ArrowDown'){ e.preventDefault(); var n=(i+1)%chips.length; chips[n].focus(); activate(n); }
+      if(e.key === 'ArrowLeft' || e.key === 'ArrowUp'){ e.preventDefault(); var p=(i-1+chips.length)%chips.length; chips[p].focus(); activate(p); }
+    });
+  });
+
+  /* ---- copy to clipboard ---- */
+  function copyText(text){
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      return navigator.clipboard.writeText(text).catch(function(){ return fallbackCopy(text); });
+    }
+    return fallbackCopy(text);
+  }
+  function fallbackCopy(text){
+    return new Promise(function(resolve, reject){
+      try{
+        var ta = document.createElement('textarea');
+        ta.value = text; ta.style.position='fixed'; ta.style.opacity='0';
+        document.body.appendChild(ta); ta.focus(); ta.select();
+        document.execCommand('copy'); document.body.removeChild(ta); resolve();
+      }catch(err){ reject(err); }
+    });
+  }
+  function cleanPoint(tp){
+    var key = tp.querySelector('.tpk').textContent.trim();
+    var body = tp.querySelector('.tpbody').textContent.replace(/\s+/g,' ').trim();
+    return key.toUpperCase() + '\n' + body;
+  }
+  document.querySelectorAll('.tp .copy').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var tp = btn.closest('.tp');
+      copyText(cleanPoint(tp)).then(function(){
+        var orig = btn.innerHTML;
+        btn.classList.add('done'); btn.innerHTML = 'Copied \u2713';
+        setTimeout(function(){ btn.classList.remove('done'); btn.innerHTML = orig; }, 1600);
+      });
+    });
+  });
+  var copyAll = document.getElementById('copyAll');
+  if(copyAll){
+    copyAll.addEventListener('click', function(){
+      var all = Array.prototype.slice.call(document.querySelectorAll('#tpList .tp')).map(cleanPoint).join('\n\n');
+      copyText(all).then(function(){
+        var orig = copyAll.textContent; copyAll.textContent = 'Copied all \u2713';
+        setTimeout(function(){ copyAll.textContent = orig; }, 1800);
+      });
+    });
+  }
+})();
+</script>
+</body>
+</html>
