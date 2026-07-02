@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gallup Custom Research — Partnership Overview</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--gd:#0e1c28;--gd-mid:#162a3a;--gg:#006d5b;--gg-deep:#004d3f;--gg-light:#008a73;--gg-wash:rgba(0,109,91,0.05);--ww:#faf9f6;--wg:#f2f0eb;--bd:#e2dfda;--tx:#1a1a2e;--tx2:#5c6478;--txm:#8d93a1;--fd:'Playfair Display',Georgia,serif;--fb:'DM Sans',-apple-system,sans-serif}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{font-family:var(--fb);color:var(--tx);background:var(--ww);-webkit-font-smoothing:antialiased}::selection{background:var(--gg);color:#fff}
+.pw-overlay{position:fixed;inset:0;z-index:9999;background:var(--gd);display:flex;align-items:center;justify-content:center;transition:opacity .5s,visibility .5s}.pw-overlay.hidden{opacity:0;visibility:hidden;pointer-events:none}
+.pw-box{text-align:center;color:#fff;max-width:380px;width:90%}.pw-logo{font-family:Georgia,serif;font-weight:400;font-size:1.4rem;letter-spacing:.28em;text-transform:uppercase;color:#fff;margin-bottom:.4rem}.pw-sub{font-size:.72rem;color:rgba(255,255,255,.4);letter-spacing:.08em;text-transform:uppercase;margin-bottom:2.5rem}
+.pw-input{width:100%;padding:.85rem 1.2rem;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:8px;font-family:var(--fb);font-size:.92rem;color:#fff;outline:none;transition:border-color .2s;margin-bottom:.8rem}.pw-input::placeholder{color:rgba(255,255,255,.3)}.pw-input:focus{border-color:var(--gg)}
+.pw-btn{width:100%;padding:.85rem;background:var(--gg);border:none;border-radius:8px;font-family:var(--fb);font-size:.88rem;font-weight:600;color:#fff;cursor:pointer;transition:background .2s}.pw-btn:hover{background:var(--gg-light)}
+.pw-error{font-size:.78rem;color:#e5634d;margin-top:.6rem;display:none}.pw-error.show{display:block}
+.site-content{display:none}.site-content.visible{display:block}
+.site-header{position:sticky;top:0;z-index:100;background:rgba(250,249,246,.92);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--bd)}.header-inner{max-width:1200px;margin:0 auto;padding:.9rem 2.5rem;display:flex;align-items:center;justify-content:space-between}
+.logo-gallup{font-family:Georgia,serif;font-weight:400;font-size:1.1rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gd)}.logo-tagline{font-family:var(--fb);font-size:.6rem;font-weight:500;color:var(--txm);letter-spacing:.08em;text-transform:uppercase;margin-top:.1rem}
+.hero{position:relative;overflow:hidden;background:var(--gd);color:#fff;padding:6rem 2.5rem 5rem}.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 15% 70%,rgba(0,109,91,.1) 0%,transparent 60%),radial-gradient(ellipse 60% 50% at 85% 20%,rgba(255,255,255,.03) 0%,transparent 60%)}.hero::after{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.012'%3E%3Cpath d='M40 0l2 2-2 2-2-2 2-2zm0 76l2 2-2 2-2-2 2-2z'/%3E%3C/g%3E%3C/svg%3E")}
+.hero-inner{max-width:900px;margin:0 auto;position:relative;z-index:1}.hero-label{display:inline-block;font-size:.68rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--gg-light);margin-bottom:1.8rem;animation:fadeUp .6s ease both}
+.hero h1{font-family:var(--fd);font-weight:500;font-size:clamp(2.6rem,5.5vw,3.8rem);line-height:1.12;margin-bottom:1.5rem;animation:fadeUp .6s .08s ease both}.hero h1 em{font-style:italic;color:var(--gg-light)}
+.hero-sub{font-size:1.08rem;line-height:1.78;color:rgba(255,255,255,.68);max-width:640px;font-weight:300;animation:fadeUp .6s .16s ease both}
+.hero-stats{display:flex;gap:2.5rem;margin-top:3rem;animation:fadeUp .6s .24s ease both}.hero-stat-n{font-family:var(--fd);font-weight:600;font-size:2rem;color:var(--gg-light)}.hero-stat-label{font-size:.72rem;font-weight:500;color:rgba(255,255,255,.4);letter-spacing:.08em;text-transform:uppercase;margin-top:.15rem}
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+.section{max-width:1200px;margin:0 auto;padding:5rem 2.5rem}.section-narrow{max-width:860px}.section-label{font-size:.68rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--gg);margin-bottom:.6rem}.section-title{font-family:var(--fd);font-weight:500;font-size:clamp(1.8rem,3.5vw,2.4rem);line-height:1.2;color:var(--gd);margin-bottom:.8rem}.section-subtitle{font-size:1rem;color:var(--tx2);line-height:1.72;max-width:640px}.section-divider{max-width:1200px;margin:0 auto;padding:0 2.5rem}.section-divider hr{border:none;height:1px;background:var(--bd)}
+.narrative{max-width:860px;margin:0 auto}.narrative p{font-size:1.05rem;line-height:1.82;color:var(--tx);margin-bottom:1.4rem}.narrative p:first-of-type::first-letter{font-family:var(--fd);font-size:3.4rem;font-weight:600;float:left;line-height:.85;margin:.08rem .6rem 0 0;color:var(--gd)}
+.callout{position:relative;margin:3rem 0;padding:2.2rem 2.5rem;background:var(--gg-wash);border-left:3px solid var(--gg);border-radius:0 8px 8px 0}.callout p{font-family:var(--fd);font-size:1.25rem;line-height:1.6;color:var(--gd);font-weight:500;font-style:italic;margin:0}
+.panel-block{background:var(--gd);color:#fff;border-radius:14px;padding:3rem;display:grid;grid-template-columns:1fr 1fr;gap:3rem;margin-top:2rem}.panel-block h3{font-family:var(--fd);font-weight:600;font-size:1.5rem;line-height:1.3;margin-bottom:1rem}.panel-block p{font-size:.92rem;line-height:1.78;color:rgba(255,255,255,.68);margin-bottom:1rem}
+.panel-stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}.panel-stat{padding:1.2rem;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:10px}.panel-stat-n{font-family:var(--fd);font-weight:700;font-size:1.6rem;color:var(--gg-light);margin-bottom:.2rem}.panel-stat-l{font-size:.72rem;color:rgba(255,255,255,.45);letter-spacing:.06em;text-transform:uppercase;font-weight:500}
+.pulse-callout{margin-top:2.5rem;padding:2.2rem 2.5rem;background:#fff;border:2px solid var(--gg);border-radius:12px;display:grid;grid-template-columns:auto 1fr;gap:1.5rem;align-items:center}.pulse-icon{width:56px;height:56px;background:var(--gg);border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0}.pulse-icon svg{width:28px;height:28px}.pulse-callout h4{font-family:var(--fd);font-weight:600;font-size:1.15rem;color:var(--gd);margin-bottom:.3rem}.pulse-callout p{font-size:.88rem;line-height:1.65;color:var(--tx2);margin:0}.pulse-link{display:inline-block;margin-top:.5rem;font-size:.78rem;font-weight:600;color:var(--gg);text-decoration:none;letter-spacing:.02em}.pulse-link:hover{text-decoration:underline}
+.method-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem;margin-top:2.5rem}.method-card{padding:1.5rem 1.4rem;background:#fff;border:1px solid var(--bd);border-radius:10px}.method-card h4{font-family:var(--fd);font-weight:600;font-size:1rem;color:var(--gd);margin-bottom:.5rem}.method-card p{font-size:.82rem;line-height:1.65;color:var(--tx2)}
+.approach-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:2.5rem}.approach-card{padding:2rem 1.8rem;background:#fff;border:1px solid var(--bd);border-radius:10px;transition:transform .2s,box-shadow .2s}.approach-card:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(10,22,40,.06)}.approach-num{font-family:var(--fd);font-weight:700;font-size:2rem;color:var(--gg);line-height:1;margin-bottom:.8rem}.approach-card h3{font-family:var(--fd);font-weight:600;font-size:1.15rem;color:var(--gd);margin-bottom:.6rem}.approach-card p{font-size:.88rem;line-height:1.72;color:var(--tx2)}
+
+/* ENGAGEMENT TYPES */
+.engagements-bg{background:var(--wg)}
+.eng-block{margin-bottom:4rem}
+.eng-block:last-child{margin-bottom:0}
+.eng-type-header{display:flex;align-items:center;gap:1rem;margin-bottom:.4rem}
+.eng-type-num{font-family:var(--fd);font-weight:700;font-size:2.2rem;color:var(--gg);line-height:1}
+.eng-type-name{font-family:var(--fd);font-weight:600;font-size:1.5rem;color:var(--gd)}
+.eng-range{display:inline-block;padding:.4rem .9rem;background:var(--gd);color:var(--gg-light);border-radius:6px;font-size:.75rem;font-weight:700;letter-spacing:.04em;font-variant-numeric:tabular-nums;margin-bottom:1rem}
+.eng-desc{font-size:.95rem;line-height:1.78;color:var(--tx2);max-width:800px;margin-bottom:1.5rem}
+.eng-includes{display:grid;grid-template-columns:repeat(4,1fr);gap:.6rem;margin-bottom:1.5rem}
+.eng-inc{padding:.7rem .9rem;background:#fff;border:1px solid var(--bd);border-radius:7px;text-align:center}
+.eng-inc-icon{font-size:1.3rem;margin-bottom:.3rem}
+.eng-inc-label{font-size:.68rem;font-weight:600;color:var(--tx);letter-spacing:.02em;line-height:1.3}
+.eng-case{background:#fff;border:1px solid var(--bd);border-radius:12px;overflow:hidden}
+.eng-case-header{padding:1.4rem 1.8rem;background:linear-gradient(135deg,var(--gd),var(--gd-mid));color:#fff;display:flex;align-items:center;justify-content:space-between}
+.eng-case-label{font-size:.62rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gg-light);margin-bottom:.2rem}
+.eng-case-name{font-family:var(--fd);font-weight:600;font-size:1.1rem}
+.eng-case-since{font-size:.72rem;color:rgba(255,255,255,.5);font-weight:500}
+.eng-case-body{padding:1.6rem 1.8rem}
+.eng-case-desc{font-size:.88rem;line-height:1.72;color:var(--tx2);margin-bottom:1.2rem}
+.eng-impact{padding:1rem 1.4rem;background:var(--gg-wash);border-left:3px solid var(--gg);border-radius:0 8px 8px 0;margin-bottom:1.2rem}
+.eng-impact p{font-size:.85rem;line-height:1.6;color:var(--gd);font-weight:500;margin:0}
+.eng-channels{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1.2rem}
+.eng-ch{display:inline-flex;align-items:center;gap:.35rem;padding:.35rem .7rem;background:var(--wg);border-radius:5px;font-size:.68rem;font-weight:600;color:var(--tx2);letter-spacing:.02em}
+.eng-ch svg{width:12px;height:12px;flex-shrink:0;opacity:.6}
+.coverage-label{font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--txm);margin-bottom:.6rem}
+.coverage-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.7rem}
+.cov-card{display:block;padding:.9rem 1.1rem;background:var(--wg);border:1px solid var(--bd);border-radius:8px;text-decoration:none;transition:all .2s}.cov-card:hover{border-color:var(--gd);transform:translateY(-2px);box-shadow:0 4px 16px rgba(10,22,40,.06)}
+.cov-outlet{font-size:.62rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gg);margin-bottom:.25rem}.cov-headline{font-size:.78rem;font-weight:600;line-height:1.4;color:var(--gd);margin-bottom:.2rem}.cov-date{font-size:.65rem;color:var(--txm)}
+
+.timeline-steps{margin-top:2.5rem}.tl-step{display:grid;grid-template-columns:100px 24px 1fr;gap:0 1.2rem;align-items:start;min-height:100px}.tl-time{font-size:.75rem;font-weight:600;color:var(--txm);letter-spacing:.04em;text-transform:uppercase;text-align:right;padding-top:.1rem}.tl-track{display:flex;flex-direction:column;align-items:center}.tl-dot{width:12px;height:12px;border-radius:50%;background:var(--gd);border:3px solid var(--ww);box-shadow:0 0 0 2px var(--gd);flex-shrink:0}.tl-dot.green{background:var(--gg);box-shadow:0 0 0 2px var(--gg)}.tl-line{width:2px;flex:1;background:var(--bd);margin:4px 0}.tl-step:last-child .tl-line{display:none}.tl-content{padding-bottom:2rem}.tl-title{font-weight:700;font-size:.92rem;color:var(--gd);margin-bottom:.3rem}.tl-desc{font-size:.82rem;line-height:1.65;color:var(--tx2)}
+.footer{background:var(--gd);color:rgba(255,255,255,.35);padding:2.5rem;text-align:center;font-size:.72rem;line-height:1.7}
+
+@media(max-width:920px){.approach-grid,.method-grid{grid-template-columns:1fr 1fr}.panel-block{grid-template-columns:1fr}.eng-includes{grid-template-columns:repeat(2,1fr)}.coverage-grid{grid-template-columns:1fr 1fr}.pulse-callout{grid-template-columns:1fr}}
+@media(max-width:600px){.approach-grid,.method-grid{grid-template-columns:1fr}.hero-stats{flex-direction:column;gap:1rem}.coverage-grid{grid-template-columns:1fr}.eng-includes{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<div class="pw-overlay" id="pwOverlay"><div class="pw-box"><div class="pw-logo">GALLUP</div><div class="pw-sub">Custom Research Partnership</div><div style="margin-bottom:.8rem"><input type="password" class="pw-input" id="pwInput" placeholder="Enter password" onkeydown="if(event.key==='Enter')checkPw()"></div><button class="pw-btn" onclick="checkPw()">Access Proposal</button><div class="pw-error" id="pwError">Incorrect password. Please try again.</div></div></div>
+<div class="site-content" id="siteContent">
+<header class="site-header"><div class="header-inner"><div><div class="logo-gallup">GALLUP</div><div class="logo-tagline">Custom Research Partnership</div></div></div></header>
+<section class="hero"><div class="hero-inner">
+<div class="hero-label">Gallup Custom Research</div>
+<h1>Rigorous Research. <em>Independent Voice.</em> Lasting Impact.</h1>
+<p class="hero-sub">For more than eight decades, Gallup has partnered with foundations, nonprofits, and mission-driven organizations to produce the survey research that shapes policy, drives media narratives, and moves public understanding forward &mdash; combining world-class methodology with the credibility and reach that the Gallup name carries.</p>
+<div class="hero-stats">
+<div><div class="hero-stat-n">100K+</div><div class="hero-stat-label">U.S. Panel Members</div></div>
+<div><div class="hero-stat-n">168+</div><div class="hero-stat-label">Countries Surveyed</div></div>
+<div><div class="hero-stat-n">85+</div><div class="hero-stat-label">Years of Research</div></div>
+<div><div class="hero-stat-n">30M+</div><div class="hero-stat-label">Annual Readers</div></div>
+</div>
+</div></section>
+
+<!-- NARRATIVE -->
+<section class="section section-narrow"><div class="narrative">
+<p>Gallup's custom research partnerships begin with the questions an organization cares about most and the audiences those answers need to reach. Research objectives, activation strategy, and communications goals are defined collaboratively &mdash; so that every element of the engagement, from instrument design to public release, is built around what matters to the partner.</p>
+<p>What Gallup contributes is the scientific rigor, operational scale, and institutional credibility that make the resulting findings trusted by policymakers, cited by journalists, and taken seriously by the public. The Gallup Panel &mdash; the largest probability-based research panel in the country &mdash; provides the methodological foundation, while Gallup's strategic communications team and 30-million-reader editorial platform ensure findings don't just exist, but land.</p>
+<div class="callout"><p>Gallup research is cited by heads of state, central banks, the United Nations, and virtually every major news organization in the world &mdash; because the methodology behind every number is designed to withstand scrutiny.</p></div>
+</div></section>
+<div class="section-divider"><hr></div>
+<!-- GALLUP PANEL -->
+<section class="section">
+<div class="section-label">The Gallup Panel</div>
+<div class="section-title">The Largest Probability-Based Research Panel in the United States</div>
+<div class="section-subtitle">More than 100,000 U.S. adults recruited via address-based sampling &mdash; ensuring every adult has a known, nonzero probability of selection and results can be generalized to the full U.S. adult population with known margins of error.</div>
+<div class="panel-block">
+<div>
+<h3>Why the Gallup Panel Is Different</h3>
+<p>Unlike opt-in internet panels, the Gallup Panel is built on probability-based recruitment. Members are selected through address-based sampling (ABS) from the USPS Delivery Sequence File, which covers virtually every residential address in the country. This means Gallup Panel results can be generalized to the full U.S. adult population with known margins of error &mdash; the gold standard for survey research.</p>
+<p>The panel's robust size enables precise targeting of subpopulations, oversamples of hard-to-reach groups, and rapid deployment of custom surveys. For more than 20 years, Gallup has used the panel to help partners collect high-quality, accurate data on the topics that matter most to their organizations.</p>
+</div>
+<div>
+<div class="panel-stat-grid">
+<div class="panel-stat"><div class="panel-stat-n">100K+</div><div class="panel-stat-l">Active U.S. Adults</div></div>
+<div class="panel-stat"><div class="panel-stat-n">ABS</div><div class="panel-stat-l">Address-Based Sampling</div></div>
+<div class="panel-stat"><div class="panel-stat-n">99%</div><div class="panel-stat-l">U.S. Household Coverage</div></div>
+<div class="panel-stat"><div class="panel-stat-n">20+ yrs</div><div class="panel-stat-l">Continuous Operation</div></div>
+</div>
+</div>
+</div>
+<div class="pulse-callout">
+<div class="pulse-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+<div>
+<h4>Gallup Panel Pulse &mdash; Omnibus Surveys</h4>
+<p>In addition to fully custom studies, Gallup fields the Gallup Panel Pulse &mdash; an omnibus survey of U.S. adults that allows organizations to add their own questions to a nationally representative survey on a regular schedule. The Pulse is designed for tracking a small set of items &mdash; such as an index, a set of awareness metrics, or emerging attitudes around topics like AI adoption &mdash; over time throughout the year, powered by the same probability-based methodology that underpins all Gallup Panel research.</p>
+<a href="https://www.gallup.com/analytics/647432/gallup-pulse.aspx" target="_blank" class="pulse-link">Learn more on Gallup.com &rarr;</a>
+</div>
+</div>
+<div class="method-grid">
+<div class="method-card"><h4>Survey Design</h4><p>Every instrument is custom-built by Gallup research scientists. Includes cognitive testing, question validation, and cultural adaptation to ensure concepts measure what they are intended to measure.</p></div>
+<div class="method-card"><h4>Data Collection</h4><p>Web-based data collection through the Gallup Panel, with options for telephone supplementation and address-based sampling to reach populations underrepresented online.</p></div>
+<div class="method-card"><h4>Weighting &amp; Analysis</h4><p>Multi-stage weighting using iterative proportional fitting (raking) to align sample demographics with the most current Census Bureau estimates. Full subgroup analysis and crosstabulations.</p></div>
+<div class="method-card"><h4>Reporting &amp; Delivery</h4><p>Comprehensive analytical reports with executive summaries, data visualizations, and full methodological documentation. Raw datasets delivered cleaned, weighted, and documented.</p></div>
+</div>
+</section>
+<div class="section-divider"><hr></div>
+
+<!-- APPROACH -->
+<section class="section">
+<div class="section-label">Engagement Approach</div>
+<div class="section-title">From Instrument to Impact</div>
+<div class="section-subtitle">Every engagement follows Gallup's structured, consultative process &mdash; beginning with the partner's priorities and working backward to design the program that serves them.</div>
+<div class="approach-grid">
+<div class="approach-card"><div class="approach-num">01</div><h3>Survey Design &amp; Piloting</h3><p>Collaborative instrument development with the partner's research team. Includes literature review, item development, cognitive interviews, survey programming, and translation where applicable. Designed for a 10&ndash;15 minute respondent experience.</p></div>
+<div class="approach-card"><div class="approach-num">02</div><h3>Data Collection &amp; Analysis</h3><p>Fielding via the Gallup Panel with real-time quality monitoring. Multi-stage weighting, full demographic and attitudinal crosstabulations, and deep-dive analysis across subgroups. Qualitative research &mdash; key informant interviews and in-depth interviews &mdash; can run in parallel.</p></div>
+<div class="approach-card"><div class="approach-num">03</div><h3>Reporting &amp; Communications</h3><p>Findings delivered as a polished analytical report with executive summary, data visualizations, and methodological appendix. Optional communications support &mdash; launch events, media pitching, social content, convenings &mdash; ensures findings reach policymakers, media, and the public through Gallup's global platform.</p></div>
+</div>
+</section>
+<div class="section-divider"><hr></div>
+<!-- ENGAGEMENT TYPES -->
+<section class="section engagements-bg">
+<div class="section-label">Engagement Models</div>
+<div class="section-title">How Gallup Partnerships Are Structured</div>
+<div class="section-subtitle" style="margin-bottom:3rem;">Gallup custom research partnerships range from a single study to a multi-year research center with ongoing data collection, events, dashboards, and an active media program. The engagement model depends on the research questions, the audiences, and the level of sustained impact the partner is looking for. Below are four models Gallup regularly operates, each with an example partnership.</div>
+
+<!-- TYPE 1: RESEARCH CENTER -->
+<div class="eng-block">
+<div class="eng-type-header"><div class="eng-type-num">01</div><div class="eng-type-name">Research Center</div></div>
+<div class="eng-range">Typically $3M &ndash; $5M per year</div>
+<p class="eng-desc">A standing, jointly branded research and communications operation. The partner and Gallup establish a named center that produces original research on an ongoing basis, maintains public-facing data products, drives an active media and policy program, and convenes stakeholders around findings. This model is designed for organizations seeking to become the definitive, trusted source on a major public issue &mdash; with Gallup's brand and methodology anchoring the credibility of every finding.</p>
+<div class="eng-includes">
+<div class="eng-inc"><div class="eng-inc-icon">📊</div><div class="eng-inc-label">Multiple Annual Surveys</div></div>
+<div class="eng-inc"><div class="eng-inc-icon">📈</div><div class="eng-inc-label">Interactive Data Dashboard</div></div>
+<div class="eng-inc"><div class="eng-inc-icon">🏛️</div><div class="eng-inc-label">Policy Briefings &amp; Convenings</div></div>
+<div class="eng-inc"><div class="eng-inc-icon">📰</div><div class="eng-inc-label">Tier-One Media Program</div></div>
+<div class="eng-inc"><div class="eng-inc-icon">🗺️</div><div class="eng-inc-label">State-Level Data Products</div></div>
+<div class="eng-inc"><div class="eng-inc-icon">📄</div><div class="eng-inc-label">Reports &amp; Publications</div></div>
+<div class="eng-inc"><div class="eng-inc-icon">🎥</div><div class="eng-inc-label">Video &amp; Social Content</div></div>
+<div class="eng-inc"><div class="eng-inc-icon">🔁</div><div class="eng-inc-label">Longitudinal Tracking</div></div>
+</div>
+<div class="eng-case">
+<div class="eng-case-header"><div><div class="eng-case-label">Case Study</div><div class="eng-case-name">West Health &times; Gallup Center on Healthcare in America</div></div><div class="eng-case-since">Est. 2018</div></div>
+<div class="eng-case-body">
+<p class="eng-case-desc">Since 2018, West Health and Gallup have operated the Center on Healthcare in America &mdash; a joint initiative tracking how Americans experience cost, quality, and access in the healthcare system. The Center conducts multiple surveys per year (including an annual Gallup Panel study of ~5,600 adults and a state-representative ABS survey of ~20,000 adults), maintains the Healthcare Affordability and Value Indices, publishes state-by-state rankings, operates a public interactive data dashboard, and drives an active media and policy communications program.</p>
+<div class="eng-impact"><p>West Health&ndash;Gallup findings have been cited in connection with the Inflation Reduction Act, referenced by members of Congress in healthcare cost debates, covered by The Washington Post, The New York Times, CNN, ABC News, Axios, and Harvard Business Review, and shaped the national conversation on healthcare affordability since 2019.</p></div>
+<div class="eng-channels">
+<div class="eng-ch"><svg viewBox="0 0 16 16" fill="currentColor"><rect x="2" y="3" width="12" height="10" rx="1"/><path d="M2 5l6 4 6-4" fill="none" stroke="currentColor" stroke-width="1.2"/></svg>Washington Post</div>
+<div class="eng-ch"><svg viewBox="0 0 16 16" fill="currentColor"><rect x="2" y="3" width="12" height="10" rx="1"/><path d="M2 5l6 4 6-4" fill="none" stroke="currentColor" stroke-width="1.2"/></svg>New York Times</div>
+<div class="eng-ch"><svg viewBox="0 0 16 16" fill="currentColor"><rect x="2" y="3" width="12" height="10" rx="1"/><path d="M2 5l6 4 6-4" fill="none" stroke="currentColor" stroke-width="1.2"/></svg>CNN</div>
+<div class="eng-ch"><svg viewBox="0 0 16 16" fill="currentColor"><rect x="2" y="3" width="12" height="10" rx="1"/><path d="M2 5l6 4 6-4" fill="none" stroke="currentColor" stroke-width="1.2"/></svg>ABC News</div>
+<div class="eng-ch"><svg viewBox="0 0 16 16" fill="currentColor"><rect x="2" y="3" width="12" height="10" rx="1"/><path d="M2 5l6 4 6-4" fill="none" stroke="currentColor" stroke-width="1.2"/></svg>Axios</div>
+<div class="eng-ch"><svg viewBox="0 0 16 16" fill="currentColor"><rect x="2" y="3" width="12" height="10" rx="1"/><path d="M2 5l6 4 6-4" fill="none" stroke="currentColor" stroke-width="1.2"/></svg>Harvard Business Review</div>
+<div class="eng-ch"><svg viewBox="0 0 16 16" fill="currentColor"><circle cx="8" cy="8" r="5.5" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M8 5v4l2.5 1.5" fill="none" stroke="currentColor" stroke-width="1.2"/></svg>Interactive Dashboard</div>
+<div class="eng-ch"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M3 3h10v10H3z" fill="none" stroke="currentColor" stroke-width="1.2" rx="1"/><path d="M6 7l2 2 4-4" fill="none" stroke="currentColor" stroke-width="1.2"/></svg>Policy Citations</div>
+</div>
+<div class="coverage-label">Selected Coverage</div>
+<div class="coverage-grid">
+<a class="cov-card" href="https://www.washingtonpost.com/politics/2026/06/18/healthcare-insurance-health-care-costs-poll-aca/e057b97c-6aca-11f1-830e-133d20cadd28_story.html" target="_blank"><div class="cov-outlet">Washington Post</div><div class="cov-headline">How many Americans can afford high-quality healthcare? A new poll finds the number has fallen</div><div class="cov-date">June 2026</div></a>
+<a class="cov-card" href="https://www.cnn.com/2026/03/12/health/americans-health-care-expenses-costs" target="_blank"><div class="cov-outlet">CNN</div><div class="cov-headline">Millions of Americans are skipping meals or cutting back on utilities to afford health care</div><div class="cov-date">March 2026</div></a>
+<a class="cov-card" href="https://westhealth.gallup.com/" target="_blank"><div class="cov-outlet">Gallup &times; West Health</div><div class="cov-headline">Center on Healthcare in America &mdash; Interactive Data Platform</div><div class="cov-date">Ongoing</div></a>
+</div>
+</div>
+</div>
+</div>
+
+<!-- TYPE 2: ANNUAL FLAGSHIP STUDY -->
+<div class="eng-block">
+<div class="eng-type-header"><div class="eng-type-num">02</div><div class="eng-type-name">Annual Flagship Study</div></div>
+<div class="eng-range">Typically $1M &ndash; $2M per year</div>
+<p class="eng-desc">A single, large-scale annual survey that becomes the definitive data source on a topic &mdash; producing multiple thematic reports, Gallup.com articles, and media moments throughout the year from one foundational data collection. The study is designed for repetition, building longitudinal trend data that grows more valuable and more cited with each wave. This model is ideal for organizations that want to own the annual conversation on a major issue in education, health, workforce, or public life.</p>
+<div class="eng-includes">
+<div class="eng-inc"><div class="eng-inc-icon">📊</div><div class="eng-inc-label">Large-Scale Annual Survey</div></div>
+<div class="eng-inc"><div class="eng-inc-icon">📑</div><div class="eng-inc-label">Multiple Thematic Reports</div></div>
+<div class="eng-inc"><div class="eng-inc-icon">📰</div><div class="eng-inc-label">Gallup.com Articles</div></div>
+<div class="eng-inc"><div class="eng-inc-icon">🔁</div><div class="eng-inc-label">Trend Tracking Year-over-Year</div></div>
+<div class="eng-inc"><div class="eng-inc-icon">🎤</div><div class="eng-inc-label">Conference Presentations</div></div>
+<div class="eng-inc"><div class="eng-inc-icon">📄</div><div class="eng-inc-label">Full Dataset Delivery</div></div>
+<div class="eng-inc"><div class="eng-inc-icon">🌐</div><div class="eng-inc-label">Research Hub on Gallup.com</div></div>
+<div class="eng-inc"><div class="eng-inc-icon">📈</div><div class="eng-inc-label">Earned Media Coverage</div></div>
+</div>
+<div class="eng-case">
+<div class="eng-case-header"><div><div class="eng-case-label">Case Study</div><div class="eng-case-name">Lumina Foundation &times; Gallup State of Higher Education</div></div><div class="eng-case-since">Est. 2020</div></div>
+<div class="eng-case-body">
+<p class="eng-case-desc">Since 2020, Lumina Foundation and Gallup have produced the State of Higher Education study &mdash; an annual survey of more than 14,000 adults across three audience segments (adults without a degree, college graduates, and employers). The partnership produces multiple reports per year (State of Higher Education, Alumni Perspectives, Employer Alignment), each timed for maximum policy relevance, and maintains an interactive research hub on Gallup.com.</p>
+<div class="eng-impact"><p>Lumina&ndash;Gallup data has become the most widely cited annual tracker of public attitudes toward higher education in the United States. Findings on confidence in higher education, the AI-driven shift in student major choices, and the cost-vs.-value gap are regularly covered by Forbes, CNBC, Inside Higher Ed, and the Chronicle of Higher Education, and cited by university presidents and policy organizations nationwide.</p></div>
+<div class="eng-channels">
+<div class="eng-ch"><svg viewBox="0 0 16 16" fill="currentColor"><rect x="2" y="3" width="12" height="10" rx="1"/><path d="M2 5l6 4 6-4" fill="none" stroke="currentColor" stroke-width="1.2"/></svg>CNBC</div>
+<div class="eng-ch"><svg viewBox="0 0 16 16" fill="currentColor"><rect x="2" y="3" width="12" height="10" rx="1"/><path d="M2 5l6 4 6-4" fill="none" stroke="currentColor" stroke-width="1.2"/></svg>Forbes</div>
+<div class="eng-ch"><svg viewBox="0 0 16 16" fill="currentColor"><rect x="2" y="3" width="12" height="10" rx="1"/><path d="M2 5l6 4 6-4" fill="none" stroke="currentColor" stroke-width="1.2"/></svg>Inside Higher Ed</div>
+<div class="eng-ch"><svg viewBox="0 0 16 16" fill="currentColor"><rect x="2" y="3" width="12" height="10" rx="1"/><path d="M2 5l6 4 6-4" fill="none" stroke="currentColor" stroke-width="1.2"/></svg>Chronicle of Higher Ed</div>
+<div class="eng-ch"><svg viewBox="0 0 16 16" fill="currentColor"><circle cx="8" cy="8" r="5.5" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M8 5v4l2.5 1.5" fill="none" stroke="currentColor" stroke-width="1.2"/></svg>Research Hub</div>
+<div class="eng-ch"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M3 3h10v10H3z" fill="none" stroke="currentColor" stroke-width="1.2" rx="1"/><path d="M6 7l2 2 4-4" fill="none" stroke="currentColor" stroke-width="1.2"/></svg>University &amp; Policy Citations</div>
+</div>
+<div class="coverage-label">Selected Coverage</div>
+<div class="coverage-grid">
+<a class="cov-card" href="https://www.cnbc.com/2026/04/09/47percent-of-college-students-have-seriously-considered-changing-majors-due-to-ai-survey.html" target="_blank"><div class="cov-outlet">CNBC</div><div class="cov-headline">47% of college students have seriously considered changing majors due to AI</div><div class="cov-date">April 2026</div></a>
+<a class="cov-card" href="https://www.forbes.com/sites/michaeltnietzel/2025/09/13/gallup-public-perception-of-a-college-education-hits-a-15-year-low/" target="_blank"><div class="cov-outlet">Forbes</div><div class="cov-headline">Public Perception of a College Education Hits a 15-Year Low</div><div class="cov-date">September 2025</div></a>
+<a class="cov-card" href="https://www.gallup.com/analytics/644939/state-of-higher-education.aspx" target="_blank"><div class="cov-outlet">Gallup.com</div><div class="cov-headline">State of Higher Education Research Hub</div><div class="cov-date">Ongoing</div></a>
+</div>
+</div>
+</div>
+</div>
+
+<!-- TYPE 3: POPULATION TRACKING PROGRAM -->
+<div class="eng-block">
+<div class="eng-type-header"><div class="eng-type-num">03</div><div class="eng-type-name">Population Tracking Program</div></div>
+<div class="eng-range">Typically $1.5M &ndash; $2.5M per year</div>
+<p class="eng-desc">A multi-survey annual program designed to track attitudes, experiences, and outcomes within a specific population over time. Unlike the flagship study model, a tracking program fields multiple distinct surveys each year &mdash; each with a different thematic focus &mdash; building a rolling, multi-dimensional portrait of a generation, workforce segment, or demographic group. Reports are released throughout the year, creating sustained media touchpoints and an ongoing public conversation anchored by the data.</p>
+<div class="eng-includes">
+<div class="eng-inc"><div class="eng-inc-icon">📊</div><div class="eng-inc-label">Multiple Surveys Per Year</div></div>
+<div class="eng-inc"><div class="eng-inc-icon">👥</div><div class="eng-inc-label">Population-Specific Panel</div></div>
+<div class="eng-inc"><div class="eng-inc-icon">🗺️</div><div class="eng-inc-label">State-Level Oversamples</div></div>
+<div class="eng-inc"><div class="eng-inc-icon">📄</div><div class="eng-inc-label">Annual Flagship Report</div></div>
+<div class="eng-inc"><div class="eng-inc-icon">🌐</div><div class="eng-inc-label">Dedicated Insights Platform</div></div>
+<div class="eng-inc"><div class="eng-inc-icon">🎥</div><div class="eng-inc-label">Video &amp; Social Content</div></div>
+<div class="eng-inc"><div class="eng-inc-icon">📰</div><div class="eng-inc-label">Rolling Media Releases</div></div>
+<div class="eng-inc"><div class="eng-inc-icon">🎤</div><div class="eng-inc-label">Conference &amp; Convening Support</div></div>
+</div>
+<div class="eng-case">
+<div class="eng-case-header"><div><div class="eng-case-label">Case Study</div><div class="eng-case-name">Walton Family Foundation &times; Gallup Voices of Gen Z</div></div><div class="eng-case-since">Est. 2023</div></div>
+<div class="eng-case-body">
+<p class="eng-case-desc">The Walton Family Foundation and Gallup operate one of the largest national research programs tracking Generation Z. Now in its third year, the Voices of Gen Z study fields multiple surveys annually of ~3,800 Gen Zers (ages 13&ndash;28) via the Gallup Panel, covering education, mental health, career readiness, AI, civic engagement, and family life. The partnership includes state-level oversamples, a dedicated public-facing insights platform, and topical deep-dives released throughout the year on STEM, rural youth, parenting, and more.</p>
+<div class="eng-impact"><p>Voices of Gen Z has become one of the most comprehensive generational tracking studies in the country. Findings on student engagement, Gen Z mental health, and the AI-preparedness gap have been covered by CNN, NBC, and Newsweek, and the program's data is used by education policymakers, school leaders, and the Walton Foundation's own grantmaking strategy.</p></div>
+<div class="eng-channels">
+<div class="eng-ch"><svg viewBox="0 0 16 16" fill="currentColor"><rect x="2" y="3" width="12" height="10" rx="1"/><path d="M2 5l6 4 6-4" fill="none" stroke="currentColor" stroke-width="1.2"/></svg>CNN</div>
+<div class="eng-ch"><svg viewBox="0 0 16 16" fill="currentColor"><rect x="2" y="3" width="12" height="10" rx="1"/><path d="M2 5l6 4 6-4" fill="none" stroke="currentColor" stroke-width="1.2"/></svg>NBC</div>
+<div class="eng-ch"><svg viewBox="0 0 16 16" fill="currentColor"><rect x="2" y="3" width="12" height="10" rx="1"/><path d="M2 5l6 4 6-4" fill="none" stroke="currentColor" stroke-width="1.2"/></svg>Newsweek</div>
+<div class="eng-ch"><svg viewBox="0 0 16 16" fill="currentColor"><circle cx="8" cy="8" r="5.5" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M8 5v4l2.5 1.5" fill="none" stroke="currentColor" stroke-width="1.2"/></svg>Insights Platform</div>
+<div class="eng-ch"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M4 2l8 6-8 6z" fill="none" stroke="currentColor" stroke-width="1.2"/></svg>Video Interviews</div>
+<div class="eng-ch"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M3 3h10v10H3z" fill="none" stroke="currentColor" stroke-width="1.2" rx="1"/><path d="M6 7l2 2 4-4" fill="none" stroke="currentColor" stroke-width="1.2"/></svg>Education Policy Citations</div>
+</div>
+<div class="coverage-label">Selected Coverage</div>
+<div class="coverage-grid">
+<a class="cov-card" href="https://www.cnn.com/2026/06/24/health/gen-z-purpose-gallup-poll-wellness" target="_blank"><div class="cov-outlet">CNN</div><div class="cov-headline">Gen Zers want to make a positive impact but fears get in the way</div><div class="cov-date">June 2026</div></a>
+<a class="cov-card" href="https://www.waltonfamilyfoundation.org/about-us/newsroom/gen-z-divide-students-thrive-adults-face-challenges-new-gallup-survey-finds" target="_blank"><div class="cov-outlet">Walton Family Foundation</div><div class="cov-headline">Gen Z Divide: Students Thrive, Adults Face Challenges</div><div class="cov-date">August 2025</div></a>
+<a class="cov-card" href="https://nextgeninsights.waltonfamilyfoundation.org/" target="_blank"><div class="cov-outlet">Next Gen Insights</div><div class="cov-headline">Voices of Gen Z &mdash; Dedicated Insights Platform</div><div class="cov-date">Ongoing</div></a>
+</div>
+</div>
+</div>
+</div>
+
+<!-- TYPE 4: BENCHMARK STUDY -->
+<div class="eng-block">
+<div class="eng-type-header"><div class="eng-type-num">04</div><div class="eng-type-name">National Benchmark Study</div></div>
+<div class="eng-range">Typically $500K &ndash; $1M</div>
+<p class="eng-desc">A single, large-scale nationally representative survey designed to establish the first authoritative measurement of an issue &mdash; creating a benchmark that defines the conversation and can be repeated in future waves. This model works well for coalitions and multi-funder partnerships, where Gallup's methodology and brand give the data the credibility needed to influence policy, media, and industry practice. The resulting dataset and methodology can be made publicly available to maximize downstream research impact.</p>
+<div class="eng-includes">
+<div class="eng-inc"><div class="eng-inc-icon">📊</div><div class="eng-inc-label">Large-Scale National Survey</div></div>
+<div class="eng-inc"><div class="eng-inc-icon">📄</div><div class="eng-inc-label">Flagship Report</div></div>
+<div class="eng-inc"><div class="eng-inc-icon">📰</div><div class="eng-inc-label">Press Launch &amp; Media Pitching</div></div>
+<div class="eng-inc"><div class="eng-inc-icon">🌐</div><div class="eng-inc-label">Public Dataset Release</div></div>
+<div class="eng-inc"><div class="eng-inc-icon">🔁</div><div class="eng-inc-label">Designed for Annual Repetition</div></div>
+<div class="eng-inc"><div class="eng-inc-icon">🤝</div><div class="eng-inc-label">Multi-Funder Model</div></div>
+<div class="eng-inc"><div class="eng-inc-icon">📑</div><div class="eng-inc-label">Ongoing Thematic Reports</div></div>
+<div class="eng-inc"><div class="eng-inc-icon">📈</div><div class="eng-inc-label">Wire Service Distribution</div></div>
+</div>
+<div class="eng-case">
+<div class="eng-case-header"><div><div class="eng-case-label">Case Study</div><div class="eng-case-name">Jobs for the Future &times; Gallup American Job Quality Study</div></div><div class="eng-case-since">2025</div></div>
+<div class="eng-case-body">
+<p class="eng-case-desc">Jobs for the Future (JFF), the Families &amp; Workers Fund, and the W.E. Upjohn Institute for Employment Research commissioned Gallup to design and field the American Job Quality Study &mdash; the first nationally representative survey to measure how 18,000+ American workers experience their jobs across five core dimensions of quality. Gallup fielded the survey using the Gallup Panel and address-based sampling, and the full dataset and methodology were released publicly to maximize downstream research and policy impact.</p>
+<div class="eng-impact"><p>The AJQS finding that only 40% of U.S. workers hold quality jobs established a new national benchmark and was distributed via PR Newswire, covered by Yahoo Finance and industry outlets, and cited by workforce development organizations and the former Commissioner of the Bureau of Labor Statistics. The study's ongoing thematic reports continue to generate coverage and policy attention.</p></div>
+<div class="eng-channels">
+<div class="eng-ch"><svg viewBox="0 0 16 16" fill="currentColor"><rect x="2" y="3" width="12" height="10" rx="1"/><path d="M2 5l6 4 6-4" fill="none" stroke="currentColor" stroke-width="1.2"/></svg>PR Newswire</div>
+<div class="eng-ch"><svg viewBox="0 0 16 16" fill="currentColor"><rect x="2" y="3" width="12" height="10" rx="1"/><path d="M2 5l6 4 6-4" fill="none" stroke="currentColor" stroke-width="1.2"/></svg>Yahoo Finance</div>
+<div class="eng-ch"><svg viewBox="0 0 16 16" fill="currentColor"><circle cx="8" cy="8" r="5.5" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M8 5v4l2.5 1.5" fill="none" stroke="currentColor" stroke-width="1.2"/></svg>Public Dataset</div>
+<div class="eng-ch"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M3 3h10v10H3z" fill="none" stroke="currentColor" stroke-width="1.2" rx="1"/><path d="M6 7l2 2 4-4" fill="none" stroke="currentColor" stroke-width="1.2"/></svg>BLS Commissioner Citation</div>
+<div class="eng-ch"><svg viewBox="0 0 16 16" fill="currentColor"><rect x="2" y="3" width="12" height="10" rx="1"/><path d="M2 5l6 4 6-4" fill="none" stroke="currentColor" stroke-width="1.2"/></svg>Gallup.com Research Hub</div>
+</div>
+<div class="coverage-label">Selected Coverage</div>
+<div class="coverage-grid">
+<a class="cov-card" href="https://www.jff.org/landmark-gallup-study-shows-less-than-half-of-u-s-workers-have-a-quality-job/" target="_blank"><div class="cov-outlet">JFF / Gallup</div><div class="cov-headline">Less Than Half of U.S. Workers Have a Quality Job</div><div class="cov-date">October 2025</div></a>
+<a class="cov-card" href="https://news.gallup.com/poll/703376/self-employed-workers-employees-hold-quality-jobs.aspx" target="_blank"><div class="cov-outlet">Gallup.com</div><div class="cov-headline">46% of Self-Employed Workers Hold Quality Jobs</div><div class="cov-date">April 2026</div></a>
+<a class="cov-card" href="https://www.gallup.com/analytics/691241/american-job-quality-study.aspx" target="_blank"><div class="cov-outlet">Gallup.com</div><div class="cov-headline">American Job Quality Study &mdash; Research Hub</div><div class="cov-date">Ongoing</div></a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<div class="section-divider"><hr></div>
+<!-- TIMELINE -->
+<section class="section section-narrow">
+<div class="section-label">Illustrative Timeline</div>
+<div class="section-title">From Kickoff to Findings</div>
+<div class="section-subtitle" style="margin-bottom:.5rem;">A typical engagement follows this cadence. Timelines adjust based on scope and may accelerate or extend depending on qualitative and communications activities.</div>
+<div class="timeline-steps">
+<div class="tl-step"><div class="tl-time">Weeks 1&ndash;6</div><div class="tl-track"><div class="tl-dot"></div><div class="tl-line"></div></div><div class="tl-content"><div class="tl-title">Project Launch &amp; Survey Design</div><div class="tl-desc">Stakeholder alignment, literature review, instrument development, cognitive testing, survey programming. Translation and cultural adaptation if applicable.</div></div></div>
+<div class="tl-step"><div class="tl-time">Weeks 7&ndash;14</div><div class="tl-track"><div class="tl-dot"></div><div class="tl-line"></div></div><div class="tl-content"><div class="tl-title">Data Collection &amp; Quality Monitoring</div><div class="tl-desc">Fielding via the Gallup Panel with real-time response rate monitoring, data quality checks, and demographic benchmarking. Key informant interviews conducted in parallel if selected.</div></div></div>
+<div class="tl-step"><div class="tl-time">Weeks 15&ndash;18</div><div class="tl-track"><div class="tl-dot"></div><div class="tl-line"></div></div><div class="tl-content"><div class="tl-title">Weighting, Analysis &amp; Reporting</div><div class="tl-desc">Multi-stage data weighting, crosstabulations, subgroup analysis. Analytical report development with data visualizations and executive summary.</div></div></div>
+<div class="tl-step"><div class="tl-time">Weeks 18&ndash;20</div><div class="tl-track"><div class="tl-dot green"></div><div class="tl-line"></div></div><div class="tl-content"><div class="tl-title">Report Delivery &amp; Gallup.com Publication</div><div class="tl-desc">Final report delivered with full dataset. Gallup.com feature article published with global distribution. Executive briefing and dataset handoff.</div></div></div>
+<div class="tl-step"><div class="tl-time">Weeks 20+</div><div class="tl-track"><div class="tl-dot green"></div></div><div class="tl-content"><div class="tl-title">Communications &amp; Amplification</div><div class="tl-desc">If applicable: launch events, media pitching, satellite media tours, social content production, and convening support. Activities can extend over several months depending on scope.</div></div></div>
+</div>
+</section>
+
+<div class="section-divider"><hr></div>
+
+<!-- GLOBAL -->
+<section class="section">
+<div class="section-label">Global Capabilities</div>
+<div class="section-title">Beyond the U.S. &mdash; World-Class Global Reach</div>
+<div class="section-subtitle" style="margin-bottom:0;">For clients requiring international research, Gallup's World Poll infrastructure can extend any custom engagement to 168+ countries. Contact us to discuss global scope options.</div>
+<div class="panel-block" style="margin-top:2rem;">
+<div>
+<h3>The Gallup World Poll</h3>
+<p>Conducted annually across 168+ countries and territories covering 99% of the world's adult population, the Gallup World Poll is the most comprehensive continuous global survey program in existence. Gallup's established vendor networks, proven translation protocols, and decades of experience fielding attitudinal research across diverse political environments make it uniquely positioned to deliver cross-national research at the highest standard of quality and independence.</p>
+</div>
+<div>
+<div class="panel-stat-grid">
+<div class="panel-stat"><div class="panel-stat-n">168+</div><div class="panel-stat-l">Countries Surveyed</div></div>
+<div class="panel-stat"><div class="panel-stat-n">99%</div><div class="panel-stat-l">Global Pop. Coverage</div></div>
+<div class="panel-stat"><div class="panel-stat-n">140+</div><div class="panel-stat-l">Languages Supported</div></div>
+<div class="panel-stat"><div class="panel-stat-n">18 yrs</div><div class="panel-stat-l">Continuous Operation</div></div>
+</div>
+</div>
+</div>
+</section>
+
+<div class="footer">
+All scope and investment details are illustrative and subject to final scoping discussions.<br>
+Copyright &copy; 2026 Gallup, Inc. All rights reserved. Confidential and proprietary.
+</div>
+
+</div><!-- end site-content -->
+
+<script>
+var PW_HASH='gallup2026';
+function checkPw(){
+  var v=document.getElementById('pwInput').value;
+  if(v===PW_HASH){document.getElementById('pwOverlay').classList.add('hidden');document.getElementById('siteContent').classList.add('visible');}
+  else{document.getElementById('pwError').classList.add('show');document.getElementById('pwInput').value='';document.getElementById('pwInput').focus();}
+}
+document.getElementById('pwInput').focus();
+</script>
+</body>
+</html>
