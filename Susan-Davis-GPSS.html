@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Add Your Questions to the Gallup Poll — Gallup Poll Social Series</title>
+<style>
+:root {
+  --green-900:#062a1e;
+  --green-800:#0a3a29;
+  --green-700:#0e4a34;
+  --green:#136647;
+  --green-600:#157a54;
+  --green-accent:#1f9d67;
+  --green-pale:#e9f3ec;
+  --green-wash:rgba(19,102,71,0.05);
+  --white:#ffffff;
+  --paper:#f6f8f6;
+  --paper-2:#eef2ee;
+  --line:#dbe3dd;
+  --ink:#111b16;
+  --muted:#586b60;
+  --faint:#8b978f;
+  --display:Georgia,'Times New Roman',serif;
+  --body:Arial,Helvetica,sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:var(--body);color:var(--ink);background:var(--white);-webkit-font-smoothing:antialiased;line-height:1.5;}
+::selection{background:var(--green-accent);color:#fff;}
+
+/* ---------- Header ---------- */
+.site-header{position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.94);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line);}
+.header-inner{max-width:1200px;margin:0 auto;padding:0.85rem 2.5rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;}
+.logo-gallup{font-family:var(--body);font-weight:700;font-size:1.15rem;letter-spacing:0.02em;color:var(--green-700);}
+.logo-sub{display:block;font-size:0.58rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--faint);margin-top:2px;}
+.header-actions{display:flex;align-items:center;gap:0.6rem;}
+.btn-header{display:flex;align-items:center;gap:0.45rem;padding:0.55rem 1rem;border:none;border-radius:4px;font-family:var(--body);font-size:0.72rem;font-weight:700;letter-spacing:0.03em;text-transform:uppercase;cursor:pointer;transition:all 0.18s ease;}
+.btn-header svg{width:14px;height:14px;flex-shrink:0;}
+.btn-invest{background:var(--green-700);color:#fff;}
+.btn-invest:hover{background:var(--green-800);}
+.btn-export{background:#fff;color:var(--green-700);border:1px solid var(--line)!important;}
+.btn-export:hover{background:var(--paper);}
+.btn-email{background:var(--green-accent);color:#fff;}
+.btn-email:hover{background:var(--green-600);}
+
+/* ---------- Hero ---------- */
+.hero{position:relative;overflow:hidden;background:var(--green-800);color:#fff;padding:6rem 2.5rem 5rem;}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 12% 78%,rgba(31,157,103,0.22) 0%,transparent 60%),radial-gradient(ellipse 55% 50% at 88% 12%,rgba(255,255,255,0.05) 0%,transparent 60%);}
+.hero-inner{max-width:960px;margin:0 auto;position:relative;z-index:1;}
+.hero-eyebrow{display:inline-block;font-family:var(--body);font-size:0.66rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--green-accent);margin-bottom:1.6rem;padding:0.35rem 0.8rem;border:1px solid rgba(31,157,103,0.5);border-radius:3px;animation:fadeUp 0.6s ease both;}
+.hero h1{font-family:var(--display);font-weight:400;font-size:clamp(2.2rem,4.8vw,3.4rem);line-height:1.12;letter-spacing:0.01em;text-transform:uppercase;margin-bottom:1.5rem;animation:fadeUp 0.6s 0.08s ease both;}
+.hero h1 em{font-style:normal;color:var(--green-accent);}
+.hero-sub{font-size:1.06rem;line-height:1.75;color:rgba(255,255,255,0.72);max-width:660px;animation:fadeUp 0.6s 0.16s ease both;}
+.hero-stats{display:flex;flex-wrap:wrap;gap:2.6rem;margin-top:3rem;animation:fadeUp 0.6s 0.24s ease both;}
+.hero-stat-n{font-family:var(--display);font-weight:700;font-size:2rem;color:var(--green-accent);}
+.hero-stat-label{font-family:var(--body);font-size:0.66rem;font-weight:700;color:rgba(255,255,255,0.5);letter-spacing:0.12em;text-transform:uppercase;margin-top:0.25rem;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:translateY(0);}}
+
+/* ---------- Sections ---------- */
+.section{max-width:1200px;margin:0 auto;padding:5rem 2.5rem;}
+.section-narrow{max-width:840px;}
+.section-label{font-family:var(--body);font-size:0.66rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--green-600);margin-bottom:0.7rem;}
+.section-title{font-family:var(--display);font-weight:400;font-size:clamp(1.7rem,3.4vw,2.3rem);line-height:1.18;letter-spacing:0.01em;text-transform:uppercase;color:var(--green-800);margin-bottom:0.9rem;}
+.section-subtitle{font-size:1rem;color:var(--muted);line-height:1.7;max-width:660px;}
+.section-divider{max-width:1200px;margin:0 auto;padding:0 2.5rem;}
+.section-divider hr{border:none;height:1px;background:var(--line);}
+
+/* ---------- Narrative ---------- */
+.narrative{max-width:840px;margin:0 auto;}
+.narrative p{font-size:1.05rem;line-height:1.85;color:var(--ink);margin-bottom:1.35rem;}
+.narrative p:first-of-type::first-letter{font-family:var(--display);font-size:3.3rem;font-weight:700;float:left;line-height:0.82;margin:0.1rem 0.55rem 0 0;color:var(--green-700);}
+.pull{margin:2.8rem 0;padding:2rem 2.4rem;background:var(--green-wash);border-left:3px solid var(--green-accent);border-radius:0 6px 6px 0;}
+.pull p{font-family:var(--display);font-size:1.3rem;line-height:1.55;color:var(--green-800);font-style:italic;margin:0;}
+.pull cite{display:block;margin-top:0.8rem;font-family:var(--body);font-size:0.72rem;font-style:normal;font-weight:700;color:var(--faint);letter-spacing:0.08em;text-transform:uppercase;}
+
+/* ---------- Timeline (history) ---------- */
+.history{background:var(--green-800);color:#fff;}
+.history .section-title{color:#fff;}
+.history .section-label{color:var(--green-accent);}
+.history .section-subtitle{color:rgba(255,255,255,0.66);}
+.hist-track{margin-top:3rem;display:grid;grid-template-columns:repeat(6,1fr);gap:0;position:relative;}
+.hist-track::before{content:'';position:absolute;top:9px;left:0;right:0;height:2px;background:rgba(255,255,255,0.16);}
+.hist-item{position:relative;padding:0 0.8rem;}
+.hist-dot{width:18px;height:18px;border-radius:50%;background:var(--green-accent);border:3px solid var(--green-800);position:relative;z-index:1;margin-bottom:1.4rem;}
+.hist-year{font-family:var(--display);font-weight:700;font-size:1.5rem;color:var(--green-accent);margin-bottom:0.4rem;}
+.hist-text{font-size:0.82rem;line-height:1.6;color:rgba(255,255,255,0.72);}
+.hist-text strong{color:#fff;font-weight:700;}
+
+/* ---------- Framework / measure cards ---------- */
+.cards-3{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;margin-top:2.6rem;}
+.info-card{padding:2rem 1.8rem;background:#fff;border:1px solid var(--line);border-radius:8px;transition:transform 0.18s ease,box-shadow 0.18s ease;}
+.info-card:hover{transform:translateY(-3px);box-shadow:0 10px 26px rgba(14,74,52,0.08);}
+.info-card-icon{width:42px;height:42px;background:var(--green-700);border-radius:6px;display:flex;align-items:center;justify-content:center;margin-bottom:1.2rem;}
+.info-card-icon svg{width:22px;height:22px;}
+.info-card h3{font-family:var(--display);font-weight:700;font-size:1.05rem;letter-spacing:0.03em;text-transform:uppercase;color:var(--green-800);margin-bottom:0.55rem;}
+.info-card p{font-size:0.87rem;line-height:1.7;color:var(--muted);}
+
+/* ---------- Methodology ---------- */
+.method-grid{display:grid;grid-template-columns:1.1fr 0.9fr;gap:2.6rem;align-items:start;margin-top:2.4rem;}
+.method-list{list-style:none;}
+.method-list li{padding:1rem 0;border-bottom:1px solid var(--line);display:flex;gap:0.9rem;align-items:flex-start;}
+.method-list li:last-child{border-bottom:none;}
+.method-check{width:20px;height:20px;flex-shrink:0;border-radius:50%;background:var(--green-pale);display:flex;align-items:center;justify-content:center;margin-top:2px;}
+.method-check svg{width:11px;height:11px;}
+.method-li-title{font-weight:700;font-size:0.9rem;color:var(--green-800);margin-bottom:0.15rem;}
+.method-li-desc{font-size:0.84rem;line-height:1.6;color:var(--muted);}
+.method-stat-panel{background:var(--green-700);border-radius:10px;padding:2rem;color:#fff;}
+.method-stat{padding:1.1rem 0;border-bottom:1px solid rgba(255,255,255,0.12);}
+.method-stat:last-child{border-bottom:none;}
+.method-stat-n{font-family:var(--display);font-weight:700;font-size:1.8rem;color:var(--green-accent);}
+.method-stat-l{font-size:0.72rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-top:0.2rem;}
+
+/* ---------- Cited ---------- */
+.cited-band{background:var(--paper);}
+.cited-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;margin-top:2.4rem;}
+.cited-card{background:#fff;border:1px solid var(--line);border-radius:8px;padding:1.8rem;}
+.cited-card h4{font-family:var(--display);font-weight:700;font-size:0.98rem;letter-spacing:0.02em;text-transform:uppercase;color:var(--green-800);margin-bottom:0.5rem;}
+.cited-card p{font-size:0.85rem;line-height:1.68;color:var(--muted);}
+
+/* ---------- Process ---------- */
+.process{margin-top:2.8rem;display:grid;grid-template-columns:repeat(5,1fr);border:1px solid var(--line);border-radius:10px;overflow:hidden;background:#fff;}
+.proc-step{padding:1.9rem 1.4rem;border-right:1px solid var(--line);position:relative;}
+.proc-step:last-child{border-right:none;}
+.proc-num{font-family:var(--display);font-weight:700;font-size:1.9rem;color:var(--green-accent);line-height:1;margin-bottom:0.7rem;}
+.proc-title{font-weight:700;font-size:0.82rem;letter-spacing:0.02em;text-transform:uppercase;color:var(--green-800);margin-bottom:0.5rem;}
+.proc-desc{font-size:0.8rem;line-height:1.6;color:var(--muted);}
+.cadence{margin-top:2rem;background:var(--green-pale);border:1px solid var(--line);border-radius:10px;padding:1.6rem 2rem;display:flex;align-items:center;gap:1.4rem;}
+.cadence-icon{width:48px;height:48px;flex-shrink:0;background:var(--green-700);border-radius:8px;display:flex;align-items:center;justify-content:center;}
+.cadence-icon svg{width:24px;height:24px;}
+.cadence-text h4{font-family:var(--display);font-weight:700;font-size:1.05rem;letter-spacing:0.02em;text-transform:uppercase;color:var(--green-800);margin-bottom:0.25rem;}
+.cadence-text p{font-size:0.88rem;line-height:1.6;color:var(--muted);}
+
+/* ---------- Configurator ---------- */
+.config-section{background:var(--paper);}
+.config-container{display:grid;grid-template-columns:1fr 350px;gap:2.6rem;align-items:start;}
+.config-main{min-width:0;}
+.cfg-block{margin-bottom:2.4rem;}
+.cfg-block-label{font-family:var(--body);font-size:0.66rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--faint);margin-bottom:0.4rem;}
+.cfg-block-title{font-family:var(--display);font-weight:700;font-size:1.15rem;letter-spacing:0.02em;text-transform:uppercase;color:var(--green-800);margin-bottom:0.4rem;}
+.cfg-block-help{font-size:0.86rem;line-height:1.6;color:var(--muted);margin-bottom:1.2rem;}
+
+.minutes-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+.min-card{background:#fff;border:2px solid var(--line);border-radius:10px;padding:1.5rem 1.6rem;cursor:pointer;transition:all 0.18s ease;user-select:none;}
+.min-card:hover{border-color:var(--green-accent);}
+.min-card.active{border-color:var(--green-700);background:linear-gradient(135deg,rgba(14,74,52,0.03),rgba(31,157,103,0.06));}
+.min-card-top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:0.4rem;}
+.min-card-mins{font-family:var(--display);font-weight:700;font-size:1.5rem;color:var(--green-800);letter-spacing:0.01em;}
+.min-card-price{font-family:var(--display);font-weight:700;font-size:1.35rem;color:var(--green-700);}
+.min-card-desc{font-size:0.82rem;line-height:1.55;color:var(--muted);}
+.min-card-badge{display:inline-block;font-size:0.58rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;background:var(--green-pale);color:var(--green-600);padding:0.15rem 0.5rem;border-radius:3px;margin-top:0.7rem;}
+
+.output-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+.out-card{background:#fff;border:2px solid var(--line);border-radius:10px;padding:1.4rem 1.5rem;cursor:pointer;transition:all 0.18s ease;user-select:none;display:flex;gap:0.9rem;align-items:flex-start;}
+.out-card:hover{border-color:var(--green-accent);}
+.out-card.active{border-color:var(--green-700);background:linear-gradient(135deg,rgba(14,74,52,0.03),rgba(31,157,103,0.06));}
+.out-radio{width:20px;height:20px;flex-shrink:0;border:2px solid var(--line);border-radius:50%;margin-top:2px;display:flex;align-items:center;justify-content:center;transition:all 0.15s ease;}
+.out-card.active .out-radio{border-color:var(--green-700);}
+.out-radio::after{content:'';width:10px;height:10px;border-radius:50%;background:var(--green-700);transform:scale(0);transition:transform 0.15s ease;}
+.out-card.active .out-radio::after{transform:scale(1);}
+.out-title{font-weight:700;font-size:0.9rem;color:var(--green-800);margin-bottom:0.25rem;}
+.out-desc{font-size:0.8rem;line-height:1.55;color:var(--muted);}
+.out-timing{font-size:0.72rem;font-weight:700;color:var(--green-600);letter-spacing:0.03em;text-transform:uppercase;margin-top:0.5rem;}
+
+.included-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.7rem;}
+.incl-item{display:flex;align-items:center;gap:0.7rem;padding:0.8rem 1rem;background:#fff;border:1px solid var(--line);border-radius:8px;}
+.incl-check{width:20px;height:20px;flex-shrink:0;border-radius:50%;background:var(--green-700);display:flex;align-items:center;justify-content:center;}
+.incl-check svg{width:11px;height:11px;}
+.incl-text{font-size:0.82rem;font-weight:700;color:var(--green-800);}
+.incl-text span{display:block;font-weight:400;font-size:0.75rem;color:var(--muted);margin-top:1px;}
+
+.addon-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.8rem;}
+.addon-card{display:flex;align-items:flex-start;gap:0.9rem;padding:1.1rem 1.3rem;background:#fff;border:1px solid var(--line);border-radius:8px;cursor:pointer;transition:all 0.18s ease;user-select:none;}
+.addon-card:hover{border-color:var(--green-accent);}
+.addon-card.selected{border-color:var(--green-700);background:linear-gradient(135deg,rgba(14,74,52,0.02),rgba(31,157,103,0.05));}
+.addon-check{width:22px;height:22px;flex-shrink:0;border:2px solid var(--line);border-radius:5px;display:flex;align-items:center;justify-content:center;transition:all 0.15s ease;margin-top:2px;}
+.addon-card.selected .addon-check{background:var(--green-700);border-color:var(--green-700);}
+.addon-check svg{width:13px;height:13px;display:none;}
+.addon-card.selected .addon-check svg{display:block;}
+.addon-title{font-weight:700;font-size:0.85rem;color:var(--green-800);margin-bottom:0.2rem;}
+.addon-desc{font-size:0.78rem;line-height:1.55;color:var(--muted);}
+.addon-price{font-size:0.75rem;font-weight:700;color:var(--green-600);margin-top:0.35rem;}
+
+/* ---------- Sidebar ---------- */
+.config-sidebar{position:sticky;top:82px;background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden;}
+.sb-header{background:var(--green-800);color:#fff;padding:1.4rem 1.6rem;}
+.sb-header h3{font-family:var(--display);font-weight:700;font-size:1.1rem;letter-spacing:0.03em;text-transform:uppercase;margin-bottom:0.15rem;}
+.sb-header p{font-size:0.72rem;color:rgba(255,255,255,0.55);}
+.sb-body{padding:1.3rem 1.6rem;}
+.sb-line{display:flex;justify-content:space-between;align-items:center;padding:0.5rem 0;border-bottom:1px solid var(--line);font-size:0.82rem;}
+.sb-line:last-child{border-bottom:none;}
+.sb-line-name{color:var(--muted);}
+.sb-line-price{font-weight:700;color:var(--green-800);font-variant-numeric:tabular-nums;}
+.sb-line-price.empty{color:var(--faint);font-weight:400;}
+.sb-total{padding:1.15rem 1.6rem;background:var(--green-700);display:flex;justify-content:space-between;align-items:center;}
+.sb-total-label{font-size:0.72rem;font-weight:700;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:0.08em;}
+.sb-total-value{font-family:var(--display);font-weight:700;font-size:1.5rem;color:#fff;}
+.sb-meta{padding:1rem 1.6rem;background:var(--green-pale);display:flex;justify-content:space-between;align-items:center;}
+.sb-meta-label{font-size:0.68rem;font-weight:700;color:var(--green-600);text-transform:uppercase;letter-spacing:0.06em;}
+.sb-meta-value{font-weight:700;font-size:0.86rem;color:var(--green-800);text-align:right;}
+.sb-actions{padding:1.2rem 1.6rem;display:flex;flex-direction:column;gap:0.6rem;border-top:1px solid var(--line);}
+.sb-actions button{padding:0.7rem 1rem;border-radius:5px;border:none;font-family:var(--body);font-size:0.75rem;font-weight:700;letter-spacing:0.03em;text-transform:uppercase;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:0.4rem;transition:all 0.18s ease;}
+.sb-actions button svg{width:14px;height:14px;}
+.btn-sb-email{background:var(--green-accent);color:#fff;}
+.btn-sb-email:hover{background:var(--green-600);}
+.btn-sb-pdf{background:var(--paper-2);color:var(--green-800);}
+.btn-sb-pdf:hover{background:var(--line);}
+
+/* ---------- Why Gallup ---------- */
+.why-block{background:var(--green-800);color:#fff;border-radius:14px;padding:3rem;display:grid;grid-template-columns:1fr 1fr;gap:3rem;margin-top:2rem;}
+.why-block h3{font-family:var(--display);font-weight:400;font-size:1.5rem;letter-spacing:0.02em;text-transform:uppercase;line-height:1.3;margin-bottom:1rem;}
+.why-block p{font-size:0.92rem;line-height:1.78;color:rgba(255,255,255,0.7);margin-bottom:1rem;}
+.why-tools{display:flex;flex-direction:column;gap:1rem;}
+.why-tool{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:10px;padding:1.3rem 1.5rem;}
+.why-tool h4{font-family:var(--display);font-weight:700;font-size:1rem;letter-spacing:0.03em;text-transform:uppercase;color:var(--green-accent);margin-bottom:0.4rem;}
+.why-tool p{font-size:0.82rem;line-height:1.6;color:rgba(255,255,255,0.66);margin:0;}
+
+/* ---------- Footer ---------- */
+.footer{background:var(--green-900);color:rgba(255,255,255,0.4);padding:2.5rem;text-align:center;font-size:0.72rem;line-height:1.7;}
+
+/* ---------- Drawer ---------- */
+.drawer-overlay{position:fixed;inset:0;background:rgba(6,42,30,0.55);z-index:200;opacity:0;pointer-events:none;transition:opacity 0.3s ease;}
+.drawer-overlay.open{opacity:1;pointer-events:auto;}
+.drawer{position:fixed;top:0;right:-460px;bottom:0;width:440px;max-width:92vw;background:#fff;z-index:201;box-shadow:-8px 0 40px rgba(6,42,30,0.16);transition:right 0.35s cubic-bezier(0.22,1,0.36,1);display:flex;flex-direction:column;}
+.drawer.open{right:0;}
+.drawer-header{display:flex;align-items:center;justify-content:space-between;padding:1.4rem 1.8rem;border-bottom:1px solid var(--line);}
+.drawer-header h2{font-family:var(--display);font-weight:700;font-size:1.2rem;letter-spacing:0.03em;text-transform:uppercase;color:var(--green-800);}
+.drawer-close{width:32px;height:32px;border:1px solid var(--line);border-radius:6px;background:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;}
+.drawer-close svg{width:14px;height:14px;}
+.drawer-body{flex:1;overflow-y:auto;padding:1.5rem 1.8rem;}
+.drawer-group{margin-bottom:1.4rem;}
+.drawer-group-label{font-size:0.66rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--faint);margin-bottom:0.6rem;}
+.drawer-line{display:flex;justify-content:space-between;align-items:center;padding:0.5rem 0;font-size:0.85rem;}
+.drawer-line-name{color:var(--muted);}
+.drawer-line-price{font-weight:700;color:var(--green-800);font-variant-numeric:tabular-nums;}
+.drawer-sub{display:flex;justify-content:space-between;align-items:center;padding:0.65rem 0;margin-top:0.2rem;border-top:1px solid var(--line);font-weight:700;font-size:0.86rem;color:var(--green-800);}
+.drawer-grand{padding:1.2rem 1.8rem;background:var(--green-700);display:flex;justify-content:space-between;align-items:center;}
+.drawer-grand-label{font-size:0.72rem;font-weight:700;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:0.06em;}
+.drawer-grand-value{font-family:var(--display);font-weight:700;font-size:1.6rem;color:#fff;}
+.drawer-actions{padding:1.2rem 1.8rem;display:flex;gap:0.6rem;border-top:1px solid var(--line);}
+.drawer-actions button{flex:1;padding:0.7rem 1rem;border-radius:5px;border:none;font-family:var(--body);font-size:0.72rem;font-weight:700;letter-spacing:0.03em;text-transform:uppercase;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:0.4rem;transition:all 0.18s ease;}
+.drawer-actions button svg{width:14px;height:14px;}
+.btn-drawer-pdf{background:var(--paper-2);color:var(--green-800);}
+.btn-drawer-pdf:hover{background:var(--line);}
+.btn-drawer-email{background:var(--green-accent);color:#fff;}
+.btn-drawer-email:hover{background:var(--green-600);}
+.drawer-note{padding:1.1rem 1.8rem;font-size:0.72rem;line-height:1.6;color:var(--faint);background:var(--paper);}
+
+/* ---------- Modal ---------- */
+.modal-overlay{position:fixed;inset:0;background:rgba(6,42,30,0.55);z-index:300;display:none;align-items:center;justify-content:center;}
+.modal-overlay.open{display:flex;}
+.modal{background:#fff;border-radius:12px;width:480px;max-width:90vw;box-shadow:0 20px 60px rgba(6,42,30,0.22);overflow:hidden;}
+.modal-header{padding:1.4rem 2rem;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;}
+.modal-header h3{font-family:var(--display);font-weight:700;font-size:1.1rem;letter-spacing:0.02em;text-transform:uppercase;color:var(--green-800);}
+.modal-body{padding:1.4rem 2rem;}
+.modal-body label{display:block;font-size:0.68rem;font-weight:700;color:var(--faint);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:0.4rem;}
+.modal-body input,.modal-body textarea{width:100%;padding:0.65rem 0.9rem;border:1px solid var(--line);border-radius:6px;font-family:var(--body);font-size:0.88rem;color:var(--ink);margin-bottom:1rem;outline:none;transition:border-color 0.18s ease;}
+.modal-body input:focus,.modal-body textarea:focus{border-color:var(--green-700);}
+.modal-body textarea{resize:vertical;min-height:78px;}
+.modal-footer{padding:1rem 2rem 1.5rem;display:flex;justify-content:flex-end;gap:0.6rem;}
+.modal-footer button{padding:0.6rem 1.4rem;border-radius:5px;border:none;font-family:var(--body);font-size:0.75rem;font-weight:700;letter-spacing:0.03em;text-transform:uppercase;cursor:pointer;transition:all 0.18s;}
+.btn-modal-cancel{background:var(--paper-2);color:var(--muted);}
+.btn-modal-send{background:var(--green-700);color:#fff;}
+.btn-modal-send:hover{background:var(--green-800);}
+
+/* ---------- Prepared for ---------- */
+.hero-prepared{font-family:var(--body);font-size:0.7rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:1.2rem;animation:fadeUp 0.6s ease both;}
+.hero-prepared strong{color:#fff;font-weight:700;}
+
+/* ---------- Theme data points ---------- */
+.theme-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.4rem;margin-top:2.4rem;}
+.theme-card{background:#fff;border:1px solid var(--line);border-left:3px solid var(--green-accent);border-radius:8px;padding:1.7rem 1.8rem;}
+.theme-tag{font-family:var(--body);font-size:0.64rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--green-600);margin-bottom:0.8rem;}
+.theme-stat{font-family:var(--display);font-weight:700;font-size:2rem;color:var(--green-800);line-height:1;margin-bottom:0.55rem;}
+.theme-desc{font-size:0.9rem;line-height:1.65;color:var(--ink);margin-bottom:0.8rem;}
+.theme-src{font-size:0.68rem;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;color:var(--faint);}
+
+/* ---------- Partnership cards ---------- */
+.partner-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;margin-top:2.4rem;}
+.partner-card{background:#fff;border:1px solid var(--line);border-radius:10px;overflow:hidden;display:flex;flex-direction:column;}
+.partner-head{background:var(--green-700);color:#fff;padding:1.3rem 1.5rem;}
+.partner-head h3{font-family:var(--display);font-weight:700;font-size:1.05rem;letter-spacing:0.03em;text-transform:uppercase;margin-bottom:0.25rem;}
+.partner-head p{font-size:0.74rem;color:rgba(255,255,255,0.72);line-height:1.45;}
+.partner-body{padding:1.3rem 1.5rem;flex:1;}
+.partner-body ul{list-style:none;padding:0;margin:0;}
+.partner-body li{font-size:0.85rem;line-height:1.6;color:var(--muted);padding:0.55rem 0 0.55rem 1.2rem;position:relative;border-bottom:1px solid var(--line);}
+.partner-body li:last-child{border-bottom:none;}
+.partner-body li::before{content:'';position:absolute;left:0;top:0.9rem;width:6px;height:6px;border-radius:50%;background:var(--green-accent);}
+.partner-body li strong{color:var(--green-800);font-weight:700;}
+.partner-src{padding:0.9rem 1.5rem;background:var(--paper);font-size:0.68rem;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;color:var(--faint);}
+
+/* ---------- Responsive ---------- */
+@media (max-width:960px){
+  .cards-3{grid-template-columns:1fr;}
+  .theme-grid{grid-template-columns:1fr;}
+  .partner-grid{grid-template-columns:1fr;}
+  .method-grid{grid-template-columns:1fr;}
+  .cited-grid{grid-template-columns:1fr;}
+  .process{grid-template-columns:1fr 1fr;}
+  .proc-step{border-bottom:1px solid var(--line);}
+  .hist-track{grid-template-columns:repeat(3,1fr);gap:1.6rem 0;}
+  .hist-track::before{display:none;}
+  .config-container{grid-template-columns:1fr;}
+  .config-sidebar{position:static;}
+  .why-block{grid-template-columns:1fr;gap:2rem;padding:2rem;}
+}
+@media (max-width:600px){
+  .header-inner{padding:0.8rem 1.2rem;}
+  .header-actions .btn-export,.header-actions .btn-email{display:none;}
+  .hero{padding:4.5rem 1.5rem 3.5rem;}
+  .section{padding:3.5rem 1.5rem;}
+  .hist-track{grid-template-columns:repeat(2,1fr);}
+  .process{grid-template-columns:1fr;}
+  .minutes-grid,.output-grid,.included-grid,.addon-grid{grid-template-columns:1fr;}
+  .hero-stats{gap:1.4rem;}
+  .cadence{flex-direction:column;text-align:center;}
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <div class="logo-group">
+      <div class="logo-gallup">GALLUP<span class="logo-sub">Gallup Poll Social Series</span></div>
+    </div>
+    <div class="header-actions">
+      <button class="btn-header btn-export" onclick="exportPDF()">
+        <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+        Export PDF
+      </button>
+      <button class="btn-header btn-email" onclick="openEmailModal()">
+        <svg viewBox="0 0 20 20" fill="currentColor"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/></svg>
+        Email Gallup
+      </button>
+      <button class="btn-header btn-invest" onclick="openDrawer()">
+        <svg viewBox="0 0 20 20" fill="currentColor"><path d="M4 4a2 2 0 00-2 2v1h16V6a2 2 0 00-2-2H4z"/><path fill-rule="evenodd" d="M18 9H2v5a2 2 0 002 2h12a2 2 0 002-2V9zM4 13a1 1 0 011-1h1a1 1 0 110 2H5a1 1 0 01-1-1zm5-1a1 1 0 100 2h1a1 1 0 100-2H9z" clip-rule="evenodd"/></svg>
+        View Investment
+      </button>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-prepared">Prepared for <strong>Susan Davis</strong></div>
+    <div class="hero-eyebrow">A Gallup Poll Social Series Partnership</div>
+    <h1>Put Your Questions to <em>the Gold Standard in Survey Research</em></h1>
+    <p class="hero-sub">Add proprietary questions to the Gallup Poll Social Series &mdash; the monthly national survey Gallup has used since 2001 to track the attitudes of the American public. Your questions, fielded to a representative sample of U.S. adults, refined by Gallup's methodologists, and reported under the Gallup name.</p>
+    <div class="hero-stats">
+      <div><div class="hero-stat-n">1935</div><div class="hero-stat-label">Polling Since</div></div>
+      <div><div class="hero-stat-n">Monthly</div><div class="hero-stat-label">National Fielding</div></div>
+      <div><div class="hero-stat-n">1,000+</div><div class="hero-stat-label">U.S. Adults Per Survey</div></div>
+      <div><div class="hero-stat-n">3 wk</div><div class="hero-stat-label">To Results</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-narrow">
+  <div class="narrative">
+    <p>For nearly 90 years, one name has defined the measurement of American public opinion. When George Gallup founded the American Institute of Public Opinion in 1935 and correctly forecast the 1936 presidential election against the prevailing wisdom of the day, he established a principle that still governs Gallup's work: that a scientifically drawn sample of ordinary citizens can speak, accurately and reliably, for the nation as a whole.</p>
+    <p>That principle lives on in the Gallup Poll Social Series &mdash; the recurring monthly survey Gallup introduced in 2001 to keep its long-term trends current. It is the instrument Gallup uses to update several hundred trend questions, some first asked in the 1930s, and to take the pulse of the country on the issues that matter most. Presidential approval, satisfaction with the direction of the nation, and the public's sense of its most important problem are all measured here, month after month, year after year.</p>
+    <div class="pull">
+      <p>&ldquo;If democracy is supposed to be about the will of the people, someone should find out what that will is.&rdquo;</p>
+      <cite>George Gallup</cite>
+    </div>
+    <p>This partnership offers something rare: the opportunity to place your own questions inside that instrument. Rather than commissioning a standalone study, you add a small set of items to an established national survey &mdash; drawing on Gallup's sampling infrastructure, its methodological rigor, and the credibility of its name &mdash; and receive results that carry the authority of the Gallup Poll.</p>
+  </div>
+</section>
+
+<div class="section-divider"><hr></div>
+
+<section class="section history">
+  <div class="section-label">A Historical Record</div>
+  <div class="section-title">Nine Decades of Measuring the Nation</div>
+  <div class="section-subtitle">The Gallup Poll Social Series carries forward a continuous record of American opinion that reaches back to the founding of modern survey research.</div>
+  <div class="hist-track">
+    <div class="hist-item"><div class="hist-dot"></div><div class="hist-year">1935</div><div class="hist-text">George Gallup founds the <strong>American Institute of Public Opinion</strong>, bringing scientific sampling to public opinion.</div></div>
+    <div class="hist-item"><div class="hist-dot"></div><div class="hist-year">1936</div><div class="hist-text">Gallup correctly <strong>forecasts the presidential election</strong>, overturning the era's largest straw poll.</div></div>
+    <div class="hist-item"><div class="hist-dot"></div><div class="hist-year">1930s&ndash;40s</div><div class="hist-text">Foundational trends begin &mdash; <strong>presidential approval and others still asked today</strong>.</div></div>
+    <div class="hist-item"><div class="hist-dot"></div><div class="hist-year">2001</div><div class="hist-text">The <strong>Gallup Poll Social Series launches</strong>, standardizing 12 monthly thematic surveys.</div></div>
+    <div class="hist-item"><div class="hist-dot"></div><div class="hist-year">2004</div><div class="hist-text">Gallup creates the <strong>Gallup Panel</strong>, now the largest probability-based panel in the U.S.</div></div>
+    <div class="hist-item"><div class="hist-dot"></div><div class="hist-year">Today</div><div class="hist-text">Continuous monthly measurement, <strong>cited worldwide</strong> by media, policymakers, and researchers.</div></div>
+  </div>
+</section>
+
+<div class="section-divider"><hr></div>
+
+<section class="section">
+  <div class="section-label">The Instrument</div>
+  <div class="section-title">What the Gallup Poll Social Series Is</div>
+  <div class="section-subtitle">A recurring monthly survey of U.S. adults, organized thematically across the year, built for consistency and long-term comparability.</div>
+  <div class="cards-3">
+    <div class="info-card">
+      <div class="info-card-icon"><svg viewBox="0 0 20 20" fill="none"><rect x="3" y="3" width="14" height="14" rx="2" stroke="#fff" stroke-width="1.5"/><path d="M7 3v14M3 8h14" stroke="#fff" stroke-width="1.5"/></svg></div>
+      <h3>Monthly &amp; Thematic</h3>
+      <p>Gallup conducts one GPSS survey per month, each devoted to a different topic and administered in the same month every year &mdash; a consistent standard that protects trends from question-order bias and seasonal effects.</p>
+    </div>
+    <div class="info-card">
+      <div class="info-card-icon"><svg viewBox="0 0 20 20" fill="none"><path d="M4 16V9M10 16V5M16 16v-4" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+      <h3>Built for Trends</h3>
+      <p>Introduced in 2001, the GPSS is the primary method Gallup uses to update several hundred long-term trend questions &mdash; some dating to the 1930s &mdash; while continually adding new items to address emerging issues.</p>
+    </div>
+    <div class="info-card">
+      <div class="info-card-icon"><svg viewBox="0 0 20 20" fill="none"><circle cx="10" cy="6" r="3" stroke="#fff" stroke-width="1.5"/><path d="M4 17c0-3.3 2.7-6 6-6s6 2.7 6 6" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+      <h3>The State of the Nation</h3>
+      <p>Every survey carries the same core measures &mdash; presidential and congressional approval, national satisfaction, the job market, and the nation's most important problem &mdash; alongside extensive demographics.</p>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"><hr></div>
+
+<section class="section">
+  <div class="section-label">Methodology</div>
+  <div class="section-title">A Representative Sampling Frame</div>
+  <div class="section-subtitle">The Gallup Poll Social Series is fielded by live interviewers using a dual-frame, random-digit-dial design that reaches a representative cross-section of the U.S. adult population.</div>
+  <div class="method-grid">
+    <ul class="method-list">
+      <li>
+        <span class="method-check"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7l3 3 5-5" stroke="#136647" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <div><div class="method-li-title">Dual-Frame Random-Digit-Dial</div><div class="method-li-desc">Gallup samples both landline and cellphone numbers using random-digit-dial methods, reaching cellphone-only households and using a multi-call design to contact respondents not reached on the first attempt.</div></div>
+      </li>
+      <li>
+        <span class="method-check"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7l3 3 5-5" stroke="#136647" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <div><div class="method-li-title">A Full National Sample</div><div class="method-li-desc">A minimum of 1,000 U.S. adults aged 18 and older, living in all 50 states and the District of Columbia, interviewed by live interviewers in English and Spanish.</div></div>
+      </li>
+      <li>
+        <span class="method-check"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7l3 3 5-5" stroke="#136647" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <div><div class="method-li-title">Weighted to the U.S. Population</div><div class="method-li-desc">Samples are weighted to correct for unequal selection probability, nonresponse, and dual-frame coverage, then matched to Census targets for gender, age, race, Hispanic ethnicity, education, region, population density, and phone status.</div></div>
+      </li>
+      <li>
+        <span class="method-check"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7l3 3 5-5" stroke="#136647" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <div><div class="method-li-title">Consistent, Comparable Design</div><div class="method-li-desc">Core questions are asked in the same order each administration, allowing rigorous analysis of change over time that is not susceptible to ordering effects.</div></div>
+      </li>
+    </ul>
+    <div class="method-stat-panel">
+      <div class="method-stat"><div class="method-stat-n">1,000+</div><div class="method-stat-l">U.S. Adults Interviewed</div></div>
+      <div class="method-stat"><div class="method-stat-n">~&plusmn;4 pts</div><div class="method-stat-l">Margin of Error (95% CI)</div></div>
+      <div class="method-stat"><div class="method-stat-n">50 + DC</div><div class="method-stat-l">States Covered</div></div>
+      <div class="method-stat"><div class="method-stat-n">Live</div><div class="method-stat-l">Interviewer-Administered</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"><hr></div>
+
+<section class="section cited-band">
+  <div class="section-label">Reach &amp; Credibility</div>
+  <div class="section-title">Cited Where It Counts</div>
+  <div class="section-subtitle">Findings that carry the Gallup name reach the audiences that shape public conversation and policy.</div>
+  <div class="cited-grid">
+    <div class="cited-card"><h4>National &amp; Global Media</h4><p>Gallup findings are referenced routinely by leading newsrooms in the United States and abroad, giving research placed on the poll a natural path to earned coverage.</p></div>
+    <div class="cited-card"><h4>Policymakers &amp; Institutions</h4><p>Gallup research reaches the desks of decision-makers, agency leaders, and legislative staff who look to independent measurement to inform their work.</p></div>
+    <div class="cited-card"><h4>Researchers &amp; Academics</h4><p>Gallup trends form part of the historical record of American life and are studied, licensed, and cited across universities and research institutions.</p></div>
+  </div>
+</section>
+
+<div class="section-divider"><hr></div>
+
+<section class="section">
+  <div class="section-label">Relevant Measurement</div>
+  <div class="section-title">Your Themes, Already in Gallup Data</div>
+  <div class="section-subtitle">Gallup maintains active, trended measurement across the questions at the heart of this partnership &mdash; civic engagement, civic participation, civility, and open dialogue. A sample of what the data already shows:</div>
+  <div class="theme-grid">
+    <div class="theme-card">
+      <div class="theme-tag">Civic Engagement</div>
+      <div class="theme-stat">Since 2001</div>
+      <div class="theme-desc">Gallup has tracked Americans' volunteering and charitable giving every year for more than two decades. In its most recent reading, volunteering for nonreligious organizations reached a majority for the first time in the trend.</div>
+      <div class="theme-src">Gallup, 2026</div>
+    </div>
+    <div class="theme-card">
+      <div class="theme-tag">Civic Participation</div>
+      <div class="theme-stat">54%</div>
+      <div class="theme-desc">Among Americans who want to get involved but don't, the biggest barrier isn't free time &mdash; 54% simply don't know how to get involved, and about half say no one has invited them to participate.</div>
+      <div class="theme-src">Gallup &amp; Kettering Foundation, 20,000+ adults</div>
+    </div>
+    <div class="theme-card">
+      <div class="theme-tag">Civility</div>
+      <div class="theme-stat">Most</div>
+      <div class="theme-desc">Most Americans support political compromise and reject political violence &mdash; even as a vocal minority say violence is "sometimes OK," a fault line Gallup continues to track over time.</div>
+      <div class="theme-src">Kettering Foundation &amp; Gallup, 2026</div>
+    </div>
+    <div class="theme-card">
+      <div class="theme-tag">Open Dialogue</div>
+      <div class="theme-stat">1 in 3</div>
+      <div class="theme-desc">Only about one in three Americans believe that if they had an idea to improve their community, someone would actually listen &mdash; and six in 10 do not trust local leaders to act in the community's interest.</div>
+      <div class="theme-src">Gallup &amp; Walton Family Foundation, 2026</div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"><hr></div>
+
+<section class="section cited-band">
+  <div class="section-label">Proof Points</div>
+  <div class="section-title">Relevant Insights and Client Partnerships</div>
+  <div class="section-subtitle">Gallup builds long-term research partnerships around exactly these questions. Three current examples show the range &mdash; from rural community leadership to the health of American democracy.</div>
+  <div class="partner-grid">
+    <div class="partner-card">
+      <div class="partner-head"><h3>Unlocking Local Leadership</h3><p>LOR Foundation &times; Gallup &mdash; Why Rural People Step Forward to Help Their Communities</p></div>
+      <div class="partner-body"><ul>
+        <li><strong>82%</strong> of rural Americans say people in their communities help one another when needed, and 81% feel proud to belong.</li>
+        <li><strong>68%</strong> regularly help a neighbor and 56% support local organizations &mdash; higher than their urban peers.</li>
+        <li>Where people perceive high community cohesion, <strong>90%+</strong> believe they can personally make a positive local impact.</li>
+      </ul></div>
+      <div class="partner-src">Gallup, 2025</div>
+    </div>
+    <div class="partner-card">
+      <div class="partner-head"><h3>Democracy for All</h3><p>Kettering Foundation &times; Gallup &mdash; The People's Role in American Democracy</p></div>
+      <div class="partner-body"><ul>
+        <li>An annual national study of <strong>20,000+</strong> adults on how Americans experience democracy.</li>
+        <li>Only <strong>1 in 4</strong> believe the people's role in democracy is currently working well.</li>
+        <li>Satisfaction with local resources &mdash; housing, schools, healthcare &mdash; is closely tied to whether people feel able to engage in democracy.</li>
+      </ul></div>
+      <div class="partner-src">Kettering Foundation &amp; Gallup, 2025</div>
+    </div>
+    <div class="partner-card">
+      <div class="partner-head"><h3>How Opportunity Takes Root</h3><p>Walton Family Foundation &times; Gallup &mdash; Understanding the Conditions for People and Places to Thrive</p></div>
+      <div class="partner-body"><ul>
+        <li>A nationally representative study of nearly <strong>7,000</strong> U.S. adults on opportunity and agency.</li>
+        <li>Americans with a strong sense of agency are <strong>2x</strong> as likely to be thriving in life (63% vs. 25%).</li>
+        <li><strong>72%</strong> say their community is worth investing in &mdash; yet 61% don't trust local leaders to act in its interest.</li>
+      </ul></div>
+      <div class="partner-src">Gallup &amp; Walton Family Foundation, 2026</div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"><hr></div>
+
+<section class="section">
+  <div class="section-label">How It Works</div>
+  <div class="section-title">From Your Questions to Published Findings</div>
+  <div class="section-subtitle">A guided, full-service process. You bring the questions; Gallup handles design, fielding, data, and reporting.</div>
+  <div class="process">
+    <div class="proc-step"><div class="proc-num">1</div><div class="proc-title">Submit Questions</div><div class="proc-desc">You provide your draft items and research objectives. There is no need to arrive with finished survey language.</div></div>
+    <div class="proc-step"><div class="proc-num">2</div><div class="proc-title">Gallup Refines</div><div class="proc-desc">Gallup's methodologists apply best practices in survey instrument design &mdash; wording, response options, and placement &mdash; so your items measure what you intend.</div></div>
+    <div class="proc-step"><div class="proc-num">3</div><div class="proc-title">Gallup Fields</div><div class="proc-desc">Your items are added to that month's national GPSS survey and fielded to a representative sample of U.S. adults.</div></div>
+    <div class="proc-step"><div class="proc-num">4</div><div class="proc-title">Cleans &amp; Vets Data</div><div class="proc-desc">Gallup cleans, weights, and vets the data, then builds full demographic crosstabulations against every item.</div></div>
+    <div class="proc-step"><div class="proc-num">5</div><div class="proc-title">Reports Back</div><div class="proc-desc">You receive your chosen deliverable &mdash; a topline summary or a Gallup.com article &mdash; with crosstabs included in every engagement.</div></div>
+  </div>
+  <div class="cadence">
+    <div class="cadence-icon"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="16" rx="2" stroke="#fff" stroke-width="1.6"/><path d="M3 9h18M8 3v4M16 3v4" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/><circle cx="16.5" cy="15" r="2.5" fill="#1f9d67"/></svg></div>
+    <div class="cadence-text">
+      <h4>The Monthly Cadence</h4>
+      <p>Survey items are finalized in the third week of each month for the following month's survey. Submitting early leaves room for Gallup's methodologists to refine your questions before the instrument locks.</p>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"><hr></div>
+
+<section class="section config-section" id="configure">
+  <div class="section-label">Configure Your Engagement</div>
+  <div class="section-title">Build Your Investment</div>
+  <div class="section-subtitle" style="margin-bottom:2rem;">Select how much survey time you need, choose your primary deliverable, and add optional amplification. Your investment updates as you go.</div>
+  <div class="config-container">
+    <div class="config-main">
+
+      <div class="cfg-block">
+        <div class="cfg-block-label">Step 1</div>
+        <div class="cfg-block-title">Survey Time</div>
+        <div class="cfg-block-help">Choose the amount of interview time your questions will occupy. Standard demographics are included and are <strong>not</strong> counted against your minutes.</div>
+        <div class="minutes-grid" id="minutesGrid"></div>
+      </div>
+
+      <div class="cfg-block">
+        <div class="cfg-block-label">Step 2</div>
+        <div class="cfg-block-title">Primary Deliverable</div>
+        <div class="cfg-block-help">One reporting output is included in your base investment. Choose the format that fits your goals.</div>
+        <div class="output-grid" id="outputGrid"></div>
+      </div>
+
+      <div class="cfg-block">
+        <div class="cfg-block-label">Always Included</div>
+        <div class="cfg-block-title">In Every Engagement</div>
+        <div class="included-grid">
+          <div class="incl-item"><span class="incl-check"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7l3 3 5-5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="incl-text">Full Demographic Crosstabs<span>Delivered with every engagement</span></span></div>
+          <div class="incl-item"><span class="incl-check"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7l3 3 5-5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="incl-text">Representative National Sample<span>1,000+ weighted U.S. adults</span></span></div>
+          <div class="incl-item"><span class="incl-check"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7l3 3 5-5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="incl-text">Instrument Design Review<span>By Gallup methodologists</span></span></div>
+          <div class="incl-item"><span class="incl-check"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7l3 3 5-5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="incl-text">Standard Demographics<span>Included &mdash; not charged to your minutes</span></span></div>
+        </div>
+      </div>
+
+      <div class="cfg-block">
+        <div class="cfg-block-label">Step 3 &mdash; Optional</div>
+        <div class="cfg-block-title">Communications &amp; Amplification</div>
+        <div class="cfg-block-help">Extend the reach of your findings through Gallup's communications infrastructure. Add any combination below.</div>
+        <div class="addon-grid" id="addonGrid"></div>
+      </div>
+
+    </div>
+
+    <div class="config-sidebar">
+      <div class="sb-header"><h3>Investment Summary</h3><p>Estimated engagement investment</p></div>
+      <div class="sb-body">
+        <div class="sb-line"><span class="sb-line-name" id="sbBaseName">Base &mdash; 2 minutes</span><span class="sb-line-price" id="sbBase">$75,000</span></div>
+        <div class="sb-line"><span class="sb-line-name" id="sbOutputName">Deliverable: Topline Report</span><span class="sb-line-price">Included</span></div>
+        <div class="sb-line"><span class="sb-line-name" style="color:var(--green-800);font-weight:700;">Amplification Add-Ons</span><span class="sb-line-price" id="sbComms">$0</span></div>
+      </div>
+      <div class="sb-total"><span class="sb-total-label">Estimated Total</span><span class="sb-total-value" id="sbTotal">$75,000</span></div>
+      <div class="sb-meta"><span class="sb-meta-label">Results Delivered</span><span class="sb-meta-value" id="sbTiming">2 weeks post-fielding</span></div>
+      <div class="sb-actions">
+        <button class="btn-sb-email" onclick="openEmailModal()"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/></svg>Email Selections to Gallup</button>
+        <button class="btn-sb-pdf" onclick="exportPDF()"><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>Export Summary PDF</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"><hr></div>
+
+<section class="section section-narrow">
+  <div class="section-label">Timing</div>
+  <div class="section-title">A Clear Path to Results</div>
+  <div class="section-subtitle" style="margin-bottom:0;">From locked questions to reported findings, the engagement moves on a predictable monthly rhythm. Topline results follow two weeks after data collection; a Gallup.com article follows three weeks after data collection. Full results are typically delivered within three weeks of fielding.</div>
+</section>
+
+<div class="section-divider"><hr></div>
+
+<section class="section">
+  <div class="section-label">Why Gallup</div>
+  <div class="section-title">More Than a Survey &mdash; a Research Partner</div>
+  <div class="section-subtitle" style="margin-bottom:0;">The Gallup Poll Social Series is one instrument within a research infrastructure built over nearly a century.</div>
+  <div class="why-block">
+    <div>
+      <h3>The Backbone of American Opinion Research</h3>
+      <p>Placing your questions on the Gallup Poll Social Series means drawing on the same sampling systems, methodological standards, and analytic expertise that Gallup applies to its own landmark research &mdash; and on a brand that lends weight and independence to whatever it measures.</p>
+      <p>When your objectives call for a different approach, Gallup can reach them through complementary vehicles built on the same probability-based foundations.</p>
+    </div>
+    <div class="why-tools">
+      <div class="why-tool"><h4>The Gallup Panel</h4><p>Created in 2004, the largest probability-based research panel in the U.S. &mdash; approximately 100,000 members recruited through address-based and random-digit-dial sampling, reachable by web, phone, and mail for representative and hard-to-reach studies alike.</p></div>
+      <div class="why-tool"><h4>The Gallup Pulse</h4><p>A rapid, probability-based survey vehicle for gauging public sentiment quickly, with the scientific sampling and weighting needed to publish results and build thought leadership.</p></div>
+    </div>
+  </div>
+</section>
+
+<div class="footer">
+  Survey time, deliverables, and amplification are configurable and subject to final scoping and confirmation of the survey month.<br>
+  Copyright &copy; 2026 Gallup, Inc. All rights reserved. Confidential and proprietary.
+</div>
+
+<!-- Drawer -->
+<div class="drawer-overlay" id="drawerOverlay" onclick="closeDrawer()"></div>
+<div class="drawer" id="drawer">
+  <div class="drawer-header"><h2>Investment Summary</h2><button class="drawer-close" onclick="closeDrawer()"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="5" x2="15" y2="15"/><line x1="15" y1="5" x2="5" y2="15"/></svg></button></div>
+  <div class="drawer-body">
+    <div class="drawer-group">
+      <div class="drawer-group-label">Base Engagement</div>
+      <div class="drawer-line"><span class="drawer-line-name" id="dBaseName">Survey Time &mdash; 2 minutes</span><span class="drawer-line-price" id="dBase">$75,000</span></div>
+      <div class="drawer-line"><span class="drawer-line-name" id="dOutputName">Deliverable: Topline Report</span><span class="drawer-line-price">Included</span></div>
+      <div class="drawer-line"><span class="drawer-line-name">Full Demographic Crosstabs</span><span class="drawer-line-price">Included</span></div>
+      <div class="drawer-line"><span class="drawer-line-name">Standard Demographics</span><span class="drawer-line-price">Included</span></div>
+      <div class="drawer-line"><span class="drawer-line-name">Instrument Design Review</span><span class="drawer-line-price">Included</span></div>
+      <div class="drawer-sub"><span>Base Subtotal</span><span id="dBaseSub">$75,000</span></div>
+    </div>
+    <div class="drawer-group" id="dCommsGroup" style="display:none;">
+      <div class="drawer-group-label">Communications &amp; Amplification</div>
+      <div id="dCommsLines"></div>
+      <div class="drawer-sub"><span>Amplification Subtotal</span><span id="dCommsSub">$0</span></div>
+    </div>
+  </div>
+  <div class="drawer-grand"><span class="drawer-grand-label">Estimated Total</span><span class="drawer-grand-value" id="dTotal">$75,000</span></div>
+  <div class="drawer-actions">
+    <button class="btn-drawer-pdf" onclick="exportPDF()"><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>Export PDF</button>
+    <button class="btn-drawer-email" onclick="openEmailModal()"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/></svg>Email to Gallup</button>
+  </div>
+  <div class="drawer-note">Investment figures are estimates subject to final scoping and confirmation of the survey month. Complex or oversized item sets may affect timing and investment.</div>
+</div>
+
+<!-- Email Modal -->
+<div class="modal-overlay" id="emailModal">
+  <div class="modal">
+    <div class="modal-header"><h3>Email Your Selections</h3><button class="drawer-close" onclick="closeEmailModal()"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="5" x2="15" y2="15"/><line x1="15" y1="5" x2="5" y2="15"/></svg></button></div>
+    <div class="modal-body">
+      <label>Your Name</label>
+      <input type="text" id="emailName" placeholder="Enter your name">
+      <label>Your Email</label>
+      <input type="email" id="emailAddr" placeholder="your@email.com">
+      <label>Notes (Optional)</label>
+      <textarea id="emailNotes" placeholder="Draft questions, target survey month, or any context..."></textarea>
+      <div id="emailPreview" style="background:var(--paper);border-radius:8px;padding:1rem 1.2rem;font-size:0.78rem;line-height:1.6;color:var(--muted);max-height:180px;overflow-y:auto;"></div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn-modal-cancel" onclick="closeEmailModal()">Cancel</button>
+      <button class="btn-modal-send" onclick="sendEmail()">Open in Email Client</button>
+    </div>
+  </div>
+</div>
+
+<script>
+var BASE={2:75000,3:95000};
+var MINUTES=[
+  {mins:2,price:75000,desc:'Room for a focused set of items \u2014 typically several questions plus response options.',badge:'Most Common'},
+  {mins:3,price:95000,desc:'Added time for a fuller battery \u2014 more items or more elaborate question structures.',badge:'Deeper Read'}
+];
+var OUTPUTS=[
+  {id:'report',title:'3-Page Topline Summary',desc:'A concise Gallup summary of key findings across your items, ready for internal briefings and stakeholders.',timing:'Delivered 2 weeks post-fielding'},
+  {id:'article',title:'Gallup.com Feature Article',desc:'A published article on Gallup.com, written by Gallup and pitched to national media for earned coverage.',timing:'Delivered 3 weeks post-fielding'}
+];
+var ADDONS=[
+  {id:'both',title:'Both Output Formats',desc:'Receive the 3-page topline summary AND the media-pitched Gallup.com article.',price:18000},
+  {id:'media',title:'Media Pitching \u0026 Placement',desc:'Targeted outreach to national outlets to secure earned coverage of your findings.',price:22000},
+  {id:'social',title:'Social Content Package',desc:'Data-driven graphics and short-form assets built for social distribution.',price:18000},
+  {id:'brief',title:'Additional Targeted Brief',desc:'A focused brief tailored to policymakers, funders, or partner audiences.',price:15000},
+  {id:'viz',title:'Interactive Data Visualization',desc:'A custom web tool to explore your results by demographic subgroup.',price:28000},
+  {id:'briefing',title:'Executive Briefing',desc:'A live results presentation with Gallup analysts, plus talking points.',price:12000}
+];
+
+var minutes=2;
+var outputChoice='report';
+var selectedAddons=new Set();
+
+function fmt(n){return '$'+n.toLocaleString('en-US');}
+
+function renderMinutes(){
+  document.getElementById('minutesGrid').innerHTML=MINUTES.map(function(m){
+    return '<div class="min-card'+(m.mins===minutes?' active':'')+'" onclick="setMinutes('+m.mins+')">'
+      +'<div class="min-card-top"><span class="min-card-mins">'+m.mins+' Minutes</span><span class="min-card-price">'+fmt(m.price)+'</span></div>'
+      +'<div class="min-card-desc">'+m.desc+'</div>'
+      +'<span class="min-card-badge">'+m.badge+'</span></div>';
+  }).join('');
+}
+
+function renderOutputs(){
+  document.getElementById('outputGrid').innerHTML=OUTPUTS.map(function(o){
+    return '<div class="out-card'+(o.id===outputChoice?' active':'')+'" onclick="setOutput(\''+o.id+'\')">'
+      +'<div class="out-radio"></div>'
+      +'<div><div class="out-title">'+o.title+'</div><div class="out-desc">'+o.desc+'</div><div class="out-timing">'+o.timing+'</div></div></div>';
+  }).join('');
+}
+
+function renderAddons(){
+  document.getElementById('addonGrid').innerHTML=ADDONS.map(function(a){
+    return '<div class="addon-card'+(selectedAddons.has(a.id)?' selected':'')+'" id="addon-'+a.id+'" onclick="toggleAddon(\''+a.id+'\')">'
+      +'<div class="addon-check"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7l3 3 5-5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>'
+      +'<div><div class="addon-title">'+a.title+'</div><div class="addon-desc">'+a.desc+'</div><div class="addon-price">'+fmt(a.price)+'</div></div></div>';
+  }).join('');
+}
+
+function setMinutes(n){minutes=n;renderMinutes();recalc();}
+function setOutput(id){outputChoice=id;renderOutputs();recalc();}
+function toggleAddon(id){
+  if(selectedAddons.has(id))selectedAddons.delete(id);else selectedAddons.add(id);
+  var el=document.getElementById('addon-'+id);
+  if(el)el.classList.toggle('selected');
+  recalc();
+}
+
+function outputLabel(){
+  if(selectedAddons.has('both'))return 'Topline Report + Gallup.com Article';
+  return outputChoice==='article'?'Gallup.com Feature Article':'3-Page Topline Summary';
+}
+
+function timingLabel(){
+  if(selectedAddons.has('both')||outputChoice==='article')return '3 weeks post-fielding';
+  return '2 weeks post-fielding';
+}
+
+function recalc(){
+  var base=BASE[minutes];
+  var commsTotal=ADDONS.filter(function(a){return selectedAddons.has(a.id);}).reduce(function(s,a){return s+a.price;},0);
+  var grand=base+commsTotal;
+
+  document.getElementById('sbBaseName').textContent='Base \u2014 '+minutes+' minutes';
+  document.getElementById('sbBase').textContent=fmt(base);
+  document.getElementById('sbOutputName').textContent='Deliverable: '+outputLabel();
+  var sbComms=document.getElementById('sbComms');
+  sbComms.textContent=commsTotal>0?fmt(commsTotal):'$0';
+  sbComms.classList.toggle('empty',commsTotal===0);
+  document.getElementById('sbTotal').textContent=fmt(grand);
+  document.getElementById('sbTiming').textContent=timingLabel();
+
+  document.getElementById('dBaseName').textContent='Survey Time \u2014 '+minutes+' minutes';
+  document.getElementById('dBase').textContent=fmt(base);
+  document.getElementById('dOutputName').textContent='Deliverable: '+outputLabel();
+  document.getElementById('dBaseSub').textContent=fmt(base);
+  document.getElementById('dTotal').textContent=fmt(grand);
+
+  var commsGroup=document.getElementById('dCommsGroup');
+  if(commsTotal>0){
+    commsGroup.style.display='block';
+    document.getElementById('dCommsLines').innerHTML=ADDONS.filter(function(a){return selectedAddons.has(a.id);}).map(function(a){
+      return '<div class="drawer-line"><span class="drawer-line-name">'+a.title+'</span><span class="drawer-line-price">'+fmt(a.price)+'</span></div>';
+    }).join('');
+    document.getElementById('dCommsSub').textContent=fmt(commsTotal);
+  }else{commsGroup.style.display='none';}
+
+  updateEmailPreview();
+}
+
+function openDrawer(){document.getElementById('drawer').classList.add('open');document.getElementById('drawerOverlay').classList.add('open');document.body.style.overflow='hidden';}
+function closeDrawer(){document.getElementById('drawer').classList.remove('open');document.getElementById('drawerOverlay').classList.remove('open');document.body.style.overflow='';}
+
+function buildSummaryText(){
+  var base=BASE[minutes];
+  var commsTotal=ADDONS.filter(function(a){return selectedAddons.has(a.id);}).reduce(function(s,a){return s+a.price;},0);
+  var grand=base+commsTotal;
+  var lines=[];
+  lines.push('GALLUP POLL SOCIAL SERIES \u2014 ENGAGEMENT SELECTIONS');
+  lines.push('');
+  lines.push('Survey Time: '+minutes+' minutes of items');
+  lines.push('Primary Deliverable: '+outputLabel());
+  lines.push('Results Delivered: '+timingLabel());
+  lines.push('');
+  lines.push('BASE ENGAGEMENT');
+  lines.push('  Survey Time ('+minutes+' min): '+fmt(base));
+  lines.push('  Full Demographic Crosstabs: Included');
+  lines.push('  Standard Demographics: Included (not charged to minutes)');
+  lines.push('  Instrument Design Review by Gallup: Included');
+  if(commsTotal>0){
+    lines.push('');
+    lines.push('COMMUNICATIONS \u0026 AMPLIFICATION');
+    ADDONS.filter(function(a){return selectedAddons.has(a.id);}).forEach(function(a){lines.push('  '+a.title+': '+fmt(a.price));});
+    lines.push('  Amplification Subtotal: '+fmt(commsTotal));
+  }
+  lines.push('');
+  lines.push('ESTIMATED TOTAL: '+fmt(grand));
+  lines.push('');
+  lines.push('Note: Items are finalized in the third week of each month for the following month\u2019s survey.');
+  return lines.join('\n');
+}
+
+function updateEmailPreview(){
+  var el=document.getElementById('emailPreview');
+  if(el)el.innerHTML='<strong style="display:block;margin-bottom:0.4rem;color:var(--green-800);">Selection Summary Preview</strong>'+buildSummaryText().replace(/\n/g,'<br>');
+}
+
+function openEmailModal(){updateEmailPreview();document.getElementById('emailModal').classList.add('open');}
+function closeEmailModal(){document.getElementById('emailModal').classList.remove('open');}
+
+function sendEmail(){
+  var name=document.getElementById('emailName').value||'';
+  var notes=document.getElementById('emailNotes').value||'';
+  var summary=buildSummaryText();
+  var body=(notes?'Notes: '+notes+'\n\n':'')+summary+(name?'\n\n\u2014 '+name:'');
+  var subject='Gallup Poll Social Series \u2014 Engagement Selections';
+  var mailto='mailto:justin_lall@gallup.com?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
+  window.open(mailto,'_blank');
+  closeEmailModal();
+}
+
+function exportPDF(){
+  var summary=buildSummaryText();
+  var html='<!DOCTYPE html><html><head><title>Gallup Poll Social Series \u2014 Engagement Summary</title></head><body style="font-family:Georgia,serif;max-width:700px;margin:40px auto;padding:20px;color:#111b16"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:2rem;padding-bottom:1rem;border-bottom:2px solid #0e4a34"><div><strong style="font-size:1.15rem;color:#0e4a34;letter-spacing:0.02em">GALLUP</strong><br><span style="font-size:0.85rem;color:#586b60">Gallup Poll Social Series</span></div><div style="font-size:0.78rem;color:#8b978f;text-align:right">Prepared for Susan Davis<br>'+new Date().toLocaleDateString('en-US',{month:'long',day:'numeric',year:'numeric'})+'</div></div><pre style="font-family:Arial,sans-serif;font-size:0.88rem;line-height:1.7;white-space:pre-wrap;color:#2d3d36">'+summary+'</pre><div style="margin-top:2rem;font-size:0.72rem;color:#8b978f;border-top:1px solid #dbe3dd;padding-top:1rem">Investment figures are estimates subject to final scoping and confirmation of the survey month.<br>Copyright \u00a9 2026 Gallup, Inc. All rights reserved. Confidential and proprietary.</div><scr'+'ipt>window.onload=function(){window.print();}<\/scr'+'ipt></body></html>';
+  var w=window.open('','_blank');
+  w.document.write(html);
+  w.document.close();
+}
+
+renderMinutes();
+renderOutputs();
+renderAddons();
+recalc();
+</script>
+</body>
+</html>
