@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The OnePay–Gallup State of Personal Finances — Proposal</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --blue:#1E55F0; --navy:#081633; --navy-2:#0e2350; --gold:#F0B429;
+  --ink:#0b1b3a; --slate:#4a5878; --muted:#8a95ad; --line:#e5e9f2;
+  --bg:#ffffff; --wash:#f5f7fc; --blue-wash:#eef3ff;
+  --disp:'Sora',system-ui,sans-serif; --body:'Inter',system-ui,sans-serif; --mono:'JetBrains Mono',monospace;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:var(--body);color:var(--ink);background:var(--bg);-webkit-font-smoothing:antialiased;line-height:1.6;}
+.wrap{max-width:1080px;margin:0 auto;padding:0 2rem;}
+.eyebrow{font-family:var(--mono);font-size:0.7rem;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:var(--blue);}
+h1,h2,h3,h4{font-family:var(--disp);letter-spacing:-0.02em;line-height:1.12;color:var(--ink);}
+a{color:var(--blue);}
+
+/* header */
+.hdr{position:sticky;top:0;z-index:50;background:rgba(255,255,255,0.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);}
+.hdr-in{max-width:1080px;margin:0 auto;padding:0.85rem 2rem;display:flex;align-items:center;justify-content:space-between;}
+.marks{display:flex;align-items:center;gap:0.9rem;}
+.m-onepay{font-family:var(--disp);font-weight:800;font-size:1.05rem;color:var(--navy);letter-spacing:-0.02em;}
+.m-x{color:var(--muted);font-size:0.85rem;}
+.m-gallup{font-family:Georgia,serif;font-weight:700;font-size:0.95rem;letter-spacing:0.2em;color:var(--navy);}
+.btn-pdf{border:1px solid var(--line);background:#fff;color:var(--navy);font-family:var(--body);font-weight:600;font-size:0.78rem;padding:0.5rem 1rem;border-radius:7px;cursor:pointer;}
+.btn-pdf:hover{background:var(--wash);}
+
+/* hero */
+.hero{background:var(--navy);color:#fff;padding:5rem 0 3.5rem;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 80% 10%,rgba(30,85,240,0.35),transparent 60%),radial-gradient(ellipse 50% 50% at 10% 90%,rgba(240,180,41,0.08),transparent 60%);}
+.hero .wrap{position:relative;z-index:1;}
+.hero .eyebrow{color:var(--gold);}
+.hero h1{color:#fff;font-size:clamp(2.4rem,5.5vw,3.6rem);font-weight:700;margin:1rem 0 1.1rem;}
+.hero h1 span{color:var(--blue);}
+.hero-sub{font-size:1.1rem;color:rgba(255,255,255,0.72);max-width:60ch;font-weight:400;}
+.hero-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-top:2.6rem;}
+.hs{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:1.1rem 1.2rem;}
+.hs-n{font-family:var(--disp);font-weight:700;font-size:1.5rem;color:var(--gold);}
+.hs-l{font-family:var(--mono);font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-top:0.3rem;}
+
+/* sections */
+.sec{padding:4rem 0;}
+.sec-wash{background:var(--wash);}
+.sec-head{max-width:64ch;margin-bottom:2rem;}
+.sec-head h2{font-size:clamp(1.7rem,3.5vw,2.2rem);font-weight:700;margin:0.5rem 0 0.6rem;}
+.sec-head p{color:var(--slate);font-size:1.02rem;}
+
+/* credibility cards */
+.cred-lead{font-size:1.15rem;color:var(--ink);max-width:66ch;margin-bottom:2rem;font-weight:500;}
+.cred-lead b{color:var(--blue);}
+.cred-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;}
+.cred{background:#fff;border:1px solid var(--line);border-radius:14px;padding:1.6rem;}
+.cred-num{font-family:var(--mono);font-size:0.7rem;font-weight:600;color:var(--blue);letter-spacing:0.1em;}
+.cred h3{font-size:1.15rem;font-weight:600;margin:0.7rem 0 0.5rem;}
+.cred p{font-size:0.9rem;color:var(--slate);}
+
+/* approach */
+.approach{display:grid;grid-template-columns:1fr;gap:1.4rem;}
+.step{display:grid;grid-template-columns:auto 1fr;gap:1.3rem;align-items:start;}
+.step-k{font-family:var(--disp);font-weight:800;font-size:1.1rem;color:#fff;background:var(--blue);width:2.4rem;height:2.4rem;border-radius:9px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.step h3{font-size:1.15rem;font-weight:600;margin-bottom:0.35rem;}
+.step p{color:var(--slate);font-size:0.98rem;max-width:70ch;}
+.quote{border-left:3px solid var(--gold);background:var(--blue-wash);border-radius:0 10px 10px 0;padding:1.1rem 1.4rem;margin-top:0.9rem;font-style:italic;color:var(--navy);font-size:0.98rem;}
+.focus{margin-top:1rem;background:#fff;border:1px solid var(--line);border-radius:14px;padding:1.6rem 1.8rem;}
+.focus h4{font-size:0.75rem;font-family:var(--mono);letter-spacing:0.1em;text-transform:uppercase;color:var(--blue);margin-bottom:1rem;font-weight:600;}
+.focus ul{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:0.7rem 1.6rem;}
+.focus li{position:relative;padding-left:1.5rem;font-size:0.92rem;color:var(--ink);}
+.focus li::before{content:'';position:absolute;left:0;top:0.55rem;width:7px;height:7px;border-radius:50%;background:var(--gold);}
+.focus li b{font-weight:600;}
+
+/* deliverables */
+.deliv{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;}
+.dcard{background:#fff;border:1px solid var(--line);border-radius:14px;padding:1.7rem;display:flex;flex-direction:column;}
+.dcard.feature{border-color:var(--blue);border-width:1.5px;}
+.dtag{font-family:var(--mono);font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;font-weight:600;color:var(--blue);}
+.dcard h3{font-size:1.2rem;font-weight:600;margin:0.6rem 0 0.5rem;}
+.dcard p{font-size:0.92rem;color:var(--slate);flex:1;}
+.dcard .exlink{margin-top:1rem;font-size:0.82rem;font-weight:600;color:var(--blue);text-decoration:none;display:inline-flex;align-items:center;gap:0.35rem;}
+.dcard .exlink:hover{text-decoration:underline;}
+
+/* timeline */
+.tl{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff;}
+.tlp{padding:1.6rem 1.3rem;border-right:1px solid var(--line);}
+.tlp:last-child{border-right:none;}
+.tlp .wk{font-family:var(--mono);font-size:0.68rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--blue);}
+.tlp .dur{font-family:var(--disp);font-weight:800;font-size:1.9rem;color:var(--ink);line-height:1;margin:0.4rem 0 0.2rem;}
+.tlp .dur small{font-size:0.75rem;font-weight:500;color:var(--muted);}
+.tlp h4{font-size:0.98rem;font-weight:600;margin:0.5rem 0 0.3rem;}
+.tlp p{font-size:0.82rem;color:var(--slate);}
+.tl-bar{display:flex;height:8px;border-radius:6px;overflow:hidden;margin-top:1.2rem;}
+.tl-bar span{display:block;}
+
+/* investment */
+.invest{background:linear-gradient(135deg,var(--navy),var(--navy-2));color:#fff;border-radius:18px;padding:2.6rem;display:grid;grid-template-columns:1fr 1.1fr;gap:2.4rem;align-items:center;}
+.inv-fig{font-family:var(--disp);font-weight:800;font-size:clamp(3rem,7vw,4.4rem);color:var(--gold);line-height:1;}
+.inv-lead{font-family:var(--mono);font-size:0.68rem;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-bottom:0.6rem;}
+.inv-note{font-size:0.9rem;color:rgba(255,255,255,0.7);margin-top:1rem;max-width:34ch;}
+.inv-list{list-style:none;}
+.inv-list li{display:flex;justify-content:space-between;gap:1rem;padding:0.7rem 0;border-bottom:1px solid rgba(255,255,255,0.12);font-size:0.92rem;}
+.inv-list li:last-child{border-bottom:none;}
+.inv-list .k{color:rgba(255,255,255,0.75);}
+.inv-list .v{font-weight:600;color:#fff;text-align:right;}
+
+/* cta */
+.cta{text-align:center;padding:4.5rem 0;}
+.cta h2{font-size:clamp(1.8rem,4vw,2.4rem);font-weight:700;margin-bottom:0.8rem;}
+.cta p{color:var(--slate);font-size:1.05rem;max-width:52ch;margin:0 auto 1.6rem;}
+.cta-btn{display:inline-block;background:var(--blue);color:#fff;font-family:var(--body);font-weight:600;font-size:0.95rem;padding:0.85rem 1.8rem;border-radius:9px;text-decoration:none;}
+.cta-btn:hover{background:#1746cc;}
+
+.foot{background:var(--navy);color:rgba(255,255,255,0.45);text-align:center;font-size:0.75rem;padding:2rem;line-height:1.7;}
+
+@media(max-width:860px){
+  .hero-stats{grid-template-columns:repeat(2,1fr);}
+  .cred-grid{grid-template-columns:1fr;}
+  .deliv{grid-template-columns:1fr;}
+  .tl{grid-template-columns:1fr 1fr;}
+  .tlp{border-bottom:1px solid var(--line);}
+  .focus ul{grid-template-columns:1fr;}
+  .invest{grid-template-columns:1fr;gap:1.6rem;padding:2rem;}
+}
+@media print{
+  .hdr,.cta-btn{display:none;}
+  .hero,.invest{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .sec{padding:2rem 0;}
+}
+</style>
+</head>
+<body>
+
+<header class="hdr">
+  <div class="hdr-in">
+    <div class="marks">
+      <span class="m-onepay">OnePay</span><span class="m-x">×</span><span class="m-gallup">GALLUP</span>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="eyebrow">OnePay × Gallup · Proposal</div>
+    <h1>The OnePay–Gallup <span>State of Personal Finances</span></h1>
+    <p class="hero-sub">A proprietary annual study on how Americans are actually navigating their financial lives — designed by Gallup to be genuinely unique, rigorously credible, and built from day one for media impact.</p>
+    <div class="hero-stats">
+      <div class="hs"><div class="hs-n">n = 2,000</div><div class="hs-l">U.S. adults, nationally representative</div></div>
+      <div class="hs"><div class="hs-n">7 min</div><div class="hs-l">Survey instrument</div></div>
+      <div class="hs"><div class="hs-n">12 weeks</div><div class="hs-l">Kickoff to launch-ready</div></div>
+      <div class="hs"><div class="hs-n">$225K</div><div class="hs-l">All-in Year 1 investment</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CREDIBILITY UP TOP -->
+<section class="sec">
+  <div class="wrap">
+    <div class="eyebrow">Why Gallup</div>
+    <p class="cred-lead">No organization is better positioned to make OnePay a credible voice on personal finance. Gallup pairs <b>the largest probability-based panel in the country</b> with <b>an integrated, in-house strategic communications team that designs and advises on every project</b> — so the research is built for both rigor and reach from the first question we write.</p>
+    <div class="cred-grid">
+      <div class="cred">
+        <div class="cred-num">01</div>
+        <h3>The largest probability-based panel in the U.S.</h3>
+        <p>Findings rest on a recruited, probability-based sample — the gold standard for credible, projectable, media-worthy numbers, not an opt-in online river.</p>
+      </div>
+      <div class="cred">
+        <div class="cred-num">02</div>
+        <h3>An in-house strategic communications team on every project</h3>
+        <p>Gallup's dedicated communications team designs and advises on each study to ensure the findings land — driving results and measurable media uptake, not just a dataset.</p>
+      </div>
+      <div class="cred">
+        <div class="cred-num">03</div>
+        <h3>The most trusted name in public opinion</h3>
+        <p>Decades as the source journalists, policymakers, and leaders cite by name. That authority transfers to OnePay the moment its name sits beside Gallup's.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- APPROACH / TOPIC STRATEGY -->
+<section class="sec sec-wash">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Our approach</div>
+      <h2>A study built to be unique — and to be covered</h2>
+      <p>Based on our review of the landscape, Gallup will recommend the topic areas that give OnePay the clearest path to ownership and coverage.</p>
+    </div>
+    <div class="approach">
+      <div class="step">
+        <div class="step-k">1</div>
+        <div>
+          <h3>Own uncovered ground</h3>
+          <p>Gallup will recommend topic areas that are <b>not</b> covered in other Gallup surveys or in other publicly available research — so the OnePay–Gallup study is truly unique and maximizes media coverage. We design the instrument with these topics in mind.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-k">2</div>
+        <div>
+          <h3>Start where the impact is immediate; build toward an index</h3>
+          <p>Year 1 focuses on the topics that generate the most impact in the immediate term, laying the foundation to build toward a more comprehensive index in later years.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-k">3</div>
+        <div>
+          <h3>Year 1 focus: how Americans navigate their financial lives day to day</h3>
+          <p>For the Year 1 study, Gallup proposes topic areas that fully encompass how Americans are actually navigating their financial lives day to day.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-k">4</div>
+        <div>
+          <h3>Examine real behavior, directly</h3>
+          <p>Rather than attitudes alone, we go straight at what people actually do across the financial ecosystem — the true, lived experience of managing money today.</p>
+          <div class="focus">
+            <h4>Year 1 focus areas</h4>
+            <ul>
+              <li><b>Multiple platforms used</b> — the real mix of apps, tools, and products people rely on</li>
+              <li><b>Habits &amp; behaviors</b> — how people actually work with the products in their day-to-day</li>
+              <li><b>Credit needs</b> — special emphasis on how Americans think about and use credit</li>
+              <li><b>Where activity consolidates</b> — where people are bringing their financial life together</li>
+              <li><b>The fragmented wallet</b> — the time, effort, challenges, and barriers of managing money across many apps</li>
+              <li><b>True experiences</b> — lived behavior across multiple apps, not stated preference</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DELIVERABLES -->
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">What OnePay receives</div>
+      <h2>Four deliverables, built for public impact</h2>
+      <p>Everything is engineered around the same goal: a credible study that gets picked up and positions OnePay as the voice on how America manages money.</p>
+    </div>
+    <div class="deliv">
+      <div class="dcard feature">
+        <div class="dtag">Flagship</div>
+        <h3>A 10-page public report</h3>
+        <p>Designed for public consumption — a tight, narrative-driven report with original graphics and data visualizations built to be shared, quoted, and covered.</p>
+        <a class="exlink" href="https://hologic.womenshealthindex.com/report-and-data" target="_blank" rel="noopener">See a Gallup report built this way — the Hologic Global Women's Health Index →</a>
+      </div>
+      <div class="dcard">
+        <div class="dtag">Internal</div>
+        <h3>Topline deck</h3>
+        <p>A clean summary of the headline findings and key numbers, formatted for the OnePay team's internal use and executive briefings.</p>
+      </div>
+      <div class="dcard">
+        <div class="dtag">Amplification</div>
+        <h3>Gallup.com article + media support</h3>
+        <p>One feature article published on Gallup.com, plus dedicated support from Gallup's strategic communications team for media pitching and amplification.</p>
+      </div>
+      <div class="dcard">
+        <div class="dtag">Amplification</div>
+        <h3>Spokesperson support</h3>
+        <p>Gallup experts made available to support media interviews — carrying the findings credibly into the press and lending Gallup's authority to the story.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section class="sec sec-wash">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Timeline</div>
+      <h2>12 weeks, kickoff to launch-ready</h2>
+      <p>A disciplined, four-phase plan. Analysis flows directly into report development, so the study is ready to launch at week 12.</p>
+    </div>
+    <div class="tl">
+      <div class="tlp">
+        <div class="wk">Weeks 1–3</div>
+        <div class="dur">3<small> wks</small></div>
+        <h4>Instrument development</h4>
+        <p>Design and refine the 7-minute survey around the recommended, uncovered topic areas.</p>
+      </div>
+      <div class="tlp">
+        <div class="wk">Weeks 4–6</div>
+        <div class="dur">3<small> wks</small></div>
+        <h4>Programming &amp; fielding</h4>
+        <p>Program the instrument and field to n=2,000 nationally representative U.S. adults.</p>
+      </div>
+      <div class="tlp">
+        <div class="wk">Weeks 7–9</div>
+        <div class="dur">3<small> wks</small></div>
+        <h4>Cleaning, vetting &amp; analysis</h4>
+        <p>Data cleaning, quality vetting, weighting, and the core analysis that surfaces the story.</p>
+      </div>
+      <div class="tlp">
+        <div class="wk">Weeks 9–12</div>
+        <div class="dur">4<small> wks</small></div>
+        <h4>Report &amp; deck development</h4>
+        <p>Build the public report, graphics, and topline deck — launch-ready with media support in place.</p>
+      </div>
+    </div>
+    <div class="tl-bar">
+      <span style="flex:3;background:var(--blue);"></span>
+      <span style="flex:3;background:#4d78f5;"></span>
+      <span style="flex:3;background:#7a9bf8;"></span>
+      <span style="flex:4;background:var(--gold);"></span>
+    </div>
+  </div>
+</section>
+
+<!-- INVESTMENT -->
+<section class="sec">
+  <div class="wrap">
+    <div class="invest">
+      <div>
+        <div class="inv-lead">All-in Year 1 investment</div>
+        <div class="inv-fig">$225,000</div>
+        <p class="inv-note">A single, all-inclusive figure covering the full scope below — design, fielding, analysis, deliverables, and media amplification.</p>
+      </div>
+      <ul class="inv-list">
+        <li><span class="k">Survey</span><span class="v">n = 2,000, nationally representative</span></li>
+        <li><span class="k">Instrument length</span><span class="v">7 minutes</span></li>
+        <li><span class="k">Timeline</span><span class="v">12 weeks</span></li>
+        <li><span class="k">Public report</span><span class="v">10 pages, with graphics</span></li>
+        <li><span class="k">Internal topline deck</span><span class="v">Included</span></li>
+        <li><span class="k">Gallup.com article + media support</span><span class="v">Included</span></li>
+        <li><span class="k">Spokesperson support</span><span class="v">Included</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div class="foot">
+  Prepared for OnePay by Gallup. Scope and investment as described above.<br>
+  Copyright © 2026 Gallup, Inc. All rights reserved. Confidential and proprietary.
+</div>
+
+</body>
+</html>
