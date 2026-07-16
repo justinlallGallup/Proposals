@@ -1,0 +1,1177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A People Strategy for the AI Economy — RAISE US × Gallup</title>
+<style>
+/* ============================================================
+   GALLUP VISUAL IDENTITY — per Visual Identity Style Guide v1.3
+   Primary color: Green 400 #009d4f  |  Small-text green: Green 500 #00754a
+   Green 300 #16c64f on black backgrounds only  |  Pale Green 00 #e4f2e1 sparingly, behind data
+   Grays: 00 #f1f1f1 · 100 #cfd2d3 · 200 #b0b3b2 · 300 #878a8b · 400 #53575a · 500 #24272a · 600 #000
+   Type: Sherborne → Georgia/Times fallback (display) · Aktiv Grotesk → Aptos/Arial (body)
+   ============================================================ */
+:root {
+  --green: #009d4f;
+  --green-deep: #00754a;
+  --green-bright: #16c64f;
+  --green-pale: #e4f2e1;
+  --gray-00: #f1f1f1;
+  --gray-100: #cfd2d3;
+  --gray-200: #b0b3b2;
+  --gray-300: #878a8b;
+  --gray-400: #53575a;
+  --gray-500: #24272a;
+  --ink: #000000;
+  --paper: #ffffff;
+  --font-display: Georgia, 'Times New Roman', Times, serif;
+  --font-body: Aptos, 'Aktiv Grotesk', Arial, 'Helvetica Neue', Helvetica, sans-serif;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-body);
+  color: var(--gray-500);
+  background: var(--paper);
+  -webkit-font-smoothing: antialiased;
+  font-size: 16px;
+  line-height: 1.6;
+}
+::selection { background: var(--green-pale); color: var(--ink); }
+img { max-width: 100%; }
+a { color: var(--green-deep); }
+button { font-family: var(--font-body); }
+:focus-visible { outline: 2px solid var(--green-deep); outline-offset: 2px; }
+
+/* ---------- Header ---------- */
+.site-header {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(255,255,255,0.94);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--gray-100);
+}
+.header-inner {
+  max-width: 1140px; margin: 0 auto;
+  padding: 0.95rem 2.25rem;
+  display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+}
+.brand-pair { display: flex; align-items: center; gap: 1.1rem; }
+.mark-gallup {
+  font-family: var(--font-display); font-weight: 700;
+  font-size: 1.06rem; letter-spacing: 0.24em; text-transform: uppercase;
+  color: var(--gray-400); line-height: 1;
+}
+.mark-gallup sup { font-size: 0.42em; letter-spacing: 0; vertical-align: super; }
+.brand-divider { width: 1px; height: 26px; background: var(--gray-100); }
+.mark-raiseus {
+  font-family: var(--font-body); font-weight: 800;
+  font-size: 0.94rem; letter-spacing: 0.13em;
+  color: var(--gray-500); line-height: 1.1;
+}
+.mark-raiseus span {
+  display: block; font-size: 0.56rem; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--gray-400); margin-top: 0.22rem;
+}
+/* ---------- Hero ---------- */
+.hero {
+  position: relative;
+  border-top: 4px solid var(--green);
+  padding: 4.5rem 2.25rem 4rem;
+  background: #ffffff;
+  overflow: hidden;
+}
+.hero-inner { max-width: 1140px; margin: 0 auto; position: relative; z-index: 1; }
+.hero-rule {
+  width: 56px; height: 4px; background: var(--green);
+  margin-bottom: 1.6rem;
+}
+.eyebrow {
+  font-size: 0.7rem; font-weight: 700; letter-spacing: 0.16em;
+  text-transform: uppercase; color: var(--green-deep);
+}
+.hero .eyebrow { margin-bottom: 1.4rem; display: block; }
+.hero h1 {
+  font-family: var(--font-display); font-weight: 700;
+  font-size: clamp(2.5rem, 5.6vw, 4rem);
+  line-height: 1.08; letter-spacing: -0.01em;
+  color: var(--ink); max-width: 880px;
+  margin-bottom: 1.6rem;
+}
+.hero h1 em { font-style: italic; color: var(--green-deep); }
+.hero-sub {
+  font-size: 1.1rem; line-height: 1.75; color: var(--gray-400);
+  max-width: 720px; margin-bottom: 2.6rem;
+}
+.prop-mark { display: flex; align-items: center; gap: 1.1rem; margin: 2.9rem 0 1.7rem; }
+.prop-mark span {
+  font-size: 0.7rem; font-weight: 700; letter-spacing: 0.16em;
+  text-transform: uppercase; color: var(--green-deep); white-space: nowrap;
+}
+.prop-mark::after { content: ''; height: 1px; flex: 1; background: var(--gray-100); }
+
+/* ---------- Section scaffolding ---------- */
+.section { max-width: 1140px; margin: 0 auto; padding: 4.5rem 2.25rem; }
+.section-narrow { max-width: 840px; }
+.section-head { max-width: 760px; margin-bottom: 2.4rem; }
+.section-title {
+  font-family: var(--font-display); font-weight: 700;
+  font-size: clamp(1.7rem, 3.4vw, 2.35rem);
+  line-height: 1.18; color: var(--ink);
+  margin: 0.55rem 0 0.75rem;
+}
+.section-subtitle { font-size: 1rem; line-height: 1.72; color: var(--gray-400); }
+.rule-divider { max-width: 1140px; margin: 0 auto; padding: 0 2.25rem; }
+.rule-divider hr { border: none; height: 1px; background: var(--gray-100); }
+
+/* ---------- Narrative ---------- */
+.narrative { max-width: 860px; }
+.narrative p {
+  font-size: 1.06rem; line-height: 1.85; color: var(--gray-500);
+  margin-bottom: 1.5rem;
+}
+.narrative p:first-of-type::first-letter {
+  font-family: var(--font-display); font-size: 3.6rem; font-weight: 700;
+  float: left; line-height: 0.82;
+  margin: 0.12rem 0.65rem 0 0;
+  color: var(--green-deep);
+}
+.narrative strong { color: var(--ink); }
+/* ---------- Workstreams at a glance ---------- */
+.duo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.4rem; margin-top: 2.4rem; }
+.duo-card {
+  border: 1px solid var(--gray-100); border-top: 4px solid var(--green);
+  border-radius: 10px; background: #fff;
+  padding: 1.9rem 1.9rem 1.7rem;
+  display: flex; flex-direction: column;
+}
+.duo-kicker {
+  font-size: 0.66rem; font-weight: 700; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--gray-400); margin-bottom: 0.7rem;
+}
+.duo-card h3 {
+  font-family: var(--font-display); font-weight: 700;
+  font-size: 1.5rem; line-height: 1.22; color: var(--ink);
+  margin-bottom: 0.35rem;
+}
+.duo-role {
+  font-size: 0.8rem; font-weight: 700; color: var(--green-deep);
+  margin-bottom: 0.85rem;
+}
+.duo-card p { font-size: 0.92rem; line-height: 1.7; color: var(--gray-400); margin-bottom: 1.2rem; }
+.duo-tags { margin-top: auto; display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.tag {
+  font-size: 0.66rem; font-weight: 700; letter-spacing: 0.05em;
+  padding: 0.28rem 0.65rem; border-radius: 999px;
+  background: var(--gray-00); color: var(--gray-400);
+  border: 1px solid var(--gray-100);
+}
+
+/* ---------- Executive summary bands ---------- */
+.ws-open { padding-top: 4.5rem; }
+.ws-number {
+  font-family: var(--font-display); font-weight: 700;
+  font-size: 0.95rem; color: var(--green-deep);
+  letter-spacing: 0.08em;
+}
+.exec-band {
+  background: var(--green-pale);
+  border: 1px solid #d3e8cf;
+  border-radius: 12px;
+  padding: 2.1rem 2.4rem;
+  margin-top: 1.8rem;
+}
+.exec-label {
+  font-size: 0.66rem; font-weight: 700; letter-spacing: 0.15em;
+  text-transform: uppercase; color: var(--gray-500);
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+.exec-label::before { content: ''; width: 22px; height: 3px; background: var(--green); }
+.exec-band p {
+  font-family: var(--font-display);
+  font-size: 1.22rem; line-height: 1.62; color: var(--ink);
+}
+.exec-points {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem;
+  margin-top: 1.6rem; padding-top: 1.4rem; border-top: 1px solid #cfe3ca;
+}
+.exec-point { font-size: 0.85rem; line-height: 1.6; color: var(--gray-500); }
+.exec-point strong { display: block; font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--green-deep); margin-bottom: 0.3rem; }
+
+/* ---------- Audience pills ---------- */
+.pills { display: flex; gap: 0.45rem; flex-wrap: wrap; }
+.pill {
+  font-size: 0.63rem; font-weight: 700; letter-spacing: 0.07em;
+  text-transform: uppercase; padding: 0.3rem 0.7rem; border-radius: 999px;
+}
+.pill-gov { background: var(--gray-500); color: #fff; }
+.pill-ceo { background: #fff; color: var(--gray-500); border: 1px solid var(--gray-200); }
+
+/* ---------- Assessment science ---------- */
+.science-grid { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 2.6rem; align-items: start; margin-top: 2.2rem; }
+.science-copy p { font-size: 0.97rem; line-height: 1.78; color: var(--gray-500); margin-bottom: 1.2rem; }
+.talent-panel {
+  border: 1px solid var(--gray-100); border-radius: 10px;
+  padding: 1.5rem 1.5rem 1.3rem; background: #fff;
+}
+.talent-panel h4 {
+  font-size: 0.7rem; font-weight: 700; letter-spacing: 0.13em;
+  text-transform: uppercase; color: var(--gray-400); margin-bottom: 1rem;
+}
+.talent-chips { display: flex; flex-wrap: wrap; gap: 0.45rem; }
+.talent-chip {
+  font-size: 0.78rem; font-weight: 700; color: var(--gray-500);
+  padding: 0.42rem 0.8rem; border-radius: 6px;
+  background: var(--gray-00); border: 1px solid var(--gray-100);
+}
+.talent-note { font-size: 0.76rem; color: var(--gray-400); line-height: 1.6; margin-top: 1rem; }
+/* ---------- Two-instrument pipeline (signature) ---------- */
+.pipeline { margin-top: 2.4rem; }
+.pipeline-panels { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
+.pipe-card {
+  border-radius: 12px; padding: 1.9rem 1.8rem 1.6rem;
+  position: relative; overflow: hidden;
+}
+.pipe-bp10 { background: var(--gray-500); color: #fff; }
+.pipe-cs { background: #fff; border: 1px solid var(--gray-100); }
+.pipe-facing {
+  display: inline-block; font-size: 0.62rem; font-weight: 700;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  padding: 0.3rem 0.7rem; border-radius: 4px; margin-bottom: 1.1rem;
+}
+.pipe-bp10 .pipe-facing { background: var(--green-bright); color: var(--ink); }
+.pipe-cs .pipe-facing { background: var(--green-pale); color: var(--green-deep); }
+.pipe-card h4 { font-family: var(--font-display); font-weight: 700; font-size: 1.35rem; margin-bottom: 0.45rem; }
+.pipe-bp10 h4 { color: #fff; }
+.pipe-cs h4 { color: var(--ink); }
+.pipe-card .pipe-sub { font-size: 0.88rem; line-height: 1.68; margin-bottom: 1.1rem; }
+.pipe-bp10 .pipe-sub { color: var(--gray-100); }
+.pipe-cs .pipe-sub { color: var(--gray-400); }
+.pipe-list { list-style: none; }
+.pipe-list li {
+  font-size: 0.82rem; line-height: 1.55; padding: 0.34rem 0 0.34rem 1.15rem;
+  position: relative;
+}
+.pipe-list li::before {
+  content: ''; position: absolute; left: 0; top: 0.78em;
+  width: 6px; height: 6px; border-radius: 50%;
+}
+.pipe-bp10 .pipe-list li { color: var(--gray-100); }
+.pipe-bp10 .pipe-list li::before { background: var(--green-bright); }
+.pipe-cs .pipe-list li { color: var(--gray-400); }
+.pipe-cs .pipe-list li::before { background: var(--green); }
+.pipeline-converge {
+  margin-top: 1.2rem;
+  border: 1px solid var(--gray-100); border-left: 4px solid var(--green);
+  border-radius: 8px; background: #fff;
+  padding: 1.15rem 1.6rem;
+  display: flex; align-items: center; gap: 1rem; justify-content: center;
+  text-align: center;
+}
+.pipeline-converge p {
+  font-family: var(--font-display); font-weight: 700; font-style: italic;
+  font-size: 1.08rem; color: var(--ink);
+}
+
+/* ---------- Plug-in map ---------- */
+.plug-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; margin-top: 2.2rem; }
+.plug-card {
+  border: 1px solid var(--gray-100); border-radius: 10px;
+  background: #fff; overflow: hidden;
+  display: flex; flex-direction: column;
+}
+.plug-head {
+  background: var(--gray-00); border-bottom: 1px solid var(--gray-100);
+  padding: 1rem 1.4rem;
+}
+.plug-state {
+  font-size: 0.64rem; font-weight: 700; letter-spacing: 0.13em;
+  text-transform: uppercase; color: var(--green-deep);
+}
+.plug-head h4 { font-family: var(--font-display); font-weight: 700; font-size: 1.08rem; color: var(--ink); margin-top: 0.2rem; }
+.plug-body { padding: 1.3rem 1.4rem 1.5rem; display: flex; flex-direction: column; flex: 1; }
+.plug-body p { font-size: 0.85rem; line-height: 1.68; color: var(--gray-400); margin-bottom: 0.9rem; }
+.plug-row { font-size: 0.8rem; line-height: 1.6; color: var(--gray-500); padding: 0.5rem 0; border-top: 1px solid var(--gray-00); }
+.plug-row strong { display: block; font-size: 0.64rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gray-400); margin-bottom: 0.15rem; }
+.plug-outcome {
+  margin-top: auto; padding-top: 0.9rem;
+  font-size: 0.8rem; font-weight: 700; color: var(--green-deep); line-height: 1.5;
+}
+
+/* ---------- Component cards (WS2) ---------- */
+.component { 
+  border: 1px solid var(--gray-100); border-radius: 12px;
+  background: #fff; margin-top: 1.6rem; overflow: hidden;
+}
+.component-head {
+  padding: 1.8rem 2.2rem 0;
+  display: flex; align-items: flex-start; justify-content: space-between; gap: 1.5rem;
+}
+.component-head h3 {
+  font-family: var(--font-display); font-weight: 700;
+  font-size: 1.55rem; line-height: 1.2; color: var(--ink);
+}
+.component-head .component-kicker {
+  font-size: 0.64rem; font-weight: 700; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--gray-400);
+  display: block; margin-bottom: 0.45rem;
+}
+.component-body { padding: 1.1rem 2.2rem 1.6rem; }
+.component-body > p { font-size: 0.97rem; line-height: 1.78; color: var(--gray-500); margin-bottom: 1rem; max-width: 820px; }
+.component-quote {
+  border-left: 3px solid var(--green);
+  padding: 0.4rem 0 0.4rem 1.2rem; margin: 1.3rem 0;
+}
+.component-quote p { font-family: var(--font-display); font-style: italic; font-size: 1.05rem; line-height: 1.6; color: var(--ink); }
+.component-quote cite { display: block; margin-top: 0.4rem; font-style: normal; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gray-400); }
+.stat-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--gray-100); border: 1px solid var(--gray-100); border-radius: 8px; overflow: hidden; margin: 1.4rem 0; }
+.stat-cell { background: #fff; padding: 1.1rem 1.2rem; }
+.stat-cell .n { font-family: var(--font-display); font-weight: 700; font-size: 1.65rem; color: var(--green); line-height: 1; }
+.stat-cell .l { font-size: 0.7rem; line-height: 1.45; color: var(--gray-400); margin-top: 0.4rem; }
+.stat-cell .s { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--gray-300); margin-top: 0.35rem; display: block; }
+
+.metric-label {
+  font-size: 0.66rem; font-weight: 700; letter-spacing: 0.13em;
+  text-transform: uppercase; color: var(--gray-400); margin: 1.5rem 0 0.7rem;
+}
+.metric-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.7rem; margin-bottom: 1.3rem; }
+.metric-tile { border: 1px solid var(--gray-100); border-radius: 8px; padding: 0.85rem 1rem; background: #fff; }
+.metric-name { font-size: 0.8rem; font-weight: 700; color: var(--ink); }
+.metric-name span { color: var(--green-deep); font-weight: 700; }
+.metric-desc { font-size: 0.72rem; line-height: 1.5; color: var(--gray-400); margin-top: 0.2rem; }
+
+/* ---------- Investment ---------- */
+.inv-group { margin-top: 3.2rem; }
+.inv-group-head { display: flex; align-items: baseline; gap: 1rem; margin-bottom: 1.1rem; flex-wrap: wrap; }
+.inv-group-head h3 { font-family: var(--font-display); font-weight: 700; font-size: 1.45rem; color: var(--ink); }
+.assump {
+  background: var(--gray-00); border: 1px solid var(--gray-100); border-radius: 8px;
+  padding: 1rem 1.4rem; font-size: 0.8rem; line-height: 1.7; color: var(--gray-500);
+  margin-bottom: 1.4rem;
+}
+.assump strong { color: var(--ink); }
+.inv-scenarios { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; }
+.inv-card {
+  border: 1px solid var(--gray-100); border-radius: 10px; background: #fff;
+  overflow: hidden; display: flex; flex-direction: column;
+}
+.inv-card-head {
+  background: var(--gray-00); border-bottom: 1px solid var(--gray-100);
+  padding: 1rem 1.3rem; display: flex; justify-content: space-between; align-items: baseline; gap: 0.6rem;
+}
+.inv-card-head h4 { font-family: var(--font-display); font-weight: 700; font-size: 1.15rem; color: var(--ink); }
+.inv-scale {
+  font-size: 0.64rem; font-weight: 700; letter-spacing: 0.05em;
+  text-transform: uppercase; color: var(--gray-400); text-align: right; line-height: 1.5;
+}
+.inv-row { padding: 0.85rem 1.3rem; border-bottom: 1px solid var(--gray-00); }
+.inv-el { font-size: 0.78rem; font-weight: 700; color: var(--ink); }
+.inv-as { font-size: 0.72rem; line-height: 1.5; color: var(--gray-400); margin-top: 0.15rem; }
+.inv-nums { display: flex; justify-content: space-between; gap: 0.8rem; margin-top: 0.5rem; font-size: 0.74rem; font-variant-numeric: tabular-nums; }
+.inv-com { color: var(--gray-400); }
+.inv-par { font-weight: 700; color: var(--green-deep); text-align: right; }
+.inv-total { margin-top: auto; background: var(--green-pale); padding: 0.95rem 1.3rem; }
+.inv-total-line { display: flex; justify-content: space-between; font-size: 0.84rem; font-weight: 700; color: var(--ink); font-variant-numeric: tabular-nums; }
+.inv-total-com { font-size: 0.68rem; color: var(--gray-400); margin-top: 0.25rem; text-align: right; }
+.fee-table { border: 1px solid var(--gray-100); border-radius: 10px; overflow: hidden; background: #fff; max-width: 840px; }
+.fee-row { display: flex; justify-content: space-between; gap: 1rem; padding: 0.95rem 1.5rem; border-bottom: 1px solid var(--gray-00); font-size: 0.88rem; }
+.fee-row .fn { color: var(--gray-500); }
+.fee-row .fn strong { color: var(--ink); }
+.fee-row .fv { font-weight: 700; color: var(--ink); white-space: nowrap; font-variant-numeric: tabular-nums; }
+.fee-row .fv span { font-weight: 600; font-size: 0.72rem; color: var(--gray-400); }
+.fee-row.fee-sub { background: var(--green-pale); border-bottom: none; }
+.fee-row.fee-sub .fn, .fee-row.fee-sub .fv { color: var(--ink); font-weight: 700; }
+.inv-rollup { margin-top: 3.2rem; background: var(--ink); border-radius: 12px; padding: 2.4rem 2.6rem; color: #fff; }
+.rl-label { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gray-200); }
+.rl-big { font-family: var(--font-display); font-weight: 700; font-size: 3rem; color: var(--green-bright); line-height: 1.1; margin: 0.4rem 0 0.2rem; }
+.rl-lines { margin-top: 0.9rem; font-size: 0.84rem; line-height: 1.85; color: var(--gray-100); }
+.rl-foot { margin-top: 1.3rem; padding-top: 1.1rem; border-top: 1px solid rgba(255,255,255,0.14); font-size: 0.7rem; line-height: 1.7; color: var(--gray-300); }
+
+/* ---------- Details / accordion ---------- */
+details.deep {
+  border-top: 1px solid var(--gray-00);
+  margin-top: 0.5rem;
+}
+details.deep summary {
+  list-style: none; cursor: pointer;
+  padding: 1rem 0;
+  display: flex; align-items: center; gap: 0.6rem;
+  font-size: 0.76rem; font-weight: 700; letter-spacing: 0.11em;
+  text-transform: uppercase; color: var(--green-deep);
+}
+details.deep summary::-webkit-details-marker { display: none; }
+details.deep summary .chev {
+  width: 18px; height: 18px; border-radius: 4px;
+  border: 1px solid var(--gray-100);
+  display: inline-flex; align-items: center; justify-content: center;
+  transition: transform 0.2s ease;
+}
+details.deep summary .chev svg { width: 9px; height: 9px; }
+details.deep[open] summary .chev { transform: rotate(45deg); border-color: var(--green); }
+.deep-body { padding: 0.2rem 0 1.2rem; }
+.deep-list { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 0.15rem 2rem; }
+.deep-list li {
+  font-size: 0.86rem; line-height: 1.62; color: var(--gray-500);
+  padding: 0.42rem 0 0.42rem 1.2rem; position: relative;
+}
+.deep-list li::before {
+  content: '\203A'; position: absolute; left: 0; top: 0.3rem;
+  color: var(--green); font-weight: 700; font-size: 1rem;
+}
+.deep-list li strong { color: var(--ink); }
+
+/* ---------- Ticker ---------- */
+.ticker-wrap {
+  background: var(--ink);
+  border-radius: 8px;
+  margin: 0;
+  overflow: hidden;
+  position: relative;
+  padding: 0.85rem 0;
+}
+.ticker-tag {
+  position: absolute; top: 0; right: 0; z-index: 2;
+  font-size: 0.55rem; font-weight: 700; letter-spacing: 0.12em;
+  color: var(--ink); background: var(--green-bright);
+  padding: 0.2rem 0.6rem; border-radius: 0 8px 0 6px;
+}
+.ticker-track {
+  display: flex; gap: 3rem; white-space: nowrap;
+  animation: tick 38s linear infinite;
+  width: max-content;
+}
+.ticker-item {
+  font-size: 0.74rem; font-weight: 700; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--green-bright);
+  display: inline-flex; align-items: center; gap: 3rem;
+}
+.ticker-item::after { content: '\25CF'; color: var(--gray-400); font-size: 0.5rem; }
+@keyframes tick { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+/* ---------- Amplification ---------- */
+.amp-band {
+  background: var(--gray-00);
+  border: 1px solid var(--gray-100);
+  border-radius: 12px;
+  padding: 2.4rem 2.6rem;
+  display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 2.5rem;
+  margin-top: 2.2rem;
+}
+.amp-band h3 { font-family: var(--font-display); font-weight: 700; font-size: 1.7rem; color: var(--ink); margin-bottom: 0.8rem; line-height: 1.2; }
+.amp-band p { font-size: 0.94rem; line-height: 1.75; color: var(--gray-400); }
+.amp-chips { display: flex; flex-direction: column; gap: 0.8rem; }
+.amp-chip {
+  background: #fff; border: 1px solid var(--gray-100); border-left: 4px solid var(--green);
+  border-radius: 8px; padding: 0.95rem 1.2rem;
+}
+.amp-chip strong { display: block; font-size: 0.82rem; color: var(--ink); margin-bottom: 0.15rem; }
+.amp-chip span { font-size: 0.76rem; color: var(--gray-400); line-height: 1.5; }
+
+/* ---------- Timeline ---------- */
+.timeline-steps { margin-top: 2.4rem; }
+.tl-step { display: grid; grid-template-columns: 110px 26px 1fr; gap: 0 1.3rem; align-items: start; }
+.tl-time {
+  font-size: 0.72rem; font-weight: 700; letter-spacing: 0.05em;
+  text-transform: uppercase; color: var(--gray-400);
+  text-align: right; padding-top: 0.12rem;
+}
+.tl-track { display: flex; flex-direction: column; align-items: center; align-self: stretch; }
+.tl-dot {
+  width: 12px; height: 12px; border-radius: 50%;
+  background: #fff; border: 3px solid var(--gray-400); flex-shrink: 0;
+}
+.tl-dot.accent { border-color: var(--green); background: var(--green); }
+.tl-line { width: 2px; flex: 1; background: var(--gray-100); margin: 4px 0; }
+.tl-step:last-child .tl-line { display: none; }
+.tl-content { padding-bottom: 2.1rem; }
+.tl-title { font-weight: 700; font-size: 0.95rem; color: var(--ink); margin-bottom: 0.3rem; }
+.tl-title.accent { color: var(--green-deep); }
+.tl-desc { font-size: 0.85rem; line-height: 1.68; color: var(--gray-400); max-width: 680px; }
+
+/* ---------- Why Gallup (black finale) ---------- */
+.gallup-black {
+  background: var(--ink); color: #fff;
+}
+.gallup-black-inner { max-width: 1140px; margin: 0 auto; padding: 5rem 2.25rem; }
+.gallup-black .eyebrow { color: var(--green-bright); }
+.gallup-black h2 {
+  font-family: var(--font-display); font-weight: 700;
+  font-size: clamp(1.9rem, 4vw, 2.8rem); line-height: 1.16;
+  margin: 0.6rem 0 1.2rem; max-width: 820px; color: #fff;
+}
+.gallup-black .lead { font-size: 1.02rem; line-height: 1.8; color: var(--gray-100); max-width: 760px; margin-bottom: 2.8rem; }
+.big-stats {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 1px; background: rgba(255,255,255,0.14);
+  border: 1px solid rgba(255,255,255,0.14); border-radius: 10px; overflow: hidden;
+}
+.big-stat { background: var(--ink); padding: 1.7rem 1.6rem; }
+.big-stat .n { font-family: var(--font-display); font-weight: 700; font-size: 2.3rem; color: var(--green-bright); line-height: 1; }
+.big-stat .l { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gray-200); margin-top: 0.55rem; line-height: 1.5; }
+.gallup-close {
+  margin-top: 3rem;
+  font-family: var(--font-display); font-style: italic; font-weight: 500;
+  font-size: 1.3rem; line-height: 1.5; color: #fff; max-width: 700px;
+}
+.gallup-close strong { color: var(--green-bright); font-style: normal; }
+
+/* ---------- Footer ---------- */
+.footer {
+  background: #fff; border-top: 1px solid var(--gray-100);
+  padding: 2.4rem 2.25rem;
+  text-align: center;
+  font-size: 0.72rem; line-height: 1.8; color: var(--gray-400);
+}
+.footer .mark-gallup { font-size: 0.85rem; display: inline-block; margin-bottom: 0.7rem; }
+
+/* ---------- Reveal on scroll ---------- */
+.reveal { opacity: 0; transform: translateY(16px); transition: opacity 0.55s ease, transform 0.55s ease; }
+.reveal.in { opacity: 1; transform: translateY(0); }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .reveal { opacity: 1; transform: none; transition: none; }
+  .ticker-track { animation: none; }
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 980px) {
+  .duo-grid, .science-grid, .pipeline-panels, .amp-band { grid-template-columns: 1fr; }
+  .plug-grid { grid-template-columns: 1fr 1fr; }
+  .exec-points { grid-template-columns: 1fr; gap: 0.9rem; }
+  .stat-row, .metric-grid { grid-template-columns: 1fr 1fr; }
+  .inv-scenarios { grid-template-columns: 1fr; }
+  .big-stats { grid-template-columns: 1fr 1fr; }
+  .deep-list { grid-template-columns: 1fr; }
+}
+@media (max-width: 640px) {
+  .header-inner { padding: 0.8rem 1.2rem; }
+  .hero, .section, .gallup-black-inner { padding-left: 1.2rem; padding-right: 1.2rem; }
+  .hero { padding-top: 3.5rem; padding-bottom: 3rem; }
+  .hero-stats { grid-template-columns: 1fr 1fr; }
+  .plug-grid, .big-stats, .metric-grid { grid-template-columns: 1fr; }
+  .component-head { flex-direction: column; gap: 0.8rem; padding: 1.5rem 1.4rem 0; }
+  .component-body { padding: 1rem 1.4rem 1.4rem; }
+  .exec-band { padding: 1.6rem 1.4rem; }
+  .tl-step { grid-template-columns: 76px 22px 1fr; gap: 0 0.8rem; }
+}
+
+/* ---------- Print ---------- */
+@media print {
+  .site-header, .ticker-tag { display: none !important; }
+  body { color: #000; }
+  .hero { border-top: 4px solid #009d4f; padding: 2rem 0 1.5rem; }
+  .section, .gallup-black-inner { padding: 1.6rem 0; }
+  .gallup-black { background: #000 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .exec-band, .pipe-bp10, .ticker-wrap, .inv-rollup, .inv-total, .fee-row.fee-sub { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .component, .plug-card, .duo-card, .inv-card, .fee-table { break-inside: avoid; }
+  details.deep summary .chev { display: none; }
+  .ticker-track { animation: none; }
+  a { text-decoration: none; color: inherit; }
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <div class="brand-pair">
+      <div class="mark-gallup">Gallup<sup>&reg;</sup></div>
+      <div class="brand-divider"></div>
+      <div class="mark-raiseus">RAISE US<span>Partnership Proposal</span></div>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-rule"></div>
+    <span class="eyebrow">A Partnership Proposal &mdash; Gallup &times; RAISE US &middot; July 2026</span>
+    <h1>A <em>People Strategy</em> for the AI&nbsp;Economy</h1>
+    <p class="hero-sub">RAISE US has assembled the coalition, the capital and the state partnerships to help American workers make the transition to an AI economy. Gallup proposes to supply what comes next: the science to find the Americans who will build that economy, a development system for every worker making the transition, and the gold-standard evidence that proves what works.</p>
+    <div class="ticker-wrap" aria-hidden="true">
+        <span class="ticker-tag">Illustrative</span>
+        <div class="ticker-track" id="tickerTrack">
+          <span class="ticker-item">Working Adults</span>
+          <span class="ticker-item">Non-Working Adults</span>
+          <span class="ticker-item">Youth Not Working</span>
+          <span class="ticker-item">Fit to Job</span>
+          <span class="ticker-item">Job Optimism</span>
+          <span class="ticker-item">Workforce Ambition</span>
+          <span class="ticker-item">Fully Adopted AI</span>
+          <span class="ticker-item">Global P2P</span>
+        </div>
+      </div>
+  </div>
+</section>
+
+<section class="section" id="overview">
+  <div class="narrative reveal">
+    <p>This is an American moment. By RAISE US's own estimate, 50 million American workers hold jobs vulnerable to AI &mdash; and most are not convinced anyone is on their side: <strong>61% of Americans believe AI will destroy more jobs than it creates</strong>, and only 2% fully trust it. The deeper problem is that the evidence leaders need does not exist. The country measures what AI is doing <em>to</em> workers and almost nothing about what is working <em>for</em> them &mdash; which employers, which programs, which states are getting the transition right. RAISE US has the coalition, the capital and the state partnerships to change that. What it needs next is a people strategy, and measurable proof of what works &mdash; in hand by the time government is able to act.</p>
+    <div class="prop-mark"><span>What Gallup Proposes</span></div>
+    <p>Gallup &mdash; founded in 1935 to report the will of the people, and today the world's leading authority on the workplace &mdash; proposes a partnership with RAISE US built as two workstreams. <strong>America's Builders</strong> is the people strategy: Gallup's talent science, deployed inside RAISE US programs to find the Americans most likely to create the new companies and jobs of the AI economy, and to develop every worker making the transition. <strong>The Official Statistics of the AI Economy</strong> is the proof: gold-standard measurement that makes RAISE US the most credible source of evidence on the AI economy in the country &mdash; built for the leaders RAISE US serves, the nation's governors and the chief executives of America's largest employers.</p>
+  </div>
+  <div class="duo-grid">
+    <div class="duo-card reveal">
+      <div class="duo-kicker">Workstream One &middot; Talent Identification &amp; Development</div>
+      <h3>America's Builders</h3>
+      <div class="duo-role">The people</div>
+      <p>A new RAISE US edition of Gallup's proven entrepreneur assessment identifies the participants most likely to start and grow ventures &mdash; and CliftonStrengths gives every worker in transition a foundation for development.</p>
+      <div class="duo-tags"><span class="tag">America's Builders Assessment</span><span class="tag">CliftonStrengths</span><span class="tag">Program integration</span><span class="tag">Incubator pathway</span></div>
+    </div>
+    <div class="duo-card reveal">
+      <div class="duo-kicker">Workstream Two &middot; Research, Data &amp; Evidence</div>
+      <h3>The Official Statistics of the AI&nbsp;Economy</h3>
+      <div class="duo-role">The proof</div>
+      <p>Make RAISE US the source everyone else cites: a national dashboard of gold-standard statistics, a 50-state evidence base for governors, an employer playbook on responsible transitions, and independent measurement of what works.</p>
+      <div class="duo-tags"><span class="tag">National dashboard</span><span class="tag">Governor's Scorecard</span><span class="tag">Employer research</span><span class="tag">Impact measurement</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="rule-divider"><hr></div>
+
+<section class="section ws-open" id="builders">
+  <div class="section-head reveal">
+    <span class="ws-number">Workstream One</span>
+    <h2 class="section-title">America's Builders</h2>
+    <p class="section-subtitle">Identifying the Americans most likely to build the AI economy's new companies and jobs &mdash; and developing every worker in transition.</p>
+  </div>
+
+  <div class="exec-band reveal">
+    <span class="exec-label">Executive Summary</span>
+    <p>Gallup proposes putting a proven talent science at the front door of RAISE US programs: the <strong>RAISE US America's Builders Assessment</strong> &mdash; a new edition of Gallup's entrepreneur assessment, built expressly for this partnership &mdash; to identify the participants with the highest natural propensity to start and grow ventures, and <strong>CliftonStrengths</strong> to give every participant a development foundation for the transition ahead. One faces the program. One faces the person. Program teams get selection intelligence; participants get self-knowledge.</p>
+    <div class="exec-points">
+      <div class="exec-point"><strong>Identify</strong>Widen the intake so anyone can take the America's Builders Assessment &mdash; and program teams can surface the highest builder propensity in any cohort, city or state.</div>
+      <div class="exec-point"><strong>Develop</strong>Every participant receives CliftonStrengths as the spine of coaching, mentoring and self-directed growth.</div>
+      <div class="exec-point"><strong>Deploy</strong>Plugged directly into live RAISE US programs &mdash; starting in Maryland and Arkansas &mdash; on Gallup's existing delivery platform.</div>
+    </div>
+  </div>
+
+  <div class="science-grid">
+    <div class="science-copy reveal">
+      <span class="eyebrow">Identification</span>
+      <h3 style="font-family: var(--font-display); font-weight:700; font-size:1.6rem; color:var(--ink); margin:0.5rem 0 1rem; line-height:1.25;">The RAISE US America's Builders Assessment</h3>
+      <p>Gallup will build RAISE US its own instrument: the <strong>RAISE US America's Builders Assessment</strong>, a new edition of Gallup's entrepreneur assessment created expressly for this partnership &mdash; the same validated science and national benchmarks, carried under the RAISE US name, with reporting configured for RAISE US program teams and deployable from a single cohort to an entire state. RAISE US does not license someone else's tool. It launches its own.</p>
+      <p>The science underneath is Gallup's definition made measurable. A builder is someone who can create economic energy where none previously existed &mdash; the people whose ventures become new products, new opportunities and, most important for this mission, new jobs. Gallup's research across tens of thousands of entrepreneurs, non-entrepreneurs and students isolated the <strong>ten innate talents</strong> successful builders share, and produced a 30-minute assessment &mdash; validated for ages 14 and up, on the same science as CliftonStrengths &mdash; that measures them. Every individual receives a score from 0 to 100 on each talent, plus an <strong>overall talent score</strong>, benchmarked against the general adult population and the top quartile of builders in Gallup's national database &mdash; so a program team sees not only what someone's talents are, but how rare they are, along with the kind of building role a person naturally plays, from revenue generation to operations to product innovation.</p>
+      <p>And the instrument separates. When Gallup assessed CEOs from the Inc. 5000 &mdash; leaders of some of America's fastest-growing companies &mdash; <strong>23% showed exceptional builder talent, against half of one percent of the general population</strong>. Talent predicts performance: the highest-talent builders are dramatically more likely to run million-dollar businesses, to exceed sales and profit goals, to be planning to grow their teams &mdash; and <strong>three times more likely to build large businesses and grow them significantly</strong>.</p>
+    </div>
+    <div class="talent-panel reveal">
+      <h4>The Ten Builder Talents</h4>
+      <div class="talent-chips">
+        <span class="talent-chip">Confidence</span>
+        <span class="talent-chip">Delegator</span>
+        <span class="talent-chip">Determination</span>
+        <span class="talent-chip">Disruptor</span>
+        <span class="talent-chip">Independence</span>
+        <span class="talent-chip">Knowledge</span>
+        <span class="talent-chip">Profitability</span>
+        <span class="talent-chip">Relationship</span>
+        <span class="talent-chip">Risk</span>
+        <span class="talent-chip">Selling</span>
+      </div>
+      <p class="talent-note">Each talent is scored 0&ndash;100 and presented in rank order, benchmarked against the general population and top-quartile builders. Gallup's guidance: focus development on an individual's top four.</p>
+    </div>
+  </div>
+
+  <div class="stat-row reveal" style="margin-top:2.2rem;">
+    <div class="stat-cell"><div class="n">23%</div><div class="l">of Inc. 5000 CEOs show exceptional builder talent &mdash; vs. 0.5% of the general population</div><span class="s">Gallup Inc. 5000 study, 2018</span></div>
+    <div class="stat-cell"><div class="n">94%</div><div class="l">of those CEOs run businesses above $1M in revenue &mdash; vs. 11% of U.S. entrepreneurs overall</div><span class="s">Gallup Inc. 5000 study vs. Gallup Panel entrepreneur sample</span></div>
+    <div class="stat-cell"><div class="n">91%</div><div class="l">plan to grow their workforce by 5% or more &mdash; vs. 14% of entrepreneurs overall</div><span class="s">Gallup Inc. 5000 study vs. Gallup Panel entrepreneur sample</span></div>
+    <div class="stat-cell"><div class="n">+22 pts</div><div class="l">higher year-over-year profit growth for businesses led by high-talent builders</div><span class="s">Gallup Business Journal small-business study</span></div>
+  </div>
+
+  <div class="section-head reveal" style="margin-top:3.4rem;">
+    <span class="eyebrow">Development</span>
+    <h3 class="section-title" style="font-size:1.8rem;">CliftonStrengths, for every participant</h3>
+  </div>
+  <div class="narrative reveal" style="max-width:820px;">
+    <p style="font-size:0.97rem; line-height:1.78;">Identification finds the builders. Development is for everyone. Every participant in a RAISE US program receives <strong>CliftonStrengths</strong> &mdash; Gallup's assessment of the 34 talent themes that describe what a person naturally does best, completed by more than 30 million people worldwide. Where the America's Builders Assessment tells the program who to invest in, CliftonStrengths tells each participant who they are: a personal development language they keep for life.</p>
+    <p style="font-size:0.97rem; line-height:1.78;">It is also the engine of coaching and mentoring through the transition. Gallup's research shows people who use their strengths every day are far more engaged and more productive &mdash; and Gallup's certified coaching network and development materials give every participating state a ready-made system for turning self-knowledge into momentum.</p>
+    <p style="font-size:0.97rem; line-height:1.78;">The urgency behind this development layer sharpened just this month, in new Gallup findings featured in <em>Fortune</em>. AI use has crossed a threshold in the American workforce &mdash; yet almost no one says it has transformed how work gets done, and Gallup's research shows the gap closes through people, not technology: the organizations that invest in their managers and their people's development capture the gains, while the rest pour money into tools and wait.</p>
+  </div>
+  <div class="stat-row reveal" style="max-width:820px; margin-top:1.6rem;">
+    <div class="stat-cell"><div class="n">80%</div><div class="l">of the world's employees are not engaged at work</div><span class="s">Gallup, 2026 State of the Global Workplace</span></div>
+    <div class="stat-cell"><div class="n">50%</div><div class="l">of U.S. employees now use AI in their role &mdash; a first in Gallup's tracking</div><span class="s">Gallup, Q1 2026</span></div>
+    <div class="stat-cell"><div class="n">12%</div><div class="l">in AI-implementing organizations strongly agree AI has transformed how work gets done</div><span class="s">Gallup, Q1 2026</span></div>
+    <div class="stat-cell"><div class="n">4&times;</div><div class="l">best-practice organizations engage their managers at four times the global average</div><span class="s">Gallup, 2026 State of the Global Workplace</span></div>
+  </div>
+
+  <div class="pipeline">
+    <div class="section-head reveal" style="margin-top:3.2rem;">
+      <span class="eyebrow">The Program</span>
+      <h3 class="section-title" style="font-size:1.8rem;">From first assessment to accelerator</h3>
+      <p class="section-subtitle">Every participant completes both assessments at intake. Each person receives their CliftonStrengths results, with coaching and development materials delivered in every participating state &mdash; while program teams receive America's Builders Assessment results and guide the strongest builder talent toward the startup-accelerator pathway.</p>
+    </div>
+    <div class="pipeline-panels">
+      <div class="pipe-card pipe-bp10 reveal">
+        <span class="pipe-facing">For RAISE US Program Teams</span>
+        <h4>America's Builders Assessment</h4>
+        <p class="pipe-sub">Program teams receive each participant's builder results &mdash; benchmarked against top-quartile builders nationwide &mdash; and use them to identify, select and invest in the strongest builder talent.</p>
+        <ul class="pipe-list">
+          <li>Intake screening at any scale &mdash; a cohort, a program or an entire state</li>
+          <li>Selection into the startup accelerator and incubator pathway</li>
+          <li>Development targeting: who to invest in, and how</li>
+          <li>Cohort analytics for program leaders and the policy lab</li>
+        </ul>
+      </div>
+      <div class="pipe-card pipe-cs reveal">
+        <span class="pipe-facing">For Every Participant</span>
+        <h4>CliftonStrengths</h4>
+        <p class="pipe-sub">Delivered to every participant as their own development tool &mdash; the foundation for coaching, mentoring and self-directed growth through the transition.</p>
+        <ul class="pipe-list">
+          <li>34 talent themes; more than 30 million people have completed it</li>
+          <li>People who use their strengths daily are far more engaged and more productive</li>
+          <li>Coaching and development materials delivered in every participating state</li>
+          <li>A development language participants keep for life</li>
+        </ul>
+      </div>
+    </div>
+    <div class="pipeline-converge reveal">
+      <p>Participants leave with their strengths. Program teams know exactly who their builders are.</p>
+    </div>
+  </div>
+
+  <div class="section-head reveal" style="margin-top:3.6rem;">
+    <span class="eyebrow">Where It Plugs In</span>
+    <h3 class="section-title" style="font-size:1.8rem;">Day-one integration points</h3>
+    <p class="section-subtitle">This workstream does not require new programs. It makes the programs RAISE US is already running smarter &mdash; beginning with the live state partnerships.</p>
+  </div>
+  <div class="plug-grid">
+    <div class="plug-card reveal">
+      <div class="plug-head">
+        <span class="plug-state">Maryland &middot; with Gov. Wes Moore</span>
+        <h4>First Year of Service</h4>
+      </div>
+      <div class="plug-body">
+        <p>A pilot for 18&ndash;25-year-olds built on the theory that AI will make early careers harder to start &mdash; and that a service year is the alternative path.</p>
+        <div class="plug-row"><strong>The plug-in</strong>The America's Builders Assessment across the full service intake. Reviewers route the highest builder propensity into the startup-accelerator pathway; every participant receives CliftonStrengths as the development spine of the service year.</div>
+        <div class="plug-outcome">The service year becomes a builder-discovery engine.</div>
+      </div>
+    </div>
+    <div class="plug-card reveal">
+      <div class="plug-head">
+        <span class="plug-state">Arkansas</span>
+        <h4>Job Navigation &amp; Matching</h4>
+      </div>
+      <div class="plug-body">
+        <p>A program for workers displaced by AI &mdash; navigation, matching and transition support for the people the AI economy has already reached.</p>
+        <div class="plug-row"><strong>The plug-in</strong>The America's Builders Assessment as a routing signal inside navigation &mdash; builder pathway or reemployment pathway &mdash; with CliftonStrengths matching displaced workers to roles that fit how they naturally work.</div>
+        <div class="plug-outcome">Transitions matched to talent, not just to openings.</div>
+      </div>
+    </div>
+    <div class="plug-card reveal">
+      <div class="plug-head">
+        <span class="plug-state">Any State &middot; Any Program</span>
+        <h4>Statewide &amp; Program-Wide Intake</h4>
+      </div>
+      <div class="plug-body">
+        <p>Widen the intake so anyone can take the assessment &mdash; every young person in a state, every program participant, every partner-employer cohort.</p>
+        <div class="plug-row"><strong>The plug-in</strong>Open intake for the America's Builders Assessment at population scale on Gallup's delivery platform, with reviewer dashboards that surface high-propensity builders wherever they are.</div>
+        <div class="plug-outcome">A census of builder talent no state has ever had.</div>
+      </div>
+    </div>
+  </div>
+
+  <details class="deep reveal" style="margin-top:2rem;">
+    <summary><span class="chev"><svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.8"><line x1="5" y1="1" x2="5" y2="9"/><line x1="1" y1="5" x2="9" y2="5"/></svg></span>Full detail: deployment, the development pipeline &amp; naming</summary>
+    <div class="deep-body">
+      <ul class="deep-list">
+        <li><strong>Delivery at scale.</strong> Assessments administered on Gallup's established platform &mdash; codes, reporting and cohort analytics managed end to end, from a single classroom to a full state.</li>
+        <li><strong>Program-team enablement.</strong> Gallup trains RAISE US program teams to interpret builder results responsibly &mdash; benchmarks, role fit and complementary-talent reads.</li>
+        <li><strong>Coaching infrastructure.</strong> Gallup's certified strengths coaching network supports mentoring at program scale, so development is a system, not an event.</li>
+        <li><strong>The full age pipeline.</strong> The strengths family spans the whole journey &mdash; StrengthsExplorer for ages 10&ndash;14, CliftonStrengths from high school onward, and the America's Builders Assessment from age 14 up.</li>
+        <li><strong>Their name, Gallup's science.</strong> The America's Builders Assessment carries the RAISE US identity in every program touchpoint, with Gallup's validated science and national benchmarks underneath.</li>
+        <li><strong>Feeds Workstream Two.</strong> Every assessment builds the evidence base: cohort-level talent data becomes part of the measurement system described below.</li>
+      </ul>
+    </div>
+  </details>
+</section>
+
+<div class="rule-divider"><hr></div>
+
+<section class="section ws-open" id="statistics">
+  <div class="section-head reveal">
+    <span class="ws-number">Workstream Two</span>
+    <h2 class="section-title">The Official Statistics of the AI&nbsp;Economy</h2>
+    <p class="section-subtitle">Research, data and evidence &mdash; Gallup as RAISE US's official research department, producing the numbers that governors, CEOs and the country can point to.</p>
+  </div>
+
+  <div class="exec-band reveal">
+    <span class="exec-label">Executive Summary</span>
+    <p>The AI economy is being narrated by anecdote. Gallup proposes to give RAISE US the alternative: <strong>gold-standard statistics that everyone can point to</strong>. Five components, each answering a question RAISE US cannot credibly answer alone &mdash; What is actually happening in the AI economy? What is happening in <em>my state</em>? Which employers are getting the transition right? Are our programs working? &mdash; every answer grounded in nine decades of Gallup tracking. Together, they make RAISE US the source everyone else cites.</p>
+    <div class="exec-points">
+      <div class="exec-point"><strong>For governors</strong>State-level evidence of actual behavior &mdash; representative in all 50 states, comparable across every one of them.</div>
+      <div class="exec-point"><strong>For CEOs</strong>The employer playbook: who is winning with AI, why they are winning, and how to retrain and redeploy instead of lay off.</div>
+      <div class="exec-point"><strong>For the country</strong>A public dashboard of real numbers &mdash; jobs, businesses, and the human side no government statistic captures.</div>
+    </div>
+  </div>
+
+  <!-- Component A -->
+  <div class="component reveal">
+    <div class="component-head">
+      <div>
+        <span class="component-kicker">Component 01 &middot; The Public Face</span>
+        <h3>The National Dashboard: Gold-Standard Statistics</h3>
+      </div>
+      <div class="pills"><span class="pill pill-gov">For Governors</span><span class="pill pill-ceo">For CEOs</span></div>
+    </div>
+    <div class="component-body">
+      <p>A soon-to-be-famous public dashboard &mdash; previewed in the live ticker at the top of this page &mdash; built on two ledgers. The <strong>economic ledger</strong> starts with a reform: reporting <strong>Working Adults and Non-Working Adults</strong>, a clearer frame than the monthly unemployment rate, which misses the Americans who have stopped looking or are underemployed &mdash; alongside jobs created and businesses started, including what is being built <em>with</em> AI. The <strong>human ledger</strong> tracks what no government statistic captures: workforce ambition, job optimism, purpose, and how fully Americans have adopted AI in their daily work.</p>
+      <div class="metric-label">Illustrative measures &mdash; to be co-designed with RAISE US</div>
+      <div class="metric-grid">
+        <div class="metric-tile"><div class="metric-name">Working Adults <span>(WA)</span></div><div class="metric-desc">The share of adults who are working</div></div>
+        <div class="metric-tile"><div class="metric-name">Non-Working Adults <span>(NA)</span></div><div class="metric-desc">Out of work or no longer looking &mdash; visible at last</div></div>
+        <div class="metric-tile"><div class="metric-name">Youth Not Working</div><div class="metric-desc">Young adults outside the workforce</div></div>
+        <div class="metric-tile"><div class="metric-name">Fit to Job</div><div class="metric-desc">Strengths and skills matched to the role</div></div>
+        <div class="metric-tile"><div class="metric-name">Job Optimism</div><div class="metric-desc">Is now a good time to find a quality job?</div></div>
+        <div class="metric-tile"><div class="metric-name">Workforce Ambition</div><div class="metric-desc">Who is striving, learning and aiming higher</div></div>
+        <div class="metric-tile"><div class="metric-name">Fully Adopted AI</div><div class="metric-desc">The share using AI daily at work</div></div>
+        <div class="metric-tile"><div class="metric-name">Global P2P</div><div class="metric-desc">Payroll-to-Population, measured worldwide</div></div>
+      </div>
+      <p>The human ledger is the moat &mdash; and the point. Ambition, optimism and adoption are <strong>leading indicators</strong>: they move before the economy does, while the classic economic numbers trail. Government statistics can count positions; only Gallup can measure ambition at national scale. And Gallup has built national alternatives to official labor statistics before, from daily employment tracking to its Payroll-to-Population measure &mdash; a capability this partnership revives for the AI economy, and extends globally, because the competition for that economy is worldwide.</p>
+      <details class="deep">
+        <summary><span class="chev"><svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.8"><line x1="5" y1="1" x2="5" y2="9"/><line x1="1" y1="5" x2="9" y2="5"/></svg></span>Full detail: what the dashboard delivers</summary>
+        <div class="deep-body">
+          <ul class="deep-list">
+            <li><strong>The Working Adults reform</strong> &mdash; reporting Working and Non-Working Adults alongside the headline rate, counting the discouraged and underemployed Americans the official number misses.</li>
+            <li><strong>Job and business creation tracking</strong> &mdash; including new-business formation and the ventures being started with AI.</li>
+            <li><strong>The human indicators</strong> &mdash; ambition, purpose, engagement and workers' relationship with AI, trended over time.</li>
+            <li><strong>A release rhythm built for attention</strong> &mdash; recurring data moments timed to the news cycle, with full methodological transparency.</li>
+            <li><strong>A public destination</strong> &mdash; dashboard, embeddable ticker and media-ready briefs carrying the RAISE US partnership.</li>
+            <li><strong>Trusted numbers by design</strong> &mdash; probability-based sampling and published methodology, so the statistics can be cited by anyone, argued by no one.</li>
+          </ul>
+        </div>
+      </details>
+    </div>
+  </div>
+
+  <!-- Component B -->
+  <div class="component reveal">
+    <div class="component-head">
+      <div>
+        <span class="component-kicker">Component 02 &middot; Evidence for Governors</span>
+        <h3>The Governor's Scorecard: All 50 States</h3>
+      </div>
+      <div class="pills"><span class="pill pill-gov">For Governors</span></div>
+    </div>
+    <div class="component-body">
+      <p>States control workforce policy &mdash; the funding, the credentialing, the incentives &mdash; so nowhere does this partnership matter more than in the hands of the nation's governors. And what governors need is evidence. Gallup will field <strong>truly representative measurement in all 50 states</strong>, with sample sizes that can report on every segment of the population, producing state-level estimates of <strong>actual behavior, not just sentiment</strong>: who is using AI and how, who is being displaced, who is landing and keeping good jobs, and how each state's workforce compares to every other.</p>
+      <p>It begins where RAISE US already is &mdash; Arkansas, Connecticut, Maryland and Utah &mdash; and scales to a scorecard for every governor in the country, on identical instruments so the comparisons are real. No other research organization can field this.</p>
+      <details class="deep">
+        <summary><span class="chev"><svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.8"><line x1="5" y1="1" x2="5" y2="9"/><line x1="1" y1="5" x2="9" y2="5"/></svg></span>Full detail: the state evidence base</summary>
+        <div class="deep-body">
+          <ul class="deep-list">
+            <li><strong>Launch-state baselines first</strong> &mdash; Arkansas, Connecticut, Maryland and Utah measured in year one, before pilots scale.</li>
+            <li><strong>State-by-state benchmark reports</strong> &mdash; each governor sees their workforce against the nation and against peer states.</li>
+            <li><strong>Actual-behavior measures</strong> &mdash; AI use, displacement, retraining uptake and job outcomes, not just attitudes.</li>
+            <li><strong>Every segment reportable</strong> &mdash; sample designs sized to report by age, industry, education and community type within each state.</li>
+            <li><strong>One instrument, fifty states</strong> &mdash; identical questions everywhere, so a governor's number means the same thing in Annapolis and Little Rock.</li>
+            <li><strong>Policy-lab-ready data</strong> &mdash; clean, documented state datasets delivered for RAISE US's research and policy work.</li>
+          </ul>
+        </div>
+      </details>
+    </div>
+  </div>
+
+  <!-- Component C -->
+  <div class="component reveal">
+    <div class="component-head">
+      <div>
+        <span class="component-kicker">Component 03 &middot; Responsible Transitions</span>
+        <h3>The Employer Playbook: Who Is Winning With AI &mdash; and Why</h3>
+      </div>
+      <div class="pills"><span class="pill pill-ceo">For CEOs</span></div>
+    </div>
+    <div class="component-body">
+      <p>The public conversation about AI and work has been captured by a single storyline: jobs destroyed, workers displaced, futures uncertain. The race to document AI's damage is crowded. <strong>The race to document its human potential is wide open</strong> &mdash; and it is the race RAISE US's employer mission needs won. Somewhere in the American economy, organizations are already retraining and redeploying instead of laying off, and getting engagement, productivity and loyalty in return. Nobody is measuring who they are or what they do differently.</p>
+      <div class="stat-row">
+        <div class="stat-cell"><div class="n">89%</div><div class="l">of executives report no measurable AI effect on productivity</div><span class="s">NBER survey, ~6,000 executives</span></div>
+        <div class="stat-cell"><div class="n">8.7&times;</div><div class="l">more likely AI transforms work when managers support its use</div><span class="s">Gallup, 2026 State of the Global Workplace</span></div>
+        <div class="stat-cell"><div class="n">5.6&times;</div><div class="l">engagement lift for employees with a strong sense of purpose</div><span class="s">Power of Purpose, Gallup, 2025</span></div>
+        <div class="stat-cell"><div class="n">31%</div><div class="l">of U.S. employees engaged &mdash; an 11-year low</div><span class="s">Gallup, 2026</span></div>
+      </div>
+      <p>Gallup's research already points to where the wins come from: the single strongest predictor of whether AI transforms work is not the technology &mdash; it is the manager. And Gallup has run this study architecture before, with one of RAISE US's own founding research partners: <em>The Power of Purpose</em>, the Gallup and Stand Together study of 4,475 U.S. working adults that introduced the Work Purpose Index. This component extends that architecture to the defining employer question of the decade.</p>
+      <div class="component-quote">
+        <p>&ldquo;Even the most sophisticated neural network cannot overcome an indifferent team leader.&rdquo;</p>
+        <cite>Jon Clifton &middot; CEO, Gallup</cite>
+      </div>
+      <p>The deliverable is the playbook itself: a definitive national study of U.S. working adults, fielded on Gallup's probability-based panel, that identifies the employers getting responsible transitions right &mdash; <strong>a place for every worker in the AI economy</strong> &mdash; and turns their practices into guidance every CEO and CHRO can act on. RAISE US's transition models are deliberately unwritten until proven. Gallup becomes the independent scorer of which models actually work.</p>
+      <details class="deep">
+        <summary><span class="chev"><svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.8"><line x1="5" y1="1" x2="5" y2="9"/><line x1="1" y1="5" x2="9" y2="5"/></svg></span>Full detail: the employer research program</summary>
+        <div class="deep-body">
+          <ul class="deep-list">
+            <li><strong>The landmark study</strong> &mdash; how AI is reshaping engagement, purpose, retention, hiring, growth and the manager's role, across industries and organization sizes.</li>
+            <li><strong>The who-is-winning benchmark</strong> &mdash; separating organizations getting human gains from AI from those getting nothing, and isolating what they do differently.</li>
+            <li><strong>Employer playbooks and toolkits</strong> &mdash; practical, thematic guidance: AI and retention, AI and hiring, AI and the manager, retrain-and-redeploy models.</li>
+            <li><strong>A recurring index option</strong> &mdash; grow the study into a quarterly AI &amp; Work measure: the jobs-report equivalent for AI's human impact.</li>
+            <li><strong>Executive engagement</strong> &mdash; CHRO briefings, roundtables and convenings that move findings into practice across RAISE US's employer coalition.</li>
+            <li><strong>Built on proven foundations</strong> &mdash; the Q12 engagement framework, the Work Purpose Index, and Gallup's ongoing research on American AI attitudes.</li>
+          </ul>
+        </div>
+      </details>
+    </div>
+  </div>
+
+  <!-- Component D -->
+  <div class="component reveal">
+    <div class="component-head">
+      <div>
+        <span class="component-kicker">Component 04 &middot; Measurement &amp; Impact</span>
+        <h3>Proof of What Works: Independent Program Measurement</h3>
+      </div>
+      <div class="pills"><span class="pill pill-gov">For Governors</span><span class="pill pill-ceo">For CEOs</span></div>
+    </div>
+    <div class="component-body">
+      <p>RAISE US's operating model is deliberate: pilot, measure, scale what works &mdash; and let the evidence make the case that governments will fund. That model only functions if the measurement is independent and beyond dispute. Gallup proposes to serve as that independent measurement arm: baselining every pilot before launch, measuring against RAISE US's own definition of success &mdash; <strong>whether workers land and keep good jobs</strong> &mdash; and delivering the evidence the policy lab needs, on the timeline Gina set: measurable proof by the time government is able to act.</p>
+      <p>Because the measurement is Gallup's, the results carry weight with the people RAISE US most needs to move &mdash; a legislature weighing funding, a governor weighing expansion, a CEO weighing adoption. The experiments are RAISE US's. The audit is Gallup's. That separation is what makes the proof credible.</p>
+      <details class="deep">
+        <summary><span class="chev"><svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.8"><line x1="5" y1="1" x2="5" y2="9"/><line x1="1" y1="5" x2="9" y2="5"/></svg></span>Full detail: the evaluation system</summary>
+        <div class="deep-body">
+          <ul class="deep-list">
+            <li><strong>Baseline before launch</strong> &mdash; every pilot measured before it begins, so impact is attributable rather than asserted.</li>
+            <li><strong>A common outcome framework</strong> &mdash; the same success measures across every pilot and state, so results can be compared and scaled.</li>
+            <li><strong>Rigorous designs</strong> &mdash; pre/post and comparison-group evaluation matched to each pilot's structure.</li>
+            <li><strong>The human outcomes too</strong> &mdash; wellbeing, purpose and confidence measured alongside employment, because a good transition is more than a paycheck.</li>
+            <li><strong>Policy-ready evidence briefs</strong> &mdash; findings packaged for governors, legislatures and funders, built to move decisions.</li>
+            <li><strong>The independent auditor role</strong> &mdash; Gallup's independence is the credential; the proof is only as strong as the neutrality of whoever measures it.</li>
+          </ul>
+        </div>
+      </details>
+    </div>
+  </div>
+
+  <!-- Component E -->
+  <div class="component reveal">
+    <div class="component-head">
+      <div>
+        <span class="component-kicker">Component 05 &middot; The Foundation</span>
+        <h3>The Gallup Databases: 90 Years of Tracking</h3>
+      </div>
+      <div class="pills"><span class="pill pill-gov">For Governors</span><span class="pill pill-ceo">For CEOs</span></div>
+    </div>
+    <div class="component-body">
+      <p>Behind every component above sits an asset no other partner can offer: Gallup's historic databases, opened to this program. Nine decades of continuous measurement &mdash; U.S. tracking on work, wellbeing and the economy; the Gallup World Poll across 168+ countries; the global engagement database of 2.7 million teams; and Gallup's ongoing research on American attitudes toward AI. RAISE US's new statistics will not start from zero: every dashboard release, scorecard and study lands with decades of trend behind it.</p>
+      <details class="deep">
+        <summary><span class="chev"><svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.8"><line x1="5" y1="1" x2="5" y2="9"/><line x1="1" y1="5" x2="9" y2="5"/></svg></span>Full detail: what database access includes</summary>
+        <div class="deep-body">
+          <ul class="deep-list">
+            <li><strong>Historical baselines</strong> &mdash; decades of trend on work, jobs, wellbeing and economic confidence, so new measures launch with context, not just a starting point.</li>
+            <li><strong>Comparison norms</strong> &mdash; national and demographic benchmarks for every new RAISE US metric, drawn from Gallup's existing series.</li>
+            <li><strong>Research access</strong> &mdash; secure, documented datasets for RAISE US's policy and research work.</li>
+            <li><strong>Global context</strong> &mdash; the Gallup World Poll, for the worldwide view the AI economy demands.</li>
+            <li><strong>Archive-informed design</strong> &mdash; new instruments built on question wording and scales Gallup has already validated over decades.</li>
+            <li><strong>Framing for every release</strong> &mdash; each announcement placed against history, which is what turns a data point into a story.</li>
+          </ul>
+        </div>
+      </details>
+    </div>
+  </div>
+
+  <div class="amp-band reveal">
+    <div>
+      <span class="eyebrow">Cross-Cutting &middot; Amplification</span>
+      <h3>Making the findings famous</h3>
+      <p>Research only changes the country if the country hears about it. Gallup's newsroom relationships span the outlets that set the agenda &mdash; from the Wall Street Journal and the New York Times to Axios, Fortune and the Financial Times &mdash; and Gallup.com puts every release in front of the leaders, academics and CHROs who already look to Gallup first on the world of work. Every dashboard release, scorecard and playbook in this proposal arrives with a communications engine attached &mdash; so RAISE US's evidence does not just exist. It leads the conversation.</p>
+    </div>
+    <div class="amp-chips">
+      <div class="amp-chip"><strong>An earned-media engine</strong><span>Data moments timed to the news cycle, with Gallup's editorial team turning findings into coverage.</span></div>
+      <div class="amp-chip"><strong>The Great Hall, Washington, D.C.</strong><span>Gallup's convening venue on the beaten path of policy &mdash; a stage for RAISE US briefings, launches and summits.</span></div>
+      <div class="amp-chip"><strong>The Semafor connection</strong><span>Gallup's partnership with Semafor connects directly to the platform where this partnership can be announced on November 17.</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="rule-divider"><hr></div>
+
+<section class="section" id="investment">
+  <div class="section-head reveal">
+    <span class="eyebrow">Estimated Investment</span>
+    <h2 class="section-title">An illustrative view of the partnership investment</h2>
+    <p class="section-subtitle">Every figure below is illustrative &mdash; built from published rates and stated assumptions, shown so the shape and scale of the partnership are clear. Final pricing is set together in scoping.</p>
+  </div>
+
+  <div class="inv-group reveal">
+    <div class="inv-group-head"><span class="ws-number">Workstream One</span><h3>America's Builders &mdash; statewide deployment</h3></div>
+    <div class="assump"><strong>Rates &amp; assumptions.</strong> America's Builders Assessment at a <strong>$10 commercial rate per assessment</strong>, offered to RAISE US instead as a flat statewide subscription covering development, deployment and unlimited use. CliftonStrengths at the published <strong>$24.99</strong> rate, offered at a <strong>$10 partnership rate</strong> for program participants (assumed at 10% of the young-adult population). Coaching at standard rates, not discounted: Gallup Global Strengths Coach certification at the published <strong>$7,495 per coach</strong>, plus structured builder coaching at an assumed <strong>$299 per session</strong>, three sessions per accelerator-pathway participant. Young-adult (18&ndash;24) populations are Census-order estimates.</div>
+    <div class="inv-scenarios">
+      <div class="inv-card">
+        <div class="inv-card-head"><h4>Maryland</h4><div class="inv-scale">&asymp; 550,000<br>young adults</div></div>
+        <div class="inv-row">
+          <div class="inv-el">America's Builders Assessment &mdash; statewide subscription</div>
+          <div class="inv-as">Development, deployment and unlimited statewide use</div>
+          <div class="inv-nums"><span class="inv-com">Commercial value: $5,500,000</span><span class="inv-par">$1,500,000 / yr</span></div>
+        </div>
+        <div class="inv-row">
+          <div class="inv-el">CliftonStrengths</div>
+          <div class="inv-as">55,000 program participants</div>
+          <div class="inv-nums"><span class="inv-com">Commercial: $1,374,450</span><span class="inv-par">$550,000</span></div>
+        </div>
+        <div class="inv-row">
+          <div class="inv-el">Coaching &amp; development</div>
+          <div class="inv-as">60 certified state coaches + 1,200 accelerator-pathway builders &middot; standard rates</div>
+          <div class="inv-nums"><span class="inv-com">Standard: $1,526,100</span><span class="inv-par">$1,526,100</span></div>
+        </div>
+        <div class="inv-total">
+          <div class="inv-total-line"><span>Partnership total</span><span>$3,576,100</span></div>
+          <div class="inv-total-com">Commercial equivalent: $8,400,550</div>
+        </div>
+      </div>
+      <div class="inv-card">
+        <div class="inv-card-head"><h4>Arkansas</h4><div class="inv-scale">&asymp; 290,000<br>young adults</div></div>
+        <div class="inv-row">
+          <div class="inv-el">America's Builders Assessment &mdash; statewide subscription</div>
+          <div class="inv-as">Development, deployment and unlimited statewide use</div>
+          <div class="inv-nums"><span class="inv-com">Commercial value: $2,900,000</span><span class="inv-par">$1,500,000 / yr</span></div>
+        </div>
+        <div class="inv-row">
+          <div class="inv-el">CliftonStrengths</div>
+          <div class="inv-as">29,000 program participants</div>
+          <div class="inv-nums"><span class="inv-com">Commercial: $724,710</span><span class="inv-par">$290,000</span></div>
+        </div>
+        <div class="inv-row">
+          <div class="inv-el">Coaching &amp; development</div>
+          <div class="inv-as">35 certified state coaches + 650 accelerator-pathway builders &middot; standard rates</div>
+          <div class="inv-nums"><span class="inv-com">Standard: $845,375</span><span class="inv-par">$845,375</span></div>
+        </div>
+        <div class="inv-total">
+          <div class="inv-total-line"><span>Partnership total</span><span>$2,635,375</span></div>
+          <div class="inv-total-com">Commercial equivalent: $4,470,085</div>
+        </div>
+      </div>
+      <div class="inv-card">
+        <div class="inv-card-head"><h4>National Rollout</h4><div class="inv-scale">&asymp; 30,000,000<br>young adults</div></div>
+        <div class="inv-row">
+          <div class="inv-el">America's Builders Assessment &mdash; national subscription</div>
+          <div class="inv-as">Every young adult in America can be assessed; unlimited use</div>
+          <div class="inv-nums"><span class="inv-com">Commercial value: $300,000,000</span><span class="inv-par">$8,000,000 / yr</span></div>
+        </div>
+        <div class="inv-row">
+          <div class="inv-el">CliftonStrengths</div>
+          <div class="inv-as">1,000,000 participants in phased first-year programming</div>
+          <div class="inv-nums"><span class="inv-com">Commercial: $24,990,000</span><span class="inv-par">$10,000,000</span></div>
+        </div>
+        <div class="inv-row">
+          <div class="inv-el">Coaching &amp; development</div>
+          <div class="inv-as">1,000 certified coaches + 20,000 accelerator-pathway builders &middot; standard rates</div>
+          <div class="inv-nums"><span class="inv-com">Standard: $25,435,000</span><span class="inv-par">$25,435,000</span></div>
+        </div>
+        <div class="inv-total">
+          <div class="inv-total-line"><span>Partnership total</span><span>$43,435,000 / yr</span></div>
+          <div class="inv-total-com">Commercial equivalent: $350,425,000 &middot; the scale path</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="inv-group reveal">
+    <div class="inv-group-head"><span class="ws-number">Workstream Two</span><h3>The Official Statistics of the AI Economy &mdash; annual program</h3></div>
+    <div class="fee-table">
+      <div class="fee-row"><span class="fn"><strong>The National Dashboard</strong> &mdash; gold-standard statistics, fielding, releases and the public destination</span><span class="fv">$3,600,000 <span>/ yr</span></span></div>
+      <div class="fee-row"><span class="fn"><strong>The Governor's Scorecard</strong> &mdash; launch-state baselines, national comparison and state benchmark reports</span><span class="fv">$3,200,000 <span>/ yr</span></span></div>
+      <div class="fee-row"><span class="fn"><strong>Responsible Transitions</strong> &mdash; the employer study, who-is-winning benchmark and playbooks</span><span class="fv">$2,400,000 <span>/ yr</span></span></div>
+      <div class="fee-row"><span class="fn"><strong>Independent Program Measurement</strong> &mdash; baselines, evaluation and policy-ready evidence</span><span class="fv">$1,600,000 <span>/ yr</span></span></div>
+      <div class="fee-row fee-sub"><span class="fn">Workstream Two annual total</span><span class="fv">$10,800,000 <span>/ yr</span></span></div>
+    </div>
+  </div>
+
+  <div class="inv-group reveal">
+    <div class="inv-group-head"><span class="ws-number">Included</span><h3>Gallup partnership contribution &mdash; at no fee</h3></div>
+    <div class="fee-table">
+      <div class="fee-row"><span class="fn"><strong>Research &amp; development</strong> &mdash; building the RAISE US America's Builders Assessment: item configuration, norms and reporting</span><span class="fv">$1,500,000 <span>value &middot; one-time</span></span></div>
+      <div class="fee-row"><span class="fn"><strong>Access to Gallup's historic databases</strong> &mdash; 90 years of tracking behind every release</span><span class="fv">$500,000 <span>value / yr</span></span></div>
+      <div class="fee-row"><span class="fn"><strong>Senior advisory &amp; research support</strong> &mdash; leadership engagement and methodological counsel</span><span class="fv">$750,000 <span>value / yr</span></span></div>
+      <div class="fee-row"><span class="fn"><strong>Amplification &amp; the Gallup Great Hall</strong> &mdash; the communications engine and Washington convening venue</span><span class="fv">$500,000 <span>value / yr</span></span></div>
+      <div class="fee-row fee-sub"><span class="fn">Total contribution included</span><span class="fv">$3,250,000 <span>value</span></span></div>
+    </div>
+  </div>
+
+  <div class="inv-rollup reveal">
+    <div class="rl-label">Illustrative Year One Total</div>
+    <div class="rl-big">$17.0M</div>
+    <div class="rl-lines">
+      Workstream One &mdash; Maryland + Arkansas deployment: <strong>$6,211,475</strong><br>
+      Workstream Two &mdash; annual research program: <strong>$10,800,000</strong><br>
+      Gallup partnership contribution, included at no fee: <strong>$3,250,000 in value</strong> &middot; Commercial-equivalent value of the same scope: <strong>&asymp; $23.7M</strong>
+    </div>
+    <div class="rl-foot">All figures are illustrative and subject to final scoping. Published rates cited where available (CliftonStrengths $24.99; Gallup Global Strengths Coach certification $7,495); other rates are stated assumptions. Coaching is delivered at standard rates in every scenario. The national rollout is shown as the scale path, priced separately as states join.</div>
+  </div>
+</section>
+
+<div class="rule-divider"><hr></div>
+
+<section class="section section-narrow" id="timeline">
+  <div class="section-head reveal">
+    <span class="eyebrow">The Road to November 17</span>
+    <h2 class="section-title">Announce the partnership with the first proof in hand</h2>
+    <p class="section-subtitle">Everything below works backward from one date: the Semafor convening in the Bay Area, November 17, 2026 &mdash; where RAISE US and Gallup can unveil this partnership with data, not just intent.</p>
+  </div>
+  <div class="timeline-steps">
+    <div class="tl-step reveal"><div class="tl-time">July 2026</div><div class="tl-track"><div class="tl-dot"></div><div class="tl-line"></div></div><div class="tl-content"><div class="tl-title">Alignment &amp; Scoping</div><div class="tl-desc">Workstreams confirmed, instruments configured, launch states sequenced, and success measures agreed with RAISE US leadership and the policy lab.</div></div></div>
+    <div class="tl-step reveal"><div class="tl-time">August 2026</div><div class="tl-track"><div class="tl-dot"></div><div class="tl-line"></div></div><div class="tl-content"><div class="tl-title">Build</div><div class="tl-desc">The America's Builders Assessment and CliftonStrengths deployment stood up on Gallup's platform; dashboard instruments designed; national and launch-state baseline questionnaires finalized.</div></div></div>
+    <div class="tl-step reveal"><div class="tl-time">September 2026</div><div class="tl-track"><div class="tl-dot"></div><div class="tl-line"></div></div><div class="tl-content"><div class="tl-title">In the Field</div><div class="tl-desc">Assessments live inside Maryland and Arkansas program intake. National baseline fielding begins, with launch-state samples sized for state-level reporting.</div></div></div>
+    <div class="tl-step reveal"><div class="tl-time">October 2026</div><div class="tl-track"><div class="tl-dot"></div><div class="tl-line"></div></div><div class="tl-content"><div class="tl-title">First Proof</div><div class="tl-desc">Early cohort insights from the builder pipeline; baseline toplines from the field; announcement materials and launch data moments prepared with RAISE US communications.</div></div></div>
+    <div class="tl-step reveal"><div class="tl-time">Nov 17, 2026</div><div class="tl-track"><div class="tl-dot accent"></div><div class="tl-line"></div></div><div class="tl-content"><div class="tl-title accent">The Announcement &mdash; Semafor, Bay Area</div><div class="tl-desc">The partnership is unveiled on a stage built for exactly this audience &mdash; with the first findings in hand, so the announcement is not a promise of research but the beginning of its release.</div></div></div>
+    <div class="tl-step reveal"><div class="tl-time">2027 &rarr;</div><div class="tl-track"><div class="tl-dot"></div></div><div class="tl-content"><div class="tl-title">The Cadence Begins</div><div class="tl-desc">Public dashboard launch, the first Governor's Scorecards, the employer study's flagship report, and a recurring release rhythm that makes RAISE US the standing source of truth on the AI economy.</div></div></div>
+  </div>
+</section>
+
+<section class="gallup-black">
+  <div class="gallup-black-inner">
+    <span class="eyebrow">Why Gallup</span>
+    <h2>For 90 years, one organization has told leaders what the people actually think, feel and do.</h2>
+    <p class="lead">Since George Gallup founded the company in 1935, its mandate has been the will of the people &mdash; measured with independence, reported without fear or favor. Today Gallup is the world's leading authority on the workplace: when the press, policymakers and chief human resources officers need the truth about work, Gallup is where they look first. That standing &mdash; the trust of newsrooms, boardrooms, statehouses and the public at once &mdash; is not something a partnership can buy. It is something this partnership inherits on day one.</p>
+    <div class="big-stats">
+      <div class="big-stat"><div class="n">90</div><div class="l">Years reporting the will of the people</div></div>
+      <div class="big-stat"><div class="n">168+</div><div class="l">Countries in the Gallup World Poll</div></div>
+      <div class="big-stat"><div class="n">99%</div><div class="l">Of the world's adult population represented</div></div>
+      <div class="big-stat"><div class="n">30M+</div><div class="l">People have completed CliftonStrengths</div></div>
+      <div class="big-stat"><div class="n">2.7M</div><div class="l">Teams studied in Gallup's engagement database</div></div>
+      <div class="big-stat"><div class="n">140+</div><div class="l">Languages of research fieldwork</div></div>
+    </div>
+    <p class="gallup-close">Fifty million Americans are waiting to find out whether the AI economy has a place for them. <strong>This partnership exists to make the answer yes &mdash; and to prove it.</strong></p>
+  </div>
+</section>
+
+<div class="footer">
+  <div class="mark-gallup">Gallup</div><br>
+  Prepared by Gallup for RAISE US &middot; July 2026. All scope, sequencing and investment details are subject to final scoping discussions.<br>
+  Copyright &copy; 2026 Gallup, Inc. All rights reserved. Confidential and proprietary.
+</div>
+
+<script>
+var detailsWereOpen=[];
+window.addEventListener('beforeprint',function(){
+  detailsWereOpen=[];
+  var all=document.querySelectorAll('details.deep');
+  for(var i=0;i<all.length;i++){detailsWereOpen.push(all[i].open);all[i].open=true;}
+});
+window.addEventListener('afterprint',function(){
+  var all=document.querySelectorAll('details.deep');
+  for(var i=0;i<all.length;i++){all[i].open=detailsWereOpen[i]||false;}
+});
+
+(function(){
+  var track=document.getElementById('tickerTrack');
+  if(track){track.innerHTML=track.innerHTML+track.innerHTML;}
+})();
+
+(function(){
+  var reduced=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var els=document.querySelectorAll('.reveal');
+  if(reduced||!('IntersectionObserver' in window)){
+    for(var i=0;i<els.length;i++){els[i].classList.add('in');}
+    return;
+  }
+  var io=new IntersectionObserver(function(entries){
+    for(var j=0;j<entries.length;j++){
+      if(entries[j].isIntersecting){entries[j].target.classList.add('in');io.unobserve(entries[j].target);}
+    }
+  },{threshold:0.08,rootMargin:'0px 0px -40px 0px'});
+  for(var k=0;k<els.length;k++){io.observe(els[k]);}
+})();
+</script>
+</body>
+</html>
