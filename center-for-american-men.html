@@ -1,0 +1,999 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Center for American Men — A Gallup × Antenna Up Research Center Concept</title>
+<style>
+/* ============================================================
+   GALLUP VISUAL IDENTITY — per Visual Identity Style Guide v1.3
+   Primary color: Green 400 #009d4f  |  Small-text green: Green 500 #00754a
+   Green 300 #16c64f on black backgrounds only  |  Pale Green 00 #e4f2e1 sparingly, behind data
+   Grays: 00 #f1f1f1 · 100 #cfd2d3 · 200 #b0b3b2 · 300 #878a8b · 400 #53575a · 500 #24272a · 600 #000
+   Type: Sherborne → Georgia/Times fallback (display) · Aktiv Grotesk → Aptos/Arial (body)
+   ============================================================ */
+:root {
+  --green: #009d4f;
+  --green-deep: #00754a;
+  --green-bright: #16c64f;
+  --green-pale: #e4f2e1;
+  --gray-00: #f1f1f1;
+  --gray-100: #cfd2d3;
+  --gray-200: #b0b3b2;
+  --gray-300: #878a8b;
+  --gray-400: #53575a;
+  --gray-500: #24272a;
+  --ink: #000000;
+  --paper: #ffffff;
+  --font-display: Georgia, 'Times New Roman', Times, serif;
+  --font-body: Aptos, 'Aktiv Grotesk', Arial, 'Helvetica Neue', Helvetica, sans-serif;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-body);
+  color: var(--gray-500);
+  background: var(--paper);
+  -webkit-font-smoothing: antialiased;
+  font-size: 16px;
+  line-height: 1.6;
+}
+::selection { background: var(--green-pale); color: var(--ink); }
+img { max-width: 100%; }
+a { color: var(--green-deep); }
+:focus-visible { outline: 2px solid var(--green-deep); outline-offset: 2px; }
+
+/* ---------- Header ---------- */
+.site-header {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(255,255,255,0.94);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--gray-100);
+}
+.header-inner {
+  max-width: 1140px; margin: 0 auto;
+  padding: 0.95rem 2.25rem;
+  display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+}
+.brand-pair { display: flex; align-items: center; gap: 1.1rem; }
+.mark-gallup {
+  font-family: var(--font-display); font-weight: 700;
+  font-size: 1.06rem; letter-spacing: 0.24em; text-transform: uppercase;
+  color: var(--gray-400); line-height: 1;
+}
+.mark-gallup sup { font-size: 0.42em; letter-spacing: 0; vertical-align: super; }
+.brand-divider { width: 1px; height: 26px; background: var(--gray-100); }
+.mark-partner {
+  font-family: var(--font-body); font-weight: 800;
+  font-size: 0.92rem; letter-spacing: 0.13em; text-transform: uppercase;
+  color: var(--gray-500); line-height: 1.1;
+}
+.mark-partner span {
+  display: block; font-size: 0.56rem; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--gray-400); margin-top: 0.22rem;
+}
+.subnav { border-top: 1px solid var(--gray-00); }
+.subnav-inner {
+  max-width: 1140px; margin: 0 auto; padding: 0.55rem 2.25rem;
+  display: flex; gap: 1.6rem; overflow-x: auto;
+}
+.subnav a {
+  font-size: 0.66rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--gray-400); text-decoration: none; white-space: nowrap;
+  padding: 0.15rem 0; border-bottom: 2px solid transparent;
+  transition: color 0.15s, border-color 0.15s;
+}
+.subnav a:hover { color: var(--green-deep); border-bottom-color: var(--green); }
+
+/* ---------- Hero ---------- */
+.hero {
+  position: relative;
+  border-top: 4px solid var(--green);
+  padding: 4.5rem 2.25rem 4rem;
+  background: var(--paper);
+}
+.hero-inner { max-width: 1140px; margin: 0 auto; }
+.hero-rule { width: 56px; height: 4px; background: var(--green); margin-bottom: 1.6rem; }
+.eyebrow {
+  font-size: 0.7rem; font-weight: 700; letter-spacing: 0.16em;
+  text-transform: uppercase; color: var(--green-deep);
+}
+.hero .eyebrow { margin-bottom: 1.4rem; display: block; }
+.hero h1 {
+  font-family: var(--font-display); font-weight: 700;
+  font-size: clamp(2.5rem, 5.6vw, 4rem);
+  line-height: 1.08; letter-spacing: -0.01em;
+  color: var(--ink); max-width: 880px;
+  margin-bottom: 1.6rem;
+}
+.hero h1 em { font-style: italic; color: var(--green-deep); }
+.hero-sub {
+  font-size: 1.1rem; line-height: 1.75; color: var(--gray-400);
+  max-width: 760px; margin-bottom: 0.4rem;
+}
+.exec-rail { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 2.4rem; }
+.er { border: 1px solid var(--gray-100); border-top: 3px solid var(--green); border-radius: 10px; padding: 1.05rem 1.3rem; background: #fff; }
+.er .n { font-family: var(--font-display); font-weight: 700; font-size: 1.35rem; color: var(--ink); }
+.er .l { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.09em; text-transform: uppercase; color: var(--gray-400); margin-top: 0.35rem; line-height: 1.55; }
+
+/* ---------- Section scaffolding ---------- */
+.section { max-width: 1140px; margin: 0 auto; padding: 4.5rem 2.25rem; scroll-margin-top: 120px; }
+.section-head { max-width: 800px; margin-bottom: 2.4rem; }
+.section-title {
+  font-family: var(--font-display); font-weight: 700;
+  font-size: clamp(1.7rem, 3.4vw, 2.35rem);
+  line-height: 1.18; color: var(--ink);
+  margin: 0.55rem 0 0.75rem;
+}
+.section-subtitle { font-size: 1rem; line-height: 1.72; color: var(--gray-400); }
+.rule-divider { max-width: 1140px; margin: 0 auto; padding: 0 2.25rem; }
+.rule-divider hr { border: none; height: 1px; background: var(--gray-100); }
+
+/* ---------- Narrative ---------- */
+.narrative { max-width: 860px; }
+.narrative p {
+  font-size: 1.06rem; line-height: 1.85; color: var(--gray-500);
+  margin-bottom: 1.5rem;
+}
+.narrative p:first-of-type::first-letter {
+  font-family: var(--font-display); font-size: 3.6rem; font-weight: 700;
+  float: left; line-height: 0.82;
+  margin: 0.12rem 0.65rem 0 0;
+  color: var(--green-deep);
+}
+.narrative strong { color: var(--ink); }
+.prop-mark { display: flex; align-items: center; gap: 1.1rem; margin: 2.9rem 0 1.7rem; }
+.prop-mark span {
+  font-size: 0.7rem; font-weight: 700; letter-spacing: 0.16em;
+  text-transform: uppercase; color: var(--green-deep); white-space: nowrap;
+}
+.prop-mark::after { content: ''; height: 1px; flex: 1; background: var(--gray-100); }
+
+/* ---------- Evidence row ---------- */
+.stat-row {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 1px; background: var(--gray-100);
+  border: 1px solid var(--gray-100); border-radius: 8px;
+  overflow: hidden; margin: 2.2rem 0 0.8rem;
+}
+.stat-cell { background: #fff; padding: 1.1rem 1.2rem; }
+.stat-cell .n { font-family: var(--font-display); font-weight: 700; font-size: 1.65rem; color: var(--green); line-height: 1; }
+.stat-cell .l { font-size: 0.73rem; line-height: 1.5; color: var(--gray-400); margin-top: 0.4rem; }
+.stat-cell .s { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--gray-300); margin-top: 0.4rem; display: block; }
+.stat-caption { font-size: 0.78rem; color: var(--gray-300); font-style: italic; max-width: 740px; }
+
+/* ---------- Premise band ---------- */
+.exec-band {
+  background: var(--green-pale);
+  border: 1px solid #d3e8cf;
+  border-radius: 12px;
+  padding: 2.1rem 2.4rem;
+  margin-top: 0.4rem;
+}
+.exec-label {
+  font-size: 0.66rem; font-weight: 700; letter-spacing: 0.15em;
+  text-transform: uppercase; color: var(--gray-500);
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+.exec-label::before { content: ''; width: 22px; height: 3px; background: var(--green); }
+.exec-band > p {
+  font-family: var(--font-display);
+  font-size: 1.22rem; line-height: 1.62; color: var(--ink);
+}
+.exec-points {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem;
+  margin-top: 1.6rem; padding-top: 1.4rem; border-top: 1px solid #cfe3ca;
+}
+.exec-point { font-size: 0.85rem; line-height: 1.6; color: var(--gray-500); }
+.exec-point strong { display: block; font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--green-deep); margin-bottom: 0.3rem; }
+
+/* ---------- Duo (the two engines) ---------- */
+.duo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.4rem; margin-top: 2.4rem; }
+.duo-card {
+  border: 1px solid var(--gray-100); border-top: 4px solid var(--green);
+  border-radius: 10px; background: #fff;
+  padding: 1.9rem 1.9rem 1.7rem;
+  display: flex; flex-direction: column;
+}
+.duo-kicker {
+  font-size: 0.66rem; font-weight: 700; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--gray-400); margin-bottom: 0.7rem;
+}
+.duo-card h3 {
+  font-family: var(--font-display); font-weight: 700;
+  font-size: 1.5rem; line-height: 1.22; color: var(--ink);
+  margin-bottom: 0.35rem;
+}
+.duo-role { font-size: 0.8rem; font-weight: 700; color: var(--green-deep); margin-bottom: 0.85rem; }
+.duo-card p { font-size: 0.92rem; line-height: 1.7; color: var(--gray-400); margin-bottom: 1.2rem; }
+.duo-tags { margin-top: auto; display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.tag {
+  font-size: 0.66rem; font-weight: 700; letter-spacing: 0.05em;
+  padding: 0.28rem 0.65rem; border-radius: 999px;
+  background: var(--gray-00); color: var(--gray-400);
+  border: 1px solid var(--gray-100);
+}
+
+/* ---------- Components ---------- */
+.component {
+  border: 1px solid var(--gray-100); border-radius: 12px;
+  background: #fff; margin-top: 1.8rem; overflow: hidden;
+}
+.component-head {
+  padding: 1.8rem 2.2rem 0;
+  display: flex; align-items: flex-start; justify-content: space-between; gap: 1.5rem;
+}
+.component-head h3 {
+  font-family: var(--font-display); font-weight: 700;
+  font-size: 1.55rem; line-height: 1.2; color: var(--ink);
+}
+.component-kicker {
+  font-size: 0.64rem; font-weight: 700; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--gray-400);
+  display: block; margin-bottom: 0.45rem;
+}
+.component-body { padding: 1.1rem 2.2rem 1.9rem; }
+.component-body > p { font-size: 0.98rem; line-height: 1.78; color: var(--gray-500); margin-bottom: 1rem; max-width: 840px; }
+.component-body > p strong { color: var(--ink); }
+
+/* ---------- Domain grid & architecture chips ---------- */
+.metric-label {
+  font-size: 0.66rem; font-weight: 700; letter-spacing: 0.13em;
+  text-transform: uppercase; color: var(--gray-400); margin: 1.5rem 0 0.7rem;
+}
+.domain-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0.7rem; margin-bottom: 1.3rem; }
+.domain-tile { border: 1px solid var(--gray-100); border-top: 3px solid var(--green); border-radius: 8px; padding: 0.9rem 1rem; background: #fff; }
+.domain-num { font-family: var(--font-display); font-weight: 700; font-size: 1.05rem; color: var(--green-deep); }
+.domain-name { font-size: 0.8rem; font-weight: 700; color: var(--ink); line-height: 1.35; margin-top: 0.25rem; }
+.domain-desc { font-size: 0.7rem; line-height: 1.5; color: var(--gray-400); margin-top: 0.25rem; }
+.arch-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.7rem; margin: 0.4rem 0 1.3rem; }
+.arch-tile { border: 1px solid var(--gray-100); border-radius: 8px; padding: 0.85rem 1rem; background: var(--gray-00); }
+.arch-name { font-size: 0.78rem; font-weight: 700; color: var(--ink); }
+.arch-desc { font-size: 0.7rem; line-height: 1.5; color: var(--gray-400); margin-top: 0.2rem; }
+
+/* ---------- Fact lists ---------- */
+.fact-list { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 0.15rem 2rem; max-width: 900px; }
+.fact-list li {
+  font-size: 0.86rem; line-height: 1.62; color: var(--gray-500);
+  padding: 0.42rem 0 0.42rem 1.2rem; position: relative;
+}
+.fact-list li::before {
+  content: '\203A'; position: absolute; left: 0; top: 0.3rem;
+  color: var(--green); font-weight: 700; font-size: 1rem;
+}
+.fact-list li strong { color: var(--ink); }
+
+/* ---------- Asset / ecosystem cards ---------- */
+.plug-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.1rem; margin-top: 2.2rem; }
+.plug-card {
+  border: 1px solid var(--gray-100); border-radius: 10px;
+  background: #fff; overflow: hidden;
+  display: flex; flex-direction: column;
+}
+.plug-head { background: var(--gray-00); border-bottom: 1px solid var(--gray-100); padding: 0.95rem 1.3rem; }
+.plug-state { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--green-deep); }
+.plug-head h4 { font-family: var(--font-display); font-weight: 700; font-size: 1.04rem; color: var(--ink); margin-top: 0.2rem; line-height: 1.3; }
+.plug-body { padding: 1.1rem 1.3rem 1.3rem; display: flex; flex-direction: column; flex: 1; }
+.plug-body p { font-size: 0.82rem; line-height: 1.65; color: var(--gray-400); margin-bottom: 0.8rem; }
+.plug-outcome { margin-top: auto; padding-top: 0.7rem; font-size: 0.76rem; font-weight: 700; color: var(--green-deep); line-height: 1.5; border-top: 1px solid var(--gray-00); }
+
+/* ---------- Convergence / divergence diagrams ---------- */
+.converge { display: grid; grid-template-columns: 1fr 110px 1.05fr; align-items: center; gap: 0; margin: 2rem 0 0.6rem; }
+.diverge { display: grid; grid-template-columns: 1.05fr 110px 1fr; align-items: center; gap: 0; margin: 1.8rem 0 0.6rem; }
+.cv-sources { display: flex; flex-direction: column; gap: 0.55rem; }
+.cv-chip {
+  border: 1px solid var(--gray-100); border-radius: 7px;
+  background: var(--gray-00);
+  padding: 0.6rem 0.95rem;
+  font-size: 0.77rem; font-weight: 700; color: var(--gray-500); line-height: 1.35;
+}
+.cv-chip span { display: block; font-size: 0.65rem; font-weight: 400; color: var(--gray-400); margin-top: 0.1rem; }
+.cv-flow { display: flex; align-items: center; justify-content: center; align-self: stretch; }
+.cv-flow svg { width: 100%; height: 100%; min-height: 250px; display: block; }
+.cv-hub {
+  border: 1px solid var(--gray-100); border-top: 4px solid var(--green);
+  border-radius: 10px; background: #fff;
+  padding: 1.6rem 1.7rem 1.5rem;
+}
+.cv-hub-k { font-size: 0.63rem; font-weight: 700; letter-spacing: 0.13em; text-transform: uppercase; color: var(--green-deep); display: block; margin-bottom: 0.5rem; }
+.cv-hub h4 { font-family: var(--font-display); font-weight: 700; font-size: 1.3rem; color: var(--ink); margin-bottom: 0.4rem; }
+.cv-hub p { font-size: 0.83rem; line-height: 1.65; color: var(--gray-400); }
+.cv-caption { font-size: 0.78rem; color: var(--gray-300); font-style: italic; margin-top: 0.8rem; max-width: 780px; }
+
+/* ---------- Summit / ecosystem cards ---------- */
+.summit-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; margin-top: 2rem; }
+.summit-card { border: 1px solid var(--gray-100); border-radius: 12px; background: #fff; overflow: hidden; display: flex; flex-direction: column; }
+.summit-head { background: var(--ink); color: #fff; padding: 1.3rem 1.6rem; }
+.summit-date { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.13em; text-transform: uppercase; color: var(--green-bright); }
+.summit-head h4 { font-family: var(--font-display); font-weight: 700; font-size: 1.35rem; margin-top: 0.25rem; }
+.summit-body { padding: 1.2rem 1.6rem 1.5rem; display: flex; flex-direction: column; flex: 1; }
+.summit-body p { font-size: 0.86rem; line-height: 1.68; color: var(--gray-400); margin-bottom: 1rem; }
+.summit-proof { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--gray-100); border: 1px solid var(--gray-100); border-radius: 8px; overflow: hidden; margin-bottom: 1rem; }
+.sp-cell { background: var(--gray-00); padding: 0.7rem 0.8rem; }
+.sp-cell .n { font-family: var(--font-display); font-weight: 700; font-size: 1.15rem; color: var(--green-deep); }
+.sp-cell .l { font-size: 0.6rem; line-height: 1.4; color: var(--gray-400); margin-top: 0.2rem; }
+.summit-role { margin-top: auto; font-size: 0.79rem; line-height: 1.6; color: var(--gray-500); padding-top: 0.8rem; border-top: 1px solid var(--gray-00); }
+.summit-role strong { display: block; font-size: 0.62rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--green-deep); margin-bottom: 0.2rem; }
+
+/* ---------- Cycle (flywheel) ---------- */
+.funnel {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  border: 1px solid var(--gray-100); border-radius: 10px;
+  overflow: hidden; background: #fff; margin: 1.8rem 0 0;
+}
+.fn-step { padding: 1.15rem 1.25rem; border-right: 1px solid var(--gray-100); position: relative; }
+.fn-step:last-child { border-right: none; }
+.fn-step::after {
+  content: '\203A'; position: absolute; right: -8px; top: 50%;
+  transform: translateY(-58%); z-index: 2;
+  color: var(--green); font-weight: 700; font-size: 1.5rem;
+  background: #fff; line-height: 1; padding: 2px 1px;
+}
+.fn-step:last-child::after { display: none; }
+.fn-k { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--green-deep); display: block; margin-bottom: 0.3rem; }
+.fn-t { font-family: var(--font-display); font-weight: 700; font-size: 1.08rem; color: var(--ink); margin-bottom: 0.25rem; }
+.fn-d { font-size: 0.75rem; line-height: 1.55; color: var(--gray-400); }
+.loopline { display: flex; align-items: center; gap: 0.7rem; margin: 0.55rem 0.2rem 0; }
+.loopline svg { flex: 1; height: 26px; display: block; }
+.loopline span { font-size: 0.64rem; font-weight: 700; letter-spacing: 0.11em; text-transform: uppercase; color: var(--gray-300); white-space: nowrap; }
+.cadence {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 1px; background: var(--gray-100);
+  border: 1px solid var(--gray-100); border-radius: 8px;
+  overflow: hidden; margin: 1.6rem 0 0.6rem;
+}
+.cd { background: #fff; padding: 0.95rem 1.15rem; }
+.cd strong { display: block; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.11em; text-transform: uppercase; color: var(--green-deep); margin-bottom: 0.25rem; }
+.cd span { font-size: 0.78rem; line-height: 1.55; color: var(--gray-400); }
+
+/* ---------- Roles lanes ---------- */
+.lanes { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.1rem; margin-top: 2.2rem; }
+.lane { border: 1px solid var(--gray-100); border-radius: 10px; background: #fff; overflow: hidden; }
+.lane-head { padding: 1rem 1.4rem; border-bottom: 1px solid var(--gray-100); background: var(--gray-00); }
+.lane.lead .lane-head { background: var(--ink); }
+.lane.lead .lane-head .lh-k { color: var(--green-bright); }
+.lane.lead .lane-head h4 { color: #fff; }
+.lh-k { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.13em; text-transform: uppercase; color: var(--green-deep); }
+.lane-head h4 { font-family: var(--font-display); font-weight: 700; font-size: 1.12rem; color: var(--ink); margin-top: 0.15rem; }
+.lane ul { list-style: none; padding: 0.9rem 1.4rem 1.2rem; }
+.lane li {
+  font-size: 0.82rem; line-height: 1.58; color: var(--gray-500);
+  padding: 0.34rem 0 0.34rem 1.1rem; position: relative;
+}
+.lane li::before {
+  content: '\203A'; position: absolute; left: 0; top: 0.22rem;
+  color: var(--green); font-weight: 700; font-size: 0.95rem;
+}
+.lanes-note { font-size: 0.8rem; color: var(--gray-400); margin-top: 1.1rem; }
+
+/* ---------- Timeline ---------- */
+.timeline-steps { margin-top: 2.4rem; }
+.tl-step { display: grid; grid-template-columns: 118px 26px 1fr; gap: 0 1.3rem; align-items: start; }
+.tl-time {
+  font-size: 0.72rem; font-weight: 700; letter-spacing: 0.05em;
+  text-transform: uppercase; color: var(--gray-400);
+  text-align: right; padding-top: 0.12rem;
+}
+.tl-track { display: flex; flex-direction: column; align-items: center; align-self: stretch; }
+.tl-dot { width: 12px; height: 12px; border-radius: 50%; background: #fff; border: 3px solid var(--gray-400); flex-shrink: 0; }
+.tl-dot.accent { border-color: var(--green); background: var(--green); }
+.tl-line { width: 2px; flex: 1; background: var(--gray-100); margin: 4px 0; }
+.tl-step:last-child .tl-line { display: none; }
+.tl-content { padding-bottom: 2rem; }
+.tl-title { font-weight: 700; font-size: 0.95rem; color: var(--ink); margin-bottom: 0.3rem; }
+.tl-title.accent { color: var(--green-deep); }
+.tl-desc { font-size: 0.85rem; line-height: 1.68; color: var(--gray-400); max-width: 700px; }
+
+/* ---------- Investment ---------- */
+.assump {
+  background: var(--gray-00); border: 1px solid var(--gray-100); border-radius: 8px;
+  padding: 1rem 1.4rem; font-size: 0.8rem; line-height: 1.7; color: var(--gray-500);
+  margin: 1.6rem 0 1.4rem;
+}
+.assump strong { color: var(--ink); }
+.fee-table { border: 1px solid var(--gray-100); border-radius: 10px; overflow: hidden; background: #fff; max-width: 880px; }
+.fee-row { display: flex; justify-content: space-between; gap: 1rem; padding: 0.95rem 1.5rem; border-bottom: 1px solid var(--gray-00); font-size: 0.88rem; }
+.fee-row:last-child { border-bottom: none; }
+.fee-row .fn { color: var(--gray-500); }
+.fee-row .fn strong { color: var(--ink); }
+.fee-row .fv { font-weight: 700; color: var(--ink); white-space: nowrap; font-variant-numeric: tabular-nums; }
+.fee-row .fv span { font-weight: 600; font-size: 0.72rem; color: var(--gray-400); }
+.fee-row.fee-sub { background: var(--green-pale); }
+.fee-row.fee-sub .fn, .fee-row.fee-sub .fv { color: var(--ink); font-weight: 700; }
+.inv-rollup { margin-top: 2.6rem; background: var(--ink); border-radius: 12px; padding: 2.4rem 2.6rem; color: #fff; }
+.rl-label { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gray-200); }
+.rl-big { font-family: var(--font-display); font-weight: 700; font-size: 3rem; color: var(--green-bright); line-height: 1.1; margin: 0.4rem 0 0.2rem; }
+.rl-lines { margin-top: 0.9rem; font-size: 0.84rem; line-height: 1.85; color: var(--gray-100); }
+.rl-foot { margin-top: 1.3rem; padding-top: 1.1rem; border-top: 1px solid rgba(255,255,255,0.14); font-size: 0.7rem; line-height: 1.7; color: var(--gray-300); }
+.fund-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 1.8rem; }
+.fund-chip { border: 1px solid var(--gray-100); border-left: 4px solid var(--green); border-radius: 8px; background: #fff; padding: 1.05rem 1.25rem; }
+.fund-chip strong { display: block; font-size: 0.82rem; color: var(--ink); margin-bottom: 0.2rem; }
+.fund-chip span { font-size: 0.76rem; color: var(--gray-400); line-height: 1.55; }
+
+/* ---------- Case for support ---------- */
+.case-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; margin-top: 2.2rem; }
+.case-card { border: 1px solid var(--gray-100); border-top: 4px solid var(--green); border-radius: 10px; background: #fff; padding: 1.6rem 1.6rem 1.4rem; }
+.case-k { font-size: 0.63rem; font-weight: 700; letter-spacing: 0.13em; text-transform: uppercase; color: var(--gray-400); }
+.case-card h4 { font-family: var(--font-display); font-weight: 700; font-size: 1.22rem; color: var(--ink); margin: 0.35rem 0 0.6rem; }
+.case-card p { font-size: 0.85rem; line-height: 1.68; color: var(--gray-400); }
+
+/* ---------- Why (black finale) ---------- */
+.gallup-black { background: var(--ink); color: #fff; scroll-margin-top: 120px; }
+.gallup-black-inner { max-width: 1140px; margin: 0 auto; padding: 5rem 2.25rem; }
+.gallup-black .eyebrow { color: var(--green-bright); }
+.gallup-black h2 {
+  font-family: var(--font-display); font-weight: 700;
+  font-size: clamp(1.9rem, 4vw, 2.8rem); line-height: 1.16;
+  margin: 0.6rem 0 1.2rem; max-width: 880px; color: #fff;
+}
+.gallup-black .lead { font-size: 1.02rem; line-height: 1.8; color: var(--gray-100); max-width: 800px; margin-bottom: 2.8rem; }
+.big-stats {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 1px; background: rgba(255,255,255,0.14);
+  border: 1px solid rgba(255,255,255,0.14); border-radius: 10px; overflow: hidden;
+}
+.big-stat { background: var(--ink); padding: 1.6rem 1.6rem; }
+.big-stat .n { font-family: var(--font-display); font-weight: 700; font-size: 2.15rem; color: var(--green-bright); line-height: 1; }
+.big-stat .l { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gray-200); margin-top: 0.55rem; line-height: 1.5; }
+.big-stat .b { font-size: 0.58rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gray-300); margin-top: 0.5rem; display: block; }
+.gallup-close {
+  margin-top: 3rem;
+  font-family: var(--font-display); font-style: italic; font-weight: 500;
+  font-size: 1.3rem; line-height: 1.5; color: #fff; max-width: 760px;
+}
+.gallup-close strong { color: var(--green-bright); font-style: normal; }
+
+/* ---------- Footer ---------- */
+.footer {
+  background: #fff; border-top: 1px solid var(--gray-100);
+  padding: 2.4rem 2.25rem;
+  text-align: center;
+  font-size: 0.72rem; line-height: 1.8; color: var(--gray-400);
+}
+.footer .mark-gallup { font-size: 0.85rem; display: inline-block; margin-bottom: 0.7rem; }
+
+/* ---------- Reveal on scroll ---------- */
+.reveal { opacity: 0; transform: translateY(16px); transition: opacity 0.55s ease, transform 0.55s ease; }
+.reveal.in { opacity: 1; transform: translateY(0); }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .reveal { opacity: 1; transform: none; transition: none; }
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 980px) {
+  .exec-points, .case-grid, .fund-grid, .lanes { grid-template-columns: 1fr; gap: 0.9rem; }
+  .stat-row { grid-template-columns: 1fr 1fr; }
+  .duo-grid, .summit-grid { grid-template-columns: 1fr; }
+  .domain-grid { grid-template-columns: 1fr 1fr; }
+  .arch-grid { grid-template-columns: 1fr 1fr; }
+  .plug-grid { grid-template-columns: 1fr 1fr; }
+  .converge, .diverge { grid-template-columns: 1fr; gap: 1rem; }
+  .cv-flow { display: none; }
+  .cv-sources { flex-direction: row; flex-wrap: wrap; }
+  .cv-chip { flex: 1 1 45%; }
+  .big-stats { grid-template-columns: 1fr 1fr; }
+  .funnel { grid-template-columns: 1fr 1fr; }
+  .fn-step::after { display: none; }
+  .fact-list { grid-template-columns: 1fr; }
+}
+@media (max-width: 640px) {
+  .header-inner { padding: 0.8rem 1.2rem; }
+  .hero, .section, .gallup-black-inner { padding-left: 1.2rem; padding-right: 1.2rem; }
+  .hero { padding-top: 3.5rem; padding-bottom: 3rem; }
+  .exec-rail, .stat-row, .domain-grid, .arch-grid, .plug-grid, .cadence, .big-stats, .funnel, .summit-proof { grid-template-columns: 1fr; }
+  .cv-chip { flex: 1 1 100%; }
+  .component-head { flex-direction: column; gap: 0.6rem; padding: 1.5rem 1.4rem 0; }
+  .component-body { padding: 1rem 1.4rem 1.5rem; }
+  .exec-band { padding: 1.6rem 1.4rem; }
+  .tl-step { grid-template-columns: 82px 22px 1fr; gap: 0 0.8rem; }
+  .inv-rollup { padding: 1.8rem 1.4rem; }
+}
+
+/* ---------- Print ---------- */
+@media print {
+  .site-header { display: none !important; }
+  body { color: #000; }
+  .hero { border-top: 4px solid #009d4f; padding: 2rem 0 1.5rem; }
+  .section, .gallup-black-inner { padding: 1.6rem 0; }
+  .gallup-black, .summit-head, .inv-rollup, .lane.lead .lane-head { background: #000 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .exec-band, .fee-row.fee-sub, .big-stats, .cv-hub, .domain-tile { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .component, .duo-card, .plug-card, .summit-card, .lane, .fee-table, .converge, .diverge, .exec-band, .stat-row, .funnel, .cadence, .case-card, .fund-chip { break-inside: avoid; }
+  a { text-decoration: none; color: inherit; }
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <div class="brand-pair">
+      <div class="mark-gallup">Gallup<sup>&reg;</sup></div>
+      <div class="brand-divider"></div>
+      <div class="mark-partner">Antenna Up<span>Research Center Concept</span></div>
+    </div>
+  </div>
+  <nav class="subnav" aria-label="Sections">
+    <div class="subnav-inner">
+      <a href="#overview">Overview</a>
+      <a href="#evidence">Evidence Base</a>
+      <a href="#reports">The Reports</a>
+      <a href="#activation">Activation</a>
+      <a href="#roles">Roles</a>
+      <a href="#timeline">Timeline</a>
+      <a href="#investment">Investment</a>
+      <a href="#support">Case for Support</a>
+      <a href="#why">Why This Pairing</a>
+    </div>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-rule"></div>
+    <span class="eyebrow">A Research Center Concept &mdash; Gallup &times; Antenna Up &middot; July 2026</span>
+    <h1>The Center for <em>American Men</em></h1>
+    <p class="hero-sub">Gallup &mdash; the most trusted name in measurement &mdash; and Antenna Up &mdash; the platform building the cross-sector ecosystem for men&rsquo;s health and wellbeing &mdash; propose a research center: a core evidence base created and maintained by Gallup, a year-round program of reports and ongoing dissemination, and a standing calendar of convenings and activations that carry the findings into culture, workplaces and policy. This concept sets out the Center, and the founding support that brings it to life.</p>
+    <div class="exec-rail reveal">
+      <div class="er"><div class="n">One evidence base</div><div class="l">Created and maintained by Gallup &mdash; the measurement beneath everything</div></div>
+      <div class="er"><div class="n">Many reports</div><div class="l">A year-round publishing program &mdash; flagship, thematic and rapid research</div></div>
+      <div class="er"><div class="n">A standing calendar</div><div class="l">National summits, briefings, community gatherings and activations</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="overview" style="padding-bottom: 3.2rem;">
+  <div class="narrative reveal">
+    <p>Across education, work, health and connection, the data on American men has been moving in one direction &mdash; and the country has begun to notice. Boys trail girls at nearly every stage of schooling. Men earn a shrinking share of college degrees. Prime-age men participate in the labor force at rates their grandfathers would not recognize. Men die younger, die by suicide at several times the rate of women, and report far fewer close friendships than they did a generation ago. None of this is a claim against anyone else&rsquo;s progress. <strong>Men&rsquo;s wellbeing and everyone else&rsquo;s are linked &mdash; and right now, the country is flying blind on half the equation.</strong></p>
+    <p>The attention has arrived: best-selling books, new institutes, state initiatives and rising employer concern have made the condition of American men a national conversation. What has not arrived is the infrastructure beneath it &mdash; on either side. The <strong>evidence</strong> is real but fragmented, hosted in disparate sources, measured on inconsistent instruments, impossible to see whole. And the <strong>ecosystem</strong> that should carry that evidence into boardrooms, newsrooms and statehouses has, until recently, not existed at all: brands and leaders who want to engage men&rsquo;s wellbeing have had no safe stage to stand on, and credible messengers have had no credible numbers to carry.</p>
+    <div class="prop-mark"><span>What This Partnership Proposes</span></div>
+    <p>Each side of that gap now has an answer &mdash; and they belong together. <strong>Gallup</strong>, founded in 1935 to report the will of the people, brings the science: a core evidence base on American men, built and maintained to Gallup&rsquo;s standard and grounded in nine decades of trend. <strong>Antenna Up</strong>, the company platforming the conversations and convenings uplifting the health and wellbeing of men and boys, brings the signal: two national summits, the Buoys Club community, credible male messengers and a proven model for de-risking this space for corporate and philanthropic leaders. The partnership joins them in one institution &mdash; <strong>the Center for American Men</strong> &mdash; publishing across the year, convening across the country, and disseminating continuously, so the national conversation about men finally runs on evidence.</p>
+  </div>
+  <div class="stat-row reveal">
+    <div class="stat-cell"><div class="n">&asymp;4&times;</div><div class="l">Men die by suicide at roughly four times the rate of women</div><span class="s">CDC, National Vital Statistics</span></div>
+    <div class="stat-cell"><div class="n">42%</div><div class="l">of U.S. bachelor&rsquo;s degrees are earned by men &mdash; a share in decline since the 1970s</div><span class="s">U.S. Dept. of Education, NCES</span></div>
+    <div class="stat-cell"><div class="n">89%</div><div class="l">of prime-age men are in the labor force &mdash; down from roughly 97% in the mid-1950s</div><span class="s">U.S. Bureau of Labor Statistics</span></div>
+    <div class="stat-cell"><div class="n">15%</div><div class="l">of men report having no close friends &mdash; up from 3% in 1990</div><span class="s">Survey Center on American Life, 2021 &middot; 1990 baseline, Gallup</span></div>
+  </div>
+  <p class="stat-caption reveal">Headline indicators from the public record &mdash; the kind of evidence the Center consolidates, extends and puts to work.</p>
+</section>
+
+<section class="section" style="padding-top: 0;">
+  <div class="exec-band reveal">
+    <span class="exec-label">The Premise</span>
+    <p>The national conversation about men has outrun the national evidence on men &mdash; and the evidence has no ecosystem built to carry it. Gallup supplies the measurement no one else can field. Antenna Up supplies the rooms, the community and the messengers no research firm can build. <strong>Neither is sufficient alone. Together, they are a center.</strong></p>
+    <div class="exec-points">
+      <div class="exec-point"><strong>Gallup &middot; The Science</strong>The core evidence base, research design and fielding, analysis, report authorship across the slate, and the methodological credibility that makes the findings citable by anyone.</div>
+      <div class="exec-point"><strong>Antenna Up &middot; The Signal</strong>Narrative activation &mdash; convening programming built around the Center&rsquo;s releases, the Buoys Club community, media packaging and credible male messengers.</div>
+      <div class="exec-point"><strong>Jointly &middot; The Engine</strong>Funder development, corporate sponsor recruitment, the Center&rsquo;s branding and positioning, co-release strategy and annual impact reporting.</div>
+    </div>
+  </div>
+  <div class="duo-grid">
+    <div class="duo-card reveal">
+      <div class="duo-kicker">Partner One &middot; Measurement &amp; Evidence</div>
+      <h3>Gallup</h3>
+      <div class="duo-role">The science</div>
+      <p>For 90 years, the independent record of what Americans think, feel and do. Gallup builds and maintains the Center&rsquo;s core evidence base on the Gallup Panel &mdash; the largest probability-based panel in the United States &mdash; authors the Center&rsquo;s reports, curates the public research hub, and stands behind every number.</p>
+      <div class="duo-tags"><span class="tag">Core evidence base</span><span class="tag">Report authorship</span><span class="tag">Research hub</span><span class="tag">90 years of trend</span></div>
+    </div>
+    <div class="duo-card reveal">
+      <div class="duo-kicker">Partner Two &middot; Activation &amp; Ecosystem</div>
+      <h3>Antenna Up</h3>
+      <div class="duo-role">The signal</div>
+      <p>The platform sending new signals about the health and wellbeing of boys and men &mdash; two national summits, the Buoys Club community of innovators and changemakers, a content and media practice, and a proven model for making this space brand-safe for the corporate and philanthropic leaders who fund it.</p>
+      <div class="duo-tags"><span class="tag">Marketing to Men Summit</span><span class="tag">Healthier Men at Work</span><span class="tag">Buoys Club</span><span class="tag">Credible messengers</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="rule-divider"><hr></div>
+
+<section class="section" id="evidence">
+  <div class="section-head reveal">
+    <span class="eyebrow">The Foundation &middot; Created by Gallup</span>
+    <h2 class="section-title">The core evidence base</h2>
+    <p class="section-subtitle">Everything the Center publishes, convenes and activates stands on one foundation: a recurring program of primary measurement built and maintained by Gallup &mdash; extended by Gallup&rsquo;s existing research portfolio, and consolidated with the wider record in a single public hub.</p>
+  </div>
+  <div class="component reveal">
+    <div class="component-head">
+      <div>
+        <span class="component-kicker">The Measurement Beneath Everything</span>
+        <h3>Built once, drawn on all year</h3>
+      </div>
+    </div>
+    <div class="component-body">
+      <p>The Center&rsquo;s evidence base is a standing measurement program, not a one-off project: recurring waves of <strong>5,000+ American men and women</strong>, fielded on the Gallup Panel &mdash; the largest probability-based panel in the United States &mdash; with a dedicated <strong>young men oversample</strong> so the group at the center of the national conversation is measured in real depth, not inferred from thin subsamples. The instrument spans five research domains, each built to sustain its own reporting while contributing to the whole.</p>
+      <div class="metric-label">The Center&rsquo;s Five Research Domains</div>
+      <div class="domain-grid">
+        <div class="domain-tile"><div class="domain-num">01</div><div class="domain-name">Mental Health &amp; Social Connection</div><div class="domain-desc">Wellbeing, loneliness, friendship and help-seeking</div></div>
+        <div class="domain-tile"><div class="domain-num">02</div><div class="domain-name">Workforce Engagement &amp; Economic Security</div><div class="domain-desc">Work, engagement, mobility and providing</div></div>
+        <div class="domain-tile"><div class="domain-num">03</div><div class="domain-name">Civic Participation &amp; Institutional Trust</div><div class="domain-desc">Engagement with community, institutions and democratic life</div></div>
+        <div class="domain-tile"><div class="domain-num">04</div><div class="domain-name">Identity, Purpose &amp; Role Clarity</div><div class="domain-desc">Meaning, contribution and what manhood asks now</div></div>
+        <div class="domain-tile"><div class="domain-num">05</div><div class="domain-name">Media Consumption &amp; Information Environment</div><div class="domain-desc">The diets, voices and algorithms shaping men&rsquo;s worldviews</div></div>
+      </div>
+      <div class="metric-label">Built In From Day One</div>
+      <div class="arch-grid">
+        <div class="arch-tile"><div class="arch-name">Recurring national waves</div><div class="arch-desc">A standing quantitative program &mdash; fielded on a fixed rhythm, so every finding lands against the last</div></div>
+        <div class="arch-tile"><div class="arch-name">Longitudinal component</div><div class="arch-desc">The same men, re-measured over time &mdash; tracking attitudinal shift, not just annual snapshots</div></div>
+        <div class="arch-tile"><div class="arch-name">Qualitative program</div><div class="arch-desc">In-depth interviews across 8&ndash;10 markets, giving the numbers voices and the reports their stories</div></div>
+        <div class="arch-tile"><div class="arch-name">Buoys Club cohort</div><div class="arch-desc">Antenna Up&rsquo;s community as a supplementary longitudinal cohort, via a Gallup-designed pulse survey</div></div>
+      </div>
+      <p>And no measure launches alone. Because Gallup has been asking Americans about their work, families, faith and wellbeing since 1935, the Center&rsquo;s first data point is never a starting point &mdash; each finding lands against decades of trend, which is what turns a statistic into a story the country can trust.</p>
+    </div>
+  </div>
+  <div class="section-head reveal" style="margin-top:3.4rem; margin-bottom:0.4rem;">
+    <span class="eyebrow">The Running Start</span>
+    <h3 class="section-title" style="font-size:1.7rem;">The evidence already in hand</h3>
+    <p class="section-subtitle">The Center does not begin at zero. Gallup&rsquo;s existing research already maps to its domains &mdash; a portfolio ready to inform the instrument, seed the first releases and anchor early funder conversations.</p>
+  </div>
+  <div class="plug-grid">
+    <div class="plug-card reveal">
+      <div class="plug-head"><span class="plug-state">25-Year Gallup Trend</span><h4>Young America&rsquo;s Diverging Politics</h4></div>
+      <div class="plug-body"><p>Gallup&rsquo;s long-run trend on young adults&rsquo; ideology &mdash; young women&rsquo;s liberal&ndash;conservative gap reaching +28 points at its 2020 peak while young men hold near the moderate center. The chart that started this partnership.</p><div class="plug-outcome">Seeds the identity and civic domains &mdash; and the first data moment.</div></div>
+    </div>
+    <div class="plug-card reveal">
+      <div class="plug-head"><span class="plug-state">Gallup Democracy Research</span><h4>Civic Disengagement &amp; Institutional Trust</h4></div>
+      <div class="plug-body"><p>A 20,000+ respondent research program on civic disengagement, eroding institutional trust, and the mechanisms by which men withdraw from democratic participation.</p><div class="plug-outcome">Anchors Domain 03 from day one.</div></div>
+    </div>
+    <div class="plug-card reveal">
+      <div class="plug-head"><span class="plug-state">Gallup Gen Z Research</span><h4>Economic Anxiety &amp; Shifting Milestones</h4></div>
+      <div class="plug-body"><p>Economic anxiety, workforce entry barriers and shifting life milestones &mdash; including young men&rsquo;s attachment to traditional markers like marriage and homeownership amid narrowing pathways to reach them.</p><div class="plug-outcome">Informs the young men oversample and Domain 02.</div></div>
+    </div>
+    <div class="plug-card reveal">
+      <div class="plug-head"><span class="plug-state">Gallup AI Research</span><h4>AI &amp; the Information Environment</h4></div>
+      <div class="plug-body"><p>Public attitudes on AI, automation and algorithmic influence &mdash; including the grievance-economy dynamics that disproportionately shape young men&rsquo;s media diets.</p><div class="plug-outcome">The foundation of Domain 05 &mdash; the domain no one else measures.</div></div>
+    </div>
+    <div class="plug-card reveal">
+      <div class="plug-head"><span class="plug-state">Gallup Workplace Research</span><h4>Engagement, Burnout &amp; Managers</h4></div>
+      <div class="plug-body"><p>The global benchmark on employee engagement, burnout and manager quality &mdash; with gender cuts that speak directly to the Healthier Men at Work platform and its C-suite audience.</p><div class="plug-outcome">Powers the employer story &mdash; and the February release.</div></div>
+    </div>
+    <div class="plug-card reveal">
+      <div class="plug-head"><span class="plug-state">Gallup &middot; Forthcoming 2026</span><h4>Women&rsquo;s Health &amp; Power Research</h4></div>
+      <div class="plug-body"><p>Forthcoming Gallup research framing men&rsquo;s and women&rsquo;s wellbeing as interconnected rather than competing narratives &mdash; the interdependence frame this whole partnership stands on.</p><div class="plug-outcome">The bridge that keeps this work everyone&rsquo;s business.</div></div>
+    </div>
+  </div>
+  <div class="converge reveal" role="img" aria-label="Scattered sources of research on men converging into a single hub">
+    <div class="cv-sources">
+      <div class="cv-chip">The Center&rsquo;s evidence base<span>Recurring waves, longitudinal tracking and qualitative research</span></div>
+      <div class="cv-chip">Gallup&rsquo;s 90-year archive<span>Work, wellbeing, family, faith and civic life &mdash; trended by decade</span></div>
+      <div class="cv-chip">Gallup research portfolio<span>Democracy, Gen Z, AI and workplace studies &mdash; the portfolio above</span></div>
+      <div class="cv-chip">Federal statistics<span>Labor, education, health and mortality tables</span></div>
+      <div class="cv-chip">Academic &amp; institute research<span>Peer-reviewed findings and field reports across disciplines</span></div>
+    </div>
+    <div class="cv-flow" aria-hidden="true">
+      <svg viewBox="0 0 120 300" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0 30 C 62 30, 58 150, 120 150" fill="none" stroke="#cfd2d3" stroke-width="1.5"/>
+        <path d="M0 90 C 62 90, 58 150, 120 150" fill="none" stroke="#cfd2d3" stroke-width="1.5"/>
+        <path d="M0 150 L 120 150" fill="none" stroke="#cfd2d3" stroke-width="1.5"/>
+        <path d="M0 210 C 62 210, 58 150, 120 150" fill="none" stroke="#cfd2d3" stroke-width="1.5"/>
+        <path d="M0 270 C 62 270, 58 150, 120 150" fill="none" stroke="#cfd2d3" stroke-width="1.5"/>
+        <circle cx="114" cy="150" r="5" fill="#009d4f"/>
+      </svg>
+    </div>
+    <div class="cv-hub">
+      <span class="cv-hub-k">The Research Hub</span>
+      <h4>One address for the evidence on American men</h4>
+      <p>A public, continuously maintained destination consolidating the record now hosted in disparate sources &mdash; organized by domain, documented to Gallup&rsquo;s standards, and kept current as the Center&rsquo;s own research extends it.</p>
+    </div>
+  </div>
+</section>
+
+<div class="rule-divider"><hr></div>
+
+<section class="section" id="reports">
+  <div class="section-head reveal">
+    <span class="eyebrow">The Research &amp; Publishing Program</span>
+    <h2 class="section-title">One evidence base, many reports</h2>
+    <p class="section-subtitle">The Center publishes across the year &mdash; a flagship annual report, a slate of thematic reports timed to the moments built to receive them, and standing capacity for the research questions the year produces. Every release carries Gallup.com authorship, published methodology and a hub update behind it.</p>
+  </div>
+  <div class="component reveal">
+    <div class="component-head">
+      <div>
+        <span class="component-kicker">The Report Slate</span>
+        <h3>A publishing rhythm, not a publication</h3>
+      </div>
+    </div>
+    <div class="component-body">
+      <p>Because the evidence base is built once and drawn on all year, the Center reports the way an institution does &mdash; on a rhythm. The flagship annual report is the reference document for the year&rsquo;s conversation; the thematic reports give each domain its own moment, its own audience and its own stage; and rapid-turn research answers the questions the news cycle raises while the country is still asking them.</p>
+      <div class="diverge reveal" role="img" aria-label="The core evidence base feeding a slate of Center reports">
+        <div class="cv-hub">
+          <span class="cv-hub-k">The Core Evidence Base</span>
+          <h4>Built and maintained by Gallup</h4>
+          <p>Recurring national waves, the young men oversample, longitudinal tracking, qualitative research and nine decades of trend &mdash; one foundation feeding every release.</p>
+        </div>
+        <div class="cv-flow" aria-hidden="true">
+          <svg viewBox="0 0 120 300" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="6" cy="150" r="5" fill="#009d4f"/>
+            <path d="M0 150 C 62 150, 58 30, 120 30" fill="none" stroke="#cfd2d3" stroke-width="1.5"/>
+            <path d="M0 150 C 62 150, 58 90, 120 90" fill="none" stroke="#cfd2d3" stroke-width="1.5"/>
+            <path d="M0 150 L 120 150" fill="none" stroke="#cfd2d3" stroke-width="1.5"/>
+            <path d="M0 150 C 62 150, 58 210, 120 210" fill="none" stroke="#cfd2d3" stroke-width="1.5"/>
+            <path d="M0 150 C 62 150, 58 270, 120 270" fill="none" stroke="#cfd2d3" stroke-width="1.5"/>
+          </svg>
+        </div>
+        <div class="cv-sources">
+          <div class="cv-chip">The Annual Report on American Men<span>The flagship &mdash; all five domains, the reference document of the year</span></div>
+          <div class="cv-chip">Men at Work<span>Engagement, burnout and managers, by gender &mdash; released for the February stage</span></div>
+          <div class="cv-chip">Young Men in America<span>The oversample report &mdash; the group at the center of the conversation</span></div>
+          <div class="cv-chip">The Connection Report<span>Friendship, loneliness and help-seeking</span></div>
+          <div class="cv-chip">Trust, Participation &amp; the Information Environment<span>Men, civic life and the media shaping their worldviews</span></div>
+        </div>
+      </div>
+      <p class="cv-caption">An illustrative slate &mdash; the reporting calendar is set annually with founding supporters, drawing on all five domains.</p>
+      <div class="metric-label" style="margin-top:1.8rem;">Beyond the Slate &mdash; Standing Research Capacity</div>
+      <ul class="fact-list">
+        <li><strong>Rapid-response polling</strong> &mdash; fielded in days when a policy moment or news cycle demands a credible number on men.</li>
+        <li><strong>Thematic deep dives</strong> &mdash; fatherhood, early careers, longevity, faith &mdash; whatever the year&rsquo;s agenda requires.</li>
+        <li><strong>Supporter-commissioned research</strong> &mdash; category-exclusive modules and co-designed studies within the Center&rsquo;s standards.</li>
+        <li><strong>Briefing &amp; testimony support</strong> &mdash; data and materials behind the Center&rsquo;s public, policy and press appearances.</li>
+      </ul>
+      <div class="metric-label" style="margin-top:1.8rem;">Ongoing Dissemination &mdash; The Rhythm Behind the Reports</div>
+      <div class="cadence reveal">
+        <div class="cd"><strong>Continuous</strong><span>The research hub, updated as new evidence enters the record &mdash; the standing public reference</span></div>
+        <div class="cd"><strong>Quarterly</strong><span>Report releases and Gallup.com features, timed to the national conversation and the convening calendar</span></div>
+        <div class="cd"><strong>Annually</strong><span>The flagship Annual Report on American Men &mdash; the reference document, launched on the Center&rsquo;s biggest stages</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="rule-divider"><hr></div>
+
+<section class="section" id="activation">
+  <div class="section-head reveal">
+    <span class="eyebrow">Activation &middot; The Antenna Up Ecosystem</span>
+    <h2 class="section-title">The rooms built to receive the findings</h2>
+    <p class="section-subtitle">Gallup&rsquo;s own engine &mdash; Gallup.com, the national press, the Great Hall in Washington &mdash; arrives attached, as it does to every Gallup release. What the Center adds is what no research firm can build alone: a purpose-built convening ecosystem in the men&rsquo;s space, a grassroots community, and the credible messengers who carry data into culture.</p>
+  </div>
+  <div class="summit-grid">
+    <div class="summit-card reveal">
+      <div class="summit-head"><span class="summit-date">Annual Flagship Summit</span><h4>Marketing to Men Summit</h4></div>
+      <div class="summit-body">
+        <p>Antenna Up&rsquo;s flagship convening of brands, media, advertisers, creatives and changemakers &mdash; conversations and content that engage men and boys as fully multidimensional human beings. The 2025 edition proved the room exists.</p>
+        <div class="summit-proof">
+          <div class="sp-cell"><div class="n">115</div><div class="l">decision-makers in-room, 2025</div></div>
+          <div class="sp-cell"><div class="n">200+</div><div class="l">livestream viewers</div></div>
+          <div class="sp-cell"><div class="n">2M+</div><div class="l">social media impressions</div></div>
+        </div>
+        <div class="summit-role"><strong>Role in the Center</strong>The flagship stage: the annual home of the Center&rsquo;s biggest release &mdash; data programming built into the agenda, sponsors activated around the findings.</div>
+      </div>
+    </div>
+    <div class="summit-card reveal">
+      <div class="summit-head"><span class="summit-date">February 5, 2027 &middot; Annual</span><h4>Healthier Men at Work</h4></div>
+      <div class="summit-body">
+        <p>The first corporate summit connecting American male worker health to business outcomes &mdash; C-suite executives, HR and talent leaders, practitioners and changemakers. The February 2026 edition drew national business-press attention.</p>
+        <div class="summit-proof">
+          <div class="sp-cell"><div class="n">100</div><div class="l">decision-makers in-room, 2026</div></div>
+          <div class="sp-cell"><div class="n">90%</div><div class="l">attendance rate &mdash; a Friday afternoon in NYC</div></div>
+          <div class="sp-cell"><div class="n">Forbes</div><div class="l">national business-press coverage, 2026</div></div>
+        </div>
+        <div class="summit-role"><strong>Role in the Center</strong>The February stage: Men at Work &mdash; engagement, burnout and manager-quality findings by gender &mdash; debuted before the executives positioned to act on them, with employer sponsors built around the release.</div>
+      </div>
+    </div>
+  </div>
+  <div class="plug-grid" style="margin-top:1.2rem;">
+    <div class="plug-card reveal">
+      <div class="plug-head"><span class="plug-state">Community &middot; Since 2025</span><h4>Buoys Club</h4></div>
+      <div class="plug-body"><p>Antenna Up&rsquo;s grassroots community of innovators, investors and changemakers working on the wellbeing of men and boys &mdash; 700 attendees across its first 18 months, a 3,000-person list, and 8M+ combined social reach among members and speakers.</p><div class="plug-outcome">The standing forum where findings are discussed &mdash; and a Gallup-designed supplementary longitudinal cohort.</div></div>
+    </div>
+    <div class="plug-card reveal">
+      <div class="plug-head"><span class="plug-state">Media &amp; Messengers</span><h4>Content, Packaging &amp; Credible Voices</h4></div>
+      <div class="plug-body"><p>Media packaging through Antenna Up&rsquo;s content and media practice, plus recruitment of credible male messengers who carry the findings into the feeds and formats where men actually are.</p><div class="plug-outcome">Every release travels twice: through Gallup&rsquo;s channels, and through the voices men already trust.</div></div>
+    </div>
+    <div class="plug-card reveal">
+      <div class="plug-head"><span class="plug-state">Market Proof</span><h4>De-Risking the Space for Brands</h4></div>
+      <div class="plug-body"><p>Antenna Up&rsquo;s core commercial thesis is proven: sponsors report brand safety on complex gender topics with zero negative backlash &mdash; and immediate relationship value. The demand from brands, employers and funders to engage this space credibly is real.</p><div class="plug-outcome">The commercial engine that makes the Center fundable, year after year.</div></div>
+    </div>
+  </div>
+  <div class="component reveal" style="margin-top:2rem;">
+    <div class="component-head">
+      <div>
+        <span class="component-kicker">The Operating Rhythm</span>
+        <h3>One annual cycle, run together</h3>
+      </div>
+    </div>
+    <div class="component-body">
+      <div class="funnel" aria-label="The annual Center cycle">
+        <div class="fn-step"><span class="fn-k">01 &middot; Measure</span><div class="fn-t">Gallup fields</div><div class="fn-d">The recurring waves, the oversample, the IDIs and the Buoys Club pulse &mdash; designed and analyzed to Gallup&rsquo;s standard</div></div>
+        <div class="fn-step"><span class="fn-k">02 &middot; Publish</span><div class="fn-t">The reports release</div><div class="fn-d">Flagship and thematic reports &mdash; Gallup.com authorship, methodology published, the hub updated with every release</div></div>
+        <div class="fn-step"><span class="fn-k">03 &middot; Convene</span><div class="fn-t">The rooms receive it</div><div class="fn-d">Both national summits, briefings and community gatherings programmed around the findings</div></div>
+        <div class="fn-step"><span class="fn-k">04 &middot; Amplify &amp; Fund</span><div class="fn-t">The signal travels</div><div class="fn-d">Press, messengers and member networks carry it; sponsors and funders renew around next year&rsquo;s slate</div></div>
+      </div>
+      <div class="loopline" aria-hidden="true">
+        <svg viewBox="0 0 600 26" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M592 2 C 592 18, 560 22, 300 22 C 40 22, 8 18, 8 6" fill="none" stroke="#b0b3b2" stroke-width="1.5" stroke-dasharray="4 4"/>
+          <path d="M3 12 L 8 3 L 13 12" fill="none" stroke="#009d4f" stroke-width="1.8"/>
+        </svg>
+        <span>&hellip;and the next wave fields</span>
+      </div>
+      <div class="metric-label" style="margin-top:1.8rem;">The Convening Calendar &mdash; A Full Year of Rooms</div>
+      <ul class="fact-list">
+        <li><strong>Two national summits</strong> &mdash; the flagship convening and Healthier Men at Work, each programmed around a Center release.</li>
+        <li><strong>The Washington launch</strong> &mdash; the flagship Annual Report unveiled at Gallup&rsquo;s Great Hall for the policy and press audience.</li>
+        <li><strong>Executive roundtables &amp; briefings</strong> &mdash; C-suite, CHRO and funder sessions built on the Center&rsquo;s employer findings.</li>
+        <li><strong>Seasonal Buoys Club gatherings</strong> &mdash; the community forum where each release is discussed, tested and carried outward.</li>
+        <li><strong>Salons with credible messengers</strong> &mdash; curated rooms pairing the Center&rsquo;s findings with the voices men trust.</li>
+        <li><strong>Supporter convenings</strong> &mdash; annual sessions where founding funders shape the coming year&rsquo;s research and reporting agenda.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div class="rule-divider"><hr></div>
+
+<section class="section" id="roles">
+  <div class="section-head reveal">
+    <span class="eyebrow">Roles &amp; Responsibilities</span>
+    <h2 class="section-title">One team, one Center</h2>
+    <p class="section-subtitle">Gallup and Antenna Up operate as a single integrated program &mdash; each bringing what it is uniquely built to do, woven together through shared strategy, shared releases and shared stewardship of the Center.</p>
+  </div>
+  <div class="lanes">
+    <div class="lane reveal">
+      <div class="lane-head"><span class="lh-k">Gallup Brings</span><h4>The Science</h4></div>
+      <ul>
+        <li>The core evidence base &mdash; design, instrumentation and maintenance</li>
+        <li>Fielding on the Gallup Panel, with the young men oversample</li>
+        <li>Analysis, weighting and quality standards</li>
+        <li>Report authorship across the slate, on Gallup.com</li>
+        <li>The public research hub &mdash; curation and methodology</li>
+        <li>Methodological credibility &mdash; behind every number</li>
+      </ul>
+    </div>
+    <div class="lane reveal">
+      <div class="lane-head"><span class="lh-k">Antenna Up Brings</span><h4>The Signal</h4></div>
+      <ul>
+        <li>Convening programming built around the Center&rsquo;s releases &mdash; across both national summits</li>
+        <li>Buoys Club as data discussion forum and qualitative community</li>
+        <li>Media packaging through Antenna Up&rsquo;s content and media practice</li>
+        <li>Credible male messenger recruitment and activation</li>
+        <li>Brand-safe convening &mdash; de-risking the space for sponsors</li>
+      </ul>
+    </div>
+    <div class="lane lead reveal">
+      <div class="lane-head"><span class="lh-k">Built Together</span><h4>The Engine</h4></div>
+      <ul>
+        <li>Funder identification and proposal development</li>
+        <li>Corporate sponsor recruitment &mdash; category-exclusive data modules</li>
+        <li>The Center&rsquo;s branding and positioning</li>
+        <li>Co-release strategy across both partners&rsquo; channels</li>
+        <li>Annual impact reporting to funders</li>
+      </ul>
+    </div>
+  </div>
+  <p class="lanes-note reveal">Day-to-day coordination runs through paired operational leads working as one team, with principals convening quarterly on agenda, funders and positioning.</p>
+</section>
+
+<div class="rule-divider"><hr></div>
+
+<section class="section" id="timeline">
+  <div class="section-head reveal">
+    <span class="eyebrow">The First Year</span>
+    <h2 class="section-title">From alignment to the Center&rsquo;s public launch</h2>
+    <p class="section-subtitle">The program works backward from two fixed moments: the Center&rsquo;s first release at Healthier Men at Work on February 5, 2027, and the flagship Annual Report in spring 2027.</p>
+  </div>
+  <div class="timeline-steps">
+    <div class="tl-step reveal"><div class="tl-time">July 2026</div><div class="tl-track"><div class="tl-dot"></div><div class="tl-line"></div></div><div class="tl-content"><div class="tl-title">Alignment</div><div class="tl-desc">Partnership terms and domain priorities locked; founding funder conversations open; the Center&rsquo;s naming and positioning workshopped.</div></div></div>
+    <div class="tl-step reveal"><div class="tl-time">Aug &ndash; Oct 2026</div><div class="tl-track"><div class="tl-dot"></div><div class="tl-line"></div></div><div class="tl-content"><div class="tl-title">Design &amp; Fund</div><div class="tl-desc">The evidence base is designed against the five domains; founding funder and sponsor commitments take shape; the research hub architecture is scoped.</div></div></div>
+    <div class="tl-step reveal"><div class="tl-time">Oct 2026 &ndash; Jan 2027</div><div class="tl-track"><div class="tl-dot"></div><div class="tl-line"></div></div><div class="tl-content"><div class="tl-title">The Evidence Base Builds</div><div class="tl-desc">The first waves field on the Gallup Panel with the young men oversample; in-depth interviews begin across 8&ndash;10 markets; the Buoys Club pulse cohort launches; the hub takes shape.</div></div></div>
+    <div class="tl-step reveal"><div class="tl-time">Feb 5, 2027</div><div class="tl-track"><div class="tl-dot accent"></div><div class="tl-line"></div></div><div class="tl-content"><div class="tl-title accent">Healthier Men at Work &mdash; The Center&rsquo;s First Release</div><div class="tl-desc">Men at Work debuts: engagement, burnout and manager-quality findings by gender, released to the C-suite and HR audience built to act on them.</div></div></div>
+    <div class="tl-step reveal"><div class="tl-time">Spring 2027</div><div class="tl-track"><div class="tl-dot accent"></div><div class="tl-line"></div></div><div class="tl-content"><div class="tl-title accent">The Public Launch</div><div class="tl-desc">The Center launches publicly: the flagship Annual Report on American Men published with Gallup.com authorship, a Washington launch at Gallup&rsquo;s Great Hall, and the research hub opened to the public.</div></div></div>
+    <div class="tl-step reveal"><div class="tl-time">Year Two &rarr;</div><div class="tl-track"><div class="tl-dot"></div></div><div class="tl-content"><div class="tl-title">The Annual Rhythm</div><div class="tl-desc">The report slate publishes across the year; the convening calendar recurs; the cycle &mdash; measure, publish, convene, amplify &mdash; becomes the institution.</div></div></div>
+  </div>
+</section>
+
+<div class="rule-divider"><hr></div>
+
+<section class="section" id="investment">
+  <div class="section-head reveal">
+    <span class="eyebrow">Estimated Investment</span>
+    <h2 class="section-title">An illustrative view of Year One</h2>
+    <p class="section-subtitle">Every figure below is illustrative &mdash; shown so the shape and scale of the Center are clear. Final pricing is set together in scoping, and the funding architecture is designed so no single funder carries it alone.</p>
+  </div>
+  <div class="assump reveal"><strong>Assumptions.</strong> A core evidence base of recurring waves at n=5,000+ on the Gallup Panel with a dedicated young men oversample; a longitudinal re-contact component; in-depth interviews across 8&ndash;10 markets; a Buoys Club pulse cohort; a multi-report publishing program with full methodological documentation and Gallup.com authorship; the public research hub; and an activation and convening program delivered with Antenna Up. Corporate module pricing reflects the working range under discussion.</div>
+  <div class="fee-table reveal">
+    <div class="fee-row"><span class="fn"><strong>Evidence base design &amp; instrumentation</strong> &mdash; five-domain instrument, cognitive testing, measurement architecture</span><span class="fv">$150,000</span></div>
+    <div class="fee-row"><span class="fn"><strong>Core measurement program</strong> &mdash; recurring waves at n=5,000+ on the Gallup Panel with young men oversample; weighting and analysis</span><span class="fv">$700,000</span></div>
+    <div class="fee-row"><span class="fn"><strong>Qualitative program</strong> &mdash; in-depth interviews across 8&ndash;10 markets</span><span class="fv">$175,000</span></div>
+    <div class="fee-row"><span class="fn"><strong>Longitudinal &amp; Buoys Club pulse</strong> &mdash; re-contact component plus the Gallup-designed community cohort</span><span class="fv">$125,000</span></div>
+    <div class="fee-row"><span class="fn"><strong>The publishing program</strong> &mdash; flagship Annual Report plus the thematic slate; authorship, methodology publication and release support</span><span class="fv">$250,000</span></div>
+    <div class="fee-row"><span class="fn"><strong>The research hub</strong> &mdash; build-out, consolidation of the existing record and continuous curation</span><span class="fv">$100,000</span></div>
+    <div class="fee-row fee-sub"><span class="fn">Core evidence base &amp; publishing program &mdash; Year One</span><span class="fv">$1,500,000</span></div>
+    <div class="fee-row"><span class="fn"><strong>Activation &amp; convenings</strong> &mdash; data programming across both national summits, Center convenings and briefings, media packaging, messenger campaigns; delivered with Antenna Up</span><span class="fv">$500,000</span></div>
+  </div>
+  <div class="inv-rollup reveal">
+    <div class="rl-label">Estimated Year One Program &mdash; Illustrative</div>
+    <div class="rl-big">$2.0M</div>
+    <div class="rl-lines">
+      Core evidence base &amp; publishing program: <strong>$1,500,000</strong> &middot; Activation &amp; convenings: <strong>$500,000</strong><br>
+      Designed to be funded jointly &mdash; foundation anchors, corporate modules and summit partnership, not a single check.
+    </div>
+    <div class="rl-foot">All figures are illustrative and subject to joint scoping. Corporate category-exclusive data modules are modeled at $100,000&ndash;$200,000 each; a small number of foundation anchors plus three to four corporate modules fully fund Year One.</div>
+  </div>
+  <div class="metric-label reveal" style="margin-top:2.4rem;">The Funding Architecture &mdash; Open Core, Sponsored Depth</div>
+  <div class="fund-grid">
+    <div class="fund-chip reveal"><strong>Foundation anchors fund the open core</strong><span>The evidence base, flagship reporting, methodology and the public hub &mdash; open-access, a public good, citable by anyone.</span></div>
+    <div class="fund-chip reveal"><strong>Corporate modules fund proprietary depth</strong><span>Category-exclusive data modules at $100K&ndash;$200K each &mdash; CPG, healthcare, financial services &mdash; with exclusive cuts and branded content through Antenna Up.</span></div>
+    <div class="fund-chip reveal"><strong>Summit partnership funds the stage</strong><span>Co-host, supporter and VIP roles across both national summits, per Antenna Up&rsquo;s proven sponsorship model.</span></div>
+  </div>
+</section>
+
+<div class="rule-divider"><hr></div>
+
+<section class="section" id="support">
+  <div class="section-head reveal">
+    <span class="eyebrow">The Case for Support</span>
+    <h2 class="section-title">Why fund this &mdash; and why now</h2>
+    <p class="section-subtitle">The premise every funder can stand on: men&rsquo;s wellbeing and everyone else&rsquo;s are interconnected, not competing &mdash; and a contested national conversation needs numbers no one can argue with.</p>
+  </div>
+  <div class="case-grid">
+    <div class="case-card reveal">
+      <span class="case-k">For Foundations</span>
+      <h4>The evidence is the bottleneck</h4>
+      <p>Every organization working on men and boys builds programs, makes grants and testifies without a shared fact base &mdash; the field&rsquo;s single largest structural gap. Funding the open core creates a nonpartisan public good the entire field cites, de-polarizes a contested space, and frames men&rsquo;s wellbeing the way the evidence does: linked to the wellbeing of women, families and communities.</p>
+    </div>
+    <div class="case-card reveal">
+      <span class="case-k">For Corporate Partners</span>
+      <h4>De-risked entry, exclusive insight</h4>
+      <p>Brands and employers want to engage men&rsquo;s wellbeing &mdash; and fear the misstep. The Center pairs Gallup&rsquo;s credibility with Antenna Up&rsquo;s proven brand-safe model: sponsors have reported immediate relationship value with zero negative backlash. Category-exclusive modules add proprietary intelligence on male consumers and workers no competitor holds.</p>
+    </div>
+    <div class="case-card reveal">
+      <span class="case-k">For the Field &amp; the Public</span>
+      <h4>A rhythm, a record, a shared table</h4>
+      <p>The conversation about men currently runs on anecdote &mdash; and the information vacuum is being filled by the loudest voices, not the most credible ones. A standing center with a fixed publishing rhythm, a public evidence hub and credible messengers gives the public story a spine &mdash; and gives every stakeholder the same numbers to work from.</p>
+    </div>
+  </div>
+  <div class="exec-band reveal" style="margin-top:2.6rem;">
+    <span class="exec-label">The Invitation</span>
+    <p>Gallup and Antenna Up are now convening the founding supporters of the Center for American Men. Founding supporters shape the research and reporting agenda while the Center is in design, receive recognition across every release and both summit stages, and hold first position in an institution built to run for years. <strong>The Center&rsquo;s founding slate will carry the names of the funders who join first.</strong></p>
+    <div class="exec-points">
+      <div class="exec-point"><strong>Founding Anchor</strong>Underwrites the open core &mdash; the evidence base, flagship reporting, methodology and the public research hub &mdash; and stands behind a citable public good for the entire field.</div>
+      <div class="exec-point"><strong>Category Module Sponsor</strong>Category-exclusive data modules at $100K&ndash;$200K &mdash; proprietary cuts on male consumers and workers, one sponsor per category, with branded content through Antenna Up.</div>
+      <div class="exec-point"><strong>Summit Partner</strong>Co-host, supporter and VIP roles across both national summits, per Antenna Up&rsquo;s proven sponsorship model &mdash; the stage where the findings meet their audience.</div>
+    </div>
+  </div>
+</section>
+
+<section class="gallup-black" id="why" style="margin-top: 2rem;">
+  <div class="gallup-black-inner">
+    <span class="eyebrow">Why This Pairing</span>
+    <h2>The most trusted numbers in America &mdash; and the rooms already built to receive them.</h2>
+    <p class="lead">Neither partner can do this alone. Gallup can build the definitive evidence base on American men, but a research firm cannot build a movement&rsquo;s community, its summits or its messengers. Antenna Up has built exactly those &mdash; and proven that brands, funders and leaders will show up for this subject when the stage is credible &mdash; but a convening platform cannot manufacture ninety years of measurement authority. Together, the Center holds both halves of what this moment requires: findings that can be quoted by anyone and argued by no one, and a signal strong enough to reach the men themselves.</p>
+    <div class="big-stats">
+      <div class="big-stat"><div class="n">90</div><div class="l">Years reporting the will of the people</div><span class="b">Gallup</span></div>
+      <div class="big-stat"><div class="n">168+</div><div class="l">Countries in the Gallup World Poll</div><span class="b">Gallup</span></div>
+      <div class="big-stat"><div class="n">Largest</div><div class="l">Probability-based panel in the United States</div><span class="b">Gallup</span></div>
+      <div class="big-stat"><div class="n">700</div><div class="l">Buoys Club attendees in its first 18 months</div><span class="b">Antenna Up</span></div>
+      <div class="big-stat"><div class="n">8M+</div><div class="l">Social reach of community members &amp; speakers</div><span class="b">Antenna Up</span></div>
+      <div class="big-stat"><div class="n">2</div><div class="l">National summits, held annually</div><span class="b">Antenna Up</span></div>
+    </div>
+    <p class="gallup-close">The conversation about American men has never been louder &mdash; or thinner on evidence. <strong>The Center gives it both: the evidence the country can trust, and the rooms where it becomes action.</strong></p>
+  </div>
+</section>
+
+<div class="footer">
+  <div class="mark-gallup">Gallup</div><br>
+  Prepared by Gallup with Antenna Up &middot; July 2026. A research center concept &mdash; scope, sequencing and investment subject to joint scoping.<br>
+  Copyright &copy; 2026 Gallup, Inc. All rights reserved. Confidential and proprietary.
+</div>
+
+<script>
+(function(){
+  var reduced=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var els=document.querySelectorAll('.reveal');
+  if(reduced||!('IntersectionObserver' in window)){
+    for(var i=0;i<els.length;i++){els[i].classList.add('in');}
+    return;
+  }
+  var io=new IntersectionObserver(function(entries){
+    for(var j=0;j<entries.length;j++){
+      if(entries[j].isIntersecting){entries[j].target.classList.add('in');io.unobserve(entries[j].target);}
+    }
+  },{threshold:0.08,rootMargin:'0px 0px -40px 0px'});
+  for(var k=0;k<els.length;k++){io.observe(els[k]);}
+})();
+</script>
+</body>
+</html>
