@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The AI Worker Pulse — Executive Summary — The Rockefeller Foundation &amp; Gallup</title>
+<style>
+/* ============================================================
+   THE AI WORKER PULSE — Executive summary
+   The Rockefeller Foundation (initiative) · Gallup (execution)
+   RF palette: deep teal #345f5d · aqua #71d1cb · yellow #fede24 · white
+   ============================================================ */
+:root{
+  --teal:#345f5d;
+  --teal-dark:#26433f;
+  --teal-deeper:#1c322f;
+  --teal-mid:#4a6f6c;
+  --aqua:#71d1cb;
+  --aqua-soft:#a5e3df;
+  --aqua-tint:#eaf6f4;
+  --aqua-line:#d4e9e6;
+  --yellow:#fede24;
+  --yellow-deep:#c9a800;
+  --white:#ffffff;
+  --ink:#1e2b2a;
+  --text:#26332f;
+  --muted:#5f6f6c;
+  --muted-2:#93a2a0;
+  --line:#e1eae8;
+  --line-soft:#edf3f2;
+  --disp:Georgia,'Times New Roman',Times,serif;
+  --body:'Aptos',Arial,'Helvetica Neue',Helvetica,sans-serif;
+  --mono:'Aptos',Arial,'Helvetica Neue',Helvetica,sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:var(--body);color:var(--text);background:var(--white);-webkit-font-smoothing:antialiased;font-size:16px;line-height:1.6;}
+::selection{background:var(--aqua);color:var(--teal-deeper);}
+a{color:var(--teal);}
+:focus-visible{outline:2px solid var(--teal);outline-offset:3px;}
+
+/* ---------- Header ---------- */
+.hdr{position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.94);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line);}
+.hdr-in{max-width:1080px;margin:0 auto;padding:0.85rem 2.25rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;}
+.brand{display:flex;align-items:center;gap:1.05rem;}
+.brand-rf{font-family:var(--disp);font-weight:600;font-size:1.02rem;color:var(--teal);line-height:1.05;letter-spacing:-0.01em;}
+.brand-rf span{display:block;font-family:var(--mono);font-size:0.53rem;font-weight:500;letter-spacing:0.13em;text-transform:uppercase;color:var(--muted);margin-top:0.24rem;}
+.brand-x{width:1px;height:30px;background:var(--line);}
+.brand-gallup{font-family:var(--disp);font-weight:700;font-size:0.98rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--teal);}
+.hdr-act{display:flex;align-items:center;gap:0.55rem;}
+.btn{display:inline-flex;align-items:center;gap:0.45rem;padding:0.55rem 1.05rem;border:none;border-radius:7px;font-family:var(--body);font-size:0.78rem;font-weight:600;letter-spacing:0.01em;cursor:pointer;transition:all 0.18s ease;text-decoration:none;}
+.btn svg{width:14px;height:14px;flex-shrink:0;}
+.btn-ghost{background:var(--white);color:var(--teal);border:1px solid var(--line)!important;}
+.btn-ghost:hover{background:var(--aqua-tint);}
+.btn-teal{background:var(--teal);color:#fff;}
+.btn-teal:hover{background:var(--teal-dark);}
+
+/* ---------- Hero ---------- */
+.hero{position:relative;overflow:hidden;background:var(--teal);color:#fff;padding:4.4rem 2.25rem 3.2rem;}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 66% 60% at 10% 15%,rgba(113,209,203,0.22) 0%,transparent 60%),radial-gradient(ellipse 50% 70% at 94% 92%,rgba(254,222,36,0.10) 0%,transparent 60%);}
+.hero-in{max-width:1080px;margin:0 auto;position:relative;z-index:2;}
+.hero-eyebrow{font-family:var(--mono);font-size:0.66rem;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:var(--aqua);margin-bottom:1.4rem;display:flex;align-items:center;gap:0.7rem;}
+.hero-eyebrow .dot{width:7px;height:7px;border-radius:50%;background:var(--yellow);}
+.hero h1{font-family:var(--disp);font-weight:500;font-size:clamp(2.6rem,5.6vw,4.1rem);line-height:1.03;letter-spacing:-0.015em;margin-bottom:1.2rem;max-width:18ch;}
+.hero h1 em{font-style:italic;color:var(--yellow);}
+.hero-sub{font-size:1.12rem;line-height:1.68;color:rgba(255,255,255,0.85);max-width:660px;font-weight:400;}
+.hero-meta{display:flex;gap:2.4rem;margin-top:2.5rem;flex-wrap:wrap;}
+.hm{display:flex;flex-direction:column;}
+.hm-n{font-family:var(--disp);font-weight:600;font-size:1.75rem;color:#fff;line-height:1;}
+.hm-l{font-family:var(--mono);font-size:0.6rem;font-weight:500;letter-spacing:0.07em;text-transform:uppercase;color:rgba(255,255,255,0.62);margin-top:0.45rem;max-width:20ch;line-height:1.45;}
+
+/* ---------- Section scaffold ---------- */
+.sec{max-width:1080px;margin:0 auto;padding:3.6rem 2.25rem;}
+.eyebrow{font-family:var(--mono);font-size:0.65rem;font-weight:500;letter-spacing:0.13em;text-transform:uppercase;color:var(--teal);margin-bottom:0.7rem;display:block;}
+.sec-title{font-family:var(--disp);font-weight:500;font-size:clamp(1.7rem,3.3vw,2.25rem);line-height:1.16;color:var(--teal);letter-spacing:-0.01em;margin-bottom:0.8rem;}
+.sec-lead{font-size:1.08rem;line-height:1.75;color:var(--text);max-width:760px;}
+.sec-lead strong{color:var(--ink);font-weight:600;}
+.divider{max-width:1080px;margin:0 auto;padding:0 2.25rem;}
+.divider hr{border:none;height:1px;background:var(--line);}
+.alt{background:var(--aqua-tint);}
+
+/* ---------- Unique (why different) ---------- */
+.pts{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:2.2rem;}
+.pt{background:var(--white);border:1px solid var(--line);border-radius:12px;padding:1.5rem 1.5rem;}
+.pt .num{font-family:var(--mono);font-size:0.6rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--teal-mid);margin-bottom:0.7rem;}
+.pt h3{font-family:var(--disp);font-weight:600;font-size:1.12rem;color:var(--teal);margin-bottom:0.4rem;line-height:1.25;}
+.pt p{font-size:0.88rem;line-height:1.62;color:var(--muted);}
+.focus-list{display:flex;flex-direction:column;gap:1rem;margin-top:2.2rem;}
+.focus-item{background:var(--white);border:1px solid var(--line);border-radius:12px;padding:1.5rem 1.7rem;}
+.focus-item.lead{border-left:4px solid var(--teal);background:var(--aqua-tint);}
+.focus-h{display:flex;align-items:center;gap:0.7rem;margin-bottom:0.5rem;}
+.focus-h h3{font-family:var(--disp);font-weight:700;font-size:1.25rem;color:var(--teal);}
+.focus-tag{font-size:0.6rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--teal-deeper);background:var(--yellow);border-radius:4px;padding:0.16rem 0.5rem;}
+.focus-item p{font-size:0.92rem;line-height:1.7;color:var(--text);}
+.bench{display:grid;grid-template-columns:1fr 1fr;gap:1.3rem;margin-top:2rem;}
+.bench-col{background:var(--white);border:1px solid var(--line);border-radius:12px;padding:1.4rem 1.6rem;}
+.bench-l{font-size:0.66rem;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;color:var(--muted-2);margin-bottom:0.6rem;}
+.bench-col p{font-size:0.9rem;line-height:1.65;color:var(--text);}
+.bench-col strong{color:var(--ink);font-weight:700;}
+
+/* ---------- Deliverables ---------- */
+.deliv{display:grid;grid-template-columns:1fr 1fr;gap:1.3rem;margin-top:2.2rem;}
+.dcard{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--white);display:flex;flex-direction:column;}
+.dhd{padding:1.3rem 1.6rem;border-bottom:1px solid var(--line);}
+.dhd.a{background:var(--teal);}
+.dhd.b{background:var(--yellow);}
+.dk{font-family:var(--mono);font-size:0.58rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;}
+.dhd.a .dk{color:var(--aqua);}
+.dhd.b .dk{color:var(--teal-deeper);}
+.dhd h3{font-family:var(--disp);font-weight:600;font-size:1.2rem;margin-top:0.25rem;line-height:1.2;}
+.dhd.a h3{color:#fff;}
+.dhd.b h3{color:var(--teal-deeper);}
+.dhd .aud{font-size:0.78rem;margin-top:0.35rem;}
+.dhd.a .aud{color:rgba(255,255,255,0.78);}
+.dhd.b .aud{color:var(--teal-dark);}
+.dbody{padding:1.2rem 1.6rem 1.5rem;}
+.dbody li{list-style:none;font-size:0.88rem;line-height:1.5;color:var(--text);padding:0.5rem 0 0.5rem 1.4rem;position:relative;border-bottom:1px solid var(--line-soft);}
+.dbody li:last-child{border-bottom:none;}
+.dbody li::before{content:'';position:absolute;left:0;top:0.85rem;width:7px;height:7px;border-radius:50%;background:var(--aqua);}
+
+/* ---------- Design spec strip ---------- */
+.spec{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:12px;overflow:hidden;margin-top:2.1rem;}
+.spec .cell{background:var(--white);padding:1.4rem 1.4rem;}
+.spec .cell .n{font-family:var(--disp);font-weight:700;font-size:1.55rem;color:var(--teal);line-height:1;}
+.spec .cell .l{font-size:0.78rem;line-height:1.5;color:var(--muted);margin-top:0.5rem;}
+.method-note{font-size:0.86rem;line-height:1.65;color:var(--muted);margin-top:1.5rem;max-width:820px;}
+.method-note strong{color:var(--ink);font-weight:600;}
+.gapbar{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:12px;overflow:hidden;margin-top:2.2rem;}
+.gapcell{background:var(--white);padding:1.5rem 1.5rem;}
+.gapcell.hl{background:var(--teal);}
+.gapcell .gh{font-size:0.7rem;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;color:var(--muted);margin-bottom:0.5rem;}
+.gapcell.hl .gh{color:var(--aqua);}
+.gapcell .gt{font-family:var(--disp);font-weight:700;font-size:1.2rem;color:var(--teal);margin-bottom:0.5rem;line-height:1.2;}
+.gapcell.hl .gt{color:#fff;}
+.gapcell p{font-size:0.85rem;line-height:1.6;color:var(--muted);}
+.gapcell.hl p{color:rgba(255,255,255,0.86);}
+
+/* ---------- Configure / toggle ---------- */
+.cfg-grid{display:grid;grid-template-columns:1fr 360px;gap:2.4rem;align-items:start;margin-top:2.2rem;}
+.opt-label{font-family:var(--mono);font-size:0.63rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:0.85rem;}
+.scope{display:grid;grid-template-columns:1fr 1fr;gap:0.8rem;}
+.scard{background:var(--white);border:1.5px solid var(--line);border-radius:12px;padding:1.3rem 1.4rem;cursor:pointer;transition:all 0.18s ease;user-select:none;position:relative;}
+.scard:hover{border-color:var(--aqua);}
+.scard.sel{border-color:var(--teal);background:var(--aqua-tint);}
+.scard .st{display:flex;align-items:center;justify-content:space-between;gap:0.5rem;}
+.scard h4{font-family:var(--disp);font-weight:600;font-size:1.06rem;color:var(--teal);}
+.scard .tag{font-family:var(--mono);font-size:0.5rem;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:var(--teal-deeper);background:var(--yellow);border-radius:4px;padding:0.14rem 0.42rem;}
+.scard .amt{font-family:var(--disp);font-weight:700;font-size:1.5rem;color:var(--teal);margin-top:0.7rem;line-height:1;}
+.scard .amt span{font-family:var(--mono);font-size:0.62rem;font-weight:500;color:var(--muted);letter-spacing:0.04em;display:block;margin-top:0.3rem;text-transform:uppercase;}
+.scard .sd{font-size:0.82rem;line-height:1.55;color:var(--muted);margin-top:0.7rem;}
+.tog-row{display:flex;align-items:center;justify-content:space-between;gap:1rem;background:var(--white);border:1.5px solid var(--line);border-radius:12px;padding:1.1rem 1.3rem;margin-top:0.9rem;cursor:pointer;user-select:none;transition:border-color 0.18s ease;}
+.tog-row:hover{border-color:var(--aqua);}
+.tog-row.on{border-color:var(--teal);background:var(--aqua-tint);}
+.tog-txt h4{font-family:var(--disp);font-weight:600;font-size:0.98rem;color:var(--teal);}
+.tog-txt p{font-size:0.8rem;line-height:1.5;color:var(--muted);margin-top:0.2rem;}
+.switch{width:44px;height:25px;border-radius:999px;background:var(--line);flex-shrink:0;position:relative;transition:background 0.2s ease;}
+.tog-row.on .switch{background:var(--teal);}
+.switch::after{content:'';position:absolute;top:3px;left:3px;width:19px;height:19px;border-radius:50%;background:#fff;transition:transform 0.2s ease;box-shadow:0 1px 3px rgba(0,0,0,0.2);}
+.tog-row.on .switch::after{transform:translateX(19px);}
+.abs-note{margin-top:1.1rem;background:var(--white);border:1px solid var(--line);border-left:4px solid var(--aqua);border-radius:0 10px 10px 0;padding:1rem 1.2rem;font-size:0.82rem;line-height:1.6;color:var(--muted);}
+.abs-note strong{color:var(--teal);font-weight:600;}
+
+/* rail */
+.rail{position:sticky;top:92px;background:var(--white);border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:0 8px 30px rgba(52,95,93,0.08);}
+.rail-hd{background:var(--teal);color:#fff;padding:1.3rem 1.5rem;}
+.rail-hd h3{font-family:var(--disp);font-weight:600;font-size:1.15rem;}
+.rail-hd p{font-family:var(--mono);font-size:0.58rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--aqua);margin-top:0.28rem;}
+.rail-bd{padding:1.1rem 1.5rem;}
+.rl{display:flex;justify-content:space-between;align-items:baseline;padding:0.5rem 0;border-bottom:1px solid var(--line-soft);font-size:0.82rem;gap:0.7rem;}
+.rl:last-child{border-bottom:none;}
+.rl-n{color:var(--muted);line-height:1.4;}
+.rl-v{font-family:var(--mono);font-weight:600;color:var(--ink);white-space:nowrap;}
+.rail-split{padding:0.85rem 1.5rem;background:var(--aqua-tint);border-top:1px solid var(--line);}
+.rail-split .rs{display:flex;justify-content:space-between;font-size:0.78rem;padding:0.2rem 0;}
+.rail-split .rs .rsn{color:var(--muted);}
+.rail-split .rs .rsv{font-family:var(--mono);font-weight:600;color:var(--teal);}
+.rail-total{background:var(--teal-dark);padding:1.2rem 1.5rem;display:flex;justify-content:space-between;align-items:center;}
+.rail-total .tl{font-family:var(--mono);font-size:0.6rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.7);}
+.rail-total .tv{font-family:var(--disp);font-weight:700;font-size:1.5rem;color:var(--yellow);}
+.rail-tl{padding:0.85rem 1.5rem;background:var(--white);border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;}
+.rail-tl .rn{font-family:var(--mono);font-size:0.58rem;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;color:var(--muted);}
+.rail-tl .rv{font-weight:700;font-size:0.86rem;color:var(--teal);}
+.rail-act{padding:1rem 1.5rem;display:flex;gap:0.55rem;border-top:1px solid var(--line);}
+.rail-act .btn{flex:1;justify-content:center;padding:0.65rem;}
+.rail-inc{padding:1.1rem 1.5rem;}
+.rail-inc-l{font-family:var(--mono);font-size:0.58rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted-2);margin-bottom:0.5rem;}
+.rail-inc ul{list-style:none;}
+.rail-inc li{font-size:0.82rem;line-height:1.5;color:var(--text);padding:0.42rem 0 0.42rem 1.25rem;position:relative;border-bottom:1px solid var(--line-soft);}
+.rail-inc li:last-child{border-bottom:none;}
+.rail-inc li::before{content:'';position:absolute;left:0;top:0.78rem;width:6px;height:6px;border-radius:50%;background:var(--aqua);}
+.rail-note{padding:1rem 1.5rem;font-size:0.67rem;line-height:1.55;color:var(--muted-2);background:var(--aqua-tint);}
+
+/* ---------- Timeline ---------- */
+.tl{margin-top:2.1rem;max-width:820px;}
+.tl-step{display:grid;grid-template-columns:150px 22px 1fr;gap:0 1.2rem;align-items:start;}
+.tl-t{font-family:var(--mono);font-size:0.63rem;font-weight:600;letter-spacing:0.03em;text-transform:uppercase;color:var(--muted);text-align:right;padding-top:0.1rem;}
+.tl-track{display:flex;flex-direction:column;align-items:center;align-self:stretch;}
+.tl-dot{width:11px;height:11px;border-radius:50%;background:var(--white);border:3px solid var(--aqua);flex-shrink:0;}
+.tl-dot.yellow{border-color:var(--yellow-deep);background:var(--yellow);}
+.tl-line{width:2px;flex:1;background:var(--line);margin:3px 0;}
+.tl-step:last-child .tl-line{display:none;}
+.tl-c{padding-bottom:1.5rem;}
+.tl-h{font-weight:700;font-size:0.9rem;color:var(--teal);margin-bottom:0.2rem;}
+.tl-h.yellow{color:var(--yellow-deep);}
+.tl-d{font-size:0.82rem;line-height:1.6;color:var(--muted);}
+.tl-foot{margin-top:0.6rem;background:var(--aqua-tint);border:1px solid var(--aqua-line);border-radius:10px;padding:1.1rem 1.4rem;font-size:0.86rem;line-height:1.62;color:var(--text);max-width:820px;}
+.tl-foot strong{color:var(--teal);font-weight:600;}
+
+/* ---------- Footer ---------- */
+.foot{background:var(--teal-deeper);color:rgba(255,255,255,0.5);padding:2.4rem 2.25rem;text-align:center;}
+.foot .fbrand{display:flex;align-items:center;justify-content:center;gap:0.9rem;margin-bottom:0.9rem;}
+.foot .fbrand span{font-family:var(--disp);color:rgba(255,255,255,0.85);font-size:0.9rem;}
+.foot .fbrand .fx{width:1px;height:18px;background:rgba(255,255,255,0.25);}
+.foot p{font-size:0.71rem;line-height:1.7;max-width:760px;margin:0 auto;}
+
+/* ---------- Modal ---------- */
+.modal-ov{position:fixed;inset:0;background:rgba(28,50,47,0.55);z-index:300;display:none;align-items:center;justify-content:center;padding:1rem;}
+.modal-ov.open{display:flex;}
+.modal{background:var(--white);border-radius:16px;width:480px;max-width:100%;overflow:hidden;box-shadow:0 24px 60px rgba(28,50,47,0.25);}
+.modal-hd{padding:1.4rem 1.9rem;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;}
+.modal-hd h3{font-family:var(--disp);font-weight:600;font-size:1.15rem;color:var(--teal);}
+.x-btn{width:32px;height:32px;border:1px solid var(--line);border-radius:7px;background:var(--white);cursor:pointer;display:flex;align-items:center;justify-content:center;}
+.x-btn svg{width:14px;height:14px;}
+.modal-bd{padding:1.4rem 1.9rem;}
+.modal-bd label{display:block;font-family:var(--mono);font-size:0.6rem;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;color:var(--muted);margin-bottom:0.35rem;}
+.modal-bd input,.modal-bd textarea{width:100%;padding:0.65rem 0.9rem;border:1px solid var(--line);border-radius:8px;font-family:var(--body);font-size:0.88rem;color:var(--text);margin-bottom:1rem;outline:none;transition:border-color 0.18s;background:var(--aqua-tint);}
+.modal-bd input:focus,.modal-bd textarea:focus{border-color:var(--teal);}
+.modal-bd textarea{resize:vertical;min-height:76px;}
+.modal-prev{background:var(--aqua-tint);border:1px solid var(--aqua-line);border-radius:9px;padding:1rem 1.1rem;font-family:var(--mono);font-size:0.72rem;line-height:1.6;color:var(--muted);max-height:180px;overflow-y:auto;white-space:pre-wrap;}
+.modal-ft{padding:1rem 1.9rem 1.5rem;display:flex;justify-content:flex-end;gap:0.6rem;}
+.modal-ft .btn{padding:0.6rem 1.3rem;}
+
+/* ---------- Reveal ---------- */
+.rv{opacity:0;transform:translateY(14px);transition:opacity 0.6s ease,transform 0.6s ease;}
+.rv.in{opacity:1;transform:none;}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto;}.rv{opacity:1;transform:none;transition:none;}}
+
+/* ---------- Responsive ---------- */
+@media (max-width:920px){
+  .pts,.deliv,.cfg-grid,.spec{grid-template-columns:1fr;}
+  .cfg-grid .rail{position:static;}
+  .scope{grid-template-columns:1fr;}
+  .gapbar{grid-template-columns:1fr;}
+  .bench{grid-template-columns:1fr;}
+}
+@media (max-width:600px){
+  .hdr-in{padding:0.75rem 1.15rem;}
+  .hdr-act .btn-ghost{display:none;}
+  .hero,.sec,.divider{padding-left:1.15rem;padding-right:1.15rem;}
+  .tl-step{grid-template-columns:96px 20px 1fr;gap:0 0.8rem;}
+}
+@media print{
+  .hdr,.rail-act,.modal-ov{display:none!important;}
+  body{background:#fff;}
+  .hero,.dhd.a,.dhd.b,.rail-total,.foot{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+}
+</style>
+</head>
+<body>
+
+<header class="hdr">
+  <div class="hdr-in">
+    <div class="brand">
+      <div class="brand-rf">The Rockefeller Foundation<span>AI &amp; Civic Innovation</span></div>
+      <div class="brand-x"></div>
+      <div class="brand-gallup">Gallup</div>
+    </div>
+    <div class="hdr-act">
+      <button class="btn btn-ghost" onclick="exportPDF()"><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>Export</button>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-in">
+    <div class="hero-eyebrow"><span class="dot"></span>Executive summary &mdash; prepared for The Rockefeller Foundation</div>
+    <h1>The AI Worker <em>Pulse</em></h1>
+    <p class="hero-sub">An annual, 50-state study of how AI is changing work for American workers &mdash; reported state by state, and repeated every year.</p>
+  </div>
+</section>
+
+<section class="sec" id="why">
+  <span class="eyebrow rv">Why it exists</span>
+  <h2 class="sec-title rv">The worker experience of AI, measured the same way every year</h2>
+  <p class="sec-lead rv">Most polling on AI measures adoption, or captures national sentiment once and moves on. What no one tracks consistently is how <strong>workers themselves</strong> are faring &mdash; their security, their agency, and their capacity to make the transition &mdash; reported the same way and repeated year over year. The AI Worker Pulse is that standing measure: a national, probability-based read on the Gallup Panel that carries the public headline, with the option to extend it to every state for leaders who need the picture where policy is actually made.</p>
+  <div class="gapbar rv">
+    <div class="gapcell"><div class="gh">What exists</div><div class="gt">Adoption &amp; macro data</div><p>Robust tracking of who uses AI, how often, and in which tools &mdash; plus labor-market aggregates.</p></div>
+    <div class="gapcell hl"><div class="gh">What's missing</div><div class="gt">The worker-side signal</div><p>Security, agency, and &mdash; above all &mdash; whether workers can actually make the transition. Measured consistently over time.</p></div>
+    <div class="gapcell"><div class="gh">What's absent entirely</div><div class="gt">A geographic lens</div><p>Where disruption lands, and how it differs by region and industry &mdash; the cut no national poll provides.</p></div>
+  </div>
+</section>
+
+<div class="divider"><hr></div>
+
+<section class="sec" id="unique">
+  <span class="eyebrow rv">What makes it different</span>
+  <h2 class="sec-title rv">A durable indicator, not another one-off poll</h2>
+  <div class="pts">
+    <div class="pt rv"><div class="num">01</div><h3>Every state</h3><p>All 50 states independently reportable &mdash; not a national average that hides where the pressure actually lands.</p></div>
+    <div class="pt rv"><div class="num">02</div><h3>Every year</h3><p>A repeating instrument that builds a trend line, so change is measurable release over release rather than guessed at.</p></div>
+    <div class="pt rv"><div class="num">03</div><h3>Worker-centric</h3><p>Built around the worker's experience &mdash; security, agency, and the capacity to make the transition &mdash; not employer adoption metrics.</p></div>
+    <div class="pt rv"><div class="num">04</div><h3>Built for state leaders</h3><p>A governor-ready read: 50-state rankings and per-state profiles for the leaders making workforce decisions.</p></div>
+    <div class="pt rv"><div class="num">05</div><h3>Gallup rigor</h3><p>A national probability-based Panel read for the public headline, with state-level estimates weighted to Census benchmarks.</p></div>
+  </div>
+</section>
+
+<div class="divider"><hr></div>
+
+<section class="sec" id="focus">
+  <span class="eyebrow rv">What it measures</span>
+  <h2 class="sec-title rv">Illustrative focus areas</h2>
+  <p class="sec-lead rv">The instrument is built with the Foundation, but the areas below are where a worker-centric study adds the most for policymakers &mdash; starting with transition capacity, the question almost no one is measuring.</p>
+  <div class="focus-list">
+    <div class="focus-item lead rv">
+      <div class="focus-h"><h3>Transition capacity</h3></div>
+      <p>The real ability to retrain, redeploy, and move across sectors. Whether a worker knows what skills a transition would require, can actually access retraining, what stands in the way &mdash; structural barriers and personal ones &mdash; and whether a realistic path exists across roles and sectors. Tracked over time, and cut by region and industry, so the country can see who is able to move, not just who is exposed.</p>
+    </div>
+    <div class="focus-item rv">
+      <div class="focus-h"><h3>Worker dignity &amp; agency</h3></div>
+      <p>Whether AI is done with workers or to them: voice in how it is introduced, autonomy, trust in the systems, and exposure to monitoring &mdash; and whether that experience holds for all workers, not just higher-paid knowledge workers.</p>
+    </div>
+    <div class="focus-item rv">
+      <div class="focus-h"><h3>Economic security</h3></div>
+      <p>Job-loss concern, wage pressure, and the financial resilience to absorb a disruption &mdash; the exposure workers feel and the cushion they actually have.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"><hr></div>
+
+<section class="sec alt" id="delivers">
+  <span class="eyebrow rv">What it produces</span>
+  <h2 class="sec-title rv">Two reports, two audiences</h2>
+  <div class="deliv">
+    <div class="dcard rv">
+      <div class="dhd a">
+        <div class="dk">Output one &middot; national</div>
+        <h3>Long-form report &amp; Gallup.com series</h3>
+        <div class="aud">For media and the general public</div>
+      </div>
+      <div class="dbody"><ul>
+        <li>Full annual analysis across the worker dimensions</li>
+        <li>Paired Gallup.com articles</li>
+        <li>Media-ready charts and a key-findings brief</li>
+      </ul></div>
+    </div>
+    <div class="dcard rv">
+      <div class="dhd b">
+        <div class="dk">Output two &middot; state level</div>
+        <h3>Action report: 50-state rankings</h3>
+        <div class="aud">For policymakers, state leaders, funders, and advocates</div>
+      </div>
+      <div class="dbody"><ul>
+        <li>National ranking of all 50 states</li>
+        <li>Comparative benchmarks across states and regions</li>
+        <li>Focused profiles on the states the Foundation prioritizes</li>
+        <li>Priority-action reads for policymakers and funders</li>
+      </ul></div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"><hr></div>
+
+<section class="sec" id="design">
+  <span class="eyebrow rv">The recommended design</span>
+  <h2 class="sec-title rv">35,000 interviews a year, every state</h2>
+  <p class="sec-lead rv">A national Gallup Panel study at n=10,000 &mdash; probability-based &mdash; plus state-level collection on consumer panels at n=500 in each of the 50 states (25,000). A 15-minute annual survey carries the flagship study; a 3-minute quarterly module keeps the signal current between annual waves.</p>
+  <div class="spec rv">
+    <div class="cell"><div class="n">10,000</div><div class="l">National Gallup Panel study &mdash; probability-based</div></div>
+    <div class="cell"><div class="n">25,000</div><div class="l">State-level collection &mdash; n=500 in each of 50 states</div></div>
+    <div class="cell"><div class="n">15 &amp; 3 min</div><div class="l">Annual flagship survey and quarterly module</div></div>
+    <div class="cell"><div class="n">5 releases</div><div class="l">One annual study and four quarterly reads</div></div>
+  </div>
+  <p class="method-note rv"><strong>On method:</strong> the national headline comes from the probability-based <a href="https://www.gallup.com/analytics/318911/us-social-research.aspx#ite-655676" target="_blank" rel="noopener">Gallup Panel</a>, the largest of its kind in the United States. State-level estimates come from consumer panels weighted to Census benchmarks, with response quality audited and urban/rural balance stipulated. The quarterly module is fielded on the Gallup Panel, so change can be tracked over time alongside the national read.</p>
+</section>
+
+<div class="divider"><hr></div>
+
+<section class="sec alt" id="configure">
+  <span class="eyebrow rv">Scope &amp; investment</span>
+  <h2 class="sec-title rv">Choose the scope</h2>
+  <p class="sec-lead rv">The recommended configuration is national plus all 50 states. Toggle the state layer and the quarterly pulse on or off to see how scope, cost, and timeline move. All figures are illustrative and finalized in scoping.</p>
+  <div class="cfg-grid">
+    <div>
+      <div class="opt-label">Coverage</div>
+      <div class="scope" id="scopeChoices">
+        <div class="scard sel" id="scope-both" onclick="setScope('both')">
+          <div class="st"><h4>National + 50 states</h4><span class="tag">Recommended</span></div>
+          <div class="amt" id="amt-both">$1,890,000<span>Year one &middot; illustrative</span></div>
+          <div class="sd">The full program: national headline plus every state ranked, both reports, and the quarterly pulse.</div>
+        </div>
+        <div class="scard" id="scope-national" onclick="setScope('national')">
+          <div class="st"><h4>National only</h4></div>
+          <div class="amt" id="amt-national">$500,000<span>Year one &middot; illustrative</span></div>
+          <div class="sd">A national probability read that goes deep on the priority dimensions, with industry-level reporting. No state rankings.</div>
+        </div>
+      </div>
+
+      <div class="opt-label" style="margin-top:1.6rem;">Add-on</div>
+      <div class="tog-row on" id="togQuarterly" onclick="toggleQuarterly()">
+        <div class="tog-txt"><h4>Quarterly pulse</h4><p>A 3-minute module four times a year that tracks the measures most responsive to change.</p></div>
+        <div class="switch"></div>
+      </div>
+
+    </div>
+
+    <div class="rail" id="rail">
+      <div class="rail-hd"><h3>Investment</h3><p id="railScope">National + 50 states</p></div>
+      <div class="rail-inc"><div class="rail-inc-l">What's included</div><ul id="railIncludes"></ul></div>
+      <div class="rail-total"><span class="tl">Year one total</span><span class="tv" id="rTotal">$1,890,000</span></div>
+      <div class="rail-split">
+        <div class="rs"><span class="rsn">Recurring, annually</span><span class="rsv" id="rRecur">$1,740,000</span></div>
+      </div>
+      <div class="rail-tl"><span class="rn">Est. to first release</span><span class="rv" id="rWeeks">16 weeks</span></div>
+      <div class="rail-act">
+        <button class="btn btn-ghost" onclick="exportPDF()" style="flex:1;"><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>Export summary</button>
+      </div>
+      <div class="rail-note">The Gallup Panel is the largest probability-based panel in the United States. State-level figures reflect Census-weighted consumer-panel collection. All figures illustrative and set in final scoping.</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"><hr></div>
+
+<section class="sec" id="timeline">
+  <span class="eyebrow rv">Timeline</span>
+  <h2 class="sec-title rv">Working back from the first release</h2>
+  <p class="sec-lead rv">The path from an August kickoff to the launch of the first report and its Gallup.com article the week of December 7. Dates and durations are planning assumptions, finalized in scoping.</p>
+  <div class="tl rv">
+    <div class="tl-step"><div class="tl-t">Aug 24 &ndash; 30</div><div class="tl-track"><div class="tl-dot"></div><div class="tl-line"></div></div><div class="tl-c"><div class="tl-h">Kickoff &amp; external experts</div><div class="tl-d">Confirm scope and convene the expert inputs that shape the instrument.</div></div></div>
+    <div class="tl-step"><div class="tl-t">Aug 31 &ndash; Sep 20</div><div class="tl-track"><div class="tl-dot"></div><div class="tl-line"></div></div><div class="tl-c"><div class="tl-h">Instrument design</div><div class="tl-d">Survey outline and first draft, built on Gallup's validated workforce items.</div></div></div>
+    <div class="tl-step"><div class="tl-t">Sep 21 &ndash; Oct 11</div><div class="tl-track"><div class="tl-dot"></div><div class="tl-line"></div></div><div class="tl-c"><div class="tl-h">Cognitive testing, programming &amp; QA</div><div class="tl-d">Comprehension testing, finalization, and survey programming with quality checks.</div></div></div>
+    <div class="tl-step"><div class="tl-t">Oct 12 &ndash; Nov 1</div><div class="tl-track"><div class="tl-dot"></div><div class="tl-line"></div></div><div class="tl-c"><div class="tl-h">Data collection</div><div class="tl-d">National Panel and state-level fielding, with real-time quality monitoring.</div></div></div>
+    <div class="tl-step"><div class="tl-t">Nov 2 &ndash; Dec 6</div><div class="tl-track"><div class="tl-dot"></div><div class="tl-line"></div></div><div class="tl-c"><div class="tl-h">Processing, weighting &amp; analysis</div><div class="tl-d">Census weighting, analysis, and the report draft with the Gallup.com article.</div></div></div>
+    <div class="tl-step"><div class="tl-t">Week of Dec 7</div><div class="tl-track"><div class="tl-dot yellow"></div></div><div class="tl-c"><div class="tl-h yellow">Launch &mdash; report one</div><div class="tl-d">The first study and its Gallup.com article go public.</div></div></div>
+  </div>
+</section>
+
+<div class="divider"><hr></div>
+
+<section class="sec" id="about">
+  <span class="eyebrow rv">About Gallup</span>
+  <h2 class="sec-title rv">The standing to make this the number of record</h2>
+  <p class="sec-lead rv">Gallup has reported the will of the people for more than 90 years and is the world's leading authority on the workplace. When newsrooms, boardrooms, and statehouses need the truth about work, Gallup is where they look first &mdash; a standing this study inherits on day one. Behind it sits a deep bench on the economics of work and AI.</p>
+  <div class="bench rv">
+    <div class="bench-col">
+      <div class="bench-l">In-house economists</div>
+      <p><strong>Jonathan Rothwell</strong>, Principal Economist, and <strong>Christos Makridis</strong> &mdash; widely published and cited on work, displacement, and AI's effect on the workforce.</p>
+    </div>
+    <div class="bench-col">
+      <div class="bench-l">Senior scientists &amp; advisers</div>
+      <p>Leading external authorities who advise Gallup's research &mdash; including Nobel laureate economist <strong>Angus Deaton</strong>, health scientist <strong>Lisa Berkman</strong>, and Stanford economist <strong>Nicholas Bloom</strong>.</p>
+    </div>
+  </div>
+</section>
+
+<div class="foot">
+  <div class="fbrand"><span>The Rockefeller Foundation</span><span class="fx"></span><span>Gallup</span></div>
+  <p>Prepared by Gallup for The Rockefeller Foundation &mdash; July 2026. Executive summary of The AI Worker Pulse. All scope, sample sizes, cadence, and investment figures are illustrative and subject to final scoping. National estimates derive from the probability-based Gallup Panel; state-level estimates from Census-weighted consumer panels. Confidential and proprietary.</p>
+</div>
+
+<script>
+/* ---------- Pricing model (illustrative) ---------- */
+var C={ design:150000, panelBoth:350000, panelNational:350000, state:540000, analysis:450000, quarterly:400000 };
+var state={ scope:'both', quarterly:true };
+
+function fmt(n){return '$'+n.toLocaleString('en-US');}
+
+function config(){
+  var oneTime=C.design, yearOne, includes=[];
+  if(state.scope==='both'){
+    includes.push('National Gallup Panel study &mdash; n=10,000, probability-based');
+    includes.push('State-level collection in all 50 states &mdash; n=500 each');
+    includes.push('Analysis, weighting, segmentation and both reports');
+    if(state.quarterly) includes.push('Quarterly pulse module and four quarterly reads');
+    yearOne = C.design + C.panelBoth + C.state + C.analysis + (state.quarterly?C.quarterly:0);
+  }else{
+    includes.push('National Gallup Panel study &mdash; n=10,000, probability-based');
+    includes.push('Deep analysis on the priority dimensions and the national report');
+    if(state.quarterly) includes.push('Quarterly pulse module and four quarterly reads');
+    yearOne = C.design + C.panelNational + (state.quarterly?C.quarterly:0);
+  }
+  var recurring=yearOne-oneTime;
+  var weeks = '16 weeks';
+  return {includes:includes, oneTime:oneTime, yearOne:yearOne, recurring:recurring, weeks:weeks};
+}
+
+function scopeTotals(){
+  // headline amounts shown on the two scope cards, reflecting the quarterly toggle
+  var q = state.quarterly ? C.quarterly : 0;
+  var both = C.design + C.panelBoth + C.state + C.analysis + q;
+  var nat  = C.design + C.panelNational + q;
+  return {both:both, nat:nat};
+}
+
+function render(){
+  // scope card selection
+  document.getElementById('scope-both').classList.toggle('sel', state.scope==='both');
+  document.getElementById('scope-national').classList.toggle('sel', state.scope==='national');
+  document.getElementById('togQuarterly').classList.toggle('on', state.quarterly);
+
+  var t=scopeTotals();
+  document.getElementById('amt-both').innerHTML=fmt(t.both)+'<span>Year one &middot; illustrative</span>';
+  document.getElementById('amt-national').innerHTML=fmt(t.nat)+'<span>Year one &middot; illustrative</span>';
+
+  var c=config();
+  document.getElementById('railScope').textContent = state.scope==='both' ? 'National + 50 states' : 'National only';
+  document.getElementById('railIncludes').innerHTML=c.includes.map(function(x){ return '<li>'+x+'</li>'; }).join('');
+  document.getElementById('rRecur').textContent=fmt(c.recurring);
+  document.getElementById('rTotal').textContent=fmt(c.yearOne);
+  document.getElementById('rWeeks').textContent=c.weeks;
+  updatePreview();
+}
+
+function setScope(s){ state.scope=s; render(); }
+function toggleQuarterly(){ state.quarterly=!state.quarterly; render(); }
+
+/* ---------- Summary / email ---------- */
+function buildSummary(){
+  var c=config();
+  var L=[];
+  L.push('THE AI WORKER PULSE — CONFIGURATION');
+  L.push('The Rockefeller Foundation · Gallup');
+  L.push('');
+  L.push('Scope: '+(state.scope==='both'?'National + 50 states (recommended)':'National only'));
+  L.push('Quarterly pulse: '+(state.quarterly?'Included':'Not included'));
+  L.push('');
+  L.push('INCLUDED');
+  c.includes.forEach(function(x){ L.push('  - '+x.replace(/&mdash;/g,'—')); });
+  L.push('');
+  L.push('Year one total (illustrative): '+fmt(c.yearOne));
+  L.push('Recurring, annually: '+fmt(c.recurring));
+  L.push('Est. to first release: '+c.weeks);
+  return L.join('\n');
+}
+function updatePreview(){var el=document.getElementById('mPrev');if(el)el.textContent=buildSummary();}
+function openModal(){var m=document.getElementById('modal');if(m){updatePreview();m.classList.add('open');}}
+function closeModal(){var m=document.getElementById('modal');if(m)m.classList.remove('open');}
+function sendEmail(){
+  var name=document.getElementById('mName').value||'';
+  var notes=document.getElementById('mNotes').value||'';
+  var body=(notes?'Notes: '+notes+'\n\n':'')+buildSummary()+(name?'\n\n— '+name:'');
+  var subject='The AI Worker Pulse — configuration';
+  window.open('mailto:justin_lall@gallup.com?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body),'_blank');
+  closeModal();
+}
+
+/* ---------- PDF ---------- */
+function exportPDF(){
+  var s=buildSummary();
+  var d=new Date().toLocaleDateString('en-US',{month:'long',day:'numeric',year:'numeric'});
+  var html='<!DOCTYPE html><html><head><title>The AI Worker Pulse — Configuration</title></head><body style="font-family:Georgia,serif;max-width:700px;margin:40px auto;padding:20px;color:#1e2b2a"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1.6rem;padding-bottom:1rem;border-bottom:2px solid #345f5d"><div><strong style="font-size:1.05rem;color:#345f5d">The Rockefeller Foundation · Gallup</strong><br><span style="font-size:0.85rem;color:#5f6f6c">The AI Worker Pulse — executive summary</span></div><div style="font-size:0.76rem;color:#93a2a0;text-align:right">Configuration<br>'+d+'</div></div><pre style="font-family:Arial,sans-serif;font-size:0.86rem;line-height:1.7;white-space:pre-wrap;color:#26332f">'+s+'</pre><div style="margin-top:1.6rem;font-size:0.7rem;color:#93a2a0;border-top:1px solid #e1eae8;padding-top:1rem">All figures illustrative and subject to final scoping. National estimates derive from the probability-based Gallup Panel; state-level estimates from Census-weighted consumer panels. Confidential and proprietary.</div><scr'+'ipt>window.onload=function(){window.print();}</scr'+'ipt></body></html>';
+  var w=window.open('','_blank');
+  if(w){w.document.write(html);w.document.close();}
+}
+
+/* ---------- Reveal on scroll ---------- */
+(function(){
+  var reduced=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var els=document.querySelectorAll('.rv');
+  if(reduced||!('IntersectionObserver' in window)){for(var i=0;i<els.length;i++){els[i].classList.add('in');}return;}
+  var io=new IntersectionObserver(function(entries){
+    for(var j=0;j<entries.length;j++){if(entries[j].isIntersecting){entries[j].target.classList.add('in');io.unobserve(entries[j].target);}}
+  },{threshold:0.08,rootMargin:'0px 0px -40px 0px'});
+  for(var k=0;k<els.length;k++){io.observe(els[k]);}
+})();
+
+document.addEventListener('keydown',function(e){ if(e.key==='Escape'){ closeModal(); } });
+render();
+</script>
+</body>
+</html>
