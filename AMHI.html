@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The American Men's Health Index — An Executive Summary · Gallup × Antenna Up</title>
+<style>
+:root {
+  --green: #009d4f; --green-deep: #00754a; --green-bright: #16c64f; --green-pale: #e4f2e1;
+  --gray-00: #f1f1f1; --gray-100: #cfd2d3; --gray-200: #b0b3b2; --gray-300: #878a8b;
+  --gray-400: #53575a; --gray-500: #24272a; --ink: #000000; --paper: #ffffff;
+  --font-display: Georgia, 'Times New Roman', Times, serif;
+  --font-body: Aptos, 'Aktiv Grotesk', Arial, 'Helvetica Neue', Helvetica, sans-serif;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--font-body); color: var(--gray-500); background: var(--paper); -webkit-font-smoothing: antialiased; font-size: 16px; line-height: 1.6; }
+::selection { background: var(--green-pale); color: var(--ink); }
+a { color: var(--green-deep); }
+:focus-visible { outline: 2px solid var(--green-deep); outline-offset: 2px; }
+
+.site-header { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.94); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid var(--gray-100); }
+.header-inner { max-width: 940px; margin: 0 auto; padding: 0.9rem 2rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+.brand-pair { display: flex; align-items: center; gap: 1rem; }
+.mark-gallup { font-family: var(--font-display); font-weight: 700; font-size: 1rem; letter-spacing: 0.24em; text-transform: uppercase; color: var(--gray-400); line-height: 1; }
+.mark-gallup sup { font-size: 0.42em; letter-spacing: 0; vertical-align: super; }
+.brand-divider { width: 1px; height: 24px; background: var(--gray-100); }
+.mark-partner { font-family: var(--font-body); font-weight: 800; font-size: 0.82rem; letter-spacing: 0.11em; text-transform: uppercase; color: var(--gray-500); line-height: 1.1; }
+.mark-partner span { display: block; font-size: 0.54rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gray-400); margin-top: 0.2rem; }
+
+.hero { border-top: 4px solid var(--green); padding: 3.4rem 2rem 2.8rem; }
+.hero-inner { max-width: 940px; margin: 0 auto; }
+.hero-rule { width: 52px; height: 4px; background: var(--green); margin-bottom: 1.4rem; }
+.eyebrow { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--green-deep); }
+.hero .eyebrow { margin-bottom: 1.2rem; display: block; }
+.hero h1 { font-family: var(--font-display); font-weight: 700; font-size: clamp(2.1rem, 4.6vw, 3.1rem); line-height: 1.1; letter-spacing: -0.01em; color: var(--ink); max-width: 800px; margin-bottom: 1.3rem; }
+.hero h1 em { font-style: italic; color: var(--green-deep); }
+.hero-sub { font-size: 1.05rem; line-height: 1.7; color: var(--gray-400); max-width: 700px; }
+
+.section { max-width: 940px; margin: 0 auto; padding: 3rem 2rem; }
+.section-tight { padding-top: 2.2rem; padding-bottom: 2.2rem; }
+.section-head { max-width: 720px; margin-bottom: 1.6rem; }
+.section-title { font-family: var(--font-display); font-weight: 700; font-size: clamp(1.5rem, 3vw, 2rem); line-height: 1.2; color: var(--ink); margin: 0.5rem 0 0.6rem; }
+.section-subtitle { font-size: 0.98rem; line-height: 1.7; color: var(--gray-400); }
+.rule-divider { max-width: 940px; margin: 0 auto; padding: 0 2rem; }
+.rule-divider hr { border: none; height: 1px; background: var(--gray-100); }
+
+.narrative { max-width: 800px; }
+.narrative p { font-size: 1.02rem; line-height: 1.78; color: var(--gray-500); margin-bottom: 1.2rem; }
+.narrative p:last-child { margin-bottom: 0; }
+.narrative strong { color: var(--ink); }
+
+.stat-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--gray-100); border: 1px solid var(--gray-100); border-radius: 8px; overflow: hidden; margin: 1.6rem 0 0.7rem; }
+.stat-cell { background: #fff; padding: 1rem 1.1rem; }
+.stat-cell .n { font-family: var(--font-display); font-weight: 700; font-size: 1.5rem; color: var(--green); line-height: 1; }
+.stat-cell .l { font-size: 0.72rem; line-height: 1.5; color: var(--gray-400); margin-top: 0.4rem; }
+.stat-cell .s { font-size: 0.58rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--gray-300); margin-top: 0.4rem; display: block; }
+.stat-caption { font-size: 0.76rem; color: var(--gray-300); font-style: italic; }
+
+.exec-band { background: var(--green-pale); border: 1px solid #d3e8cf; border-radius: 12px; padding: 1.9rem 2.2rem; }
+.exec-label { font-size: 0.66rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gray-500); display: inline-flex; align-items: center; gap: 0.5rem; margin-bottom: 0.9rem; }
+.exec-label::before { content: ''; width: 22px; height: 3px; background: var(--green); }
+.exec-band > p { font-family: var(--font-display); font-size: 1.18rem; line-height: 1.6; color: var(--ink); }
+
+.what-index { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 1.8rem; align-items: center; border: 1px solid var(--gray-100); border-radius: 12px; background: #fff; padding: 1.9rem 2rem; margin-top: 1.6rem; }
+.wi-copy p { font-size: 0.96rem; line-height: 1.72; color: var(--gray-500); }
+.wi-copy p strong { color: var(--ink); }
+.wi-badge { justify-self: center; width: 200px; height: 200px; border-radius: 50%; border: 5px solid var(--green); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 1rem; }
+.wi-badge .k { font-size: 0.58rem; font-weight: 700; letter-spacing: 0.13em; text-transform: uppercase; color: var(--green-deep); }
+.wi-badge .t { font-family: var(--font-display); font-weight: 700; font-size: 1.15rem; line-height: 1.2; color: var(--ink); margin: 0.4rem 0; }
+.wi-badge .r { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--gray-400); }
+
+.pillar-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 1.6rem; }
+.pillar { border: 1px solid var(--gray-100); border-top: 3px solid var(--green); border-radius: 10px; background: #fff; padding: 1.3rem 1.4rem 1.2rem; }
+.pillar-k { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.13em; text-transform: uppercase; color: var(--green-deep); }
+.pillar h4 { font-family: var(--font-display); font-weight: 700; font-size: 1.1rem; color: var(--ink); margin: 0.3rem 0 0.5rem; }
+.pillar p { font-size: 0.83rem; line-height: 1.6; color: var(--gray-400); }
+
+.who-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; margin-top: 1.6rem; }
+.who-card { border: 1px solid var(--gray-100); border-top: 4px solid var(--green); border-radius: 10px; background: #fff; padding: 1.5rem 1.5rem 1.3rem; }
+.who-kicker { font-size: 0.64rem; font-weight: 700; letter-spacing: 0.13em; text-transform: uppercase; color: var(--gray-400); margin-bottom: 0.5rem; }
+.who-card h3 { font-family: var(--font-display); font-weight: 700; font-size: 1.25rem; color: var(--ink); margin-bottom: 0.5rem; }
+.who-card p { font-size: 0.86rem; line-height: 1.66; color: var(--gray-400); }
+.outlet-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 1rem; }
+.outlet { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.02em; color: var(--gray-500); background: var(--gray-00); border: 1px solid var(--gray-100); border-radius: 999px; padding: 0.3rem 0.7rem; }
+
+.ask { margin-top: 1.8rem; background: var(--ink); border-radius: 12px; padding: 2.2rem 2.4rem; color: #fff; }
+.ask-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.6rem; margin-top: 1.4rem; }
+.ask-block { border: 1px solid rgba(255,255,255,0.16); border-radius: 10px; padding: 1.3rem 1.5rem; }
+.ask-block.lead { border-color: var(--green-bright); background: rgba(22,198,79,0.06); }
+.ask-k { font-size: 0.64rem; font-weight: 700; letter-spacing: 0.13em; text-transform: uppercase; color: var(--gray-200); }
+.ask-big { font-family: var(--font-display); font-weight: 700; font-size: 2.4rem; color: var(--green-bright); line-height: 1.1; margin: 0.3rem 0 0.3rem; }
+.ask-block p { font-size: 0.82rem; line-height: 1.6; color: var(--gray-100); }
+.ask-lead-label { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gray-200); }
+.ask-headline { font-family: var(--font-display); font-weight: 700; font-size: 1.5rem; color: #fff; line-height: 1.25; margin: 0.4rem 0 0.3rem; }
+.ask-intro { font-size: 0.9rem; line-height: 1.65; color: var(--gray-100); max-width: 620px; }
+.ask-foot { margin-top: 1.4rem; padding-top: 1.1rem; border-top: 1px solid rgba(255,255,255,0.14); font-size: 0.78rem; line-height: 1.7; color: var(--gray-100); }
+.ask-foot a { color: var(--green-bright); }
+
+.footer { background: #fff; border-top: 1px solid var(--gray-100); padding: 2rem; text-align: center; font-size: 0.72rem; line-height: 1.8; color: var(--gray-400); }
+.footer .mark-gallup { font-size: 0.82rem; display: inline-block; margin-bottom: 0.6rem; }
+
+.reveal { opacity: 0; transform: translateY(14px); transition: opacity 0.5s ease, transform 0.5s ease; }
+.reveal.in { opacity: 1; transform: translateY(0); }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .reveal { opacity: 1; transform: none; transition: none; } }
+
+@media (max-width: 820px) {
+  .stat-row { grid-template-columns: 1fr 1fr; }
+  .pillar-grid { grid-template-columns: 1fr; }
+  .who-grid { grid-template-columns: 1fr; }
+  .what-index { grid-template-columns: 1fr; gap: 1.3rem; }
+  .ask-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 560px) {
+  .header-inner { padding: 0.8rem 1.1rem; }
+  .hero, .section, .rule-divider { padding-left: 1.1rem; padding-right: 1.1rem; }
+  .stat-row { grid-template-columns: 1fr; }
+  .ask { padding: 1.7rem 1.4rem; }
+}
+@media print {
+  .site-header { display: none !important; }
+  body { color: #000; }
+  .hero { border-top: 4px solid #009d4f; padding: 1.6rem 0 1.2rem; }
+  .section { padding: 1.3rem 0; }
+  .ask { background: #000 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .exec-band, .what-index, .stat-row, .wi-badge, .ask-block.lead { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .pillar, .who-card, .exec-band, .what-index, .stat-row, .ask, .ask-block { break-inside: avoid; }
+  a { text-decoration: none; color: inherit; }
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <div class="brand-pair">
+      <div class="mark-gallup">Gallup<sup>&reg;</sup></div>
+      <div class="brand-divider"></div>
+      <div class="mark-partner">Antenna Up<span>Executive Summary</span></div>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-rule"></div>
+    <span class="eyebrow">A Gallup &times; Antenna Up Initiative &middot; Executive Summary</span>
+    <h1>The American Men&rsquo;s <em>Health Index</em></h1>
+    <p class="hero-sub">The first authoritative, independent annual measure of the state of American men &mdash; across physical, mental and spiritual health. Built by Gallup, carried by Antenna Up, and designed to become the number the country measures against for the next twenty years. This summary sets out the opportunity to launch it.</p>
+  </div>
+</section>
+
+<section class="section section-tight" style="padding-bottom:1.4rem;">
+  <div class="exec-band reveal">
+    <span class="exec-label">In Brief</span>
+    <p>American men are losing ground &mdash; and the national conversation about it runs far ahead of the evidence. There is no trusted, shared measure of how men are actually doing, or whether it is getting better or worse. Gallup and Antenna Up propose to build one: the <strong>American Men&rsquo;s Health Index</strong>, an annual national benchmark released each September, and the foundation of a future center for research on American men. We are seeking founding funders to launch it &mdash; a $5M commitment over its first years, with $1M to begin the work.</p>
+  </div>
+</section>
+
+<section class="section section-tight" id="need">
+  <div class="section-head reveal">
+    <span class="eyebrow">The Need</span>
+    <h2 class="section-title">A national issue without a number</h2>
+  </div>
+  <div class="narrative reveal">
+    <p>By nearly every measure, American men and boys are falling behind &mdash; in education, in the workforce, in health and in connection. They die younger, account for the large majority of deaths of despair, and report a steep decline in friendship and community. None of this stands against anyone else&rsquo;s progress, but men&rsquo;s declining health carries direct consequences for workforce strength, public health, national security and the health of American civil society. The wellbeing of American men is inseparable from the wellbeing of American women, families and communities.</p>
+    <p>The issue has become a genuine national concern. Yet for all the attention, the field has no shared, credible fact base. The research that exists is scattered and inconsistent, and into that gap step the loudest voices rather than the most trusted ones. <strong>There is no single number the country can point to &mdash; no way to say, with authority, whether the state of American men is improving or declining.</strong></p>
+  </div>
+  <div class="stat-row reveal">
+    <div class="stat-cell"><div class="n">&asymp;4&times;</div><div class="l">Men die by suicide at roughly four times the rate of women</div><span class="s">CDC</span></div>
+    <div class="stat-cell"><div class="n">42%</div><div class="l">of U.S. bachelor&rsquo;s degrees are earned by men &mdash; down since the 1970s</div><span class="s">NCES</span></div>
+    <div class="stat-cell"><div class="n">89%</div><div class="l">of prime-age men are in the labor force &mdash; down from ~97% in the 1950s</div><span class="s">BLS</span></div>
+    <div class="stat-cell"><div class="n">15%</div><div class="l">of men report having no close friends &mdash; up from 3% in 1990</div><span class="s">SCAL, 2021</span></div>
+  </div>
+</section>
+
+<div class="rule-divider"><hr></div>
+
+<section class="section section-tight" id="index">
+  <div class="section-head reveal">
+    <span class="eyebrow">The Solution</span>
+    <h2 class="section-title">The American Men&rsquo;s Health Index</h2>
+    <p class="section-subtitle">One credible number, released every year, that gives the country a clear and trusted answer &mdash; and a benchmark to rally around for the next twenty years.</p>
+  </div>
+  <div class="what-index reveal">
+    <div class="wi-copy">
+      <p>The American Men&rsquo;s Health Index is a single, authoritative annual measure of the state of American men &mdash; across <strong>physical, mental and spiritual health</strong>, with spiritual understood as purpose and belonging. Built entirely on original Gallup research, it captures how American men are doing and moves year over year.</p>
+      <p style="margin-top:0.9rem;">It gives the country something it has never had: a clear, trusted answer to whether men&rsquo;s health is improving or declining, and a benchmark that can hold governments, employers and communities to account. Released each September and fully documented, it is designed to become the figure the press, employers and policymakers cite as a matter of course.</p>
+    </div>
+    <div class="wi-badge">
+      <span class="k">The Benchmark</span>
+      <span class="t">American Men&rsquo;s Health Index</span>
+      <span class="r">Annual &middot; National</span>
+    </div>
+  </div>
+  <div class="pillar-grid">
+    <div class="pillar reveal">
+      <span class="pillar-k">Rigorous</span>
+      <h4>Built by Gallup</h4>
+      <p>Original national research on the largest probability-based panel in the United States &mdash; one clear, documented methodology behind every number, designed from the outset to withstand scrutiny.</p>
+    </div>
+    <div class="pillar reveal">
+      <span class="pillar-k">Trended</span>
+      <h4>Grounded in nine decades</h4>
+      <p>Because Gallup has measured how Americans live and work since 1935, the Index lands against decades of trend &mdash; not a number starting from zero, but one with history behind it.</p>
+    </div>
+    <div class="pillar reveal">
+      <span class="pillar-k">Carried</span>
+      <h4>Amplified nationally</h4>
+      <p>Released through Gallup&rsquo;s platform and the national press, and carried into the culture by Antenna Up&rsquo;s community, stages and trusted voices &mdash; so the number is not just published, but heard.</p>
+    </div>
+  </div>
+</section>
+
+<div class="rule-divider"><hr></div>
+
+<section class="section section-tight" id="how">
+  <div class="section-head reveal">
+    <span class="eyebrow">How We Build It</span>
+    <h2 class="section-title">What creating the Index takes</h2>
+    <p class="section-subtitle">The Index is the product of a deliberate, rigorous process &mdash; original national research, informed by the field&rsquo;s leading thinkers, and carried to the country through a landmark report and a coordinated campaign.</p>
+  </div>
+  <div class="narrative reveal">
+    <p><strong>We start with the definitive questions.</strong> Working with leading researchers, clinicians and thinkers on the state of American men, we design a study that measures men&rsquo;s experiences across the domains that matter &mdash; health, work, family, purpose and belonging, and civic life &mdash; so the Index rests on the best current understanding of the issue, not a single point of view.</p>
+    <p><strong>We field it on the Gallup Panel.</strong> The study is conducted as a nationally representative survey of American men on the Gallup Panel &mdash; the largest probability-based panel in the United States &mdash; producing original data no existing source captures, with one clear, documented methodology behind every number.</p>
+    <p><strong>We turn it into a landmark report and a national moment.</strong> Gallup authors the inaugural report and constructs the Index; Antenna Up carries it into the culture through its summits, its community and trusted voices, and a coordinated amplification campaign &mdash; so the number is not just published, but heard by the leaders, employers and policymakers positioned to act on it.</p>
+  </div>
+</section>
+
+<div class="rule-divider"><hr></div>
+
+<section class="section section-tight" id="who">
+  <div class="section-head reveal">
+    <span class="eyebrow">Who Builds It</span>
+    <h2 class="section-title">The most trusted name in measurement &mdash; and a platform to carry it</h2>
+  </div>
+  <div class="who-grid">
+    <div class="who-card reveal">
+      <div class="who-kicker">The Research</div>
+      <h3>Gallup</h3>
+      <p>For ninety years, the independent standard in measuring how Americans think, live and work &mdash; and the name newsrooms, boardrooms and government turn to first. Gallup conducts the research, constructs the Index, and stands behind every number.</p>
+      <div class="outlet-row" aria-hidden="true">
+        <span class="outlet">Wall Street Journal</span>
+        <span class="outlet">New York Times</span>
+        <span class="outlet">The Economist</span>
+        <span class="outlet">Fortune</span>
+        <span class="outlet">Financial Times</span>
+      </div>
+    </div>
+    <div class="who-card reveal">
+      <div class="who-kicker">The Platform &amp; Public Voice</div>
+      <h3>Antenna Up</h3>
+      <p>A cultural platform dedicated to the health and wellbeing of American men and boys &mdash; and, in barely a year, a proven one. It has convened hundreds of leaders, businesses and brands around two national summits: the <strong>Marketing to Men Summit</strong>, on the fuller representation of men in media and advertising, and <strong>Healthier Men at Work</strong>, connecting male worker health to measurable business outcomes. Its sponsors, speakers and influencers have reported immediate relationship value with no negative backlash &mdash; evidence that serious institutions and influential voices will engage when the numbers are credible and the tone is constructive.</p>
+      <p style="margin-top:0.8rem;">It carries the Index into the culture through those convenings, a growing national community, and standing relationships across the media and influencers who shape the conversation. At its head is spokesperson <strong>Janna Meyrowitz Turner</strong> &mdash; a communications strategist with two decades building coalitions and shaping public narratives, who founded and led a nationally recognized agency spanning consumer brands, culture and sport, and brings a credible history in American women&rsquo;s empowerment to this work.</p>
+    </div>
+  </div>
+</section>
+
+<div class="rule-divider"><hr></div>
+
+<section class="section" id="ask">
+  <div class="ask reveal">
+    <span class="ask-lead-label">The Opportunity</span>
+    <div class="ask-headline">Launch the Index &mdash; and help establish what follows</div>
+    <p class="ask-intro">Gallup and Antenna Up are seeking a select group of founding funders to launch the American Men&rsquo;s Health Index. A $5M commitment establishes and sustains the Index through its first years; $1M begins the work now.</p>
+    <div class="ask-grid">
+      <div class="ask-block lead">
+        <span class="ask-k">To Begin &mdash; Year One</span>
+        <div class="ask-big">$1M</div>
+        <p>The investment to launch the work now: building the first national research program, constructing the inaugural American Men&rsquo;s Health Index, and preparing it for public release. Shared among a small group of founding funders.</p>
+      </div>
+      <div class="ask-block">
+        <span class="ask-k">The Full Commitment</span>
+        <div class="ask-big">$5M</div>
+        <p>The commitment that establishes and sustains the Index through its first years &mdash; the annual research, the release, and the platform that carries it &mdash; and lays the foundation for the center it becomes. Made in staged commitments, shared among founding funders.</p>
+      </div>
+    </div>
+    <div class="ask-foot">
+      Figures are illustrative and developed together with founding funders. To discuss a founding role:<br>
+      Justin Lall &middot; <a href="mailto:Justin_Lall@gallup.com">Justin_Lall@gallup.com</a> &nbsp;&bull;&nbsp; Janna Meyrowitz Turner &middot; <a href="mailto:janna@antennaup.com">janna@antennaup.com</a>
+    </div>
+  </div>
+  <div class="narrative reveal" style="max-width:720px; margin-top:1.8rem;">
+    <p style="font-size:0.98rem; color:var(--gray-400); font-style:italic;">The Index is the beginning. Over time, it is the cornerstone of a permanent, independent center for research on American men &mdash; and those who fund its launch will be recognized among the founders of that larger work.</p>
+  </div>
+</section>
+
+<div class="footer">
+  <div class="mark-gallup">Gallup &times; Antenna Up</div><br>
+  The American Men&rsquo;s Health Index &middot; Executive Summary, 2026 &mdash; a Gallup &times; Antenna Up initiative. Scope, structure and figures are illustrative and developed with founding funders.<br>
+  Copyright &copy; 2026 Gallup, Inc. All rights reserved. Confidential and proprietary.
+</div>
+
+<script>
+(function(){
+  var reduced=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var els=document.querySelectorAll('.reveal');
+  if(reduced||!('IntersectionObserver' in window)){for(var i=0;i<els.length;i++){els[i].classList.add('in');}return;}
+  var io=new IntersectionObserver(function(entries){for(var j=0;j<entries.length;j++){if(entries[j].isIntersecting){entries[j].target.classList.add('in');io.unobserve(entries[j].target);}}},{threshold:0.08,rootMargin:'0px 0px -40px 0px'});
+  for(var k=0;k<els.length;k++){io.observe(els[k]);}
+})();
+</script>
+</body>
+</html>
