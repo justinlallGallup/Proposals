@@ -1,0 +1,1279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Meeting Book — Concordia Week</title>
+<style>
+  :root{
+    --ink:#101c26; --ink-2:#425561; --ink-3:#7d8f9b;
+    --bg:#eef1f4; --card:#fff; --panel:#122431;
+    --rule:#d3dbe1; --rule-2:#e7ecf0;
+    --seal:#8a2432;
+    --serif:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+    --sans:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    --accent:#2f6b58;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:15.5px;line-height:1.5}
+  a{color:#1d5480;text-decoration:none;border-bottom:1px solid rgba(29,84,128,.3)}
+  a:hover{color:var(--seal);border-bottom-color:rgba(138,36,50,.4)}
+  :focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+  .wrap{max-width:940px;margin:0 auto;padding:0 18px 70px}
+
+  .bar{background:var(--seal);color:#fff;font-size:12px;padding:6px 18px;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+  .top{background:var(--panel);color:#e9eff4;padding:20px 18px 18px}
+  .top-in{max-width:904px;margin:0 auto;display:flex;align-items:flex-end;justify-content:space-between;gap:20px;flex-wrap:wrap}
+  .top h1{font-family:var(--serif);font-weight:400;font-size:30px;margin:0;letter-spacing:-.01em;line-height:1}
+  .top p{margin:5px 0 0;font-size:13.5px;color:#90b0c6}
+  .btn{font:500 12.5px var(--sans);background:rgba(255,255,255,.1);color:#e9eff4;border:1px solid rgba(255,255,255,.22);border-radius:3px;padding:6px 11px;cursor:pointer}
+  .btn:hover{background:rgba(255,255,255,.18)}
+
+  .dayhead{display:flex;align-items:baseline;gap:10px;margin:26px 0 10px}
+  .dayhead h2{font-family:var(--serif);font-weight:400;font-size:21px;margin:0}
+  .dayhead span{font-size:12.5px;color:var(--ink-3)}
+  .card{
+    background:var(--card);border:1px solid var(--rule);border-left:4px solid var(--accent);
+    display:grid;grid-template-columns:52px 76px 1fr auto;gap:14px;align-items:center;
+    padding:14px 16px;margin:0 0 8px;cursor:pointer;text-align:left;width:100%;font:inherit;color:inherit;
+  }
+  .card:hover{background:#f7fafb;border-color:var(--ink-3)}
+  .mono{
+    width:52px;height:52px;border-radius:4px;display:flex;align-items:center;justify-content:center;
+    font:600 15px var(--sans);letter-spacing:.02em;color:#fff;background:var(--accent);flex:0 0 auto;
+  }
+  .card .tm{font-size:13px;color:var(--ink-2);font-variant-numeric:tabular-nums;line-height:1.3}
+  .card h3{font-family:var(--serif);font-weight:400;font-size:20px;margin:0 0 2px;line-height:1.2}
+  .card .sub{font-size:13px;color:var(--ink-2);margin:0}
+  .card .go{font-size:12.5px;color:var(--ink-3);white-space:nowrap}
+  @media(max-width:620px){
+    .card{grid-template-columns:44px 1fr;gap:12px}
+    .mono{width:44px;height:44px;font-size:13px}
+    .card .tm{grid-column:2}
+    .card .body{grid-column:2}
+    .card .go{display:none}
+  }
+  .slot{background:var(--card);border:1px dashed var(--rule);padding:14px 16px;margin:0 0 8px;font-size:13.5px;color:var(--ink-3)}
+
+  .back{background:none;border:0;font:500 13px var(--sans);color:var(--ink-2);cursor:pointer;padding:18px 0 10px}
+  .back:hover{color:var(--seal)}
+  .mhead{display:flex;gap:16px;align-items:center;padding:0 0 16px;border-bottom:2px solid var(--accent)}
+  .mhead .mono{width:60px;height:60px;font-size:17px}
+  .mhead h2{font-family:var(--serif);font-weight:400;font-size:30px;margin:0 0 3px;line-height:1.05;letter-spacing:-.015em}
+  .mhead p{margin:0;font-size:13.5px;color:var(--ink-2)}
+
+  .tabs{display:flex;gap:2px;flex-wrap:wrap;background:var(--bg);position:sticky;top:0;z-index:5;padding:10px 0 0;border-bottom:1px solid var(--rule)}
+  .tab{
+    font:500 13px var(--sans);background:transparent;border:1px solid transparent;border-bottom:0;
+    color:var(--ink-2);padding:8px 14px;cursor:pointer;border-radius:3px 3px 0 0;margin-bottom:-1px;
+  }
+  .tab:hover{color:var(--ink)}
+  .tab[aria-selected="true"]{background:var(--card);border-color:var(--rule);color:var(--ink);font-weight:600}
+  .pane{background:var(--card);border:1px solid var(--rule);border-top:0;padding:22px 20px 24px}
+
+  h4.sec{font:600 12px var(--sans);color:var(--ink-3);margin:26px 0 10px;padding-bottom:6px;border-bottom:1px solid var(--rule-2)}
+  h4.sec:first-child{margin-top:0}
+  p{margin:0 0 10px;max-width:70ch}
+  .lede{font-family:var(--serif);font-size:16.5px;line-height:1.45;color:var(--ink-2);max-width:62ch;margin:0 0 4px}
+  ul{margin:0 0 10px;padding-left:19px;max-width:70ch}
+  li{margin:0 0 6px}
+
+  .facts{display:grid;gap:1px;background:var(--rule);border:1px solid var(--rule);margin:0 0 4px}
+  @media(min-width:560px){.facts{grid-template-columns:repeat(auto-fit,minmax(160px,1fr))}}
+  .facts div{background:#f8fafb;padding:9px 12px}
+  .facts dt{font:600 10.5px var(--sans);color:var(--ink-3);margin:0 0 2px}
+  .facts dd{margin:0;font-size:13.5px;line-height:1.35}
+
+  .stats{display:grid;gap:10px;margin:0 0 12px}
+  @media(min-width:560px){.stats{grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}}
+  .stat{border:1px solid var(--rule);background:#f8fafb;padding:12px 13px}
+  .stat b{display:block;font-family:var(--serif);font-size:25px;font-weight:400;line-height:1.05;color:var(--accent)}
+  .stat span{display:block;font-size:12.5px;color:var(--ink-2);margin-top:5px;line-height:1.3}
+  .stat em{display:block;font-style:normal;font-size:11px;color:var(--ink-3);margin-top:4px}
+
+  .person{display:flex;gap:14px;align-items:flex-start;margin:0 0 14px}
+  .person .mono{width:46px;height:46px;font-size:14px;background:var(--ink-2)}
+  .person h5{font-family:var(--serif);font-weight:400;font-size:19px;margin:0 0 1px;line-height:1.2}
+  .person .role{font-size:12.5px;color:var(--accent);margin:0}
+  .roster{display:grid;gap:8px;margin:0 0 10px}
+  @media(min-width:620px){.roster{grid-template-columns:1fr 1fr}}
+  .rost{border:1px solid var(--rule-2);padding:9px 11px;font-size:13.5px}
+  .rost b{display:block;font-weight:600}
+  .rost span{color:var(--ink-2);font-size:12.5px}
+
+  .tl{list-style:none;margin:0 0 10px;padding:0 0 0 2px;max-width:70ch}
+  .tl li{position:relative;padding:0 0 15px 22px;border-left:1px solid var(--rule);margin:0}
+  .tl li:last-child{border-left-color:transparent;padding-bottom:0}
+  .tl li::before{content:"";position:absolute;left:-4.5px;top:5px;width:8px;height:8px;border-radius:50%;background:var(--accent)}
+  .tl .yr{font:600 11.5px var(--sans);color:var(--ink-3);display:block;margin-bottom:1px}
+  .tl .ev{font-size:14px;display:block}
+
+  .links{list-style:none;margin:0;padding:0;display:grid;gap:1px;background:var(--rule-2);border:1px solid var(--rule-2)}
+  .links li{margin:0;background:#fff}
+  .links a{display:block;padding:9px 12px;font-size:13.5px;border:0}
+  .links a:hover{background:#f6f9fb}
+  .links .h{font-size:12.5px;color:var(--ink-3);display:block}
+
+  .memo{border:1px solid var(--rule);background:#f8fafb;margin:0 0 12px}
+  .memo>summary{cursor:pointer;list-style:none;padding:10px 13px;font-size:13.5px;color:#1d5480;font-weight:500}
+  .memo>summary::-webkit-details-marker{display:none}
+  .memo>summary:hover{color:var(--seal)}
+  .memo .m{padding:2px 15px 14px;border-top:1px solid var(--rule)}
+  .memo .m p{font-size:13.5px;max-width:66ch;color:var(--ink-2)}
+  .memo .m .meta{font-size:11.5px;color:var(--ink-3);margin:10px 0 8px}
+  .memo .exact{
+    white-space:pre-wrap;font:13px/1.55 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+    color:var(--ink);background:#fff;border:1px solid var(--rule);padding:13px 14px;
+    margin:8px 0 0;max-width:none;overflow-x:auto;
+  }
+
+  .doc{border:1px solid var(--rule);margin:0 0 10px}
+  .doc .dh{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:9px 12px;background:#f8fafb;border-bottom:1px solid var(--rule);font-size:13px;flex-wrap:wrap}
+  .doc iframe{display:block;width:100%;height:580px;border:0;background:#f2f4f6}
+  @media(max-width:620px){.doc iframe{height:400px}}
+
+  .idea{border-left:3px solid var(--rule);padding:0 0 0 13px;margin:0 0 15px}
+  .idea.p1{border-left-color:var(--accent)}
+  .idea h5{font-family:var(--serif);font-weight:400;font-size:18px;margin:0 0 3px;line-height:1.2}
+  .idea p{font-size:14px;margin:0 0 5px;max-width:68ch}
+  .idea .q{font-size:13px;color:var(--ink-2);margin:0}
+
+  .hide{display:none}
+  footer{margin:24px 0 0;font-size:12px;color:var(--ink-3)}
+
+  @media print{
+    body{background:#fff}
+    .bar,.tabs,.back{display:none!important}
+    .top{background:#fff;color:#000;padding:0 0 10px}
+    .top h1,.top p{color:#000}
+    .pane{border:0;padding:0}
+    .doc iframe{display:none}
+  }
+</style>
+</head>
+<body>
+
+<div class="bar">
+  <span>Gallup internal — confidential</span>
+  <span>Draft, 19 September 2026</span>
+</div>
+
+<header class="top">
+  <div class="top-in">
+    <div>
+      <h1>Meeting book</h1>
+      <p>Concordia week, New York · 20–23 September 2026 · Stephanie Marken</p>
+    </div>
+    <button class="btn" id="prt">Print</button>
+  </div>
+</header>
+
+<div class="wrap">
+  <div id="agenda"></div>
+  <div id="detail" class="hide"></div>
+  <footer id="foot"></footer>
+</div>
+
+<script>
+(function(){
+"use strict";
+
+var PDF_CZI = "https://global.gallupproposals.com/CZI2026.pdf";
+
+var MEETINGS = [
+{
+  id:"czi", mono:"CZI", accent:"#2f6b58",
+  org:"Chan Zuckerberg Initiative",
+  day:"Tuesday 22 September", time:"10:30 – 11:00",
+  contactName:"Jane Packer",
+  contactRole:"Director of Communications, Community",
+  contactMono:"JP",
+
+  overview:{
+    lede:"Communications lead for CZI's community team. The community portfolio is the surviving non-science pillar, and it has a decade of grantmaking behind it with no published outcome measurement.",
+    facts:[
+      ["Format","30 min, one-to-one"],
+      ["Location","Table 6"]
+    ],
+    stats:[
+      ["81% / 27%","Students with the strongest experiences of engagement, support and belonging who feel prepared for the future, against those with the fewest","Voices of Gen Z, fourth annual"],
+      ["1 in 3","Students who do not feel they belong at school","Voices of Gen Z, fourth annual"],
+      ["79%","Of 12–25s who say service strengthened their connection to their community","The Power of Youth Service, March 2026"]
+    ],
+    memos:[{
+      label:"Read the full outreach note sent to Jane, 4 September",
+      raw:[
+        "From: Justin Lall",
+        "Sent: Friday, September 4, 2026 1:27 PM",
+        "To: 'jpacker@chanzuckerberg.com' <jpacker@chanzuckerberg.com>",
+        "Cc: James Scissom <James_Scissom@gallup.com>",
+        "Subject: Concordia meeting request with Stephanie Marken of Gallup",
+        "",
+        "Jane,",
+        "",
+        "I\u2019m reaching out on behalf of Stephanie Marken, a senior partner at Gallup. Stephanie\u2019s work includes national research on young people\u2019s educational experiences, wellbeing and pathways into work. Stephanie submitted a request through Concordia Connect to meet with you in person during the Annual Summit.",
+        "",
+        "The proposed meeting is:",
+        "Tuesday, September 22",
+        "10:30\u201311:00 a.m.",
+        "She would welcome the opportunity to learn more about CZI\u2019s work supporting children, families and educational opportunity in local communities and to share relevant findings from Gallup\u2019s research with the Walton Family Foundation and The Allstate Foundation. The conversation could also explore how research and measurement can help demonstrate and communicate the outcomes of community investments.",
+        "",
+        "Could you confirm if you would be open to meeting with Stephanie and whether this time works for you? Stephanie has some flexibility on September 22 and 23 should another time be more convenient.",
+        "",
+        "Best,",
+        "Justin",
+        "",
+        "JUSTIN LALL",
+        "Principal",
+        "(o) 312-288-2401",
+        "(m) 847-431-2927",
+        "444 W Lake St",
+        "Chicago, Illinois 60606",
+        "USA",
+        "GALLUP\u00ae",
+        "",
+        "Strategic | Significance | Competition | Command | Self-Assurance"
+      ]
+    }],
+    sections:[
+      {h:"Background", ul:[
+        "Requested through Concordia Connect on 4 September and confirmed for Table 6 on Tuesday morning.",
+        "The request framed the conversation around CZI's work supporting children, families and educational opportunity in local communities.",
+        "It also raised how research and measurement can demonstrate and communicate the outcomes of community investments.",
+        "Jane sits on the <b>community</b> team, not education. Education and ventures communications is Raymonde Charles's remit. Confirmed three ways: CZI's own Community Fund releases list Jane as press contact; the San Mateo Daily Journal identifies her as director of communications for the CZI community team; and CZI's education team page lists Raymonde Charles as VP of Communications for Learning Commons and Ventures."
+      ]},
+      {h:"Where a joint project could sit", ul:[
+        "<b>A community-level study of the conditions CZI already funds.</b> The Voices of Gen Z and youth service instruments fielded in San Mateo County — supportive adults, belonging, engagement, service, connection to community — benchmarked against Gallup's national data and published co-branded. It measures the building blocks the Community Fund invests in, in the language the Fund already uses.",
+        "The national data suggests the gap sits in those conditions rather than in young people's ambition: students with the strongest experiences of engagement, support and belonging are far more likely to feel prepared for the future than those with the fewest, and one in three does not feel they belong at school. CZI funds exactly those conditions locally and has no measure of them. A co-branded benchmark would give the Fund a publishable figure and give grantees a shared indicator set."
+      ]},
+      {h:"Context", ul:[
+        "2026 is the Community Fund's tenth grantmaking cycle. Applications closed 5 June and partners were informed afterwards, so the cohort announcement is recent or imminent.",
+        "The Fund has put more than $38 million into over 200 San Mateo County organizations since 2017, with no published outcome measurement.",
+        "Community is now the surviving non-science pillar. In November 2025 Zuckerberg said Biohub would be the main focus of their philanthropy going forward.",
+        "Chan has consistently argued this work must be responsive to local needs, which favours an instrument that reports nationally and disaggregates locally."
+      ]}
+    ],
+    pages:[
+      ["CZI community work","https://chanzuckerberg.com/community/","The pillar Jane covers"],
+      ["Community Fund","https://chanzuckerberg.com/community/fund","Tenth cycle, priority areas"],
+      ["Voices of Gen Z research hub","https://www.gallup.com/analytics/651674/gen-z-research.aspx","Gallup and Walton Family Foundation"],
+      ["The Power of Youth Service","https://www.gallup.com/analytics/702254/youth-service.aspx","Gallup and The Allstate Foundation"],
+      ["2025 AI Tools in Education proposal","https://global.gallupproposals.com/CZI2026.pdf","Prior approach, education side"]
+    ]
+  },
+
+  contact:{
+    bullets:[
+      "Roughly four years at CZI, on the community team. Named press contact on Community Fund announcements, including the 2025 grantee cohort and the 2026 open call, and quoted as spokesperson on CZI's Redwood City commitments.",
+      "Earlier in her career: Communications Specialist at the Public Policy Institute of California, the organization behind the PPIC Statewide Survey.",
+      "More than a decade at the YMCA of San Francisco, rising to Vice President, Marketing, Communications and Brand Strategy. Served as its public spokesperson during a 2016 criminal case involving a camp counsellor.",
+      "Has posted recruiting for communications roles on CZI's science team, which may indicate a remit beyond community."
+    ],
+    timeline:[
+      ["late 1990s","Special Assistant, U.S. Senator Barbara Boxer"],
+      ["","Communications Specialist, Public Policy Institute of California"],
+      ["to 2017","YMCA of San Francisco — to VP, Marketing, Communications and Brand Strategy"],
+      ["c. 2017","Presidio Institute programme"],
+      ["c. 2022","Chan Zuckerberg Initiative — Director of Communications, Community"]
+    ],
+    note:"YMCA of the USA is one of seven organizations in the Allstate Foundation coalition built on Gallup's youth service research.",
+    roster:[
+      ["Alma Pulido","Leads the CZ Community Fund"],
+      ["Raymonde Charles","VP Communications, Learning Commons and Ventures — education side"]
+    ],
+    links:[
+      ["LinkedIn profile","https://www.linkedin.com/in/janepacker/","Jane Packer"],
+      ["2025 Community Fund grantees","https://chanzuckerberg.com/newsroom/2025-community-fund-grantees/","Release listing her as press contact"],
+      ["CZI leadership","https://chanzuckerberg.com/about/leaders/","Current leaders"]
+    ]
+  },
+
+  orgIntel:{
+    lede:"Founded 2015 by Priscilla Chan and Mark Zuckerberg. Science, education and local communities; science is now the centre of gravity.",
+    stats:[
+      ["$38M+","To San Mateo County nonprofits since 2017"],
+      ["200+","Local organizations funded"],
+      ["10th","Grantmaking cycle in 2026"],
+      ["$200K","Ceiling per two-year grant"]
+    ],
+    sections:[
+      {h:"The Community Fund", ul:[
+        "San Mateo County. Two-year unrestricted or project grants in priority areas including housing, healthcare, education, job and career skills and other social supports.",
+        "The RFA gives preference to organizations showing collaborative practice and local knowledge. School districts and school foundations are funded separately.",
+        "2026 window ran 5 May to 5 June. Alma Pulido leads the Fund.",
+        "The Fund's own framing is the building blocks of economic wellbeing, and increasing equity, power and opportunity in local communities.",
+        "Separate Kaua'i Community Fund via the Hawai'i Community Foundation; the Kaua'i Medical Training Track's first cohort graduated in 2026.",
+        "The public record of the portfolio is narrative — artist exhibitions, a holiday night market, grantee profiles — with almost no outcome figures."
+      ]},
+      {h:"Where the organization is heading", ul:[
+        "November 2025: Zuckerberg said the science work, and the Biohub model in particular, had been their most impactful, and that Biohub would be the main focus of their philanthropy going forward. CZI announced increased research spending and a deeper AI bet at the same time.",
+        "January 2026: roughly 70 roles cut in Redwood City. Coverage framed it as extending a retreat from education and social justice, while noting local giving would continue.",
+        "Reporting has said CZI wound down some housing programmes and cut back community-facing teams.",
+        "Education work was renamed Learning Commons in September 2025 and now builds AI infrastructure for classrooms."
+      ]},
+      {h:"The Primary School", ul:[
+        "Chan's tuition-free school in East Palo Alto closed at the end of June 2026, displacing more than 400 students.",
+        "$50 million in transition funding, including $26.5 million to the Ravenswood City School District. Ravenswood went to voters for a $70 million bond to build classrooms.",
+        "April 2026: roughly $7 million to three nonprofits in East Palo Alto and Belle Haven."
+      ]}
+    ],
+    roster:[
+      ["Alma Pulido","Leads the CZ Community Fund"],
+      ["Priscilla Chan","Co-founder and CEO"],
+      ["Raymonde Charles","VP Communications, Learning Commons and Ventures"],
+      ["Sandra Liu Huang","President, Learning Commons"]
+    ],
+    links:[
+      ["CZI community work","https://chanzuckerberg.com/community/","Overview of the pillar"],
+      ["Community Fund RFA","https://chanzuckerberg.com/rfa/czi-community-fund/","Eligibility and priority areas"],
+      ["2026 Fund open call","https://chanzuckerberg.com/newsroom/czi-community-fund-open-2026/","Alma Pulido quoted"],
+      ["CZI newsroom","https://chanzuckerberg.com/newsroom/","Community, science and education announcements"],
+      ["Restructuring coverage","https://www.sfchronicle.com/bayarea/article/chan-zuckerberg-initiative-layoffs-21320930.php","SF Chronicle, January 2026"]
+    ]
+  },
+
+  history:{
+    lede:"CZI is not a cold organization. Jane is a cold contact, on a different team.",
+    timeline:[
+      ["2025","<b>ASU GSV</b> — met Raymonde Charles, VP Communications, Learning Commons and Ventures."],
+      ["2025","<b>Proposal submitted</b> — <i>AI Tools in Education</i>. Multi-audience survey of K–12 teachers, school and district leaders, and parents, on barriers to and demand for AI tools. $534,200 core programme, $110,500 additional amplification. Not taken forward."],
+      ["2026","<b>ASU GSV</b> — reconnected with Raymonde Charles. No active communication since."],
+      ["Sept 2026","<b>Concordia Connect request</b> to Jane Packer, community side."]
+    ],
+    note:"Different portfolio, different contact, different subject. The transferable part of the earlier proposal is its amplification architecture — communications-first design, paired reports and news.gallup.com articles, a research hub, journalist lists shared before pitching, and coverage reporting afterwards.",
+    docs:[{label:"AI Tools in Education proposal, 2025", url:PDF_CZI}],
+    sections:[
+      {h:"Gallup reference work relevant to this conversation", ul:[
+        "<b>Walton Family Foundation — Voices of Gen Z</b>, running since 2023. The first nationally representative Gen Z youth panel in the U.S., four surveys a year of 2,000–3,000 respondents. The fourth annual study finds students with the strongest experiences of engagement, support and belonging are far more likely to feel prepared for the future than those with the fewest, 81% against 27%; nearly half say school does not let them do what they do best; three in ten have no adult at school who recognizes their talents; one in three does not feel they belong. Also <i>Teaching for Tomorrow</i> on K-12 teacher experience.",
+        "<b>Allstate Foundation — The Power of Youth Service</b>, published 9 March 2026. Gallup Panel study of 3,013 young people aged 12–25, ±2.5 points. 82% report some form of service; 79% say it strengthened their connection to community; 66% of those with service experience say they can handle whatever comes their way, against 52% without. On 7 May 2026 the Foundation committed $15 million to seven youth-serving organizations, naming the research as the basis.",
+        "<b>Lumina Foundation</b> — State of Higher Education, annual since 2020.",
+        "Other named education and youth clients include Google, Amazon, Apple, the Barr Foundation and the Gates Foundation."
+      ]}
+    ],
+    links:[
+      ["Voices of Gen Z research hub","https://www.gallup.com/analytics/651674/gen-z-research.aspx","Gallup"],
+      ["What helps students engage at school","https://www.waltonfamilyfoundation.org/learning/voices-of-gen-z-what-helps-students-engage-at-school","Fourth annual findings"],
+      ["Youth service research hub","https://www.gallup.com/analytics/702254/youth-service.aspx","Gallup"],
+      ["Allstate $15M commitment","https://www.allstatenewsroom.com/news/the-allstate-foundation-commits-15m-to-increase-youth-led-service-across-the-country/","May 2026"]
+    ]
+  },
+
+  ideas:[
+    {p:1,t:"Community-level study of the conditions the Fund invests in",d:"Voices of Gen Z and youth service instruments fielded in San Mateo County — supportive adults, belonging, engagement, service, connection to community — benchmarked to national data and published co-branded.",q:"Budget source; whether the tenth cycle is being marked publicly."},
+    {p:1,t:"Youth service, fielded locally",d:"The Allstate instrument run as a county sample, directly comparable to the national benchmark. Fastest credible option; instrument already built.",q:"Allstate's agreement on instrument reuse."},
+    {p:0,t:"Shared grantee indicators",d:"A light common measurement set across the portfolio so 200 grant reports aggregate. Consistent with an RFA that already rewards collaboration.",q:"Team capacity after the cuts; who funds grantee reporting time."},
+    {p:0,t:"Named partner on national research",d:"CZI as research partner on national work on children, families and local opportunity — field presence without grantmaking scale.",q:"Whether CZI wants continued public identification with this work."}
+  ]
+},
+
+{
+  id:"emerson", mono:"EC", accent:"#1f4e79",
+  org:"Emerson Collective",
+  day:"Tuesday 22 September", time:"1:00 – 1:30",
+  contactName:"David Simas",
+  contactRole:"Managing Director of Research and Impact",
+  contactMono:"DS",
+
+  overview:{
+    lede:"Simas ran opinion research for a presidential re-election campaign and now commissions research for Emerson. He reads crosstabs himself. The meeting description puts his own frame on the table: media fragmentation, audience segmentation and trusted messengers.",
+    facts:[
+      ["Format","30 min, one-to-one"],
+      ["Location","Table 6"]
+    ],
+    memos:[
+      {
+        label:"Meeting description and Emerson's confirmation",
+        raw:[
+          "Between:",
+          "Ms. Stephanie Marken (Organizer)",
+          "Mr. David Simas",
+          "",
+          "An introductory discussion between David Simas and Stephanie Marken on the overlap between Emerson Collective\u2019s research and impact agenda and Gallup\u2019s work on democracy, public trust and the changing media environment. The conversation will connect Simas\u2019s work on media fragmentation, audience segmentation and trusted messengers with Gallup\u2019s Democracy for All study with the Kettering Foundation, its research on social platforms and civic attitudes, and its new trust-in-media initiative with USC Annenberg, TIME and McKinsey examining how news sources, channels and AI affect trust. The discussion will also explore how independent public-opinion research could support Emerson Collective\u2019s work on democracy and journalism.",
+          "",
+          "\u2014\u2014\u2014",
+          "",
+          "Hi Justin,",
+          "",
+          "Thank you for reaching out, and it\u2019s a pleasure to connect with you.",
+          "",
+          "David would be happy to meet with Stephanie to discuss the proposed topic, and Tuesday, September 22, from 1:00\u20131:30 PM works well.",
+          "",
+          "I\u2019ve also accepted the meeting request through the Concordia Connect platform.",
+          "",
+          "Please feel free to reach out if you need anything in the meantime.",
+          "",
+          "I hope you have a wonderful weekend!",
+          "",
+          "Warmly,",
+          "Christin",
+          "",
+          "Christin Arthur | EMERSON COLLECTIVE",
+          "EA & Analyst of Research and Impact",
+          "christin@emersoncollective.com",
+          "m 202 641 4057 | emersoncollective.com"
+        ]
+      },
+      {
+        label:"Read the full outreach note sent to David, 4 September",
+        raw:[
+          "From: Justin Lall <Justin_Lall@gallup.com>",
+          "Date: Friday, September 4, 2026 at 2:38 PM",
+          "To: David Simas <david@emersoncollective.com>",
+          "Cc: James Scissom <James_Scissom@gallup.com>",
+          "Subject: Concordia meeting request with Stephanie Marken of Gallup",
+          "",
+          "David,",
+          "",
+          "I\u2019m reaching out on behalf of Stephanie Marken, a senior partner at Gallup. Stephanie\u2019s work includes national research on public trust and the changing media environment. Stephanie submitted a request through Concordia Connect to meet with you in person during the Annual Summit.",
+          "",
+          "The proposed meeting is:",
+          "",
+          "Tuesday, September 22",
+          "1:00\u20131:30 p.m.",
+          "",
+          "She would welcome the opportunity to learn more about Emerson Collective\u2019s research and impact agenda, particularly its work at the intersection of democracy, journalism and the information environment. Stephanie can also share relevant findings from Gallup\u2019s Democracy for All study with the Kettering Foundation and its new trust-in-media initiative which examines how news sources, platforms and AI shape public trust. The conversation could also explore how independent public-opinion research might support Emerson Collective\u2019s work in these areas.",
+          "",
+          "Could you confirm if you would be open to meeting with Stephanie and whether this time works for you? Stephanie has some flexibility on September 22 and 23 should another time be more convenient.",
+          "",
+          "Best,",
+          "",
+          "Justin",
+          "",
+          "JUSTIN LALL",
+          "Principal",
+          "(o) 312-288-2401",
+          "(m) 847-431-2927",
+          "444 W Lake St",
+          "Chicago, Illinois 60606",
+          "USA",
+          "GALLUP\u00ae",
+          "",
+          "Strategic | Significance | Competition | Command | Self-Assurance"
+        ]
+      }
+    ],
+    sections:[
+      {h:"Background", ul:[
+        "Requested through Concordia Connect on 4 September; Christin Arthur, EA and Analyst of Research and Impact, accepted on David's behalf.",
+        "Simas leads Research and Impact at Emerson, developing research projects and circulating findings across Emerson's priorities \u2014 democracy, immigration, education and climate.",
+        "The Concordia meeting description names three pieces of Gallup work: the Democracy for All study with the Kettering Foundation, the analysis of social platforms and civic attitudes, and the trust-in-media initiative with USC Annenberg, TIME and McKinsey.",
+        "<b>The trust-in-media initiative is underway.</b> The first wave launches in January 2027, with releases every six months thereafter tracking broad trust in media."
+      ]},
+      {h:"Where a joint project could sit", ul:[
+        "<b>A common outcome measure across the portfolio.</b> Emerson's four priorities \u2014 democracy, immigration, education, climate \u2014 have no shared yardstick, which makes portfolio-level impact almost impossible to state. Gallup's wellbeing framework is the one instrument that runs across all four and internationally: life evaluation, thriving and struggling, daily experience, and sense of agency. A single measure applied across the portfolio would let Emerson say what changed, in the same terms, regardless of which programme did it. That is a research-and-impact problem before it is a research question, and it is Simas's own remit.",
+        "<b>Whether things actually get built.</b> Emerson's climate capital depends on projects clearing local opposition, and local consent is now the binding constraint on the energy transition. Gallup has already found that seven in ten Americans oppose an AI data centre in their area, 48% strongly. Nobody measures local acceptance systematically \u2014 what moves a community from resistance to consent, which benefits register, and how that varies by place. It would serve the investment side of Emerson as much as the philanthropic side."
+      ]},
+      {h:"Context", ul:[
+        "Emerson is structured as an LLC rather than a foundation, combining philanthropy, venture investment and advocacy from one balance sheet, and holds a majority stake in The Atlantic.",
+        "Simas was a Fall 2025 Fellow at the USC Dornsife Center for the Political Future \u2014 a different school from Annenberg, but the same university, and he will recognise the institution.",
+        "Students in his USC study group singled out the data and polling he collects through his own work, alongside sessions on authoritarianism, political identity and media influence.",
+        "Gallup's neutrality is the asset being sold here, which makes publication rights and instrument independence substantive rather than administrative."
+      ]}
+    ],
+    stats:[
+      ["31%","Americans who trust mass media to report the news fully, accurately and fairly, against nearly three-quarters in 1976","Gallup trend"],
+      ["20,338","Adults surveyed in the Kettering\u2013Gallup Democracy for All study, \u00b10.9 points","July\u2013August 2025"],
+      ["7 in 10","Americans who oppose an AI data centre being built in their local area, including 48% strongly opposed","Gallup, May 2026"]
+    ],
+    pages:[
+      ["Democracy for All Project","https://www.gallup.com/analytics/697985/democracy-for-all.aspx","Kettering Foundation and Gallup"],
+      ["What Podcaster Audiences Want From U.S. Democracy","https://news.gallup.com/poll/711047/podcaster-audiences-want-us-democracy.aspx","June 2026"],
+      ["Pro-Democratic Social Views Vary by Social Media Platform","https://news.gallup.com/poll/710702/pro-democratic-social-views-vary-social-media-platform.aspx","June 2026"],
+      ["Use of AI to Get News in U.S. Is Rare","https://news.gallup.com/poll/711242/news-rare.aspx","Early trust-in-media data"],
+      ["Trust in Media Initiative","https://global.gallupproposals.com/USC2026.pdf","Originating proposal, internal \u2014 programme now in field"]
+    ]
+  },
+
+  contact:{
+    bullets:[
+      "Managing Director of Research and Impact at Emerson Collective, developing research projects and circulating findings across democracy, immigration, education and climate.",
+      "<b>Director of Opinion Research for Obama's 2012 re-election campaign</b> \u2014 the most data-intensive campaign operation of its era. He is a practitioner, not a consumer, of survey research.",
+      "Joined the Obama White House in 2009 as Deputy Assistant to the President, working with David Axelrod and David Plouffe; returned after the re-election as Assistant to the President and Director of the Office of Political Strategy and Outreach.",
+      "CEO of the Obama Foundation from December 2016, later President, where he led work on the Obama Presidential Center and the global leadership programmes.",
+      "Earlier: Deputy Chief of Staff to Massachusetts Governor Deval Patrick from 2007; elected to the Taunton School Board in 1993 and the Taunton City Council in 1997 and 1999, serving as Council President. A lawyer, from Boston College Law School.",
+      "Fall 2025 Fellow at the USC Dornsife Center for the Political Future, running a study group on Trumpism, authoritarianism, political identity and media influence.",
+      "From Taunton, Massachusetts, from a Portuguese immigrant family."
+    ],
+    timeline:[
+      ["1993\u20131999","Taunton School Board, then City Council and Council President"],
+      ["2007\u201309","Deputy Chief of Staff, Governor Deval Patrick"],
+      ["2009","Deputy Assistant to the President, Obama White House"],
+      ["2012","Director of Opinion Research, Obama re-election campaign"],
+      ["2013\u201316","Assistant to the President and Director, Office of Political Strategy and Outreach"],
+      ["2016\u201322","CEO, then President, Obama Foundation"],
+      ["current","Managing Director of Research and Impact, Emerson Collective"],
+      ["Fall 2025","Fellow, USC Dornsife Center for the Political Future"]
+    ],
+    note:"He does not need research explained and will not be impressed by scale for its own sake. What he does not have is data nobody else holds. The two lead ideas are built on that basis.",
+    roster:[
+      ["Christin Arthur","EA and Analyst of Research and Impact; accepted this meeting"],
+      ["Laurene Powell Jobs","Founder and President"],
+      ["Ben Wessel","Director, State and Local Political Affairs"]
+    ],
+    links:[
+      ["Concordia profile","https://concordia.net/community/david-simas/","David Simas"],
+      ["USC Dornsife fellowship","https://dornsife.usc.edu/center-for-political-future/fellows-program/former-fellows/david-simas/","Fall 2025 fellow page"],
+      ["LinkedIn profile","https://www.linkedin.com/in/david-simas/","David Simas"]
+    ]
+  },
+
+  orgIntel:{
+    lede:"Founded 2011 by Laurene Powell Jobs. Palo Alto, with a Washington presence. Structured as an LLC, which lets it combine philanthropy, venture investment and advocacy from one balance sheet.",
+    stats:[
+      ["~$28B","Reported AUM, early 2026"],
+      ["2017","Majority stake in The Atlantic"],
+      ["160","Companies in the Elemental Impact portfolio"],
+      ["~259","Staff across several continents"]
+    ],
+    sections:[
+      {h:"Portfolio", ul:[
+        "Simas's remit covers democracy, immigration, education and climate. The wider organization also works on health, gun violence reduction in Chicago, and race and equity in the U.S. South.",
+        "Media and journalism grantmaking concentrates on local and rural news, investigative journalism, and scripted and unscripted content, on the stated premise that journalism is essential to a healthy democracy.",
+        "Elemental Impact reported a portfolio of 160 companies generating $11.5 billion in additional funding and over 17,000 jobs.",
+        "Willing to write very large cheques, including in frontier technology."
+      ]},
+      {h:"Political and media ecosystem activity", ul:[
+        "Early 2025: hosted a private gathering of Democratic operatives and left-leaning digital media figures at its Washington offices, examining why the progressive digital ecosystem underperformed in 2024.",
+        "Powell Jobs spoke at the Milken Institute Global Conference in 2026.",
+        "Emerson has also funded work bridging art and immigration, including projects with the artist JR and Alejandro Gonz\u00e1lez I\u00f1\u00e1rritu's Carne y Arena."
+      ]}
+    ],
+    roster:[
+      ["Laurene Powell Jobs","Founder and President"],
+      ["David Simas","Managing Director, Research and Impact"],
+      ["Christin Arthur","EA and Analyst, Research and Impact"],
+      ["Ben Wessel","Director, State and Local Political Affairs"]
+    ],
+    links:[
+      ["Emerson Collective","https://www.emersoncollective.com/","Organization site"],
+      ["Grantmaking profile","https://www.insidephilanthropy.com/find-a-grant/grants-e/emerson-collective","Inside Philanthropy"],
+      ["Background","https://en.wikipedia.org/wiki/Emerson_Collective","Wikipedia"]
+    ]
+  },
+
+  history:{
+    lede:"No Emerson engagement on record. The two programmes named in the listing are the reference points, and both are Gallup's.",
+    timeline:[
+      ["2025","<b>Kettering Foundation \u2014 Democracy for All.</b> Nationally representative survey of 20,338 U.S. adults, fielded July to August 2025 by web and mail, \u00b10.9 points. Gallup Panel recruited 9,157 respondents, supplemented by 11,181 from a third-party provider."],
+      ["Jun 2026","<b>Podcaster and influencer audiences</b> \u2014 roughly 1,000 respondents named a podcaster or influencer among their top news sources. Left-leaning audiences strongly agree with the right to peaceful protest at 71% against 49% of Democrats; right-leaning audiences at 40% against 28% of Republicans. Only 8% of left-leaning audiences believe leaders will be held accountable, against 26% of Democrats. MeidasTouch listeners rate voting very effective at 64%, Joe Rogan listeners at 37%. Co-authored by Chris Miljanich and Justin Lall."],
+      ["Jun 2026","<b>Platform-level civic attitudes</b> \u2014 pro-democratic attitudes vary systematically by platform, and the differences persist after controlling for demographics and party. X and Snapchat users most positive; Reddit users most sceptical; Instagram users indistinguishable from non-users. Reported as associations, not causation. By Ellyn Maese."],
+      ["2026","<b>USC Annenberg, TIME, McKinsey and Gallup \u2014 Trust in Media Initiative established.</b> A three-year programme built as a continuous system of record on trust in media, rather than a one-off study. USC Annenberg anchors the academic framing, Gallup designs and fields the research, TIME amplifies, McKinsey translates findings for industry."],
+      ["in field now","<b>Underway.</b> Semiannual surveys of 3,500 U.S. adults on the Gallup Panel, with a stable core module for long-term tracking and rotating content on emerging issues. Early findings are already publishing, including the finding that use of AI to get news remains rare."],
+      ["Jan 2027","<b>First wave launches</b>, with releases every six months thereafter tracking broad trust in media \u2014 trust in news and information, accuracy and fairness, transparency of sourcing, independence from political influence, civic knowledge, and news consumption and avoidance."]
+    ],
+    note:"Both programmes are Gallup's own and both are live. Between them they cover democratic attitudes at scale, platform and audience differences, and a continuous measure of media trust. They are the credential for a wider conversation about Emerson's portfolio \u2014 not the thing being sold.",
+    docs:[{label:"Trust in Media Initiative \u2014 originating proposal, internal", url:"https://global.gallupproposals.com/USC2026.pdf"}],
+    sections:[
+      {h:"Early data already public", ul:[
+        "<b>Use of AI to Get News in U.S. Is Rare</b>, June 2026. Just <b>7%</b> of Americans rely a great deal or a fair amount on AI tools for news, and only <b>2%</b> name an AI chatbot or assistant among their top three news sources \u2014 level with messaging apps, and behind print newspapers at 8%, podcasts at 13%, search engines at 16% and radio at 17%. A useful corrective to the assumption that AI has already displaced conventional sources.",
+        "The same study found <b>39%</b> say any use of AI in news reporting would reduce their trust outright, rising to 43% among 18- to 49-year-olds. Of the things that would increase trust, verifying against another source (22%) and a human editor checking the work (20%) both beat clear disclosure that AI was used (7%).",
+        "<b>Social Media Use Linked to Mixed Views on Democracy</b>, March 2026. Heavy users are more confident that citizens' voices matter and that protest, campaigning and town halls work \u2014 yet only <b>57%</b> of heavy users agree democracy is the best form of government, against <b>over 70%</b> of those using social media an hour or less a day. The pattern holds within both parties and is widest among independents.",
+        "<b>Youth, Loneliness and Political Violence in the U.S.</b>, December 2025. <b>16%</b> of Americans say it is sometimes OK to use violence to achieve a political goal. Age is the strongest predictor and loneliness compounds it: <b>45%</b> of men aged 18 to 29 who always or often feel lonely say political violence is sometimes acceptable, against 25% of women the same age who feel lonely and 32% of men aged 30 to 44 who do.",
+        "<b>Free Time Does Not Predict Americans' Community Involvement</b>, April 2026. Roughly a quarter of Americans have reasonable free time and want to volunteer but do not. Work and family obligations are cited at almost the same rate by volunteers (45%) and non-volunteers (46%), so time is not the differentiator. What separates them is that <b>54%</b> of would-be volunteers are unsure how to get involved, against 35% of those who have volunteered, and <b>51%</b> say nobody invited or encouraged them."
+      ]},
+      {h:"Trend context", ul:[
+        "Trust in the mass media to report the news fully, accurately and fairly hit a new low of <b>28%</b> in Gallup's October 2025 release, against nearly three-quarters in 1976. More than one in three Americans now express no trust in the media at all.",
+        "The decline is no longer only partisan: groups historically more trusting of the press, including Democrats and college-educated adults, have registered steep drops of their own.",
+        "It sits inside a wider institutional picture \u2014 Gallup's average confidence across major U.S. institutions has been below 30% for five consecutive years.",
+        "<b>Democracy for All is itself a five-year project</b>, and the December 2025 political violence findings came from its inaugural administration. Both programmes named in the meeting description are built as multi-year instruments rather than one-off studies."
+      ]}
+    ],
+    links:[
+      ["Democracy for All Project","https://www.gallup.com/analytics/697985/democracy-for-all.aspx","Full Kettering report"],
+      ["Podcaster audiences","https://news.gallup.com/poll/711047/podcaster-audiences-want-us-democracy.aspx","June 2026"],
+      ["Platform-level civic attitudes","https://news.gallup.com/poll/710702/pro-democratic-social-views-vary-social-media-platform.aspx","June 2026"],
+      ["Use of AI to Get News Is Rare","https://news.gallup.com/poll/711242/news-rare.aspx","Trust-in-media early data"],
+      ["Social media and views on democracy","https://news.gallup.com/poll/704198/social-media-linked-mixed-views-democracy.aspx","March 2026"]
+    ]
+  },
+
+  ideas:[
+    {p:1,t:"One outcome measure across four priorities",d:"Democracy, immigration, education and climate share no common yardstick, so portfolio-level impact cannot be stated in a single sentence. Gallup's wellbeing framework runs across all four and across borders \u2014 life evaluation, thriving and struggling, daily experience, agency. Applied consistently, it lets Emerson describe what changed in the same terms whichever programme did it.",q:"Whether portfolio-level measurement is wanted, or whether each programme prefers its own metrics."},
+    {p:1,t:"Local consent and whether projects get built",d:"Local acceptance has become the binding constraint on the energy transition and on data-centre and infrastructure siting. Gallup has the community-level measurement to establish what moves a place from resistance to consent, which benefits actually register with residents, and how much of the opposition is fixed. Serves Emerson's investment side and Elemental Impact directly.",q:"Whether research that serves the investment portfolio sits in Simas's remit or elsewhere."},
+    {p:0,t:"Immigration from both ends",d:"US immigration research is almost entirely about American attitudes. The World Poll measures why people leave, where they intend to go and what would keep them, across more than 140 countries. Holding both sides in one study is something very few organizations can do, and immigration is one of Emerson's founding commitments.",q:"Whether Emerson wants global framing or US-only evidence."},
+    {p:0,t:"Whether the American promise still reads as true",d:"A generational and geographic measure of belief in mobility \u2014 who still thinks effort leads somewhere, where that belief has collapsed, and how it tracks against actual local conditions. Sits across the education and economic mobility work rather than inside either.",q:"Overlap with existing Gallup foundation partners in education."}
+  ]
+},
+{
+  id:"bumble", mono:"BM", accent:"#9c5f18",
+  org:"Bumble",
+  day:"Tuesday 22 September", time:"2:00 – 2:30",
+  contactName:"Michael Magdelinskas",
+  contactRole:"Director of Public Policy and Corporate Affairs",
+  contactMono:"MM",
+
+  overview:{
+    lede:"Public policy and corporate affairs, not brand or insights. The Concordia meeting description frames this around Bumble's policy, social impact and responsible-business priorities, and how independent research could inform work on healthy relationships, online safety and emerging risks.",
+    facts:[
+      ["Format","30 min, one-to-one"],
+      ["Location","Table 6"]
+    ],
+    memos:[
+      {
+        label:"Meeting description, Concordia Connect",
+        raw:[
+          "Between:",
+          "Ms. Stephanie Marken (Organizer)",
+          "Mr. Michael Magdelinskas",
+          "",
+          "Date:",
+          "September 22, 2026",
+          "",
+          "Start Time:",
+          "2:00 PM",
+          "",
+          "End Time:",
+          "2:30 PM",
+          "",
+          "Name:",
+          "Bumble\u2013Gallup Discussion on Gen Z",
+          "",
+          "Location:",
+          "Table 6",
+          "",
+          "Description:",
+          "An introductory conversation between Michael Magdelinskas and Stephanie Marken on the intersection of Bumble\u2019s public policy, social impact and responsible-business priorities and Gallup\u2019s research on Gen Z. Stephanie will share insights from Gallup\u2019s multiyear Voices of Gen Z research with the Walton Family Foundation, including young people\u2019s wellbeing, relationships, social connection, trust and outlook for the future. The discussion will explore how independent research could inform Bumble\u2019s work to promote healthy relationships, improve online safety and address emerging risks."
+        ]
+      },
+      {
+        label:"Read the full outreach note sent to Michael, 4 September",
+        raw:[
+          "From: Justin Lall",
+          "Sent: Friday, 04 September 2026 13:40:18",
+          "To: michael.magdelinskas@team.bumble.com",
+          "Cc: James Scissom <James_Scissom@gallup.com>",
+          "Subject: Concordia meeting request with Stephanie Marken of Gallup",
+          "",
+          "Michael,",
+          "",
+          "I\u2019m reaching out on behalf of Stephanie Marken, a senior partner at Gallup. Stephanie leads national research on Gen Z, including young people\u2019s wellbeing, relationships, social connection, trust and outlook for the future. Stephanie submitted a request through Concordia Connect to meet with you in person during the Annual Summit.",
+          "",
+          "The proposed meeting is:",
+          "",
+          "Tuesday, September 22",
+          "2:00\u20132:30 p.m.",
+          "",
+          "She would welcome the opportunity to learn more about Bumble\u2019s public policy, social impact and responsible-business priorities. Stephanie can also share relevant findings from Gallup\u2019s multiyear Voices of Gen Z research with the Walton Family Foundation. The conversation could explore how independent research on Gen Z\u2019s relationships and online experiences might inform Bumble\u2019s work to promote healthy relationships, strengthen online safety and respond to emerging risks.",
+          "",
+          "Could you confirm if you would be open to meeting with Stephanie and whether this time works for you? Stephanie has some flexibility on September 22 and 23 should another time be more convenient.",
+          "",
+          "Best,",
+          "",
+          "Justin",
+          "",
+          "JUSTIN LALL",
+          "Principal",
+          "(o) 312-288-2401",
+          "(m) 847-431-2927",
+          "444 W Lake St",
+          "Chicago, Illinois 60606",
+          "USA",
+          "GALLUP\u00ae",
+          "",
+          "Strategic | Significance | Competition | Command | Self-Assurance"
+        ]
+      }
+    ],
+    sections:[
+      {h:"Background", ul:[
+        "Requested through Concordia Connect on 4 September and confirmed for Table 6 at 2:00pm.",
+        "Michael leads Bumble's external policy and advocacy work as Director of Public Policy and Corporate Affairs, based in New York.",
+        "The description names Voices of Gen Z specifically \u2014 wellbeing, relationships, social connection, trust and outlook \u2014 and asks how independent research could inform work on healthy relationships, online safety and emerging risks.",
+        "Safety and advocacy are described in Bumble's own annual report as central to the brand and growth strategy, which puts this conversation close to the company's stated strategy rather than adjacent to it."
+      ]},
+      {h:"Where a joint project could sit", ul:[
+        "<b>Independent measurement of the problem.</b> Most figures in circulation on online harms are commissioned by organisations with a position on the outcome, Bumble's own submissions included \u2014 for instance that 48% of surveyed women aged 18\u201324 had received an unsolicited sexual image. Gallup does not take positions; it measures. A neutral, nationally representative read on young people's online experiences and their views on platform responsibility is usable in a statehouse, in Brussels or by a UK regulator precisely because Gallup has no stake in the answer.",
+        "<b>Emerging risks, where no baseline exists.</b> Bumble's team describes its remit as including AI leadership, and its EU campaigning targets AI-enabled intimate image abuse. There is no independent measurement of how young people are using AI in relationships, or how they view AI-generated intimate imagery. A module on the existing Voices of Gen Z panel would establish that baseline quickly."
+      ]},
+      {h:"Context", ul:[
+        "Regulatory exposure is live on several fronts simultaneously: the UK Online Safety Act, the EU Directive on combating violence against women, and state-level legislation in the US.",
+        "The commercial picture is a constraint. Q2 2026 revenue was $210.5 million, down 15.2% year on year, with a Q3 forecast showing declining paying customers, and a full app relaunch under way.",
+        "Bumble is hiring a Staff UX Researcher for Trust, which suggests internal research capacity is being built as well as bought.",
+        "Payton Iheme previously led public policy for the Americas and ran the multi-state cyberflashing legislative effort; Azmina Dhrodia was Safety Policy Lead from 2021 to 2024. The policy function has turned over."
+      ]}
+    ],
+    stats:[
+      ["39%","Gen Z adults thriving in 2025, down five points from 2024 and the lowest in three years","Voices of Gen Z"],
+      ["37%","Adult Gen Z women thriving in 2025, against 46% in 2024","Voices of Gen Z"],
+      ["~1 in 4","US men aged 15\u201334 who experienced a lot of loneliness the previous day","Gallup daily experience measure, 2023\u201324"]
+    ],
+    pages:[
+      ["Bumble Safety Centre","https://safety.bumble.com/en_US","Partners and resources"],
+      ["Community Guidelines","https://bumble.com/en/guidelines","Harassment and safety policy"],
+      ["EU cyberflashing and AI abuse campaign","https://bumble.com/the-buzz/bumble-cyberflashing-ai-eu-policy","Bumble advocacy position"],
+      ["Online Safety Act response","https://support.bumble.com/hc/en-us/articles/28782518308509-Online-Safety-Act-Protecting-individuals-from-illegal-content","Safety tooling described"],
+      ["Voices of Gen Z research hub","https://www.gallup.com/analytics/651674/gen-z-research.aspx","Gallup and Walton Family Foundation"]
+    ]
+  },
+
+  contact:{
+    bullets:[
+      "Director of Public Policy and Corporate Affairs at Bumble Inc., leading external policy and advocacy. New York based; Bumble's US policy work runs out of the Tribeca office.",
+      "Before Bumble: Northeast Government Relations Lead at Accenture, and Head of Legislative and Regulatory Policy for transit, bikes and scooters at Lyft \u2014 a role about building a regulatory framework for a product category that did not previously have one.",
+      "Earlier: government relations advice to JPMorgan Chase, Altria and Alcoa, and a fellowship at the U.S. Department of State.",
+      "J.D. from Cornell Law School; B.A. in Urban and Global Studies from Trinity College. Published in the Cornell Journal of Law and Public Policy on campaign finance regulation, and writes on administrative law and international urbanism."
+    ],
+    timeline:[
+      ["2007\u201311","Trinity College \u2014 B.A., Urban and Global Studies"],
+      ["2011\u201314","Cornell Law School \u2014 J.D."],
+      ["","Fellow, U.S. Department of State"],
+      ["","Government relations advisory \u2014 JPMorgan Chase, Altria, Alcoa"],
+      ["","Lyft \u2014 Head of Legislative and Regulatory Policy, transit, bikes and scooters"],
+      ["","Accenture \u2014 Northeast Government Relations Lead"],
+      ["current","Bumble Inc. \u2014 Director, Public Policy and Corporate Affairs"]
+    ],
+    note:"A regulatory lawyer by training whose two most recent roles were about writing rules for new product categories. His advocacy output is currently supported by Bumble's own commissioned figures.",
+    roster:[
+      ["Andrea Quinn-Matute","Also titled Director of Public Policy and Corporate Affairs; joined recently, New York based"],
+      ["Julie Radford","Named as the team lead in a colleague's onboarding post"],
+      ["Payton Iheme","Former head of public policy, Americas \u2014 led the multi-state cyberflashing effort"],
+      ["Azmina Dhrodia","Safety Policy Lead 2021\u201324; built the global safety and content policies"]
+    ],
+    links:[
+      ["LinkedIn profile","https://www.linkedin.com/in/michaelmagdelinskas","Michael A. Magdelinskas"],
+      ["Org chart entry","https://theorg.com/org/bumble/org-chart/michael-a-magdelinskas","Career summary"],
+      ["Cornell Journal of Law and Public Policy","https://scholarship.law.cornell.edu/cjlpp/vol23/iss2/4/","His 2013 note on campaign finance"]
+    ]
+  },
+
+  orgIntel:{
+    lede:"Founded 2014 by Whitney Wolfe Herd; public since 2021. Mission framed as a world where all relationships are healthy and equitable. Currently mid-turnaround under a returning founder.",
+    stats:[
+      ["53%","Women aged 18\u201334 in Germany, France and Spain who have experienced image-based abuse online","Cited in Bumble EU advocacy"],
+      ["48%","Surveyed women aged 18\u201324 who received an unsolicited sexual image","Bumble's own research"],
+      ["$210.5M","Q2 2026 revenue"],
+      ["-15.2%","Year on year"]
+    ],
+    sections:[
+      {h:"Policy and safety agenda", ul:[
+        "The policy team describes its remit as healthy and safe relationships, online safety, AI leadership and the empowerment of women, on and offline.",
+        "<b>Safety tooling.</b> Private Detector, an AI tool that detects and blurs explicit images before they reach users, open-sourced in 2022; Deception Detector, machine learning against inauthentic profiles, spam and scams; CSAM detection by hash-matching against industry databases; text-based machine learning for violating content; behavioural anti-spam systems.",
+        "<b>Legislative advocacy.</b> Multi-state campaigns in the US to criminalise cyberflashing; campaigning in Brussels to keep cyberflashing and AI-enabled intimate image abuse in the EU Directive on combating violence against women; engagement with the UK Department for Science, Innovation and Technology under the Online Safety Act.",
+        "<b>Civil society partners.</b> CHAYN, the End Violence Against Women Coalition and Refuge in the UK; Full Stop Australia; AWARE; a French coalition including DILCRAH and LGBTQ+ organisations, alongside law enforcement.",
+        "The 10-K states that safety and advocacy are central to the brand and growth strategy, and that the company engages regulators and experts to shape safer online environments, particularly for women and underrepresented communities.",
+        "Impact reporting is organised around a kinder, safer internet; healthy and equitable relationships; environmental stewardship; and governance."
+      ]},
+      {h:"Commercial context", ul:[
+        "Q2 2026 revenue $210.5 million, down 15.2% year on year, with a Q3 forecast showing declining paying customers. Roughly 350 roles were cut in February 2024 under then-CEO Lidiane Jones, about 30% of staff.",
+        "Wolfe Herd returned as CEO in early 2025. The 2026 strategy retires the swipe, adds an AI assistant called Bee, launches a standalone in-person events app called Plans, leans further into Bumble BFF, and ends the forced women-first messaging mechanic while retaining its intent.",
+        "Match Group is running the same in-person play. Tinder's Events tab expanded across US markets, with 71% of eligible 18\u201324s engaging during a Los Angeles pilot and more than half returning the following week.",
+        "Reporting notes Gen Z trends negative toward overt AI features, which makes acceptability a commercial and a policy question at once."
+      ]}
+    ],
+    roster:[
+      ["Whitney Wolfe Herd","Founder and CEO; returned early 2025"],
+      ["Michael Magdelinskas","Director, Public Policy and Corporate Affairs"],
+      ["Andrea Quinn-Matute","Director, Public Policy and Corporate Affairs"],
+      ["Julie Radford","Corporate affairs team lead"]
+    ],
+    links:[
+      ["Bumble Safety Centre","https://safety.bumble.com/en_US","Partners and resources"],
+      ["EU advocacy position","https://bumble.com/the-buzz/bumble-cyberflashing-ai-eu-policy","Cyberflashing and AI image abuse"],
+      ["Online Safety Act response","https://support.bumble.com/hc/en-us/articles/28782518308509-Online-Safety-Act-Protecting-individuals-from-illegal-content","Safety tooling"],
+      ["2023 Impact Report","https://s202.q4cdn.com/372973788/files/doc_downloads/2024/BumbleInc-2023-Impact-Report.pdf","Structure of their impact reporting"],
+      ["Swipe-free direction","https://techcrunch.com/2026/08/06/bumble-teases-a-swipe-free-future-as-it-doubles-down-on-irl-meetups/","TechCrunch, August 2026"]
+    ]
+  },
+
+  history:{
+    lede:"No Gallup\u2013Bumble engagement on record.",
+    timeline:[],
+    note:"",
+    docs:[],
+    sections:[
+      {h:"Gallup work named in the outreach", ul:[
+        "<b>Voices of Gen Z</b>, with the Walton Family Foundation since 2023. The first nationally representative Gen Z youth panel in the US, four surveys a year of 2,000\u20133,000 respondents, covering wellbeing, relationships, social connection, trust and outlook. The 2025 study found 45% of 13- to 28-year-olds thriving, the lowest in three years, driven entirely by Gen Z adults at 39%, down five points; adult Gen Z women fell to 37% from 46%.",
+        "<b>The Power of Youth Service</b>, with The Allstate Foundation, published March 2026. 3,013 young people aged 12\u201325. Measures connection to community, resilience and career readiness \u2014 79% said service strengthened their connection to their community.",
+        "<b>Global wellbeing and daily experience measurement</b> across more than 140 countries, including loneliness. Young men in the US appear as an outlier against peers in other OECD countries; aggregated 2023\u201324 figures indicate roughly a quarter of US men aged 15\u201334 experienced a lot of loneliness the previous day. Verify against the Gallup source before use."
+      ]},
+      {h:"Category note", ul:[
+        "Most published statistics on Gen Z dating, online harms and loneliness come from brand-commissioned online panels of variable quality, including the figures Bumble cites in its own advocacy."
+      ]}
+    ],
+    links:[
+      ["Voices of Gen Z research hub","https://www.gallup.com/analytics/651674/gen-z-research.aspx","Gallup"],
+      ["Youth service research hub","https://www.gallup.com/analytics/702254/youth-service.aspx","Gallup"],
+      ["What helps students engage at school","https://www.waltonfamilyfoundation.org/learning/voices-of-gen-z-what-helps-students-engage-at-school","Fourth annual findings"]
+    ]
+  },
+
+  ideas:[
+    {p:1,t:"Gen Z online safety and relationships study",d:"Independent national measurement of the prevalence of online harms among young people, their views on platform responsibility and regulation, and how online experience relates to wellbeing. Designed to be built to the standard that makes it usable as evidence rather than as marketing \u2014 neutral, nationally representative, and published on its own terms.",q:"Whether policy has its own research budget; which jurisdictions matter most."},
+    {p:1,t:"AI and relationships baseline",d:"How young people are actually using AI in dating and friendship, and what they think about AI-generated intimate imagery. No independent baseline exists, and it sits directly under Bumble's EU advocacy and its own AI roadmap.",q:"Whether they want this public or internal first."},
+    {p:0,t:"A module on the existing Gen Z panel",d:"Fastest route to a first output. The panel already covers relationships, social connection and trust; an online-safety module is incremental.",q:"Walton's agreement on instrument use."},
+    {p:0,t:"Trust in platforms",d:"Where dating and social platforms sit in Gen Z's trust hierarchy against other institutions, tracked over time.",q:"Whether unflattering findings are acceptable."}
+  ]
+},
+
+{
+  id:"rockefeller", mono:"RF", accent:"#5b3a7a",
+  org:"The Rockefeller Foundation",
+  day:"", time:"Time to be confirmed",
+  contactName:"Julia Kraeger",
+  contactRole:"VP, U.S. Program and Policy \u2014 joined by Haifa Badi Uz Zaman",
+  contactMono:"JK",
+
+  overview:{
+    lede:"Julia Kraeger convened this and leads on the Foundation side. Haifa Badi Uz Zaman, who has led the work with Gallup since July, joins her. The existing proposal has been through the executive team positively, and there is a hard date: to launch mid-January the project needs to be underway by the end of this month.",
+    facts:[
+      ["Format","To be confirmed"],
+      ["Location","To be confirmed"]
+    ],
+    memos:[
+      {
+        label:"Haifa's five questions, 6 August \u2014 the brief in her own words",
+        raw:[
+          "Thanks for your patience while we gut checked internally. The interactive was a great format and the team has now been through it. The overall direction resonates, and we agree with your read on timing. We would like to set up a follow-up conversation to work through a handful of open questions, and to discuss how we may partner on joint rollout, which we see as a meaningful part of the value here.",
+          "",
+          "Could we find 30 minutes next week? I\u2019ll be joined by our SVP of Strategic Communications, John Gans.",
+          "",
+          "Our questions listed below:",
+          "",
+          "1. Sample size. 5,000 to 10,000 respondents reads as low to us for meaningful trend telling. How does Gallup assess the right number of respondents, particularly for detecting change over time?",
+          "",
+          "2. Geographic cuts. Are the cuts at the state level or the city and county level? We are specifically interested in state level views and would like to understand what that would take.",
+          "",
+          "3. Cadence. For recurring touchpoints through the year, is the proposed path a biannual survey wave plus a quarterly Gallup Panel read, or does Gallup have a monthly panel that might be worth considering?",
+          "",
+          "4. Dashboard. Where would the dashboard asset live, on the Gallup site or ours and/or both? What does it take to maintain the dashboard so it is a durable asset in the field?",
+          "",
+          "5. Differentiation & scope. Groundwork Collaborative released findings from a new survey this week on worker sentiment of AI, and it is not the only one in this space. In light of that, how is Gallup thinking about the specific white space that would be strategic for us to occupy, one that does not duplicate what is already out there, adds genuine value, and strikes the right balance of breadth and depth?",
+          "",
+          "Many thanks,",
+          "Haifa"
+        ]
+      },
+      {
+        label:"Working session notes \u2014 the call before the 11 September update",
+        raw:[
+          "ACTION ITEMS",
+          "\u2022 Update the proposal with revised timeline (2027 launch) and expanded scope; send to John, Rebecca and Haifa within a day or so",
+          "\u2022 Prepare a 5-year budget breakdown alongside the interactive proposal, with a separate printable doc for budget/technical detail",
+          "\u2022 Consult Gallup economists who are deep into AI to help inform survey design",
+          "\u2022 John and the foundation team to align internally on resourcing and process to move quickly",
+          "\u2022 Comms teams from both sides to connect on rollout positioning (after Rebecca returns)",
+          "\u2022 Consider whether to tack the launch onto an event (e.g. Davos) or create a standalone launch moment",
+          "",
+          "PROJECT OVERVIEW",
+          "Raj is highly enthusiastic and wants the study to be rigorous, timeless, and a primary data source that academics, policymakers and media return to year over year \u2014 not a one-time press release.",
+          "The proposal has been well received internally as a model proposal.",
+          "",
+          "METHODOLOGY & SCOPE",
+          "Sample: 10,000, nationally representative via the Gallup probability panel, supplemented by state-level consumer panels.",
+          "Minimum reportable threshold: 300 cases per subgroup (e.g. gig workers, small business employees, large employer employees).",
+          "Key expansion agreed: include unemployed and non-employed workers, to capture those displaced by AI who have dropped out of job searches \u2014 a gap in existing BLS data. Instrument branches into two modules: employed, and non-employed covering aspirations and barriers to work. No change to sample size, a few weeks of front-end design.",
+          "Age: prime-age focus (roughly 25\u201365), with 20\u201325 included; 65+ screened out or given a separate module.",
+          "",
+          "FIVE-YEAR VISION",
+          "Raj's direction: an enduring tracker (5+ years), the definitive benchmark on the American worker, referenced by the Fed, Congress and academics.",
+          "Core module tracked consistently across waves, plus a rotating module (~25\u201350%).",
+          "Announcing as a long-term initiative is itself a differentiator \u2014 cf. the AP democracy project announced as a 100-year initiative.",
+          "Drip strategy: big highlights in January, then shorter follow-on reports. Few readers get past page 3 of long reports.",
+          "",
+          "LAUNCH & ROLLOUT",
+          "Target: mid-January, aligning with Davos timing or a standalone Gallup-hosted event.",
+          "Raj's stated ask: twice as big, half the time. The landscape is getting more crowded.",
+          "Positioning priority: credibility on the first bounce \u2014 not a policy paper, a PR exercise, or just another AI poll.",
+          "Standalone Gallup launch event in Washington preferred over Davos, given the noise at major convenings. Potential flagship media partner.",
+          "Reporters may be involved early, even in question design, to build in coverage intent. Gallup's DC studio available.",
+          "Comms integrated from the start of the process, not bolted on at the end."
+        ]
+      }
+    ],
+    sections:[
+      {h:"Where this stands", ul:[
+        "<b>The hard date.</b> The 11 September note put it plainly: to hit mid-January, the project needs to be underway by the end of this month. The agreement went with it so contract review would not become the bottleneck \u2014 drafted with an effective date of 21 September and a Year 1 starting 1 October.",
+        "<b>Internally, it has gone well.</b> Haifa reported a positive discussion with the president and members of the executive team, and the notes record the proposal being received as a model proposal. Raj set the standard \u2014 a primary data source people return to year over year \u2014 and the urgency: twice as big, half the time.",
+        "<b>The design is settled in outline.</b> 10,000 on the Gallup probability panel for the national read, plus roughly 500 per state through a consumer panel provider for state-level actionability, two distinct report outputs, a 300-case floor for subgroup reporting, and a branched instrument covering both the employed and the non-employed.",
+        "<b>Scope has grown.</b> Reportability detail by worker type, the five-year arc written into the scope, a Gallup-hosted launch event, and Gallup.com articles for ongoing reporting \u2014 with pricing updated to match."
+      ]},
+      {h:"The five questions Haifa set in August, and how they were answered", ul:[
+        "After her team had been through the interactive concept, she sent five questions in writing and asked for a call with John Gans to work through them. They shaped everything since, and all five are now answered in the proposal.",
+        "<b>1. Sample size.</b> She said 5,000 to 10,000 read as low for meaningful trend telling. Answered on reportability: the 10,000 national sample is sized so results report with confidence by worker type \u2014 full-time employed, self-employed, gig, and small- versus large-employer \u2014 and by industry, not just workers in aggregate.",
+        "<b>2. Geographic cuts.</b> She was specific that the Foundation wants state-level views. Answered: 500 completed interviews in each of the 50 states on consumer panels weighted to Census benchmarks, alongside the national probability sample \u2014 every state independently reportable.",
+        "<b>3. Cadence.</b> Answered: a 15-minute annual flagship instrument carrying the study, with a 3-minute quarterly tracking module on the Gallup Poll Social Series for the measures that move fast between waves.",
+        "<b>4. Dashboard.</b> Answered as a Gallup-created and maintained research hub, alongside the national release series and the state action layer.",
+        "<b>5. Differentiation and white space.</b> Answered directly, and it is the spine of the proposal. Kept consistent below."
+      ]},
+      {h:"The white space, in the proposal's own language", ul:[
+        "<b>What exists:</b> adoption and macro data \u2014 robust tracking of who uses AI, how often and in which tools, plus labour-market aggregates.",
+        "<b>What is missing:</b> the scope and scale. A read big enough to cover every kind of worker, the same way, year after year \u2014 not the small, one-off polls that exist today.",
+        "<b>What is absent entirely:</b> a geographic lens. Where disruption lands and how it differs by region and industry \u2014 the cut no national poll provides. Every state independently reportable. <b>This is the white space.</b>",
+        "The framing throughout: most AI-and-work coverage lives in two places, national aggregates and a narrow slice of often knowledge workers. What is missing is nuance \u2014 which workers, where, and how they actually feel.",
+        "Six differentiators as written: a platform, not a poll; a truer picture of work covering employed and non-employed alike, catching the AI-displaced signal official statistics miss; the voice of every worker; granular where macro data is silent; a five-year benchmark announced as multi-year from day one; and a quarterly module that captures what moves fast.",
+        "What it measures: <b>transition capacity</b> \u2014 the real ability to retrain, redeploy and move across sectors, described as the question almost no one is measuring \u2014 alongside <b>worker dignity and agency</b>, whether AI is done with workers or to them, and <b>economic security</b>."
+      ]},
+      {h:"What is outstanding", ul:[
+        "<b>Nothing on Gallup's side.</b> The full proposal, the executive summary, the technical and budget breakdown with the five-year projection, and the agreement are all with them.",
+        "<b>Theirs:</b> internal alignment on resourcing and process, led by John Gans; contract review; and the communications connection between the two organisations once Rebecca Chalif is back."
+      ]}
+    ],
+    stats:[
+      ["35,000","Interviews a year \u2014 10,000 national on the Gallup Panel plus 500 in every state","Recommended design"],
+      ["Sep 28","Kickoff window opens, per the proposal timeline","16 weeks to first release"],
+      ["Jan 18\u201322","Launch at Gallup World Headquarters, Washington","2027"]
+    ],
+    pages:[
+      ["The Rockefeller-Gallup AI Initiative","https://global.gallupproposals.com/Rockefeller-AI.html","Full proposal"],
+      ["Executive summary","https://global.gallupproposals.com/Rockefeller-AI-Overview.html","The short version, for Julia"],
+      ["Technical and budget breakdown","https://global.gallupproposals.com/The%20Rockefeller-Gallup%20AI%20Initiative%20Proposal.pdf","Five-year projection"],
+      ["Master Consulting Services Agreement","https://global.gallupproposals.com/Rockefeller%20Foundation-Gallup%20AI%20Agreement.pdf","Engagement letter and Exhibit A"],
+      ["American Jobs strategy","https://www.rockefellerfoundation.org/what-we-do/american-jobs/","The strategy this sits under"],
+      ["Groundwork\u2013Ipsos AI at Work","https://groundworkcollaborative.org/work/ai-at-work-gains-at-the-top-pressure-for-everyone-else/","The study she named"],
+      ["Ipsos methodology note","https://www.ipsos.com/en-us/american-workers-assess-ai-impact","Sample and field dates"],
+      ["Haifa Badi Uz Zaman","https://www.rockefellerfoundation.org/profiles/haifa-badi-uz-zaman/","Rockefeller profile"],
+      ["John Gans","https://www.rockefellerfoundation.org/profiles/john-gans/","SVP, Strategic Communications and Policy"]
+    ]
+  },
+
+  contact:{
+    bullets:[
+      "Vice President, U.S. Program and Policy. Joined the Foundation in <b>January 2026</b> to oversee domestic grantmaking focused on ensuring people and places can thrive amid economic and technological disruption \u2014 the remit this study sits inside.",
+      "Immediately before: Chief Operating Officer at the International Economic Development Council from February 2024.",
+      "Before that, led strategy and operations for <b>Brookings Metro</b>, a $15 million research division focused on regional inclusive growth. She has run a research shop and knows what research costs and what it returns.",
+      "Announced the commissioner slate for the <b>Commission on AI and the Future of the American Workforce</b>, co-hosted by the Urban Institute and the American Enterprise Institute and co-chaired by Gina Raimondo and Paul Ryan.",
+      "<b>She cites Gallup data unprompted in her own public writing.</b> In her post announcing the Foundation's $100 million commitment she wrote that 50 million Americans live in communities where good jobs are out of reach, that AI is reshaping the jobs local economies depend on, and that in a recent Gallup poll more workers say they are struggling than thriving.",
+      "Serves on the board of Project for Public Spaces. Background across economic development, workforce, technology and public policy."
+    ],
+    timeline:[
+      ["","Brookings Institution \u2014 strategy and operations, Brookings Metro"],
+      ["Feb 2024","International Economic Development Council \u2014 Chief Operating Officer"],
+      ["Jan 2026","The Rockefeller Foundation \u2014 Vice President, U.S. Program and Policy"]
+    ],
+    also:[{
+      head:"Also joining \u2014 and the lead on this work",
+      mono:"HZ",
+      name:"Haifa Badi Uz Zaman",
+      role:"Director, AI Partnerships and Civic Innovation \u2014 The Rockefeller Foundation",
+      bullets:[
+        "<b>She has led every stage of this since July.</b> She wrote the brief, set the five questions, ran the internal gut-check, brought John Gans in, and took the proposal to the president and executive team herself.",
+        "Responsible for grantmaking, research and external engagement across the Foundation's AI portfolio. Joined in 2024 as Manager, AI Partnerships and has been promoted inside the portfolio she now runs. She signs as both Director of AI Partnerships and Director of AI and Civic Innovation.",
+        "Before Rockefeller: Program Manager, AI and Society at the <b>Stanford Institute for Human-Centered AI</b>; Democracy Program Manager for social media at the Stanford Center on Philanthropy and Civil Society; earlier, Campus Director at Citizen Schools. Ed.M. from Harvard.",
+        "<b>A published researcher.</b> Co-author on Stanford HAI white papers on AI for mission-related impact, LLM development for low-resource languages, and AI and racial equity considerations for the Congressional Black Caucus. Also contributed to Project Evident's study of how grantmakers are investing in AI.",
+        "<b>How she works.</b> Precise, methodologically literate questions in writing, sent ahead of calls. She gut-checks internally before responding and says so. She says plainly when something reads as insufficient, and asks for a live conversation when she wants to land a decision rather than trade email.",
+        "Consistently generous about the work \u2014 the interactive format landed, the overall direction resonates \u2014 while holding the differentiation question open.",
+        "Has been on leave until 25 September, with John Gans and Rebecca Chalif covering."
+      ],
+      timeline:[
+        ["","Citizen Schools \u2014 Deputy Campus Director, then Campus Director"],
+        ["","Stanford Center on Philanthropy and Civil Society \u2014 Democracy Program Manager"],
+        ["","Stanford HAI \u2014 Program Manager, AI and Society"],
+        ["2024","The Rockefeller Foundation \u2014 Manager, AI Partnerships"],
+        ["current","Director, AI Partnerships and Civic Innovation"]
+      ]
+    }],
+    note:"Julia is the senior sponsor and the resourcing decision sits with her side of the house; Haifa holds the design, the history and the internal case. Her academic training explains the standing challenge \u2014 someone who has co-authored AI policy white papers will press on what the study establishes that is not already known, and will not accept breadth as an answer to a question about depth.",
+    roster:[
+      ["Haifa Badi Uz Zaman","Director, AI Partnerships and Civic Innovation \u2014 leads this work with Gallup"],
+      ["John Gans","SVP, Strategic Communications and Policy \u2014 in the room since August; owns rollout and internal alignment"],
+      ["Rebecca Chalif","Communications, RF Catalytic \u2014 covering with John in Haifa's absence"],
+      ["Warren Jemmott","Coordinates John Gans's calendar"],
+      ["Rajiv Shah","President \u2014 personally enthusiastic; set the bar and the urgency"],
+      ["Elizabeth Yee","EVP, Program Strategy \u2014 separate Concordia request sent"]
+    ],
+    links:[
+      ["Julia Kraeger profile","https://www.rockefellerfoundation.org/profiles/julia-kraeger/","Rockefeller Foundation"],
+      ["Haifa Badi Uz Zaman profile","https://www.rockefellerfoundation.org/profiles/haifa-badi-uz-zaman/","Rockefeller Foundation"],
+      ["Haifa on LinkedIn","https://www.linkedin.com/in/haifa-badi-uz-zaman-ed-m-10626082/","Haifa Badi Uz Zaman, Ed.M."],
+      ["Stanford HAI publications","https://hai.stanford.edu/people/haifa-badi-uz-zaman","Her published work"],
+      ["John Gans profile","https://www.rockefellerfoundation.org/profiles/john-gans/","SVP, Strategic Communications and Policy"]
+    ]
+  },
+
+  orgIntel:{
+    lede:"The study sits under the Foundation's American Jobs strategy, which is explicitly place-based: helping distressed communities navigate disruption, adapt to technological change, and connect more people to good, resilient jobs.",
+    stats:[
+      ["$100M","Three-year commitment on AI displacement and good jobs, June 2026"],
+      ["50%+","Growth in the number of distressed U.S. communities since 2000"],
+      ["11\u201312%","Share of the workforce the Foundation says current AI models could replace"],
+      ["4","Target sectors: healthcare, energy, food and AI"]
+    ],
+    sections:[
+      {h:"The American Jobs strategy, in their own numbers", ul:[
+        "Distressed communities \u2014 where employment significantly lags the national average \u2014 have grown by more than 50% since 2000.",
+        "Some occupations face half of their tasks disrupted by AI, and the Foundation's framing is that current models could replace 11\u201312% of the workforce.",
+        "Jobs in high-growth sectors like healthcare and energy are inaccessible to workers in distressed communities because of mismatches in skills, childcare, credentials and capital.",
+        "Note the phrasing throughout: <b>people and places</b>. The unit of the strategy is the community, not the nation \u2014 which is why her second question was about state-level cuts."
+      ]},
+      {h:"The competitive field she is worried about", ul:[
+        "<b>Groundwork Collaborative and Ipsos</b>, released 3 August. 1,533 Americans aged 18\u201375, currently employed or marginally attached, on the KnowledgePanel, fielded 11\u201316 June. Billed as the first release from a yearlong study of worker attitudes on AI \u2014 so they have a tracker too. Headlines: three in ten use AI weekly, adoption concentrated among higher earners and college graduates, two-thirds expect AI to make work worse, 51% say benefits go to owners and executives against 6% to workers.",
+        "Groundwork is an explicitly progressive economic policy organisation, and the release was framed as advocacy \u2014 bosses pulling a fast one. Their findings went first to Semafor.",
+        "<b>SHRM</b> surveyed 5,875 workers in March and April: 41% use AI at work, six hours saved a week against four spent correcting output, and 44% of users describing what they get as AI slop. SHRM is an employer-side membership body.",
+        "<b>Epoch AI and Ipsos</b>: almost half of employed adults use AI for work, and one in five for tasks that would previously have gone to a colleague or contractor.",
+        "So the space is genuinely crowded on adoption and sentiment. It is empty on outcomes, on geography below the national level, and on anyone without a side."
+      ]},
+      {h:"Team and adjacent activity", ul:[
+        "American Jobs runs through Derek Kilmer as SVP, with Julia Kraeger and Danielle Geanacopoulos as VPs and Meg Fosque and Marina Pravdic as Managing Directors. Haifa sits under that as Director, with Ella Brady as Senior Associate on civic innovation.",
+        "John Gans leads communications \u2014 digital, media and internal. Background at the Pentagon, the U.S. Treasury and the U.S. Navy, and a press liaison at Ground Zero after 9/11. He has been in this conversation since early August.",
+        "Co-hosting the Commission on AI and the Future of the American Workforce with the Urban Institute and the American Enterprise Institute, co-chaired by Gina Raimondo and Paul Ryan \u2014 deliberately bipartisan.",
+        "Rockefeller separately commissions polling from Echelon Insights and has run global survey work across 34 countries. They are experienced buyers of public-opinion research."
+      ]}
+    ],
+    roster:[
+      ["Rajiv Shah","President"],
+      ["Elizabeth Yee","EVP, Program Strategy"],
+      ["Derek Kilmer","SVP, American Jobs"],
+      ["John Gans","SVP, Strategic Communications and Policy"]
+    ],
+    links:[
+      ["American Jobs strategy","https://www.rockefellerfoundation.org/what-we-do/american-jobs/","Strategy page with their figures"],
+      ["Groundwork\u2013Ipsos findings","https://groundworkcollaborative.org/news/new-groundwork-polling-shows-workers-not-sold-on-ai-in-the-workplace/","The competitor she named"],
+      ["Rockefeller Foundation","https://www.rockefellerfoundation.org/","Organization site"]
+    ]
+  },
+
+  history:{
+    lede:"Two months from introduction to contract-ready, with Stephanie's own introduction at the start of it.",
+    timeline:[
+      ["Jun\u2013Jul 2026","<b>Stephanie meets Haifa</b> and they talk through AI research. On 3 July Stephanie sends a capabilities overview and Gallup's AI work to date \u2014 the SCSP study on American attitudes to AI, the Bentley work on trust in business use of AI, the Walton K-12 teacher study, the student AI findings shown at GSV, West Health on healthcare, and a World Poll AI study with Microsoft."],
+      ["14 Jul","<b>Stephanie brings Justin in.</b> Justin and Haifa had a productive call on 17 July."],
+      ["22 Jul","<b>Haifa shares her notes and open questions</b> and invites a concept note with options from light touch to high touch, including budget, timeline and partnership model. She flags a bias for moving quickly but asks for a realistic timeline \u2014 suggesting Q1 2027 herself."],
+      ["24 Jul","<b>Concept delivered as an interactive</b> \u2014 The AI Worker Pulse \u2014 with configurable budget by sample size, cadence, geography and activation, and direct answers to each question in her brief."],
+      ["6 Aug","<b>Her five questions.</b> Sample size reads low for trend detection; state versus city and county cuts; cadence; where the dashboard lives and how it stays durable; and the differentiation question naming Groundwork Collaborative. She asks for 30 minutes and brings in John Gans."],
+      ["13 Aug","<b>Call with Haifa and John Gans.</b> Dual sampling approach agreed: 10,000 on the Gallup Panel plus roughly 500 per state via a consumer panel provider, with two report outputs \u2014 one for wide public consumption from the national data, one for state-level actionability."],
+      ["14\u201315 Aug","Second call. Haifa asks for both a concise executive-facing site and the longer detailed version. Both delivered."],
+      ["27 Aug","Chase. President and executive team travelling; no update yet."],
+      ["9 Sept","<b>Positive discussion with the president and executive team.</b> Questions on worker demographics and employment status; interest in what a recurring five-year programme looks like; launch moved to Q1 2027, matching Gallup's own recommendation. Haifa flags leave through 25 September and nominates John Gans and Rebecca Chalif to cover."],
+      ["10 Sept","<b>Working session.</b> Non-employed workers added to scope and the five-year tracker vision confirmed."],
+      ["11 Sept","<b>Updated proposal, technical and budget document, and the agreement</b> sent to Haifa, Warren and Chloe, copying John Gans and Rebecca Chalif. Renamed The Rockefeller-Gallup AI Initiative. Flagged: underway by end of month for a mid-January launch."],
+      ["12\u201314 Sept","<b>Concordia request accepted.</b> Julia Kraeger confirmed, added Mari Hall to coordinate, and asked for Haifa to join."],
+      ["Now","<b>Awaiting response to the five-year contract.</b>"]
+    ],
+    note:"Haifa has led this work with Gallup since July and every substantive decision on design and scope has run through her. Julia convened this meeting and holds the senior programme relationship. Both matter, and for different things \u2014 Haifa for continuity on what has already been agreed, Julia for the resourcing and the decision itself.",
+    docs:[
+      {label:"The Rockefeller-Gallup AI Initiative \u2014 full proposal", url:"https://global.gallupproposals.com/Rockefeller-AI.html"},
+      {label:"Executive summary", url:"https://global.gallupproposals.com/Rockefeller-AI-Overview.html"},
+      {label:"Technical and budget breakdown", url:"https://global.gallupproposals.com/The%20Rockefeller-Gallup%20AI%20Initiative%20Proposal.pdf"},
+      {label:"Master Consulting Services Agreement \u2014 engagement letter and Exhibit A", url:"https://global.gallupproposals.com/Rockefeller%20Foundation-Gallup%20AI%20Agreement.pdf"}
+    ],
+    sections:[
+      {h:"The agreement as drafted", ul:[
+        "Engagement letter for the <b>AI Worker Study</b>, dated 10 September with an effective date of <b>21 September 2026</b> \u2014 which falls inside summit week. Year 1 runs 1 October 2026 to 30 September 2027; the term runs five years to September 2031.",
+        "Five-year service fee of <b>$9,449,642</b>, rising from $1,912,000 in Year 1 to $1,968,767 in Year 5. Billed in four equal milestones each year: kick-off, instrument finalisation, start of national and state data collection, and comprehensive report delivery \u2014 $478,000 each in Year 1.",
+        "<b>Year 1 scope:</b> kick-off meeting; a roughly 15-minute instrument in English and Spanish covering both employed and non-employed adults, with cognitive testing and one client feedback round; approximately 10,000 U.S. adults on the Gallup Panel, plus 500 completed interviews in each of the 50 states through a consumer-panel partner.",
+        "<b>Quarterly tracking:</b> a roughly three-minute module through the Gallup Poll Social Series, four times a year, each wave delivering weighted toplines, a de-identified dataset and a findings memo.",
+        "<b>Reporting:</b> a roughly 10-page launch report, one comprehensive report with consolidated tables for all 50 states, and the full data package \u2014 de-identified weighted dataset, codebook, methodology report, toplines and agreed cross-tabulations. Two client feedback rounds per report.",
+        "<b>Dissemination:</b> six Gallup.com articles including the launch article, one launch event at Gallup World Headquarters in Washington, a maintained research webpage, targeted media outreach, social content and one podcast episode. Coverage and third-party speakers explicitly not guaranteed.",
+        "Years 2 to 5 repeat the cycle with the instrument updated each year while retaining core questions for tracking; the Year 5 comprehensive report carries five-year trends.",
+      ]},
+      {h:"Worth being ready for", ul:[
+        "<b>The quarterly tracker is national.</b> The state layer sits in the annual wave, so the quarterly reads do not speak to any individual state. That is the design as written rather than an omission, but if state-level quarterly reads come up it is worth having the answer ready on what that would take."
+      ]}
+    ],
+    links:[]
+  },
+
+  ideasLabel:"Closing points",
+  ideasNote:"Everything Gallup owes them is delivered. These are the points that matter for getting it signed, and the things most likely to slow it down. The design and the argument are settled \u2014 keep both consistent with the proposal.",
+  ideas:[
+    {p:1,t:"The timeline is the live constraint",d:"The proposal works back from a mid-January launch: kickoff 28 September to 2 October, instrument design and cognitive testing through October, fielding 9 to 27 November, analysis into December, launch 18 to 22 January in Washington. Sixteen weeks to first release. The agreement is drafted with a 21 September effective date and a Year 1 starting 1 October. Every week of slippage comes out of the January date, and January was their choice as much as ours.",q:"Who on their side owns contract review, and how long it usually takes."},
+    {p:1,t:"Hold the line on the white space argument",d:"Scale and scope, plus the 50-state layer. What exists is adoption and macro data; what is missing is a read big enough to cover every kind of worker the same way year after year; what is absent entirely is the geographic lens. No one has done a large annual national study with every state independently reportable. That is the answer already given to her differentiation question, and it is the sentence worth repeating rather than improving on.",q:"Nothing outstanding \u2014 this is about consistency with what they have already read."},
+    {p:1,t:"Julia needs the executive summary, not the full proposal",d:"She joined the Foundation in January and has not been in the working sessions. She ran a research division at Brookings Metro, so she will not need convincing that measurement is worth paying for, but she will want why this, why five years and why now in a paragraph. The executive summary exists for exactly that audience.",q:"Whether she has seen it, or is coming to this fresh."},
+    {p:1,t:"Haifa is carrying this internally",d:"She wrote the brief, set the questions, ran the gut-check, brought John Gans in, and took it to the president and executive team herself. What is useful to her is not more material but the sharpest version of the case she is already making internally \u2014 and clarity on anything that would let contract review start now rather than after another round.",q:"What she needs from Gallup to move the internal process, if anything."},
+    {p:0,t:"Transition capacity is the part to lead with on substance",d:"The proposal calls it the question almost no one is measuring \u2014 the real ability to retrain, redeploy and move across sectors, whether a worker knows what a transition would require, can actually access retraining, and whether a realistic path exists. Tracked over time and cut by region and industry, it answers who is able to move rather than who is exposed. That maps directly onto the Foundation's own strategy language about helping communities adapt.",q:"Whether they want transition capacity foregrounded in the launch narrative."},
+    {p:0,t:"State reporting is annual by design",d:"The 50-state layer sits in the annual wave; the quarterly module is a national read of the measures that move fast between waves. That is the design as written, not an omission \u2014 but if they ask for state-level quarterly reads it is worth having the answer ready on what that would take.",q:"Whether a state-level quarterly read has come up on their side."},
+    {p:0,t:"Rollout is the unlock, and it needs Rebecca",d:"Joint rollout was described as a meaningful part of the value in their first substantive reply. The proposal already carries the launch convening, the six Gallup.com articles across the year, the comprehensive 50-state report in April and the research hub. Connecting the two communications teams once Rebecca Chalif is back is what turns a signed contract into the recurring public moment Raj described.",q:"When Rebecca returns, and whether the teams connect before or after signature."}
+  ]
+}
+
+];
+
+/* ---------- helpers ---------- */
+
+function esc(s){return String(s==null?"":s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c];});}
+function el(id){return document.getElementById(id);}
+
+function statTiles(a){
+  if(!a||!a.length) return "";
+  return '<div class="stats">'+a.map(function(s){
+    return '<div class="stat"><b>'+esc(s[0])+'</b><span>'+s[1]+'</span>'+(s[2]?'<em>'+esc(s[2])+'</em>':'')+'</div>';
+  }).join("")+'</div>';
+}
+function factStrip(a){
+  if(!a||!a.length) return "";
+  return '<dl class="facts">'+a.map(function(f){
+    return '<div><dt>'+esc(f[0])+'</dt><dd>'+f[1]+'</dd></div>';
+  }).join("")+'</dl>';
+}
+function sections(a){
+  if(!a||!a.length) return "";
+  return a.map(function(s){
+    return '<h4 class="sec">'+esc(s.h)+'</h4><ul>'+s.ul.map(function(x){return "<li>"+x+"</li>";}).join("")+'</ul>';
+  }).join("");
+}
+function timeline(a){
+  if(!a||!a.length) return "";
+  return '<ul class="tl">'+a.map(function(t){
+    return '<li>'+(t[0]?'<span class="yr">'+t[0]+'</span>':'')+'<span class="ev">'+t[1]+'</span></li>';
+  }).join("")+'</ul>';
+}
+function linkList(a){
+  if(!a||!a.length) return "";
+  return '<ul class="links">'+a.map(function(l){
+    return '<li><a href="'+esc(l[1])+'" target="_blank" rel="noopener">'+esc(l[0])+
+      (l[2]?'<span class="h">'+esc(l[2])+'</span>':'')+'</a></li>';
+  }).join("")+'</ul>';
+}
+function roster(a){
+  if(!a||!a.length) return "";
+  return '<div class="roster">'+a.map(function(r){
+    return '<div class="rost"><b>'+r[0]+'</b><span>'+r[1]+'</span></div>';
+  }).join("")+'</div>';
+}
+function memoBlock(m){
+  if(!m) return "";
+  var inner = m.raw
+    ? '<div class="exact">'+m.raw.map(esc).join("\n")+'</div>'
+    : (m.body||[]).map(function(p){return "<p>"+p+"</p>";}).join("");
+  return '<details class="memo"><summary>'+esc(m.label)+'</summary><div class="m">'+inner+'</div></details>';
+}
+function docViewer(d){
+  if(!d) return "";
+  return '<div class="doc"><div class="dh"><span>'+esc(d.label)+'</span>'+
+    '<a href="'+esc(d.url)+'" target="_blank" rel="noopener">Open in new tab</a></div>'+
+    '<iframe src="'+esc(d.url)+'#view=FitH" title="'+esc(d.label)+'" loading="lazy"></iframe></div>';
+}
+function ideaList(a){
+  if(!a||!a.length) return "";
+  return a.map(function(i){
+    return '<div class="idea'+(i.p?' p1':'')+'"><h5>'+esc(i.t)+'</h5><p>'+i.d+'</p>'+
+      (i.q?'<p class="q">Open: '+i.q+'</p>':'')+'</div>';
+  }).join("");
+}
+
+/* ---------- views ---------- */
+
+function renderAgenda(){
+  var real = MEETINGS.filter(function(m){return !m.placeholder;});
+  var blanks = MEETINGS.length - real.length;
+  var order = [], groups = {};
+  real.forEach(function(m){
+    var d = m.day || "Date to be confirmed";
+    if(!groups[d]){ groups[d] = []; order.push(d); }
+    groups[d].push(m);
+  });
+  var h = "";
+  order.forEach(function(d){
+    h += '<div class="dayhead"><h2>'+esc(d)+'</h2><span>'+groups[d].length+
+         (groups[d].length===1?' meeting':' meetings')+'</span></div>';
+    groups[d].forEach(function(m){
+      h += '<button class="card" data-open="'+m.id+'" style="border-left-color:'+m.accent+'">'+
+        '<span class="mono" style="background:'+m.accent+'">'+esc(m.mono)+'</span>'+
+        '<span class="tm">'+esc(m.time)+'</span>'+
+        '<span class="body"><h3>'+esc(m.org)+'</h3>'+
+        '<p class="sub">'+esc(m.contactName)+' \u00b7 '+esc(m.contactRole)+'</p></span>'+
+        '<span class="go">Open</span></button>';
+    });
+  });
+  if(blanks){
+    h += '<div class="dayhead"><h2>To come</h2><span>'+blanks+' slots</span></div>';
+    for(var i=0;i<blanks;i++){ h += '<div class="slot">Held for a meeting still to be added.</div>'; }
+  }
+  el("agenda").innerHTML = h;
+  el("foot").textContent = "Open-source research as of 19 September 2026. Figures should be verified against primary sources before external use.";
+}
+
+var TABS = [["overview","Overview"],["contact","Contact"],["org","Organization"],["history","Gallup history"],["ideas","Ideas"]];
+function tabsFor(m){
+  return TABS.map(function(t){
+    return t[0]==="ideas" && m.ideasLabel ? ["ideas", m.ideasLabel] : t;
+  });
+}
+
+function paneHTML(m,key){
+  if(key==="overview"){
+    var o = m.overview;
+    return '<p class="lede">'+o.lede+'</p>'+factStrip(o.facts)+
+      sections(o.sections)+
+      (o.memos && o.memos.length ? o.memos.map(memoBlock).join("") : '')+
+      (o.stats && o.stats.length ? '<h4 class="sec">Relevant insights</h4>'+statTiles(o.stats) : '')+
+      (o.pages && o.pages.length ? '<h4 class="sec">Relevant pages</h4>'+linkList(o.pages) : '');
+  }
+  if(key==="contact"){
+    var c = m.contact;
+    return '<div class="person"><span class="mono">'+esc(m.contactMono)+'</span>'+
+      '<span><h5>'+esc(m.contactName)+'</h5><p class="role">'+esc(m.contactRole)+
+      (m.contactName.indexOf("confirm")<0 ? " — "+esc(m.org) : "")+'</p></span></div>'+
+      '<ul>'+c.bullets.map(function(b){return "<li>"+b+"</li>";}).join("")+'</ul>'+
+      (c.timeline.length ? '<h4 class="sec">Career</h4>'+timeline(c.timeline) : '')+
+      (c.also ? c.also.map(function(p){
+        return '<h4 class="sec">'+esc(p.head||"Also joining")+'</h4>'+
+          '<div class="person"><span class="mono">'+esc(p.mono)+'</span>'+
+          '<span><h5>'+esc(p.name)+'</h5><p class="role">'+esc(p.role)+'</p></span></div>'+
+          '<ul>'+p.bullets.map(function(b){return "<li>"+b+"</li>";}).join("")+'</ul>'+
+          (p.timeline && p.timeline.length ? timeline(p.timeline) : '');
+      }).join("") : '')+
+      (c.sections ? sections(c.sections) : '')+
+      (c.note ? '<h4 class="sec">Note</h4><p>'+c.note+'</p>' : '')+
+      (c.roster && c.roster.length ? '<h4 class="sec">Others on that side</h4>'+roster(c.roster) : '')+
+      (c.links.length ? '<h4 class="sec">Links</h4>'+linkList(c.links) : '');
+  }
+  if(key==="org"){
+    var g = m.orgIntel;
+    return '<p class="lede">'+g.lede+'</p>'+statTiles(g.stats)+sections(g.sections)+
+      '<h4 class="sec">People</h4>'+roster(g.roster)+
+      '<h4 class="sec">Links</h4>'+linkList(g.links);
+  }
+  if(key==="history"){
+    var y = m.history;
+    return '<p class="lede">'+y.lede+'</p>'+
+      (y.timeline.length ? timeline(y.timeline) : '')+
+      (y.note ? '<h4 class="sec">Note</h4><p>'+y.note+'</p>' : '')+
+      (y.docs && y.docs.length ? '<h4 class="sec">Documents</h4>'+y.docs.map(docViewer).join("") : '')+
+      sections(y.sections)+
+      (y.links.length ? '<h4 class="sec">Links</h4>'+linkList(y.links) : '');
+  }
+  return (m.ideasNote ? '<p class="lede">'+m.ideasNote+'</p>' : '') + ideaList(m.ideas);
+}
+
+var current = null;
+
+function openMeeting(id){
+  var m = MEETINGS.filter(function(x){return x.id===id;})[0];
+  if(!m || m.placeholder) return;
+  current = m;
+  document.documentElement.style.setProperty("--accent", m.accent);
+  el("detail").innerHTML =
+    '<button class="back" id="back">&larr; All meetings</button>'+
+    '<div class="mhead"><span class="mono" style="background:'+m.accent+'">'+esc(m.mono)+'</span>'+
+    '<span><h2>'+esc(m.org)+'</h2><p>'+esc([m.day,m.time,m.contactName].filter(Boolean).join(" \u00b7 "))+'</p></span></div>'+
+    '<div class="tabs" role="tablist">'+tabsFor(m).map(function(t,i){
+      return '<button class="tab" role="tab" data-tab="'+t[0]+'" aria-selected="'+(i===0)+'">'+t[1]+'</button>';
+    }).join("")+'</div><div class="pane" id="pane"></div>';
+  el("agenda").classList.add("hide");
+  el("detail").classList.remove("hide");
+  showTab("overview");
+  window.scrollTo(0,0);
+}
+
+function showTab(key){
+  Array.prototype.forEach.call(document.querySelectorAll(".tab"), function(t){
+    t.setAttribute("aria-selected", t.getAttribute("data-tab")===key ? "true" : "false");
+  });
+  el("pane").innerHTML = paneHTML(current, key);
+}
+
+function closeMeeting(){
+  current = null;
+  el("detail").classList.add("hide");
+  el("agenda").classList.remove("hide");
+  document.documentElement.style.setProperty("--accent","#2f6b58");
+  window.scrollTo(0,0);
+}
+
+document.addEventListener("click",function(e){
+  var o = e.target.closest ? e.target.closest("[data-open]") : null;
+  if(o){ openMeeting(o.getAttribute("data-open")); return; }
+  if(e.target.id==="back"){ closeMeeting(); return; }
+  var tb = e.target.closest ? e.target.closest(".tab") : null;
+  if(tb){ showTab(tb.getAttribute("data-tab")); }
+});
+
+el("prt").addEventListener("click",function(){window.print();});
+
+renderAgenda();
+
+})();
+</script>
+</body>
+</html>
