@@ -1,0 +1,1000 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Opportunity Study: Year Two | Walton Family Foundation &amp; Gallup</title>
+<style>
+/* ============================================================
+   GALLUP VISUAL IDENTITY, per Visual Identity Style Guide v1.3
+   Primary: Green 400 #009d4f · Small-text green: Green 500 #00754a
+   Green 300 #16c64f on black only · Pale Green #e4f2e1 behind data
+   Type: Georgia/Times (display) · Aptos/Arial (body)
+   ============================================================ */
+:root {
+  --green: #009d4f;
+  --green-deep: #00754a;
+  --green-bright: #16c64f;
+  --green-pale: #e4f2e1;
+  --gray-00: #f1f1f1;
+  --gray-100: #cfd2d3;
+  --gray-200: #b0b3b2;
+  --gray-300: #878a8b;
+  --gray-400: #53575a;
+  --gray-500: #24272a;
+  --ink: #000000;
+  --paper: #ffffff;
+  --font-display: Georgia, 'Times New Roman', Times, serif;
+  --font-body: Aptos, 'Aktiv Grotesk', Arial, 'Helvetica Neue', Helvetica, sans-serif;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-body); color: var(--gray-500); background: var(--paper);
+  -webkit-font-smoothing: antialiased; font-size: 16px; line-height: 1.6;
+}
+::selection { background: var(--green-pale); color: var(--ink); }
+a { color: var(--green-deep); }
+button { font-family: var(--font-body); }
+:focus-visible { outline: 2px solid var(--green-deep); outline-offset: 2px; }
+
+/* ---------- Header ---------- */
+.site-header {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(255,255,255,0.94);
+  backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--gray-100);
+}
+.header-inner {
+  max-width: 1160px; margin: 0 auto; padding: 0.85rem 2.25rem;
+  display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+}
+.brand-pair { display: flex; align-items: center; gap: 1.1rem; }
+.mark-gallup {
+  font-family: var(--font-display); font-weight: 700;
+  font-size: 1.06rem; letter-spacing: 0.24em; text-transform: uppercase;
+  color: var(--gray-400); line-height: 1;
+}
+.mark-gallup sup { font-size: 0.42em; letter-spacing: 0; vertical-align: super; }
+.brand-divider { width: 1px; height: 26px; background: var(--gray-100); }
+.mark-partner { font-family: var(--font-body); font-weight: 800; font-size: 0.92rem; letter-spacing: 0.05em; color: var(--gray-500); line-height: 1.1; }
+.mark-partner span { display: block; font-size: 0.56rem; font-weight: 600; letter-spacing: 0.09em; text-transform: uppercase; color: var(--gray-400); margin-top: 0.22rem; }
+.header-actions { display: flex; align-items: center; gap: 0.55rem; }
+.btn-header {
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  padding: 0.5rem 0.95rem; border: none; border-radius: 6px;
+  font-size: 0.74rem; font-weight: 700; letter-spacing: 0.02em; cursor: pointer;
+  transition: background 0.18s ease;
+}
+.btn-header svg { width: 14px; height: 14px; flex-shrink: 0; }
+.btn-export { background: #fff; color: var(--gray-500); border: 1px solid var(--gray-100) !important; }
+.btn-export:hover { background: var(--gray-00); }
+.btn-email { background: var(--gray-00); color: var(--gray-500); border: 1px solid var(--gray-100) !important; }
+.btn-email:hover { background: var(--gray-100); }
+.btn-invest { background: var(--green); color: #fff; }
+.btn-invest:hover { background: var(--green-deep); }
+
+/* ---------- Hero ---------- */
+.hero { border-top: 4px solid var(--green); padding: 4.5rem 2.25rem 3.4rem; background: #fff; }
+.hero-inner { max-width: 1160px; margin: 0 auto; }
+.eyebrow { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--green-deep); }
+.hero .eyebrow { display: block; margin-bottom: 1.3rem; }
+.hero h1 {
+  font-family: var(--font-display); font-weight: 700;
+  font-size: clamp(2.3rem, 5vw, 3.6rem); line-height: 1.08; letter-spacing: -0.01em;
+  color: var(--ink); max-width: 940px; margin-bottom: 1.5rem;
+}
+.hero h1 em { font-style: italic; color: var(--green-deep); }
+.hero-sub { font-size: 1.08rem; line-height: 1.75; color: var(--gray-400); max-width: 810px; }
+
+/* program-to-date rail (a real sequence, so a track is warranted) */
+.track { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.1rem; margin-top: 2.9rem; position: relative; }
+.track::before { content: ''; position: absolute; top: 7px; left: 4%; right: 4%; height: 2px; background: var(--gray-100); }
+.tk { position: relative; padding-top: 1.5rem; }
+.tk::before { content: ''; position: absolute; top: 0; left: 0; width: 15px; height: 15px; border-radius: 50%; background: #fff; border: 3px solid var(--gray-300); }
+.tk.now::before { background: var(--green); border-color: var(--green); }
+.tk-when { font-size: 0.63rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--green-deep); display: block; margin-bottom: 0.25rem; }
+.tk-what { font-size: 0.85rem; line-height: 1.5; color: var(--gray-500); }
+.tk-what strong { color: var(--ink); }
+
+/* ---------- Sections ---------- */
+.section { max-width: 1160px; margin: 0 auto; padding: 4.2rem 2.25rem; }
+.section-head { max-width: 830px; margin-bottom: 2.2rem; }
+.section-title { font-family: var(--font-display); font-weight: 700; font-size: clamp(1.7rem, 3.4vw, 2.3rem); line-height: 1.18; color: var(--ink); margin: 0.5rem 0 0.7rem; }
+.section-subtitle { font-size: 1rem; line-height: 1.72; color: var(--gray-400); }
+.rule-divider { max-width: 1160px; margin: 0 auto; padding: 0 2.25rem; }
+.rule-divider hr { border: none; height: 1px; background: var(--gray-100); }
+
+.narrative { max-width: 850px; }
+.narrative p { font-size: 1.05rem; line-height: 1.85; color: var(--gray-500); margin-bottom: 1.4rem; }
+.narrative p:first-of-type::first-letter { font-family: var(--font-display); font-size: 3.5rem; font-weight: 700; float: left; line-height: 0.82; margin: 0.12rem 0.62rem 0 0; color: var(--green-deep); }
+.narrative strong { color: var(--ink); }
+.narrative p.plain:first-of-type::first-letter { font-family: inherit; font-size: inherit; font-weight: inherit; float: none; margin: 0; color: inherit; }
+
+/* ---------- Stat rows ---------- */
+.stat-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--gray-100); border: 1px solid var(--gray-100); border-radius: 8px; overflow: hidden; margin: 2rem 0 0.4rem; }
+.stat-cell { background: #fff; padding: 1.2rem 1.3rem; }
+.stat-cell .n { font-family: var(--font-display); font-weight: 700; font-size: 1.65rem; color: var(--green); line-height: 1.05; }
+.stat-cell .l { font-size: 0.74rem; line-height: 1.5; color: var(--gray-400); margin-top: 0.5rem; }
+.stat-src { font-size: 0.72rem; color: var(--gray-300); margin-top: 0.9rem; }
+
+/* ---------- Callout ---------- */
+.callout { border-left: 4px solid var(--green); background: var(--green-pale); border-radius: 0 9px 9px 0; padding: 1.4rem 1.7rem; margin-top: 1.8rem; }
+.callout .k { font-size: 0.66rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--green-deep); margin-bottom: 0.45rem; }
+.callout p { font-size: 0.97rem; line-height: 1.75; color: var(--gray-500); }
+
+/* ---------- Three moves ---------- */
+.moves { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; margin-top: 2rem; }
+.move { border: 1px solid var(--gray-100); border-top: 4px solid var(--green); border-radius: 12px; background: #fff; padding: 1.6rem 1.5rem; }
+.move-tag { font-size: 0.64rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gray-400); }
+.move h3 { font-family: var(--font-display); font-weight: 700; font-size: 1.3rem; color: var(--ink); margin: 0.35rem 0 0.7rem; line-height: 1.2; }
+.move p { font-size: 0.9rem; line-height: 1.7; color: var(--gray-400); }
+
+/* ---------- Instrument composition ---------- */
+.instr-wrap { border: 1px solid var(--gray-100); border-radius: 12px; background: #fff; padding: 1.8rem 1.9rem; margin-top: 0.6rem; }
+.instr-cap { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gray-400); margin-bottom: 0.85rem; }
+.instr-bar { display: flex; height: 62px; border-radius: 9px; overflow: hidden; border: 1px solid var(--gray-100); }
+.instr-seg { display: flex; flex-direction: column; justify-content: center; padding: 0 1.2rem; }
+.instr-seg.retain { flex: 1; background: linear-gradient(180deg, rgba(0,157,79,0.16), rgba(0,157,79,0.08)); border-right: 2px solid var(--green); }
+.instr-seg.newq { flex: 1; background: var(--gray-00); }
+.instr-seg .pct { font-family: var(--font-display); font-weight: 700; font-size: 1.02rem; color: var(--ink); line-height: 1.15; }
+.instr-seg .who { font-size: 0.72rem; color: var(--gray-400); margin-top: 0.2rem; }
+.instr-legend { display: flex; gap: 1.6rem; margin-top: 0.9rem; flex-wrap: wrap; }
+.instr-legend span { font-size: 0.78rem; color: var(--gray-400); display: inline-flex; align-items: center; gap: 0.45rem; }
+.instr-legend .sw { width: 13px; height: 13px; border-radius: 3px; flex-shrink: 0; }
+.sw.retain { background: var(--green); }
+.sw.newq { background: var(--gray-200); }
+.instr-foot { font-size: 0.74rem; color: var(--gray-300); margin-top: 0.85rem; font-style: italic; }
+
+.depth-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.6rem 2.2rem; margin-top: 2rem; }
+.depth-col h4 { font-size: 0.72rem; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; color: var(--green-deep); margin-bottom: 0.6rem; padding-bottom: 0.45rem; border-bottom: 1px solid var(--gray-100); }
+.depth-note { font-size: 0.86rem; line-height: 1.65; color: var(--gray-400); }
+.depth-note li { list-style: none; padding: 0.32rem 0 0.32rem 1.05rem; position: relative; }
+.depth-note li::before { content: ''; position: absolute; left: 0; top: 0.72em; width: 5px; height: 5px; border-radius: 50%; background: var(--gray-300); }
+.depth-note li strong { color: var(--gray-500); }
+.propose-note { font-size: 0.76rem; line-height: 1.6; color: var(--gray-400); background: var(--gray-00); border-radius: 7px; padding: 0.7rem 0.95rem; margin-top: 1.2rem; }
+.propose-note strong { color: var(--gray-500); }
+.sampling-note { font-size: 0.84rem; line-height: 1.65; color: var(--gray-400); background: #fff; border: 1px solid var(--gray-100); border-radius: 9px; padding: 0.9rem 1.1rem; }
+
+/* ---------- Communications planner ---------- */
+.planner-spine { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin: 1.6rem 0 1.5rem; position: relative; }
+.planner-spine::before { content: ''; position: absolute; top: 7px; left: 4%; right: 4%; height: 2px; background: var(--gray-100); }
+.psp { position: relative; padding-top: 1.4rem; }
+.psp::before { content: ''; position: absolute; top: 0; left: 0; width: 15px; height: 15px; border-radius: 50%; background: #fff; border: 3px solid var(--gray-300); }
+.psp.start::before { background: var(--green); border-color: var(--green); }
+.psp-when { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--green-deep); display: block; margin-bottom: 0.2rem; }
+.psp-what { font-size: 0.78rem; color: var(--gray-400); line-height: 1.45; }
+.planner-legend { display: flex; gap: 1.4rem; flex-wrap: wrap; margin-bottom: 1.1rem; font-size: 0.76rem; color: var(--gray-400); }
+.planner-legend span { display: inline-flex; align-items: center; gap: 0.42rem; }
+.leg-sw { width: 12px; height: 12px; border-radius: 3px; flex-shrink: 0; }
+.leg-sw.reach { background: var(--green); }
+.leg-sw.depth { background: var(--gray-500); }
+.leg-ring { width: 12px; height: 12px; border-radius: 50%; border: 2px solid var(--green-deep); flex-shrink: 0; }
+.act-grid2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.8rem; }
+.act-card { border: 1px solid var(--gray-100); border-radius: 11px; background: #fff; padding: 1rem 1.1rem; cursor: pointer; transition: border-color 0.15s ease, background 0.15s ease; }
+.act-card:hover { background: var(--gray-00); }
+.act-card.on { border-color: var(--green); background: linear-gradient(180deg, rgba(0,157,79,0.05), rgba(0,157,79,0.02)); }
+.act-card.included { cursor: default; border-style: dashed; border-color: var(--green); background: var(--green-pale); }
+.act-card.included:hover { background: var(--green-pale); }
+.act-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 0.6rem; margin-bottom: 0.45rem; }
+.act-name { font-weight: 800; font-size: 0.9rem; color: var(--ink); line-height: 1.25; }
+.act-check { width: 20px; height: 20px; flex-shrink: 0; border: 2px solid var(--gray-200); border-radius: 5px; display: flex; align-items: center; justify-content: center; transition: all 0.15s ease; }
+.act-card.on .act-check { background: var(--green); border-color: var(--green); }
+.act-check svg { width: 12px; height: 12px; display: none; }
+.act-card.on .act-check svg { display: block; }
+.act-top-right { display: flex; align-items: center; gap: 0.5rem; flex-shrink: 0; }
+.new-badge { font-size: 0.56rem; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; color: var(--green-deep); border: 1px solid var(--green); border-radius: 20px; padding: 0.14rem 0.5rem; white-space: nowrap; }
+.joint-badge { font-size: 0.6rem; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; color: var(--green-deep); background: var(--green-pale); border-radius: 20px; padding: 0.16rem 0.55rem; white-space: nowrap; }
+.inc-badge { font-size: 0.6rem; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; color: var(--green-deep); white-space: nowrap; padding-top: 0.15rem; }
+.act-meta { display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 0.5rem; }
+.act-phase { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; color: var(--gray-300); }
+.job-tag { font-size: 0.6rem; font-weight: 800; letter-spacing: 0.05em; text-transform: uppercase; padding: 0.14rem 0.5rem; border-radius: 20px; }
+.job-tag.reach { background: var(--green-pale); color: var(--green-deep); }
+.job-tag.depth { background: var(--gray-00); color: var(--gray-500); }
+.grantee-mark { font-size: 0.58rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; color: var(--green-deep); display: inline-flex; align-items: center; gap: 0.3rem; }
+.grantee-mark::before { content: ''; width: 9px; height: 9px; border-radius: 50%; border: 2px solid var(--green-deep); }
+.act-impact { font-size: 0.8rem; line-height: 1.55; color: var(--gray-400); }
+.planner-readout { margin-top: 1.2rem; background: var(--gray-500); color: #fff; border-radius: 10px; padding: 1rem 1.3rem; font-size: 0.88rem; line-height: 1.6; }
+.planner-readout strong { color: var(--green-bright); font-weight: 700; }
+
+.cfg-block-label { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.11em; text-transform: uppercase; color: var(--gray-400); margin-bottom: 0.2rem; }
+.cfg-block-sub { font-size: 0.78rem; color: var(--gray-300); margin-bottom: 0.8rem; }
+
+/* accordion */
+.acc { border: 1px solid var(--gray-100); border-radius: 9px; background: #fff; margin-bottom: 0.6rem; overflow: hidden; }
+.acc summary { list-style: none; cursor: pointer; padding: 0.85rem 1.15rem; display: flex; align-items: center; gap: 0.7rem; font-weight: 700; font-size: 0.9rem; color: var(--ink); }
+.acc summary::-webkit-details-marker { display: none; }
+.acc summary .plus { width: 18px; height: 18px; flex-shrink: 0; position: relative; }
+.acc summary .plus::before, .acc summary .plus::after { content: ''; position: absolute; background: var(--green); border-radius: 2px; transition: transform 0.2s ease; }
+.acc summary .plus::before { top: 8px; left: 2px; right: 2px; height: 2px; }
+.acc summary .plus::after { left: 8px; top: 2px; bottom: 2px; width: 2px; }
+.acc[open] summary .plus::after { transform: scaleY(0); }
+.acc summary:hover { background: var(--gray-00); }
+.acc-body { padding: 0 1.15rem 1.05rem 2.85rem; }
+.acc-body p { font-size: 0.87rem; line-height: 1.68; color: var(--gray-400); }
+.acc-body .anchor { margin-top: 0.6rem; font-size: 0.78rem; color: var(--green-deep); background: var(--green-pale); border-radius: 6px; padding: 0.5rem 0.75rem; }
+.acc-body .anchor b { font-weight: 800; }
+
+/* ---------- Timeline ---------- */
+.timeline-steps { margin-top: 1rem; max-width: 900px; }
+.tl-step { display: grid; grid-template-columns: 150px 26px 1fr; gap: 0 1.3rem; align-items: start; }
+.tl-time { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: var(--gray-400); text-align: right; padding-top: 0.12rem; }
+.tl-track { display: flex; flex-direction: column; align-items: center; align-self: stretch; }
+.tl-dot { width: 12px; height: 12px; border-radius: 50%; background: #fff; border: 3px solid var(--gray-300); flex-shrink: 0; }
+.tl-dot.accent { border-color: var(--green); background: var(--green); }
+.tl-line { width: 2px; flex: 1; background: var(--gray-100); margin: 4px 0; }
+.tl-step:last-child .tl-line { display: none; }
+.tl-content { padding-bottom: 2rem; }
+.tl-title { font-weight: 800; font-size: 0.93rem; color: var(--ink); margin-bottom: 0.3rem; }
+.tl-title.accent { color: var(--green-deep); }
+.tl-desc { font-size: 0.85rem; line-height: 1.68; color: var(--gray-400); max-width: 640px; }
+
+/* ---------- Configurator ---------- */
+.scope-section { background: var(--gray-00); }
+.scope-grid { display: grid; grid-template-columns: 1fr 340px; gap: 2.4rem; align-items: start; }
+.cfg-block { margin-bottom: 1.8rem; }
+
+.core-card { border: 1px solid var(--green); border-radius: 12px; background: #fff; overflow: hidden; margin-bottom: 1.9rem; }
+.core-top { padding: 1.2rem 1.4rem; display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; background: linear-gradient(180deg, rgba(0,157,79,0.06), rgba(0,157,79,0.02)); border-bottom: 1px solid var(--gray-00); }
+.core-top .lbl { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--green-deep); }
+.core-top h4 { font-family: var(--font-display); font-weight: 700; font-size: 1.28rem; color: var(--ink); margin-top: 0.2rem; }
+.core-top .cprice { font-family: var(--font-display); font-weight: 700; font-size: 1.4rem; color: var(--green-deep); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.core-inc { padding: 1.1rem 1.4rem; }
+.core-inc li { list-style: none; font-size: 0.85rem; line-height: 1.6; color: var(--gray-400); padding: 0.3rem 0 0.3rem 1.4rem; position: relative; }
+.core-inc li::before { content: ''; position: absolute; left: 0; top: 0.62em; width: 8px; height: 8px; border-radius: 2px; background: var(--green); }
+.core-inc li strong { color: var(--gray-500); }
+
+.opt-row { display: flex; align-items: center; gap: 0.85rem; padding: 1rem 1.25rem; border: 1px solid var(--gray-100); border-radius: 11px; background: #fff; cursor: pointer; user-select: none; margin-bottom: 0.7rem; transition: border-color 0.15s ease; }
+.opt-row:hover { background: var(--gray-00); }
+.opt-row.on { border-color: var(--green); background: linear-gradient(180deg, rgba(0,157,79,0.05), rgba(0,157,79,0.02)); }
+.rcheck { width: 20px; height: 20px; flex-shrink: 0; border: 2px solid var(--gray-200); border-radius: 5px; display: flex; align-items: center; justify-content: center; transition: all 0.15s ease; }
+.opt-row.on .rcheck { background: var(--green); border-color: var(--green); }
+.rcheck svg { width: 12px; height: 12px; display: none; }
+.opt-row.on .rcheck svg { display: block; }
+.opt-text { flex: 1; }
+.opt-text strong { display: block; font-size: 0.87rem; color: var(--ink); }
+.opt-text span { font-size: 0.76rem; color: var(--gray-400); line-height: 1.5; }
+.opt-price { font-size: 0.82rem; font-weight: 700; color: var(--green-deep); font-variant-numeric: tabular-nums; white-space: nowrap; }
+
+/* sidebar rail */
+.rail { position: sticky; top: 84px; border: 1px solid var(--gray-100); border-radius: 12px; overflow: hidden; background: #fff; }
+.rail-head { background: var(--gray-500); color: #fff; padding: 1.3rem 1.5rem; }
+.rail-head h3 { font-family: var(--font-display); font-weight: 700; font-size: 1.12rem; margin-bottom: 0.15rem; }
+.rail-head p { font-size: 0.72rem; color: var(--gray-200); }
+.rail-body { padding: 1.1rem 1.5rem; max-height: 340px; overflow-y: auto; }
+.rail-grp { margin-bottom: 1rem; }
+.rail-grp:last-child { margin-bottom: 0; }
+.rail-grp-name { font-size: 0.66rem; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; color: var(--gray-400); margin-bottom: 0.35rem; }
+.rail-line { display: flex; justify-content: space-between; align-items: baseline; padding: 0.28rem 0; font-size: 0.8rem; gap: 0.8rem; }
+.rail-line-name { color: var(--gray-400); }
+.rail-line-price { font-weight: 700; color: var(--gray-500); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.rail-line.core .rail-line-name { color: var(--gray-500); font-weight: 700; }
+.rail-sub { display: flex; justify-content: space-between; padding: 0.4rem 0 0; margin-top: 0.15rem; border-top: 1px solid var(--gray-00); font-size: 0.8rem; font-weight: 800; color: var(--ink); }
+.rail-empty { font-size: 0.76rem; color: var(--gray-300); font-style: italic; padding: 0.2rem 0; }
+.rail-total { padding: 1.05rem 1.5rem; background: var(--gray-500); display: flex; justify-content: space-between; align-items: center; }
+.rail-total-l { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--gray-200); }
+.rail-total-v { font-family: var(--font-display); font-weight: 700; font-size: 1.5rem; color: var(--green-bright); font-variant-numeric: tabular-nums; }
+.rail-actions { padding: 1rem 1.5rem; display: flex; gap: 0.5rem; border-top: 1px solid var(--gray-100); }
+.rail-actions button { flex: 1; padding: 0.62rem 0.6rem; border-radius: 6px; border: none; font-size: 0.74rem; font-weight: 700; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; gap: 0.35rem; }
+.rail-actions button svg { width: 13px; height: 13px; }
+.ra-pdf { background: var(--gray-00); color: var(--gray-500); }
+.ra-pdf:hover { background: var(--gray-100); }
+.ra-email { background: var(--green); color: #fff; }
+.ra-email:hover { background: var(--green-deep); }
+.rail-note { padding: 0.9rem 1.5rem; font-size: 0.68rem; line-height: 1.6; color: var(--gray-400); background: var(--gray-00); }
+
+/* ---------- Why Gallup ---------- */
+.gallup-black { background: var(--ink); color: #fff; }
+.gallup-black-inner { max-width: 1160px; margin: 0 auto; padding: 4.8rem 2.25rem; }
+.gallup-black .eyebrow { color: var(--green-bright); }
+.gallup-black h2 { font-family: var(--font-display); font-weight: 700; font-size: clamp(1.8rem, 4vw, 2.7rem); line-height: 1.16; margin: 0.6rem 0 1.1rem; max-width: 840px; color: #fff; }
+.gallup-black .lead { font-size: 1rem; line-height: 1.8; color: var(--gray-100); max-width: 800px; margin-bottom: 2.6rem; }
+.big-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(255,255,255,0.14); border: 1px solid rgba(255,255,255,0.14); border-radius: 10px; overflow: hidden; }
+.big-stat { background: var(--ink); padding: 1.6rem 1.5rem; }
+.big-stat .n { font-family: var(--font-display); font-weight: 700; font-size: 2.05rem; color: var(--green-bright); line-height: 1.05; }
+.big-stat .l { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--gray-200); margin-top: 0.5rem; line-height: 1.5; }
+.gallup-close { margin-top: 2.8rem; font-family: var(--font-display); font-style: italic; font-weight: 500; font-size: 1.28rem; line-height: 1.5; color: #fff; max-width: 760px; }
+.gallup-close strong { color: var(--green-bright); font-style: normal; }
+
+/* ---------- Footer ---------- */
+.footer { background: #fff; border-top: 1px solid var(--gray-100); padding: 2.3rem 2.25rem; text-align: center; font-size: 0.72rem; line-height: 1.8; color: var(--gray-400); }
+.footer .mark-gallup { font-size: 0.85rem; display: inline-block; margin-bottom: 0.6rem; }
+
+/* ---------- Drawer ---------- */
+.drawer-overlay { position: fixed; inset: 0; background: rgba(36,39,42,0.5); z-index: 200; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; }
+.drawer-overlay.open { opacity: 1; pointer-events: auto; }
+.drawer { position: fixed; top: 0; right: -460px; bottom: 0; width: 440px; max-width: 92vw; background: #fff; z-index: 201; box-shadow: -8px 0 40px rgba(36,39,42,0.15); transition: right 0.35s cubic-bezier(0.22,1,0.36,1); display: flex; flex-direction: column; }
+.drawer.open { right: 0; }
+.drawer-header { display: flex; align-items: center; justify-content: space-between; padding: 1.3rem 1.7rem; border-bottom: 1px solid var(--gray-100); }
+.drawer-header h2 { font-family: var(--font-display); font-weight: 700; font-size: 1.25rem; color: var(--ink); }
+.icon-btn { width: 32px; height: 32px; border: 1px solid var(--gray-100); border-radius: 6px; background: #fff; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+.icon-btn svg { width: 14px; height: 14px; }
+.drawer-body { flex: 1; overflow-y: auto; padding: 1.5rem 1.7rem; }
+.dgroup { margin-bottom: 1.4rem; }
+.dgroup-label { font-size: 0.66rem; font-weight: 800; letter-spacing: 0.09em; text-transform: uppercase; color: var(--gray-400); margin-bottom: 0.5rem; }
+.dline { display: flex; justify-content: space-between; align-items: baseline; padding: 0.45rem 0; font-size: 0.84rem; border-bottom: 1px solid var(--gray-00); gap: 0.9rem; }
+.dline-name { color: var(--gray-400); }
+.dline-name em { font-style: normal; color: var(--gray-300); font-size: 0.74rem; display: block; margin-top: 0.1rem; }
+.dline-price { font-weight: 700; color: var(--gray-500); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.dsub { display: flex; justify-content: space-between; padding: 0.6rem 0 0; margin-top: 0.2rem; font-weight: 800; font-size: 0.86rem; color: var(--ink); }
+.drawer-grand { padding: 1.1rem 1.7rem; background: var(--gray-500); display: flex; justify-content: space-between; align-items: center; }
+.drawer-grand-l { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--gray-200); }
+.drawer-grand-v { font-family: var(--font-display); font-weight: 700; font-size: 1.55rem; color: var(--green-bright); font-variant-numeric: tabular-nums; }
+.drawer-actions { padding: 1.1rem 1.7rem; display: flex; gap: 0.55rem; border-top: 1px solid var(--gray-100); }
+.drawer-actions button { flex: 1; padding: 0.7rem 1rem; border-radius: 6px; border: none; font-size: 0.8rem; font-weight: 700; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; gap: 0.4rem; }
+.drawer-actions button svg { width: 14px; height: 14px; }
+.btn-d-pdf { background: var(--gray-00); color: var(--gray-500); }
+.btn-d-pdf:hover { background: var(--gray-100); }
+.btn-d-email { background: var(--green); color: #fff; }
+.btn-d-email:hover { background: var(--green-deep); }
+.drawer-note { padding: 1rem 1.7rem; font-size: 0.7rem; line-height: 1.6; color: var(--gray-400); background: var(--gray-00); }
+
+/* ---------- Modal ---------- */
+.modal-overlay { position: fixed; inset: 0; background: rgba(36,39,42,0.5); z-index: 300; display: none; align-items: center; justify-content: center; }
+.modal-overlay.open { display: flex; }
+.modal { background: #fff; border-radius: 13px; width: 480px; max-width: 90vw; box-shadow: 0 20px 60px rgba(36,39,42,0.22); overflow: hidden; }
+.modal-header { padding: 1.4rem 1.9rem; border-bottom: 1px solid var(--gray-100); display: flex; align-items: center; justify-content: space-between; }
+.modal-header h3 { font-family: var(--font-display); font-weight: 700; font-size: 1.12rem; color: var(--ink); }
+.modal-body { padding: 1.4rem 1.9rem; }
+.modal-body label { display: block; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; color: var(--gray-400); margin-bottom: 0.35rem; }
+.modal-body input, .modal-body textarea { width: 100%; padding: 0.62rem 0.85rem; border: 1px solid var(--gray-100); border-radius: 6px; font-family: var(--font-body); font-size: 0.88rem; color: var(--gray-500); margin-bottom: 0.9rem; outline: none; transition: border-color 0.18s ease; }
+.modal-body input:focus, .modal-body textarea:focus { border-color: var(--green); }
+.modal-body textarea { resize: vertical; min-height: 76px; }
+.mpreview { background: var(--gray-00); border-radius: 8px; padding: 0.95rem 1.15rem; font-size: 0.76rem; line-height: 1.6; color: var(--gray-400); max-height: 180px; overflow-y: auto; white-space: pre-wrap; }
+.modal-footer { padding: 1rem 1.9rem 1.4rem; display: flex; justify-content: flex-end; gap: 0.55rem; }
+.modal-footer button { padding: 0.6rem 1.3rem; border-radius: 6px; border: none; font-size: 0.82rem; font-weight: 700; cursor: pointer; }
+.btn-m-cancel { background: var(--gray-00); color: var(--gray-400); }
+.btn-m-send { background: var(--green); color: #fff; }
+.btn-m-send:hover { background: var(--green-deep); }
+
+/* ---------- Reveal ---------- */
+.reveal { opacity: 0; transform: translateY(16px); transition: opacity 0.55s ease, transform 0.55s ease; }
+.reveal.in { opacity: 1; transform: translateY(0); }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .reveal { opacity: 1; transform: none; transition: none; } }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 960px) {
+  .scope-grid { grid-template-columns: 1fr; }
+  .rail { position: static; }
+  .track { grid-template-columns: 1fr 1fr; }
+  .track::before { display: none; }
+  .moves { grid-template-columns: 1fr; }
+  .depth-grid { grid-template-columns: 1fr; }
+  .stat-row { grid-template-columns: 1fr 1fr; }
+  .big-stats { grid-template-columns: 1fr 1fr; }
+  .act-grid2 { grid-template-columns: 1fr; }
+  .planner-spine { grid-template-columns: 1fr 1fr; }
+  .planner-spine::before { display: none; }
+}
+@media (max-width: 640px) {
+  .header-inner { padding: 0.75rem 1.2rem; }
+  .header-actions .btn-export, .header-actions .btn-email { display: none; }
+  .hero, .section, .gallup-black-inner { padding-left: 1.2rem; padding-right: 1.2rem; }
+  .hero { padding-top: 3.4rem; }
+  .track, .big-stats, .stat-row, .planner-spine { grid-template-columns: 1fr; }
+  .instr-bar { height: auto; flex-direction: column; }
+  .instr-seg.retain { border-right: none; border-bottom: 2px solid var(--green); padding: 0.9rem 1.2rem; }
+  .instr-seg.newq { padding: 0.9rem 1.2rem; }
+  .tl-step { grid-template-columns: 92px 22px 1fr; gap: 0 0.8rem; }
+  .core-top { flex-direction: column; }
+}
+
+/* ---------- Print ---------- */
+@media print {
+  .site-header, .drawer, .drawer-overlay, .modal-overlay, .rail, .rail-actions { display: none !important; }
+  body { color: #000; }
+  .hero { border-top: 4px solid #009d4f; padding: 1.6rem 0; }
+  .section, .gallup-black-inner { padding: 1.4rem 0; }
+  .gallup-black { background: #000 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .stat-row, .core-card, .rail-total, .drawer-grand, .callout, .move { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .scope-grid { grid-template-columns: 1fr; }
+  .move, .core-card, .instr-wrap, .stat-row, .acc { break-inside: avoid; }
+  .reveal { opacity: 1; transform: none; }
+  a { text-decoration: none; color: inherit; }
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <div class="brand-pair">
+      <div class="mark-gallup">Gallup<sup>&reg;</sup></div>
+      <div class="brand-divider"></div>
+      <div class="mark-partner">Walton Family Foundation<span>Opportunity Study &middot; Year Two</span></div>
+    </div>
+    <div class="header-actions">
+      <button class="btn-header btn-export" onclick="exportPDF()">
+        <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+        Export PDF
+      </button>
+      <button class="btn-header btn-email" onclick="openEmailModal()">
+        <svg viewBox="0 0 20 20" fill="currentColor"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/></svg>
+        Email to Gallup
+      </button>
+      <button class="btn-header btn-invest" onclick="openDrawer()">
+        Scope &amp; investment
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <span class="eyebrow">Walton Family Foundation Opportunity Study &middot; Year Two</span>
+    <h1>Where opportunity takes root, and how it <em>grows</em>.</h1>
+    <p class="hero-sub">In Year One, Gallup and the Walton Family Foundation gave the country its first probability-based measure of how Americans define, access, and experience opportunity, and found that personal agency, the sense that you can shape your own path, is the strongest predictor of whether people are thriving. Year Two fields the study a second time in the same season, repeating the anchor questions to produce the first read on how opportunity is changing, and going deeper on the community conditions that decide whether people can act on it.</p>
+
+    <div class="track reveal">
+      <div class="tk">
+        <span class="tk-when">Year One &middot; 2026</span>
+        <div class="tk-what"><strong>How Opportunity Takes Root.</strong> Published in May on a national sample of nearly 7,000 adults.</div>
+      </div>
+      <div class="tk now">
+        <span class="tk-when">Now &middot; Fall 2026</span>
+        <div class="tk-what"><strong>Year Two design.</strong> Shaping the instrument and the year's storylines with the Foundation.</div>
+      </div>
+      <div class="tk">
+        <span class="tk-when">Late winter 2027</span>
+        <div class="tk-what"><strong>Field, same season.</strong> The repeat that produces the first trend line.</div>
+      </div>
+      <div class="tk">
+        <span class="tk-when">Through 2027</span>
+        <div class="tk-what"><strong>One flagship, many moments.</strong> A single annual report, then a year of activations.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 1: WHERE YEAR ONE LEFT THE STORY -->
+<section class="section" id="baseline">
+  <div class="section-head reveal">
+    <span class="eyebrow">What Year One established</span>
+    <h2 class="section-title">Belief in opportunity is widely shared. The conditions to act on it are not.</h2>
+  </div>
+  <div class="narrative reveal">
+    <p>Year One set out to measure something the country talks about constantly but had never tracked: what opportunity means to Americans, who has access to it, and what lets it grow. Fielded among nearly 7,000 adults on the probability-based Gallup Panel, the study measured opportunity at both the individual and community levels, and gave all three of the Foundation's program areas a shared narrative rather than findings that belonged to any one team.</p>
+    <p>Its signature finding was agency. Two-thirds of Americans believe they can shape their own path, even when things are difficult, and those who feel that way are far more likely to be thriving and optimistic about the future. But agency is not evenly held. It falls sharply with income and age. Adults in the lowest-income households are far less likely than top earners to feel in control of their direction, and younger adults feel it least of all.</p>
+    <p>The more consequential finding was what agency depends on. Belief alone does not create opportunity. Whether people can act on it turns on the conditions around them, good jobs, affordable housing, quality schools, and strong community ties. Year One mapped those conditions. Year Two is where the Foundation can watch them move, and go deeper on the ones that matter most.</p>
+  </div>
+  <div class="stat-row reveal">
+    <div class="stat-cell"><div class="n">2 in 3</div><div class="l">believe they can shape their own path, even when things are difficult</div></div>
+    <div class="stat-cell"><div class="n">54% &rarr; 80%</div><div class="l">feel in control of their path, from the lowest-income to the highest-income households</div></div>
+    <div class="stat-cell"><div class="n">77%</div><div class="l">do not agree that housing in their area is affordable</div></div>
+    <div class="stat-cell"><div class="n">Nearly half</div><div class="l">say their area does not offer enough stable jobs</div></div>
+  </div>
+  <p class="stat-src reveal">Gallup &amp; Walton Family Foundation, How Opportunity Takes Root, fielded February to March 2026 among 6,732 U.S. adults.</p>
+</section>
+
+<div class="rule-divider"><hr></div>
+
+<!-- SECTION 2: THE SHAPE OF YEAR TWO -->
+<section class="section" id="approach">
+  <div class="section-head reveal">
+    <span class="eyebrow">The Year Two approach</span>
+    <h2 class="section-title">A second year turns a landmark into a record</h2>
+  </div>
+  <div class="narrative reveal">
+    <p class="plain">A single year is a portrait. It can say where opportunity stands, but not whether it is improving, for whom, or where the Foundation's work is making a difference. Those questions can only be answered over time, and they begin with a second measurement taken the same way. How Opportunity Takes Root launched as the Foundation began a new five-year strategic plan; an annual study, fielded in the same season each year, gives that plan a public barometer.</p>
+    <p>Year Two is also the moment to go deeper for less. The instrument is designed, the panel is in place, and the media relationships are established, so the second year can add depth and sustain visibility while holding to the Year One investment. Studies that shape the national conversation are rarely one-time releases. They become the measure others cite, and opportunity in America is positioned to become that.</p>
+  </div>
+  <div class="moves reveal">
+    <div class="move">
+      <div class="move-tag">Move one</div>
+      <h3>A trend line</h3>
+      <p>A substantial set of anchor questions repeats unchanged, fielded in the same season, so the country can see for the first time how agency and the conditions behind opportunity are moving.</p>
+    </div>
+    <div class="move">
+      <div class="move-tag">Move two</div>
+      <h3>Greater depth</h3>
+      <p>The rest of the instrument shifts from breadth to depth, concentrating on the community conditions that most determine whether people can act on opportunity. Priorities are set with the Foundation.</p>
+    </div>
+    <div class="move">
+      <div class="move-tag">Move three</div>
+      <h3>One voice, many moments</h3>
+      <p>A single flagship report and companion article replace last year's several releases, and a sequenced set of activations keeps the findings in front of audiences across the year.</p>
+    </div>
+  </div>
+</section>
+
+<div class="rule-divider"><hr></div>
+
+<!-- SECTION 3: THE INSTRUMENT -->
+<section class="section" id="design">
+  <div class="section-head reveal">
+    <span class="eyebrow">Research design</span>
+    <h2 class="section-title">The instrument, built from the story it needs to tell</h2>
+    <p class="section-subtitle">Year Two keeps agency at the center, repeats the questions that carry trend value, and redirects the rest toward the conditions that matter most. It stays organized by topic rather than by program, so the research remains a shared platform every program area can draw from. Everything below is a proposed starting point; the final instrument is set with the Foundation.</p>
+  </div>
+
+  <div class="instr-wrap reveal">
+    <div class="instr-cap">The instrument, at a glance</div>
+    <div class="instr-bar">
+      <div class="instr-seg retain">
+        <div class="pct">Anchor questions, repeated</div>
+        <div class="who">Held unchanged for comparison</div>
+      </div>
+      <div class="instr-seg newq">
+        <div class="pct">New and deepened content</div>
+        <div class="who">Redirected toward priority depth</div>
+      </div>
+    </div>
+    <div class="instr-legend">
+      <span><span class="sw retain"></span> Repeated unchanged so year-over-year movement is measurable</span>
+      <span><span class="sw newq"></span> Time recovered from streamlined topics, spent on depth</span>
+    </div>
+    <div class="instr-foot">The balance between the two, and everything in it, is set with the Foundation.</div>
+
+    <div class="depth-grid">
+      <div class="depth-col">
+        <h4>Proposed to carry forward</h4>
+        <ul class="depth-note">
+          <li><strong>Agency</strong>, the core construct and the strongest predictor of thriving</li>
+          <li><strong>Opportunity and outlook</strong>, how people see their path and their future</li>
+          <li><strong>Strong community conditions</strong>, the local conditions and ties people live within</li>
+          <li><strong>Anchor education and environment items</strong>, so those trends continue</li>
+        </ul>
+      </div>
+      <div class="depth-col">
+        <h4>Streamlined to make room</h4>
+        <ul class="depth-note">
+          <li><strong>Environment</strong> narrows to its strongest anchor items, keeping the nature trend intact while freeing time for the priorities below</li>
+          <li>Questions that proved less central to the Year One story are trimmed rather than repeated in full</li>
+        </ul>
+      </div>
+    </div>
+    <div class="propose-note reveal"><strong>Proposed, not final.</strong> The items to carry forward and those to streamline are Gallup's recommendation. The trend anchors are chosen together with the Foundation before fielding.</div>
+
+    <div style="margin-top:2rem;">
+      <div class="cfg-block-label">Illustrative themes for deeper focus</div>
+      <div class="cfg-block-sub">Examples of where the recovered time could go. Final priorities are set with the Foundation.</div>
+      <details class="acc"><summary><span class="plus"></span>The economic conditions of opportunity</summary><div class="acc-body"><p>How good jobs, affordable housing, and the cost of living shape whether people believe they can build a life where they are, read against agency and outlook.</p><div class="anchor">Year One signal: <b>77%</b> do not agree housing in their area is affordable, and nearly half say it lacks enough stable jobs.</div></div></details>
+      <details class="acc"><summary><span class="plus"></span>Access to quality schools</summary><div class="acc-body"><p>How the presence of good local schools shapes a community's confidence in its future, not only the prospects of its children.</p><div class="anchor">Year One signal: <b>8 in 10</b> adults who say local students have access to great schools are hopeful about their community's future.</div></div></details>
+      <details class="acc"><summary><span class="plus"></span>A stake and a say</summary><div class="acc-body"><p>Whether residents feel they have a genuine stake in their community and a real say in shaping its future, whether they feel able to contribute their own ideas and effort, and whether they believe the best solutions come from within the community itself.</p><div class="anchor">Year One signal: only about <b>1 in 3</b> adults believe their ideas for improving their community would be heard.</div></div></details>
+      <details class="acc"><summary><span class="plus"></span>Whether communities are prepared for the future</summary><div class="acc-body"><p>Whether people believe their community is ready for what lies ahead, and what they think it most needs to get there, a forward-looking read that complements the current-conditions measures.</p><div class="anchor">Year One signal: only <b>half</b> of adults say their community is moving in a positive direction.</div></div></details>
+    </div>
+
+    <div style="margin-top:1.6rem;">
+      <div class="cfg-block-label">Potential new themes to introduce</div>
+      <div class="cfg-block-sub">Proposed additions Year One did not cover directly. Explored together.</div>
+      <details class="acc"><summary><span class="plus"></span>A person's own definition of opportunity</summary><div class="acc-body"><p>How people describe opportunity in their own words, giving the construct a first-person foundation the first year measured only indirectly.</p></div></details>
+      <details class="acc"><summary><span class="plus"></span>Security and resilience</summary><div class="acc-body"><p>Whether people feel stable enough, and able to adapt, to act on opportunity, conditions that shape agency but were not asked about directly in Year One.</p></div></details>
+      <details class="acc"><summary><span class="plus"></span>The roots of realized opportunity</summary><div class="acc-body"><p>For older adults, the conditions earlier in life that allowed them to realize opportunity, growing-up circumstances, schooling, and early career, read against opportunity today.</p></div></details>
+    </div>
+  </div>
+</section>
+
+<div class="rule-divider"><hr></div>
+
+<!-- SECTION 4: COMMUNICATIONS STRATEGY -->
+<section class="section" id="reporting">
+  <div class="section-head reveal">
+    <span class="eyebrow">Reporting and communications</span>
+    <h2 class="section-title">One flagship report, a full year of presence</h2>
+    <p class="section-subtitle">Opportunity moves slowly, and a single annual report matches its pace, telling the whole story in one place with the depth a run of shorter releases cannot reach. The harder task is what comes after: turning one dataset into a sustained presence in the national conversation on opportunity, so the Foundation owns that conversation across the year rather than for a single news cycle.</p>
+  </div>
+  <div class="narrative reveal">
+    <p class="plain">The report itself carries the national picture and the first year-over-year movement, reads across income, age, and place, and pairs the data with the personal stories that make it land. A companion article on Gallup's news service takes the findings to policymakers, journalists, and the public the day it launches. But how people find and rely on information has changed. Fewer begin at a homepage or a front page; more arrive through a feed, a creator they follow, or an audio show playing in the background. A plan that reaches them in a second year has to work across all of those, not only the wire and the inbox.</p>
+    <p>So every activation is chosen to do one of two jobs, extend <strong>media reach</strong> or deepen <strong>narrative penetration</strong>, and the mix now runs from earned media and owned articles to produced video and social content, a Gallup podcast feature, and a joint creator-partnership effort with the Foundation. The content that travels furthest does more than report a number; it puts a face, a voice, or a human perspective on a finding and gives people a way to see their own role in the story, which is exactly the participation-and-voice thread the study surfaces. Sequenced across the year, each moment is timed so the story re-enters the conversation with a fresh angle rather than repeating itself, keeping the Foundation present in the weeks between the set-piece moments and not only at launch.</p>
+    <p>Several of these moments also create natural openings for grantee and community voices, if the Foundation chooses to use them, built into the sequence rather than bolted on. The launch event, the spokesperson, a mid-year convening, and a Gallup podcast feature are all designed to put a Foundation or grantee voice next to the data at the moment it is drawing attention. The plan below is Gallup's recommended sequence; adjust it to see how the balance of reach and depth changes across the year.</p>
+  </div>
+
+  <div class="reveal">
+    <div class="planner-spine">
+      <div class="psp start"><span class="psp-when">Launch &middot; Spring 2027</span><span class="psp-what">The report lands and takes the news cycle</span></div>
+      <div class="psp"><span class="psp-when">Sustain &middot; Summer</span><span class="psp-what">Keep the findings visible between moments</span></div>
+      <div class="psp"><span class="psp-when">Deepen &middot; Fall</span><span class="psp-what">Re-enter the conversation with new angles</span></div>
+      <div class="psp"><span class="psp-when">Next field &middot; Winter 2028</span><span class="psp-what">Carry momentum into the following wave</span></div>
+    </div>
+
+    <div class="planner-legend">
+      <span><span class="leg-sw reach"></span> Media reach</span>
+      <span><span class="leg-sw depth"></span> Narrative depth</span>
+      <span><span class="leg-ring"></span> Opens a grantee-voice moment</span>
+    </div>
+
+    <div class="act-grid2" id="plannerCards"></div>
+
+    <div class="planner-readout" id="plannerReadout"></div>
+  </div>
+</section>
+
+<!-- SECTION 5: CADENCE -->
+<section class="section" id="cadence">
+  <div class="section-head reveal">
+    <span class="eyebrow">The annual rhythm</span>
+    <h2 class="section-title">Fielded in the same season, so the trend stays clean</h2>
+    <p class="section-subtitle">Year Two follows the same schedule as Year One, which fielded in late winter and launched in the spring.</p>
+  </div>
+  <div class="timeline-steps reveal">
+    <div class="tl-step">
+      <div class="tl-time">Fall 2026</div>
+      <div class="tl-track"><div class="tl-dot accent"></div><div class="tl-line"></div></div>
+      <div class="tl-content"><div class="tl-title accent">Design and alignment</div><div class="tl-desc">A working session to set the year's storylines and the analysis plan, and to agree the anchor questions to carry forward and the priorities to deepen.</div></div>
+    </div>
+    <div class="tl-step">
+      <div class="tl-time">Winter 2026&ndash;27</div>
+      <div class="tl-track"><div class="tl-dot"></div><div class="tl-line"></div></div>
+      <div class="tl-content"><div class="tl-title">Instrument and testing</div><div class="tl-desc">Finalize the instrument and test comprehension and clarity through cognitive interviews before fielding.</div></div>
+    </div>
+    <div class="tl-step">
+      <div class="tl-time">Late winter 2027</div>
+      <div class="tl-track"><div class="tl-dot"></div><div class="tl-line"></div></div>
+      <div class="tl-content"><div class="tl-title">Field, same season as Year One</div><div class="tl-desc">Survey a national sample of U.S. adults on the probability-based Gallup Panel in the same window as Year One, following a sampling design built with the Foundation to reach the audiences most important to the research, then clean and weight the data to the U.S. adult population.</div></div>
+    </div>
+    <div class="tl-step">
+      <div class="tl-time">Spring 2027</div>
+      <div class="tl-track"><div class="tl-dot"></div><div class="tl-line"></div></div>
+      <div class="tl-content"><div class="tl-title">Analysis and flagship report</div><div class="tl-desc">Trend analysis on the anchor questions and depth analysis on the new content, published as one comprehensive annual report with a companion Gallup.com article.</div></div>
+    </div>
+    <div class="tl-step">
+      <div class="tl-time">Through 2027</div>
+      <div class="tl-track"><div class="tl-dot"></div><div class="tl-line"></div></div>
+      <div class="tl-content"><div class="tl-title">Activations across the year</div><div class="tl-desc">A sequenced set of activations sustains visibility from launch to the next field window, keeping the Foundation's voice active in the opportunity conversation.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 6: SCOPE BUILDER -->
+<section class="section scope-section" id="scope">
+  <div class="section-head reveal">
+    <span class="eyebrow">Build the Year Two scope</span>
+    <h2 class="section-title">A defined program, with room to add reach and depth</h2>
+    <p class="section-subtitle">The core carries the study, the flagship report, and the communications that make it land, set consistent with the Year One program. The total below reflects the communications sequence you set above, plus any research you add here. Everything optional is illustrative and set with the Foundation.</p>
+  </div>
+
+  <div class="scope-grid">
+    <div>
+      <div class="core-card reveal">
+        <div class="core-top">
+          <div>
+            <div class="lbl">Included &middot; always in scope</div>
+            <h4>Year Two Core Program</h4>
+          </div>
+          <div class="cprice">$671,251</div>
+        </div>
+        <ul class="core-inc">
+          <li><strong>Annual survey</strong> of a national sample of U.S. adults on the probability-based Gallup Panel, fielded in the same season as Year One</li>
+          <li><strong>A sampling design</strong> built with the Foundation to reach the demographic audiences most important to the research</li>
+          <li><strong>Instrument design and cognitive testing</strong></li>
+          <li><strong>Data cleaning, weighting, and analysis</strong> across income, age, and place</li>
+          <li><strong>One comprehensive annual report</strong> and a companion Gallup.com article</li>
+          <li><strong>Strategic communications and media amplification</strong>, including a target media list and direct pitching</li>
+        </ul>
+      </div>
+
+      <div class="cfg-block reveal">
+        <div class="cfg-block-label">Sampling design</div>
+        <div class="cfg-block-sub">Included in the core, shaped with the Foundation.</div>
+        <div class="sampling-note">The base program includes a sampling plan built to reach the demographic audiences most important to the research. If the Foundation wants to guarantee robust, separately reportable findings for a specific community or group, we will scope any additional oversample together as part of that design.</div>
+      </div>
+
+      <div class="cfg-block reveal">
+        <div class="cfg-block-label">Deeper research</div>
+        <div class="cfg-block-sub">Optional additions, each with a distinct job and priced on its own.</div>
+        <div id="researchList"></div>
+      </div>
+    </div>
+
+    <div>
+      <div class="rail reveal">
+        <div class="rail-head">
+          <h3>Your Year Two program</h3>
+          <p>Core, plus your selections</p>
+        </div>
+        <div class="rail-body" id="railBody"></div>
+        <div class="rail-total">
+          <span class="rail-total-l">Program total</span>
+          <span class="rail-total-v" id="railTotal">$671,251</span>
+        </div>
+        <div class="rail-actions">
+          <button class="ra-pdf" onclick="exportPDF()"><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>Export</button>
+          <button class="ra-email" onclick="openEmailModal()"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/></svg>Email</button>
+        </div>
+        <div class="rail-note">The core is set consistent with the Year One program. Optional components are illustrative and finalized together in scoping.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY GALLUP -->
+<section class="gallup-black">
+  <div class="gallup-black-inner reveal">
+    <span class="eyebrow">Why Gallup</span>
+    <h2>A probability-based panel and a national platform, repeated year after year</h2>
+    <p class="lead">The credibility of this work rests on how the data is gathered and where it is released. The Gallup Panel is the largest probability-based panel in the United States, recruited by random digit dialing and address-based sampling rather than opt-in, which is what lets the findings represent the country rather than the people who happened to respond. When the Foundation publishes, the work goes out through Gallup's news service, a Google News registered destination that national media cite regularly. Year One's findings were picked up across national and regional media. Fielded on the same schedule, the study becomes the record of how opportunity in America changes over the life of the Foundation's strategic plan.</p>
+    <div class="big-stats">
+      <div class="big-stat"><div class="n">100,000+</div><div class="l">U.S. adults in the probability-based Gallup Panel</div></div>
+      <div class="big-stat"><div class="n">Since 2004</div><div class="l">the largest probability-based panel in the country</div></div>
+      <div class="big-stat"><div class="n">&plusmn;1.5 pts</div><div class="l">national margin of sampling error in Year One</div></div>
+    </div>
+    <p class="gallup-close">Opportunity has a national measure. Year Two makes it a <strong>national record</strong>, and keeps the Foundation at the center of the conversation it began.</p>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="mark-gallup">Gallup<sup>&reg;</sup></div>
+  <div>Prepared for the Walton Family Foundation &middot; Opportunity Study, Year Two<br>
+  Justin Lall, Principal &middot; 444 W Lake Street, Chicago, IL 60601 &middot; Justin_Lall@gallup.com<br>
+  Copyright &copy; 2026 Gallup, Inc. All rights reserved. Confidential and proprietary.</div>
+</footer>
+
+<!-- DRAWER -->
+<div class="drawer-overlay" id="drawerOverlay" onclick="closeDrawer()"></div>
+<aside class="drawer" id="drawer" aria-label="Scope and investment summary">
+  <div class="drawer-header"><h2>Year Two scope</h2><button class="icon-btn" onclick="closeDrawer()" aria-label="Close"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="5" x2="15" y2="15"/><line x1="15" y1="5" x2="5" y2="15"/></svg></button></div>
+  <div class="drawer-body" id="drawerBody"></div>
+  <div class="drawer-grand">
+    <span class="drawer-grand-l">Program total</span>
+    <span class="drawer-grand-v" id="drawerTotal">$671,251</span>
+  </div>
+  <div class="drawer-actions">
+    <button class="btn-d-pdf" onclick="exportPDF()"><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>Export PDF</button>
+    <button class="btn-d-email" onclick="openEmailModal()"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/></svg>Email to Gallup</button>
+  </div>
+  <div class="drawer-note">The core is set consistent with the Year One program. Optional components are illustrative and finalized in scoping.</div>
+</aside>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="emailModal">
+  <div class="modal">
+    <div class="modal-header"><h3>Email selections to Gallup</h3><button class="icon-btn" onclick="closeEmailModal()" aria-label="Close"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="5" x2="15" y2="15"/><line x1="15" y1="5" x2="5" y2="15"/></svg></button></div>
+    <div class="modal-body">
+      <label for="emailName">Your name (optional)</label>
+      <input type="text" id="emailName" placeholder="Name">
+      <label for="emailNotes">Notes for Gallup (optional)</label>
+      <textarea id="emailNotes" placeholder="Anything you would like to flag or ask about"></textarea>
+      <label>Summary preview</label>
+      <div class="mpreview" id="emailPreview"></div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn-m-cancel" onclick="closeEmailModal()">Cancel</button>
+      <button class="btn-m-send" onclick="sendEmail()">Open in email client</button>
+    </div>
+  </div>
+</div>
+
+<script>
+var CORE = { name: 'Year Two Core Program', price: 671251 };
+
+var COMMS = [
+  { id: 'launch',       name: 'Public launch event',                       price: 65000, phase: 'Launch',          job: 'reach', grantee: true,  recommended: true,  edge: false, impact: 'A launch event in Washington, D.C. concentrates national press in one place on one day, and puts Foundation and grantee voices on a live stage to say what the findings mean before anyone else frames it for them.' },
+  { id: 'spokesperson', name: 'Spokesperson development and representation', price: 40000, phase: 'Launch, ongoing', job: 'depth', grantee: true,  recommended: true,  edge: false, impact: 'A prepared, media-trained voice, a Foundation leader or a grantee, carries the story through press interviews, podcast and radio appearances, and bylined pieces, and holds the framing steady from launch through every downstream moment, so the narrative stays coherent instead of drifting outlet to outlet.' },
+  { id: 'deck',         name: 'Executive briefing deck',                    price: 25000, phase: 'Launch',          job: 'depth', grantee: false, recommended: false, edge: false, impact: 'A presentation-ready deck that equips Foundation leadership and grantees to carry the findings into rooms the report will never enter, meetings with partners, funders, and policymakers, so the narrative travels through relationships as well as the press.' },
+  { id: 'social',       name: 'Social media amplification',                 price: 35000, phase: 'Sustain',         job: 'reach', grantee: false, recommended: true,  edge: false, impact: 'Always-on management of Gallup\'s owned channels plus paid amplification, so the report, the articles, and the video and static assets reach well beyond an organic post and stay in front of the right audiences in the weeks between the bigger set-piece moments.' },
+  { id: 'video',        name: 'Social video content',                      price: 22000, phase: 'Sustain',         job: 'reach', grantee: true,  recommended: false, edge: false, impact: 'Short-form vertical video built for the way people actually watch. A Gallup researcher, or a Foundation or grantee voice, explains a finding straight to camera, and a reel that builds from a question to a payoff line is cut into individual clips for a carousel the Foundation and its grantees can post across platforms. These formats put a face and a voice on the data instead of a chart, which is what gets watched and shared.' },
+  { id: 'static',       name: 'Static social content',                     price: 12000, phase: 'Sustain',         job: 'reach', grantee: false, recommended: false, edge: false, impact: 'Text-forward carousels and data cards that carry the story rather than only the numbers. Designed graphics put a finding, or a short human perspective, on screen in the Foundation\'s voice, built to travel in a feed and to double as a self-serve kit grantees can post alongside the Foundation. Perspectives can be gathered from grantees and community members with a simple open-ended prompt, so real voices sit next to the data.' },
+  { id: 'articles',     name: 'Additional Gallup.com articles',            price: 54000, phase: 'Sustain to Deepen', job: 'depth', grantee: false, recommended: true,  edge: false, impact: 'A quarterly drip of further articles, each taking a single finding, schools, housing, agency by age, and giving it a full treatment on a fresh news hook. Each one re-enters the cycle on its own terms, deepens a specific storyline, and keeps the study in the conversation between the bigger moments.' },
+  { id: 'podfeat',      name: 'Gallup podcast feature',                    price: 8500,  phase: 'Deepen',          job: 'depth', grantee: true,  recommended: false, edge: false, impact: 'A dedicated segment on the official Gallup Podcast spotlighting the findings, reaching Gallup\'s established audience of researchers, policymakers, and business leaders on Apple, Spotify, and the major directories. It is a natural, unhurried setting to bring a Foundation or grantee voice in to tell the story behind the numbers.' },
+  { id: 'convening',    name: 'Expert roundtable or convening',            price: 35000, phase: 'Deepen',          job: 'depth', grantee: true,  recommended: true,  edge: false, impact: 'A moderated roundtable that turns the findings into a forward-looking conversation about what communities need next, puts grantee and community voices at the table on equal footing with experts, and produces a published summary that becomes a fresh content moment in its own right.' }
+];
+
+var RESEARCH = [
+  { id: 'idi',      name: 'Qualitative companion (30 in-depth interviews)', price: 90000, meta: 'Numbers show the scale of a pattern; interviews show why it holds. Thirty conversations give the report human stories that land with media and stakeholders and surface the lived detail behind the community conditions the survey measures.' },
+  { id: 'regional', name: 'Regional deep-dive analysis',                    price: 48000, meta: 'A focused read on a region of strategic interest, benchmarked against the national picture, so the Foundation can see how opportunity looks where its work is concentrated and localize the story for regional media.' }
+];
+
+var selComms = {};
+var selResearch = {};
+
+function fmt(n){ return '$' + Math.round(n).toLocaleString('en-US'); }
+
+function checkSvg(){ return '<div class="rcheck"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7l3 3 5-5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>'; }
+
+function renderOptions(list, sel, containerId, group){
+  var html = '';
+  for(var i=0;i<list.length;i++){
+    var o = list[i];
+    var on = !!sel[o.id];
+    html += '<div class="opt-row ' + (on?'on':'') + '" id="opt-' + o.id + '" onclick="toggleOpt(\'' + group + '\',\'' + o.id + '\')">'
+      + checkSvg()
+      + '<div class="opt-text"><strong>' + o.name + '</strong><span>' + o.meta + '</span></div>'
+      + '<div class="opt-price">' + fmt(o.price) + '</div></div>';
+  }
+  document.getElementById(containerId).innerHTML = html;
+}
+
+function toggleOpt(group, id){
+  var sel = group === 'comms' ? selComms : selResearch;
+  sel[id] = !sel[id];
+  var row = document.getElementById('opt-' + id);
+  if(row) row.classList.toggle('on', !!sel[id]);
+  recalc();
+}
+
+function selectedFrom(list, sel){
+  var out = [];
+  for(var i=0;i<list.length;i++){ if(sel[list[i].id]) out.push(list[i]); }
+  return out;
+}
+
+function groupTotal(items){ var t = 0; for(var i=0;i<items.length;i++){ t += items[i].price; } return t; }
+
+function jobLabel(j){ return j === 'reach' ? 'Reach' : 'Narrative depth'; }
+function cardCheck(){ return '<div class="act-check"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7l3 3 5-5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>'; }
+
+function renderPlanner(){
+  var html = '';
+  html += '<div class="act-card included">'
+    + '<div class="act-top"><div class="act-name">Companion Gallup.com article</div><span class="inc-badge">In core</span></div>'
+    + '<div class="act-meta"><span class="act-phase">Launch</span><span class="job-tag reach">Reach</span></div>'
+    + '<div class="act-impact">Puts the findings in front of policymakers, journalists, and the public the day the report lands.</div></div>';
+  html += '<div class="act-card included">'
+    + '<div class="act-top"><div class="act-name">Creator and influencer partnerships</div><span class="joint-badge">Joint effort</span></div>'
+    + '<div class="act-meta"><span class="act-phase">Sustain</span><span class="job-tag reach">Reach</span></div>'
+    + '<div class="act-impact">A true joint effort rather than a scoped line item. Gallup and the Foundation would work together end to end, from identifying the right creators to shaping the content strategy to activating, with Gallup lending its network and brand to help open doors in outreach and the Foundation building on the relationships it already has. Creators reach audiences, younger ones especially, who would never open a report, and approached this way it becomes something neither organization would do as well on its own.</div></div>';
+  for(var i=0;i<COMMS.length;i++){
+    var o = COMMS[i];
+    var on = !!selComms[o.id];
+    var grantee = o.grantee ? '<span class="grantee-mark">Grantee voice</span>' : '';
+    var badge = o.edge ? '<span class="new-badge">New this cycle</span>' : '';
+    html += '<div class="act-card ' + (on?'on':'') + '" id="opt-' + o.id + '" onclick="toggleOpt(\'comms\',\'' + o.id + '\')">'
+      + '<div class="act-top"><div class="act-name">' + o.name + '</div><div class="act-top-right">' + badge + cardCheck() + '</div></div>'
+      + '<div class="act-meta"><span class="act-phase">' + o.phase + '</span><span class="job-tag ' + o.job + '">' + jobLabel(o.job) + '</span>' + grantee + '</div>'
+      + '<div class="act-impact">' + o.impact + '</div></div>';
+  }
+  document.getElementById('plannerCards').innerHTML = html;
+}
+
+function updatePlannerReadout(){
+  var el = document.getElementById('plannerReadout');
+  if(!el) return;
+  var items = selectedFrom(COMMS, selComms);
+  var reach = 0, depth = 0, grantee = 0;
+  for(var i=0;i<items.length;i++){ if(items[i].job === 'reach'){ reach++; } else { depth++; } if(items[i].grantee){ grantee++; } }
+  var n = items.length;
+  if(n === 0){
+    el.innerHTML = 'No activations selected. The report and its companion article still launch, but nothing carries the story past the first news cycle. Add moments above to build presence across the year.';
+    return;
+  }
+  var g = grantee > 0 ? (', with <strong>' + grantee + '</strong> that open' + (grantee === 1 ? 's' : '') + ' a grantee-voice moment') : '';
+  el.innerHTML = 'This sequence keeps the Foundation present from launch to the next field window: <strong>' + n + '</strong> activation' + (n === 1 ? '' : 's') + ' beyond the report, <strong>' + reach + '</strong> built for media reach and <strong>' + depth + '</strong> for narrative depth' + g + '.';
+}
+
+function recalc(){
+  var cItems = selectedFrom(COMMS, selComms);
+  var rItems = selectedFrom(RESEARCH, selResearch);
+  var cTot = groupTotal(cItems);
+  var rTot = groupTotal(rItems);
+  var grand = CORE.price + cTot + rTot;
+
+  // rail
+  var h = '';
+  h += '<div class="rail-grp"><div class="rail-line core"><span class="rail-line-name">' + CORE.name + '</span><span class="rail-line-price">' + fmt(CORE.price) + '</span></div></div>';
+
+  h += '<div class="rail-grp"><div class="rail-grp-name">Communications sequence</div>';
+  if(cItems.length === 0){ h += '<div class="rail-empty">No options selected</div>'; }
+  else {
+    for(var i=0;i<cItems.length;i++){ h += '<div class="rail-line"><span class="rail-line-name">' + cItems[i].name + '</span><span class="rail-line-price">' + fmt(cItems[i].price) + '</span></div>'; }
+    h += '<div class="rail-sub"><span>Subtotal</span><span>' + fmt(cTot) + '</span></div>';
+  }
+  h += '</div>';
+
+  h += '<div class="rail-grp"><div class="rail-grp-name">Deeper research</div>';
+  if(rItems.length === 0){ h += '<div class="rail-empty">No options selected</div>'; }
+  else {
+    for(var j=0;j<rItems.length;j++){ h += '<div class="rail-line"><span class="rail-line-name">' + rItems[j].name + '</span><span class="rail-line-price">' + fmt(rItems[j].price) + '</span></div>'; }
+    h += '<div class="rail-sub"><span>Subtotal</span><span>' + fmt(rTot) + '</span></div>';
+  }
+  h += '</div>';
+
+  document.getElementById('railBody').innerHTML = h;
+  document.getElementById('railTotal').textContent = fmt(grand);
+  document.getElementById('drawerTotal').textContent = fmt(grand);
+
+  // drawer
+  var d = '';
+  d += '<div class="dgroup"><div class="dgroup-label">Core program, included</div>'
+    + '<div class="dline"><span class="dline-name">' + CORE.name + '<em>Survey, sampling design, instrument, analysis, one annual report and companion article, and baseline communications</em></span><span class="dline-price">' + fmt(CORE.price) + '</span></div></div>';
+
+  d += '<div class="dgroup"><div class="dgroup-label">Communications sequence</div>';
+  if(cItems.length === 0){ d += '<p class="rail-empty">No options selected.</p>'; }
+  else { for(var k=0;k<cItems.length;k++){ d += dline(cItems[k]); } d += '<div class="dsub"><span>Subtotal</span><span>' + fmt(cTot) + '</span></div>'; }
+  d += '</div>';
+
+  d += '<div class="dgroup"><div class="dgroup-label">Deeper research</div>';
+  if(rItems.length === 0){ d += '<p class="rail-empty">No options selected.</p>'; }
+  else { for(var m=0;m<rItems.length;m++){ d += dline(rItems[m]); } d += '<div class="dsub"><span>Subtotal</span><span>' + fmt(rTot) + '</span></div>'; }
+  d += '</div>';
+
+  document.getElementById('drawerBody').innerHTML = d;
+  updateEmailPreview();
+  updatePlannerReadout();
+}
+
+function dline(o){
+  var desc = o.impact || o.meta || '';
+  return '<div class="dline"><span class="dline-name">' + o.name + '<em>' + desc + '</em></span><span class="dline-price">' + fmt(o.price) + '</span></div>';
+}
+
+/* drawer / modal */
+function openDrawer(){ document.getElementById('drawer').classList.add('open'); document.getElementById('drawerOverlay').classList.add('open'); document.body.style.overflow = 'hidden'; }
+function closeDrawer(){ document.getElementById('drawer').classList.remove('open'); document.getElementById('drawerOverlay').classList.remove('open'); document.body.style.overflow = ''; }
+
+function buildSummaryText(){
+  var cItems = selectedFrom(COMMS, selComms);
+  var rItems = selectedFrom(RESEARCH, selResearch);
+  var cTot = groupTotal(cItems);
+  var rTot = groupTotal(rItems);
+  var grand = CORE.price + cTot + rTot;
+  var L = [];
+  L.push('WALTON FAMILY FOUNDATION OPPORTUNITY STUDY: YEAR TWO');
+  L.push('Scope selections');
+  L.push('');
+  L.push('CORE PROGRAM (included): ' + fmt(CORE.price));
+  L.push('    Annual survey of a national sample of U.S. adults on the probability-based Gallup Panel');
+  L.push('    Sampling design built with the Foundation to reach key audiences');
+  L.push('    Instrument design and cognitive testing');
+  L.push('    Data cleaning, weighting, and analysis');
+  L.push('    One comprehensive annual report and companion Gallup.com article');
+  L.push('    Strategic communications and media amplification');
+  L.push('');
+  L.push('COMMUNICATIONS SEQUENCE');
+  if(cItems.length === 0){ L.push('    None selected'); }
+  else { for(var i=0;i<cItems.length;i++){ L.push('    ' + cItems[i].name + ': ' + fmt(cItems[i].price)); } L.push('    Subtotal: ' + fmt(cTot)); }
+  L.push('');
+  L.push('DEEPER RESEARCH');
+  if(rItems.length === 0){ L.push('    None selected'); }
+  else { for(var j=0;j<rItems.length;j++){ L.push('    ' + rItems[j].name + ': ' + fmt(rItems[j].price)); } L.push('    Subtotal: ' + fmt(rTot)); }
+  L.push('');
+  L.push('PROGRAM TOTAL: ' + fmt(grand));
+  L.push('');
+  L.push('The core is set consistent with the Year One program. Optional components are illustrative and finalized together in scoping.');
+  return L.join('\n');
+}
+
+function updateEmailPreview(){
+  var el = document.getElementById('emailPreview');
+  if(el) el.textContent = buildSummaryText();
+}
+
+function openEmailModal(){ updateEmailPreview(); document.getElementById('emailModal').classList.add('open'); }
+function closeEmailModal(){ document.getElementById('emailModal').classList.remove('open'); }
+
+function sendEmail(){
+  var name = document.getElementById('emailName').value || '';
+  var notes = document.getElementById('emailNotes').value || '';
+  var summary = buildSummaryText();
+  var body = (notes ? 'Notes: ' + notes + '\n\n' : '') + summary + (name ? '\n\n' + name : '');
+  var subject = 'Walton Family Foundation Opportunity Study: Year Two scope';
+  window.open('mailto:justin_lall@gallup.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body), '_blank');
+  closeEmailModal();
+}
+
+function exportPDF(){
+  var summary = buildSummaryText();
+  var d = new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+  var html = '<!DOCTYPE html><html><head><title>Walton Family Foundation Opportunity Study: Year Two</title></head>'
+    + '<body style="font-family:Georgia,serif;max-width:700px;margin:40px auto;padding:20px;color:#24272a">'
+    + '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:2rem;padding-bottom:1rem;border-bottom:3px solid #009d4f">'
+    + '<div><strong style="font-size:1.1rem;color:#000">Walton Family Foundation &amp; Gallup</strong><br><span style="font-size:0.85rem;color:#53575a">Opportunity Study: Year Two</span></div>'
+    + '<div style="font-size:0.78rem;color:#878a8b;text-align:right">Scope configuration<br>' + d + '</div></div>'
+    + '<pre style="font-family:Arial,sans-serif;font-size:0.86rem;line-height:1.7;white-space:pre-wrap;color:#24272a">' + summary + '</pre>'
+    + '<div style="margin-top:2rem;font-size:0.72rem;color:#878a8b;border-top:1px solid #cfd2d3;padding-top:1rem">The core is set consistent with the Year One program. Optional components are illustrative and finalized in scoping.<br>Copyright &copy; 2026 Gallup, Inc. All rights reserved. Confidential and proprietary.</div>'
+    + '<scr' + 'ipt>window.onload=function(){window.print();}</scr' + 'ipt></body></html>';
+  var w = window.open('', '_blank');
+  w.document.write(html); w.document.close();
+}
+
+/* reveal */
+(function(){
+  var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var els = document.querySelectorAll('.reveal');
+  if(reduced || !('IntersectionObserver' in window)){
+    for(var i=0;i<els.length;i++){ els[i].classList.add('in'); }
+  } else {
+    var io = new IntersectionObserver(function(entries){
+      for(var j=0;j<entries.length;j++){ if(entries[j].isIntersecting){ entries[j].target.classList.add('in'); io.unobserve(entries[j].target); } }
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+    for(var k=0;k<els.length;k++){ io.observe(els[k]); }
+  }
+})();
+
+for(var ci=0; ci<COMMS.length; ci++){ if(COMMS[ci].recommended){ selComms[COMMS[ci].id] = true; } }
+renderPlanner();
+renderOptions(RESEARCH, selResearch, 'researchList', 'research');
+recalc();
+</script>
+</body>
+</html>
