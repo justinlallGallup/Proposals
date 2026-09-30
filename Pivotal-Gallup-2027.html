@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pivotal &amp; Gallup: Going Deeper on Women&#8217;s Health and Power</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..800;1,400..600&amp;family=Source+Sans+3:ital,wght@0,300..700;1,400..600&amp;display=swap" rel="stylesheet">
+<style>
+:root{
+  --pv-coral:#d1603d;
+  --pv-coral-deep:#b64c2c;
+  --pv-green:#4a6741;
+  --pv-green-soft:#6d8a5f;
+  --pv-ink:#2a2a2a;
+  --pv-ink-soft:#57534e;
+  --pv-warm-gray:#6b6560;
+  --pv-ivory:#faf7f2;
+  --pv-ivory-deep:#f2ece2;
+  --pv-border:#e0ddd7;
+  --pv-border-light:#ebe7e0;
+  --pv-white:#ffffff;
+  --font-display:"Playfair Display",Georgia,serif;
+  --font-body:"Source Sans 3","Segoe UI",Arial,sans-serif;
+  --radius:14px;
+  --radius-sm:10px;
+  --shadow-soft:0 1px 2px rgba(42,42,42,0.04),0 8px 24px rgba(42,42,42,0.06);
+  --maxw:1140px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--font-body);
+  color:var(--pv-ink);
+  background:var(--pv-ivory);
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+  font-size:17px;
+}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 2rem}
+
+/* header */
+.site-header{position:sticky;top:0;z-index:50;background:rgba(250,247,242,0.86);backdrop-filter:saturate(180%) blur(10px);border-bottom:1px solid var(--pv-border)}
+.header-inner{max-width:var(--maxw);margin:0 auto;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;gap:1rem}
+.logo-group{display:flex;align-items:center;gap:0.85rem}
+.logo-pivotal{font-family:var(--font-display);font-size:1.4rem;font-weight:600;color:var(--pv-coral);letter-spacing:-0.01em}
+.logo-divider{width:1px;height:22px;background:var(--pv-border)}
+.logo-gallup{font-family:Georgia,serif;font-size:1.32rem;color:var(--pv-ink);letter-spacing:0.02em}
+.header-tag{font-size:0.82rem;color:var(--pv-warm-gray)}
+@media(max-width:720px){.header-tag{display:none}}
+
+/* hero */
+.hero{padding:5rem 0 3.5rem;border-bottom:1px solid var(--pv-border)}
+.hero-kicker{font-size:0.95rem;color:var(--pv-coral);font-weight:600;margin-bottom:1.1rem}
+.hero h1{font-family:var(--font-display);font-weight:500;font-size:clamp(2.3rem,5vw,3.6rem);line-height:1.08;letter-spacing:-0.015em;max-width:16ch}
+.hero h1 em{font-style:italic;color:var(--pv-coral)}
+.hero-lede{margin-top:1.6rem;font-size:1.2rem;color:var(--pv-ink-soft);max-width:60ch;line-height:1.6}
+.hero-note{margin-top:1.8rem;font-size:0.98rem;color:var(--pv-warm-gray);max-width:62ch}
+
+/* section framing */
+.section{padding:3.5rem 0}
+.section-head{max-width:70ch}
+.eyebrow{font-size:0.9rem;font-weight:600;color:var(--pv-green);margin-bottom:0.7rem}
+.section-title{font-family:var(--font-display);font-weight:500;font-size:clamp(1.7rem,3.3vw,2.3rem);line-height:1.15;letter-spacing:-0.01em}
+.section-intro{margin-top:1rem;font-size:1.08rem;color:var(--pv-ink-soft);max-width:64ch}
+
+.year-one{background:var(--pv-ivory-deep);border-top:1px solid var(--pv-border);border-bottom:1px solid var(--pv-border)}
+.year-one-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:2.5rem;align-items:start}
+.year-one-grid p{color:var(--pv-ink-soft)}
+.year-one-grid p + p{margin-top:1rem}
+.recap-list{list-style:none;background:var(--pv-white);border:1px solid var(--pv-border);border-radius:var(--radius);padding:1.6rem 1.7rem}
+.recap-list li{position:relative;padding-left:1.5rem;font-size:0.98rem;color:var(--pv-ink-soft)}
+.recap-list li + li{margin-top:0.75rem}
+.recap-list li::before{content:"";position:absolute;left:0;top:0.6em;width:7px;height:7px;border-radius:50%;background:var(--pv-green-soft)}
+.recap-title{font-family:var(--font-display);font-size:1.15rem;color:var(--pv-ink);margin-bottom:1rem}
+.momentum{margin-top:2rem;background:var(--pv-white);border:1px solid var(--pv-border);border-left:3px solid var(--pv-coral);border-radius:0 var(--radius-sm) var(--radius-sm) 0;padding:1.3rem 1.5rem}
+.momentum .mom-label{font-size:0.82rem;font-weight:700;letter-spacing:0.04em;color:var(--pv-coral);margin-bottom:0.5rem}
+.momentum p{font-size:1rem;color:var(--pv-ink-soft);line-height:1.6;max-width:78ch}
+.mom-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem;margin:1.4rem 0}
+.mom-stat{background:var(--pv-ivory);border:1px solid var(--pv-border-light);border-radius:var(--radius-sm);padding:1.1rem 1.2rem}
+.mom-stat-num{font-family:var(--font-display);font-size:1.95rem;color:var(--pv-coral);line-height:1;margin-bottom:0.45rem}
+.mom-stat-desc{font-size:0.9rem;color:var(--pv-ink-soft);line-height:1.45}
+.mom-rationale{margin-top:0.4rem}
+@media(max-width:640px){.mom-stats{grid-template-columns:1fr}}
+@media(max-width:820px){.year-one-grid{grid-template-columns:1fr;gap:1.6rem}}
+
+/* themes drill-down */
+.themes{display:flex;flex-direction:column;gap:1.25rem;margin-top:2.5rem}
+.theme{background:var(--pv-white);border:1px solid var(--pv-border);border-radius:var(--radius);box-shadow:var(--shadow-soft);overflow:hidden;transition:border-color 0.25s ease}
+.theme.primary{border-color:var(--pv-coral);border-width:1.5px}
+.theme-head{width:100%;text-align:left;background:none;border:none;cursor:pointer;padding:1.6rem 1.8rem;display:flex;align-items:flex-start;gap:1.3rem;font-family:inherit}
+.theme-head:focus-visible{outline:2px solid var(--pv-coral);outline-offset:-3px}
+.theme-index{flex-shrink:0;width:2.7rem;height:2.7rem;border-radius:50%;display:flex;align-items:center;justify-content:center;background:var(--pv-ivory-deep);color:var(--pv-green);font-family:var(--font-display);font-size:1.15rem;margin-top:0.15rem}
+.theme.primary .theme-index{background:var(--pv-coral);color:#fff}
+.theme-headings{flex:1;min-width:0}
+.theme-flag{display:inline-block;font-size:0.72rem;font-weight:700;letter-spacing:0.06em;color:var(--pv-coral);border:1px solid var(--pv-coral);border-radius:100px;padding:0.15rem 0.6rem;margin-bottom:0.6rem}
+.theme-name{font-family:var(--font-display);font-size:1.5rem;font-weight:500;color:var(--pv-ink);line-height:1.15}
+.theme-teaser{margin-top:0.5rem;font-size:1rem;color:var(--pv-warm-gray);max-width:60ch}
+.theme-toggle{flex-shrink:0;width:2rem;height:2rem;position:relative;margin-top:0.4rem}
+.theme-toggle::before,.theme-toggle::after{content:"";position:absolute;background:var(--pv-coral);border-radius:2px;transition:transform 0.28s ease,opacity 0.28s ease}
+.theme-toggle::before{top:50%;left:0.25rem;right:0.25rem;height:2.5px;transform:translateY(-50%)}
+.theme-toggle::after{left:50%;top:0.25rem;bottom:0.25rem;width:2.5px;transform:translateX(-50%)}
+.theme[open] .theme-toggle::after{transform:translateX(-50%) scaleY(0);opacity:0}
+
+.theme-body{border-top:1px solid var(--pv-border-light);padding:0 1.8rem;max-height:0;overflow:hidden}
+.theme[open] .theme-body{padding:1.7rem 1.8rem 1.9rem}
+.theme-context{font-size:1.02rem;color:var(--pv-ink-soft);max-width:66ch;margin-bottom:1.6rem}
+.pathways-label{font-size:0.86rem;font-weight:600;color:var(--pv-green);margin-bottom:0.9rem}
+
+/* pathway cards */
+.pathways{display:flex;flex-direction:column;gap:0.9rem}
+.pathway{border:1px solid var(--pv-border);border-radius:var(--radius-sm);background:var(--pv-ivory);overflow:hidden}
+.pathway-head{width:100%;text-align:left;background:none;border:none;cursor:pointer;padding:1.15rem 1.35rem;display:flex;align-items:center;gap:1rem;font-family:inherit}
+.pathway-head:focus-visible{outline:2px solid var(--pv-green);outline-offset:-3px}
+.pathway-marker{flex-shrink:0;font-size:0.78rem;font-weight:700;color:var(--pv-green);background:var(--pv-white);border:1px solid var(--pv-border);border-radius:6px;padding:0.25rem 0.55rem;letter-spacing:0.03em}
+.pathway-titles{flex:1;min-width:0}
+.pathway-name{font-size:1.12rem;font-weight:600;color:var(--pv-ink);line-height:1.25}
+.pathway-sub{font-size:0.92rem;color:var(--pv-warm-gray);margin-top:0.15rem}
+.pathway-range{flex-shrink:0;text-align:right;font-family:var(--font-display);font-size:1.05rem;color:var(--pv-coral);white-space:nowrap}
+.pathway-range small{display:block;font-family:var(--font-body);font-size:0.68rem;color:var(--pv-warm-gray);font-weight:600;letter-spacing:0.04em;margin-top:0.1rem}
+.pw-toggle{flex-shrink:0;width:1.5rem;height:1.5rem;position:relative}
+.pw-toggle::before,.pw-toggle::after{content:"";position:absolute;background:var(--pv-green-soft);border-radius:2px;transition:transform 0.26s ease,opacity 0.26s ease}
+.pw-toggle::before{top:50%;left:0.15rem;right:0.15rem;height:2.2px;transform:translateY(-50%)}
+.pw-toggle::after{left:50%;top:0.15rem;bottom:0.15rem;width:2.2px;transform:translateX(-50%)}
+.pathway[open] .pw-toggle::after{transform:translateX(-50%) scaleY(0);opacity:0}
+@media(max-width:640px){.pathway-range{display:none}}
+
+.pathway-detail{border-top:1px solid var(--pv-border);max-height:0;overflow:hidden;background:var(--pv-white)}
+.pathway[open] .pathway-detail{padding:1.5rem 1.5rem 1.7rem}
+.detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.6rem 2.2rem}
+.detail-block h4{font-size:0.82rem;font-weight:700;letter-spacing:0.04em;color:var(--pv-green);margin-bottom:0.7rem}
+.detail-block ul{list-style:none}
+.detail-block li{position:relative;padding-left:1.3rem;font-size:0.96rem;color:var(--pv-ink-soft);line-height:1.5}
+.detail-block li + li{margin-top:0.6rem}
+.detail-block li::before{content:"";position:absolute;left:0;top:0.55em;width:6px;height:6px;border-radius:50%;background:var(--pv-coral)}
+.detail-flow{grid-column:1 / -1;border-top:1px solid var(--pv-border-light);padding-top:1.3rem}
+.flow-steps{display:flex;flex-wrap:wrap;gap:0.55rem;margin-top:0.4rem}
+.flow-step{display:flex;align-items:center;gap:0.5rem;font-size:0.9rem;color:var(--pv-ink-soft);background:var(--pv-ivory-deep);border-radius:100px;padding:0.4rem 0.9rem}
+.flow-step b{font-family:var(--font-display);color:var(--pv-green);font-weight:600;font-size:0.85rem}
+.detail-range{grid-column:1 / -1;display:flex;flex-wrap:wrap;align-items:baseline;gap:0.6rem 1rem;border-top:1px solid var(--pv-border-light);padding-top:1.3rem;margin-top:0.2rem}
+.detail-range .rng{font-family:var(--font-display);font-size:1.5rem;color:var(--pv-coral)}
+.detail-range .rng-label{font-size:0.85rem;font-weight:600;color:var(--pv-green)}
+.detail-range .rng-note{font-size:0.85rem;color:var(--pv-warm-gray);flex-basis:100%}
+@media(max-width:640px){.detail-grid{grid-template-columns:1fr;gap:1.3rem}}
+
+/* sensitive note */
+.sensitive-note{grid-column:1 / -1;background:var(--pv-ivory-deep);border-left:3px solid var(--pv-green-soft);border-radius:0 var(--radius-sm) var(--radius-sm) 0;padding:0.9rem 1.1rem;font-size:0.9rem;color:var(--pv-ink-soft)}
+.work-examples{grid-column:1 / -1;border-top:1px solid var(--pv-border-light);padding-top:1.3rem}
+.work-examples h4{font-size:0.82rem;font-weight:700;letter-spacing:0.04em;color:var(--pv-green);margin-bottom:0.6rem}
+.work-examples p{font-size:0.94rem;color:var(--pv-ink-soft);margin-bottom:0.7rem}
+.work-examples ul{list-style:none}
+.work-examples li{position:relative;padding-left:1.3rem;margin-bottom:0.5rem;font-size:0.96rem;line-height:1.45}
+.work-examples li::before{content:"";position:absolute;left:0;top:0.55em;width:6px;height:6px;border-radius:50%;background:var(--pv-coral)}
+.work-examples a{color:var(--pv-coral-deep);text-decoration:none;border-bottom:1px solid rgba(182,76,44,0.3)}
+.work-examples a:hover{border-bottom-color:var(--pv-coral-deep)}
+
+/* proceed */
+.proceed{background:var(--pv-ink);color:#e9e4dc}
+.proceed .eyebrow{color:var(--pv-coral)}
+.proceed .section-title{color:#fff}
+.proceed .section-intro{color:#cfc9c0}
+.proceed-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;margin-top:2.2rem}
+.proceed-card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.12);border-radius:var(--radius);padding:1.5rem}
+.proceed-card .pc-step{font-family:var(--font-display);font-size:1.05rem;color:var(--pv-coral);margin-bottom:0.6rem}
+.proceed-card h4{font-size:1.08rem;color:#fff;margin-bottom:0.5rem}
+.proceed-card p{font-size:0.94rem;color:#c7c1b8;line-height:1.55}
+.comms-close{margin-top:2.6rem;border:1px solid rgba(255,255,255,0.14);border-radius:var(--radius);padding:2rem 2.1rem;background:rgba(255,255,255,0.03)}
+.comms-close .cc-eyebrow{font-size:0.86rem;font-weight:600;color:var(--pv-coral);margin-bottom:0.7rem}
+.comms-close h3{font-family:var(--font-display);font-weight:500;font-size:1.5rem;color:#fff;line-height:1.2;max-width:24ch}
+.comms-close .cc-lede{margin-top:0.9rem;font-size:1.02rem;color:#cfc9c0;max-width:66ch;line-height:1.6}
+.comms-list{display:grid;grid-template-columns:1fr 1fr;gap:1rem 2.4rem;margin-top:1.7rem}
+.comms-list .cc-item{position:relative;padding-left:1.4rem;font-size:0.96rem;color:#c7c1b8;line-height:1.5}
+.comms-list .cc-item::before{content:"";position:absolute;left:0;top:0.55em;width:7px;height:7px;border-radius:50%;background:var(--pv-coral)}
+.comms-list .cc-item b{color:#fff;font-weight:600}
+.comms-close .cc-foot{margin-top:1.7rem;padding-top:1.4rem;border-top:1px solid rgba(255,255,255,0.12);font-size:0.98rem;color:#cfc9c0;line-height:1.6}
+@media(max-width:640px){.comms-list{grid-template-columns:1fr;gap:0.85rem}}
+@media(max-width:820px){.proceed-grid{grid-template-columns:1fr}}
+
+/* footer */
+.site-footer{max-width:var(--maxw);margin:0 auto;padding:2.6rem 2rem;display:flex;justify-content:space-between;align-items:flex-start;gap:1.5rem;flex-wrap:wrap}
+.footer-left{font-size:0.86rem;color:var(--pv-warm-gray);line-height:1.6;max-width:52ch}
+.footer-left strong{color:var(--pv-ink)}
+.footer-right{font-size:0.8rem;color:var(--pv-warm-gray)}
+
+/* reveal */
+.reveal{opacity:0;transform:translateY(14px)}
+.reveal.in{opacity:1;transform:none;transition:opacity 0.6s ease,transform 0.6s ease}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .reveal{opacity:1;transform:none;transition:none}
+  .theme-body,.pathway-detail,.theme-toggle::before,.theme-toggle::after,.pw-toggle::before,.pw-toggle::after{transition:none}
+}
+
+/* print */
+@media print{
+  .site-header,.theme-toggle,.pw-toggle,.proceed-card{box-shadow:none}
+  body{background:#fff;font-size:12px}
+  .theme-body,.pathway-detail{max-height:none !important;padding:1rem !important;overflow:visible !important}
+  .theme,.pathway{break-inside:avoid;box-shadow:none}
+  .proceed{background:#fff;color:#000}
+  .proceed .section-title,.proceed-card h4{color:#000}
+  .reveal{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <div class="logo-group">
+      <span class="logo-pivotal">Pivotal</span>
+      <span class="logo-divider"></span>
+      <span class="logo-gallup">Gallup</span>
+    </div>
+    <span class="header-tag">Going Deeper Together</span>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-kicker reveal">Continuing the Partnership</div>
+    <h1 class="reveal">Where the Work on Women&#8217;s Health and <em>Power</em> Goes Next</h1>
+    <p class="hero-lede reveal">The Gallup-Pivotal Women&#8217;s Health Survey established the connection at a national scale, across a wide range of topics. It also surfaced the questions a broad study can raise but not answer. These directions follow those questions in depth, into the places the data pointed.</p>
+    <p class="hero-note reveal">What follows is a set of directions rather than a fixed scope. Open any theme to see the project ideas within it, then open a pathway to see an illustrative shape, how it would run, and a planning-level investment range. Every direction is designed to be scoped collaboratively with the Pivotal team.</p>
+  </div>
+</section>
+
+<!-- FOUNDATION -->
+<section class="section year-one">
+  <div class="wrap">
+    <div class="year-one-grid">
+      <div class="section-head">
+        <div class="eyebrow reveal">The Foundation</div>
+        <h2 class="section-title reveal">What the Survey Surfaced</h2>
+        <p class="section-intro reveal">The Gallup-Pivotal Women&#8217;s Health Survey quantified how health shapes the decisions women make about work, family, and public life. It gave the case for investing in women&#8217;s health something it had been missing: national evidence, drawn from a probability sample, that connects a health experience to a life consequence.</p>
+        <p class="reveal" style="margin-top:1rem">That study was built for breadth. It covered a wide set of topics to establish the connection broadly, and in doing so it pointed clearly to where a closer look would pay off. The directions here take those signals and go in depth, one subject at a time, far enough to produce findings that stand on their own and give partners something new to act on.</p>
+      </div>
+      <div class="recap-list reveal">
+        <div class="recap-title">Areas for deeper research</div>
+        <ul>
+          <li>Workplace impacts, from how health reshapes careers to what employers can change</li>
+          <li>The provider experience, including disparities by race and ethnicity</li>
+          <li>Mental health, across life stages and generations</li>
+          <li>Menopause and the midlife working years</li>
+        </ul>
+      </div>
+    </div>
+    <div class="momentum reveal">
+      <div class="mom-label">Building on the first study</div>
+      <p>The Gallup-Pivotal Women&#8217;s Health Survey already gave Pivotal the evidence and the platform. Its findings put national numbers to what had too often been treated as anecdote:</p>
+      <div class="mom-stats">
+        <div class="mom-stat"><div class="mom-stat-num">51%</div><div class="mom-stat-desc">of women report at least one negative experience with a healthcare provider in the past five years, compared with 39% of men</div></div>
+        <div class="mom-stat"><div class="mom-stat-num">42%</div><div class="mom-stat-desc">say their health has negatively affected their work or career in at least one way in the past five years</div></div>
+        <div class="mom-stat"><div class="mom-stat-num">74%</div><div class="mom-stat-desc">of women aged 45 to 54 report current or past symptoms of menopause or perimenopause</div></div>
+      </div>
+      <p class="mom-rationale">The response to those findings is the case for continuing now. Conversations the study has prompted with media point to clear appetite for deeper reporting on women&#8217;s health. The data also holds more than a single release could carry: some findings, including on mental health, were held for timing, a sign both that there is more to say and that how a program is sequenced shapes how far it travels. Building on that momentum, rather than letting it settle, is what turns a strong debut into a lasting position and establishes Pivotal as the definitive voice on women&#8217;s health.</p>
+    </div>
+  </div>
+</section>
+
+<!-- THEMES -->
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow reveal">Four Directions to Go Deeper</div>
+      <h2 class="section-title reveal">Choose the Depth, Not Just the Topic</h2>
+      <p class="section-intro reveal">Each theme carries more than one way to pursue it. A single focused study, an ongoing measurement program, a quantitative deep dive, or a quantitative study paired with the voices behind the numbers. Open a theme to see its pathways.</p>
+    </div>
+
+    <div class="themes">
+
+      <!-- THEME 1: WORKPLACE (PRIMARY) -->
+      <details class="theme primary reveal" open>
+        <summary class="theme-head">
+          <span class="theme-index">1</span>
+          <span class="theme-headings">
+            <span class="theme-flag">Primary recommendation</span>
+            <span class="theme-name">Women, Health, and Power at Work</span>
+            <span class="theme-teaser">The clearest throughline in Pivotal&#8217;s agenda, and the place the survey findings pointed most directly. Go inside the workplace to explain how health reshapes women&#8217;s trajectories, and what employers can change.</span>
+          </span>
+          <span class="theme-toggle" aria-hidden="true"></span>
+        </summary>
+        <div class="theme-body">
+          <p class="theme-context">The survey showed that health causes women to step back. Going deeper asks the harder questions: where in a career it happens, why, and what makes the difference between a woman who stays and advances and one who quietly disengages. The workplace is where women&#8217;s economic power is won or lost, and it is where the evidence can speak most directly to employers, benefits designers, and policymakers. These pathways introduce constructs the flagship survey did not reach, including the hidden work of concealing a condition, the gap between benefits offered and benefits usable, productivity eroded while still on the job, and the role of the direct manager in whether health becomes a career setback.</p>
+          <div class="pathways-label">Two pathways</div>
+          <div class="pathways">
+
+            <details class="pathway">
+              <summary class="pathway-head">
+                <span class="pathway-marker">1A</span>
+                <span class="pathway-titles">
+                  <span class="pathway-name">Standalone Workplace &amp; Health Study</span>
+                  <span class="pathway-sub">A dedicated survey of working women, sized for deep workforce cuts</span>
+                </span>
+                <span class="pathway-range">$300K&#8211;$450K<small>ILLUSTRATIVE</small></span>
+                <span class="pw-toggle" aria-hidden="true"></span>
+              </summary>
+              <div class="pathway-detail">
+                <div class="detail-grid">
+                  <div class="detail-block">
+                    <h4>Illustrative scope</h4>
+                    <ul>
+                      <li>Dedicated survey of working U.S. women via the probability-based Gallup Panel, sized for reliable reporting by industry, occupation and job family, seniority, and life stage</li>
+                      <li>A questionnaire built around the workplace itself: perceived bias and differential treatment, disclosure and concealment of health conditions, awareness and use of accommodations, and confidence to seek advancement</li>
+                      <li>New constructs the first survey did not reach, including presenteeism (capability lost while present, not only days missed) and the manager relationship as a buffer or barrier</li>
+                      <li>Pivotal typing tool questions carried through so the data segments to Pivotal&#8217;s audiences at analysis</li>
+                      <li>Optional working-men reference points on select measures where a contrast sharpens the story</li>
+                    </ul>
+                  </div>
+                  <div class="detail-block">
+                    <h4>Concepts worth reaching for</h4>
+                    <ul>
+                      <li>Lifecycle leak points: mapping health-related step-backs to specific career moments, from early career to the perimenopausal midlife and the caregiving squeeze</li>
+                      <li>The concealment tax: what women do not disclose to managers or HR, and what they fear happens if they do</li>
+                      <li>The benefits reality gap: the distance between benefits on paper and benefits women can actually use</li>
+                      <li>A health-safety climate: whether a workplace feels safe enough to raise a health need at all</li>
+                    </ul>
+                  </div>
+                  <div class="detail-flow">
+                    <h4 style="font-size:0.82rem;font-weight:700;letter-spacing:0.04em;color:var(--pv-green);margin-bottom:0.7rem">How it operates</h4>
+                    <div class="flow-steps">
+                      <span class="flow-step"><b>01</b> Collaborative instrument design</span>
+                      <span class="flow-step"><b>02</b> Cognitive testing</span>
+                      <span class="flow-step"><b>03</b> Fielding via Gallup Panel</span>
+                      <span class="flow-step"><b>04</b> Weighting &amp; crosstabulations</span>
+                      <span class="flow-step"><b>05</b> Analysis of health-to-power mechanisms</span>
+                      <span class="flow-step"><b>06</b> Designed report &amp; headline findings</span>
+                    </div>
+                  </div>
+                  <div class="detail-range">
+                    <span class="rng">$300K&#8211;$450K</span>
+                    <span class="rng-label">illustrative planning range</span>
+                    <span class="rng-note">Range moves with sample size, questionnaire length, whether a working-men reference group is included, and reporting depth. Figures are illustrative and for planning conversation only.</span>
+                  </div>
+                </div>
+              </div>
+            </details>
+
+            <details class="pathway">
+              <summary class="pathway-head">
+                <span class="pathway-marker">1B</span>
+                <span class="pathway-titles">
+                  <span class="pathway-name">Workforce Tracking Integration</span>
+                  <span class="pathway-sub">Build on measurement and reporting Gallup already produces on women at work</span>
+                </span>
+                <span class="pathway-range">$175K&#8211;$300K<small>PER YEAR, ILLUSTRATIVE</small></span>
+                <span class="pw-toggle" aria-hidden="true"></span>
+              </summary>
+              <div class="pathway-detail">
+                <div class="detail-grid">
+                  <div class="detail-block">
+                    <h4>Illustrative scope</h4>
+                    <ul>
+                      <li>Women at work is an established, ongoing subject of Gallup research, not new ground; this pathway lets Pivotal shape and amplify work already in the field</li>
+                      <li>Add up to ten Pivotal-defined items to Gallup&#8217;s quarterly measurement of more than 20,000 employed U.S. adults, sized for deep worker-type cuts by job family and level, industry, and sector</li>
+                      <li>Women&#8217;s health items sit alongside outcomes Gallup already tracks, so health can be read against engagement, wellbeing, burnout, and intent to leave</li>
+                      <li>Or co-sponsor the reporting Gallup already produces on women in the workplace, establishing it as a consistent, named topic rather than an occasional one</li>
+                    </ul>
+                  </div>
+                  <div class="detail-block">
+                    <h4>Why this pathway is distinct</h4>
+                    <ul>
+                      <li>It builds on expertise and data Gallup has developed over time, so Pivotal amplifies a proven line of work rather than starting one</li>
+                      <li>Triangulation is the payoff: a women&#8217;s health signal gains weight when it moves in step with engagement or burnout across tens of thousands of workers</li>
+                      <li>Sample depth makes narrow, defensible subgroup claims possible that a one-time survey cannot support</li>
+                      <li>It keeps women&#8217;s workplace health in steady public view between larger studies</li>
+                    </ul>
+                  </div>
+                  <div class="work-examples">
+                    <h4>Reporting already underway</h4>
+                    <p>Recent Gallup reporting on women at work that this pathway would extend and amplify:</p>
+                    <ul>
+                      <li><a href="https://www.gallup.com/workplace/653843/program-culture-women-wellbeing-work.aspx" target="_blank" rel="noopener">More Than a Program: A Culture of Women&#8217;s Wellbeing at Work</a></li>
+                      <li><a href="https://www.gallup.com/workplace/702881/women-show-stronger-employee-engagement-amid-higher-burnout.aspx" target="_blank" rel="noopener">Women Show Stronger Employee Engagement Amid Higher Burnout</a></li>
+                    </ul>
+                  </div>
+                  <div class="detail-flow">
+                    <h4 style="font-size:0.82rem;font-weight:700;letter-spacing:0.04em;color:var(--pv-green);margin-bottom:0.7rem">How it operates</h4>
+                    <div class="flow-steps">
+                      <span class="flow-step"><b>01</b> Define the item battery with Pivotal</span>
+                      <span class="flow-step"><b>02</b> Items join the quarterly instrument</span>
+                      <span class="flow-step"><b>03</b> Each wave: crosstabulations &amp; trend readout</span>
+                      <span class="flow-step"><b>04</b> Periodic synthesis report</span>
+                      <span class="flow-step"><b>05</b> Ongoing public drumbeat</span>
+                    </div>
+                  </div>
+                  <div class="detail-range">
+                    <span class="rng">$175K&#8211;$300K</span>
+                    <span class="rng-label">illustrative annual program range</span>
+                    <span class="rng-note">Range moves with the number of items, cadence, depth of subgroup reporting, and the number of synthesis reports per year. Figures are illustrative and for planning conversation only.</span>
+                  </div>
+                </div>
+              </div>
+            </details>
+
+          </div>
+        </div>
+      </details>
+
+      <!-- THEME 2: PROVIDER EXPERIENCE -->
+      <details class="theme reveal">
+        <summary class="theme-head">
+          <span class="theme-index">2</span>
+          <span class="theme-headings">
+            <span class="theme-name">Inside the Provider Experience</span>
+            <span class="theme-teaser">The survey asked whether care was delayed or dismissed. This goes inside the clinical encounter itself, from booking the appointment to the follow-up, to document where women&#8217;s experiences diverge from men&#8217;s.</span>
+          </span>
+          <span class="theme-toggle" aria-hidden="true"></span>
+        </summary>
+        <div class="theme-body">
+          <p class="theme-context">A woman&#8217;s health outcome is shaped long before a diagnosis, in how she is scheduled, greeted, questioned, believed, and advised. This theme maps the full journey of care and looks hard at where it treats women, and women of color in particular, differently. A deliberate oversample makes it possible to report on women of color on their own terms rather than as a footnote to a national average.</p>
+          <div class="pathways-label">Two pathways</div>
+          <div class="pathways">
+
+            <details class="pathway">
+              <summary class="pathway-head">
+                <span class="pathway-marker">2A</span>
+                <span class="pathway-titles">
+                  <span class="pathway-name">Provider Experience Deep Dive</span>
+                  <span class="pathway-sub">A journey-based survey with an oversample of women of color</span>
+                </span>
+                <span class="pathway-range">$325K&#8211;$475K<small>ILLUSTRATIVE</small></span>
+                <span class="pw-toggle" aria-hidden="true"></span>
+              </summary>
+              <div class="pathway-detail">
+                <div class="detail-grid">
+                  <div class="detail-block">
+                    <h4>Illustrative scope</h4>
+                    <ul>
+                      <li>Representative survey of U.S. women via the Gallup Panel, with a planned oversample of women of color for reliable subgroup reporting</li>
+                      <li>A journey-based instrument tracing the full encounter: scheduling, front-desk and staff interaction, clinician communication, being believed rather than dismissed, the guidance received, and follow-up</li>
+                      <li>Cuts by care setting (emergency, primary, specialty), visit type, frequency of care, and provider type</li>
+                      <li>Optional men&#8217;s reference points on select measures of being believed or dismissed, where the contrast is the finding</li>
+                    </ul>
+                  </div>
+                  <div class="detail-block">
+                    <h4>What it produces</h4>
+                    <ul>
+                      <li>A defensible account of where the care experience diverges by gender and by race</li>
+                      <li>Subgroup findings on women of color that stand on their own</li>
+                      <li>Evidence tied to specific, changeable points in the encounter, not a general sense of dissatisfaction</li>
+                    </ul>
+                  </div>
+                  <div class="detail-flow">
+                    <h4 style="font-size:0.82rem;font-weight:700;letter-spacing:0.04em;color:var(--pv-green);margin-bottom:0.7rem">How it operates</h4>
+                    <div class="flow-steps">
+                      <span class="flow-step"><b>01</b> Journey-mapping workshop</span>
+                      <span class="flow-step"><b>02</b> Instrument design with oversample plan</span>
+                      <span class="flow-step"><b>03</b> Fielding &amp; weighting</span>
+                      <span class="flow-step"><b>04</b> Subgroup analysis</span>
+                      <span class="flow-step"><b>05</b> Designed report</span>
+                    </div>
+                  </div>
+                  <div class="detail-range">
+                    <span class="rng">$325K&#8211;$475K</span>
+                    <span class="rng-label">illustrative planning range</span>
+                    <span class="rng-note">Oversampling drives much of the range, along with instrument length and reporting depth. Figures are illustrative and for planning conversation only.</span>
+                  </div>
+                </div>
+              </div>
+            </details>
+
+            <details class="pathway">
+              <summary class="pathway-head">
+                <span class="pathway-marker">2B</span>
+                <span class="pathway-titles">
+                  <span class="pathway-name">Deep Dive Plus Qualitative Recontact</span>
+                  <span class="pathway-sub">The survey above, plus in-depth interviews and quotes in the report</span>
+                </span>
+                <span class="pathway-range">$425K&#8211;$625K<small>ILLUSTRATIVE</small></span>
+                <span class="pw-toggle" aria-hidden="true"></span>
+              </summary>
+              <div class="pathway-detail">
+                <div class="detail-grid">
+                  <div class="detail-block">
+                    <h4>Illustrative scope</h4>
+                    <ul>
+                      <li>Everything in the quantitative deep dive, with consent to recontact built into the survey from the start</li>
+                      <li>In-depth interviews with 30 to 50 women drawn from survey respondents, prioritizing women of color and specific journey experiences the data surfaces</li>
+                      <li>Verbatim quotes woven into the report so the numbers carry a human voice</li>
+                      <li>Optional short video treatment of the interviews</li>
+                    </ul>
+                  </div>
+                  <div class="detail-block">
+                    <h4>Why pair the two</h4>
+                    <ul>
+                      <li>The survey establishes scale and difference; the interviews explain what it feels like to live it</li>
+                      <li>Recruiting interviewees from the survey means the qualitative work speaks directly to the quantitative findings, not past them</li>
+                      <li>Quotes give communications and coverage the specificity that moves an audience</li>
+                    </ul>
+                  </div>
+                  <div class="detail-flow">
+                    <h4 style="font-size:0.82rem;font-weight:700;letter-spacing:0.04em;color:var(--pv-green);margin-bottom:0.7rem">How it operates</h4>
+                    <div class="flow-steps">
+                      <span class="flow-step"><b>01</b> Survey with consent to recontact</span>
+                      <span class="flow-step"><b>02</b> Purposive selection for interviews</span>
+                      <span class="flow-step"><b>03</b> 30&#8211;50 in-depth interviews</span>
+                      <span class="flow-step"><b>04</b> Thematic analysis</span>
+                      <span class="flow-step"><b>05</b> Integrated report with quotes</span>
+                    </div>
+                  </div>
+                  <div class="detail-range">
+                    <span class="rng">$425K&#8211;$625K</span>
+                    <span class="rng-label">illustrative planning range</span>
+                    <span class="rng-note">Range moves with the number of interviews, whether video is produced, and reporting depth, on top of the quantitative base. Figures are illustrative and for planning conversation only.</span>
+                  </div>
+                </div>
+              </div>
+            </details>
+
+          </div>
+        </div>
+      </details>
+
+      <!-- THEME 3: MENTAL HEALTH -->
+      <details class="theme reveal">
+        <summary class="theme-head">
+          <span class="theme-index">3</span>
+          <span class="theme-headings">
+            <span class="theme-name">Mental Health, in Depth</span>
+            <span class="theme-teaser">Take the mental-health thread the survey opened and give it room, with the option to center young women and pair the numbers with lived experience.</span>
+          </span>
+          <span class="theme-toggle" aria-hidden="true"></span>
+        </summary>
+        <div class="theme-body">
+          <p class="theme-context">Mental health ran through the survey findings without being the subject of them. This theme makes it the subject: how women experience mental health, how diagnoses and symptom burden differ across life stages, where care is sought and where it stalls, and how a younger generation is navigating it differently. The theme can travel light as a module on a larger survey, or stand alone with the sample depth to speak to young women specifically.</p>
+          <div class="pathways-label">Two pathways</div>
+          <div class="pathways">
+
+            <details class="pathway">
+              <summary class="pathway-head">
+                <span class="pathway-marker">3A</span>
+                <span class="pathway-titles">
+                  <span class="pathway-name">Mental Health Module</span>
+                  <span class="pathway-sub">A dedicated battery carried on a broader women&#8217;s survey</span>
+                </span>
+                <span class="pathway-range">$95K&#8211;$175K<small>ADD-ON, ILLUSTRATIVE</small></span>
+                <span class="pw-toggle" aria-hidden="true"></span>
+              </summary>
+              <div class="pathway-detail">
+                <div class="detail-grid">
+                  <div class="detail-block">
+                    <h4>Illustrative scope</h4>
+                    <ul>
+                      <li>A focused mental-health battery added to a broader women&#8217;s health survey, whether a new flagship or one of the studies on this page</li>
+                      <li>Diagnoses, symptom burden, care-seeking and the barriers to it, sources of support (including AI platforms, carried from the first survey), and stigma or disclosure</li>
+                      <li>Standard weighting, crosstabulations, and a dedicated report section</li>
+                    </ul>
+                  </div>
+                  <div class="detail-block">
+                    <h4>When it fits</h4>
+                    <ul>
+                      <li>When mental health should be measured well but does not need a standalone release</li>
+                      <li>When budget is best spent deepening a survey already in the field</li>
+                      <li>As a way to keep a mental-health signal in every wave of a larger program</li>
+                    </ul>
+                  </div>
+                  <div class="detail-flow">
+                    <h4 style="font-size:0.82rem;font-weight:700;letter-spacing:0.04em;color:var(--pv-green);margin-bottom:0.7rem">How it operates</h4>
+                    <div class="flow-steps">
+                      <span class="flow-step"><b>01</b> Module design</span>
+                      <span class="flow-step"><b>02</b> Carried on a larger instrument</span>
+                      <span class="flow-step"><b>03</b> Weighting &amp; crosstabulations</span>
+                      <span class="flow-step"><b>04</b> Report section</span>
+                    </div>
+                  </div>
+                  <div class="detail-range">
+                    <span class="rng">$95K&#8211;$175K</span>
+                    <span class="rng-label">illustrative add-on range</span>
+                    <span class="rng-note">Assumes the module rides on a survey already scoped. Range moves with battery length and analysis depth. Figures are illustrative and for planning conversation only.</span>
+                  </div>
+                </div>
+              </div>
+            </details>
+
+            <details class="pathway">
+              <summary class="pathway-head">
+                <span class="pathway-marker">3B</span>
+                <span class="pathway-titles">
+                  <span class="pathway-name">Standalone Study with Youth Oversample</span>
+                  <span class="pathway-sub">Expanded sample and a young-women oversample, with an optional qualitative layer</span>
+                </span>
+                <span class="pathway-range">$275K&#8211;$425K<small>ILLUSTRATIVE</small></span>
+                <span class="pw-toggle" aria-hidden="true"></span>
+              </summary>
+              <div class="pathway-detail">
+                <div class="detail-grid">
+                  <div class="detail-block">
+                    <h4>Illustrative scope</h4>
+                    <ul>
+                      <li>A standalone mental-health study with an expanded sample and an oversample of young women, enabling generational contrasts</li>
+                      <li>Emphasis on how a younger cohort experiences diagnosis, help-seeking, and support differently from women overall</li>
+                      <li>Optional in-depth interviews to add voice to the generational story</li>
+                    </ul>
+                  </div>
+                  <div class="detail-block">
+                    <h4>What it produces</h4>
+                    <ul>
+                      <li>A clear read on generational divides in women&#8217;s mental health</li>
+                      <li>Subgroup findings on young women that stand on their own</li>
+                      <li>A release with the weight to anchor its own coverage moment</li>
+                    </ul>
+                  </div>
+                  <div class="sensitive-note">Where any focus reaches respondents under 18, the design adds the appropriate consent protocols and safeguards; the pathway can also be scoped to young adults only to keep fielding straightforward.</div>
+                  <div class="detail-flow">
+                    <h4 style="font-size:0.82rem;font-weight:700;letter-spacing:0.04em;color:var(--pv-green);margin-bottom:0.7rem">How it operates</h4>
+                    <div class="flow-steps">
+                      <span class="flow-step"><b>01</b> Standalone instrument design</span>
+                      <span class="flow-step"><b>02</b> Youth oversample plan</span>
+                      <span class="flow-step"><b>03</b> Fielding &amp; weighting</span>
+                      <span class="flow-step"><b>04</b> Generational analysis</span>
+                      <span class="flow-step"><b>05</b> Report, optional interviews</span>
+                    </div>
+                  </div>
+                  <div class="detail-range">
+                    <span class="rng">$275K&#8211;$425K</span>
+                    <span class="rng-label">illustrative planning range</span>
+                    <span class="rng-note">Range moves with total sample, the size of the youth oversample, and whether interviews are added. Figures are illustrative and for planning conversation only.</span>
+                  </div>
+                </div>
+              </div>
+            </details>
+
+          </div>
+        </div>
+      </details>
+
+      <!-- THEME 5: MENOPAUSE -->
+      <details class="theme reveal">
+        <summary class="theme-head">
+          <span class="theme-index">4</span>
+          <span class="theme-headings">
+            <span class="theme-name">Menopause and the Midlife Workplace</span>
+            <span class="theme-teaser">A focused study of women in midlife, built to trace how symptoms women may not name, and rarely disclose, reshape their working lives.</span>
+          </span>
+          <span class="theme-toggle" aria-hidden="true"></span>
+        </summary>
+        <div class="theme-body">
+          <p class="theme-context">Menopause arrives in the middle of a career, often unnamed and rarely discussed at work, and its effect on women&#8217;s trajectories is almost entirely undocumented at scale. This theme concentrates on women aged 35 to 55 and works backward from age into experience: how women attribute symptoms, whether and to whom they disclose, and how all of it lands on their working lives. A front-loaded desk review sharpens the constructs before a single question is written.</p>
+          <div class="pathways-label">Two pathways</div>
+          <div class="pathways">
+
+            <details class="pathway">
+              <summary class="pathway-head">
+                <span class="pathway-marker">5A</span>
+                <span class="pathway-titles">
+                  <span class="pathway-name">Focused Midlife Study</span>
+                  <span class="pathway-sub">Women 35 to 55, with a desk-research foundation</span>
+                </span>
+                <span class="pathway-range">$225K&#8211;$375K<small>ILLUSTRATIVE</small></span>
+                <span class="pw-toggle" aria-hidden="true"></span>
+              </summary>
+              <div class="pathway-detail">
+                <div class="detail-grid">
+                  <div class="detail-block">
+                    <h4>Illustrative scope</h4>
+                    <ul>
+                      <li>Representative survey of U.S. women aged 35 to 55 via the Gallup Panel</li>
+                      <li>A front-loaded desk review to sharpen the constructs: how women attribute symptoms to perimenopause and menopause, and how often those symptoms go unnamed</li>
+                      <li>Disclosure behavior at work, awareness and use of accommodations, and the career decisions that follow</li>
+                      <li>Retrospective questions that connect symptom onset to specific workplace choices</li>
+                    </ul>
+                  </div>
+                  <div class="detail-block">
+                    <h4>What it produces</h4>
+                    <ul>
+                      <li>A first clear read on how midlife symptoms shape women&#8217;s working lives</li>
+                      <li>Evidence an employer or benefits designer can act on</li>
+                      <li>A finding that connects a stigmatized, private experience to public, economic consequence</li>
+                    </ul>
+                  </div>
+                  <div class="detail-flow">
+                    <h4 style="font-size:0.82rem;font-weight:700;letter-spacing:0.04em;color:var(--pv-green);margin-bottom:0.7rem">How it operates</h4>
+                    <div class="flow-steps">
+                      <span class="flow-step"><b>01</b> Desk research phase</span>
+                      <span class="flow-step"><b>02</b> Instrument design</span>
+                      <span class="flow-step"><b>03</b> Fielding to an age-bounded sample</span>
+                      <span class="flow-step"><b>04</b> Attribution, disclosure &amp; impact analysis</span>
+                      <span class="flow-step"><b>05</b> Report</span>
+                    </div>
+                  </div>
+                  <div class="detail-range">
+                    <span class="rng">$225K&#8211;$375K</span>
+                    <span class="rng-label">illustrative planning range</span>
+                    <span class="rng-note">Range moves with the depth of the desk review, sample size, and reporting depth. Figures are illustrative and for planning conversation only.</span>
+                  </div>
+                </div>
+              </div>
+            </details>
+
+            <details class="pathway">
+              <summary class="pathway-head">
+                <span class="pathway-marker">5B</span>
+                <span class="pathway-titles">
+                  <span class="pathway-name">Midlife Study Plus Qualitative Recontact</span>
+                  <span class="pathway-sub">The focused study, plus interviews with women navigating it at work</span>
+                </span>
+                <span class="pathway-range">$325K&#8211;$475K<small>ILLUSTRATIVE</small></span>
+                <span class="pw-toggle" aria-hidden="true"></span>
+              </summary>
+              <div class="pathway-detail">
+                <div class="detail-grid">
+                  <div class="detail-block">
+                    <h4>Illustrative scope</h4>
+                    <ul>
+                      <li>Everything in the focused midlife study, with consent to recontact built into the survey</li>
+                      <li>In-depth interviews with women navigating menopause at work, selected from survey respondents</li>
+                      <li>Verbatim quotes woven into the report to give a private experience a public voice</li>
+                    </ul>
+                  </div>
+                  <div class="detail-block">
+                    <h4>Why pair the two</h4>
+                    <ul>
+                      <li>Disclosure and silence are hard to capture in a survey alone; interviews reach what numbers cannot</li>
+                      <li>The voices make an under-discussed subject legible to a broad audience</li>
+                      <li>Quotes give communications and coverage their most human material</li>
+                    </ul>
+                  </div>
+                  <div class="detail-flow">
+                    <h4 style="font-size:0.82rem;font-weight:700;letter-spacing:0.04em;color:var(--pv-green);margin-bottom:0.7rem">How it operates</h4>
+                    <div class="flow-steps">
+                      <span class="flow-step"><b>01</b> Survey with consent to recontact</span>
+                      <span class="flow-step"><b>02</b> Purposive selection for interviews</span>
+                      <span class="flow-step"><b>03</b> In-depth interviews</span>
+                      <span class="flow-step"><b>04</b> Thematic analysis</span>
+                      <span class="flow-step"><b>05</b> Integrated report with quotes</span>
+                    </div>
+                  </div>
+                  <div class="detail-range">
+                    <span class="rng">$325K&#8211;$475K</span>
+                    <span class="rng-label">illustrative planning range</span>
+                    <span class="rng-note">Range moves with the number of interviews and reporting depth, on top of the focused study base. Figures are illustrative and for planning conversation only.</span>
+                  </div>
+                </div>
+              </div>
+            </details>
+
+          </div>
+        </div>
+      </details>
+
+    </div>
+  </div>
+</section>
+
+<!-- HOW WE PROCEED -->
+<section class="section proceed">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow reveal">How the Program Comes Together</div>
+      <h2 class="section-title reveal">From Directions to a Defined Program</h2>
+      <p class="section-intro reveal">These directions are meant to be discussed, combined, and shaped together. Several can be sequenced across the year, or a single flagship can carry more than one theme through shared modules and oversamples.</p>
+    </div>
+    <div class="proceed-grid">
+      <div class="proceed-card reveal">
+        <div class="pc-step">First</div>
+        <h4>Choose the directions</h4>
+        <p>We talk through which themes matter most and which pathway fits each one, with workplace as the recommended anchor.</p>
+      </div>
+      <div class="proceed-card reveal">
+        <div class="pc-step">Then</div>
+        <h4>Shape the program</h4>
+        <p>We scope the selected work into a defined plan: instruments, samples, oversamples, cadence, and the reporting and communications that carry it.</p>
+      </div>
+      <div class="proceed-card reveal">
+        <div class="pc-step">Throughout</div>
+        <h4>Keep the drumbeat</h4>
+        <p>We design each release for coverage and each finding for reuse, so the research reads as a sustained body of work rather than a series of one-off studies.</p>
+      </div>
+    </div>
+    <div class="comms-close reveal">
+      <div class="cc-eyebrow">Communications and Activation</div>
+      <h3>The Work Continues After the Findings Land</h3>
+      <p class="cc-lede">Communications support is part of the work throughout, not a step at the end. Each study is designed for coverage from the first question, and a dedicated effort carries every finding into the conversations that give it reach. The same amplification that shaped the first survey continues, drawing on all the studies in the program and sustaining momentum in the stretches between releases.</p>
+      <div class="comms-list">
+        <div class="cc-item"><b>Media strategy and rollout.</b> Embargoed release planning, press outreach, and coordinated timing so each finding arrives where it will be seen.</div>
+        <div class="cc-item"><b>Bylines and commentary.</b> Op-eds and authored pieces that put the evidence in front of the audiences Pivotal wants to move.</div>
+        <div class="cc-item"><b>Briefings and convenings.</b> Roundtables and closed briefings that gather employers, funders, and policymakers around a result.</div>
+        <div class="cc-item"><b>Social and digital content.</b> Content produced for Pivotal&#8217;s channels and for Gallup&#8217;s, translating findings into shareable, durable assets.</div>
+        <div class="cc-item"><b>Ongoing amplification.</b> Keeping findings in circulation across the year, so a study keeps working long after its release week.</div>
+        <div class="cc-item"><b>A connected narrative.</b> Tying each release back to the first survey and forward to what comes next, so the body of work reads as one sustained argument.</div>
+      </div>
+      <p class="cc-foot">Scope and cadence for communications and activation are shaped alongside the research, so the effort matches the studies chosen and the moments that matter most to Pivotal across the year.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-left">
+    <strong>Pivotal &amp; Gallup.</strong> Going deeper on women&#8217;s health and power. All scope, sampling, and investment figures on this page are illustrative and offered for planning conversation; final scope and investment are set through collaborative scoping with the Pivotal team.
+  </div>
+  <div class="footer-right">&copy; 2026 Gallup, Inc. All rights reserved.</div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+
+  // Accordion behavior: allow multiple open, but close sibling pathways when opening one for focus.
+  // Reveal-on-scroll
+  var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if(!reduce && "IntersectionObserver" in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target); }
+      });
+    },{threshold:0.12});
+    document.querySelectorAll(".reveal").forEach(function(el){ io.observe(el); });
+  } else {
+    document.querySelectorAll(".reveal").forEach(function(el){ el.classList.add("in"); });
+  }
+
+  // Animate details max-height for smooth expand/collapse.
+  function bodyOf(details){
+    return details.querySelector(":scope > .theme-body, :scope > .pathway-detail");
+  }
+  function setOpen(details){
+    var body = bodyOf(details);
+    if(!body) return;
+    if(details.open){
+      body.style.maxHeight = body.scrollHeight + "px";
+    } else {
+      body.style.maxHeight = null;
+    }
+  }
+  function refreshAncestors(el){
+    // When a nested pathway opens, the parent theme-body height must grow too.
+    var parentBody = el.closest(".theme-body");
+    if(parentBody){
+      var parentDetails = parentBody.closest("details.theme");
+      if(parentDetails && parentDetails.open){
+        parentBody.style.maxHeight = parentBody.scrollHeight + "px";
+        // give the inner animation a beat, then recompute
+        window.setTimeout(function(){
+          if(parentDetails.open){ parentBody.style.maxHeight = parentBody.scrollHeight + "px"; }
+        }, 300);
+      }
+    }
+  }
+
+  document.querySelectorAll("details.theme, details.pathway").forEach(function(details){
+    var summary = details.querySelector(":scope > summary");
+    var body = bodyOf(details);
+    if(body){
+      // set initial state
+      if(details.open){ body.style.maxHeight = body.scrollHeight + "px"; }
+      summary.addEventListener("click", function(e){
+        e.preventDefault();
+        var willOpen = !details.open;
+        details.open = willOpen;
+        setOpen(details);
+        refreshAncestors(details);
+        summary.setAttribute("aria-expanded", willOpen ? "true" : "false");
+      });
+      summary.setAttribute("aria-expanded", details.open ? "true" : "false");
+    }
+  });
+
+  // Recompute open theme heights on resize.
+  var rt;
+  window.addEventListener("resize", function(){
+    window.clearTimeout(rt);
+    rt = window.setTimeout(function(){
+      document.querySelectorAll("details.theme[open], details.pathway[open]").forEach(function(d){
+        var b = bodyOf(d);
+        if(b){ b.style.maxHeight = b.scrollHeight + "px"; }
+      });
+    }, 150);
+  });
+
+})();
+</script>
+
+</body>
+</html>
