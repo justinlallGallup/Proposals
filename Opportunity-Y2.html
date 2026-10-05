@@ -511,6 +511,10 @@ button { font-family: var(--font-body); }
 .opt li { font-size: 0.83rem; line-height: 1.5; color: var(--gray-500); margin-bottom: 0.4rem; }
 @media (max-width: 860px) { .options { grid-template-columns: 1fr; } }
 
+
+.eng-price { font-family: var(--font-display); font-size: 1.5rem; font-weight: 700; color: var(--green-deep); line-height: 1.1; margin: 0 0 0.5rem; }
+.eng-price span { font-size: 0.6rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gray-300); font-family: var(--font-body); display: inline-block; margin-left: 0.5rem; }
+
 </style>
 </head>
 <body>
@@ -536,7 +540,7 @@ button { font-family: var(--font-body); }
   <div class="hero-inner">
     <span class="eyebrow">Walton Family Foundation &times; Gallup &middot; Opportunity Study, Year Two</span>
     <h1>Year One laid the groundwork. Year Two is a choice about the <em>story</em> it tells.</h1>
-    <p class="hero-sub">In Year One, Gallup and the Walton Family Foundation gave the country a national read on how Americans define, access, and experience opportunity. Year Two is a chance to build on it, and there are two strong ways forward. One sets out to shape the national conversation and establish Walton as a defining public voice on opportunity. The other concentrates the research around Walton's programs and the needs of its teams, partners, and grantees.</p>
+    <p class="hero-sub">In Year One, Gallup and the Walton Family Foundation gave the country a national read on how Americans define, access, and experience opportunity. Gallup is excited to build on what Year One established, and presents two paths forward. The first refocuses the research into a broad opportunity index, similar in scale to the World Happiness Report. The second continues the deep exploration of opportunity across its many facets.</p>
   </div>
 </section>
 
@@ -546,9 +550,6 @@ button { font-family: var(--font-body); }
     <span class="eyebrow">Common ground</span>
     <h2 class="section-title">What both options carry forward</h2>
     <p class="section-subtitle">Whichever option Year Two takes, it builds on the same ground: the research, the infrastructure, and the lessons of Year One, and Walton's commitment to expanding opportunity for people and places across the country.</p>
-  </div>
-  <div class="narrative reveal">
-    <p>Both options keep studying opportunity and the forces around it, community, education, work, and the conditions that let people thrive. Both produce credible, empirically grounded research on the Gallup Panel. And both preserve the most valuable threads of continuity from Year One, so the second year deepens the work rather than restarting it.</p>
   </div>
   <div class="reveal">
     <div class="strip-label">What Year One established</div>
@@ -567,7 +568,7 @@ button { font-family: var(--font-body); }
   <div class="section-head reveal">
     <span class="eyebrow">Two options for Year Two</span>
     <h2 class="section-title">Two paths forward</h2>
-    <p class="section-subtitle">Year One gives both options the same starting point. From here, the choice is between a recognizable public narrative about opportunity and a focused, program-aligned research program. Select either card to see its ambition, audience, process, and outputs laid out the same way.</p>
+    <p class="section-subtitle">Year One gives both options the same starting point. From here, the choice is mostly one of scale. Both make Walton a more visible, credible voice on opportunity in the public conversation; one is a broad national flagship, the other a more focused continuation. Select either card to see its ambition, audience, process, and plan laid out the same way.</p>
   </div>
 
   <div class="fork reveal">
@@ -578,8 +579,8 @@ button { font-family: var(--font-body); }
     </div>
     <svg class="fork-svg" viewBox="0 0 70 170" preserveAspectRatio="none" aria-hidden="true"><path d="M0 85 H35 M35 85 V35 H70 M35 85 V135 H70" fill="none" stroke="#009d4f" stroke-width="2.5"/></svg>
     <div class="fork-branches">
-      <div class="fork-branch"><span class="fork-branch-eyebrow">Option One</span><div class="fork-branch-title">Shape the national narrative on opportunity</div></div>
-      <div class="fork-branch"><span class="fork-branch-eyebrow">Option Two</span><div class="fork-branch-title">Program-aligned opportunity research</div></div>
+      <div class="fork-branch"><span class="fork-branch-eyebrow">Option One</span><div class="fork-branch-title">A national narrative on opportunity</div></div>
+      <div class="fork-branch"><span class="fork-branch-eyebrow">Option Two</span><div class="fork-branch-title">A focused continuation of Year One</div></div>
     </div>
   </div>
 
@@ -587,26 +588,26 @@ button { font-family: var(--font-body); }
     <button class="ptab active" data-pathway="1" onclick="selectPathway('1')">
       <span class="ptab-eyebrow">Option One</span>
       <span class="ptab-title">Shaping the National Narrative on Opportunity</span>
-      <span class="ptab-desc">Make Walton the defining voice on opportunity in America: a recognizable, credible study people come to expect, the opportunity counterpart to the World Happiness Report, built to shape the national conversation.</span>
-      <span class="ptab-cta">Explore the public-narrative option &rarr;</span>
+      <span class="ptab-desc">A national study that plants a flag on opportunity, makes Walton a defining public voice on it, and reaches well beyond the Foundation's current networks.</span>
+      <span class="ptab-cta">Explore the broad-public option &rarr;</span>
     </button>
     <button class="ptab" data-pathway="2" onclick="selectPathway('2')">
       <span class="ptab-eyebrow">Option Two</span>
-      <span class="ptab-title">Program-Aligned Opportunity Research</span>
-      <span class="ptab-desc">Continue the Year One model, with Walton's program priorities and the needs of its teams, partners, and grantees shaping the instrument.</span>
-      <span class="ptab-cta">Explore the program-aligned option &rarr;</span>
+      <span class="ptab-title">A Focused Read on Opportunity</span>
+      <span class="ptab-desc">Continue How Opportunity Takes Root at a focused scale, building on what the first year taught us, and keep growing the audience that associates Walton with opportunity.</span>
+      <span class="ptab-cta">Explore the focused option &rarr;</span>
     </button>
   </div>
 
-  <!-- DIRECTION 1 PANEL -->
+  <!-- OPTION 1 PANEL -->
   <div class="pathway-panel" id="panel-1">
     <div class="panel-head">
-      <div class="panel-eyebrow">Option One &middot; Public narrative</div>
+      <div class="panel-eyebrow">Option One</div>
       <div class="panel-title">Shaping the National Narrative on Opportunity</div>
     </div>
 
     <div class="dim"><div class="dim-label">Strategic ambition</div><div class="dim-body">
-      <p>Make Walton the organization America associates with opportunity: a recognizable, credible, recurring study that people come to expect, and the anchor of a national conversation about what opportunity means, who has access to it, and what shapes it. The model is the World Happiness Report, which took a concept GDP could never capture and turned it into a fixture of global policy and media. This is a narrative-building effort first. It is meant to show the country what Walton stands for, not to set program strategy.</p>
+      <p>Make Walton the organization America associates with opportunity: a recognizable, credible study that people come to expect, and the anchor of a national conversation about what opportunity means, who has access to it, and what shapes it. The model is the World Happiness Report, which took a concept GDP could never capture and turned it into a fixture of global policy and media. This is a narrative-building effort, meant to show the country what Walton stands for and to reach well beyond the Foundation's current networks, not to set program strategy.</p>
     </div></div>
 
     <div class="dim-full">
@@ -628,147 +629,94 @@ button { font-family: var(--font-body); }
       </div>
     </div>
 
-    <div class="dim"><div class="dim-label">Primary audience</div><div class="dim-body">
-      <p>National and regional media, policymakers and civic leaders, researchers and thought leaders, philanthropic peers, community leaders, and the broader public. This option is built to be heard well beyond Walton's own networks.</p>
-    </div></div>
-
     <div class="dim"><div class="dim-label">Definition of success</div><div class="dim-body">
-      <p>A recognizable public narrative that gives Walton a distinctive, enduring place in the national conversation on opportunity. Success looks like credible coverage and narrative uptake, growing recognition of Walton's read on opportunity, external leaders drawing on it, and real anticipation of each release. It is explicitly not a tool for program strategy, and it is not designed to serve each program team, who already have deeper research for their own agendas. One guardrail matters: the study should still surface the issues Walton works on, so it never reads as out of touch, but it is measured by narrative reach, not by a guaranteed number of stories.</p>
+      <p>A recognizable public narrative that gives Walton a distinctive, enduring place in the national conversation on opportunity, and a measurably larger audience that associates the Foundation with the concept. Success looks like credible coverage and narrative uptake, growing recognition of Walton's read on opportunity, and real anticipation of each release.</p>
     </div></div>
-
-    <div class="dim-full">
-      <div class="dim-label">How Option One works</div>
-      <p class="dim-intro">The work begins not with a survey, but with defining the construct itself. Everything after that is designed around the public story it is meant to create.</p>
-      <div class="flow">
-        <div class="flow-step"><span class="flow-num">1</span><div class="flow-h">Define the construct</div><p>Desk research, sessions with outside experts, and a close read of Year One settle what opportunity means and how to measure it, before a single survey question is written.</p></div>
-        <div class="flow-step"><span class="flow-num">2</span><div class="flow-h">Set the North Star</div><p>One clear, defensible signature measure, asked the same way every year. The World Happiness Report model: a single, understandable number, not a complicated index.</p></div>
-        <div class="flow-step"><span class="flow-num">3</span><div class="flow-h">Make it comprehensive</div><p>Build the full measurement around that North Star so it captures Opportunity in the round: its core dimensions, the outcomes people pursue, and how both differ across people and places.</p></div>
-        <div class="flow-step"><span class="flow-num">4</span><div class="flow-h">Lead the conversation</div><p>A flagship annual report and a year of amplification make Walton the name the public and the media attach to Opportunity.</p></div>
-      </div>
-    </div>
 
     <div class="dim-full">
       <div class="dim-label">The year of work</div>
       <p class="dim-intro">Option One opens with definition, not data collection, and closes with a full year of presence. A representative path:</p>
       <div class="timeline">
         <div class="tphase"><span class="tphase-when">Weeks 1&ndash;6</span><div class="tphase-title">Define &amp; frame</div><ul><li>Working sessions with Walton leaders and outside experts</li><li>Literature review and environmental scan</li><li>Agree the definition of Opportunity and the questions it must answer</li></ul></div>
-        <div class="tphase"><span class="tphase-when">Weeks 6&ndash;10</span><div class="tphase-title">Build &amp; test the measure</div><ul><li>Design the signature measure and the full instrument around it</li><li>Cognitive testing with respondents</li><li>Program and finalize the survey</li></ul></div>
-        <div class="tphase"><span class="tphase-when">Weeks 10&ndash;16</span><div class="tphase-title">Field</div><ul><li>Survey a national sample on the Gallup Panel and ABS (address-based sampling)</li><li>Sampling plan built to reach the audiences that matter most</li></ul></div>
+        <div class="tphase"><span class="tphase-when">Weeks 6&ndash;10</span><div class="tphase-title">Build &amp; test the measure</div><ul><li>Design the single signature measure, a North Star, and the full instrument around it</li><li>Cognitive testing with respondents</li><li>Program and finalize the survey</li></ul></div>
+        <div class="tphase"><span class="tphase-when">Weeks 10&ndash;16</span><div class="tphase-title">Field</div><ul><li>Survey a national sample on the Gallup Panel and ABS (address-based sampling)</li><li>Regional oversamples to compare experiences across the country</li></ul></div>
         <div class="tphase"><span class="tphase-when">Weeks 16&ndash;22</span><div class="tphase-title">Analyze &amp; build the flagship</div><ul><li>Weighting, analysis, and the first Opportunity score</li><li>A flagship report written for a national audience</li></ul></div>
-        <div class="tphase"><span class="tphase-when">Launch, then the full year</span><div class="tphase-title">Launch &amp; amplify</div><ul><li>Launch event, companion article, and media outreach</li><li>A sustained year of video, social, convenings, and briefings</li><li>Openings for grantee and community voices throughout</li></ul></div>
+        <div class="tphase"><span class="tphase-when">Launch, then the full year</span><div class="tphase-title">Launch &amp; amplify</div><ul><li>A public release, a companion article, and media outreach</li><li>A year of earned media and social presence, consistent with Year One</li><li>Openings for grantee and community voices throughout</li></ul></div>
       </div>
     </div>
 
     <div class="dim-full">
-      <div class="dim-label">Engagement options</div>
-      <p class="dim-intro">Two ways to scope Option One. Figures are illustrative and set together in scoping.</p>
-      <div class="options">
-        <div class="opt">
-          <div class="opt-name">National read</div>
-          <div class="opt-price">$700,000&ndash;$800,000<span>Illustrative range</span></div>
-          <p class="opt-desc">The Year One program, evolved, and built around a single flagship for a national audience.</p>
-          <ul>
-            <li>A definition phase up front: desk research and expert sessions to set the Opportunity measure</li>
-            <li>A national survey on the Gallup Panel, at the scale of Year One</li>
-            <li>One flagship public report built for national coverage, plus a companion Gallup.com article</li>
-            <li>A full-year amplification program with support for grantee voices</li>
-          </ul>
-        </div>
-        <div class="opt premium">
-          <span class="opt-tag">Fullest platform</span>
-          <div class="opt-name">50-state read</div>
-          <div class="opt-price">$1,300,000&ndash;$1,500,000<span>Illustrative range</span></div>
-          <p class="opt-desc">A representative read in all 50 states, the fullest expression of the public platform.</p>
-          <ul>
-            <li>Everything in the national read</li>
-            <li>A 50-state representative sample: the Gallup Panel supplemented with address-based sampling (ABS)</li>
-            <li>State-level and regional analysis, with a state ranking of Opportunity</li>
-            <li>An expanded flagship and an amplification program built around the state story</li>
-          </ul>
-        </div>
+      <div class="dim-label">The engagement</div>
+      <div class="eng-price">$600,000&ndash;$700,000 <span>Illustrative range</span></div>
+      <p class="dim-intro">A national read with regional oversamples, built around a single public narrative. The figure is illustrative and set together in scoping.</p>
+      <div class="scope-list">
+        <div>A definition phase up front: desk research and expert sessions to set the Opportunity measure</div>
+        <div>A national survey on the Gallup Panel and ABS, with regional oversamples to compare the country</div>
+        <div>A single, understandable signature Opportunity measure (not a complicated index), held consistent for future years</div>
+        <div>One flagship public report built for national coverage, plus a companion Gallup.com article</div>
+        <div>A full year of earned media and social presence, consistent with the support behind Year One</div>
       </div>
     </div>
 
     <div class="dim"><div class="dim-label">Relationship to Year One</div><div class="dim-body">
-      <p>Year One produced a strong, credible read on how Americans experience Opportunity and the conditions that shape it. Option One builds on that work and sharpens the aim: one defined measure of Opportunity, and a fuller account of what it means to people in different places. Reaching that bar means examining some forces beyond Walton's current funding areas, and that breadth is a strength rather than a stretch. It positions Walton as a credible voice on Opportunity wherever it takes root, lets the Foundation point to partners working in adjacent fields, and never requires Walton to claim ownership of every issue the research touches.</p>
+      <p>Year One produced a strong, credible read on how Americans experience Opportunity and the conditions that shape it. Option One builds on that work and sharpens the aim: one defined measure of Opportunity, and a fuller account of what it means to people in different parts of the country. Reaching that bar means examining some forces beyond Walton's current funding areas, and that breadth is a strength rather than a stretch. It positions Walton as a credible voice on Opportunity wherever it takes root, lets the Foundation point to partners working in adjacent fields, and never requires Walton to claim ownership of every issue the research touches.</p>
     </div></div>
 
     <div class="dim"><div class="dim-label">Long-term potential</div><div class="dim-body">
-      <p>The opportunity counterpart to the World Happiness Report: a recognizable annual study others cite, anticipated each year, that makes Walton synonymous with credible insight into opportunity and, over time, helps set the terms of the national conversation.</p>
+      <p>The opportunity counterpart to the World Happiness Report: a recognizable annual study others cite, anticipated each year, that makes Walton synonymous with credible insight into opportunity and, over time, helps set the terms of the national conversation. In time, it could grow into an annual moment of its own.</p>
     </div></div>
   </div>
 
-  <!-- DIRECTION 2 PANEL -->
+  <!-- OPTION 2 PANEL -->
   <div class="pathway-panel" id="panel-2" hidden>
     <div class="panel-head">
-      <div class="panel-eyebrow">Option Two &middot; Program-aligned</div>
-      <div class="panel-title">Program-Aligned Opportunity Research</div>
+      <div class="panel-eyebrow">Option Two</div>
+      <div class="panel-title">A Focused Read on Opportunity</div>
     </div>
 
     <div class="dim"><div class="dim-label">Strategic ambition</div><div class="dim-body">
-      <p>Continue and strengthen the Year One model by putting Walton's program priorities and information needs at the center of the research. This option produces a more targeted body of data for Walton's program teams, its grantees and partners, and the field leaders working in its priority areas. It is designed first for program relevance and practical use, rather than for broad public positioning.</p>
-    </div></div>
-
-    <div class="dim"><div class="dim-label">Primary audience</div><div class="dim-body">
-      <p>Walton leadership and program teams, grantees, program partners, practitioners and field stakeholders, and the specialized audiences tied to Walton's funding areas.</p>
+      <p>Continue How Opportunity Takes Root at a focused, measured scale. It continues to build Walton's public profile on opportunity and keeps growing the audience that associates the Foundation with the concept. Like Year One, it is a narrative-building effort rather than a tool for program strategy; it builds on what the first year taught us and enhances the survey questionnaire accordingly.</p>
     </div></div>
 
     <div class="dim"><div class="dim-label">Definition of success</div><div class="dim-body">
-      <p>Useful, credible, program-aligned data that helps Walton and its partners understand the experiences, attitudes, needs, and conditions related to Walton's existing work. Success shows up as relevance to program teams, usefulness to grantees and partners, application in program communications and field engagement, strong data on priority issues, and the ability to deepen and contextualize work already underway, with continuity and improvement over Year One. Media coverage may still happen, but it is not the primary design objective or the main measure of success.</p>
+      <p>A credible, well-covered study that keeps Walton visible on opportunity and continues to grow the audience that follows the Foundation's work. Success looks like solid media coverage, year-over-year trend data that deepens the Year One findings, and a public narrative that carries into the national conversation.</p>
     </div></div>
 
     <div class="dim"><div class="dim-label">Research and design process</div><div class="dim-body">
-      <p>A more straightforward extension of Year One. It begins with structured input from program teams, identifies the questions and topics most relevant to current priorities, preserves the Year One measures worth tracking for trend analysis, refines or retires the topics that did not earn their place, and builds the instrument around program needs. Findings are then organized for the specific stakeholder groups and fields that will use them. Unlike the narrative option, it does not require an extended phase to define a universal public measure of opportunity, so it can move more directly into prioritization, survey design, data collection, and reporting.</p>
+      <p>The most direct continuation of How Opportunity Takes Root. It carries forward the measures worth tracking for trend analysis, with dedicated time to refine the instrument and add new items based on what the first year taught us. It builds in room to respond to the public conversation as it stands, rather than locking every topic in advance. Unlike Option One, it does not require an extended phase to define a new measure, so it moves more directly into design, fielding, and reporting.</p>
     </div></div>
 
     <div class="dim-full">
       <div class="dim-label">The year of work</div>
-      <p class="dim-intro">Option Two is a more direct extension of Year One, moving quickly from priorities to fielding to program-ready findings. A representative path:</p>
+      <p class="dim-intro">Option Two moves quickly from a sharpened questionnaire to fielding to a public release. A representative path:</p>
       <div class="timeline">
-        <div class="tphase"><span class="tphase-when">Weeks 1&ndash;3</span><div class="tphase-title">Set program priorities</div><ul><li>Structured input from program teams</li><li>Identify the topics and questions that matter most now</li></ul></div>
-        <div class="tphase"><span class="tphase-when">Weeks 3&ndash;8</span><div class="tphase-title">Refine the instrument</div><ul><li>Carry forward the Year One measures worth tracking</li><li>Refine or retire the rest; build around program needs</li><li>Cognitive testing and finalization</li></ul></div>
-        <div class="tphase"><span class="tphase-when">Weeks 8&ndash;12</span><div class="tphase-title">Field</div><ul><li>Survey a national sample on the Gallup Panel</li></ul></div>
-        <div class="tphase"><span class="tphase-when">Weeks 12&ndash;18</span><div class="tphase-title">Analyze</div><ul><li>Weighting and analysis</li><li>Organized for the groups and fields that will use it</li></ul></div>
-        <div class="tphase"><span class="tphase-when">Weeks 18&ndash;24</span><div class="tphase-title">Report &amp; deliver</div><ul><li>Program-specific briefs and reports</li><li>Data products for grantees and partners</li><li>Working sessions with program stakeholders</li></ul></div>
+        <div class="tphase"><span class="tphase-when">Weeks 1&ndash;4</span><div class="tphase-title">Refine the questionnaire</div><ul><li>Review How Opportunity Takes Root and carry forward the measures worth tracking</li><li>Dedicated time to refine existing items and add new ones from Year One learnings</li><li>Build in room to respond to the current public conversation</li></ul></div>
+        <div class="tphase"><span class="tphase-when">Weeks 4&ndash;8</span><div class="tphase-title">Finalize &amp; test</div><ul><li>Cognitive testing with respondents</li><li>Program and finalize the survey</li></ul></div>
+        <div class="tphase"><span class="tphase-when">Weeks 8&ndash;11</span><div class="tphase-title">Field</div><ul><li>Survey a national sample on the Gallup Panel</li></ul></div>
+        <div class="tphase"><span class="tphase-when">Weeks 11&ndash;16</span><div class="tphase-title">Analyze</div><ul><li>Weighting and analysis</li><li>Year-over-year comparison with Year One</li></ul></div>
+        <div class="tphase"><span class="tphase-when">Weeks 16&ndash;22</span><div class="tphase-title">Report &amp; launch</div><ul><li>A public report and a companion Gallup.com article</li><li>Media outreach, consistent with the support behind Year One</li></ul></div>
       </div>
     </div>
 
     <div class="dim-full">
-      <div class="dim-label">Engagement options</div>
-      <p class="dim-intro">Two ways to scope Option Two. Figures are illustrative and set together in scoping.</p>
-      <div class="options">
-        <div class="opt">
-          <div class="opt-name">Core program</div>
-          <div class="opt-price">$600,000&ndash;$700,000<span>Illustrative range</span></div>
-          <p class="opt-desc">A direct continuation of Year One, built around current program priorities.</p>
-          <ul>
-            <li>A national survey on the Gallup Panel, informed by program teams</li>
-            <li>Updated Year One measures and trend data</li>
-            <li>Program-specific briefs and data products for teams, partners, and grantees</li>
-            <li>Working sessions with program stakeholders</li>
-          </ul>
-        </div>
-        <div class="opt premium">
-          <span class="opt-tag">More depth</span>
-          <div class="opt-name">Expanded program</div>
-          <div class="opt-price">$850,000&ndash;$950,000<span>Illustrative range</span></div>
-          <p class="opt-desc">Deeper subgroup analysis and more for the teams, partners, and grantees who use it.</p>
-          <ul>
-            <li>Everything in the core program</li>
-            <li>A larger sample for robust analysis of priority subgroups and fields</li>
-            <li>A qualitative companion of in-depth interviews for human context</li>
-            <li>Additional program-specific reports and stakeholder sessions</li>
-          </ul>
-        </div>
+      <div class="dim-label">The engagement</div>
+      <div class="eng-price">$600,000&ndash;$700,000 <span>Illustrative range</span></div>
+      <p class="dim-intro">A refined continuation of Year One at a focused scale. The figure is illustrative and set together in scoping.</p>
+      <div class="scope-list">
+        <div>A national survey on the Gallup Panel, with time to refine the Year One instrument and add new items</div>
+        <div>The Year One measures worth tracking, carried forward for trend analysis</div>
+        <div>Room built in to respond to the current public conversation</div>
+        <div>A public report and a companion Gallup.com article</div>
+        <div>Media outreach and support consistent with Year One</div>
       </div>
     </div>
 
     <div class="dim"><div class="dim-label">Relationship to Year One</div><div class="dim-body">
-      <p>This is the direct continuation of Year One. Opportunity stays the organizing theme, and Year One's measures carry forward for trend analysis, but the research concentrates on the topics most relevant to Walton's portfolio. The final product is still more focused than Year One; its coherence comes from alignment with Walton's work rather than from a single public-facing construct.</p>
+      <p>This is the most direct continuation of How Opportunity Takes Root. It keeps the measures worth tracking so the study can show movement over time, and it builds on what the first year taught us to strengthen the rest. The result is a study that deepens the first, still public and still tied to opportunity, at a focused scale.</p>
     </div></div>
 
     <div class="dim"><div class="dim-label">Long-term potential</div><div class="dim-body">
-      <p>A durable, program-centered research series that becomes a reliable instrument for Walton and its partners: deepening year over year, tracking how attitudes and conditions move across Walton's priority areas, and strengthening the evidence base that program teams and grantees rely on.</p>
+      <p>A durable annual read on opportunity that builds trend data year over year, keeps Walton visible on the subject, and steadily grows the audience that associates the Foundation with opportunity, a strong, measured base to build from.</p>
     </div></div>
   </div>
 </section>
@@ -778,24 +726,17 @@ button { font-family: var(--font-body); }
   <div class="section-head reveal">
     <span class="eyebrow">Side by side</span>
     <h2 class="section-title">The two options at a glance</h2>
-    <p class="section-subtitle">The same work, aimed at two different outcomes. This is the clearest way to see where they diverge.</p>
+    <p class="section-subtitle">The same work, at two different scales. Both raise Walton's public profile on opportunity; this is the clearest way to see where they differ.</p>
   </div>
   <div class="compare-wrap reveal">
     <table class="compare">
-      <thead><tr><th>Dimension</th><th>Option One &middot; Public narrative</th><th>Option Two &middot; Program-aligned</th></tr></thead>
+      <thead><tr><th>Dimension</th><th>Option One</th><th>Option Two</th></tr></thead>
       <tbody>
-        <tr><th>Primary purpose</th><td class="p1">Shape the public conversation and define opportunity for a national audience</td><td>Generate data relevant to Walton's programs, partners, and grantees</td></tr>
-        <tr><th>Strategic ambition</th><td class="p1">Establish Walton as a defining national voice on opportunity</td><td>Strengthen program-aligned insight and the value it creates for stakeholders</td></tr>
-        <tr><th>Primary audience</th><td class="p1">Media, public leaders, researchers, and the broader public</td><td>Program teams, grantees, partners, and specialized fields</td></tr>
-        <tr><th>Starting point</th><td class="p1">Defining and validating a clear measure of opportunity</td><td>Program-team priorities and Year One content</td></tr>
-        <tr><th>Scope</th><td class="p1">Broad enough to capture the major forces shaping opportunity</td><td>Concentrated on Walton's existing areas of work</td></tr>
-        <tr><th>Core measure</th><td class="p1">A simple, consistent signature measure of opportunity</td><td>Measures chosen for relevance to program topics</td></tr>
-        <tr><th>Program input</th><td class="p1">Important, but not the sole determinant of scope</td><td>Central to topic and instrument design</td></tr>
-        <tr><th>Expert input</th><td class="p1">Internal and external experts help define the measure</td><td>Subject-matter input supports program-specific design</td></tr>
-        <tr><th>Media strategy</th><td class="p1">Designed from the outset for public relevance and uptake</td><td>Secondary to program usefulness</td></tr>
-        <tr><th>Reporting structure</th><td class="p1">One central narrative with future thematic chapters</td><td>Multiple program-centered findings and products</td></tr>
-        <tr><th>Success measures</th><td class="p1">Recognition, narrative influence, external use, media uptake</td><td>Utility, relevance, stakeholder use, program alignment</td></tr>
-        <tr><th>Long-term potential</th><td class="p1">A recognized recurring platform or national reference point</td><td>A durable program-centered research series</td></tr>
+        <tr><th>Starting point</th><td class="p1">A definition phase to set the measure, before any survey</td><td>The Year One instrument, refined from what we learned</td></tr>
+        <tr><th>Sampling</th><td class="p1">National, with regional oversamples to compare the country</td><td>A national read</td></tr>
+        <tr><th>Core measure</th><td class="p1">A new signature measure, held consistent for years</td><td>Year One measures, carried forward for trend</td></tr>
+        <tr><th>Design flexibility</th><td class="p1">Set deliberately up front through the definition phase</td><td>Room built in to respond to the current conversation</td></tr>
+        <tr><th>Long-term potential</th><td class="p1">A recurring national platform that could grow into its own event</td><td>A durable annual read that grows steadily</td></tr>
       </tbody>
     </table>
   </div>
