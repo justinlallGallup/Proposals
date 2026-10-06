@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Establishing the Global Imagination Index: A Gallup Partnership Proposal for Mozilla Foundation</title>
+<style>
+/* GALLUP VISUAL IDENTITY per Visual Identity Style Guide v1.3 */
+:root {
+  --green: #009d4f; --green-deep: #00754a; --green-bright: #16c64f; --green-pale: #e4f2e1; --green-wash: #f3f9f1;
+  --gray-00: #f1f1f1; --gray-100: #cfd2d3; --gray-200: #b0b3b2; --gray-300: #878a8b; --gray-400: #53575a; --gray-500: #24272a;
+  --ink: #000000; --paper: #ffffff;
+  --font-display: Georgia, 'Times New Roman', Times, serif;
+  --font-body: Aptos, 'Aktiv Grotesk', Arial, 'Helvetica Neue', Helvetica, sans-serif;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--font-body); color: var(--gray-500); background: var(--paper); -webkit-font-smoothing: antialiased; font-size: 16px; line-height: 1.6; }
+::selection { background: var(--green-pale); color: var(--ink); }
+img { max-width: 100%; display: block; }
+a { color: var(--green-deep); }
+button { font-family: var(--font-body); cursor: pointer; }
+:focus-visible { outline: 2px solid var(--green-deep); outline-offset: 2px; }
+
+.site-header { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.95); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid var(--gray-100); }
+.header-inner { max-width: 1180px; margin: 0 auto; padding: 0.9rem 2.25rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+.brand-pair { display: flex; align-items: center; gap: 1.1rem; min-width: 0; }
+.mark-gallup { font-family: var(--font-display); font-weight: 700; font-size: 1.02rem; letter-spacing: 0.24em; text-transform: uppercase; color: var(--gray-400); line-height: 1; white-space: nowrap; }
+.mark-gallup sup { font-size: 0.42em; letter-spacing: 0; vertical-align: super; }
+.brand-divider { width: 1px; height: 26px; background: var(--gray-100); flex-shrink: 0; }
+.mark-moz { font-family: var(--font-body); font-weight: 800; font-size: 0.9rem; letter-spacing: 0.02em; color: var(--gray-500); line-height: 1.1; white-space: nowrap; }
+.mark-moz span { display: block; font-size: 0.53rem; font-weight: 600; letter-spacing: 0.09em; text-transform: uppercase; color: var(--gray-400); margin-top: 0.22rem; white-space: nowrap; }
+.header-actions { display: flex; align-items: center; gap: 0.55rem; flex-shrink: 0; }
+.btn-h { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.5rem 0.95rem; border-radius: 4px; font-size: 0.74rem; font-weight: 700; letter-spacing: 0.02em; border: 1px solid var(--gray-100); background: #fff; color: var(--gray-500); transition: background 0.18s ease, color 0.18s ease, border-color 0.18s ease; text-decoration: none; }
+.btn-h svg { width: 14px; height: 14px; }
+.btn-h.primary { background: var(--green); color: #fff; border-color: var(--green); }
+.btn-h.primary:hover { background: var(--green-deep); border-color: var(--green-deep); }
+.btn-h:hover { border-color: var(--gray-300); }
+.subnav { border-top: 1px solid var(--gray-00); overflow-x: auto; }
+.subnav-inner { max-width: 1180px; margin: 0 auto; padding: 0 2.25rem; display: flex; gap: 1.5rem; align-items: center; height: 44px; }
+.subnav a { font-size: 0.75rem; font-weight: 600; color: var(--gray-400); text-decoration: none; white-space: nowrap; transition: color 0.18s ease; }
+.subnav a:hover { color: var(--green-deep); }
+
+.hero { border-top: 4px solid var(--green); background: #fff; }
+.hero-inner { max-width: 1180px; margin: 0 auto; padding: 4rem 2.25rem 0; }
+.hero-rule { width: 56px; height: 4px; background: var(--green); margin-bottom: 1.4rem; }
+.eyebrow { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--green-deep); }
+.hero .eyebrow { margin-bottom: 1.2rem; display: block; }
+.hero h1 { font-family: var(--font-display); font-weight: 700; font-size: clamp(2.2rem, 4.6vw, 3.5rem); line-height: 1.08; letter-spacing: -0.015em; color: var(--ink); margin-bottom: 1.3rem; max-width: 900px; }
+.hero h1 em { font-style: italic; color: var(--green-deep); }
+.hero-sub { font-size: 1.12rem; line-height: 1.7; color: var(--gray-400); max-width: 680px; }
+
+.hero-stats { max-width: 1180px; margin: 2.8rem auto 0; padding: 0 2.25rem; }
+.hero-stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--gray-100); border-bottom: 1px solid var(--gray-100); }
+.hstat { padding: 1.4rem 1.3rem 1.4rem 0; border-right: 1px solid var(--gray-100); }
+.hstat:last-child { border-right: none; }
+.hstat-n { font-family: var(--font-display); font-weight: 700; font-size: 2rem; color: var(--green-deep); line-height: 1; }
+.hstat-l { font-size: 0.77rem; color: var(--gray-400); margin-top: 0.5rem; line-height: 1.4; }
+
+.band.wash { background: var(--green-wash); }
+.band.dark { background: var(--ink); color: #fff; }
+.section { max-width: 1180px; margin: 0 auto; padding: 4.4rem 2.25rem; }
+.section.narrow { max-width: 860px; }
+.section-head { max-width: 820px; margin-bottom: 2.3rem; }
+.section-head .eyebrow { display: block; margin-bottom: 0.7rem; }
+.section-title { font-family: var(--font-display); font-weight: 700; font-size: clamp(1.75rem, 3.4vw, 2.4rem); line-height: 1.15; color: var(--ink); letter-spacing: -0.01em; }
+.band.dark .section-title, .band.dark h3 { color: #fff; }
+.band.dark .eyebrow { color: var(--green-bright); }
+.section-subtitle { font-size: 1.05rem; line-height: 1.7; color: var(--gray-400); margin-top: 0.9rem; max-width: 760px; }
+.band.dark .section-subtitle { color: var(--gray-200); }
+
+.narrative { max-width: 780px; }
+.narrative p { font-size: 1.08rem; line-height: 1.82; color: var(--gray-500); margin-bottom: 1.35rem; }
+.narrative p:last-child { margin-bottom: 0; }
+.narrative p.drop:first-of-type::first-letter { font-family: var(--font-display); font-size: 3.3rem; font-weight: 700; float: left; line-height: 0.82; margin: 0.1rem 0.55rem 0 0; color: var(--green-deep); }
+.lead-in { font-size: 1.22rem; line-height: 1.6; color: var(--ink); font-weight: 500; margin-bottom: 1.6rem; }
+
+.callout { margin: 2.4rem 0; padding: 1.9rem 2.1rem; background: var(--green-wash); border-left: 4px solid var(--green); }
+.callout p { font-family: var(--font-display); font-size: 1.3rem; line-height: 1.5; color: var(--ink); font-style: italic; margin: 0; }
+.callout cite { display: block; margin-top: 0.9rem; font-family: var(--font-body); font-size: 0.76rem; font-style: normal; font-weight: 700; color: var(--gray-400); letter-spacing: 0.05em; text-transform: uppercase; }
+
+.spine { margin-top: 0.5rem; padding: 2.1rem; background: var(--ink); color: #fff; border-radius: 2px; }
+.spine-lead { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--green-bright); margin-bottom: 1.3rem; }
+.spine-flow { display: flex; align-items: stretch; gap: 0; flex-wrap: wrap; }
+.spine-node { flex: 1; min-width: 200px; padding: 0.2rem 1.4rem 0.2rem 0; position: relative; }
+.spine-node:not(:last-child)::after { content: ''; position: absolute; right: 0.5rem; top: 1.3rem; width: 22px; height: 2px; background: var(--green-bright); }
+.spine-node .sn-k { font-size: 0.66rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--green-bright); margin-bottom: 0.45rem; }
+.spine-node h4 { font-family: var(--font-display); font-size: 1.15rem; font-weight: 700; margin-bottom: 0.4rem; color: #fff; }
+.spine-node p { font-size: 0.86rem; color: var(--gray-200); line-height: 1.5; }
+
+/* Narrative phase blocks */
+.phases-narr { margin-top: 2.4rem; display: grid; gap: 1.1rem; }
+.pn { display: grid; grid-template-columns: 210px 1fr; gap: 0 2.2rem; border: 1px solid var(--gray-100); border-left: 4px solid var(--green); background: #fff; padding: 1.7rem 1.9rem; align-items: start; }
+.pn-side .pn-k { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--green-deep); }
+.pn-side .pn-when { font-family: var(--font-display); font-weight: 700; font-size: 1.55rem; color: var(--ink); line-height: 1.1; margin-top: 0.3rem; }
+.pn-side .pn-when span { display: block; font-size: 0.78rem; font-weight: 600; font-family: var(--font-body); color: var(--gray-400); margin-top: 0.3rem; letter-spacing: 0; }
+.pn-side .pn-scope { margin-top: 0.95rem; display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.pn-side .pn-scope span { font-size: 0.7rem; font-weight: 600; color: var(--green-deep); background: var(--green-pale); padding: 0.24rem 0.6rem; border-radius: 3px; }
+.pn-main h4 { font-family: var(--font-display); font-size: 1.25rem; font-weight: 700; color: var(--ink); line-height: 1.25; margin-bottom: 0.5rem; }
+.pn-main p { font-size: 0.95rem; color: var(--gray-400); line-height: 1.68; }
+.pn-countries { margin-top: 1.1rem; }
+.pn-countries .pc-k { font-size: 0.66rem; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; color: var(--gray-300); margin-bottom: 0.55rem; }
+.pn-countries .pc-list { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+.pn-countries .pc-list span { font-size: 0.74rem; font-weight: 600; color: var(--green-deep); background: var(--green-pale); padding: 0.22rem 0.55rem; border-radius: 3px; }
+@media (max-width: 760px) { .pn { grid-template-columns: 1fr; gap: 1.1rem; } .pn-side .pn-scope { margin-top: 0.6rem; } }
+
+/* Phase 1 deep-dive */
+.p1-grid { display: grid; grid-template-columns: 1.08fr 0.92fr; gap: 2.6rem; align-items: start; }
+.p1-track { list-style: none; }
+.p1-track li { display: grid; grid-template-columns: 30px 1fr; gap: 0.9rem; padding: 1.1rem 0; border-bottom: 1px solid var(--gray-100); }
+.p1-track li:last-child { border-bottom: none; }
+.p1-track .chk { width: 24px; height: 24px; border-radius: 50%; background: var(--green-pale); color: var(--green-deep); display: flex; align-items: center; justify-content: center; font-size: 0.72rem; font-weight: 800; margin-top: 2px; }
+.p1-track h4 { font-size: 1.02rem; color: var(--ink); font-weight: 700; margin-bottom: 0.3rem; }
+.p1-track p { font-size: 0.9rem; color: var(--gray-400); line-height: 1.6; }
+.convene { background: var(--ink); color: #fff; padding: 2rem 1.9rem; border-radius: 2px; }
+.convene .eyebrow { color: var(--green-bright); display: block; margin-bottom: 0.9rem; }
+.convene h4 { font-family: var(--font-display); font-size: 1.35rem; margin-bottom: 0.8rem; line-height: 1.25; }
+.convene p { font-size: 0.93rem; color: var(--gray-200); line-height: 1.65; margin-bottom: 1rem; }
+.convene-split { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; margin-top: 1.4rem; }
+.convene-split h5 { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--green-bright); margin-bottom: 0.6rem; }
+.convene-split ul { list-style: none; }
+.convene-split li { font-size: 0.86rem; color: var(--gray-200); padding: 0.32rem 0; line-height: 1.45; border-top: 1px solid rgba(255,255,255,0.12); }
+.convene-split li:first-child { border-top: none; }
+.p1-out { margin-top: 2rem; padding: 1.6rem 1.9rem; background: var(--green); color: #fff; border-radius: 2px; display: flex; gap: 1.4rem; align-items: center; flex-wrap: wrap; }
+.p1-out .po-k { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.85); margin-bottom: 0.3rem; }
+.p1-out .po-t { flex: 1; min-width: 260px; font-size: 1.02rem; line-height: 1.55; }
+.p1-out .po-t b { font-weight: 700; }
+
+/* Proof cards */
+.proof-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.1rem; margin-top: 0.5rem; }
+.proof-card { border: 1px solid var(--gray-100); padding: 1.6rem; background: #fff; transition: border-color 0.18s ease, box-shadow 0.18s ease; }
+.proof-card:hover { border-color: var(--green); box-shadow: 0 6px 22px rgba(0,117,74,0.07); }
+.proof-partner { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; color: var(--green-deep); margin-bottom: 0.55rem; }
+.proof-card h4 { font-family: var(--font-display); font-size: 1.18rem; color: var(--ink); font-weight: 700; line-height: 1.25; margin-bottom: 0.5rem; }
+.proof-card p { font-size: 0.88rem; color: var(--gray-400); line-height: 1.6; }
+.proof-card .stat-line { font-size: 0.82rem; color: var(--green-deep); font-weight: 600; margin-top: 0.8rem; }
+.reach-note { margin-top: 1.8rem; padding: 1.5rem 1.8rem; border: 1px solid var(--gray-100); border-left: 4px solid var(--green); background: #fff; font-size: 0.98rem; color: var(--gray-500); line-height: 1.7; }
+.reach-note b { color: var(--ink); }
+
+/* Investment */
+.config-wrap { display: grid; grid-template-columns: 1fr 340px; gap: 2rem; margin-top: 0.5rem; align-items: start; }
+.builder { display: grid; gap: 1.7rem; align-content: start; }
+.bld-label { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--gray-400); margin-bottom: 0.8rem; }
+.bld-toggle { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.7rem; }
+.opt { text-align: left; padding: 1rem 1.1rem; border: 1.5px solid var(--gray-100); background: #fff; border-radius: 3px; transition: border-color 0.18s ease, background 0.18s ease; }
+.opt:hover { border-color: var(--gray-300); }
+.opt .o-t { display: block; font-family: var(--font-display); font-size: 1.05rem; font-weight: 700; color: var(--ink); line-height: 1.2; }
+.opt .o-s { display: block; font-size: 0.74rem; color: var(--gray-400); margin-top: 0.35rem; line-height: 1.35; }
+.opt.active { border-color: var(--green); background: var(--green-wash); }
+.opt.active .o-s { color: var(--green-deep); }
+.stepper-row { display: flex; align-items: center; gap: 1.3rem; padding: 1.2rem 1.4rem; background: #fff; border: 1px solid var(--gray-100); border-radius: 3px; }
+.stepper-label { flex: 1; }
+.stepper-label .sl-t { font-size: 0.95rem; font-weight: 700; color: var(--ink); }
+.stepper-label .sl-s { font-size: 0.8rem; color: var(--gray-400); margin-top: 0.2rem; }
+.stepper { display: flex; align-items: center; border: 1.5px solid var(--green); border-radius: 4px; overflow: hidden; }
+.stepper button { width: 38px; height: 38px; border: none; background: #fff; color: var(--green-deep); font-size: 1.3rem; line-height: 1; font-weight: 600; }
+.stepper button:hover { background: var(--green-pale); }
+.stepper button:disabled { color: var(--gray-100); cursor: not-allowed; background: #fff; }
+.stepper .step-val { width: 48px; text-align: center; font-family: var(--font-display); font-weight: 700; font-size: 1.4rem; color: var(--ink); }
+.amp-list { display: grid; gap: 0.6rem; }
+.amp { display: flex; align-items: center; gap: 0.9rem; padding: 0.9rem 1.1rem; border: 1px solid var(--gray-100); border-radius: 3px; background: #fff; cursor: pointer; transition: border-color 0.18s ease, background 0.18s ease; }
+.amp:hover { border-color: var(--gray-300); }
+.amp input { width: 18px; height: 18px; accent-color: var(--green); flex-shrink: 0; }
+.amp .a-t { flex: 1; font-size: 0.94rem; color: var(--gray-500); }
+.amp .a-v { font-family: var(--font-display); font-weight: 700; font-size: 0.98rem; color: var(--green-deep); white-space: nowrap; }
+.amp:has(input:checked) { border-color: var(--green); background: var(--green-wash); }
+@media (max-width: 760px) { .bld-toggle { grid-template-columns: 1fr; } }
+
+.rail { position: sticky; top: 110px; border: 1px solid var(--gray-100); border-radius: 3px; overflow: hidden; }
+.rail-head { background: var(--ink); color: #fff; padding: 1.2rem 1.4rem; }
+.rail-head .rh-k { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--green-bright); }
+.rail-head .rh-t { font-family: var(--font-display); font-size: 1.2rem; font-weight: 700; margin-top: 0.3rem; line-height: 1.2; }
+.rail-body { padding: 1.3rem 1.4rem; }
+.rail-fig { font-family: var(--font-display); font-weight: 700; font-size: 2rem; color: var(--green-deep); line-height: 1.05; }
+.rail-fig-sub { font-size: 0.82rem; color: var(--gray-400); margin-top: 0.4rem; }
+.rail-meta { margin-top: 1.3rem; padding-top: 1.2rem; border-top: 1px solid var(--gray-100); }
+.rail-meta-row { display: flex; justify-content: space-between; gap: 0.8rem; font-size: 0.84rem; padding: 0.4rem 0; }
+.rail-meta-row .rm-k { color: var(--gray-400); }
+.rail-meta-row .rm-v { color: var(--ink); font-weight: 600; text-align: right; }
+.rail-deadline { margin-top: 1.2rem; padding: 0.9rem 1rem; background: var(--green-pale); border-radius: 3px; font-size: 0.84rem; color: var(--green-deep); line-height: 1.5; }
+.rail-deadline b { display: block; font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 0.25rem; }
+.rail-cta { display: block; width: 100%; text-align: center; margin-top: 1.2rem; padding: 0.85rem; background: var(--green); color: #fff; border: none; border-radius: 4px; font-weight: 700; font-size: 0.9rem; text-decoration: none; }
+.rail-cta:hover { background: var(--green-deep); }
+.invest-note { font-size: 0.78rem; color: var(--gray-300); line-height: 1.6; margin-top: 1.5rem; }
+
+/* Timeline */
+.seq { margin-top: 0.5rem; }
+.seq-track { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0; position: relative; }
+.seq-track::before { content: ''; position: absolute; left: 0; right: 0; top: 7px; height: 2px; background: var(--gray-100); }
+.seq-step { position: relative; padding: 0 0.7rem; }
+.seq-dot { width: 16px; height: 16px; border-radius: 50%; background: var(--green); position: relative; z-index: 1; box-shadow: 0 0 0 4px var(--green-wash); }
+.seq-dot.hollow { background: #fff; border: 2px solid var(--green); }
+.seq-date { font-size: 0.76rem; font-weight: 700; color: var(--green-deep); margin: 0.9rem 0 0.3rem; }
+.seq-step h4 { font-size: 0.92rem; color: var(--ink); font-weight: 700; margin-bottom: 0.25rem; line-height: 1.3; }
+.seq-step p { font-size: 0.82rem; color: var(--gray-400); line-height: 1.5; }
+.seq-legend { margin-top: 1.6rem; font-size: 0.82rem; color: var(--gray-400); line-height: 1.6; }
+.seq-legend b { color: var(--green-deep); }
+
+.gallup-black { background: var(--ink); color: #fff; }
+.gallup-black-inner { max-width: 1180px; margin: 0 auto; padding: 4.6rem 2.25rem; }
+.gallup-black .eyebrow { color: var(--green-bright); display: block; margin-bottom: 1.1rem; }
+.gallup-black h2 { font-family: var(--font-display); font-weight: 700; font-size: clamp(1.9rem, 4vw, 2.7rem); line-height: 1.15; max-width: 860px; margin-bottom: 1.3rem; }
+.gallup-black h2 em { color: var(--green-bright); font-style: italic; }
+.gallup-black > .gallup-black-inner > p { font-size: 1.08rem; color: var(--gray-200); line-height: 1.75; max-width: 740px; }
+.black-cta { margin-top: 3rem; display: flex; gap: 0.9rem; flex-wrap: wrap; align-items: center; }
+.black-cta a { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.9rem 1.6rem; border-radius: 4px; font-weight: 700; font-size: 0.92rem; text-decoration: none; }
+.black-cta .cta-primary { background: var(--green); color: #fff; }
+.black-cta .cta-primary:hover { background: var(--green-bright); }
+.black-cta .cta-ghost { border: 1px solid rgba(255,255,255,0.3); color: #fff; }
+.black-cta .cta-ghost:hover { border-color: #fff; }
+
+.site-footer { background: #fff; border-top: 1px solid var(--gray-100); }
+.footer-inner { max-width: 1180px; margin: 0 auto; padding: 2.4rem 2.25rem; display: flex; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; align-items: flex-start; }
+.footer-brand { font-family: var(--font-display); font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gray-400); font-size: 0.95rem; }
+.footer-note { font-size: 0.78rem; color: var(--gray-300); line-height: 1.6; max-width: 580px; }
+
+.reveal { opacity: 0; transform: translateY(16px); transition: opacity 0.55s ease, transform 0.55s ease; }
+.reveal.in { opacity: 1; transform: translateY(0); }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .reveal { opacity: 1; transform: none; transition: none; } }
+
+@media (max-width: 980px) {
+  .hero-stats-grid { grid-template-columns: 1fr 1fr; }
+  .hstat { border-right: none; }
+  .p1-grid, .convene-split { grid-template-columns: 1fr; gap: 1.6rem; }
+  .proof-grid { grid-template-columns: 1fr 1fr; }
+  .config-wrap { grid-template-columns: 1fr; }
+  .rail { position: static; }
+  .spine-node:not(:last-child)::after { display: none; }
+  .seq-track { grid-template-columns: 1fr; gap: 1.4rem; }
+  .seq-track::before { display: none; }
+}
+@media (max-width: 640px) {
+  .header-inner { padding: 0.75rem 1.2rem; flex-wrap: wrap; }
+  .header-actions { order: 3; width: 100%; }
+  .btn-h { flex: 1; justify-content: center; }
+  .subnav-inner { padding: 0 1.2rem; }
+  .hero-inner, .section, .gallup-black-inner, .footer-inner, .hero-stats { padding-left: 1.2rem; padding-right: 1.2rem; }
+  .hero-stats-grid, .proof-grid { grid-template-columns: 1fr; }
+}
+
+@media print {
+  .site-header, .rail-cta, .black-cta { display: none !important; }
+  body { color: #000; font-size: 11pt; }
+  .hero { border-top: 4px solid #009d4f; }
+  .hero-inner, .section, .gallup-black-inner, .footer-inner, .hero-stats { padding: 1.2rem 0; max-width: 100%; }
+  .band.dark, .band.wash, .spine, .convene, .rail-head, .p1-out { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .proof-card, .seq-step, .spine, .convene, .opt, .amp { break-inside: avoid; }
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <div class="brand-pair">
+      <span class="mark-gallup">Gallup<sup>&reg;</sup></span>
+      <span class="brand-divider"></span>
+      <span class="mark-moz">Mozilla Foundation<span>A partnership proposal</span></span>
+    </div>
+    <div class="header-actions">
+      <a class="btn-h" href="#" onclick="window.print();return false;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9V2h12v7M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2M6 14h12v8H6z"/></svg>Print</a>
+      <a class="btn-h primary" href="mailto:justin_lall@gallup.com?subject=Mozilla%20Foundation%20%C3%97%20Gallup%20%E2%80%94%20Global%20Imagination%20Index">Contact Gallup</a>
+    </div>
+  </div>
+  <nav class="subnav">
+    <div class="subnav-inner">
+      <a href="#summary">In brief</a>
+      <a href="#opportunity">The opportunity</a>
+      <a href="#approach">How we would do it</a>
+      <a href="#phase1">Phase 1</a>
+      <a href="#why">Why Gallup</a>
+      <a href="#investment">Investment</a>
+      <a href="#sequence">Timeline</a>
+    </div>
+  </nav>
+</header>
+
+<!-- HERO / OPENING -->
+<section class="hero">
+  <div class="hero-inner reveal">
+    <span class="eyebrow">A partnership proposal from Gallup</span>
+    <h1>Establishing the <em>Global Imagination Index</em></h1>
+    <p class="hero-sub">Gallup proposes partnering with Mozilla Foundation to build the world's first credible, globally comparable measure of imagination, and the conditions that allow it to flourish.</p>
+  </div>
+  <div class="hero-stats reveal">
+    <div class="hero-stats-grid">
+      <div class="hstat"><div class="hstat-n">140+</div><div class="hstat-l">Countries the Gallup World Poll reaches each year</div></div>
+      <div class="hstat"><div class="hstat-n">98%+</div><div class="hstat-l">Of the world's adult population represented by the World Poll</div></div>
+      <div class="hstat"><div class="hstat-n">Since 2005</div><div class="hstat-l">Continuous, individual-level global trend data</div></div>
+      <div class="hstat"><div class="hstat-n">None</div><div class="hstat-l">Shared global measures of imagination exist today. That is the gap this partnership closes.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- EXECUTIVE SUMMARY -->
+<div class="band">
+<section class="section narrow" id="summary">
+  <div class="section-head reveal">
+    <span class="eyebrow">In brief</span>
+    <h2 class="section-title">What Gallup proposes</h2>
+  </div>
+  <div class="narrative reveal">
+    <p class="drop">Gallup proposes a partnership with Mozilla Foundation to create the Global Imagination Index: a credible, trusted, and globally comparable indicator of the state of imagination around the world.</p>
+    <p>Today there is no shared way to measure imagination across countries and populations. That leaves a data gap at the center of one of the defining conversations of the AI era, and no common evidence base for the governments, funders, and companies that want to invest in it.</p>
+    <p>The Index would be developed together, and built in sequence. Gallup and Mozilla Foundation would first define the underlying construct through desk research and a convening of leading experts, then design and validate a survey instrument, then measure at global scale on the Gallup World Poll, and finally construct the Index and bring it into the world. What the Index should ultimately capture is not presumed here; defining it well is the first task of the work.</p>
+    <p>This is work Gallup has done before. The life-evaluation data behind the World Happiness Report and the World Bank's Global Findex are both collected on the Gallup World Poll. Gallup proposes to bring that same rigor, reach, and credibility to imagination.</p>
+  </div>
+</section>
+</div>
+
+<!-- OPPORTUNITY -->
+<div class="band wash">
+<section class="section narrow" id="opportunity">
+  <div class="section-head reveal">
+    <span class="eyebrow">The opportunity</span>
+    <h2 class="section-title">Fill the data gap. Inform the global conversation.</h2>
+  </div>
+  <div class="narrative reveal">
+    <p class="lead-in">As AI makes many forms of production cheaper and more accessible, the decisive question is shifting: not only what people can make, but who gets to imagine, exercise agency, and shape what comes next.</p>
+    <p>Imagination is a human and societal capacity: the ability to envisage alternatives, and to turn them into reality. It runs far wider than the creative industries, through technology, education, public institutions, economic participation, and the ways societies decide their own futures. Technology can widen those possibilities. Through unequal access, concentrated ownership, and dependence on closed platforms, it can also narrow them.</p>
+    <p>Yet there is no accepted way to see any of this clearly across the world. Imagination and creativity are counted mostly by outputs: patents, exports, box-office receipts. None of these capture whether a person feels able to imagine and build, or whether the conditions around them make it possible. That absence is the opportunity.</p>
+    <p>This is Mozilla Foundation's own terrain. In its framing, imagination is a human and societal capacity to envisage alternatives, and the imagination economy is the set of conditions that lets people turn those possibilities into reality. It is a thesis Mozilla Foundation carries through its work to imagine, co-create, and mobilize human-centered technology, and through its conviction that imagination deserves to be treated as core infrastructure, not a byproduct. Gallup's role is to make that thesis measurable.</p>
+    <div class="callout">
+      <p>The ambition is to make imagination legible: something a government, a funder, or a company can see, compare, and choose to invest in.</p>
+      <cite>The shared premise behind this partnership</cite>
+    </div>
+    <p>A credible, trusted indicator would do for imagination what trusted measures have done for wellbeing and financial inclusion: anchor the global conversation, reveal where capacity and opportunity differ across populations and geographies, and show decision-makers where investment is most needed. Exactly what the Index should measure, and how far it draws on people's own experience versus the conditions around them, is not yet settled. Resolving that, together, is the first and most important part of the work.</p>
+  </div>
+</section>
+</div>
+
+<!-- HOW WE WOULD ACCOMPLISH IT -->
+<div class="band">
+<section class="section" id="approach">
+  <div class="section-head reveal">
+    <span class="eyebrow">How we would accomplish it</span>
+    <h2 class="section-title">Build the construct together, then measure it at scale</h2>
+    <p class="section-subtitle">A credible index is earned in sequence. The partnership moves from definition, to a tested instrument, to global measurement, to a public measure others can use. Each phase has a clear decision point, so Mozilla Foundation can commit to scale only once the foundations are proven.</p>
+  </div>
+  <div class="phases-narr">
+    <div class="pn reveal">
+      <div class="pn-side">
+        <div class="pn-k">Phase 1</div>
+        <div class="pn-when">12&ndash;16 weeks<span>Research &amp; convening</span></div>
+        <div class="pn-scope"><span>Desk research</span><span>Expert convening</span></div>
+      </div>
+      <div class="pn-main">
+        <h4>Framework and indicator development</h4>
+        <p>The partnership opens with the work that matters most: defining what the Index measures. Gallup begins with desk research, a structured review of the measures and academic literature already touching imagination, then drafts a candidate construct and convenes external scholars alongside Gallup scientists to challenge and refine it. The phase closes with a validated conceptual framework and indicator architecture the field can stand behind. It is set out in detail in the section that follows.</p>
+      </div>
+    </div>
+    <div class="pn reveal">
+      <div class="pn-side">
+        <div class="pn-k">Phase 2</div>
+        <div class="pn-when">8&ndash;12 weeks<span>Instrument &amp; pilot</span></div>
+        <div class="pn-scope"><span>Item design</span><span>Cognitive testing</span><span>Pilot</span></div>
+      </div>
+      <div class="pn-main">
+        <h4>Instrument design and validation</h4>
+        <p>With the framework agreed, Gallup turns it into a working instrument: a concise set of survey items that measure the construct faithfully and travel across languages and cultures. Items are cognitively tested in several countries, checked for measurement invariance, and piloted, then finalized as a concise module ready for the World Poll. The result is an instrument that means the same thing in every place it is asked.</p>
+      </div>
+    </div>
+    <div class="pn reveal">
+      <div class="pn-side">
+        <div class="pn-k">Phase 3A</div>
+        <div class="pn-when">Q3 2027<span>Quarterly World Poll</span></div>
+        <div class="pn-scope"><span>20 countries</span><span>Six regions</span></div>
+      </div>
+      <div class="pn-main">
+        <h4>First measurement on the quarterly World Poll</h4>
+        <p>The validated module goes into the field on the third-quarter wave of Gallup's 20-country quarterly World Poll: a deliberately chosen set of markets spanning six regions and every collection mode, from face-to-face to telephone to web. This produces the first comparable reading of imagination anywhere in the world, and stands up a quarterly vehicle that can track movement far more frequently than an annual wave allows.</p>
+        <div class="pn-countries">
+          <div class="pc-k">The 20 markets</div>
+          <div class="pc-list"><span>Australia</span><span>Canada</span><span>France</span><span>Germany</span><span>India</span><span>Indonesia</span><span>Italy</span><span>Japan</span><span>Mexico</span><span>Netherlands</span><span>Philippines</span><span>Poland</span><span>Saudi Arabia</span><span>Singapore</span><span>South Korea</span><span>Thailand</span><span>United Arab Emirates</span><span>United Kingdom</span><span>United States</span><span>Vietnam</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="pn reveal">
+      <div class="pn-side">
+        <div class="pn-k">Phase 3B</div>
+        <div class="pn-when">Q4 2027<span>Delivery &amp; launch</span></div>
+        <div class="pn-scope"><span>Data delivery</span><span>Comms</span><span>Launch event</span></div>
+      </div>
+      <div class="pn-main">
+        <h4>First delivery and public launch</h4>
+        <p>In the fourth quarter, Gallup delivers the weighted 20-country dataset and the two organizations bring the Index into public view: a coordinated communications push and a launch event that debut the measure with its first markets. This is the moment the Index becomes real to the world, and the proof point that carries it to global scale.</p>
+      </div>
+    </div>
+    <div class="pn reveal">
+      <div class="pn-side">
+        <div class="pn-k">Phase 4</div>
+        <div class="pn-when">Q1 2028<span>Global deployment</span></div>
+        <div class="pn-scope"><span>140+ countries</span><span>Annual wave</span><span>Flagship report</span></div>
+      </div>
+      <div class="pn-main">
+        <h4>Global deployment and flagship launch</h4>
+        <p>In the first quarter of 2028, the module extends to the full annual Gallup World Poll across more than 140 countries, representing over 98% of the world's adult population. Gallup builds the composite Index at global scale, analyzes how capacity and opportunity differ across populations and geographies, and anchors the major launches. The 20-country quarterly read can continue alongside it, giving Mozilla Foundation a frequent pulse between annual global waves.</p>
+      </div>
+    </div>
+  </div>
+</section>
+</div>
+
+<!-- PHASE 1 DEEP DIVE -->
+<div class="band wash">
+<section class="section" id="phase1">
+  <div class="section-head reveal">
+    <span class="eyebrow">Phase 1 &middot; The foundation</span>
+    <h2 class="section-title">Framework and indicator development</h2>
+    <p class="section-subtitle">This is where the Index is won or lost, and where the construct is actually built. Phase 1 begins with a deliberate period of desk research, then brings external and internal experts together to shape the measure. Its output is a defensible framework the field can stand behind, before any measurement commits resources to it.</p>
+  </div>
+  <div class="p1-grid">
+    <div class="reveal">
+      <ul class="p1-track">
+        <li>
+          <span class="chk">1</span>
+          <div>
+            <h4>Desk research: a landscape review of what already exists</h4>
+            <p>Gallup begins with a structured review of measures adjacent to imagination, from innovation and creativity indices to human-capability and cultural-participation frameworks, alongside the academic literature on imagination, creative self-efficacy, and agency. The aim is to learn from what is already measured, map the conditions that could feed the Index, and find the space only a population measure can fill. This directly answers Mozilla Foundation's interest in understanding existing measures and where survey data adds something new.</p>
+          </div>
+        </li>
+        <li>
+          <span class="chk">2</span>
+          <div>
+            <h4>A working definition of the construct</h4>
+            <p>From that review, Gallup drafts a first definition of imagination as this Index might measure it, and a set of candidate dimensions. This gives experts something concrete to react to rather than an abstract conversation, and it is explicitly a starting point for debate, not a conclusion.</p>
+          </div>
+        </li>
+        <li>
+          <span class="chk">3</span>
+          <div>
+            <h4>Expert input, external and internal</h4>
+            <p>Gallup then convenes the people who should shape the measure: external scholars and practitioners drawn from Mozilla Foundation's network and the wider field, together with Gallup's own methodologists, behavioral scientists, and World Poll regional directors. Their task is to challenge the definition, confirm what matters across cultures, and decide what the Index should and should not try to capture.</p>
+          </div>
+        </li>
+        <li>
+          <span class="chk">4</span>
+          <div>
+            <h4>A validated framework and measurement blueprint</h4>
+            <p>Phase 1 closes with an agreed conceptual framework, a prioritized indicator architecture, and a blueprint for how far the Index draws on survey data versus other indicators. This becomes the reference document for everything that follows, and a credible artifact Mozilla Foundation can share to signal leadership on the idea.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="convene reveal">
+      <span class="eyebrow">Gallup's convening power</span>
+      <h4>Few organizations can bring this room together, and have it listened to</h4>
+      <p>Gallup has spent decades building measures that institutions adopt as reference points. That history, and a standing global network of researchers and regional directors, means Gallup can assemble the right experts and give the resulting framework the authority to be taken seriously by governments, funders, and companies alike.</p>
+      <div class="convene-split">
+        <div>
+          <h5>External voices</h5>
+          <ul>
+            <li>Scholars of imagination, creativity, and agency</li>
+            <li>Technology and open-internet researchers</li>
+            <li>Mozilla Foundation's fellows and communities</li>
+            <li>Practitioners from education and the arts</li>
+          </ul>
+        </div>
+        <div>
+          <h5>Gallup scientists</h5>
+          <ul>
+            <li>World Poll methodologists</li>
+            <li>Psychometricians and survey designers</li>
+            <li>Behavioral economists</li>
+            <li>Regional directors across world regions</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="p1-out reveal">
+    <div class="po-t"><div class="po-k">What Phase 1 delivers</div>A published conceptual framework defining the imagination construct, a prioritized indicator architecture, and a measurement blueprint: the foundation every later phase builds on, and a credible early signal that <b>Mozilla Foundation is helping set the terms of this field.</b></div>
+  </div>
+</section>
+</div>
+
+<!-- WHY GALLUP / TRACK RECORD -->
+<div class="band">
+<section class="section" id="why">
+  <div class="section-head reveal">
+    <span class="eyebrow">Why Gallup</span>
+    <h2 class="section-title">Gallup has built the measures the world trusts</h2>
+    <p class="section-subtitle">Establishing a new global indicator is difficult and rare. Gallup has done it repeatedly, supplying the comparable, individual-level data beneath some of the world's most-cited measures, and bringing the rigor and convening authority to make a new one credible from the start.</p>
+  </div>
+  <div class="proof-grid reveal">
+    <div class="proof-card">
+      <div class="proof-partner">World Happiness Report</div>
+      <h4>Turning wellbeing into a number the world watches</h4>
+      <p>The report's central life-evaluation ranking is built on the Gallup World Poll. The report itself is produced by the Wellbeing Research Centre at the University of Oxford with the UN Sustainable Development Solutions Network; Gallup provides the comparable global data beneath it.</p>
+      <div class="stat-line">A subjective human measure, made globally comparable</div>
+    </div>
+    <div class="proof-card">
+      <div class="proof-partner">World Bank &middot; Global Findex</div>
+      <h4>The reference measure of financial inclusion</h4>
+      <p>The World Bank's Global Findex, the standard source on who can access and use financial services, is collected through the Gallup World Poll. It shows how a composite global measure built on Gallup data becomes essential infrastructure for policy and investment.</p>
+      <div class="stat-line">A composite index built on World Poll collection</div>
+    </div>
+    <div class="proof-card">
+      <div class="proof-partner">Gallup Global Emotions</div>
+      <h4>Measuring what statistics usually miss</h4>
+      <p>Gallup's annual reading of positive and negative experience shows that human states most assume are unmeasurable can in fact be tracked rigorously, year over year, across the whole world. Imagination belongs in that company.</p>
+      <div class="stat-line">Intangible human experience, tracked at global scale</div>
+    </div>
+  </div>
+  <p class="reach-note reveal">Enabling conditions can be assembled from existing data. The lived experience of imagination and agency cannot: it has to be asked, of real people, comparably, everywhere. <b>Since 2005 the Gallup World Poll has surveyed individuals in more than 140 countries each year, representing over 98% of the world's adult population, using probability-based methods that make results comparable across borders.</b> It is the only platform that can measure the human side of imagination globally, the same way in every country.</p>
+</section>
+</div>
+
+<!-- INVESTMENT -->
+<div class="band wash">
+<section class="section" id="investment">
+  <div class="section-head reveal">
+    <span class="eyebrow">Investment</span>
+    <h2 class="section-title">An illustrative estimate, shaped at scoping</h2>
+    <p class="section-subtitle">The framework and instrument phases are relatively fixed. Global measurement and amplification scale with the scope chosen. Everything below is an illustrative estimate only, meant to frame the conversation; final costs would be set with Gallup during scoping and contracting.</p>
+  </div>
+  <div class="config-wrap">
+    <div class="builder reveal">
+      <div class="bld-group">
+        <div class="bld-label">Measurement footprint</div>
+        <div class="bld-toggle">
+          <button class="opt" data-foot="quarterly" onclick="setFoot('quarterly')"><span class="o-t">Quarterly read</span><span class="o-s">20 countries, six regions</span></button>
+          <button class="opt" data-foot="national" onclick="setFoot('national')"><span class="o-t">Full World Poll</span><span class="o-s">140+ countries</span></button>
+          <button class="opt active" data-foot="both" onclick="setFoot('both')"><span class="o-t">Both</span><span class="o-s">Quarterly, then global</span></button>
+        </div>
+      </div>
+      <div class="bld-group">
+        <div class="bld-label">Module length on the World Poll</div>
+        <div class="stepper-row">
+          <div class="stepper-label"><div class="sl-t">Minutes of survey time</div><div class="sl-s">A longer module measures more of the construct.</div></div>
+          <div class="stepper">
+            <button type="button" id="minMinus" onclick="stepMinutes(-1)" aria-label="Fewer minutes">&minus;</button>
+            <div class="step-val" id="minVal">2</div>
+            <button type="button" id="minPlus" onclick="stepMinutes(1)" aria-label="More minutes">+</button>
+          </div>
+        </div>
+      </div>
+      <div class="bld-group">
+        <div class="bld-label">Amplification activities</div>
+        <div class="amp-list">
+          <label class="amp"><input type="checkbox" data-cost="65000" onchange="ampChanged()" checked><span class="a-t">Public launch event</span><span class="a-v">$65,000</span></label>
+          <label class="amp"><input type="checkbox" data-cost="75000" onchange="ampChanged()" checked><span class="a-t">Global communications campaign</span><span class="a-v">$75,000</span></label>
+          <label class="amp"><input type="checkbox" data-cost="150000" onchange="ampChanged()"><span class="a-t">Interactive data microsite</span><span class="a-v">$150,000</span></label>
+          <label class="amp"><input type="checkbox" data-cost="110000" onchange="ampChanged()" checked><span class="a-t">Report and Gallup.com article series</span><span class="a-v">$110,000</span></label>
+          <label class="amp"><input type="checkbox" data-cost="140000" onchange="ampChanged()"><span class="a-t">Regional briefings series</span><span class="a-v">$140,000</span></label>
+        </div>
+      </div>
+    </div>
+    <aside class="reveal">
+      <div class="rail">
+        <div class="rail-head"><div class="rh-k">Estimated investment</div><div class="rh-t">Illustrative only</div></div>
+        <div class="rail-body">
+          <div class="rail-fig" id="estTotal">$3.63M</div>
+          <div class="rail-fig-sub">An estimate, not a quote</div>
+          <div class="rail-meta">
+            <div class="rail-meta-row"><span class="rm-k">Foundation</span><span class="rm-v" id="estFound">$425,000</span></div>
+            <div class="rail-meta-row"><span class="rm-k">Measurement</span><span class="rm-v" id="estMeas">$2,950,000</span></div>
+            <div class="rail-meta-row"><span class="rm-k">Amplification</span><span class="rm-v" id="estAmp">$250,000</span></div>
+          </div>
+          <div class="rail-deadline"><b>These are estimates only</b>Final scope and costs would be determined with Gallup at scoping. The figures here are illustrative, not a contractual quote.</div>
+          <a class="rail-cta" href="mailto:justin_lall@gallup.com?subject=Mozilla%20Foundation%20%C3%97%20Gallup%20%E2%80%94%20Global%20Imagination%20Index%20scoping">Discuss scope with Gallup</a>
+        </div>
+      </div>
+      <p class="invest-note">Hard rates used in the builder, all illustrative: quarterly 20-country fielding at $475,000 per minute of survey time; the full 140-country World Poll at $1,000,000 per minute. Foundation covers framework development and instrument design and validation. Amplification activities are priced individually. Final scope and costs are confirmed with Gallup at scoping.</p>
+    </aside>
+  </div>
+</section>
+</div>
+
+<!-- TIMELINE -->
+<div class="band">
+<section class="section" id="sequence">
+  <div class="section-head reveal">
+    <span class="eyebrow">Timeline</span>
+    <h2 class="section-title">From a shared idea to a public measure</h2>
+    <p class="section-subtitle">An indicative path. Phase 1 can begin as soon as the partnership is agreed; the global measurement phase aligns to the Gallup World Poll's annual module calendar, which is why early decisions protect the fielding window.</p>
+  </div>
+  <div class="seq reveal">
+    <div class="seq-track">
+      <div class="seq-step">
+        <div class="seq-dot"></div>
+        <div class="seq-date">Phase 1 &middot; 12&ndash;16 weeks</div>
+        <h4>Framework development</h4>
+        <p>Desk research and an expert convening define and validate the construct.</p>
+      </div>
+      <div class="seq-step">
+        <div class="seq-dot"></div>
+        <div class="seq-date">Phase 2 &middot; 8&ndash;12 weeks</div>
+        <h4>Instrument &amp; pilot</h4>
+        <p>Items designed, cognitively tested across cultures, and piloted as a concise module.</p>
+      </div>
+      <div class="seq-step">
+        <div class="seq-dot hollow"></div>
+        <div class="seq-date">Q3 2027</div>
+        <h4>First measurement</h4>
+        <p>The module fields on the 20-country quarterly World Poll across six regions.</p>
+      </div>
+      <div class="seq-step">
+        <div class="seq-dot hollow"></div>
+        <div class="seq-date">Q4 2027</div>
+        <h4>Delivery &amp; public launch</h4>
+        <p>First data delivered; the Index debuts with a comms push and a launch event.</p>
+      </div>
+      <div class="seq-step">
+        <div class="seq-dot hollow"></div>
+        <div class="seq-date">Q1 2028</div>
+        <h4>Global deployment</h4>
+        <p>The module extends to 140+ countries; the flagship Index and major launches follow.</p>
+      </div>
+    </div>
+    <p class="seq-legend"><b>Why timing matters:</b> the quarterly World Poll offers an earlier entry point, while the annual 140-country module is finalized on a calendar that closes each November. Confirming the partnership in good time keeps Q3 2027 fielding and the Q1 2028 global wave on schedule rather than slipping a full cycle.</p>
+  </div>
+</section>
+</div>
+
+<!-- CLOSING -->
+<div class="gallup-black">
+  <div class="gallup-black-inner">
+    <span class="eyebrow reveal">The invitation</span>
+    <h2 class="reveal">Make imagination <em>legible</em> for the whole world.</h2>
+    <p class="reveal">Mozilla Foundation has named the idea and built the movement around it. Gallup can give it a measure: rigorous, global, and human. The first step is small, contained, and valuable in itself: develop the framework, with the field, and establish the construct that everything else depends on.</p>
+    <div class="black-cta reveal">
+      <a class="cta-primary" href="#" onclick="window.print();return false;">Download PDF</a>
+    </div>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">Gallup<sup>&reg;</sup></div>
+    <p class="footer-note">Prepared by Gallup for Mozilla Foundation. The Global Imagination Index is a working title, and the construct is to be developed and validated with experts in Phase 1 rather than presumed here. Investment figures, phasing, and dates shown are illustrative and subject to confirmation with Gallup. World Poll reach figures reflect Gallup's standard published description of the survey. This document is confidential and intended for discussion between Gallup and Mozilla Foundation.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+  var FOUND = 425000, minutes = 2, MIN_M = 1, MAX_M = 4, foot = 'both';
+  var RATE = { quarterly: 475000, national: 1000000, both: 1475000 };
+  function setText(id, val){ var el = document.getElementById(id); if (el) el.textContent = val; }
+  function usd(v){ return '$' + String(Math.round(v)).replace(/\B(?=(\d{3})+(?!\d))/g, ','); }
+  function usdM(v){ var s = (v/1000000).toFixed(2).replace(/0+$/, '').replace(/\.$/, ''); return '$' + s + 'M'; }
+  function ampTotal(){ var t = 0, boxes = document.querySelectorAll('.amp input:checked'); for (var i = 0; i < boxes.length; i++){ t += parseInt(boxes[i].getAttribute('data-cost'), 10) || 0; } return t; }
+  function render(){
+    var meas = RATE[foot] * minutes, amp = ampTotal(), total = FOUND + meas + amp;
+    setText('estFound', usd(FOUND));
+    setText('estMeas', usd(meas));
+    setText('estAmp', usd(amp));
+    setText('estTotal', usdM(total));
+    setText('minVal', minutes);
+    var mm = document.getElementById('minMinus'), mp = document.getElementById('minPlus');
+    if (mm) mm.disabled = (minutes <= MIN_M);
+    if (mp) mp.disabled = (minutes >= MAX_M);
+  }
+  window.setFoot = function(f){
+    foot = f;
+    var b = document.querySelectorAll('.opt');
+    for (var i = 0; i < b.length; i++){ b[i].classList.toggle('active', b[i].getAttribute('data-foot') === f); }
+    render();
+  };
+  window.stepMinutes = function(d){ minutes = Math.max(MIN_M, Math.min(MAX_M, minutes + d)); render(); };
+  window.ampChanged = function(){ render(); };
+  render();
+  var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var els = document.querySelectorAll('.reveal');
+  if (reduced || !('IntersectionObserver' in window)){ for (var i = 0; i < els.length; i++) els[i].classList.add('in'); }
+  else {
+    var io = new IntersectionObserver(function(entries){ for (var j = 0; j < entries.length; j++){ if (entries[j].isIntersecting){ entries[j].target.classList.add('in'); io.unobserve(entries[j].target); } } }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+    for (var k = 0; k < els.length; k++) io.observe(els[k]);
+  }
+})();
+</script>
+</body>
+</html>
