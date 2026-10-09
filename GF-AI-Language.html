@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Measuring Who Can Use AI in Their Own Language and Voice: A Gallup Partnership Proposal for the Gates Foundation</title>
+<style>
+/* GALLUP VISUAL IDENTITY per Visual Identity Style Guide v1.3 */
+:root {
+  --green: #009d4f; --green-deep: #00754a; --green-bright: #16c64f; --green-pale: #e4f2e1; --green-wash: #f3f9f1;
+  --gray-00: #f1f1f1; --gray-100: #cfd2d3; --gray-200: #b0b3b2; --gray-300: #878a8b; --gray-400: #53575a; --gray-500: #24272a;
+  --ink: #000000; --paper: #ffffff;
+  --font-display: Georgia, 'Times New Roman', Times, serif;
+  --font-body: Aptos, 'Aktiv Grotesk', Arial, 'Helvetica Neue', Helvetica, sans-serif;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--font-body); color: var(--gray-500); background: var(--paper); -webkit-font-smoothing: antialiased; font-size: 16px; line-height: 1.6; }
+::selection { background: var(--green-pale); color: var(--ink); }
+img { max-width: 100%; display: block; }
+a { color: var(--green-deep); }
+button { font-family: var(--font-body); cursor: pointer; }
+:focus-visible { outline: 2px solid var(--green-deep); outline-offset: 2px; }
+
+.site-header { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.95); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid var(--gray-100); }
+.header-inner { max-width: 1180px; margin: 0 auto; padding: 0.9rem 2.25rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+.brand-pair { display: flex; align-items: center; gap: 1.1rem; min-width: 0; }
+.mark-gallup { font-family: var(--font-display); font-weight: 700; font-size: 1.02rem; letter-spacing: 0.24em; text-transform: uppercase; color: var(--gray-400); line-height: 1; white-space: nowrap; }
+.mark-gallup sup { font-size: 0.42em; letter-spacing: 0; vertical-align: super; }
+.brand-divider { width: 1px; height: 26px; background: var(--gray-100); flex-shrink: 0; }
+.mark-moz { font-family: var(--font-body); font-weight: 800; font-size: 0.9rem; letter-spacing: 0.02em; color: var(--gray-500); line-height: 1.1; white-space: nowrap; }
+.mark-moz span { display: block; font-size: 0.53rem; font-weight: 600; letter-spacing: 0.09em; text-transform: uppercase; color: var(--gray-400); margin-top: 0.22rem; white-space: nowrap; }
+.header-actions { display: flex; align-items: center; gap: 0.55rem; flex-shrink: 0; }
+.btn-h { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.5rem 0.95rem; border-radius: 4px; font-size: 0.74rem; font-weight: 700; letter-spacing: 0.02em; border: 1px solid var(--gray-100); background: #fff; color: var(--gray-500); transition: background 0.18s ease, color 0.18s ease, border-color 0.18s ease; text-decoration: none; }
+.btn-h svg { width: 14px; height: 14px; }
+.btn-h.primary { background: var(--green); color: #fff; border-color: var(--green); }
+.btn-h.primary:hover { background: var(--green-deep); border-color: var(--green-deep); }
+.btn-h:hover { border-color: var(--gray-300); }
+.subnav { border-top: 1px solid var(--gray-00); overflow-x: auto; }
+.subnav-inner { max-width: 1180px; margin: 0 auto; padding: 0 2.25rem; display: flex; gap: 1.5rem; align-items: center; height: 44px; }
+.subnav a { font-size: 0.75rem; font-weight: 600; color: var(--gray-400); text-decoration: none; white-space: nowrap; transition: color 0.18s ease; }
+.subnav a:hover { color: var(--green-deep); }
+
+.hero { border-top: 4px solid var(--green); background: #fff; }
+.hero-inner { max-width: 1180px; margin: 0 auto; padding: 4rem 2.25rem 3.75rem; }
+.hero-rule { width: 56px; height: 4px; background: var(--green); margin-bottom: 1.4rem; }
+.eyebrow { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--green-deep); }
+.hero .eyebrow { margin-bottom: 1.2rem; display: block; }
+.hero h1 { font-family: var(--font-display); font-weight: 700; font-size: clamp(2.2rem, 4.6vw, 3.5rem); line-height: 1.08; letter-spacing: -0.015em; color: var(--ink); margin-bottom: 1.3rem; max-width: 900px; }
+.hero h1 em { font-style: italic; color: var(--green-deep); }
+.hero-sub { font-size: 1.12rem; line-height: 1.7; color: var(--gray-400); max-width: 680px; }
+
+.hero-stats { max-width: 1180px; margin: 2.8rem auto 0; padding: 0 2.25rem; }
+.hero-stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--gray-100); border-bottom: 1px solid var(--gray-100); }
+.hstat { padding: 1.4rem 1.5rem; border-right: 1px solid var(--gray-100); }
+.hstat:first-child { padding-left: 0; }
+.hstat:last-child { border-right: none; padding-right: 0; }
+.hstat-n { font-family: var(--font-display); font-weight: 700; font-size: 2rem; color: var(--green-deep); line-height: 1; }
+.hstat-l { font-size: 0.77rem; color: var(--gray-400); margin-top: 0.5rem; line-height: 1.4; }
+
+.band.wash { background: var(--green-wash); }
+.band.dark { background: var(--ink); color: #fff; }
+.section { max-width: 1180px; margin: 0 auto; padding: 4.4rem 2.25rem; }
+.section.narrow { max-width: 860px; }
+.section-head { max-width: 820px; margin-bottom: 2.3rem; }
+.section-head .eyebrow { display: block; margin-bottom: 0.7rem; }
+.section-title { font-family: var(--font-display); font-weight: 700; font-size: clamp(1.75rem, 3.4vw, 2.4rem); line-height: 1.15; color: var(--ink); letter-spacing: -0.01em; }
+.band.dark .section-title, .band.dark h3 { color: #fff; }
+.band.dark .eyebrow { color: var(--green-bright); }
+.section-subtitle { font-size: 1.05rem; line-height: 1.7; color: var(--gray-400); margin-top: 0.9rem; max-width: 760px; }
+.band.dark .section-subtitle { color: var(--gray-200); }
+
+.narrative { max-width: 780px; }
+.narrative p { font-size: 1.08rem; line-height: 1.82; color: var(--gray-500); margin-bottom: 1.35rem; }
+.narrative p:last-child { margin-bottom: 0; }
+.narrative p.drop:first-of-type::first-letter { font-family: var(--font-display); font-size: 3.3rem; font-weight: 700; float: left; line-height: 0.82; margin: 0.1rem 0.55rem 0 0; color: var(--green-deep); }
+.lead-in { font-size: 1.22rem; line-height: 1.6; color: var(--ink); font-weight: 500; margin-bottom: 1.6rem; }
+
+.callout { margin: 2.4rem 0; padding: 1.9rem 2.1rem; background: var(--green-wash); border-left: 4px solid var(--green); }
+.callout p { font-family: var(--font-display); font-size: 1.3rem; line-height: 1.5; color: var(--ink); font-style: italic; margin: 0; }
+.callout cite { display: block; margin-top: 0.9rem; font-family: var(--font-body); font-size: 0.76rem; font-style: normal; font-weight: 700; color: var(--gray-400); letter-spacing: 0.05em; text-transform: uppercase; }
+
+.spine { margin-top: 0.5rem; padding: 2.1rem; background: var(--ink); color: #fff; border-radius: 2px; }
+.spine-lead { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--green-bright); margin-bottom: 1.3rem; }
+.spine-flow { display: flex; align-items: stretch; gap: 0; flex-wrap: wrap; }
+.spine-node { flex: 1; min-width: 200px; padding: 0.2rem 1.4rem 0.2rem 0; position: relative; }
+.spine-node:not(:last-child)::after { content: ''; position: absolute; right: 0.5rem; top: 1.3rem; width: 22px; height: 2px; background: var(--green-bright); }
+.spine-node .sn-k { font-size: 0.66rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--green-bright); margin-bottom: 0.45rem; }
+.spine-node h4 { font-family: var(--font-display); font-size: 1.15rem; font-weight: 700; margin-bottom: 0.4rem; color: #fff; }
+.spine-node p { font-size: 0.86rem; color: var(--gray-200); line-height: 1.5; }
+
+/* Narrative phase blocks */
+.phases-narr { margin-top: 2.4rem; display: grid; gap: 1.1rem; }
+.pn { display: grid; grid-template-columns: 210px 1fr; gap: 0 2.2rem; border: 1px solid var(--gray-100); border-left: 4px solid var(--green); background: #fff; padding: 1.7rem 1.9rem; align-items: start; }
+.pn-side .pn-k { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--green-deep); }
+.pn-side .pn-when { font-family: var(--font-display); font-weight: 700; font-size: 1.55rem; color: var(--ink); line-height: 1.1; margin-top: 0.3rem; }
+.pn-side .pn-when span { display: block; font-size: 0.78rem; font-weight: 600; font-family: var(--font-body); color: var(--gray-400); margin-top: 0.3rem; letter-spacing: 0; }
+.pn-side .pn-scope { margin-top: 0.95rem; display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.pn-side .pn-scope span { font-size: 0.7rem; font-weight: 600; color: var(--green-deep); background: var(--green-pale); padding: 0.24rem 0.6rem; border-radius: 3px; }
+.pn-main h4 { font-family: var(--font-display); font-size: 1.25rem; font-weight: 700; color: var(--ink); line-height: 1.25; margin-bottom: 0.5rem; }
+.pn-main p { font-size: 0.95rem; color: var(--gray-400); line-height: 1.68; }
+.pn-countries { margin-top: 1.1rem; }
+.pn-countries .pc-k { font-size: 0.66rem; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; color: var(--gray-300); margin-bottom: 0.55rem; }
+.pn-countries .pc-list { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+.pn-countries .pc-list span { font-size: 0.74rem; font-weight: 600; color: var(--green-deep); background: var(--green-pale); padding: 0.22rem 0.55rem; border-radius: 3px; }
+@media (max-width: 760px) { .pn { grid-template-columns: 1fr; gap: 1.1rem; } .pn-side .pn-scope { margin-top: 0.6rem; } }
+
+/* Phase 1 deep-dive */
+.p1-grid { display: grid; grid-template-columns: 1.08fr 0.92fr; gap: 2.6rem; align-items: start; }
+.p1-track { list-style: none; }
+.p1-track li { display: grid; grid-template-columns: 30px 1fr; gap: 0.9rem; padding: 1.1rem 0; border-bottom: 1px solid var(--gray-100); }
+.p1-track li:last-child { border-bottom: none; }
+.p1-track .chk { width: 24px; height: 24px; border-radius: 50%; background: var(--green-pale); color: var(--green-deep); display: flex; align-items: center; justify-content: center; font-size: 0.72rem; font-weight: 800; margin-top: 2px; }
+.p1-track h4 { font-size: 1.02rem; color: var(--ink); font-weight: 700; margin-bottom: 0.3rem; }
+.p1-track p { font-size: 0.9rem; color: var(--gray-400); line-height: 1.6; }
+.convene { background: var(--ink); color: #fff; padding: 2rem 1.9rem; border-radius: 2px; }
+.convene .eyebrow { color: var(--green-bright); display: block; margin-bottom: 0.9rem; }
+.convene h4 { font-family: var(--font-display); font-size: 1.35rem; margin-bottom: 0.8rem; line-height: 1.25; }
+.convene p { font-size: 0.93rem; color: var(--gray-200); line-height: 1.65; margin-bottom: 1rem; }
+.convene-split { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; margin-top: 1.4rem; }
+.convene-split h5 { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--green-bright); margin-bottom: 0.6rem; }
+.convene-split ul { list-style: none; }
+.convene-split li { font-size: 0.86rem; color: var(--gray-200); padding: 0.32rem 0; line-height: 1.45; border-top: 1px solid rgba(255,255,255,0.12); }
+.convene-split li:first-child { border-top: none; }
+.p1-out { margin-top: 2rem; padding: 1.6rem 1.9rem; background: var(--green); color: #fff; border-radius: 2px; display: flex; gap: 1.4rem; align-items: center; flex-wrap: wrap; }
+.p1-out .po-k { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.85); margin-bottom: 0.3rem; }
+.p1-out .po-t { flex: 1; min-width: 260px; font-size: 1.02rem; line-height: 1.55; }
+.p1-out .po-t b { font-weight: 700; }
+
+/* Proof cards */
+.proof-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.1rem; margin-top: 0.5rem; }
+.proof-card { border: 1px solid var(--gray-100); padding: 1.6rem; background: #fff; transition: border-color 0.18s ease, box-shadow 0.18s ease; }
+.proof-card:hover { border-color: var(--green); box-shadow: 0 6px 22px rgba(0,117,74,0.07); }
+.proof-partner { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; color: var(--green-deep); margin-bottom: 0.55rem; }
+.proof-card h4 { font-family: var(--font-display); font-size: 1.18rem; color: var(--ink); font-weight: 700; line-height: 1.25; margin-bottom: 0.5rem; }
+.proof-card p { font-size: 0.88rem; color: var(--gray-400); line-height: 1.6; }
+.proof-card .stat-line { font-size: 0.82rem; color: var(--green-deep); font-weight: 600; margin-top: 0.8rem; }
+.reach-note { margin-top: 1.8rem; padding: 1.5rem 1.8rem; border: 1px solid var(--gray-100); border-left: 4px solid var(--green); background: #fff; font-size: 0.98rem; color: var(--gray-500); line-height: 1.7; }
+.reach-note b { color: var(--ink); }
+
+/* Investment */
+.config-wrap { display: grid; grid-template-columns: 1fr 340px; gap: 2rem; margin-top: 0.5rem; align-items: start; }
+.builder { display: grid; gap: 1.7rem; align-content: start; }
+.bld-label { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--gray-400); margin-bottom: 0.8rem; }
+.bld-toggle { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.7rem; }
+.opt { text-align: left; padding: 1rem 1.1rem; border: 1.5px solid var(--gray-100); background: #fff; border-radius: 3px; transition: border-color 0.18s ease, background 0.18s ease; }
+.opt:hover { border-color: var(--gray-300); }
+.opt .o-t { display: block; font-family: var(--font-display); font-size: 1.05rem; font-weight: 700; color: var(--ink); line-height: 1.2; }
+.opt .o-s { display: block; font-size: 0.74rem; color: var(--gray-400); margin-top: 0.35rem; line-height: 1.35; }
+.opt.active { border-color: var(--green); background: var(--green-wash); }
+.opt.active .o-s { color: var(--green-deep); }
+.stepper-row { display: flex; align-items: center; gap: 1.3rem; padding: 1.2rem 1.4rem; background: #fff; border: 1px solid var(--gray-100); border-radius: 3px; }
+.stepper-label { flex: 1; }
+.stepper-label .sl-t { font-size: 0.95rem; font-weight: 700; color: var(--ink); }
+.stepper-label .sl-s { font-size: 0.8rem; color: var(--gray-400); margin-top: 0.2rem; }
+.stepper { display: flex; align-items: center; border: 1.5px solid var(--green); border-radius: 4px; overflow: hidden; }
+.stepper button { width: 38px; height: 38px; border: none; background: #fff; color: var(--green-deep); font-size: 1.3rem; line-height: 1; font-weight: 600; }
+.stepper button:hover { background: var(--green-pale); }
+.stepper button:disabled { color: var(--gray-100); cursor: not-allowed; background: #fff; }
+.stepper .step-val { width: 48px; text-align: center; font-family: var(--font-display); font-weight: 700; font-size: 1.4rem; color: var(--ink); }
+.amp-list { display: grid; gap: 0.6rem; }
+.amp { display: flex; align-items: center; gap: 0.9rem; padding: 0.9rem 1.1rem; border: 1px solid var(--gray-100); border-radius: 3px; background: #fff; cursor: pointer; transition: border-color 0.18s ease, background 0.18s ease; }
+.amp:hover { border-color: var(--gray-300); }
+.amp input { width: 18px; height: 18px; accent-color: var(--green); flex-shrink: 0; }
+.amp .a-t { flex: 1; font-size: 0.94rem; color: var(--gray-500); }
+.amp .a-v { font-family: var(--font-display); font-weight: 700; font-size: 0.98rem; color: var(--green-deep); white-space: nowrap; }
+.amp:has(input:checked) { border-color: var(--green); background: var(--green-wash); }
+@media (max-width: 760px) { .bld-toggle { grid-template-columns: 1fr; } }
+
+.rail { position: sticky; top: 110px; border: 1px solid var(--gray-100); border-radius: 3px; overflow: hidden; }
+.rail-head { background: var(--ink); color: #fff; padding: 1.2rem 1.4rem; }
+.rail-head .rh-k { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--green-bright); }
+.rail-head .rh-t { font-family: var(--font-display); font-size: 1.2rem; font-weight: 700; margin-top: 0.3rem; line-height: 1.2; }
+.rail-body { padding: 1.3rem 1.4rem; }
+.rail-fig { font-family: var(--font-display); font-weight: 700; font-size: 1.7rem; color: var(--green-deep); line-height: 1.1; }
+.rail-fig-sub { font-size: 0.82rem; color: var(--gray-400); margin-top: 0.4rem; }
+.rail-meta { margin-top: 1.3rem; padding-top: 1.2rem; border-top: 1px solid var(--gray-100); }
+.rail-meta-row { display: flex; justify-content: space-between; gap: 0.8rem; font-size: 0.84rem; padding: 0.4rem 0; }
+.rail-meta-row .rm-k { color: var(--gray-400); }
+.rail-meta-row .rm-v { color: var(--ink); font-weight: 600; text-align: right; }
+.rail-deadline { margin-top: 1.2rem; padding: 0.9rem 1rem; background: var(--green-pale); border-radius: 3px; font-size: 0.84rem; color: var(--green-deep); line-height: 1.5; }
+.rail-deadline b { display: block; font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 0.25rem; }
+.rail-cta { display: block; width: 100%; text-align: center; margin-top: 1.2rem; padding: 0.85rem; background: var(--green); color: #fff; border: none; border-radius: 4px; font-weight: 700; font-size: 0.9rem; text-decoration: none; }
+.rail-cta:hover { background: var(--green-deep); }
+
+/* Timeline */
+.seq { margin-top: 0.5rem; }
+.seq-track { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0; position: relative; }
+.seq-track::before { content: ''; position: absolute; left: 0; right: 0; top: 7px; height: 2px; background: var(--gray-100); }
+.seq-step { position: relative; padding: 0 0.7rem; }
+.seq-dot { width: 16px; height: 16px; border-radius: 50%; background: var(--green); position: relative; z-index: 1; box-shadow: 0 0 0 4px var(--green-wash); }
+.seq-dot.hollow { background: #fff; border: 2px solid var(--green); }
+.seq-date { font-size: 0.76rem; font-weight: 700; color: var(--green-deep); margin: 0.9rem 0 0.3rem; }
+.seq-step h4 { font-size: 0.92rem; color: var(--ink); font-weight: 700; margin-bottom: 0.25rem; line-height: 1.3; }
+.seq-step p { font-size: 0.82rem; color: var(--gray-400); line-height: 1.5; }
+.seq-legend { margin-top: 1.6rem; font-size: 0.82rem; color: var(--gray-400); line-height: 1.6; }
+.seq-legend b { color: var(--green-deep); }
+
+.gallup-black { background: var(--ink); color: #fff; }
+.gallup-black-inner { max-width: 1180px; margin: 0 auto; padding: 4.6rem 2.25rem; }
+.gallup-black .eyebrow { color: var(--green-bright); display: block; margin-bottom: 1.1rem; }
+.gallup-black h2 { font-family: var(--font-display); font-weight: 700; font-size: clamp(1.9rem, 4vw, 2.7rem); line-height: 1.15; max-width: 860px; margin-bottom: 1.3rem; }
+.gallup-black h2 em { color: var(--green-bright); font-style: italic; }
+.gallup-black > .gallup-black-inner > p { font-size: 1.08rem; color: var(--gray-200); line-height: 1.75; max-width: 740px; }
+.black-cta { margin-top: 3rem; display: flex; gap: 0.9rem; flex-wrap: wrap; align-items: center; }
+.black-cta a { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.9rem 1.6rem; border-radius: 4px; font-weight: 700; font-size: 0.92rem; text-decoration: none; }
+.black-cta .cta-primary { background: var(--green); color: #fff; }
+.black-cta .cta-primary:hover { background: var(--green-bright); }
+.black-cta .cta-ghost { border: 1px solid rgba(255,255,255,0.3); color: #fff; }
+.black-cta .cta-ghost:hover { border-color: #fff; }
+
+.site-footer { background: #fff; border-top: 1px solid var(--gray-100); }
+.footer-inner { max-width: 1180px; margin: 0 auto; padding: 2.4rem 2.25rem; display: flex; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; align-items: flex-start; }
+.footer-brand { font-family: var(--font-display); font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gray-400); font-size: 0.95rem; }
+.footer-note { font-size: 0.78rem; color: var(--gray-300); line-height: 1.6; max-width: 580px; }
+
+.reveal { opacity: 0; transform: translateY(16px); transition: opacity 0.55s ease, transform 0.55s ease; }
+.reveal.in { opacity: 1; transform: translateY(0); }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .reveal { opacity: 1; transform: none; transition: none; } }
+
+@media (max-width: 980px) {
+  .hero-stats-grid { grid-template-columns: 1fr 1fr; }
+  .hstat { border-right: none; }
+  .p1-grid, .convene-split { grid-template-columns: 1fr; gap: 1.6rem; }
+  .proof-grid { grid-template-columns: 1fr 1fr; }
+  .config-wrap { grid-template-columns: 1fr; }
+  .rail { position: static; }
+  .spine-node:not(:last-child)::after { display: none; }
+  .seq-track { grid-template-columns: 1fr; gap: 1.4rem; }
+  .seq-track::before { display: none; }
+}
+@media (max-width: 640px) {
+  .header-inner { padding: 0.75rem 1.2rem; flex-wrap: wrap; }
+  .header-actions { order: 3; width: 100%; }
+  .btn-h { flex: 1; justify-content: center; }
+  .subnav-inner { padding: 0 1.2rem; }
+  .hero-inner, .section, .gallup-black-inner, .footer-inner, .hero-stats { padding-left: 1.2rem; padding-right: 1.2rem; }
+  .hero-stats-grid, .proof-grid { grid-template-columns: 1fr; }
+}
+
+@media print {
+  .site-header, .rail-cta, .black-cta { display: none !important; }
+  body { color: #000; font-size: 11pt; }
+  .hero { border-top: 4px solid #009d4f; }
+  .hero-inner, .section, .gallup-black-inner, .footer-inner, .hero-stats { padding: 1.2rem 0; max-width: 100%; }
+  .band.dark, .band.wash, .spine, .convene, .rail-head, .p1-out { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .proof-card, .seq-step, .spine, .convene, .opt, .amp { break-inside: avoid; }
+}
+
+/* Two complementary needs */
+.needs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.1rem; margin-top: 2.2rem; }
+.need-card { border: 1px solid var(--gray-100); border-top: 4px solid var(--green); background: #fff; padding: 1.7rem 1.8rem; }
+.need-card .nc-k { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--green-deep); margin-bottom: 0.6rem; }
+.need-card h4 { font-family: var(--font-display); font-size: 1.2rem; font-weight: 700; color: var(--ink); line-height: 1.25; margin-bottom: 0.6rem; }
+.need-card p { font-size: 0.93rem; color: var(--gray-400); line-height: 1.68; }
+.needs-note { margin-top: 1.1rem; font-size: 0.92rem; color: var(--gray-500); line-height: 1.7; }
+.needs-note b { color: var(--ink); }
+@media (max-width: 760px) { .needs-grid { grid-template-columns: 1fr; } }
+.builder-note { margin-top: 1.4rem; padding: 1.2rem 1.4rem; border: 1px solid var(--gray-100); border-left: 4px solid var(--green); background: #fff; font-size: 0.88rem; color: var(--gray-500); line-height: 1.65; }
+.builder-note b { color: var(--ink); }
+
+/* World Poll topics */
+.wp-cat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 2.2rem; }
+.wp-cat { border: 1px solid var(--gray-100); background: #fff; padding: 1.3rem 1.4rem; }
+.wp-cat .wpc-k { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--green-deep); margin-bottom: 0.7rem; }
+.wp-cat ul { list-style: none; }
+.wp-cat li { font-size: 0.84rem; color: var(--gray-400); line-height: 1.5; padding: 0.16rem 0; }
+.wp-source { margin-top: 1.1rem; font-size: 0.8rem; color: var(--gray-300); }
+.wp-source a { color: var(--green-deep); }
+@media (max-width: 760px) { .wp-cat-grid { grid-template-columns: 1fr; } }
+
+/* Research questions */
+.rq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 2rem; }
+.rq { border: 1px solid var(--gray-100); border-left: 4px solid var(--green); background: #fff; padding: 1.4rem 1.6rem; }
+.rq .rq-q { font-family: var(--font-display); font-size: 1.08rem; font-weight: 700; color: var(--ink); line-height: 1.35; margin-bottom: 0.55rem; }
+.rq .rq-n { font-size: 0.85rem; color: var(--gray-400); line-height: 1.62; }
+.rq .rq-n b { color: var(--green-deep); font-weight: 600; }
+@media (max-width: 760px) { .rq-grid { grid-template-columns: 1fr; } }
+
+/* Phase detail accordion (appendix) */
+.phase-acc { display: grid; gap: 0.8rem; margin-top: 0.5rem; }
+details.phase { border: 1px solid var(--gray-100); border-left: 4px solid var(--green); background: #fff; }
+details.phase > summary { list-style: none; cursor: pointer; padding: 1.3rem 1.6rem; display: flex; align-items: center; gap: 1rem; }
+details.phase > summary::-webkit-details-marker { display: none; }
+.pa-head { flex: 1; min-width: 0; }
+.pa-k { display: block; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--green-deep); margin-bottom: 0.3rem; }
+.pa-title { display: block; font-family: var(--font-display); font-size: 1.18rem; font-weight: 700; color: var(--ink); line-height: 1.25; }
+.pa-toggle { width: 24px; height: 24px; border-radius: 50%; background: var(--green-pale); color: var(--green-deep); display: flex; align-items: center; justify-content: center; font-size: 1.15rem; font-weight: 600; line-height: 1; flex-shrink: 0; transition: transform 0.22s ease; }
+details.phase[open] .pa-toggle { transform: rotate(45deg); }
+.pa-body { padding: 0.4rem 1.6rem 1.8rem; }
+.pa-body > p { font-size: 0.95rem; color: var(--gray-400); line-height: 1.72; margin-bottom: 1rem; max-width: 760px; }
+.pa-body > p:last-child { margin-bottom: 0; }
+.pa-sub { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--gray-300); margin: 1.4rem 0 0.7rem; }
+.pa-list { list-style: none; display: grid; gap: 0.65rem; }
+.pa-list li { display: grid; grid-template-columns: 22px 1fr; gap: 0.8rem; font-size: 0.92rem; color: var(--gray-500); line-height: 1.6; align-items: start; }
+.pa-list .pl-n { width: 22px; height: 22px; border-radius: 50%; background: var(--green-pale); color: var(--green-deep); display: flex; align-items: center; justify-content: center; font-size: 0.7rem; font-weight: 800; margin-top: 1px; }
+.pa-out { margin-top: 1.5rem; padding: 1.2rem 1.5rem; background: var(--green); color: #fff; border-radius: 2px; font-size: 0.93rem; line-height: 1.6; }
+.pa-out .pao-k { display: block; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.85); margin-bottom: 0.3rem; }
+
+/* World Poll facts strip */
+.wp-facts { display: grid; grid-template-columns: repeat(4,1fr); gap: 1.4rem; margin-top: 2.2rem; }
+.wp-fact { border-top: 3px solid var(--green); padding-top: 0.9rem; }
+.wp-fact .wf-n { font-family: var(--font-display); font-weight: 700; font-size: 1.75rem; color: var(--green-deep); line-height: 1; }
+.wp-fact .wf-l { font-size: 0.82rem; color: var(--gray-400); margin-top: 0.45rem; line-height: 1.45; }
+@media (max-width: 760px) { .wp-facts { grid-template-columns: 1fr 1fr; } }
+
+/* AI dimension pills */
+.ms-dims { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 1.1rem 0 0.2rem; }
+.ms-dims span { font-size: 0.8rem; background: var(--green-pale); color: var(--green-deep); padding: 0.32rem 0.75rem; border-radius: 2px; font-weight: 600; }
+
+/* Can / cannot honest block */
+.cando-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1.8rem; }
+.cando { border: 1px solid var(--gray-100); background: #fff; padding: 1.5rem 1.7rem; }
+.cando.yes { border-top: 4px solid var(--green); }
+.cando.no { border-top: 4px solid var(--gray-300); }
+.cando .cd-k { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; margin-bottom: 0.8rem; }
+.cando.yes .cd-k { color: var(--green-deep); }
+.cando.no .cd-k { color: var(--gray-400); }
+.cando ul { list-style: none; display: grid; gap: 0.7rem; }
+.cando li { font-size: 0.9rem; color: var(--gray-500); line-height: 1.55; padding-left: 1.15rem; position: relative; }
+.cando li::before { content: ''; position: absolute; left: 0; top: 0.55em; width: 5px; height: 5px; border-radius: 50%; }
+.cando.yes li::before { background: var(--green); }
+.cando.no li::before { background: var(--gray-300); }
+@media (max-width: 760px) { .cando-grid { grid-template-columns: 1fr; } }
+
+/* Measurement map */
+.mm-head { display: grid; grid-template-columns: 0.85fr 1.25fr 1.25fr; gap: 1.4rem; padding: 0 0 0.6rem; border-bottom: 2px solid var(--green); }
+.mm-head span { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--green-deep); }
+.mm-row { display: grid; grid-template-columns: 0.85fr 1.25fr 1.25fr; gap: 1.4rem; padding: 1.05rem 0; border-bottom: 1px solid var(--gray-100); align-items: start; }
+.mm-area { font-family: var(--font-display); font-weight: 700; font-size: 1rem; color: var(--ink); line-height: 1.3; }
+.mm-cell { font-size: 0.88rem; color: var(--gray-400); line-height: 1.58; }
+.mm-cell .mm-h { display: none; font-size: 0.62rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; color: var(--green-deep); margin-bottom: 0.2rem; }
+@media (max-width: 760px) {
+  .mm-head { display: none; }
+  .mm-row { grid-template-columns: 1fr; gap: 0.55rem; padding: 1.2rem 0; }
+  .mm-cell .mm-h { display: block; }
+}
+
+/* Example questions box */
+.exq { margin-top: 1.9rem; border: 1px solid var(--gray-100); border-left: 4px solid var(--green); background: #fff; padding: 1.5rem 1.8rem; }
+.exq .exq-k { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; color: var(--green-deep); margin-bottom: 0.9rem; }
+.exq ul { list-style: none; display: grid; gap: 0.75rem; }
+.exq li { font-size: 0.97rem; color: var(--ink); line-height: 1.5; font-style: italic; padding-left: 1.3rem; position: relative; }
+.exq li::before { content: '\201C'; position: absolute; left: 0; top: 0.15em; color: var(--green); font-family: var(--font-display); font-weight: 700; font-size: 1.2rem; }
+.exq .exq-note { margin-top: 1.1rem; font-size: 0.8rem; color: var(--gray-300); font-style: normal; line-height: 1.5; }
+
+/* Findex model callout */
+.findex-model { margin-top: 0; padding: 1.6rem 1.8rem; background: var(--green-pale); border-left: 4px solid var(--green); }
+.findex-model .fm-k { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; color: var(--green-deep); margin-bottom: 0.6rem; }
+.findex-model p { font-size: 0.98rem; color: var(--ink); line-height: 1.68; }
+
+/* Contribution box */
+.contrib { margin-top: 1.9rem; padding: 1.6rem 1.8rem; border: 1px solid var(--gray-100); background: #fff; }
+.contrib .ct-k { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; color: var(--green-deep); margin-bottom: 0.7rem; }
+.contrib p { font-size: 0.95rem; color: var(--gray-500); line-height: 1.7; }
+.contrib p b { color: var(--ink); }
+
+/* One-pager accordion */
+.acc { display: grid; gap: 0.9rem; margin-top: 2.6rem; }
+details.sec { border: 1px solid var(--gray-100); border-left: 4px solid var(--green); background: #fff; }
+details.sec > summary { list-style: none; cursor: pointer; padding: 1.4rem 1.7rem; display: flex; gap: 1.1rem; align-items: flex-start; }
+details.sec > summary::-webkit-details-marker { display: none; }
+.sec-num { font-family: var(--font-display); font-weight: 700; font-size: 1.1rem; color: var(--green); line-height: 1.3; flex-shrink: 0; width: 1.5rem; }
+.sec-head { flex: 1; min-width: 0; }
+.sec-title { font-family: var(--font-display); font-weight: 700; font-size: 1.22rem; color: var(--ink); line-height: 1.25; margin-bottom: 0.35rem; }
+.sec-take { font-size: 0.93rem; color: var(--gray-400); line-height: 1.55; }
+.sec-toggle { width: 24px; height: 24px; border-radius: 50%; background: var(--green-pale); color: var(--green-deep); display: flex; align-items: center; justify-content: center; font-size: 1.15rem; font-weight: 600; line-height: 1; flex-shrink: 0; transition: transform 0.22s ease; margin-top: 0.1rem; }
+details.sec[open] .sec-toggle { transform: rotate(45deg); }
+.sec-body { padding: 0.3rem 1.7rem 1.9rem; }
+.sec-body > p { font-size: 0.96rem; color: var(--gray-500); line-height: 1.72; margin-bottom: 1rem; max-width: 820px; }
+.sec-body > p:last-child { margin-bottom: 0; }
+.sec-body .sub-h { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--green-deep); margin: 1.8rem 0 0.9rem; }
+.sec-body .sub-h:first-child { margin-top: 0.4rem; }
+
+/* Proposal in three steps */
+.steps { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.1rem; margin-top: 2.4rem; }
+.step { border-top: 3px solid var(--green); padding-top: 1rem; }
+.step .st-n { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--green-deep); margin-bottom: 0.5rem; }
+.step h4 { font-family: var(--font-display); font-weight: 700; font-size: 1.12rem; color: var(--ink); line-height: 1.25; margin-bottom: 0.45rem; }
+.step p { font-size: 0.9rem; color: var(--gray-400); line-height: 1.6; }
+@media (max-width: 760px) { .steps { grid-template-columns: 1fr; } }
+
+/* Item groups (2027 starter items) */
+.items { display: grid; gap: 1rem; margin-top: 0.5rem; }
+.item-grp { border: 1px solid var(--gray-100); border-left: 3px solid var(--green); background: var(--paper); padding: 1.3rem 1.5rem; }
+.item-grp .ig-k { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--green-deep); margin-bottom: 0.9rem; }
+.item-grp ul { list-style: none; display: grid; gap: 0.8rem; }
+.item-grp li { font-size: 0.95rem; color: var(--ink); line-height: 1.5; font-style: italic; padding-left: 1.25rem; position: relative; }
+.item-grp li::before { content: '\201C'; position: absolute; left: 0; top: 0.1em; color: var(--green); font-family: var(--font-display); font-weight: 700; font-size: 1.15rem; }
+
+/* Findex editions mini-timeline */
+.fx-line { display: grid; grid-template-columns: repeat(5,1fr); gap: 0.6rem; margin: 1.6rem 0 0.4rem; }
+.fx-ed { border-top: 2px solid var(--green); padding-top: 0.6rem; }
+.fx-ed .fx-y { font-family: var(--font-display); font-weight: 700; font-size: 1rem; color: var(--green-deep); }
+.fx-ed .fx-d { font-size: 0.76rem; color: var(--gray-400); line-height: 1.4; margin-top: 0.2rem; }
+@media (max-width: 760px) { .fx-line { grid-template-columns: 1fr 1fr; } }
+
+/* Static investment */
+.inv-lines { margin-top: 0.5rem; border-top: 1px solid var(--gray-100); }
+.inv-row { display: flex; justify-content: space-between; gap: 1.5rem; padding: 0.95rem 0; border-bottom: 1px solid var(--gray-100); align-items: baseline; }
+.inv-row .il-k { font-size: 0.95rem; color: var(--ink); }
+.inv-row .il-k small { display: block; font-size: 0.8rem; color: var(--gray-400); margin-top: 0.2rem; }
+.inv-row .il-v { font-family: var(--font-display); font-weight: 700; font-size: 1.02rem; color: var(--green-deep); white-space: nowrap; }
+.inv-row.total .il-k { font-weight: 700; }
+.inv-row.total .il-v { font-size: 1.2rem; }
+.inv-note { margin-top: 1.2rem; font-size: 0.82rem; color: var(--gray-400); line-height: 1.6; }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <div class="brand-pair">
+      <span class="mark-gallup">Gallup<sup>&reg;</sup></span>
+      <span class="brand-divider"></span>
+      <span class="mark-moz">Gates Foundation<span>In support of the Voice and Language Coalition</span></span>
+    </div>
+    <div class="header-actions">
+      <a class="btn-h" href="#" onclick="window.print();return false;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9V2h12v7M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2M6 14h12v8H6z"/></svg>Print</a>
+      <a class="btn-h primary" href="mailto:justin_lall@gallup.com?subject=Gates%20Foundation%20and%20Gallup%3A%20AI%20language%20access%20measurement">Contact Gallup</a>
+    </div>
+  </div>
+</header>
+
+<!-- HERO / SUMMARY (the one-pager) -->
+<section class="hero">
+  <div class="hero-inner">
+    <span class="eyebrow">A partnership proposal from Gallup</span>
+    <h1>Measuring who can use AI in <em>their own language and voice</em></h1>
+    <div class="narrative" style="max-width:800px;margin-top:1.6rem;">
+      <p>The coalition's goal is to bring useful AI to an estimated 3.4 billion people who speak languages today's models serve poorly. To steer that work and show it is succeeding, the coalition needs to measure it. Today it cannot, because the data do not exist.</p>
+      <p>What exists is the supply side: which languages the models support. What is missing is the demand side, the people's side. No one has measured, at scale, how many people need AI in a language it does not yet serve. And no one has measured how many are getting by in a language they are not comfortable in, who would use AI more, and for more, if it worked in the language they know best.</p>
+      <p>Gallup proposes to build that missing measure, in three steps. First, establish the demand: an objective, official baseline of need. Second, baseline the current state: how many people can already use AI in the language they prefer. Third, track both over time, so progress toward the goal can be seen. This is a measurement platform, not a one-time study.</p>
+      <p>There is a direct precedent. Before 2011, financial inclusion was measured only from the supply side, by counting bank branches and accounts. With funding from the Gates Foundation, the World Bank and Gallup built the Global Findex, the demand-side measure that asked people directly whether they use an account, and why not. It became the world's reference statistic for inclusion. Language access can follow the same path, on the same survey.</p>
+      <p>The recommendation is to start now: add a short, carefully tested set of items to the 2027 Gallup World Poll, the annual, nationally representative survey already fielded in more than 140 countries and 145 languages, and already carrying Gallup's AI research with Microsoft. Those items establish the first global baseline of language need and current access. In 2028, a fuller module and focused study of priority language communities can follow.</p>
+    </div>
+    <div class="steps reveal">
+      <div class="step">
+        <div class="st-n">Step 1</div>
+        <h4>Establish the demand</h4>
+        <p>An objective baseline of who needs AI in a language it does not yet serve.</p>
+      </div>
+      <div class="step">
+        <div class="st-n">Step 2</div>
+        <h4>Baseline current access</h4>
+        <p>How many people can already use AI in the language they prefer.</p>
+      </div>
+      <div class="step">
+        <div class="st-n">Step 3</div>
+        <h4>Track the progress</h4>
+        <p>The same measure, every year, against the coalition's goal.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ACCORDION -->
+<div class="band">
+<section class="section">
+  <div class="acc">
+
+    <!-- 1. THE GAP -->
+    <details class="sec reveal">
+      <summary>
+        <span class="sec-num">1</span>
+        <span class="sec-head">
+          <span class="sec-title">The gap we would close</span>
+          <span class="sec-take">We can see which languages the models support. No one has measured, from the people's side, who needs AI in a language it does not serve, or who is getting by in one they are not comfortable in.</span>
+        </span>
+        <span class="sec-toggle">+</span>
+      </summary>
+      <div class="sec-body">
+        <p>The supply side is visible. Coverage benchmarks, provider data, and diffusion reports show which languages the models handle and where AI is used. They answer one question: what do the tools support.</p>
+        <p>The demand side is not. It answers a different question, the one the coalition's goal depends on: what do people actually need, and use. Two blanks matter most.</p>
+        <div class="sub-h">The unmet need</div>
+        <p>How many people would use AI for health, money, government, farming, or their work if it worked in the language they are most comfortable in, and cannot today. This is the objective baseline of need, and it does not exist.</p>
+        <div class="sub-h">The value left unrealized</div>
+        <p>How many people already use AI in a second language they are not fully comfortable in, getting less from it than they would in their own. This is latent demand that better language support would unlock, and it is invisible in any supply-side source.</p>
+        <p>Native-speaker counts cannot answer either. A first-language count is a unique number, not a measure of need: a person may already be served through a second language, or may prefer their own language for a health or financial decision. Only asking people directly, the same way everywhere, resolves it. That is the measure Gallup proposes to establish.</p>
+      </div>
+    </details>
+
+    <!-- 2. FINDEX -->
+    <details class="sec reveal">
+      <summary>
+        <span class="sec-num">2</span>
+        <span class="sec-head">
+          <span class="sec-title">The precedent: the Global Findex</span>
+          <span class="sec-take">Gallup and the World Bank built exactly this kind of demand-side measure for financial inclusion. The Gates Foundation funded it. It became the world's reference statistic.</span>
+        </span>
+        <span class="sec-toggle">+</span>
+      </summary>
+      <div class="sec-body">
+        <p>Before 2011, financial inclusion was measured only from the supply side. The IMF's Financial Access Survey counted bank branches, ATMs, and accounts per capita. That showed what institutions offered, but not who was actually included, who was excluded, or why.</p>
+        <p>In 2011, with multi-year funding from the Gates Foundation, the World Bank and Gallup built the Global Findex: the first demand-side, user-side measure of financial inclusion. It asked about 150,000 adults across nearly 150 economies, directly, whether they have and use an account, how they save, borrow, and pay, and, for those without one, why not.</p>
+        <p>Because it asked people, it could do what supply data never could: disaggregate by gender, income, education, and urban or rural residence, and name who was excluded and the barriers they faced. It has been repeated roughly every three years since, so progress is visible over time. The 2025 edition, carried out on the World Poll with about 145,000 adults in 141 economies, added a Digital Connectivity Tracker linking phone and internet use to inclusion.</p>
+        <div class="fx-line">
+          <div class="fx-ed"><div class="fx-y">2011</div><div class="fx-d">First demand-side baseline</div></div>
+          <div class="fx-ed"><div class="fx-y">2014</div><div class="fx-d">Mobile money added</div></div>
+          <div class="fx-ed"><div class="fx-y">2017</div><div class="fx-d">1.2 billion newly banked since 2011</div></div>
+          <div class="fx-ed"><div class="fx-y">2021</div><div class="fx-d">Account ownership 51% to 76%</div></div>
+          <div class="fx-ed"><div class="fx-y">2025</div><div class="fx-d">Digital Connectivity Tracker</div></div>
+        </div>
+        <p>The Findex became the definitive global statistic for financial inclusion and a reference point for development goals worldwide. Language access is the same shape of problem: supply-side visibility, demand-side blindness. The same platform, the same partner, and the same method can close it.</p>
+      </div>
+    </details>
+
+    <!-- 3. THE MEASURE -->
+    <details class="sec reveal">
+      <summary>
+        <span class="sec-num">3</span>
+        <span class="sec-head">
+          <span class="sec-title">What we would measure, starting in 2027</span>
+          <span class="sec-take">A short set of items on the 2027 World Poll begins the baseline across 140+ countries, and connects to everything the survey already measures, with additional areas to explore as the work develops.</span>
+        </span>
+        <span class="sec-toggle">+</span>
+      </summary>
+      <div class="sec-body">
+        <p>The baseline begins with a small, high-value set of items, developed and cognitively tested, added to the 2027 World Poll. They are built to separate real exclusion from ordinary choice, and sit alongside Gallup's existing AI items, so a single interview links language need to AI awareness, use, income, work, and wellbeing.</p>
+        <div class="sub-h">Illustrative items to begin tracking</div>
+        <p>The items below are illustrative, meant to show the kind of measures the module would carry. Final topics and exact wording would be designed in collaboration with the Gates Foundation and refined through cognitive testing across cultures before fielding.</p>
+        <div class="items">
+          <div class="item-grp">
+            <div class="ig-k">A. Establish the demand</div>
+            <ul>
+              <li>What language are you most comfortable using when getting information or help?</li>
+              <li>Can you get digital services and tools to work well in that language today?</li>
+            </ul>
+          </div>
+          <div class="item-grp">
+            <div class="ig-k">B. Baseline current access</div>
+            <ul>
+              <li>When you last used an AI tool, which language did you use?</li>
+              <li>Was that the language you are most comfortable in, or one you used because it works better?</li>
+            </ul>
+          </div>
+          <div class="item-grp">
+            <div class="ig-k">C. Latent demand and voice</div>
+            <ul>
+              <li>Would you use AI more, or for more things, if it worked well in your most comfortable language?</li>
+              <li>Would you rather speak or type when using these tools?</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="sub-h">Additional areas to explore</div>
+        <p>Beyond the starter items, the measure could grow to cover a fuller set of areas. These are possibilities to explore together as the work develops, and the basis for a focused study of priority language communities that a national sample alone cannot read in depth.</p>
+        <div class="mm">
+          <div class="mm-head"><span>Measurement area</span><span>What it establishes</span><span>What it helps decide</span></div>
+          <div class="mm-row"><div class="mm-area">Language preference</div><div class="mm-cell"><div class="mm-h">Establishes</div>The language a person is most comfortable using to get information or help</div><div class="mm-cell"><div class="mm-h">Decides</div>Which populations need support, not assumed from country or interview language</div></div>
+          <div class="mm-row"><div class="mm-area">Communication mode</div><div class="mm-cell"><div class="mm-h">Establishes</div>Comfort reading, writing, and speaking in that language</div><div class="mm-cell"><div class="mm-h">Decides</div>Whether text alone is enough, or whether voice is essential</div></div>
+          <div class="mm-row"><div class="mm-area">Practical access</div><div class="mm-cell"><div class="mm-h">Establishes</div>Device, connectivity, affordability, and ability to use a service alone</div><div class="mm-cell"><div class="mm-h">Decides</div>Whether language gains would translate into usable access</div></div>
+          <div class="mm-row"><div class="mm-area">Actual language of use</div><div class="mm-cell"><div class="mm-h">Establishes</div>The language used for input and received in responses</div><div class="mm-cell"><div class="mm-h">Decides</div>Whether people use AI in their preferred language or accommodate it</div></div>
+          <div class="mm-row"><div class="mm-area">Voice access</div><div class="mm-cell"><div class="mm-h">Establishes</div>Speaking to a tool and understanding its responses, measured separately</div><div class="mm-cell"><div class="mm-h">Decides</div>Whether voice works in both directions</div></div>
+          <div class="mm-row"><div class="mm-area">Useful applications</div><div class="mm-cell"><div class="mm-h">Establishes</div>The tasks people want help with, including among nonusers</div><div class="mm-cell"><div class="mm-h">Decides</div>Which services to build and test first</div></div>
+          <div class="mm-row"><div class="mm-area">Barriers and outcomes</div><div class="mm-cell"><div class="mm-h">Establishes</div>Why people do not use AI, and whether recent use actually helped</div><div class="mm-cell"><div class="mm-h">Decides</div>Whether improvements are meaningful, and what still blocks access</div></div>
+        </div>
+      </div>
+    </details>
+
+    <!-- 4. THE PLATFORM -->
+    <details class="sec reveal">
+      <summary>
+        <span class="sec-num">4</span>
+        <span class="sec-head">
+          <span class="sec-title">The platform: the Gallup World Poll</span>
+          <span class="sec-take">The annual, nationally representative survey in 140+ countries and 145+ languages, and the one behind the Findex and the World Happiness Report.</span>
+        </span>
+        <span class="sec-toggle">+</span>
+      </summary>
+      <div class="sec-body">
+        <p>The Gallup World Poll is a continuous, nationally representative survey fielded every year in more than 140 countries. Every wave carries a fixed core of questions asked of everyone, everywhere. A partner adds a focused module to that core, and because it sits on the same interview, it can be analyzed against everything else the survey already collects, with no additional fielding.</p>
+        <div class="wp-facts">
+          <div class="wp-fact"><div class="wf-n">140+</div><div class="wf-l">Countries fielded each year, and more than 160 since the World Poll began in 2005</div></div>
+          <div class="wp-fact"><div class="wf-n">145+</div><div class="wf-l">Languages the questionnaire is fielded in, through double translation and independent review</div></div>
+          <div class="wp-fact"><div class="wf-n">~95%</div><div class="wf-l">Of the world's adults represented, covering residents aged 15 and older</div></div>
+          <div class="wp-fact"><div class="wf-n">~1,000</div><div class="wf-l">Interviews per country, probability-based and weighted to national demographics</div></div>
+        </div>
+        <p style="margin-top:1.3rem;font-size:0.84rem;color:var(--gray-400);">Samples are randomly selected and nationally representative, and core questions stay consistent over time so results compare across years. See the <a href="https://www.gallup.com/178667/world-poll.aspx" target="_blank" rel="noopener" style="color:var(--green-deep);">Gallup World Poll methodology</a>.</p>
+
+        <div class="sub-h">What the core already asks, everywhere, every wave</div>
+        <div class="wp-cat-grid">
+          <div class="wp-cat"><div class="wpc-k">Business &amp; Economics</div><ul><li>Economic conditions</li><li>Feelings about household income</li><li>Standard of living</li><li>People starting businesses</li><li>Confidence in financial institutions</li></ul></div>
+          <div class="wp-cat"><div class="wpc-k">Work</div><ul><li>Employment status</li><li>Ideal job</li><li>Payroll to Population Index</li><li>Unemployment Index</li></ul></div>
+          <div class="wp-cat"><div class="wpc-k">Well-Being</div><ul><li>Life Evaluation Index</li><li>Life today, and life in five years</li><li>Positive and Negative Experience indices</li><li>Treated with respect</li></ul></div>
+          <div class="wp-cat"><div class="wpc-k">Health</div><ul><li>Quality healthcare in your city</li><li>Health problems</li><li>Experienced physical pain</li><li>Feel well-rested</li></ul></div>
+          <div class="wp-cat"><div class="wpc-k">Communications &amp; Technology</div><ul><li>Home has internet access</li><li>Home has a cellular phone</li><li>Home has a landline telephone</li><li>Freedom of media</li></ul></div>
+          <div class="wp-cat"><div class="wpc-k">Citizen Engagement</div><ul><li>Local job market</li><li>Freedom in your life</li><li>Voiced opinion to an official</li><li>Overall city satisfaction</li></ul></div>
+          <div class="wp-cat"><div class="wpc-k">Food &amp; Shelter</div><ul><li>Not enough money for food</li><li>Not enough money for shelter</li><li>Good, affordable housing in your city</li></ul></div>
+          <div class="wp-cat"><div class="wpc-k">Education &amp; Families</div><ul><li>Education level</li><li>The educational system</li><li>Children can learn and grow</li><li>Urban or rural residence</li></ul></div>
+          <div class="wp-cat"><div class="wpc-k">Government &amp; Politics</div><ul><li>Confidence in national government</li><li>Confidence in honesty of elections</li><li>Approval of country's leadership</li></ul></div>
+        </div>
+        <p class="wp-source">A selection of the measures carried on the World Poll core, with demographics including age, gender, education, and urban or rural residence on every record. Full topic list: <a href="https://www.gallup.com/analytics/234512/world-poll-topics.aspx" target="_blank" rel="noopener">gallup.com/analytics/world-poll-topics</a>.</p>
+
+        <div class="sub-h">What pairing with those measures unlocks</div>
+        <p>Because the language items would ride alongside these measures, a single interview can answer questions no supply-side source can.</p>
+        <div class="rq-grid">
+          <div class="rq"><div class="rq-q">Does language access track with higher wellbeing?</div><div class="rq-n">Relate the measure to the core <b>Life Evaluation Index</b> and the Positive and Negative Experience indices on the same wave.</div></div>
+          <div class="rq"><div class="rq-q">Is it linked to economic confidence?</div><div class="rq-n">Read access against <b>feelings about household income</b>, <b>standard of living</b>, and whether people see a healthy local job market.</div></div>
+          <div class="rq"><div class="rq-q">Who is left behind, and where?</div><div class="rq-n">Break access down by <b>gender, education, and urban or rural residence</b>, with reliable cuts from a roughly 1,000-person national sample.</div></div>
+          <div class="rq"><div class="rq-q">Does access reach the services that matter?</div><div class="rq-n">Connect use for health, financial, and government tasks to core items such as <b>quality healthcare</b> and <b>confidence in financial institutions</b>.</div></div>
+          <div class="rq"><div class="rq-q">Is access forced or chosen?</div><div class="rq-n">Separate people using a second language by preference from those <b>switching because the tool fails</b> in their own, the clearest signal of exclusion.</div></div>
+          <div class="rq"><div class="rq-q">What changes as access grows?</div><div class="rq-n">Track the measure across waves alongside the same outcomes. This reveals <b>relationships, not causation</b>; isolating impact would need a dedicated design.</div></div>
+        </div>
+
+        <div class="sub-h">Building on work already underway</div>
+        <p>Gallup is not starting from zero on AI. On the 2026 World Poll, Gallup already measures public engagement with AI across more than 140 countries, and has done the methodological work of defining AI for respondents through concrete use cases, so the questions hold up where adoption is still new. The language and voice items would extend that work, asking not only whether a person uses AI, but whether they can use it in the language they prefer.</p>
+
+        <div class="sub-h">What the baseline delivers, and where a focused study goes deeper</div>
+        <div class="cando-grid">
+          <div class="cando yes">
+            <div class="cd-k">Delivered directly on the World Poll</div>
+            <ul>
+              <li>Nationally representative, comparable, person-level estimates of language need and current access, for covered countries, tracked over time</li>
+              <li>Estimates for language groups large enough within the national samples, with standard cuts including gender</li>
+              <li>Language access analyzed against income, work, wellbeing, and connectivity already on the same wave</li>
+              <li>A direct measure of preference, so chosen use is separated from forced switching rather than inferred</li>
+            </ul>
+          </div>
+          <div class="cando no">
+            <div class="cd-k">Where a focused study goes deeper</div>
+            <ul>
+              <li>Small language communities, including languages with around a million speakers, read in depth through a focused study built around them, since they can be a small share of any single national sample</li>
+              <li>Whether a specific tool works for a user in practice, through task-based testing that goes beyond what a survey can report</li>
+              <li>An all-ages count: the World Poll measures people 15 and older</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </details>
+
+    <!-- 5. TIMELINE -->
+    <details class="sec reveal">
+      <summary>
+        <span class="sec-num">5</span>
+        <span class="sec-head">
+          <span class="sec-title">The plan and timeline</span>
+          <span class="sec-take">Develop and test the items now, field them on the 2027 World Poll, then deepen and track from 2028. The window to join the 2027 wave closes in November 2026.</span>
+        </span>
+        <span class="sec-toggle">+</span>
+      </summary>
+      <div class="sec-body">
+        <div class="seq">
+          <div class="seq-track">
+            <div class="seq-step">
+              <div class="seq-dot"></div>
+              <div class="seq-date">October 2026</div>
+              <h4>Develop and test the items</h4>
+              <p>Define the construct with the coalition and draft the short item set. The window to include items on the 2027 World Poll closes in November 2026, so this begins right away.</p>
+            </div>
+            <div class="seq-step">
+              <div class="seq-dot"></div>
+              <div class="seq-date">2027 World Poll</div>
+              <h4>Establish the baseline</h4>
+              <p>Field the items across 140+ countries for the first global, demand-side baseline of language need and current access, then deliver and report it.</p>
+            </div>
+            <div class="seq-step">
+              <div class="seq-dot hollow"></div>
+              <div class="seq-date">2028 onward</div>
+              <h4>Deepen and track</h4>
+              <p>Expand to a fuller module, add focused study of priority language communities, analyze outcomes, and track progress year over year.</p>
+            </div>
+          </div>
+          <p class="seq-legend"><b>Why timing matters:</b> the annual World Poll module is finalized on a calendar that closes each November. Confirming the partnership in time keeps the items on the 2027 wave rather than slipping a full year. Dates are indicative and would be set with Gallup.</p>
+        </div>
+      </div>
+    </details>
+
+    <!-- 6. INVESTMENT -->
+    <details class="sec reveal">
+      <summary>
+        <span class="sec-num">6</span>
+        <span class="sec-head">
+          <span class="sec-title">Indicative investment</span>
+          <span class="sec-take">An illustrative estimate for the 2027 baseline. The 2028 deepening would be scoped separately. These are estimates, not a quote.</span>
+        </span>
+        <span class="sec-toggle">+</span>
+      </summary>
+      <div class="sec-body">
+        <div class="inv-lines">
+          <div class="inv-row"><span class="il-k">Item development and testing<small>Framework, drafting, and cross-cultural cognitive testing</small></span><span class="il-v">$425k &ndash; $490k</span></div>
+          <div class="inv-row"><span class="il-k">2027 global baseline<small>Short module on the annual World Poll, 140+ countries</small></span><span class="il-v">$1.5M &ndash; $2.2M</span></div>
+          <div class="inv-row"><span class="il-k">Reporting and launch (optional)<small>Public release, report, and targeted briefings</small></span><span class="il-v">$110k &ndash; $300k</span></div>
+          <div class="inv-row total"><span class="il-k">Indicative total, 2027 baseline</span><span class="il-v">$2.0M &ndash; $3.0M</span></div>
+        </div>
+        <p class="inv-note"><b>The 2028 deepening is scoped separately.</b> A fuller module and a focused study of priority language communities use a different sampling design and would be costed later. Every figure here is an illustrative estimate to frame the conversation, not a contractual quote; final scope and costs would be set with Gallup. <a href="mailto:justin_lall@gallup.com?subject=Gates%20Foundation%20and%20Gallup%3A%20AI%20language%20access%20scoping" style="color:var(--green-deep);">Discuss scope with Gallup.</a></p>
+      </div>
+    </details>
+
+  </div>
+</section>
+</div>
+
+<!-- CLOSING -->
+<div class="gallup-black">
+  <div class="gallup-black-inner">
+    <span class="eyebrow reveal">The invitation</span>
+    <h2 class="reveal">Start the baseline on the <em>2027</em> World Poll.</h2>
+    <p class="reveal">The coalition has named the goal. Gallup can make progress toward it measurable: an independent, demand-side read of who needs AI in their own language, who already has it, and how that changes over time. The first step is small and valuable in itself, a short set of items on the next global wave.</p>
+    <div class="black-cta reveal">
+      <a class="cta-primary" href="#" onclick="window.print();return false;">Download PDF</a>
+    </div>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">Gallup<sup>&reg;</sup></div>
+    <p class="footer-note">Prepared by Gallup for the Gates Foundation, in support of the Voice and Language Coalition. The headline metric is to be developed and validated with the coalition and with experts rather than presumed here. Example items and measurement areas are illustrative and subject to cognitive testing. Investment figures and dates are illustrative and subject to confirmation with Gallup. World Poll and Global Findex figures reflect Gallup's and the World Bank's published descriptions of those surveys. This document is confidential and intended for discussion between Gallup and the Gates Foundation.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+  var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var els = document.querySelectorAll('.reveal');
+  if (reduced || !('IntersectionObserver' in window)){ for (var i=0;i<els.length;i++) els[i].classList.add('in'); }
+  else {
+    var io = new IntersectionObserver(function(entries){ for (var j=0;j<entries.length;j++){ if (entries[j].isIntersecting){ entries[j].target.classList.add('in'); io.unobserve(entries[j].target); } } }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+    for (var k=0;k<els.length;k++) io.observe(els[k]);
+  }
+})();
+</script>
+</body>
+</html>
