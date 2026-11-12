@@ -1,0 +1,1257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Social Connection and the Older Americans Act: A Research Proposal for the Foundation for Social Connection | Gallup</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+/* Gallup Visual Identity, Style Guide v1.3
+   Green 400 #009d4f primary | Green 500 #00754a small text | Green 300 #16c64f on black only
+   Pale Green 00 #e4f2e1 behind data | Grays 00 to 600 */
+:root{
+  --green:#009d4f;
+  --green-deep:#00754a;
+  --green-bright:#16c64f;
+  --green-pale:#e4f2e1;
+  --gray-00:#f1f1f1;
+  --gray-100:#cfd2d3;
+  --gray-200:#b0b3b2;
+  --gray-300:#878a8b;
+  --gray-400:#53575a;
+  --gray-500:#24272a;
+  --ink:#000000;
+  --paper:#ffffff;
+  --display:'Fraunces', Georgia, 'Times New Roman', serif;
+  --body:'Public Sans', Aptos, Arial, 'Helvetica Neue', sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
+body{font-family:var(--body);font-size:16px;line-height:1.62;color:var(--gray-500);background:var(--paper);-webkit-font-smoothing:antialiased;}
+::selection{background:var(--green-pale);color:var(--ink);}
+a{color:var(--green-deep);}
+button{font-family:var(--body);}
+:focus-visible{outline:2px solid var(--green-deep);outline-offset:3px;}
+.wrap{max-width:1140px;margin:0 auto;padding:0 2.25rem;}
+.measure{max-width:44rem;}
+
+/* ---------- Header ---------- */
+.site-header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,0.95);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--gray-100);}
+.header-inner{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding-top:0.85rem;padding-bottom:0.85rem;}
+.brand-pair{display:flex;align-items:center;gap:1.05rem;min-width:0;}
+.mark-gallup{font-family:Georgia,'Times New Roman',serif;font-weight:700;font-size:1.04rem;letter-spacing:0.24em;text-transform:uppercase;color:var(--gray-400);line-height:1;white-space:nowrap;}
+.mark-gallup sup{font-size:0.42em;letter-spacing:0;}
+.brand-divider{width:1px;height:28px;background:var(--gray-100);flex-shrink:0;}
+.mark-partner{font-weight:700;font-size:0.92rem;color:var(--gray-500);line-height:1.15;}
+.mark-partner b{font-weight:700;}
+.pn-short{display:none;}
+.mark-partner span{display:block;font-weight:500;font-size:0.74rem;color:var(--gray-400);margin-top:0.12rem;}
+.header-actions{display:flex;gap:0.55rem;flex-shrink:0;}
+.btn{display:inline-flex;align-items:center;gap:0.45rem;border-radius:6px;padding:0.55rem 0.95rem;font-size:0.8rem;font-weight:600;cursor:pointer;border:1px solid transparent;text-decoration:none;line-height:1.2;transition:background 0.15s,border-color 0.15s;}
+.btn-solid{background:var(--green-deep);color:#fff;}
+.btn-solid:hover{background:#005f3c;}
+.btn-line{background:#fff;color:var(--gray-500);border-color:var(--gray-100);}
+.btn-line:hover{border-color:var(--gray-300);}
+.subnav{border-top:1px solid var(--gray-00);}
+.subnav-inner{display:flex;gap:1.6rem;overflow-x:auto;padding-top:0.5rem;padding-bottom:0.5rem;scrollbar-width:none;}
+.subnav-inner::-webkit-scrollbar{display:none;}
+.subnav a{font-size:0.8rem;font-weight:600;color:var(--gray-400);text-decoration:none;white-space:nowrap;padding:0.15rem 0;border-bottom:2px solid transparent;}
+.subnav a:hover{color:var(--green-deep);border-bottom-color:var(--green);}
+
+/* ---------- Type ---------- */
+.label{display:inline-flex;align-items:center;gap:0.6rem;font-size:0.84rem;font-weight:600;color:var(--green-deep);margin-bottom:0.9rem;}
+.label::before{content:'';width:20px;height:3px;background:var(--green);}
+h2.title{font-family:var(--display);font-weight:600;font-size:clamp(1.85rem,3.4vw,2.55rem);line-height:1.14;color:var(--ink);letter-spacing:-0.01em;margin-bottom:0.9rem;font-variation-settings:'opsz' 96;}
+h3.sub{font-family:var(--display);font-weight:600;font-size:1.42rem;line-height:1.24;color:var(--ink);margin-bottom:0.6rem;font-variation-settings:'opsz' 48;}
+.lede{font-size:1.07rem;line-height:1.72;color:var(--gray-400);max-width:44rem;}
+.prose p{font-size:1.03rem;line-height:1.8;color:var(--gray-500);margin-bottom:1.25rem;max-width:44rem;}
+.prose strong{color:var(--ink);}
+.small{font-size:0.86rem;line-height:1.65;color:var(--gray-400);}
+
+/* ---------- Hero ---------- */
+.hero{border-top:4px solid var(--green);padding:4.2rem 0 3.6rem;}
+.hero-for{font-size:0.88rem;font-weight:600;color:var(--green-deep);margin-bottom:1.5rem;}
+.hero h1{font-family:var(--display);font-weight:600;font-size:clamp(2.4rem,5vw,3.7rem);line-height:1.06;letter-spacing:-0.02em;color:var(--ink);max-width:21ch;margin-bottom:1.5rem;font-variation-settings:'opsz' 144;}
+.hero-sub{font-size:1.12rem;line-height:1.72;color:var(--gray-400);max-width:42rem;}
+.hero-in{animation:rise 0.6s ease both;}
+.hero-in.d1{animation-delay:0.08s;}
+.hero-in.d2{animation-delay:0.16s;}
+@keyframes rise{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:none;}}
+
+/* ---------- Signature: the chain ---------- */
+.chain{margin-top:3.4rem;border:1px solid var(--gray-100);border-radius:14px;padding:1.8rem 2rem 1.6rem;}
+.chain-head{display:flex;justify-content:space-between;align-items:flex-start;gap:1.5rem;flex-wrap:wrap;margin-bottom:1.9rem;}
+.chain-head h2{font-family:var(--display);font-weight:600;font-size:1.22rem;line-height:1.3;color:var(--ink);max-width:30rem;}
+.legend{display:flex;gap:1.2rem;flex-wrap:wrap;font-size:0.8rem;color:var(--gray-400);}
+.legend span{display:inline-flex;align-items:center;gap:0.45rem;}
+.lg{width:26px;height:4px;border-radius:2px;display:inline-block;}
+.lg.known{background:var(--gray-200);}
+.lg.new{background:var(--green);}
+.chain-rail{position:relative;}
+.chain-track{list-style:none;display:grid;grid-template-columns:repeat(4,1fr);position:relative;}
+.seg{position:absolute;top:10px;height:4px;border-radius:2px;transform-origin:left center;}
+.seg.s1{left:11px;width:25%;background:var(--gray-200);}
+.seg.s2{left:calc(25% + 11px);width:25%;background:repeating-linear-gradient(90deg,var(--green) 0 8px,transparent 8px 14px);}
+.seg.s3{left:calc(50% + 11px);width:25%;background:var(--green);}
+.chain .seg{animation:draw 0.7s cubic-bezier(.2,.7,.2,1) both;}
+.chain .seg.s1{animation-delay:0.35s;}
+.chain .seg.s2{animation-delay:0.7s;}
+.chain .seg.s3{animation-delay:1.05s;}
+@keyframes draw{from{transform:scaleX(0);}to{transform:scaleX(1);}}
+.node{position:relative;z-index:1;}
+.node button{display:block;width:100%;text-align:left;background:none;border:none;cursor:pointer;padding:2.3rem 1.2rem 0.6rem 0;color:inherit;}
+.node .dot{position:absolute;top:0;left:0;width:24px;height:24px;border-radius:50%;background:#fff;border:4px solid var(--gray-200);transition:transform 0.15s;}
+.node.new .dot{border-color:var(--green);}
+.node.new.n4 .dot{background:var(--green);}
+.node-step{display:block;font-size:0.78rem;font-weight:600;color:var(--gray-300);margin-bottom:0.3rem;}
+.node.new .node-step{color:var(--green-deep);}
+.node-t{display:block;font-family:var(--display);font-weight:500;font-size:1.06rem;line-height:1.32;color:var(--gray-400);padding-bottom:0.55rem;border-bottom:2px solid transparent;transition:color 0.15s,border-color 0.15s;font-variation-settings:'opsz' 24;}
+.node button:hover .node-t{color:var(--ink);}
+.node button[aria-pressed="true"] .node-t{color:var(--ink);border-bottom-color:var(--green);}
+.node button[aria-pressed="true"] .dot{transform:scale(1.12);}
+.chain-panel{margin-top:1.2rem;background:var(--gray-00);border-radius:10px;padding:1.15rem 1.4rem;display:grid;grid-template-columns:auto 1fr;gap:1.3rem;align-items:start;min-height:5.2rem;}
+.chain-tag{justify-self:start;font-size:0.76rem;font-weight:700;padding:0.32rem 0.7rem;border-radius:999px;white-space:nowrap;background:#fff;border:1px solid var(--gray-100);color:var(--gray-400);}
+.chain-tag.new{background:var(--green-deep);border-color:var(--green-deep);color:#fff;}
+.chain-panel p{font-size:0.95rem;line-height:1.68;color:var(--gray-500);}
+.chain-hint{font-size:0.8rem;color:var(--gray-300);margin-top:0.8rem;}
+
+/* ---------- Sections ---------- */
+.block{padding:5rem 0;border-top:1px solid var(--gray-100);}
+.block.tint{background:var(--gray-00);}
+section[id]{scroll-margin-top:112px;}
+.split{display:grid;grid-template-columns:1.1fr 0.9fr;gap:3rem;align-items:start;}
+
+/* Two parts at a glance */
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:1.3rem;margin-top:2.6rem;}
+.part-card{border:1px solid var(--gray-100);border-radius:12px;padding:1.8rem 1.8rem 1.6rem;background:#fff;display:flex;flex-direction:column;}
+.part-card.p1{border-top:4px solid var(--gray-500);}
+.part-card.p2{border-top:4px solid var(--green);}
+.part-k{font-size:0.82rem;font-weight:700;color:var(--gray-400);margin-bottom:0.5rem;}
+.part-card.p2 .part-k{color:var(--green-deep);}
+.part-card h3{font-family:var(--display);font-weight:600;font-size:1.48rem;line-height:1.2;color:var(--ink);margin-bottom:0.65rem;}
+.part-card p{font-size:0.95rem;line-height:1.7;color:var(--gray-400);margin-bottom:1.1rem;}
+.tags{display:flex;flex-wrap:wrap;gap:0.4rem;margin-top:auto;}
+.tag{font-size:0.75rem;font-weight:600;padding:0.28rem 0.65rem;border-radius:999px;background:var(--gray-00);border:1px solid var(--gray-100);color:var(--gray-400);}
+.part-card.p2 .tag{background:var(--green-pale);border-color:#cfe5ca;color:var(--green-deep);}
+
+/* Rules table */
+.tbl-wrap{overflow-x:auto;margin-top:2.2rem;border:1px solid var(--gray-100);border-radius:12px;}
+table.grid{width:100%;border-collapse:collapse;min-width:680px;background:#fff;}
+table.grid th,table.grid td{text-align:left;vertical-align:top;padding:0.95rem 1.2rem;border-bottom:1px solid var(--gray-00);font-size:0.9rem;line-height:1.6;}
+table.grid thead th{background:var(--gray-00);font-size:0.82rem;font-weight:700;color:var(--gray-500);border-bottom:1px solid var(--gray-100);}
+table.grid tbody th{font-weight:700;color:var(--ink);width:19%;}
+table.grid td{color:var(--gray-400);}
+table.grid tr:last-child th,table.grid tr:last-child td{border-bottom:none;}
+table.grid .col-p2{background:rgba(228,242,225,0.45);}
+table.grid thead .col-p2{background:var(--green-pale);color:var(--green-deep);}
+
+/* Territory explorer */
+.explorer{display:grid;grid-template-columns:270px 1fr;gap:0;margin-top:2.2rem;border:1px solid var(--gray-100);border-radius:12px;overflow:hidden;background:#fff;}
+.tabs{display:flex;flex-direction:column;border-right:1px solid var(--gray-100);background:#f7f7f7;}
+.tab{background:none;border:none;border-left:3px solid transparent;text-align:left;padding:0.9rem 1.1rem;font-size:0.9rem;font-weight:600;color:var(--gray-400);cursor:pointer;border-bottom:1px solid var(--gray-100);line-height:1.35;}
+.tab:last-child{border-bottom:none;}
+.tab:hover{color:var(--ink);}
+.tab[aria-selected="true"]{background:#fff;color:var(--ink);border-left-color:var(--green);}
+.tab small{display:block;font-weight:500;font-size:0.76rem;color:var(--gray-300);margin-top:0.12rem;}
+.tab-panel{padding:1.8rem 2rem;}
+.tab-panel h4{font-family:var(--display);font-weight:600;font-size:1.38rem;color:var(--ink);margin-bottom:1.1rem;line-height:1.25;}
+.tp-row{padding:0.85rem 0;border-top:1px solid var(--gray-00);}
+.tp-row:first-of-type{border-top:none;padding-top:0;}
+.tp-k{font-size:0.8rem;font-weight:700;color:var(--green-deep);margin-bottom:0.25rem;}
+.tp-row p{font-size:0.94rem;line-height:1.68;color:var(--gray-500);}
+.tp-row ul{list-style:none;}
+.tp-row li{font-size:0.94rem;line-height:1.6;color:var(--gray-500);padding:0.2rem 0 0.2rem 1.1rem;position:relative;}
+.tp-row li::before{content:'';position:absolute;left:0;top:0.72em;width:6px;height:6px;border-radius:50%;background:var(--green);}
+.print-only{display:none;}
+
+/* Steps (true sequences) */
+.steps{list-style:none;counter-reset:st;display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem;margin-top:2rem;}
+.steps li{counter-increment:st;border-top:3px solid var(--gray-500);padding-top:1rem;}
+.steps li::before{content:counter(st);display:block;font-family:var(--display);font-weight:600;font-size:1.6rem;line-height:1;color:var(--gray-300);margin-bottom:0.55rem;}
+.steps strong{display:block;font-size:0.98rem;color:var(--ink);margin-bottom:0.3rem;}
+.steps p{font-size:0.88rem;line-height:1.62;color:var(--gray-400);}
+.steps.green li{border-top-color:var(--green);}
+.steps.green li::before{color:var(--green);}
+.steps.eight{grid-template-columns:repeat(4,1fr);row-gap:1.8rem;}
+
+.callout{border-left:3px solid var(--green);padding:0.3rem 0 0.3rem 1.3rem;margin:2rem 0 0;max-width:44rem;}
+.callout p{font-size:0.98rem;line-height:1.75;color:var(--gray-500);}
+.callout strong{color:var(--ink);}
+
+.deliver{margin-top:2.6rem;background:var(--gray-500);color:#fff;border-radius:12px;padding:2rem 2.2rem;display:grid;grid-template-columns:0.9fr 1.1fr;gap:2.2rem;}
+.deliver h3{font-family:var(--display);font-weight:600;font-size:1.55rem;line-height:1.2;margin-bottom:0.6rem;}
+.deliver p{font-size:0.92rem;line-height:1.7;color:var(--gray-100);}
+.deliver ul{list-style:none;}
+.deliver li{font-size:0.92rem;line-height:1.6;color:#fff;padding:0.5rem 0 0.5rem 1.4rem;position:relative;border-bottom:1px solid rgba(255,255,255,0.12);}
+.deliver li:last-child{border-bottom:none;}
+.deliver li::before{content:'';position:absolute;left:0;top:1.05em;width:8px;height:3px;background:var(--green-bright);}
+
+details.deep{margin-top:1.8rem;border-top:1px solid var(--gray-100);}
+details.deep summary{list-style:none;cursor:pointer;padding:1rem 0;font-size:0.88rem;font-weight:700;color:var(--green-deep);display:flex;align-items:center;gap:0.6rem;}
+details.deep summary::-webkit-details-marker{display:none;}
+details.deep summary .pm{width:20px;height:20px;border:1px solid var(--gray-100);border-radius:4px;position:relative;flex-shrink:0;}
+details.deep summary .pm::before,details.deep summary .pm::after{content:'';position:absolute;background:var(--green-deep);top:50%;left:50%;transform:translate(-50%,-50%);}
+details.deep summary .pm::before{width:9px;height:2px;}
+details.deep summary .pm::after{width:2px;height:9px;transition:transform 0.15s;}
+details.deep[open] summary .pm::after{transform:translate(-50%,-50%) scaleY(0);}
+.deep-body{padding:0 0 1.2rem;max-width:46rem;}
+.deep-body p{font-size:0.92rem;line-height:1.75;color:var(--gray-500);margin-bottom:0.9rem;}
+
+/* Reporting needs builder */
+.needs{margin-top:2.4rem;border:1px solid var(--gray-100);border-radius:12px;background:#fff;padding:1.8rem 2rem;}
+.needs-head{display:flex;justify-content:space-between;gap:1.5rem;flex-wrap:wrap;align-items:flex-end;margin-bottom:1.3rem;}
+.needs-head h3{font-family:var(--display);font-weight:600;font-size:1.32rem;color:var(--ink);}
+.needs-head p{font-size:0.88rem;color:var(--gray-400);max-width:34rem;margin-top:0.3rem;}
+.key{display:flex;gap:1rem;flex-wrap:wrap;font-size:0.78rem;color:var(--gray-400);}
+.key span{display:inline-flex;align-items:center;gap:0.4rem;}
+.kd{width:10px;height:10px;border-radius:50%;}
+.kd.base{background:var(--green);}
+.kd.confirm{background:#fff;border:2px solid var(--green);}
+.kd.adds{background:var(--gray-500);}
+.need-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0.6rem;}
+.need{display:flex;gap:0.7rem;align-items:flex-start;text-align:left;background:#fff;border:1px solid var(--gray-100);border-radius:8px;padding:0.75rem 0.85rem;cursor:pointer;font-size:0.88rem;line-height:1.4;color:var(--gray-500);transition:border-color 0.15s,background 0.15s;}
+.need:hover{border-color:var(--gray-300);}
+.need .box{width:18px;height:18px;border-radius:4px;border:1.5px solid var(--gray-200);flex-shrink:0;margin-top:1px;position:relative;}
+.need[aria-pressed="true"]{border-color:var(--green);background:#f6fbf5;}
+.need[aria-pressed="true"] .box{background:var(--green-deep);border-color:var(--green-deep);}
+.need[aria-pressed="true"] .box::after{content:'';position:absolute;left:5px;top:1px;width:5px;height:10px;border:solid #fff;border-width:0 2px 2px 0;transform:rotate(45deg);}
+.need .nl{flex:1;}
+.need .nl b{display:block;font-weight:600;color:var(--ink);}
+.need .nl i{font-style:normal;display:inline-flex;align-items:center;gap:0.35rem;font-size:0.75rem;color:var(--gray-400);margin-top:0.2rem;}
+.needs-out{margin-top:1.3rem;background:var(--green-pale);border-radius:8px;padding:1rem 1.2rem;font-size:0.9rem;line-height:1.65;color:var(--gray-500);}
+.needs-out strong{color:var(--ink);}
+.needs-out ul{list-style:none;margin-top:0.45rem;}
+.needs-out li{padding:0.15rem 0 0.15rem 1rem;position:relative;font-size:0.86rem;}
+.needs-out li::before{content:'';position:absolute;left:0;top:0.7em;width:5px;height:5px;border-radius:50%;background:var(--gray-500);}
+
+/* Interview block and tiers */
+.idi{margin-top:2.6rem;display:grid;grid-template-columns:1fr 1fr;gap:2.2rem;align-items:start;border:1px solid var(--gray-100);border-radius:12px;padding:2rem 2.2rem;background:#fff;}
+.idi-facts{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--gray-100);border:1px solid var(--gray-100);border-radius:8px;overflow:hidden;}
+.idi-facts div{background:#fff;padding:0.95rem 1.05rem;}
+.idi-facts b{display:block;font-family:var(--display);font-weight:600;font-size:1.12rem;color:var(--green-deep);line-height:1.25;}
+.idi-facts span{font-size:0.8rem;line-height:1.5;color:var(--gray-400);}
+.tiers{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin-top:1.6rem;}
+.tier{border:1px solid var(--gray-100);border-radius:12px;padding:1.6rem 1.7rem;background:#fff;}
+.tier h4{font-family:var(--display);font-weight:600;font-size:1.22rem;color:var(--ink);line-height:1.25;margin-bottom:0.35rem;}
+.tier .tp{font-size:0.9rem;font-weight:700;color:var(--green-deep);margin-bottom:0.8rem;font-variant-numeric:tabular-nums;}
+.tier p{font-size:0.9rem;line-height:1.68;color:var(--gray-400);}
+
+/* Roles + precedents */
+.roles td.g{color:var(--gray-500);}
+.roles td.f{color:var(--gray-400);}
+.prec{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin-top:2rem;}
+.prec-card{border:1px solid var(--gray-100);border-left:4px solid var(--green);border-radius:10px;padding:1.4rem 1.5rem;background:#fff;}
+.prec-card .pk{font-size:0.8rem;font-weight:700;color:var(--gray-400);margin-bottom:0.35rem;}
+.prec-card h4{font-family:var(--display);font-weight:600;font-size:1.15rem;color:var(--ink);margin-bottom:0.5rem;line-height:1.3;}
+.prec-card p{font-size:0.9rem;line-height:1.68;color:var(--gray-400);}
+
+/* ---------- Scope builder ---------- */
+.config{display:grid;grid-template-columns:1.15fr 0.85fr;gap:1.8rem;align-items:start;margin-top:2.4rem;}
+.ctl{border:1px solid var(--gray-100);border-radius:12px;background:#fff;padding:1.4rem 1.5rem;margin-bottom:1rem;}
+.ctl-head{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;margin-bottom:0.25rem;}
+.ctl-head h3{font-family:var(--display);font-weight:600;font-size:1.18rem;color:var(--ink);}
+.ctl-k{font-size:0.78rem;font-weight:700;color:var(--gray-300);}
+.ctl p.d{font-size:0.86rem;line-height:1.6;color:var(--gray-400);margin-bottom:0.9rem;}
+.opt{display:flex;gap:0.85rem;align-items:flex-start;width:100%;text-align:left;background:#fff;border:1px solid var(--gray-100);border-radius:9px;padding:0.85rem 1rem;cursor:pointer;margin-top:0.55rem;color:inherit;transition:border-color 0.15s,background 0.15s;}
+.opt:hover{border-color:var(--gray-300);}
+.opt[aria-checked="true"],.opt[aria-pressed="true"]{border-color:var(--green);background:#f6fbf5;}
+.opt .r{width:18px;height:18px;border-radius:50%;border:1.5px solid var(--gray-200);flex-shrink:0;margin-top:2px;position:relative;}
+.opt[aria-checked="true"] .r{border-color:var(--green-deep);}
+.opt[aria-checked="true"] .r::after{content:'';position:absolute;inset:3px;border-radius:50%;background:var(--green-deep);}
+.opt .c{width:18px;height:18px;border-radius:4px;border:1.5px solid var(--gray-200);flex-shrink:0;margin-top:2px;position:relative;}
+.opt[aria-pressed="true"] .c{background:var(--green-deep);border-color:var(--green-deep);}
+.opt[aria-pressed="true"] .c::after{content:'';position:absolute;left:5px;top:1px;width:5px;height:10px;border:solid #fff;border-width:0 2px 2px 0;transform:rotate(45deg);}
+.opt .ot{flex:1;}
+.opt .ot b{display:block;font-size:0.92rem;color:var(--ink);font-weight:600;}
+.opt .ot span{display:block;font-size:0.8rem;line-height:1.5;color:var(--gray-400);margin-top:0.12rem;}
+.opt .op{font-size:0.84rem;font-weight:700;color:var(--green-deep);white-space:nowrap;font-variant-numeric:tabular-nums;text-align:right;}
+.opt .op small{display:block;font-weight:500;color:var(--gray-300);font-size:0.74rem;}
+.opt[disabled]{opacity:0.45;cursor:not-allowed;}
+.seg-toggle{display:flex;border:1px solid var(--gray-100);border-radius:8px;overflow:hidden;margin-top:0.5rem;}
+.seg-toggle button{flex:1;background:#fff;border:none;padding:0.65rem 0.8rem;font-size:0.84rem;font-weight:600;color:var(--gray-400);cursor:pointer;border-right:1px solid var(--gray-100);}
+.seg-toggle button:last-child{border-right:none;}
+.seg-toggle button[aria-checked="true"]{background:var(--gray-500);color:#fff;}
+.seg-toggle button[disabled]{opacity:0.45;cursor:not-allowed;}
+
+.summary{position:sticky;top:118px;background:var(--ink);color:#fff;border-radius:14px;padding:1.8rem 1.8rem 1.6rem;}
+.sum-k{font-size:0.82rem;font-weight:600;color:var(--gray-200);}
+.sum-big{font-family:var(--display);font-weight:600;font-size:clamp(1.7rem,3vw,2.25rem);line-height:1.12;color:var(--green-bright);margin:0.4rem 0 1.2rem;font-variant-numeric:tabular-nums;font-variation-settings:'opsz' 72;}
+.sum-big.empty{color:var(--gray-300);font-size:1.15rem;font-family:var(--body);font-weight:500;}
+.sum-lines{border-top:1px solid rgba(255,255,255,0.14);}
+.sum-line{display:flex;justify-content:space-between;gap:1rem;padding:0.7rem 0;border-bottom:1px solid rgba(255,255,255,0.1);font-size:0.86rem;}
+.sum-line span:first-child{color:var(--gray-100);}
+.sum-line span:last-child{font-weight:600;text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap;}
+.sum-dates{margin-top:1.1rem;font-size:0.86rem;line-height:1.7;color:var(--gray-100);}
+.sum-dates b{color:#fff;font-weight:600;}
+.q1{display:inline-flex;align-items:center;gap:0.45rem;margin-top:0.8rem;font-size:0.8rem;font-weight:700;padding:0.32rem 0.75rem;border-radius:999px;}
+.q1.ok{background:var(--green-bright);color:var(--ink);}
+.q1.late{background:#3a3d40;color:#fff;}
+.sum-note{font-size:0.78rem;line-height:1.6;color:var(--gray-200);margin-top:0.8rem;}
+.sum-actions{display:flex;gap:0.5rem;margin-top:1.3rem;flex-wrap:wrap;}
+.sum-actions .btn{flex:1;justify-content:center;}
+.btn-bright{background:var(--green-bright);color:var(--ink);}
+.btn-bright:hover{background:#3fd36d;}
+.btn-ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,0.3);}
+.btn-ghost:hover{border-color:#fff;}
+.assump{margin-top:1.2rem;background:var(--gray-00);border:1px solid var(--gray-100);border-radius:10px;padding:1.1rem 1.3rem;font-size:0.84rem;line-height:1.7;color:var(--gray-500);}
+.assump strong{color:var(--ink);}
+
+.sub-k{font-size:0.8rem;font-weight:700;color:var(--gray-500);margin:1.1rem 0 0.1rem;}
+.lock-note{display:none;font-size:0.8rem;font-weight:600;color:var(--gray-400);background:var(--gray-00);border-radius:6px;padding:0.5rem 0.75rem;margin-bottom:0.4rem;}
+.ctl.locked .lock-note{display:block;}
+.ctl.locked .opt,.ctl.locked .sub-k{opacity:0.45;}
+.stepper-row{cursor:default;align-items:center;}
+.stepper-row:hover{border-color:var(--gray-100);}
+.stepper{display:flex;align-items:center;gap:0.35rem;flex-shrink:0;}
+.stepper button{width:30px;height:30px;border:1px solid var(--gray-100);border-radius:6px;background:#fff;font-size:1rem;font-weight:700;color:var(--gray-500);cursor:pointer;line-height:1;}
+.stepper button:hover{border-color:var(--gray-300);}
+.stepper output{min-width:1.3rem;text-align:center;font-weight:700;color:var(--ink);font-variant-numeric:tabular-nums;}
+.sum-group{border-top:1px solid rgba(255,255,255,0.14);padding:0.55rem 0 0.35rem;}
+.sum-gh{display:flex;justify-content:space-between;gap:1rem;font-size:0.8rem;font-weight:700;color:var(--green-bright);padding-bottom:0.15rem;font-variant-numeric:tabular-nums;}
+.sum-group .sum-line{padding:0.32rem 0;border-bottom:none;font-size:0.82rem;}
+.bar.both{background:linear-gradient(var(--gray-500) 0 50%,var(--green) 50% 100%);}
+.bar.comms{background:var(--green-pale);border:1.5px solid var(--green);}
+/* Gantt */
+.gantt-box{margin-top:2.6rem;border:1px solid var(--gray-100);border-radius:12px;background:#fff;padding:1.6rem 1.7rem 1.3rem;}
+.gantt-box h3{font-family:var(--display);font-weight:600;font-size:1.3rem;color:var(--ink);}
+.gantt-box .small{margin-top:0.25rem;}
+.gantt-scroll{overflow-x:auto;margin-top:1.3rem;}
+.gantt{min-width:760px;--gl:230px;}
+.g-row{display:grid;grid-template-columns:var(--gl) 1fr;align-items:center;min-height:34px;}
+.g-label{font-size:0.82rem;line-height:1.3;color:var(--gray-500);padding-right:1rem;}
+.g-label.grp{font-weight:700;color:var(--ink);padding-top:0.7rem;}
+.g-label b{font-weight:700;color:var(--ink);}
+.g-track{position:relative;height:34px;}
+.g-months{display:grid;border-bottom:1px solid var(--gray-100);}
+.g-months span{font-size:0.74rem;font-weight:600;color:var(--gray-400);padding:0 0 0.45rem 0.35rem;border-left:1px solid var(--gray-00);}
+.g-body{position:relative;}
+.g-grid{position:absolute;inset:0 0 0 var(--gl);display:grid;pointer-events:none;}
+.g-grid span{border-left:1px solid var(--gray-00);}
+.g-q1{position:absolute;top:0;bottom:0;width:0;border-left:2px dashed var(--gray-300);pointer-events:none;}
+.g-q1 span{position:absolute;top:-1.6rem;left:6px;font-size:0.72rem;font-weight:700;color:var(--gray-400);white-space:nowrap;}
+.bar{position:absolute;top:9px;height:16px;border-radius:4px;}
+.bar.shared{background:var(--gray-200);}
+.bar.p1{background:var(--gray-500);}
+.bar.p2{background:var(--green);}
+.bar.bar-idi{background:repeating-linear-gradient(135deg,var(--green) 0 5px,#5cc48a 5px 10px);}
+.bar.launch{background:var(--green-pale);border:1.5px solid var(--green);}
+.ms{position:absolute;top:8px;width:16px;height:16px;transform:translateX(-50%) rotate(45deg);border:2px solid #fff;box-shadow:0 0 0 1.5px var(--ink);background:var(--ink);}
+.ms.p2{background:var(--green-bright);box-shadow:0 0 0 1.5px var(--green-deep);}
+.ms-l{position:absolute;top:6px;z-index:2;font-size:0.74rem;font-weight:700;color:var(--ink);white-space:nowrap;margin-left:12px;padding:2px 6px;background:#fff;border-radius:4px;}
+.g-empty{padding:2rem 0;font-size:0.9rem;color:var(--gray-400);}
+.g-legend{display:flex;flex-wrap:wrap;gap:1.1rem;margin-top:1rem;font-size:0.78rem;color:var(--gray-400);}
+.g-legend span{display:inline-flex;align-items:center;gap:0.4rem;}
+.g-legend i{width:18px;height:10px;border-radius:3px;display:inline-block;}
+
+/* ---------- Why Gallup ---------- */
+.why{background:var(--ink);color:#fff;padding:5.2rem 0;}
+.why .label{color:var(--green-bright);}
+.why .label::before{background:var(--green-bright);}
+.why h2{font-family:var(--display);font-weight:600;font-size:clamp(1.95rem,4vw,2.85rem);line-height:1.12;max-width:26ch;margin-bottom:1.1rem;letter-spacing:-0.01em;font-variation-settings:'opsz' 120;}
+.why .lead{font-size:1.04rem;line-height:1.8;color:var(--gray-100);max-width:44rem;}
+.proof{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,0.14);border:1px solid rgba(255,255,255,0.14);border-radius:12px;overflow:hidden;margin-top:2.8rem;}
+.proof div{background:var(--ink);padding:1.7rem 1.6rem;}
+.proof b{display:block;font-family:var(--display);font-weight:600;font-size:2.05rem;line-height:1.05;color:var(--green-bright);margin-bottom:0.6rem;font-variation-settings:'opsz' 96;}
+.proof p{font-size:0.88rem;line-height:1.65;color:var(--gray-100);}
+.why-close{margin-top:2.8rem;font-family:var(--display);font-size:1.32rem;line-height:1.5;max-width:36rem;color:#fff;}
+
+/* ---------- Next steps ---------- */
+.next{display:grid;grid-template-columns:1.3fr 0.7fr;gap:2.6rem;margin-top:2.2rem;align-items:start;}
+.next ol{list-style:none;counter-reset:ns;}
+.next li{counter-increment:ns;display:grid;grid-template-columns:44px 1fr;gap:0.9rem;padding:1.05rem 0;border-top:1px solid var(--gray-100);}
+.next li::before{content:counter(ns);font-family:var(--display);font-weight:600;font-size:1.45rem;color:var(--green);line-height:1.1;}
+.next li strong{display:block;color:var(--ink);font-size:1rem;margin-bottom:0.2rem;}
+.next li p{font-size:0.9rem;line-height:1.62;color:var(--gray-400);}
+.contact{border:1px solid var(--gray-100);border-top:4px solid var(--green);border-radius:12px;padding:1.5rem 1.6rem;}
+.contact .ck{font-size:0.8rem;font-weight:700;color:var(--gray-400);margin-bottom:0.6rem;}
+.contact h4{font-family:var(--display);font-weight:600;font-size:1.25rem;color:var(--ink);}
+.contact p{font-size:0.88rem;line-height:1.6;color:var(--gray-400);}
+.contact a{font-weight:600;}
+
+.footer{border-top:1px solid var(--gray-100);padding:2.4rem 0 2.8rem;text-align:center;font-size:0.76rem;line-height:1.8;color:var(--gray-400);}
+.footer .mark-gallup{display:inline-block;font-size:0.86rem;margin-bottom:0.6rem;}
+
+/* ---------- Responsive ---------- */
+@media (max-width:980px){
+  .duo,.split,.deliver,.idi,.tiers,.prec,.config,.next{grid-template-columns:1fr;}
+  .steps,.steps.eight{grid-template-columns:1fr 1fr;}
+  .need-grid{grid-template-columns:1fr 1fr;}
+  .explorer{grid-template-columns:1fr;}
+  .tabs{flex-direction:row;overflow-x:auto;border-right:none;border-bottom:1px solid var(--gray-100);}
+  .tab{border-left:none;border-bottom:3px solid transparent;border-right:1px solid var(--gray-100);white-space:nowrap;}
+  .tab[aria-selected="true"]{border-left:none;border-bottom-color:var(--green);}
+  .tab small{display:none;}
+  .summary{position:static;}
+  .proof{grid-template-columns:1fr;}
+}
+@media (max-width:720px){
+  .wrap{padding:0 1.2rem;}
+  .header-actions .btn-line{display:none;}
+  .mark-partner span{display:none;}
+  .hero{padding:3rem 0 2.6rem;}
+  .chain{padding:1.4rem 1.2rem;}
+  .chain-track{grid-template-columns:1fr;padding-left:0;}
+  .seg{display:none;}
+  .node:not(:last-child)::after{content:'';position:absolute;left:10px;top:22px;bottom:0;width:4px;z-index:-1;}
+  .node.n1::after{background:var(--gray-200);}
+  .node.n2::after{background:repeating-linear-gradient(180deg,var(--green) 0 7px,transparent 7px 12px);}
+  .node.n3::after{background:var(--green);}
+  .pn-full{display:none;}
+  .pn-short{display:inline;}
+  .gantt{--gl:150px;min-width:640px;}
+  .stepper-row{flex-wrap:wrap;row-gap:0.6rem;}
+  .stepper-row .ot{flex-basis:100%;}
+  .stepper-row .op{margin-left:auto;}
+  .node button{padding:0 0 1.1rem 2.4rem;}
+  .node-step{padding-top:0.15rem;}
+  .chain-panel{grid-template-columns:1fr;gap:0.7rem;}
+  .steps,.steps.eight,.need-grid,.idi-facts{grid-template-columns:1fr;}
+  .block{padding:3.6rem 0;}
+  .tab-panel{padding:1.4rem 1.2rem;}
+  .needs,.idi,.deliver,.ctl,.gantt-box{padding-left:1.2rem;padding-right:1.2rem;}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto;}
+  .hero-in,.chain .seg{animation:none;}
+}
+@media print{
+  .site-header,.sum-actions,.chain-hint,.tabs{display:none !important;}
+  .print-only{display:block;}
+  .tab-panel.screen-only{display:none;}
+  .explorer{grid-template-columns:1fr;border:none;}
+  .block{padding:2rem 0;break-inside:auto;}
+  .summary{position:static;}
+  .summary,.why,.proof div,.deliver,.q1,.bar,.ms,.needs-out,table.grid .col-p2,.tag,.chain-tag.new{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .part-card,.tier,.prec-card,.ctl,.gantt-box,.deliver,.idi,.contact,.steps li,tr{break-inside:avoid;}
+  .hero-in,.chain .seg{animation:none;}
+  a{color:inherit;text-decoration:none;}
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <div class="brand-pair">
+      <div class="mark-gallup">Gallup<sup>&reg;</sup></div>
+      <div class="brand-divider" aria-hidden="true"></div>
+      <div class="mark-partner"><b class="pn-full">Foundation for Social Connection</b><b class="pn-short">F4SC</b><span>Research proposal</span></div>
+    </div>
+    <div class="header-actions">
+      <button class="btn btn-line" type="button" onclick="exportSummary()">Save summary as PDF</button>
+      <a class="btn btn-solid" href="#scope">Build your scope</a>
+    </div>
+  </div>
+  <nav class="subnav" aria-label="Sections">
+    <div class="wrap subnav-inner">
+      <a href="#overview">Overview</a>
+      <a href="#part1">Part 1: Message testing</a>
+      <a href="#part2">Part 2: Public study</a>
+      <a href="#use">How the findings travel</a>
+      <a href="#scope">Scope, timing and investment</a>
+      <a href="#why">Why Gallup</a>
+      <a href="#next">Next steps</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+<section class="hero">
+  <div class="wrap">
+    <p class="hero-for hero-in">Prepared for the Foundation for Social Connection, November 2026</p>
+    <h1 class="hero-in d1">Where the public stands on social connection and the Older Americans Act</h1>
+    <p class="hero-sub hero-in d2">A two-part research program with Gallup: confidential message testing to sharpen how F4SC makes its case, and a nationally representative public study, published by Gallup, of what Americans know about the programs that keep older adults connected and how much they support them.</p>
+
+    <div class="chain" role="group" aria-labelledby="chainTitle">
+      <div class="chain-head">
+        <h2 id="chainTitle">The case for the Older Americans Act, link by link</h2>
+        <div class="legend">
+          <span><i class="lg known" aria-hidden="true"></i>Evidence F4SC and the field already bring</span>
+          <span><i class="lg new" aria-hidden="true"></i>Evidence this research adds</span>
+        </div>
+      </div>
+      <div class="chain-rail">
+      <span class="seg s1" aria-hidden="true"></span>
+      <span class="seg s2" aria-hidden="true"></span>
+      <span class="seg s3" aria-hidden="true"></span>
+      <ol class="chain-track">
+        <li class="node known n1"><button type="button" aria-pressed="false" data-node="0"><span class="dot" aria-hidden="true"></span><span class="node-step">Link 1</span><span class="node-t">OAA programs reach older adults and caregivers</span></button></li>
+        <li class="node known n2"><button type="button" aria-pressed="false" data-node="1"><span class="dot" aria-hidden="true"></span><span class="node-step">Link 2</span><span class="node-t">Those programs help people stay connected</span></button></li>
+        <li class="node new n3"><button type="button" aria-pressed="true" data-node="2"><span class="dot" aria-hidden="true"></span><span class="node-step">Link 3</span><span class="node-t">The public knows they exist and sees the connection</span></button></li>
+        <li class="node new n4"><button type="button" aria-pressed="false" data-node="3"><span class="dot" aria-hidden="true"></span><span class="node-step">Link 4</span><span class="node-t">Support crosses party lines, and the right message carries it</span></button></li>
+      </ol>
+      </div>
+      <div class="chain-panel" id="chainPanel" aria-live="polite"></div>
+      <p class="chain-hint">Select a link to see where its evidence comes from.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ OVERVIEW ============ -->
+<section class="block" id="overview">
+  <div class="wrap">
+    <span class="label">Overview</span>
+    <h2 class="title">Two studies, built to work together</h2>
+    <div class="prose">
+      <p>On July 14, 2026, the 61st anniversary of the Older Americans Act, the Senate passed S. 2120 by unanimous consent, and the bill now awaits action in the House. Whether reauthorization moves in this session or carries into the 120th Congress, the Foundation for Social Connection and its Action Network will be making a specific case to Congress: that the OAA is the primary federal policy supporting social connection for older adults and the people who care for them.</p>
+      <p>The scientific side of that case is well developed, much of it advanced by F4SC and its Scientific Leadership Council. The piece F4SC has identified as missing is the public opinion record: whether Americans know these programs exist, whether they connect them to social connection, which arguments persuade, and whether support holds across party lines. That record is what congressional offices, and the partner organizations in F4SC&rsquo;s aging strategy group, will want to see.</p>
+      <p>Gallup proposes two coordinated studies. <strong>Part 1</strong> is confidential message testing for F4SC&rsquo;s strategy. <strong>Part 2</strong> is a public study, designed with F4SC and published by Gallup, that any advocate, journalist or policymaker can cite. Both draw on the Gallup Panel, the largest probability-based research panel in the U.S., and on Gallup&rsquo;s research on social connection and wellbeing. Either can be commissioned on its own, and the two can share a single survey or run in sequence.</p>
+    </div>
+
+    <div class="duo">
+      <article class="part-card p1">
+        <div class="part-k">Part 1, for F4SC&rsquo;s strategy</div>
+        <h3>Message testing</h3>
+        <p>Which messages about social connection and older adults resonate most strongly with voters, and with whom. Results stay with F4SC and shape the arguments it brings to public education and to the Hill.</p>
+        <div class="tags"><span class="tag">Confidential to F4SC</span><span class="tag">n=3,000</span><span class="tag">Up to 5 minutes</span><span class="tag">10 to 20 messages</span><span class="tag">Messaging roadmap</span></div>
+      </article>
+      <article class="part-card p2">
+        <div class="part-k">Part 2, for the public record</div>
+        <h3>National awareness and support study</h3>
+        <p>What Americans know about the OAA and the programs it funds, how concerned they are about isolation among older adults, and how much they support a federal role. Published by Gallup and free for anyone to cite.</p>
+        <div class="tags"><span class="tag">Published by Gallup</span><span class="tag">n=3,000</span><span class="tag">Up to 10 minutes</span><span class="tag">Nationally representative</span><span class="tag">Gallup.com release</span></div>
+      </article>
+    </div>
+
+    <h3 class="sub" style="margin-top:3.4rem;">Two studies, two sets of rules</h3>
+    <p class="small measure">Gallup holds public research and internal strategy research to different standards. When both parts share one survey, the public items come first, before any respondent sees a test message, and only those items are published. That lets Part 1 test advocacy language freely while Part 2 stays neutral enough to be cited by anyone.</p>
+    <div class="tbl-wrap">
+      <table class="grid">
+        <thead><tr><th scope="col"></th><th scope="col">Part 1: Message testing</th><th scope="col" class="col-p2">Part 2: Public study</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Purpose</th><td>Sharpen F4SC&rsquo;s strategy and language</td><td class="col-p2">Build a public evidence base on awareness and support</td></tr>
+          <tr><th scope="row">Who sees it</th><td>F4SC</td><td class="col-p2">Everyone: Gallup publishes the findings</td></tr>
+          <tr><th scope="row">Question wording</th><td>Can test persuasive, advocacy-style messages</td><td class="col-p2">Neutral, balanced wording throughout</td></tr>
+          <tr><th scope="row">Review</th><td>Gallup&rsquo;s research and methodology standards</td><td class="col-p2">Gallup&rsquo;s research standards plus review by Gallup&rsquo;s Public Release Committee</td></tr>
+          <tr><th scope="row">Reporting</th><td>Results by audience, with guidance on which messages to lead with</td><td class="col-p2">Findings, charts and context, without policy recommendations</td></tr>
+          <tr><th scope="row">On the Hill</th><td>Shapes the arguments F4SC brings; not cited publicly as a Gallup poll</td><td class="col-p2">Citable by F4SC and anyone else, with F4SC adding its own policy context</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PART 1 ============ -->
+<section class="block tint" id="part1">
+  <div class="wrap">
+    <span class="label">Part 1: Message testing</span>
+    <h2 class="title">Which messages move voters, and which voters they move</h2>
+    <p class="lede">Confidential testing that tells F4SC which arguments for social connection programs resonate most strongly, overall and with the audiences that matter most in congressional conversations.</p>
+
+    <div class="explorer" id="explorer">
+      <div class="tabs" role="tablist" aria-label="Message territories" id="terrTabs"></div>
+      <div class="tab-panel screen-only" role="tabpanel" id="terrPanel" tabindex="0"></div>
+      <div class="tab-panel print-only" id="terrPrint"></div>
+    </div>
+    <p class="small" style="margin-top:0.9rem;">The seven territories come from F4SC&rsquo;s brief. Final messages are drafted with F4SC, and Gallup&rsquo;s methodologists refine the wording so each message tests one idea at a consistent length and tone, which keeps results about the idea rather than the phrasing.</p>
+
+    <h3 class="sub" style="margin-top:3.2rem;">How the test works</h3>
+    <ol class="steps">
+      <li><strong>Benchmark first</strong><p>Before seeing any message, respondents say whether social isolation among older adults is an issue and how they rank it as a priority. Every message is measured against this baseline.</p></li>
+      <li><strong>Rate each message</strong><p>Each respondent rates a randomized set drawn from a pool of 10 to 20 messages on how convincing it is and how much it motivates them to care about the issue.</p></li>
+      <li><strong>Force the trade-off</strong><p>Head-to-head choices between messages (a MaxDiff design) produce a true rank order, separating the message that wins from messages that simply score well.</p></li>
+      <li><strong>Read by audience</strong><p>Results by party, age (including adults 40+ and the sandwich generation), geography including rural communities, and caregivers, showing which messages unite and which divide.</p></li>
+    </ol>
+    <div class="callout"><p><strong>Measuring persuasion, if useful.</strong> Where F4SC wants to know how far a message moves opinion, a control group that sees no messages gives a clean comparison for priority and support.</p></div>
+
+    <div class="deliver">
+      <div>
+        <h3>What F4SC receives</h3>
+        <p>A messaging roadmap identifying the strongest framing and policy arguments for continued public education and policy advocacy, the outcome named in F4SC&rsquo;s brief.</p>
+      </div>
+      <ul>
+        <li>Messages ranked overall and for each priority audience</li>
+        <li>The frames that hold across Republicans, Democrats and independents, and the ones that split them</li>
+        <li>Language to lead with, and language to avoid</li>
+        <li>A working session with Gallup&rsquo;s team to translate results into F4SC&rsquo;s materials</li>
+      </ul>
+    </div>
+
+    <details class="deep">
+      <summary><span class="pm" aria-hidden="true"></span>Design notes for Part 1</summary>
+      <div class="deep-body">
+        <p>Part 1 is priced for n=3,000 U.S. adults from the Gallup Panel and an instrument of up to 5 minutes: nationally representative, with adults 40 and older oversampled within the total. Registered voters are identified so results can be read among voters as well as all adults. Within a 5-minute instrument, each respondent rates a subset of the message pool, so every message is still rated by a large, representative group. The number of messages per respondent is set in design.</p>
+        <p>Gallup also conducts focus groups, which can add directional insight for internal strategy before or after the survey. They can be scoped alongside Part 1 on request.</p>
+      </div>
+    </details>
+  </div>
+</section>
+
+<!-- ============ PART 2 ============ -->
+<section class="block" id="part2">
+  <div class="wrap">
+    <span class="label">Part 2: Public study</span>
+    <h2 class="title">What Americans know, and what they support</h2>
+    <p class="lede">A nationally representative Gallup study of awareness, concern and support, written in Gallup&rsquo;s own voice and built to be cited by advocates, journalists and policymakers.</p>
+
+    <div class="tbl-wrap">
+      <table class="grid">
+        <thead><tr><th scope="col" style="width:40%;">F4SC&rsquo;s question</th><th scope="col" class="col-p2">How Gallup would measure it</th></tr></thead>
+        <tbody>
+          <tr><td style="color:var(--ink);font-weight:600;">What is Americans&rsquo; baseline level of social connectedness, and what does it look like for older adults?</td><td class="col-p2">Established Gallup measures of connection, isolation and loneliness, kept distinct in line with F4SC&rsquo;s definitions and reported for older adults and every other age group.</td></tr>
+          <tr><td style="color:var(--ink);font-weight:600;">How concerned are Americans about isolation among older adults, and how much do they know about the solutions in place?</td><td class="col-p2">Balanced items on concern and on awareness of solutions, with no framing that signals a preferred answer.</td></tr>
+          <tr><td style="color:var(--ink);font-weight:600;">How much do Americans know about the OAA and the programs it supports?</td><td class="col-p2">Awareness of the law by name, measured separately from awareness and use of the programs it funds, such as senior centers, congregate and home-delivered meals, transportation and family caregiver support. People can know a program well without knowing what funds it, so the two are kept apart.</td></tr>
+          <tr><td style="color:var(--ink);font-weight:600;">Do older adults and caregivers know how to find connection opportunities in their communities?</td><td class="col-p2">Knowledge of local options and where to turn, among adults 60 and older (the OAA&rsquo;s core eligible population) and family caregivers.</td></tr>
+          <tr><td style="color:var(--ink);font-weight:600;">Is support for older adults and social connection shared across the electorate?</td><td class="col-p2">Neutral measures of the priority Americans place on a federal role in supporting older adults, reported by party, age and other groups, among all adults and among registered voters.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="callout"><p><strong>Precision matters here.</strong> In Gallup&rsquo;s global research with Meta, adults 65 and older reported the lowest loneliness of any age group. That is exactly why the instrument should measure isolation, loneliness and access to connection as separate things, as F4SC&rsquo;s own definitions do. A study that blurs them invites the wrong headline.</p></div>
+
+    <div class="needs" id="needs">
+      <div class="needs-head">
+        <div>
+          <h3>Start with the groups you need to report</h3>
+          <p>The first design decision is which reporting groups are essential. That choice sets the sample, and the sample sets the final price. Select the groups F4SC needs.</p>
+        </div>
+        <div class="key" aria-hidden="true">
+          <span><i class="kd base"></i>Fits the base design</span>
+          <span><i class="kd confirm"></i>Confirm in the sampling plan</span>
+          <span><i class="kd adds"></i>Adds targeted sample</span>
+        </div>
+      </div>
+      <div class="need-grid" id="needGrid"></div>
+      <div class="needs-out" id="needsOut" aria-live="polite"></div>
+    </div>
+
+    <h3 class="sub" style="margin-top:3.4rem;">From research questions to public release</h3>
+    <ol class="steps green eight">
+      <li><strong>Discovery</strong><p>Review of the literature, Gallup&rsquo;s existing social connection and wellbeing items, and F4SC&rsquo;s research questions.</p></li>
+      <li><strong>Draft instrument</strong><p>Gallup methodologists draft the questionnaire for F4SC&rsquo;s review. An existing F4SC instrument can be tested instead.</p></li>
+      <li><strong>Cognitive testing</strong><p>Items are tested with respondents to confirm they mean what they are meant to mean.</p></li>
+      <li><strong>Release review</strong><p>Gallup&rsquo;s Public Release Committee reviews the design against Gallup&rsquo;s standards for public research.</p></li>
+      <li><strong>Fielding</strong><p>The survey goes to a national sample from the Gallup Panel, with the planned oversample.</p></li>
+      <li><strong>Weighting and analysis</strong><p>Results are weighted to national benchmarks and analyzed for every reporting group.</p></li>
+      <li><strong>Reporting</strong><p>Gallup writes the report: what the data say, in charts and plain language, reviewed before release.</p></li>
+      <li><strong>Public release</strong><p>Findings publish under Gallup&rsquo;s name, with launch support scaled to the option F4SC chooses.</p></li>
+    </ol>
+
+    <div class="idi">
+      <div>
+        <span class="label">Optional</span>
+        <h3 class="sub">In their own words: follow-up interviews</h3>
+        <p class="small" style="font-size:0.95rem;color:var(--gray-500);">After the survey closes, Gallup can recontact consenting respondents, such as older adults, caregivers and people who use OAA programs, for in-depth interviews about their experiences. Quotes are reported in the aggregate inside the public report, giving the numbers a human voice. For public research, Gallup recommends in-depth interviews over focus groups because they yield fuller, quotable accounts.</p>
+        <p class="small" style="margin-top:0.9rem;">Gallup used this approach in <em>United States of Scams</em>, its 2026 study with the Stop Scams Alliance, which paired national estimates with a section of scam victims&rsquo; accounts in their own words.</p>
+      </div>
+      <div class="idi-facts">
+        <div><b>30 interviews</b><span>with older adults, caregivers and people who use OAA programs</span></div>
+        <div><b>$48,000</b><span>for 30 interviews, conducted after fielding</span></div>
+        <div><b>About 1 month</b><span>added before the public release</span></div>
+        <div><b>+ $22,000</b><span>to record selected interviews and edit clips for launch and F4SC&rsquo;s channels</span></div>
+      </div>
+    </div>
+
+    <h3 class="sub" style="margin-top:3.4rem;">What a public release includes</h3>
+    <p class="small measure">Every public release is objective: Gallup presents the findings and visualizations without a recommendations or policy implications section, and F4SC can bring them into any briefing alongside its own materials.</p>
+    <div class="tiers">
+      <div class="tier">
+        <h4>Included in every public release</h4>
+        <div class="tp">Part of the core package</div>
+        <p>Public Release Committee review, crosstabulations for every reporting group, and a Gallup.com article with charts, distributed through news.gallup.com and Gallup&rsquo;s channels.</p>
+      </div>
+      <div class="tier" style="border-top:4px solid var(--green);">
+        <h4>Added as F4SC needs them</h4>
+        <div class="tp">Priced individually</div>
+        <p>A designed public report, additional Gallup.com articles, briefing support, in-depth interviews, a launch event at Gallup&rsquo;s Washington, D.C., headquarters, media outreach and digital content. Each is priced in the scope builder below.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HOW THE FINDINGS TRAVEL ============ -->
+<section class="block tint" id="use">
+  <div class="wrap">
+    <span class="label">How the findings travel</span>
+    <h2 class="title">Gallup supplies the evidence. F4SC carries it to Congress.</h2>
+    <p class="lede">F4SC&rsquo;s brief names the outputs it wants from this work. Here is how each one would come together, and where Gallup&rsquo;s role ends and F4SC&rsquo;s begins.</p>
+    <div class="tbl-wrap">
+      <table class="grid roles">
+        <thead><tr><th scope="col">In F4SC&rsquo;s brief</th><th scope="col" class="col-p2">Gallup delivers</th><th scope="col">F4SC builds</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Messaging roadmap</th><td class="g col-p2">Ranked messages by audience and a working session on the results (Part 1)</td><td class="f">Applies the strongest frames across public education and Hill materials</td></tr>
+          <tr><th scope="row">Public-facing report</th><td class="g col-p2">Publishes the findings on Gallup.com under Gallup&rsquo;s name, with an optional designed public report (Part 2)</td><td class="f">Shares it with Hill offices, partners and the press, adding policy context</td></tr>
+          <tr><th scope="row">One-pagers for Members and staff</th><td class="g col-p2">The published findings and charts, ready to cite</td><td class="f">Develops one-pagers that pair Gallup data with F4SC&rsquo;s asks</td></tr>
+          <tr><th scope="row">Geographic reports for champions</th><td class="g col-p2">Results for regions and for urban, suburban and rural communities, plus state results for selected larger states with added sample. District-level estimates are beyond what a national survey supports reliably.</td><td class="f">Tailors outreach to champions&rsquo; offices using the closest available geography</td></tr>
+          <tr><th scope="row">Concrete policy suggestions</th><td class="g col-p2">Not part of Gallup&rsquo;s public reporting, which presents findings without recommendations</td><td class="f">Develops recommendations informed by the data</td></tr>
+          <tr><th scope="row">Briefings and launch</th><td class="g col-p2">Optional briefing deck with a Gallup presenter, and an optional launch at Gallup&rsquo;s D.C. headquarters</td><td class="f">Convenes Hill and partner audiences</td></tr>
+          <tr><th scope="row">Use by partner organizations</th><td class="g col-p2">Public findings any organization can cite</td><td class="f">Equips strategy group partners to apply the data to their own priorities</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="prec">
+      <div class="prec-card">
+        <div class="pk">A familiar structure</div>
+        <h4>With Honor and Gallup</h4>
+        <p>Like F4SC, With Honor pairs a 501(c)(3) institute with a 501(c)(4) action arm. Gallup publishes the findings from its research with With Honor on Gallup.com in its own voice, and With Honor builds its own content and campaigns on top of them. Part 2 would follow the same model.</p>
+      </div>
+      <div class="prec-card">
+        <div class="pk">Numbers with a human voice</div>
+        <h4><em>United States of Scams</em>, with the Stop Scams Alliance</h4>
+        <p>A Gallup Panel survey of 5,173 U.S. adults, released in June 2026 and first reported by the Associated Press, paired national estimates with victims&rsquo; accounts in their own words. It is the model for Part 2&rsquo;s optional interviews.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SCOPE BUILDER ============ -->
+<section class="block" id="scope">
+  <div class="wrap">
+    <span class="label">Scope, timing and investment</span>
+    <h2 class="title">Build the engagement</h2>
+    <p class="lede">Start with a core package, then add the deliverables and communications support F4SC needs. The total and the schedule update as you go, and the summary can be saved or emailed for Jillian and the team.</p>
+
+    <div class="config">
+      <div>
+        <div class="ctl">
+          <div class="ctl-head"><h3>Core package</h3><span class="ctl-k">n=3,000 U.S. adults</span></div>
+          <p class="d">Each package is a fixed price on the Gallup Panel: nationally representative, with adults 40 and older oversampled within the total.</p>
+          <div role="radiogroup" aria-label="Core package" id="pkgGroup"></div>
+        </div>
+
+        <div class="ctl" id="grpDeliv">
+          <div class="ctl-head"><h3>Deliverables</h3><span class="ctl-k">For the public findings</span></div>
+          <p class="d">Every public release includes a Gallup.com article with charts. Add a designed report, more articles or briefing support.</p>
+          <p class="lock-note">Available with a package that includes a public release.</p>
+          <div class="sub-k">Designed public report</div>
+          <div role="radiogroup" aria-label="Designed public report" id="reportGroup"></div>
+          <div class="sub-k">More ways to release the findings</div>
+          <div id="addDeliv"></div>
+        </div>
+
+        <div class="ctl" id="grpQual">
+          <div class="ctl-head"><h3>Qualitative research</h3><span class="ctl-k">After fielding</span></div>
+          <p class="d">Interviews give the public findings a human voice. Focus groups for internal strategy can also be scoped on request.</p>
+          <p class="lock-note">Available with a package that includes a public release.</p>
+          <div id="addQual"></div>
+        </div>
+
+        <div class="ctl" id="grpComms">
+          <div class="ctl-head"><h3>Communications support</h3><span class="ctl-k">Around the launch</span></div>
+          <p class="d">Launch, media and convening support to carry the findings to the Hill, the press and F4SC&rsquo;s partners.</p>
+          <p class="lock-note">Available with a package that includes a public release.</p>
+          <div id="addComms"></div>
+        </div>
+
+        <div class="ctl" id="grpDigital">
+          <div class="ctl-head"><h3>Digital and social content</h3><span class="ctl-k">Priced per item</span></div>
+          <p class="d">Content built from the public findings, for Gallup&rsquo;s channels and for F4SC&rsquo;s.</p>
+          <p class="lock-note">Available with a package that includes a public release.</p>
+          <div id="addDigital"></div>
+        </div>
+
+        <div class="assump">
+          <strong>What the core packages include.</strong> Instrument development with F4SC, cognitive testing, programming, fielding on the Gallup Panel, weighting, analysis and crosstabulations for F4SC&rsquo;s reporting groups. Message testing includes the messaging roadmap and a results working session. Packages with a public release include Public Release Committee review and a Gallup.com article with charts, distributed through news.gallup.com and Gallup&rsquo;s channels. Reporting groups that add targeted sample, and focus groups, are priced in scoping. Add-on prices reflect Gallup&rsquo;s rates for comparable recent U.S. studies.
+        </div>
+      </div>
+
+      <aside class="summary" aria-live="polite">
+        <div class="sum-k">Estimated investment</div>
+        <div class="sum-big" id="sumTotal">&nbsp;</div>
+        <div id="sumLines"></div>
+        <div class="sum-dates" id="sumDates"></div>
+        <div id="sumQ1"></div>
+        <p class="sum-note" id="sumNote"></p>
+        <div class="sum-actions">
+          <button type="button" class="btn btn-bright" onclick="exportSummary()">Save as PDF</button>
+          <button type="button" class="btn btn-ghost" onclick="emailSummary()">Email selections</button>
+        </div>
+      </aside>
+    </div>
+
+    <div class="gantt-box">
+      <h3>Illustrative schedule</h3>
+      <p class="small">Assumes a decision the week of November 16 and kickoff in early December 2026. Dates are targets and are confirmed at kickoff.</p>
+      <div class="gantt-scroll"><div class="gantt" id="gantt"></div></div>
+      <div class="g-legend" aria-hidden="true">
+        <span><i style="background:var(--gray-200)"></i>Shared</span>
+        <span><i style="background:var(--gray-500)"></i>Message testing</span>
+        <span><i style="background:var(--green)"></i>Public release</span>
+        <span><i style="background:linear-gradient(var(--gray-500) 0 50%,var(--green) 50% 100%)"></i>One survey, both parts</span>
+        <span><i style="background:repeating-linear-gradient(135deg,var(--green) 0 5px,#5cc48a 5px 10px)"></i>Interviews</span>
+        <span><i style="background:var(--green-pale);border:1.5px solid var(--green)"></i>Communications</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHY GALLUP ============ -->
+<section class="why" id="why">
+  <div class="wrap">
+    <span class="label">Why Gallup</span>
+    <h2>Research built to be cited, from the first question</h2>
+    <p class="lead">Public opinion data helps a policy case only if the people hearing it believe it. Gallup&rsquo;s public research rests on a probability-based sample, a review process that keeps every published study neutral, and more than nine decades of measuring what Americans think. For public release, a probability-based sample is the standard newsrooms, policymakers and researchers look for.</p>
+    <div class="proof">
+      <div><b>100,000+</b><p>U.S. adults in the Gallup Panel, recruited at random through address-based sampling and random-digit dialing. No one can opt in, so results avoid the self-selection that affects opt-in online samples, and they can be projected to the national population and its subgroups.</p></div>
+      <div><b>142</b><p>Countries in Gallup and Meta&rsquo;s <em>Global State of Social Connections</em>, alongside Gallup&rsquo;s ongoing U.S. measurement of loneliness, social wellbeing and time with family and friends. Part 2 can draw on that item bank from the start.</p></div>
+      <div><b>1935</b><p>The year Gallup began measuring American public opinion. Today every public-facing Gallup study is reviewed by Gallup&rsquo;s Public Release Committee, so the findings F4SC cites carry Gallup&rsquo;s standards into every hearing room and newsroom.</p></div>
+    </div>
+    <p class="why-close">F4SC brings the science and the coalition. This research adds the public record.</p>
+  </div>
+</section>
+
+<!-- ============ NEXT STEPS ============ -->
+<section class="block" id="next">
+  <div class="wrap">
+    <span class="label">Next steps</span>
+    <h2 class="title">From decision to kickoff</h2>
+    <div class="next">
+      <ol>
+        <li><div><strong>F4SC confirms scope and sequencing</strong><p>Using the builder above, with input from Jillian on the Q1 2027 target. Target decision: the week of November 16.</p></div></li>
+        <li><div><strong>Gallup shares Public Release Committee guidance</strong><p>Confirming the Part 2 topics and question areas in scope, so F4SC knows exactly where Gallup&rsquo;s public role begins and ends.</p></div></li>
+        <li><div><strong>Kickoff and reporting needs</strong><p>Confirm the essential reporting groups, the message pool for Part 1 and the target release window.</p></div></li>
+        <li><div><strong>Instrument development begins</strong><p>Questionnaire design starts in early December, working toward a public release by the end of Q1 2027.</p></div></li>
+      </ol>
+      <div class="contact">
+        <div class="ck">Your Gallup contact</div>
+        <h4>Justin Lall</h4>
+        <p>Principal, Gallup</p>
+        <p style="margin-top:0.6rem;"><a href="mailto:justin_lall@gallup.com">justin_lall@gallup.com</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="mark-gallup">Gallup</div><br>
+    Prepared by Gallup for the Foundation for Social Connection, November 2026. All scope, timing and investment figures are estimates subject to final scoping.<br>
+    Copyright &copy; 2026 Gallup, Inc. All rights reserved. Confidential and proprietary.
+  </div>
+</footer>
+
+<script>
+/* ---------- Chain ---------- */
+var CHAIN = [
+  {tag:'Evidence F4SC and the field bring', cls:'', text:'Senior centers, congregate and home-delivered meals, transportation and the National Family Caregiver Support Program operate in communities across the country. Program data from the aging network already document who these services reach.'},
+  {tag:'Evidence F4SC and the field bring', cls:'', text:'F4SC, its Scientific Leadership Council and the wider field have built the evidence linking social isolation and loneliness to health, and community programs to connection. This research builds on that work rather than retesting it.'},
+  {tag:'Measured in Part 2', cls:'new', text:'Part 2 measures whether Americans know the OAA and the programs it funds, whether they link those programs to social connection, and whether older adults and caregivers know where to find them in their own communities.'},
+  {tag:'Measured in Parts 1 and 2', cls:'new', text:'Part 2 measures public support for a federal role, by party, age and other groups, on the public record. Part 1 tests privately which messages move voters most, so F4SC brings its strongest frame to every congressional conversation.'}
+];
+function selectNode(i){
+  var btns=document.querySelectorAll('.node button');
+  for(var k=0;k<btns.length;k++){btns[k].setAttribute('aria-pressed', k===i?'true':'false');}
+  var c=CHAIN[i];
+  document.getElementById('chainPanel').innerHTML='<span class="chain-tag '+c.cls+'">'+c.tag+'</span><p>'+c.text+'</p>';
+}
+document.querySelectorAll('.node button').forEach(function(b){
+  b.addEventListener('click',function(){selectNode(parseInt(b.getAttribute('data-node'),10));});
+});
+selectNode(2);
+
+/* ---------- Message territories ---------- */
+var TERR = [
+  {name:'Individual and public health', short:'Health consequences of isolation',
+   brief:'The consequences of social isolation for older adults&rsquo; health, and the opportunities social engagement creates.',
+   test:['Whether voters see isolation among older adults as a public health imperative, and where they rank it among other priorities','Health-risk framing and opportunity framing as separate messages, so F4SC learns which one carries'],
+   aud:'All voters, by party and age'},
+  {name:'Belonging', short:'Older adults rooted in community',
+   brief:'With the right programming, older adults remain rooted in and actively part of their communities.',
+   test:['Three ideas tested as separate messages, as the brief suggests: older adults as essential members of the community, older adults staying involved and contributing, and older adults maintaining purpose'],
+   aud:'Adults 40 and older compared with younger adults'},
+  {name:'Older adult policy and social connection', short:'What aging policy makes possible',
+   brief:'Whether voters see the line from aging policy to what it makes possible: public spaces, affordable programming and services that help older adults stay connected.',
+   test:['Messages that name specific programs compared with messages that describe outcomes, to see which makes the connection clearer','How results differ for voters who already know the programs'],
+   aud:'By party, and by familiarity with the programs'},
+  {name:'Bridging rural America', short:'Programs and transportation',
+   brief:'Accessible programs and local transportation support rural older adults in remaining connected.',
+   test:['The rural message read among rural, suburban and urban voters, to see whether it resonates beyond rural communities'],
+   aud:'By urbanicity and region, and by party'},
+  {name:'Family caregiving', short:'A complement to family care',
+   brief:'Community-based social connection as a complement to family caregiving, both for caregivers and for the people they care for.',
+   test:['Whether caregivers and the sandwich generation respond differently from other voters','Whether the caregiving frame strengthens support among adults who expect to become caregivers'],
+   aud:'Family caregivers, the sandwich generation, adults 40 and older'},
+  {name:'Multigenerational programs', short:'A benefit to every age',
+   brief:'Social connection as something that benefits other age groups in the community, not only older adults.',
+   test:['Whether a whole-community frame broadens appeal among younger voters without losing older ones'],
+   aud:'Across age groups'},
+  {name:'The baseline issue', short:'Isolation as an issue in itself',
+   brief:'Do voters recognize social isolation as an issue affecting older adults in and of itself?',
+   test:['Asked before any message, so it serves as the benchmark every other message is measured against','A neutral version can also appear in Part 2, putting the baseline on the public record'],
+   aud:'All voters'}
+];
+function terrBody(t){
+  return '<h4>'+t.name+'</h4>'+
+    '<div class="tp-row"><div class="tp-k">In F4SC&rsquo;s brief</div><p>'+t.brief+'</p></div>'+
+    '<div class="tp-row"><div class="tp-k">How Gallup would test it</div><ul>'+t.test.map(function(x){return '<li>'+x+'</li>';}).join('')+'</ul></div>'+
+    '<div class="tp-row"><div class="tp-k">Audiences to read</div><p>'+t.aud+'</p></div>';
+}
+function renderTabs(){
+  var tabs=document.getElementById('terrTabs');
+  tabs.innerHTML=TERR.map(function(t,i){
+    return '<button type="button" class="tab" role="tab" id="tab'+i+'" aria-controls="terrPanel" aria-selected="'+(i===0?'true':'false')+'" tabindex="'+(i===0?'0':'-1')+'" data-i="'+i+'">'+t.name+'<small>'+t.short+'</small></button>';
+  }).join('');
+  tabs.querySelectorAll('.tab').forEach(function(b){
+    b.addEventListener('click',function(){selectTab(parseInt(b.getAttribute('data-i'),10),false);});
+    b.addEventListener('keydown',function(e){
+      var i=parseInt(b.getAttribute('data-i'),10), n=TERR.length, j=null;
+      if(e.key==='ArrowDown'||e.key==='ArrowRight'){j=(i+1)%n;}
+      else if(e.key==='ArrowUp'||e.key==='ArrowLeft'){j=(i-1+n)%n;}
+      else if(e.key==='Home'){j=0;} else if(e.key==='End'){j=n-1;}
+      if(j!==null){e.preventDefault();selectTab(j,true);}
+    });
+  });
+  document.getElementById('terrPrint').innerHTML=TERR.map(function(t){return '<div style="margin-bottom:1.4rem;">'+terrBody(t)+'</div>';}).join('');
+  selectTab(0,false);
+}
+function selectTab(i,focus){
+  var all=document.querySelectorAll('#terrTabs .tab');
+  for(var k=0;k<all.length;k++){
+    var on=(k===i);
+    all[k].setAttribute('aria-selected',on?'true':'false');
+    all[k].setAttribute('tabindex',on?'0':'-1');
+  }
+  var panel=document.getElementById('terrPanel');
+  panel.setAttribute('aria-labelledby','tab'+i);
+  panel.innerHTML=terrBody(TERR[i]);
+  if(focus){all[i].focus();}
+}
+renderTabs();
+
+/* ---------- Reporting needs ---------- */
+var NEEDS = [
+  {id:'a40', label:'Adults 40 and older', sub:'Including adults 60+, the OAA&rsquo;s core eligible population', s:'base', on:true},
+  {id:'party', label:'Party affiliation', sub:'Republicans, Democrats and independents', s:'base', on:true},
+  {id:'rv', label:'Registered voters', sub:'Results among voters as well as all adults', s:'base', on:true},
+  {id:'age', label:'Age groups and generations', sub:'Including adults under 40', s:'base', on:true},
+  {id:'urb', label:'Region and urbanicity', sub:'Urban, suburban and rural', s:'base', on:true},
+  {id:'ses', label:'Education and income', sub:'Standard demographic breaks', s:'base', on:false},
+  {id:'race', label:'Race and ethnicity, nationally', sub:'Major groups among all adults', s:'base', on:false},
+  {id:'care', label:'Family caregivers and the sandwich generation', sub:'Identified through survey questions', s:'confirm', on:true},
+  {id:'race40', label:'Race and ethnicity among adults 40+', sub:'Subgroups within the older population', s:'adds', on:false},
+  {id:'rural40', label:'Rural older adults as their own group', sub:'A dedicated rural oversample', s:'adds', on:false},
+  {id:'state', label:'Results for selected states', sub:'For selected larger states', s:'adds', on:false}
+];
+var STATUS = {base:'Fits the base design', confirm:'Confirm in the sampling plan', adds:'Adds targeted sample'};
+function renderNeeds(){
+  document.getElementById('needGrid').innerHTML=NEEDS.map(function(n,i){
+    return '<button type="button" class="need" aria-pressed="'+(n.on?'true':'false')+'" data-i="'+i+'"><span class="box" aria-hidden="true"></span><span class="nl"><b>'+n.label+'</b>'+n.sub+'<br><i><span class="kd '+n.s+'" aria-hidden="true"></span>'+STATUS[n.s]+'</i></span></button>';
+  }).join('');
+  document.querySelectorAll('#needGrid .need').forEach(function(b){
+    b.addEventListener('click',function(){
+      var i=parseInt(b.getAttribute('data-i'),10);
+      NEEDS[i].on=!NEEDS[i].on;
+      b.setAttribute('aria-pressed',NEEDS[i].on?'true':'false');
+      needsSummary();
+      recalc();
+    });
+  });
+  needsSummary();
+}
+function selectedNeeds(){return NEEDS.filter(function(n){return n.on;});}
+function needsSummary(){
+  var sel=selectedNeeds();
+  var base=sel.filter(function(n){return n.s==='base';});
+  var conf=sel.filter(function(n){return n.s==='confirm';});
+  var adds=sel.filter(function(n){return n.s==='adds';});
+  var out=document.getElementById('needsOut');
+  if(sel.length===0){out.innerHTML='Select at least one reporting group to see how it shapes the design.';return;}
+  var h='<strong>'+base.length+' of '+sel.length+' selected group'+(sel.length===1?'':'s')+' fit the base design.</strong> ';
+  if(conf.length){h+=conf.length+' will be confirmed in the sampling plan once incidence is checked. ';}
+  if(adds.length){
+    h+=adds.length+' would add targeted sample, and with it cost and possibly time:<ul>'+adds.map(function(n){return '<li>'+n.label+'</li>';}).join('')+'</ul>';
+  } else {
+    h+='None of your selections require added sample beyond the planned oversample of adults 40+.';
+  }
+  if(sel.some(function(n){return n.id==='state';})){
+    h+='<div style="margin-top:0.5rem;">State results are feasible for selected larger states with added sample. Congressional district estimates are beyond what a national survey supports reliably.</div>';
+  }
+  out.innerHTML=h;
+}
+renderNeeds();
+
+/* ---------- Scope builder ---------- */
+var PKGS = [
+  {id:'p1', t:'Message testing', s:'Instrument up to 5 minutes. Includes the messaging roadmap and a results working session.', price:126000, p1:true, p2:false,
+   lines:[['Message testing (up to 5 minutes)',126000]]},
+  {id:'combo', t:'Message testing and public release, one survey', s:'Up to 5 minutes of message testing plus up to 10 minutes of public items in a single fielding. Public items come first, before any message is shown.', price:296000, note:'$126,000 + $170,000', p1:true, p2:true,
+   lines:[['Message testing (up to 5 minutes)',126000],['Public release items (up to 10 more minutes)',170000]]},
+  {id:'sep', t:'Message testing, then a separate public survey', s:'Two fieldings, so message testing results can shape the public instrument. The public release moves past Q1.', price:336000, note:'$126,000 + $210,000', p1:true, p2:true,
+   lines:[['Message testing survey (up to 5 minutes)',126000],['Public release survey (up to 10 minutes)',210000]]},
+  {id:'p2', t:'Public release only', s:'Instrument up to 10 minutes, published by Gallup.', price:210000, p1:false, p2:true,
+   lines:[['Public release survey (up to 10 minutes)',210000]]}
+];
+var REPORTS = [
+  {id:'none', t:'No designed report', s:'The Gallup.com article carries the release', price:0},
+  {id:'r10', t:'Public report, 10 pages', s:'A designed PDF with charts, plain-language findings and methodology', price:35000},
+  {id:'r30', t:'Flagship public report, 30 pages', s:'Findings for every reporting group, interview quotes where included, and full methodology', price:55000}
+];
+var ADD = [
+  {id:'articles', g:'deliv', t:'Three additional Gallup.com articles', s:'Staggered releases on specific findings, such as caregivers, rural communities or differences by party, each with media pitching, to keep the findings in the news after launch.', price:40200},
+  {id:'briefing', g:'deliv', t:'Briefing deck and Gallup presenter', s:'An 8-slide findings deck and a Gallup researcher presenting the data at a congressional or partner briefing.', price:15840},
+  {id:'idi', g:'qual', t:'In-depth interviews (30)', s:'Follow-up interviews with consenting respondents, such as older adults, caregivers and people who use OAA programs, with quotes woven into the public findings. Adds about one month.', price:48000},
+  {id:'video', g:'qual', t:'Recorded interviews and edited clips', s:'Video recording of selected interviews, with edited clips for the launch and for F4SC&rsquo;s channels.', price:22000, req:'idi', reqNote:'Requires in-depth interviews'},
+  {id:'launch', g:'comms', t:'Launch event at Gallup&rsquo;s Washington, D.C., headquarters', s:'A public release event with press and invited Hill and partner audiences. Can include a bipartisan congressional panel, as at the 2026 Stop Scams Alliance launch.', price:65000},
+  {id:'media', g:'comms', t:'Strategic media outreach', s:'Embargoed pre-release pitching to national, health and policy outlets, and a second wave of outreach after launch.', price:55000},
+  {id:'smt', g:'comms', t:'Satellite media tour', s:'A coordinated day of broadcast interviews with Gallup researchers and F4SC spokespeople.', price:43500},
+  {id:'roundtable', g:'comms', t:'Partner roundtable', s:'One 90-minute convening of F4SC&rsquo;s strategy group partners and practitioners, in D.C. or virtual, with a discussion summary.', price:32000},
+  {id:'podcast', g:'digital', t:'Gallup Podcast feature', s:'A 10-minute audio segment on the official Gallup Podcast, distributed on Apple Podcasts, Spotify and other platforms.', price:8500},
+  {id:'vidint', g:'digital', t:'Recorded video interview in Gallup&rsquo;s studio', s:'Up to 15 minutes, edited, with the full file and two short clips delivered.', price:16500}
+];
+var STEPS = [
+  {id:'st_post', t:'Data visualizations posted on Gallup channels', s:'Per set: 4 Gallup-branded visualizations, with posts on X and LinkedIn.', price:9500, max:2},
+  {id:'st_deliv', t:'Data visualizations delivered to F4SC', s:'Per set: 4 Gallup-branded visualizations for F4SC&rsquo;s own channels and Hill materials.', price:6500, max:4}
+];
+var GROUP_NAMES = {deliv:'Deliverables', qual:'Qualitative research', comms:'Communications support', digital:'Digital and social content'};
+var state = {pkg:'combo', report:'none', add:{}, steps:{st_post:0, st_deliv:0}};
+var MONTHS = ['Dec 2026','Jan 2027','Feb 2027','Mar 2027','Apr 2027','May 2027','Jun 2027','Jul 2027','Aug 2027'];
+var MONTH_FULL = ['December 2026','January 2027','February 2027','March 2027','April 2027','May 2027','June 2027','July 2027','August 2027'];
+var UNITS = 18; /* half-months, December 2026 through August 2027 */
+var Q1_END = 8;
+
+function fmt(n){return '$'+n.toLocaleString('en-US');}
+function plain(h){return h.replace(/&rsquo;/g,'\u2019').replace(/&amp;/g,'&');}
+function pkg(){for(var i=0;i<PKGS.length;i++){if(PKGS[i].id===state.pkg){return PKGS[i];}}return PKGS[0];}
+function addById(id){for(var i=0;i<ADD.length;i++){if(ADD[i].id===id){return ADD[i];}}return null;}
+function isOn(id){var a=addById(id);if(!a||!pkg().p2){return false;}if(a.req&&!isOn(a.req)){return false;}return !!state.add[id];}
+function whenLabel(u,lower){
+  var m=Math.floor((u-0.001)/2); if(m<0){m=0;}
+  var pos=(u-2*m)/2;
+  var part=pos<=0.34?'early':(pos<=0.67?'mid':'late');
+  if(!lower){part=part.charAt(0).toUpperCase()+part.slice(1);}
+  return part+' '+MONTH_FULL[m];
+}
+
+function optHTML(kind,id,on,title,sub,price,extra){
+  var radio=(kind==='pkg'||kind==='report');
+  var role=radio?'role="radio" aria-checked="'+(on?'true':'false')+'"':'aria-pressed="'+(on?'true':'false')+'"';
+  return '<button type="button" class="opt" '+role+' data-k="'+kind+'" data-id="'+id+'"'+(extra||'')+'>'+
+    '<span class="'+(radio?'r':'c')+'" aria-hidden="true"></span>'+
+    '<span class="ot"><b>'+title+'</b><span>'+sub+'</span></span>'+
+    '<span class="op">'+price+'</span></button>';
+}
+function renderControls(){
+  document.getElementById('pkgGroup').innerHTML=PKGS.map(function(p){
+    return optHTML('pkg',p.id,state.pkg===p.id,p.t,p.s,fmt(p.price)+(p.note?'<small>'+p.note+'</small>':''));
+  }).join('');
+  document.getElementById('reportGroup').innerHTML=REPORTS.map(function(r){
+    return optHTML('report',r.id,state.report===r.id,r.t,r.s,r.price?fmt(r.price):'&nbsp;');
+  }).join('');
+  ['deliv','qual','comms','digital'].forEach(function(g){
+    var el=document.getElementById('add'+g.charAt(0).toUpperCase()+g.slice(1));
+    var h=ADD.filter(function(a){return a.g===g;}).map(function(a){
+      var blocked=a.req&&!state.add[a.req];
+      return optHTML('add',a.id,!!state.add[a.id]&&!blocked,a.t,a.s+(a.reqNote?' '+a.reqNote+'.':''),'+ '+fmt(a.price),blocked?' disabled':'');
+    }).join('');
+    if(g==='digital'){
+      h+=STEPS.map(function(st){
+        var n=state.steps[st.id];
+        return '<div class="opt stepper-row">'+
+          '<span class="ot"><b>'+st.t+'</b><span>'+st.s+' '+fmt(st.price)+' per set, up to '+st.max+'.</span></span>'+
+          '<span class="stepper"><button type="button" data-step="'+st.id+'" data-d="-1" aria-label="Remove a set">&minus;</button>'+
+          '<output aria-live="polite">'+n+'</output>'+
+          '<button type="button" data-step="'+st.id+'" data-d="1" aria-label="Add a set">+</button></span>'+
+          '<span class="op">'+(n?'+ '+fmt(n*st.price):fmt(st.price)+'<small>per set</small>')+'</span></div>';
+      }).join('');
+    }
+    el.innerHTML=h;
+  });
+  var locked=!pkg().p2;
+  ['grpDeliv','grpQual','grpComms','grpDigital'].forEach(function(id){
+    var g=document.getElementById(id);
+    g.classList.toggle('locked',locked);
+    g.querySelectorAll('button').forEach(function(b){if(locked){b.setAttribute('disabled','');}});
+  });
+}
+document.getElementById('scope').addEventListener('click',function(e){
+  var b=e.target.closest('button');
+  if(!b||b.hasAttribute('disabled')){return;}
+  var k=b.getAttribute('data-k'), id=b.getAttribute('data-id');
+  if(k==='pkg'){state.pkg=id;}
+  else if(k==='report'){state.report=id;}
+  else if(k==='add'){state.add[id]=!state.add[id];if(id==='idi'&&!state.add.idi){state.add.video=false;}}
+  else if(b.hasAttribute('data-step')){
+    var sid=b.getAttribute('data-step'), st=STEPS.filter(function(x){return x.id===sid;})[0];
+    state.steps[sid]=Math.max(0,Math.min(st.max,state.steps[sid]+parseInt(b.getAttribute('data-d'),10)));
+  } else {return;}
+  recalc();
+});
+
+function priceLines(){
+  var P=pkg(), groups=[], total=0;
+  var core=P.lines.map(function(l){total+=l[1];return [l[0],l[1]];});
+  groups.push(['Core package',core]);
+  if(P.p2){
+    var d=[];
+    var rp=REPORTS.filter(function(r){return r.id===state.report;})[0];
+    if(rp.price){d.push([rp.t,rp.price]);}
+    ADD.filter(function(a){return a.g==='deliv'&&isOn(a.id);}).forEach(function(a){d.push([plain(a.t),a.price]);});
+    var buckets={deliv:d,qual:[],comms:[],digital:[]};
+    ['qual','comms','digital'].forEach(function(g){
+      ADD.filter(function(a){return a.g===g&&isOn(a.id);}).forEach(function(a){buckets[g].push([plain(a.t),a.price]);});
+    });
+    STEPS.forEach(function(st){var n=state.steps[st.id];if(n){buckets.digital.push([st.t+' ('+n+' set'+(n>1?'s':'')+')',n*st.price]);}});
+    ['deliv','qual','comms','digital'].forEach(function(g){
+      if(buckets[g].length){groups.push([GROUP_NAMES[g],buckets[g]]);buckets[g].forEach(function(l){total+=l[1];});}
+    });
+  }
+  return {groups:groups,total:total};
+}
+
+function schedule(){
+  var P=pkg(), rows=[], out={}, idi=isOn('idi');
+  rows.push({l:'Kickoff and reporting needs',s:0,e:0.5,c:'shared'});
+  function p1rows(){
+    rows.push({grp:'Message testing'});
+    rows.push({l:'Message development and instrument',s:0.25,e:2.5,c:'p1'});
+    rows.push({l:'Fielding (up to 5 minutes)',s:2.5,e:4,c:'p1'});
+    rows.push({l:'Analysis and messaging roadmap',s:4,e:6,c:'p1'});
+    rows.push({ms:'Messaging roadmap delivered',at:6,mc:''});
+    out.p1=6;
+  }
+  function p2rows(s2){
+    var R=s2+(idi?9.5:7.5);
+    rows.push({grp:'Public release survey'});
+    rows.push({l:'Discovery and questionnaire design',s:s2+0.25,e:s2+3,c:'p2'});
+    rows.push({l:'Cognitive testing and release review',s:s2+3,e:s2+4,c:'p2'});
+    rows.push({l:'Fielding (up to 10 minutes)',s:s2+4,e:s2+5.5,c:'p2'});
+    if(idi){rows.push({l:'In-depth interviews',s:s2+5.5,e:s2+7.5,c:'bar-idi'});}
+    rows.push({l:'Analysis and reporting',s:s2+5.5,e:R,c:'p2'});
+    return R;
+  }
+  var R=null;
+  if(P.id==='p1'){p1rows();}
+  else if(P.id==='p2'){R=p2rows(0);}
+  else if(P.id==='sep'){p1rows();R=p2rows(4);}
+  else {
+    R=idi?9.5:7.5;
+    rows.push({grp:'One survey: message testing and public items'});
+    rows.push({l:'Questionnaire design, both modules',s:0.25,e:3,c:'both'});
+    rows.push({l:'Cognitive testing and release review',s:3,e:4,c:'both'});
+    rows.push({l:'Fielding (up to 15 minutes)',s:4,e:5.5,c:'both'});
+    rows.push({l:'Message analysis and roadmap',s:5.5,e:6.5,c:'p1'});
+    rows.push({ms:'Messaging roadmap delivered',at:6.5,mc:''});
+    if(idi){rows.push({l:'In-depth interviews',s:5.5,e:7.5,c:'bar-idi'});}
+    rows.push({l:'Public analysis and reporting',s:5.5,e:R,c:'p2'});
+    out.p1=6.5;
+  }
+  if(R!==null){
+    rows.push({ms:'Public release',at:R,mc:'p2'});
+    out.p2=R;
+    var comms=[];
+    if(isOn('launch')){comms.push({l:'Launch planning and event',s:R-2.5,e:R,c:'comms'});}
+    if(isOn('media')){comms.push({l:'Media outreach, before and after launch',s:R-1.5,e:R+1,c:'comms'});}
+    if(isOn('smt')){comms.push({l:'Satellite media tour',s:R,e:R+0.5,c:'comms'});}
+    var dig=isOn('podcast')||isOn('vidint')||state.steps.st_post||state.steps.st_deliv||isOn('video');
+    if(dig){comms.push({l:'Digital and social content',s:R-1,e:R+1,c:'comms'});}
+    if(isOn('briefing')){comms.push({l:'Briefings',s:R+0.5,e:R+1.5,c:'comms'});}
+    if(isOn('roundtable')){comms.push({l:'Partner roundtable',s:R+1,e:R+1.5,c:'comms'});}
+    if(isOn('articles')){comms.push({l:'Additional Gallup.com articles',s:R+0.5,e:R+3.5,c:'comms'});}
+    if(comms.length){rows.push({grp:'Communications'});rows=rows.concat(comms);}
+  }
+  return {rows:rows,out:out};
+}
+
+function renderGantt(sc){
+  var g=document.getElementById('gantt');
+  var pct=function(u){return (Math.min(u,UNITS)/UNITS*100)+'%';};
+  var h='<div class="g-row"><div></div><div class="g-months" style="grid-template-columns:repeat('+MONTHS.length+',1fr);">'+MONTHS.map(function(m){return '<span>'+m+'</span>';}).join('')+'</div></div>';
+  h+='<div class="g-body"><div class="g-grid" aria-hidden="true" style="grid-template-columns:repeat('+MONTHS.length+',1fr);">'+MONTHS.map(function(){return '<span></span>';}).join('')+'</div>';
+  sc.rows.forEach(function(r){
+    if(r.grp){h+='<div class="g-row"><div class="g-label grp">'+r.grp+'</div><div class="g-track" style="height:22px;"></div></div>';return;}
+    if(r.ms){
+      var lp=r.at>11?'right:calc('+(100-r.at/UNITS*100)+'% + 14px);margin-left:0;':'left:'+pct(r.at)+';';
+      h+='<div class="g-row"><div class="g-label"><b>'+r.ms+'</b></div><div class="g-track">'+
+         '<span class="ms '+r.mc+'" style="left:'+pct(r.at)+';"></span>'+
+         '<span class="ms-l" style="'+lp+'">'+whenLabel(r.at)+'</span></div></div>';
+      return;
+    }
+    h+='<div class="g-row"><div class="g-label">'+r.l+'</div><div class="g-track">'+
+       '<span class="bar '+r.c+'" style="left:'+pct(r.s)+';width:calc('+pct(r.e)+' - '+pct(r.s)+');"></span></div></div>';
+  });
+  h+='</div>';
+  g.innerHTML=h;
+  var body=g.querySelector('.g-body');
+  var q=document.createElement('div');
+  q.className='g-q1';
+  q.style.left='calc(var(--gl) + (100% - var(--gl)) * '+(Q1_END/UNITS)+')';
+  q.innerHTML='<span>End of Q1 2027</span>';
+  body.appendChild(q);
+  body.style.marginTop='1.6rem';
+}
+
+function recalc(){
+  renderControls();
+  var pl=priceLines();
+  document.getElementById('sumTotal').textContent=fmt(pl.total);
+  document.getElementById('sumLines').innerHTML=pl.groups.map(function(g){
+    var sub=g[1].reduce(function(a,l){return a+l[1];},0);
+    return '<div class="sum-group"><div class="sum-gh"><span>'+g[0]+'</span><span>'+fmt(sub)+'</span></div>'+
+      g[1].map(function(l){return '<div class="sum-line"><span>'+l[0]+'</span><span>'+fmt(l[1])+'</span></div>';}).join('')+'</div>';
+  }).join('');
+  var sc=schedule(), P=pkg(), d='', q1='', notes=[];
+  if(sc.out.p1){d+='Messaging roadmap: <b>'+whenLabel(sc.out.p1)+'</b><br>';}
+  if(sc.out.p2){
+    d+='Public release: <b>'+whenLabel(sc.out.p2)+'</b>';
+    var ok=sc.out.p2<=Q1_END;
+    q1='<span class="q1 '+(ok?'ok':'late')+'">'+(ok?'Within the Q1 2027 target':'After the Q1 2027 target')+'</span>';
+    if(!ok&&isOn('idi')){notes.push(P.id==='sep'?'To hold a Q1 release, choose the one-survey package and publish the interview findings as a companion release after the main report.':'To hold a Q1 release, the interview findings can follow the main report as a companion release.');}
+    else if(!ok){notes.push('The one-survey package keeps the public release within Q1 2027.');}
+  }
+  if(P.id==='combo'){notes.push('In one survey, the messaging roadmap follows the shared fielding.');}
+  if(isOn('launch')){notes.push('The launch date is set together; planning runs alongside analysis and reporting.');}
+  document.getElementById('sumDates').innerHTML=d;
+  document.getElementById('sumQ1').innerHTML=q1;
+  document.getElementById('sumNote').textContent=notes.join(' ');
+  renderGantt(sc);
+}
+recalc();
+
+/* ---------- Export and share ---------- */
+function summaryText(){
+  var P=pkg(), pl=priceLines(), sc=schedule(), L=[];
+  L.push('GALLUP AND THE FOUNDATION FOR SOCIAL CONNECTION');
+  L.push('Social connection and the Older Americans Act: scope selections');
+  L.push('');
+  L.push('Core package: '+P.t+' (n=3,000 U.S. adults, Gallup Panel)');
+  pl.groups.forEach(function(g){
+    L.push('');
+    L.push(g[0].toUpperCase());
+    g[1].forEach(function(l){L.push('  '+l[0]+': '+fmt(l[1]));});
+  });
+  L.push('');
+  L.push('ESTIMATED INVESTMENT: '+fmt(pl.total));
+  L.push('');
+  L.push('Illustrative schedule (December 2026 kickoff)');
+  if(sc.out.p1){L.push('  Messaging roadmap: '+whenLabel(sc.out.p1));}
+  if(sc.out.p2){L.push('  Public release: '+whenLabel(sc.out.p2)+(sc.out.p2<=Q1_END?' (within the Q1 2027 target)':' (after the Q1 2027 target)'));}
+  var sel=selectedNeeds();
+  if(sel.length){
+    L.push('');
+    L.push('Reporting groups selected');
+    sel.forEach(function(n){L.push('  '+plain(n.label)+' ('+STATUS[n.s]+')');});
+  }
+  L.push('');
+  L.push('Reporting groups that add targeted sample, and focus groups, are priced in scoping. Final scope is confirmed at kickoff.');
+  return L.join('\n');
+}
+function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+function exportSummary(){
+  var txt=summaryText();
+  var date=new Date().toLocaleDateString('en-US',{month:'long',day:'numeric',year:'numeric'});
+  var html='<!DOCTYPE html><html><head><meta charset="UTF-8"><title>Gallup and F4SC: Scope Summary</title>'+
+    '<style>body{font-family:Arial,Helvetica,sans-serif;color:#24272a;max-width:720px;margin:40px auto;padding:0 24px;}'+
+    '.top{display:flex;justify-content:space-between;align-items:flex-end;border-top:4px solid #009d4f;padding-top:16px;margin-bottom:28px;}'+
+    '.g{font-family:Georgia,serif;font-weight:700;letter-spacing:0.24em;color:#53575a;}'+
+    'h1{font-family:Georgia,serif;font-size:22px;margin:0 0 4px;color:#000;}'+
+    'pre{font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:1.75;white-space:pre-wrap;}'+
+    '.f{margin-top:28px;border-top:1px solid #cfd2d3;padding-top:12px;font-size:11px;color:#878a8b;}</style></head><body>'+
+    '<div class="top"><div><div class="g">GALLUP</div><h1>Scope summary for the Foundation for Social Connection</h1></div><div style="font-size:12px;color:#878a8b;">'+date+'</div></div>'+
+    '<pre>'+esc(txt)+'</pre>'+
+    '<div class="f">Prepared by Gallup. All scope, timing and investment details are subject to final scoping.<br>Copyright \u00a9 2026 Gallup, Inc. All rights reserved. Confidential and proprietary.</div>'+
+    '<scr'+'ipt>window.onload=function(){window.print();};</scr'+'ipt></body></html>';
+  var w=window.open('','_blank');
+  if(!w){window.print();return;}
+  w.document.write(html);
+  w.document.close();
+}
+function emailSummary(){
+  var subject='Gallup and F4SC research proposal: scope selections';
+  window.location.href='mailto:?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(summaryText());
+}
+</script>
+</body>
+</html>
